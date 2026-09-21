@@ -1,0 +1,6 @@
+name: c1_vmas
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+prefix: /home/lzh/miniconda3/envs/c1_vmas

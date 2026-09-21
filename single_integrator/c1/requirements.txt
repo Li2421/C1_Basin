@@ -1,0 +1,11 @@
+# Isolated C1 environment, Python 3.11. Baseline environment stays unchanged.
+# The CUDA 12 extra installs both the JAX GPU plugin and PJRT runtime. Installing
+# plain jax/jaxlib silently selects CPU even when an NVIDIA GPU is available.
+jax[cuda12]==0.6.2
+flax==0.10.7
+optax==0.2.8
+ml_collections==1.1.0
+distrax==0.1.5
+cvxpylayers==1.2.0
+cvxpy==1.9.2
+diffcp==1.1.9

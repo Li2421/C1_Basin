@@ -1,0 +1,66 @@
+# Python bytecode, test/tool caches, coverage
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local environments and machine-specific agent/editor state
+.venv/
+.venv-*/
+venv/
+env/
+.env
+.env.*
+.codex/
+.agents/
+codex.sh
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files and scheduler/runtime logs
+*.tmp
+*.temp
+*.bak
+*.log
+slurm-*.out
+slurm-*.err
+core
+core.*
+
+# Checkpoints, datasets, papers and other externally managed large assets.
+# Their paths, sizes and SHA256 values are recorded in docs/assets_manifest.md.
+baseline_309_314/
+datasets/
+papers/
+*.ckpt
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.onnx
+
+# Generated rollouts and experiment output. Research branches add narrow
+# allowlists for their small manifests/reports; binary traces remain ignored.
+results/**
+single_integrator/results/**
+*.npz
+*.npy
+*.h5
+*.hdf5
+*.zarr/
+
+# Generated figures and videos. Curated source-controlled figures should live
+# under docs/ with an explicit negation rule beside this block if introduced.
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.avi
