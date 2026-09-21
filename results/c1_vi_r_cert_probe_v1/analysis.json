@@ -1,0 +1,645 @@
+{
+  "verdict": "FAIL",
+  "full_training_justified": false,
+  "implementation_correctness": {
+    "passed": true,
+    "monitor": {
+      "action_count": 251,
+      "operational_action_count": 251,
+      "applied_max_abs_error": 6.245004513516506e-17,
+      "candidate_equal": true,
+      "raw_deadlock_equal": true,
+      "historical_strict": true,
+      "operational_historical_strict": true,
+      "terminal_safe_deadlock": true,
+      "operational_terminal_safe_deadlock": true,
+      "first_deadlock_step": 251,
+      "no_post_terminal_projection_placeholders": true
+    },
+    "projection": {
+      "witness_min_cbf_residual": -9.08995101411847e-16,
+      "witness_max_speed_excess": 0.0,
+      "actual_min_cbf_residual": -2.7755575615628914e-17,
+      "actual_max_speed_excess": -0.3228279094724471,
+      "exact_zero_applied_steps": 0,
+      "near_cbf_active_entries": 230,
+      "near_speed_active_blocks": 0
+    },
+    "implication": {
+      "primary_event": true,
+      "direct_R_CERT": 1.6813450225406097,
+      "augmented_R_CERT": 1.085680175108144,
+      "passed": true
+    },
+    "unit_tests": "tests.test_c1_r_cert and tests.test_c1_vi_r_cert"
+  },
+  "numerical_soundness": {
+    "finite_difference_relative_errors": [
+      [
+        0.775270657893122,
+        0.39503373980396134
+      ],
+      [
+        0.7766411066944807,
+        0.3965398646516911
+      ],
+      [
+        0.784504392950341,
+        0.40184599092488876
+      ],
+      [
+        0.7556047508265975,
+        0.3819790231353176
+      ]
+    ],
+    "stable_distance_unit_test": true,
+    "full_rollout_fd_within_10_percent": false,
+    "projection_feasible": true,
+    "NaN_or_Inf_in_audit": false,
+    "solver_failures": 0,
+    "passed": false
+  },
+  "independent_early_prediction": {
+    "direct": {
+      "all_defined": true,
+      "undefined_starts": 0,
+      "spearman": {
+        "value": 0.8604560508152729,
+        "ci95": [
+          0.7430421149955833,
+          0.8698815034445349
+        ],
+        "valid_bootstrap_fraction": 1.0
+      },
+      "auc": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "valid_bootstrap_fraction": 1.0
+      },
+      "risk_bins": [
+        {
+          "starts": 6,
+          "mean_risk": 0.9626118077627656,
+          "primary_deadlock_frequency": 0.0
+        },
+        {
+          "starts": 6,
+          "mean_risk": 1.202449872014785,
+          "primary_deadlock_frequency": 0.16666666666666666
+        },
+        {
+          "starts": 6,
+          "mean_risk": 1.6514365742104375,
+          "primary_deadlock_frequency": 1.0
+        },
+        {
+          "starts": 7,
+          "mean_risk": 1.6773104704945818,
+          "primary_deadlock_frequency": 1.0
+        }
+      ],
+      "by_start": [
+        {
+          "rid": 0,
+          "risk": 1.6734990534543974,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 1,
+          "risk": 0.8554971416348796,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 2,
+          "risk": 1.656664872015818,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 3,
+          "risk": 1.6896330850550116,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 4,
+          "risk": 1.0203819547678057,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 5,
+          "risk": 1.0471892831447365,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 6,
+          "risk": 1.663085196432383,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 7,
+          "risk": 1.651092945977184,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 8,
+          "risk": 1.6576317884493688,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 9,
+          "risk": 1.1854944987466243,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 10,
+          "risk": 1.305930269840728,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 11,
+          "risk": 1.687876348950034,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 12,
+          "risk": 1.004833196617077,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 13,
+          "risk": 0.9404227581392499,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 14,
+          "risk": 1.6581247524355192,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 15,
+          "risk": 0.9648430094279865,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 16,
+          "risk": 0.9896927859895954,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 17,
+          "risk": 1.6965235746587806,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 18,
+          "risk": 1.6724312824759457,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 19,
+          "risk": 1.647887007363673,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 20,
+          "risk": 1.0328545475501625,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 21,
+          "risk": 1.614846856012473,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 22,
+          "risk": 1.0283837767939845,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 23,
+          "risk": 1.654325187180881,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 24,
+          "risk": 1.641017644275701,
+          "independent_primary_frequency": 1.0
+        }
+      ],
+      "passed": true
+    },
+    "augmented": {
+      "all_defined": true,
+      "undefined_starts": 0,
+      "spearman": {
+        "value": 0.8604560508152729,
+        "ci95": [
+          0.7430421149955833,
+          0.8698815034445349
+        ],
+        "valid_bootstrap_fraction": 1.0
+      },
+      "auc": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "valid_bootstrap_fraction": 1.0
+      },
+      "risk_bins": [
+        {
+          "starts": 6,
+          "mean_risk": 0.7751112549858123,
+          "primary_deadlock_frequency": 0.0
+        },
+        {
+          "starts": 6,
+          "mean_risk": 0.921060487827314,
+          "primary_deadlock_frequency": 0.16666666666666666
+        },
+        {
+          "starts": 6,
+          "mean_risk": 1.0838233964930055,
+          "primary_deadlock_frequency": 1.0
+        },
+        {
+          "starts": 7,
+          "mean_risk": 1.0854383346369434,
+          "primary_deadlock_frequency": 1.0
+        }
+      ],
+      "by_start": [
+        {
+          "rid": 0,
+          "risk": 1.0852642027706567,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 1,
+          "risk": 0.6919913552875916,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 2,
+          "risk": 1.0836237641956825,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 3,
+          "risk": 1.0863634781172204,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 4,
+          "risk": 0.8338559463014832,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 5,
+          "risk": 0.8237747123783845,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 6,
+          "risk": 1.0843331580430635,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 7,
+          "risk": 1.084017865040857,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 8,
+          "risk": 1.0843768492852583,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 9,
+          "risk": 0.9348920886122296,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 10,
+          "risk": 1.0217462967779491,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 11,
+          "risk": 1.0861198628676108,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 12,
+          "risk": 0.8098704162748063,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 13,
+          "risk": 0.7621037046088688,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 14,
+          "risk": 1.0840726119476534,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 15,
+          "risk": 0.7779193854775523,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 16,
+          "risk": 0.7958124399221771,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 17,
+          "risk": 1.0865094289113801,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 18,
+          "risk": 1.0851013624634143,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 19,
+          "risk": 1.0837884535633169,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 20,
+          "risk": 0.812970228343878,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 21,
+          "risk": 1.0818303074703013,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 22,
+          "risk": 0.8302635754235368,
+          "independent_primary_frequency": 0.0
+        },
+        {
+          "rid": 23,
+          "risk": 1.084049552765435,
+          "independent_primary_frequency": 1.0
+        },
+        {
+          "rid": 24,
+          "risk": 1.0833881314450893,
+          "independent_primary_frequency": 1.0
+        }
+      ],
+      "passed": true
+    }
+  },
+  "certificate_coverage": {
+    "direct": {
+      "primary_events": 28,
+      "D_and_R_below_one": 0
+    },
+    "augmented": {
+      "primary_events": 28,
+      "D_and_R_below_one": 0
+    }
+  },
+  "early_intervention": {
+    "direct": {
+      "outcomes": {
+        "reference": {
+          "primary_deadlock": 28.0,
+          "historical_strict": 28.0,
+          "terminal_label_deadlock": 28.0,
+          "stalled_deadlock": 0.0,
+          "success": 22.0,
+          "ordinary_timeout": 0.0,
+          "collision": 0.0,
+          "J_def_mean": 1.997295588692557e-34
+        },
+        "negative": {
+          "primary_deadlock": 28.0,
+          "historical_strict": 28.0,
+          "terminal_label_deadlock": 28.0,
+          "stalled_deadlock": 0.0,
+          "success": 22.0,
+          "ordinary_timeout": 0.0,
+          "collision": 0.0,
+          "J_def_mean": 1.5016350118410438e-06
+        },
+        "positive": {
+          "primary_deadlock": 28.0,
+          "historical_strict": 28.0,
+          "terminal_label_deadlock": 28.0,
+          "stalled_deadlock": 0.0,
+          "success": 22.0,
+          "ordinary_timeout": 0.0,
+          "collision": 0.0,
+          "J_def_mean": 1.5150855706159779e-06
+        },
+        "random_mean": {
+          "primary_deadlock": 28.0,
+          "historical_strict": 28.0,
+          "terminal_label_deadlock": 28.0,
+          "stalled_deadlock": 0.0,
+          "success": 22.0,
+          "ordinary_timeout": 0.0,
+          "collision": 0.0,
+          "J_def_mean": 1.5235684134844056e-06
+        }
+      },
+      "comparisons": {
+        "baseline_minus_negative": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "positive_minus_negative": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "random_mean_minus_negative": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "negative_success_minus_baseline": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "negative_timeout_minus_baseline": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "nonzero_gradient_starts": 25,
+      "zero_gradient_starts": 0,
+      "calibration": {
+        "matched": 100,
+        "total": 100,
+        "unmatched": 0
+      },
+      "realized_postprojection_rms": {
+        "direct_negative": 0.002499838729366638,
+        "direct_positive": 0.0024956535900205767,
+        "direct_random_0": 0.0025121778360781438,
+        "direct_random_1": 0.002510000323458922
+      },
+      "zero_executed_effect_replays": 0,
+      "passed": false
+    },
+    "augmented": {
+      "outcomes": {
+        "reference": {
+          "primary_deadlock": 28.0,
+          "historical_strict": 28.0,
+          "terminal_label_deadlock": 28.0,
+          "stalled_deadlock": 0.0,
+          "success": 22.0,
+          "ordinary_timeout": 0.0,
+          "collision": 0.0,
+          "J_def_mean": 1.997295588692557e-34
+        },
+        "negative": {
+          "primary_deadlock": 28.0,
+          "historical_strict": 28.0,
+          "terminal_label_deadlock": 28.0,
+          "stalled_deadlock": 0.0,
+          "success": 22.0,
+          "ordinary_timeout": 0.0,
+          "collision": 0.0,
+          "J_def_mean": 1.4863948339520052e-06
+        },
+        "positive": {
+          "primary_deadlock": 28.0,
+          "historical_strict": 28.0,
+          "terminal_label_deadlock": 28.0,
+          "stalled_deadlock": 0.0,
+          "success": 22.0,
+          "ordinary_timeout": 0.0,
+          "collision": 0.0,
+          "J_def_mean": 1.5174014517612837e-06
+        },
+        "random_mean": {
+          "primary_deadlock": 28.0,
+          "historical_strict": 28.0,
+          "terminal_label_deadlock": 28.0,
+          "stalled_deadlock": 0.0,
+          "success": 22.0,
+          "ordinary_timeout": 0.0,
+          "collision": 0.0,
+          "J_def_mean": 1.526047701942778e-06
+        }
+      },
+      "comparisons": {
+        "baseline_minus_negative": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "positive_minus_negative": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "random_mean_minus_negative": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "negative_success_minus_baseline": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "negative_timeout_minus_baseline": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "nonzero_gradient_starts": 25,
+      "zero_gradient_starts": 0,
+      "calibration": {
+        "matched": 100,
+        "total": 100,
+        "unmatched": 0
+      },
+      "realized_postprojection_rms": {
+        "augmented_negative": 0.0024991742289901466,
+        "augmented_positive": 0.0024980690582904934,
+        "augmented_random_0": 0.0025158205656793556,
+        "augmented_random_1": 0.0025116372411498563
+      },
+      "zero_executed_effect_replays": 0,
+      "passed": false
+    }
+  },
+  "extended_horizon": {
+    "horizon_steps": 1000,
+    "replays": 225,
+    "conditional_failure_rows": [],
+    "short_timeouts": 0,
+    "extended_timeouts": 0
+  },
+  "representative_trajectories": [
+    {
+      "outcome": "safe_deadlock",
+      "rid": 0,
+      "seed": 84220,
+      "arm": "reference",
+      "trace": "reference_0_84220.npz"
+    },
+    {
+      "outcome": "success",
+      "rid": 1,
+      "seed": 84220,
+      "arm": "reference",
+      "trace": "reference_1_84220.npz"
+    }
+  ],
+  "counts": {
+    "prediction_continuations": 50,
+    "scalar_reverse_sweeps": 100,
+    "main_paired_scenarios": 50,
+    "main_outcome_replays": 450,
+    "extended_outcome_replays": 225
+  },
+  "records_sha256": "065627b6609301190665670c63c81685c6b913923925d619d028a8da3aec4844",
+  "limitations": [
+    "R_CERT magnitudes are unbounded surrogate values, not probabilities.",
+    "Direct-only and augmented raw magnitudes are not compared.",
+    "Twenty-five independent checkpoints with two evaluation suffixes are clustered small-sample diagnostics.",
+    "No G_phi parameters were trained and no held-out final test set was opened."
+  ]
+}

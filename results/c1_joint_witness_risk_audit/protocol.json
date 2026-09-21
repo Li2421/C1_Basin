@@ -1,0 +1,21 @@
+{
+  "version": "joint_witness_offline_v1",
+  "s_ref": 0.5,
+  "eta": 0.25,
+  "delta": 0.2,
+  "tau": 0.05,
+  "stride": 20,
+  "control_zero_tol": 1e-12,
+  "witness_tol": 1e-09,
+  "solver_tol": 1e-11,
+  "progress_window_seconds": 4.0,
+  "delta_progress": 0.02,
+  "tau_progress": 0.005,
+  "unfinished_temperature": 0.02,
+  "terminal_distance_scale": 0.1,
+  "power": 4.0,
+  "split": "primary rollout_id % 5 == 0 held out; other IDs development",
+  "candidate_convention": "Safety: stored u_safe (zero-residual C1); C1: c1_candidate",
+  "trajectory_revision": "equal_exposure_then_equal_terminal_v1",
+  "scope": "offline association and local counterfactuals, not learned-policy or causal liveness proof"
+}

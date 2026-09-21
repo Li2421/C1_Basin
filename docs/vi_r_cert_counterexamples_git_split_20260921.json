@@ -1,0 +1,132 @@
+{
+  "zero_control_blocking": {
+    "historical_strict": true,
+    "first_deadlock_action": 139,
+    "tail_stall_atoms": true,
+    "max_candidate_run": 811,
+    "tail_max_speed": 0.0,
+    "tail_goal_error_change": [
+      0.0,
+      0.0
+    ],
+    "original_other_timeout": false,
+    "stalled_deadlock": false,
+    "primary": true,
+    "risk": {
+      "direct_R_CERT": 1.7559050244147167,
+      "augmented_R_CERT": 1.187961764988561
+    }
+  },
+  "nonzero_control_jitter_stagnation": {
+    "historical_strict": false,
+    "first_deadlock_action": null,
+    "tail_stall_atoms": true,
+    "max_candidate_run": 0,
+    "tail_max_speed": 0.03,
+    "tail_goal_error_change": [
+      0.0015000000000000568,
+      0.0015000000000000568
+    ],
+    "original_other_timeout": true,
+    "stalled_deadlock": true,
+    "primary": true,
+    "risk": {
+      "direct_R_CERT": 1.755802618264462,
+      "augmented_R_CERT": 1.1888663135667485
+    }
+  },
+  "one_agent_stuck_moving_outsider": {
+    "historical_strict": false,
+    "first_deadlock_action": null,
+    "tail_stall_atoms": false,
+    "max_candidate_run": 0,
+    "tail_max_speed": 0.1,
+    "tail_goal_error_change": [
+      0.0,
+      0.004999999999999893
+    ],
+    "original_other_timeout": true,
+    "stalled_deadlock": false,
+    "primary": false
+  },
+  "retreat_without_stop": {
+    "historical_strict": false,
+    "first_deadlock_action": null,
+    "tail_stall_atoms": false,
+    "max_candidate_run": 0,
+    "tail_max_speed": 0.1,
+    "tail_goal_error_change": [
+      0.19499999999998874,
+      0.19499999999998874
+    ],
+    "original_other_timeout": true,
+    "stalled_deadlock": false,
+    "primary": false
+  },
+  "horizon_delay": {
+    "H850": {
+      "historical_strict": false,
+      "first_deadlock_action": null,
+      "tail_stall_atoms": false,
+      "max_candidate_run": 20,
+      "tail_max_speed": 0.1,
+      "tail_goal_error_change": [
+        0.0050000000000001155,
+        0.0050000000000001155
+      ],
+      "original_other_timeout": true,
+      "stalled_deadlock": false,
+      "primary": false
+    },
+    "H1000": {
+      "historical_strict": true,
+      "first_deadlock_action": 930,
+      "tail_stall_atoms": true,
+      "max_candidate_run": 170,
+      "tail_max_speed": 0.0,
+      "tail_goal_error_change": [
+        0.0,
+        0.0
+      ],
+      "original_other_timeout": false,
+      "stalled_deadlock": false,
+      "primary": true
+    }
+  },
+  "symmetry": {
+    "augmented_w_gradient_norm": null,
+    "nonfinite_components": 3244,
+    "exact_zero": false
+  },
+  "projection_plateau": {
+    "setup": "U=[-2,2]x{0}, w=(2,10), B=unit ball",
+    "exact_certificate": 4.0,
+    "unnormalized_vi": [
+      -8.30776406404415,
+      -10.11187420807834,
+      -9.198039027185573,
+      -9.198039027185573
+    ],
+    "all_vi_nonpositive": true
+  },
+  "recorded_normal_yielding": {
+    "trace": "results/c1_vi_r_cert_probe_v1/reference_1_84220.npz",
+    "actions": 458,
+    "terminal": "success",
+    "candidate_samples": 8,
+    "minimum_agent_speed": 0.0003867269796651614,
+    "per_agent_low_speed_samples": [
+      289,
+      103
+    ],
+    "at_least_one_agent_low_speed_samples": 374,
+    "simple_low_speed_count_upper_bound": 289,
+    "historical_strict": false
+  },
+  "interpretation": {
+    "local_deadlock": "one stopped agent is not D when the moving outsider breaks max-speed atoms",
+    "jitter": "0.03 m/s defeats strict speed but is caught by stalled timeout",
+    "horizon": "a low-speed phase beginning too near H can first deadlock only after H and evade the H tail test",
+    "retreat": "persistent retreat is task abandonment but not the frozen deadlock event"
+  }
+}

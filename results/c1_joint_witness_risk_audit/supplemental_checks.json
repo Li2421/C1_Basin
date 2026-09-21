@@ -1,0 +1,159 @@
+{
+  "high_dimension_rays": [
+    {
+      "m": 4,
+      "seconds": 0.004274040999007411,
+      "valid": true,
+      "B": 1.0,
+      "M": -0.25,
+      "E": 0.4500061701094862,
+      "risk": 1.1125015425273714,
+      "risk_lower": 1.1125015425273714,
+      "ambiguous_witnesses": 0,
+      "winner": 0,
+      "solver_calls": 10
+    },
+    {
+      "m": 16,
+      "seconds": 0.01571460100240074,
+      "valid": true,
+      "B": 1.0,
+      "M": -0.25,
+      "E": 0.4500061701094862,
+      "risk": 1.1125015425273714,
+      "risk_lower": 1.1125015425273714,
+      "ambiguous_witnesses": 0,
+      "winner": 0,
+      "solver_calls": 34
+    },
+    {
+      "m": 64,
+      "seconds": 0.16532130099949427,
+      "valid": true,
+      "B": 1.0,
+      "M": -0.25,
+      "E": 0.4500061701094862,
+      "risk": 1.1125015425273714,
+      "risk_lower": 1.1125015425273714,
+      "ambiguous_witnesses": 0,
+      "winner": 0,
+      "solver_calls": 130
+    }
+  ],
+  "frozen_state_descent": [
+    {
+      "source": "primary",
+      "rid": 1,
+      "outcome": "success",
+      "t": 280,
+      "risk_before": 0.8362199658296666,
+      "risk_after": 0.8295746922094593,
+      "gradient_norm": 0.3150066698206728,
+      "fd_relative_difference": 1.7588091410453913e-08,
+      "applied_speed_before": 0.010769677329110983,
+      "applied_speed_after": 0.010769677330079455,
+      "one_step_goal_progress_before": -0.0005303549907687,
+      "one_step_goal_progress_after": -0.0005377554221159819
+    },
+    {
+      "source": "primary",
+      "rid": 52,
+      "outcome": "safe_deadlock",
+      "t": 140,
+      "risk_before": 0.6986856112219896,
+      "risk_after": 0.6877773113862649,
+      "gradient_norm": 0.5436659245204234,
+      "fd_relative_difference": 5.913310137287243e-09,
+      "applied_speed_before": 0.037710120528683645,
+      "applied_speed_after": 0.037710120534056944,
+      "one_step_goal_progress_before": 0.0009302088194202973,
+      "one_step_goal_progress_after": 0.0009693983345435697
+    },
+    {
+      "source": "primary",
+      "rid": 14,
+      "outcome": "other_timeout",
+      "t": 280,
+      "risk_before": 0.880981375817703,
+      "risk_after": 0.8777349040759196,
+      "gradient_norm": 0.14461715819455012,
+      "fd_relative_difference": 1.807073648535379e-08,
+      "applied_speed_before": 0.023285067213636334,
+      "applied_speed_after": 0.023285067230001222,
+      "one_step_goal_progress_before": 0.0010941523920395824,
+      "one_step_goal_progress_after": 0.0010937577355436545
+    },
+    {
+      "source": "extended_c1",
+      "rid": 1,
+      "outcome": "success",
+      "t": 280,
+      "risk_before": 0.8508365513359415,
+      "risk_after": 0.8432837072618855,
+      "gradient_norm": 0.3608074842111497,
+      "fd_relative_difference": 1.6983895096670502e-08,
+      "applied_speed_before": 0.00891731561215559,
+      "applied_speed_after": 0.008917315630829679,
+      "one_step_goal_progress_before": -0.00039935342843877564,
+      "one_step_goal_progress_after": -0.0004047928052686167
+    },
+    {
+      "source": "extended_c1",
+      "rid": 2,
+      "outcome": "safe_deadlock",
+      "t": 480,
+      "risk_before": 0.8414789494861504,
+      "risk_after": 0.8272168220189784,
+      "gradient_norm": 0.7021101775544273,
+      "fd_relative_difference": 2.79089603522126e-09,
+      "applied_speed_before": 0.0005559749517605937,
+      "applied_speed_after": 0.0005789137531536779,
+      "one_step_goal_progress_before": 2.340521154220454e-06,
+      "one_step_goal_progress_after": 2.3315135475598936e-06
+    },
+    {
+      "source": "extended_c1",
+      "rid": 19,
+      "outcome": "other_timeout",
+      "t": 920,
+      "risk_before": 0.9015085783317893,
+      "risk_after": 0.8971219361782959,
+      "gradient_norm": 0.2204577609558457,
+      "fd_relative_difference": 2.0354123567023443e-09,
+      "applied_speed_before": 0.0034460847206610598,
+      "applied_speed_after": 0.0034460847209370894,
+      "one_step_goal_progress_before": -0.00011233891377360194,
+      "one_step_goal_progress_after": -0.00011000100318625528
+    }
+  ],
+  "coverage": [
+    {
+      "source": "primary",
+      "states": 6720,
+      "valid": 6720,
+      "ambiguous": 0,
+      "max_feasibility_error": 2.1162238628136265e-13,
+      "E_min": 5.626758419358822e-09,
+      "E_max": 0.0001397931605963216
+    },
+    {
+      "source": "extended_safety",
+      "states": 897,
+      "valid": 897,
+      "ambiguous": 0,
+      "max_feasibility_error": 8.51471670948456e-14,
+      "E_min": 5.626758419358822e-09,
+      "E_max": 7.227871477182405e-06
+    },
+    {
+      "source": "extended_c1",
+      "states": 864,
+      "valid": 864,
+      "ambiguous": 0,
+      "max_feasibility_error": 1.4734741204947e-14,
+      "E_min": 5.626758419358842e-09,
+      "E_max": 0.0009531565564866266
+    }
+  ],
+  "note": "Finite differences in q only; no autodiff/state-gradient or BPTT validation. One-step progress is not liveness."
+}

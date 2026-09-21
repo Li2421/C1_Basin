@@ -1,0 +1,908 @@
+{
+  "primary/all/full": {
+    "n": 200,
+    "outcomes": {
+      "other_timeout": 43,
+      "safe_deadlock": 7,
+      "success": 150
+    },
+    "failure": {
+      "geometry": 0.9692,
+      "base": 0.9692,
+      "escape": 0.9381333333333334,
+      "progress": 0.9812,
+      "per_agent_progress": 0.8814666666666666,
+      "exposure": 0.9790666666666666,
+      "terminal_distance": 1.0,
+      "total": 1.0,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": 0.615099925980755,
+      "base": 0.615099925980755,
+      "escape": 0.9733530717986677,
+      "progress": 0.6728349370836417,
+      "per_agent_progress": 0.12065136935603257,
+      "exposure": 0.6609918578830496,
+      "terminal_distance": 0.8341968911917098,
+      "total": 0.7831236121391562,
+      "remaining_distance": 0.8341968911917098,
+      "slow_speed": 0.9563286454478165,
+      "old": null
+    }
+  },
+  "primary/all/10": {
+    "n": 200,
+    "outcomes": {
+      "other_timeout": 43,
+      "safe_deadlock": 7,
+      "success": 150
+    },
+    "failure": {
+      "geometry": 0.5542666666666667,
+      "base": 0.5542666666666667,
+      "escape": 0.6630666666666667,
+      "progress": 0.5156,
+      "per_agent_progress": 0.8376,
+      "exposure": 0.5121333333333333,
+      "terminal_distance": 0.8588,
+      "total": 0.5397333333333333,
+      "remaining_distance": 0.8588,
+      "slow_speed": 0.5961333333333333,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": 0.6794966691339749,
+      "base": 0.6794966691339749,
+      "escape": 0.8941524796447077,
+      "progress": 0.01628423390081421,
+      "per_agent_progress": 0.0051813471502590676,
+      "exposure": 0.025906735751295335,
+      "terminal_distance": 0.1384159881569208,
+      "total": 0.02220577350111029,
+      "remaining_distance": 0.1384159881569208,
+      "slow_speed": 0.9681717246484086,
+      "old": null
+    }
+  },
+  "primary/all/20": {
+    "n": 200,
+    "outcomes": {
+      "other_timeout": 43,
+      "safe_deadlock": 7,
+      "success": 150
+    },
+    "failure": {
+      "geometry": 0.9334666666666667,
+      "base": 0.9334666666666667,
+      "escape": 0.8698666666666667,
+      "progress": 0.912,
+      "per_agent_progress": 0.8322666666666667,
+      "exposure": 0.9234666666666667,
+      "terminal_distance": 0.9832,
+      "total": 0.9370666666666667,
+      "remaining_distance": 0.9832,
+      "slow_speed": 0.9762666666666666,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": 0.5484826054774241,
+      "base": 0.5484826054774241,
+      "escape": 0.9674315321983715,
+      "progress": 0.385640266469282,
+      "per_agent_progress": 0.0,
+      "exposure": 0.44189489267209475,
+      "terminal_distance": 0.7076239822353811,
+      "total": 0.5018504811250926,
+      "remaining_distance": 0.7076239822353811,
+      "slow_speed": 1.0,
+      "old": null
+    }
+  },
+  "primary/development/full": {
+    "n": 160,
+    "outcomes": {
+      "other_timeout": 27,
+      "safe_deadlock": 6,
+      "success": 127
+    },
+    "failure": {
+      "geometry": 0.9568122166547364,
+      "base": 0.9568122166547364,
+      "escape": 0.9286566451920782,
+      "progress": 0.9761393462180864,
+      "per_agent_progress": 0.8489620615604867,
+      "exposure": 0.9716058219995228,
+      "terminal_distance": 1.0,
+      "total": 1.0,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": 0.6396103896103896,
+      "base": 0.6396103896103896,
+      "escape": 0.9751082251082251,
+      "progress": 0.7164502164502164,
+      "per_agent_progress": 0.14177489177489178,
+      "exposure": 0.6958874458874459,
+      "terminal_distance": 0.8766233766233766,
+      "total": 0.8322510822510822,
+      "remaining_distance": 0.8766233766233766,
+      "slow_speed": 0.974025974025974,
+      "old": null
+    }
+  },
+  "primary/development/10": {
+    "n": 160,
+    "outcomes": {
+      "other_timeout": 27,
+      "safe_deadlock": 6,
+      "success": 127
+    },
+    "failure": {
+      "geometry": 0.5669291338582677,
+      "base": 0.5669291338582677,
+      "escape": 0.6762109281794321,
+      "progress": 0.4753042233357194,
+      "per_agent_progress": 0.7945597709377237,
+      "exposure": 0.47363397757098546,
+      "terminal_distance": 0.822953948938201,
+      "total": 0.5010737294201861,
+      "remaining_distance": 0.822953948938201,
+      "slow_speed": 0.5879265091863517,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": 0.6601731601731602,
+      "base": 0.6601731601731602,
+      "escape": 0.8755411255411255,
+      "progress": 0.023809523809523808,
+      "per_agent_progress": 0.005411255411255411,
+      "exposure": 0.03463203463203463,
+      "terminal_distance": 0.1461038961038961,
+      "total": 0.02813852813852814,
+      "remaining_distance": 0.1461038961038961,
+      "slow_speed": 0.95995670995671,
+      "old": null
+    }
+  },
+  "primary/development/20": {
+    "n": 160,
+    "outcomes": {
+      "other_timeout": 27,
+      "safe_deadlock": 6,
+      "success": 127
+    },
+    "failure": {
+      "geometry": 0.922930088284419,
+      "base": 0.922930088284419,
+      "escape": 0.8534955857790504,
+      "progress": 0.8926270579813886,
+      "per_agent_progress": 0.7874015748031497,
+      "exposure": 0.9059890240992603,
+      "terminal_distance": 0.9759007396802672,
+      "total": 0.9226914817465999,
+      "remaining_distance": 0.9759007396802672,
+      "slow_speed": 0.972083035075161,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": 0.5627705627705628,
+      "base": 0.5627705627705628,
+      "escape": 0.9718614718614719,
+      "progress": 0.4231601731601732,
+      "per_agent_progress": 0.0,
+      "exposure": 0.46645021645021645,
+      "terminal_distance": 0.7445887445887446,
+      "total": 0.5303030303030303,
+      "remaining_distance": 0.7445887445887446,
+      "slow_speed": 1.0,
+      "old": null
+    }
+  },
+  "primary/heldout/full": {
+    "n": 40,
+    "outcomes": {
+      "other_timeout": 16,
+      "safe_deadlock": 1,
+      "success": 23
+    },
+    "failure": {
+      "geometry": 0.9974424552429667,
+      "base": 0.9974424552429667,
+      "escape": 0.969309462915601,
+      "progress": 0.9948849104859335,
+      "per_agent_progress": 0.9411764705882353,
+      "exposure": 0.9948849104859335,
+      "terminal_distance": 1.0,
+      "total": 1.0,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": 0.5641025641025641,
+      "base": 0.5641025641025641,
+      "escape": 1.0,
+      "progress": 0.5384615384615384,
+      "per_agent_progress": 0.0,
+      "exposure": 0.5384615384615384,
+      "terminal_distance": 0.6666666666666666,
+      "total": 0.5897435897435898,
+      "remaining_distance": 0.6666666666666666,
+      "slow_speed": 0.8717948717948718,
+      "old": null
+    }
+  },
+  "primary/heldout/10": {
+    "n": 40,
+    "outcomes": {
+      "other_timeout": 16,
+      "safe_deadlock": 1,
+      "success": 23
+    },
+    "failure": {
+      "geometry": 0.45524296675191817,
+      "base": 0.45524296675191817,
+      "escape": 0.649616368286445,
+      "progress": 0.5677749360613811,
+      "per_agent_progress": 0.9232736572890026,
+      "exposure": 0.5677749360613811,
+      "terminal_distance": 0.9386189258312021,
+      "total": 0.59846547314578,
+      "remaining_distance": 0.9386189258312021,
+      "slow_speed": 0.5396419437340153,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": 0.9230769230769231,
+      "base": 0.9230769230769231,
+      "escape": 0.9743589743589743,
+      "progress": 0.0,
+      "per_agent_progress": 0.0,
+      "exposure": 0.0,
+      "terminal_distance": 0.10256410256410256,
+      "total": 0.0,
+      "remaining_distance": 0.10256410256410256,
+      "slow_speed": 1.0,
+      "old": null
+    }
+  },
+  "primary/heldout/20": {
+    "n": 40,
+    "outcomes": {
+      "other_timeout": 16,
+      "safe_deadlock": 1,
+      "success": 23
+    },
+    "failure": {
+      "geometry": 0.9718670076726342,
+      "base": 0.9718670076726342,
+      "escape": 0.9258312020460358,
+      "progress": 0.948849104859335,
+      "per_agent_progress": 0.9181585677749361,
+      "exposure": 0.959079283887468,
+      "terminal_distance": 0.9974424552429667,
+      "total": 0.9718670076726342,
+      "remaining_distance": 0.9974424552429667,
+      "slow_speed": 0.9974424552429667,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": 0.5384615384615384,
+      "base": 0.5384615384615384,
+      "escape": 1.0,
+      "progress": 0.20512820512820512,
+      "per_agent_progress": 0.0,
+      "exposure": 0.3333333333333333,
+      "terminal_distance": 0.5641025641025641,
+      "total": 0.38461538461538464,
+      "remaining_distance": 0.5641025641025641,
+      "slow_speed": 1.0,
+      "old": null
+    }
+  },
+  "extended_safety/all/full": {
+    "n": 25,
+    "outcomes": {
+      "other_timeout": 3,
+      "success": 22
+    },
+    "failure": {
+      "geometry": 1.0,
+      "base": 1.0,
+      "escape": 0.9696969696969697,
+      "progress": 1.0,
+      "per_agent_progress": 1.0,
+      "exposure": 1.0,
+      "terminal_distance": 1.0,
+      "total": 1.0,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": null,
+      "base": null,
+      "escape": null,
+      "progress": null,
+      "per_agent_progress": null,
+      "exposure": null,
+      "terminal_distance": null,
+      "total": null,
+      "remaining_distance": null,
+      "slow_speed": null,
+      "old": null
+    }
+  },
+  "extended_safety/all/10": {
+    "n": 25,
+    "outcomes": {
+      "other_timeout": 3,
+      "success": 22
+    },
+    "failure": {
+      "geometry": 0.3484848484848485,
+      "base": 0.3484848484848485,
+      "escape": 0.8333333333333334,
+      "progress": 0.48484848484848486,
+      "per_agent_progress": 0.9696969696969697,
+      "exposure": 0.4393939393939394,
+      "terminal_distance": 0.9696969696969697,
+      "total": 0.5,
+      "remaining_distance": 0.9696969696969697,
+      "slow_speed": 0.5606060606060606,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": null,
+      "base": null,
+      "escape": null,
+      "progress": null,
+      "per_agent_progress": null,
+      "exposure": null,
+      "terminal_distance": null,
+      "total": null,
+      "remaining_distance": null,
+      "slow_speed": null,
+      "old": null
+    }
+  },
+  "extended_safety/all/20": {
+    "n": 25,
+    "outcomes": {
+      "other_timeout": 3,
+      "success": 22
+    },
+    "failure": {
+      "geometry": 0.9090909090909091,
+      "base": 0.9090909090909091,
+      "escape": 0.8333333333333334,
+      "progress": 0.9242424242424242,
+      "per_agent_progress": 1.0,
+      "exposure": 0.8939393939393939,
+      "terminal_distance": 1.0,
+      "total": 0.9090909090909091,
+      "remaining_distance": 1.0,
+      "slow_speed": 0.8636363636363636,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": null,
+      "base": null,
+      "escape": null,
+      "progress": null,
+      "per_agent_progress": null,
+      "exposure": null,
+      "terminal_distance": null,
+      "total": null,
+      "remaining_distance": null,
+      "slow_speed": null,
+      "old": null
+    }
+  },
+  "extended_safety/development/full": {
+    "n": 20,
+    "outcomes": {
+      "other_timeout": 1,
+      "success": 19
+    },
+    "failure": {
+      "geometry": 1.0,
+      "base": 1.0,
+      "escape": 0.9473684210526315,
+      "progress": 1.0,
+      "per_agent_progress": 1.0,
+      "exposure": 1.0,
+      "terminal_distance": 1.0,
+      "total": 1.0,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": null,
+      "base": null,
+      "escape": null,
+      "progress": null,
+      "per_agent_progress": null,
+      "exposure": null,
+      "terminal_distance": null,
+      "total": null,
+      "remaining_distance": null,
+      "slow_speed": null,
+      "old": null
+    }
+  },
+  "extended_safety/development/10": {
+    "n": 20,
+    "outcomes": {
+      "other_timeout": 1,
+      "success": 19
+    },
+    "failure": {
+      "geometry": 0.15789473684210525,
+      "base": 0.15789473684210525,
+      "escape": 0.9473684210526315,
+      "progress": 0.21052631578947367,
+      "per_agent_progress": 1.0,
+      "exposure": 0.10526315789473684,
+      "terminal_distance": 1.0,
+      "total": 0.15789473684210525,
+      "remaining_distance": 1.0,
+      "slow_speed": 0.21052631578947367,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": null,
+      "base": null,
+      "escape": null,
+      "progress": null,
+      "per_agent_progress": null,
+      "exposure": null,
+      "terminal_distance": null,
+      "total": null,
+      "remaining_distance": null,
+      "slow_speed": null,
+      "old": null
+    }
+  },
+  "extended_safety/development/20": {
+    "n": 20,
+    "outcomes": {
+      "other_timeout": 1,
+      "success": 19
+    },
+    "failure": {
+      "geometry": 0.8947368421052632,
+      "base": 0.8947368421052632,
+      "escape": 0.7894736842105263,
+      "progress": 0.8421052631578947,
+      "per_agent_progress": 1.0,
+      "exposure": 0.8421052631578947,
+      "terminal_distance": 1.0,
+      "total": 0.8947368421052632,
+      "remaining_distance": 1.0,
+      "slow_speed": 0.8421052631578947,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": null,
+      "base": null,
+      "escape": null,
+      "progress": null,
+      "per_agent_progress": null,
+      "exposure": null,
+      "terminal_distance": null,
+      "total": null,
+      "remaining_distance": null,
+      "slow_speed": null,
+      "old": null
+    }
+  },
+  "extended_safety/heldout/full": {
+    "n": 5,
+    "outcomes": {
+      "other_timeout": 2,
+      "success": 3
+    },
+    "failure": {
+      "geometry": 1.0,
+      "base": 1.0,
+      "escape": 1.0,
+      "progress": 1.0,
+      "per_agent_progress": 1.0,
+      "exposure": 1.0,
+      "terminal_distance": 1.0,
+      "total": 1.0,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": null,
+      "base": null,
+      "escape": null,
+      "progress": null,
+      "per_agent_progress": null,
+      "exposure": null,
+      "terminal_distance": null,
+      "total": null,
+      "remaining_distance": null,
+      "slow_speed": null,
+      "old": null
+    }
+  },
+  "extended_safety/heldout/10": {
+    "n": 5,
+    "outcomes": {
+      "other_timeout": 2,
+      "success": 3
+    },
+    "failure": {
+      "geometry": 0.6666666666666666,
+      "base": 0.6666666666666666,
+      "escape": 1.0,
+      "progress": 0.5,
+      "per_agent_progress": 0.8333333333333334,
+      "exposure": 0.6666666666666666,
+      "terminal_distance": 0.8333333333333334,
+      "total": 0.8333333333333334,
+      "remaining_distance": 0.8333333333333334,
+      "slow_speed": 0.8333333333333334,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": null,
+      "base": null,
+      "escape": null,
+      "progress": null,
+      "per_agent_progress": null,
+      "exposure": null,
+      "terminal_distance": null,
+      "total": null,
+      "remaining_distance": null,
+      "slow_speed": null,
+      "old": null
+    }
+  },
+  "extended_safety/heldout/20": {
+    "n": 5,
+    "outcomes": {
+      "other_timeout": 2,
+      "success": 3
+    },
+    "failure": {
+      "geometry": 0.8333333333333334,
+      "base": 0.8333333333333334,
+      "escape": 0.8333333333333334,
+      "progress": 0.8333333333333334,
+      "per_agent_progress": 1.0,
+      "exposure": 0.8333333333333334,
+      "terminal_distance": 1.0,
+      "total": 0.8333333333333334,
+      "remaining_distance": 1.0,
+      "slow_speed": 0.6666666666666666,
+      "old": null
+    },
+    "deadlock": {
+      "geometry": null,
+      "base": null,
+      "escape": null,
+      "progress": null,
+      "per_agent_progress": null,
+      "exposure": null,
+      "terminal_distance": null,
+      "total": null,
+      "remaining_distance": null,
+      "slow_speed": null,
+      "old": null
+    }
+  },
+  "extended_c1/all/full": {
+    "n": 25,
+    "outcomes": {
+      "other_timeout": 4,
+      "safe_deadlock": 1,
+      "success": 20
+    },
+    "failure": {
+      "geometry": 1.0,
+      "base": 1.0,
+      "escape": 1.0,
+      "progress": 0.98,
+      "per_agent_progress": 0.82,
+      "exposure": 0.99,
+      "terminal_distance": 1.0,
+      "total": 1.0,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": 1.0
+    },
+    "deadlock": {
+      "geometry": 0.8333333333333334,
+      "base": 0.8333333333333334,
+      "escape": 1.0,
+      "progress": 0.75,
+      "per_agent_progress": 0.08333333333333333,
+      "exposure": 0.7916666666666666,
+      "terminal_distance": 0.8333333333333334,
+      "total": 0.8333333333333334,
+      "remaining_distance": 0.8333333333333334,
+      "slow_speed": 0.8333333333333334,
+      "old": 0.8333333333333334
+    }
+  },
+  "extended_c1/all/10": {
+    "n": 25,
+    "outcomes": {
+      "other_timeout": 4,
+      "safe_deadlock": 1,
+      "success": 20
+    },
+    "failure": {
+      "geometry": 0.53,
+      "base": 0.53,
+      "escape": 0.7,
+      "progress": 0.51,
+      "per_agent_progress": 0.8,
+      "exposure": 0.48,
+      "terminal_distance": 0.87,
+      "total": 0.52,
+      "remaining_distance": 0.87,
+      "slow_speed": 0.7,
+      "old": 0.77
+    },
+    "deadlock": {
+      "geometry": 0.5,
+      "base": 0.5,
+      "escape": 0.7916666666666666,
+      "progress": 0.0,
+      "per_agent_progress": 0.0,
+      "exposure": 0.0,
+      "terminal_distance": 0.2916666666666667,
+      "total": 0.0,
+      "remaining_distance": 0.2916666666666667,
+      "slow_speed": 0.9583333333333334,
+      "old": 0.8333333333333334
+    }
+  },
+  "extended_c1/all/20": {
+    "n": 25,
+    "outcomes": {
+      "other_timeout": 4,
+      "safe_deadlock": 1,
+      "success": 20
+    },
+    "failure": {
+      "geometry": 0.98,
+      "base": 0.98,
+      "escape": 0.92,
+      "progress": 0.8,
+      "per_agent_progress": 0.79,
+      "exposure": 0.88,
+      "terminal_distance": 1.0,
+      "total": 0.92,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": 0.95
+    },
+    "deadlock": {
+      "geometry": 0.75,
+      "base": 0.75,
+      "escape": 1.0,
+      "progress": 0.0,
+      "per_agent_progress": 0.0,
+      "exposure": 0.3333333333333333,
+      "terminal_distance": 0.8333333333333334,
+      "total": 0.5,
+      "remaining_distance": 0.8333333333333334,
+      "slow_speed": 1.0,
+      "old": 0.9166666666666666
+    }
+  },
+  "extended_c1/development/full": {
+    "n": 20,
+    "outcomes": {
+      "other_timeout": 1,
+      "safe_deadlock": 1,
+      "success": 18
+    },
+    "failure": {
+      "geometry": 1.0,
+      "base": 1.0,
+      "escape": 1.0,
+      "progress": 0.9444444444444444,
+      "per_agent_progress": 0.5555555555555556,
+      "exposure": 0.9722222222222222,
+      "terminal_distance": 1.0,
+      "total": 1.0,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": 1.0
+    },
+    "deadlock": {
+      "geometry": 0.9473684210526315,
+      "base": 0.9473684210526315,
+      "escape": 1.0,
+      "progress": 0.8421052631578947,
+      "per_agent_progress": 0.10526315789473684,
+      "exposure": 0.8947368421052632,
+      "terminal_distance": 0.9473684210526315,
+      "total": 0.9473684210526315,
+      "remaining_distance": 0.9473684210526315,
+      "slow_speed": 0.9473684210526315,
+      "old": 0.9473684210526315
+    }
+  },
+  "extended_c1/development/10": {
+    "n": 20,
+    "outcomes": {
+      "other_timeout": 1,
+      "safe_deadlock": 1,
+      "success": 18
+    },
+    "failure": {
+      "geometry": 0.3888888888888889,
+      "base": 0.3888888888888889,
+      "escape": 0.8333333333333334,
+      "progress": 0.08333333333333333,
+      "per_agent_progress": 0.5,
+      "exposure": 0.05555555555555555,
+      "terminal_distance": 0.6388888888888888,
+      "total": 0.08333333333333333,
+      "remaining_distance": 0.6388888888888888,
+      "slow_speed": 0.5833333333333334,
+      "old": 0.9166666666666666
+    },
+    "deadlock": {
+      "geometry": 0.47368421052631576,
+      "base": 0.47368421052631576,
+      "escape": 0.7894736842105263,
+      "progress": 0.0,
+      "per_agent_progress": 0.0,
+      "exposure": 0.0,
+      "terminal_distance": 0.2631578947368421,
+      "total": 0.0,
+      "remaining_distance": 0.2631578947368421,
+      "slow_speed": 0.9473684210526315,
+      "old": 0.7894736842105263
+    }
+  },
+  "extended_c1/development/20": {
+    "n": 20,
+    "outcomes": {
+      "other_timeout": 1,
+      "safe_deadlock": 1,
+      "success": 18
+    },
+    "failure": {
+      "geometry": 0.9444444444444444,
+      "base": 0.9444444444444444,
+      "escape": 0.8333333333333334,
+      "progress": 0.5,
+      "per_agent_progress": 0.5,
+      "exposure": 0.6944444444444444,
+      "terminal_distance": 1.0,
+      "total": 0.7777777777777778,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": 1.0
+    },
+    "deadlock": {
+      "geometry": 0.8421052631578947,
+      "base": 0.8421052631578947,
+      "escape": 1.0,
+      "progress": 0.0,
+      "per_agent_progress": 0.0,
+      "exposure": 0.3684210526315789,
+      "terminal_distance": 0.9473684210526315,
+      "total": 0.5263157894736842,
+      "remaining_distance": 0.9473684210526315,
+      "slow_speed": 1.0,
+      "old": 0.9473684210526315
+    }
+  },
+  "extended_c1/heldout/full": {
+    "n": 5,
+    "outcomes": {
+      "other_timeout": 3,
+      "success": 2
+    },
+    "failure": {
+      "geometry": 1.0,
+      "base": 1.0,
+      "escape": 1.0,
+      "progress": 1.0,
+      "per_agent_progress": 1.0,
+      "exposure": 1.0,
+      "terminal_distance": 1.0,
+      "total": 1.0,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": 1.0
+    },
+    "deadlock": {
+      "geometry": null,
+      "base": null,
+      "escape": null,
+      "progress": null,
+      "per_agent_progress": null,
+      "exposure": null,
+      "terminal_distance": null,
+      "total": null,
+      "remaining_distance": null,
+      "slow_speed": null,
+      "old": null
+    }
+  },
+  "extended_c1/heldout/10": {
+    "n": 5,
+    "outcomes": {
+      "other_timeout": 3,
+      "success": 2
+    },
+    "failure": {
+      "geometry": 1.0,
+      "base": 1.0,
+      "escape": 1.0,
+      "progress": 0.8333333333333334,
+      "per_agent_progress": 1.0,
+      "exposure": 0.8333333333333334,
+      "terminal_distance": 1.0,
+      "total": 1.0,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": 1.0
+    },
+    "deadlock": {
+      "geometry": null,
+      "base": null,
+      "escape": null,
+      "progress": null,
+      "per_agent_progress": null,
+      "exposure": null,
+      "terminal_distance": null,
+      "total": null,
+      "remaining_distance": null,
+      "slow_speed": null,
+      "old": null
+    }
+  },
+  "extended_c1/heldout/20": {
+    "n": 5,
+    "outcomes": {
+      "other_timeout": 3,
+      "success": 2
+    },
+    "failure": {
+      "geometry": 1.0,
+      "base": 1.0,
+      "escape": 1.0,
+      "progress": 1.0,
+      "per_agent_progress": 1.0,
+      "exposure": 1.0,
+      "terminal_distance": 1.0,
+      "total": 1.0,
+      "remaining_distance": 1.0,
+      "slow_speed": 1.0,
+      "old": 1.0
+    },
+    "deadlock": {
+      "geometry": null,
+      "base": null,
+      "escape": null,
+      "progress": null,
+      "per_agent_progress": null,
+      "exposure": null,
+      "terminal_distance": null,
+      "total": null,
+      "remaining_distance": null,
+      "slow_speed": null,
+      "old": null
+    }
+  }
+}

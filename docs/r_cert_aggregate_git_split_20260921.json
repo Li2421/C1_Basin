@@ -1,0 +1,87 @@
+{
+  "scope": "generic aggregation only; no C1 certificate margins or rollout",
+  "stable_region": {
+    "value": 2.067162012777103,
+    "autodiff_directional": -0.42580559732557094,
+    "finite_differences": [
+      {
+        "step": 0.01,
+        "finite_difference": -0.42580856559237823,
+        "absolute_error": 2.968266807290565e-06,
+        "relative_error": 6.970943608853099e-06
+      },
+      {
+        "step": 0.001,
+        "finite_difference": -0.42580562700877955,
+        "absolute_error": 2.9683208613295875e-08,
+        "relative_error": 6.97107055419943e-08
+      },
+      {
+        "step": 0.0001,
+        "finite_difference": -0.42580559762139814,
+        "absolute_error": 2.958271960729064e-10,
+        "relative_error": 6.947470816047469e-10
+      },
+      {
+        "step": 1e-05,
+        "finite_difference": -0.4258055973149765,
+        "absolute_error": 1.0594414234788019e-11,
+        "relative_error": 2.488087122698749e-11
+      },
+      {
+        "step": 1e-06,
+        "finite_difference": -0.42580559700411413,
+        "absolute_error": 3.214568056186806e-10,
+        "relative_error": 7.549379520553713e-10
+      },
+      {
+        "step": 1e-07,
+        "finite_difference": -0.4258055952277573,
+        "absolute_error": 2.097813645018931e-09,
+        "relative_error": 4.926693444602474e-09
+      }
+    ]
+  },
+  "exact_outer_max_tie": {
+    "value": 1.0,
+    "jax_selected_subgradient": 0.0,
+    "right_directional_difference": 0.7213477006828839,
+    "left_directional_difference": -0.7213477006828839,
+    "classification": "outer_max_event_tie_nondifferentiable"
+  },
+  "atom_saturation": [
+    {
+      "margin": -100.0,
+      "penalty": 144.26950408889635,
+      "derivative": -1.4426950408889634
+    },
+    {
+      "margin": -10.0,
+      "penalty": 14.427015905656397,
+      "derivative": -1.4426295456089182
+    },
+    {
+      "margin": 0.0,
+      "penalty": 1.0,
+      "derivative": -0.7213475204444817
+    },
+    {
+      "margin": 10.0,
+      "penalty": 6.549676676198847e-05,
+      "derivative": -6.549528004393032e-05
+    },
+    {
+      "margin": 100.0,
+      "penalty": 5.36693516233543e-44,
+      "derivative": -5.36693516233543e-44
+    }
+  ],
+  "numerical": {
+    "all_finite": true
+  },
+  "limitations": [
+    "No task-specific certificate inclusion is established.",
+    "No projection, closed-loop trajectory, or operational outcome is evaluated.",
+    "The exact outer max remains nonsmooth at event ties; no smoothing or straight-through rule is used."
+  ]
+}

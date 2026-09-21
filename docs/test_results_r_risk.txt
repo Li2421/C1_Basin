@@ -1,0 +1,320 @@
+$ JAX_PLATFORMS=cpu .venv-c1/bin/python -m unittest discover -s tests -p test_c1_*.py
+
+=========================================================================
+ WARNING: 'jax' imported OUTSIDE a Slurm job on this workstation.
+ The GPU is not available here: CUDA will fail or your code will silently
+ run on CPU. Submit through Slurm instead, e.g.
+   srun -p debug --gres=shard:2 --cpus-per-task=4 --mem=16G --pty bash
+   sbatch job.sh
+ (CPU-only scripts can ignore this message.)
+=========================================================================
+
+.........ERROR:2026-09-21 15:06:12,578:jax._src.xla_bridge:444: Jax plugin configuration error: Exception when calling jax_plugins.xla_cuda12.initialize()
+Traceback (most recent call last):
+  File "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/lib/python3.11/site-packages/jax/_src/xla_bridge.py", line 442, in discover_pjrt_plugins
+    plugin_module.initialize()
+  File "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/lib/python3.11/site-packages/jax_plugins/xla_cuda12/__init__.py", line 324, in initialize
+    _check_cuda_versions(raise_on_first_error=True)
+  File "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/lib/python3.11/site-packages/jax_plugins/xla_cuda12/__init__.py", line 281, in _check_cuda_versions
+    local_device_count = cuda_versions.cuda_device_count()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: jaxlib/cuda/versions_helpers.cc:113: operation cuInit(0) failed: CUDA_ERROR_UNKNOWN
+...................
+----------------------------------------------------------------------
+Ran 28 tests in 2.349s
+
+OK
+
+$ JAX_PLATFORMS=cpu .venv-c1/bin/python scripts/audit_c1_r_cert_aggregate.py --out /tmp/c1_r_cert_aggregate_git_split_20260921.json
+
+=========================================================================
+ WARNING: 'jax' imported OUTSIDE a Slurm job on this workstation.
+ The GPU is not available here: CUDA will fail or your code will silently
+ run on CPU. Submit through Slurm instead, e.g.
+   srun -p debug --gres=shard:2 --cpus-per-task=4 --mem=16G --pty bash
+   sbatch job.sh
+ (CPU-only scripts can ignore this message.)
+=========================================================================
+
+ERROR:2026-09-21 15:06:15,417:jax._src.xla_bridge:444: Jax plugin configuration error: Exception when calling jax_plugins.xla_cuda12.initialize()
+Traceback (most recent call last):
+  File "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/lib/python3.11/site-packages/jax/_src/xla_bridge.py", line 442, in discover_pjrt_plugins
+    plugin_module.initialize()
+  File "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/lib/python3.11/site-packages/jax_plugins/xla_cuda12/__init__.py", line 324, in initialize
+    _check_cuda_versions(raise_on_first_error=True)
+  File "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/lib/python3.11/site-packages/jax_plugins/xla_cuda12/__init__.py", line 281, in _check_cuda_versions
+    local_device_count = cuda_versions.cuda_device_count()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: jaxlib/cuda/versions_helpers.cc:113: operation cuInit(0) failed: CUDA_ERROR_UNKNOWN
+{
+  "scope": "generic aggregation only; no C1 certificate margins or rollout",
+  "stable_region": {
+    "value": 2.067162012777103,
+    "autodiff_directional": -0.42580559732557094,
+    "finite_differences": [
+      {
+        "step": 0.01,
+        "finite_difference": -0.42580856559237823,
+        "absolute_error": 2.968266807290565e-06,
+        "relative_error": 6.970943608853099e-06
+      },
+      {
+        "step": 0.001,
+        "finite_difference": -0.42580562700877955,
+        "absolute_error": 2.9683208613295875e-08,
+        "relative_error": 6.97107055419943e-08
+      },
+      {
+        "step": 0.0001,
+        "finite_difference": -0.42580559762139814,
+        "absolute_error": 2.958271960729064e-10,
+        "relative_error": 6.947470816047469e-10
+      },
+      {
+        "step": 1e-05,
+        "finite_difference": -0.4258055973149765,
+        "absolute_error": 1.0594414234788019e-11,
+        "relative_error": 2.488087122698749e-11
+      },
+      {
+        "step": 1e-06,
+        "finite_difference": -0.42580559700411413,
+        "absolute_error": 3.214568056186806e-10,
+        "relative_error": 7.549379520553713e-10
+      },
+      {
+        "step": 1e-07,
+        "finite_difference": -0.4258055952277573,
+        "absolute_error": 2.097813645018931e-09,
+        "relative_error": 4.926693444602474e-09
+      }
+    ]
+  },
+  "exact_outer_max_tie": {
+    "value": 1.0,
+    "jax_selected_subgradient": 0.0,
+    "right_directional_difference": 0.7213477006828839,
+    "left_directional_difference": -0.7213477006828839,
+    "classification": "outer_max_event_tie_nondifferentiable"
+  },
+  "atom_saturation": [
+    {
+      "margin": -100.0,
+      "penalty": 144.26950408889635,
+      "derivative": -1.4426950408889634
+    },
+    {
+      "margin": -10.0,
+      "penalty": 14.427015905656397,
+      "derivative": -1.4426295456089182
+    },
+    {
+      "margin": 0.0,
+      "penalty": 1.0,
+      "derivative": -0.7213475204444817
+    },
+    {
+      "margin": 10.0,
+      "penalty": 6.549676676198847e-05,
+      "derivative": -6.549528004393032e-05
+    },
+    {
+      "margin": 100.0,
+      "penalty": 5.36693516233543e-44,
+      "derivative": -5.36693516233543e-44
+    }
+  ],
+  "numerical": {
+    "all_finite": true
+  },
+  "limitations": [
+    "No task-specific certificate inclusion is established.",
+    "No projection, closed-loop trajectory, or operational outcome is evaluated.",
+    "The exact outer max remains nonsmooth at event ties; no smoothing or straight-through rule is used."
+  ]
+}
+
+$ JAX_PLATFORMS=cpu .venv-c1/bin/python scripts/check_c1_vi_r_cert_counterexamples.py --out /tmp/c1_vi_r_cert_counterexamples_git_split_20260921.json
+
+=========================================================================
+ WARNING: 'jax' imported OUTSIDE a Slurm job on this workstation.
+ The GPU is not available here: CUDA will fail or your code will silently
+ run on CPU. Submit through Slurm instead, e.g.
+   srun -p debug --gres=shard:2 --cpus-per-task=4 --mem=16G --pty bash
+   sbatch job.sh
+ (CPU-only scripts can ignore this message.)
+=========================================================================
+
+ERROR:2026-09-21 15:06:18,025:jax._src.xla_bridge:444: Jax plugin configuration error: Exception when calling jax_plugins.xla_cuda12.initialize()
+Traceback (most recent call last):
+  File "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/lib/python3.11/site-packages/jax/_src/xla_bridge.py", line 442, in discover_pjrt_plugins
+    plugin_module.initialize()
+  File "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/lib/python3.11/site-packages/jax_plugins/xla_cuda12/__init__.py", line 324, in initialize
+    _check_cuda_versions(raise_on_first_error=True)
+  File "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/lib/python3.11/site-packages/jax_plugins/xla_cuda12/__init__.py", line 281, in _check_cuda_versions
+    local_device_count = cuda_versions.cuda_device_count()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: jaxlib/cuda/versions_helpers.cc:113: operation cuInit(0) failed: CUDA_ERROR_UNKNOWN
+{
+  "zero_control_blocking": {
+    "historical_strict": true,
+    "first_deadlock_action": 139,
+    "tail_stall_atoms": true,
+    "max_candidate_run": 811,
+    "tail_max_speed": 0.0,
+    "tail_goal_error_change": [
+      0.0,
+      0.0
+    ],
+    "original_other_timeout": false,
+    "stalled_deadlock": false,
+    "primary": true,
+    "risk": {
+      "direct_R_CERT": 1.7559050244147167,
+      "augmented_R_CERT": 1.187961764988561
+    }
+  },
+  "nonzero_control_jitter_stagnation": {
+    "historical_strict": false,
+    "first_deadlock_action": null,
+    "tail_stall_atoms": true,
+    "max_candidate_run": 0,
+    "tail_max_speed": 0.03,
+    "tail_goal_error_change": [
+      0.0015000000000000568,
+      0.0015000000000000568
+    ],
+    "original_other_timeout": true,
+    "stalled_deadlock": true,
+    "primary": true,
+    "risk": {
+      "direct_R_CERT": 1.755802618264462,
+      "augmented_R_CERT": 1.1888663135667485
+    }
+  },
+  "one_agent_stuck_moving_outsider": {
+    "historical_strict": false,
+    "first_deadlock_action": null,
+    "tail_stall_atoms": false,
+    "max_candidate_run": 0,
+    "tail_max_speed": 0.1,
+    "tail_goal_error_change": [
+      0.0,
+      0.004999999999999893
+    ],
+    "original_other_timeout": true,
+    "stalled_deadlock": false,
+    "primary": false
+  },
+  "retreat_without_stop": {
+    "historical_strict": false,
+    "first_deadlock_action": null,
+    "tail_stall_atoms": false,
+    "max_candidate_run": 0,
+    "tail_max_speed": 0.1,
+    "tail_goal_error_change": [
+      0.19499999999998874,
+      0.19499999999998874
+    ],
+    "original_other_timeout": true,
+    "stalled_deadlock": false,
+    "primary": false
+  },
+  "horizon_delay": {
+    "H850": {
+      "historical_strict": false,
+      "first_deadlock_action": null,
+      "tail_stall_atoms": false,
+      "max_candidate_run": 20,
+      "tail_max_speed": 0.1,
+      "tail_goal_error_change": [
+        0.0050000000000001155,
+        0.0050000000000001155
+      ],
+      "original_other_timeout": true,
+      "stalled_deadlock": false,
+      "primary": false
+    },
+    "H1000": {
+      "historical_strict": true,
+      "first_deadlock_action": 930,
+      "tail_stall_atoms": true,
+      "max_candidate_run": 170,
+      "tail_max_speed": 0.0,
+      "tail_goal_error_change": [
+        0.0,
+        0.0
+      ],
+      "original_other_timeout": false,
+      "stalled_deadlock": false,
+      "primary": true
+    }
+  },
+  "symmetry": {
+    "augmented_w_gradient_norm": null,
+    "nonfinite_components": 3244,
+    "exact_zero": false
+  },
+  "projection_plateau": {
+    "setup": "U=[-2,2]x{0}, w=(2,10), B=unit ball",
+    "exact_certificate": 4.0,
+    "unnormalized_vi": [
+      -8.30776406404415,
+      -10.11187420807834,
+      -9.198039027185573,
+      -9.198039027185573
+    ],
+    "all_vi_nonpositive": true
+  },
+  "recorded_normal_yielding": {
+    "trace": "results/c1_vi_r_cert_probe_v1/reference_1_84220.npz",
+    "actions": 458,
+    "terminal": "success",
+    "candidate_samples": 8,
+    "minimum_agent_speed": 0.0003867269796651614,
+    "per_agent_low_speed_samples": [
+      289,
+      103
+    ],
+    "at_least_one_agent_low_speed_samples": 374,
+    "simple_low_speed_count_upper_bound": 289,
+    "historical_strict": false
+  },
+  "interpretation": {
+    "local_deadlock": "one stopped agent is not D when the moving outsider breaks max-speed atoms",
+    "jitter": "0.03 m/s defeats strict speed but is caught by stalled timeout",
+    "horizon": "a low-speed phase beginning too near H can first deadlock only after H and evade the H tail test",
+    "retreat": "persistent retreat is task abandonment but not the frozen deadlock event"
+  }
+}
+
+$ JAX_PLATFORMS=cpu bash scripts/test.sh
+
+=========================================================================
+ WARNING: 'jax' imported OUTSIDE a Slurm job on this workstation.
+ The GPU is not available here: CUDA will fail or your code will silently
+ run on CPU. Submit through Slurm instead, e.g.
+   srun -p debug --gres=shard:2 --cpus-per-task=4 --mem=16G --pty bash
+   sbatch job.sh
+ (CPU-only scripts can ignore this message.)
+=========================================================================
+
+........ERROR:2026-09-21 15:06:20,415:jax._src.xla_bridge:444: Jax plugin configuration error: Exception when calling jax_plugins.xla_cuda12.initialize()
+Traceback (most recent call last):
+  File "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/lib/python3.11/site-packages/jax/_src/xla_bridge.py", line 442, in discover_pjrt_plugins
+    plugin_module.initialize()
+  File "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/lib/python3.11/site-packages/jax_plugins/xla_cuda12/__init__.py", line 324, in initialize
+    _check_cuda_versions(raise_on_first_error=True)
+  File "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/lib/python3.11/site-packages/jax_plugins/xla_cuda12/__init__.py", line 281, in _check_cuda_versions
+    local_device_count = cuda_versions.cuda_device_count()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: jaxlib/cuda/versions_helpers.cc:113: operation cuInit(0) failed: CUDA_ERROR_UNKNOWN
+....SOCP comparison 2.942091015256665e-14 VJP error 5.2960005547664224e-08
+SOCP comparison 1.765826959344519e-13 VJP error 2.938377235972567e-08
+SOCP comparison 3.883882798705329e-12 VJP error 9.014519491978845e-09
+SOCP comparison 1.9979450277792313e-06 VJP error 1.512548106208378e-08
+..............................................
+----------------------------------------------------------------------
+Ran 58 tests in 2.245s
+
+OK

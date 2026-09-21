@@ -1,0 +1,146 @@
+{
+  "cases": [
+    {
+      "name": "negative_orthant",
+      "valid": true,
+      "B": 1.0,
+      "M": -0.10050503372145204,
+      "E": 0.30062757549029545,
+      "risk": 1.075156893872574,
+      "risk_lower": 1.075156893872574,
+      "ambiguous_witnesses": 0,
+      "winner": 3,
+      "solver_calls": 10,
+      "applied_norm": 2.468742524067866e-11
+    },
+    {
+      "name": "hyperplane_tangent",
+      "valid": true,
+      "B": 0.0,
+      "M": 1.0,
+      "E": 5.626758419358842e-09,
+      "risk": 1.4066896048397104e-09,
+      "risk_lower": 1.4066896048397104e-09,
+      "ambiguous_witnesses": 0,
+      "winner": 1,
+      "solver_calls": 10,
+      "applied_norm": 0.09999999999922116
+    },
+    {
+      "name": "near_opposite",
+      "valid": true,
+      "B": 1.0,
+      "M": -1.4427211700084514e-07,
+      "E": 0.20090763807310258,
+      "risk": 1.0502269095182757,
+      "risk_lower": 1.0502269095182757,
+      "ambiguous_witnesses": 0,
+      "winner": 3,
+      "solver_calls": 10,
+      "applied_norm": 2.354328119912563e-11
+    },
+    {
+      "name": "slow_ray_0.001",
+      "valid": true,
+      "B": 0.9960040000019352,
+      "M": 1.0,
+      "E": 5.626758419358842e-09,
+      "risk": 0.9960040014086249,
+      "risk_lower": 0.9960040014086249,
+      "ambiguous_witnesses": 0,
+      "winner": 0,
+      "solver_calls": 10,
+      "applied_norm": 0.0009999999977400359
+    },
+    {
+      "name": "slow_ray_1e-06",
+      "valid": true,
+      "B": 0.9999960000067155,
+      "M": 1.0,
+      "E": 5.626758419358842e-09,
+      "risk": 0.9999960014134052,
+      "risk_lower": 0.9999960014134052,
+      "ambiguous_witnesses": 0,
+      "winner": 0,
+      "solver_calls": 10,
+      "applied_norm": 9.999996961531869e-07
+    },
+    {
+      "name": "joint_coupling_counterexample",
+      "valid": true,
+      "B": 0.9000000000022262,
+      "M": 0.31622776601641356,
+      "E": 0.004666635660289045,
+      "risk": 0.9011666589172985,
+      "risk_lower": 0.9011666589172985,
+      "ambiguous_witnesses": 0,
+      "winner": 0,
+      "solver_calls": 10,
+      "applied_norm": 0.07071067811861567
+    }
+  ],
+  "scale_risks": [
+    1.075156893872574,
+    1.075156893872574,
+    1.075156893872574,
+    1.075156893872574
+  ],
+  "finite_difference_gradient": [
+    0.20152626139524618,
+    0.1259531807518144,
+    0.07557112259304333,
+    -2.468689325246798
+  ],
+  "descent_risk": 1.0689988819621719,
+  "rotation": [
+    {
+      "angle": 0.0,
+      "valid": true,
+      "B": 1.0,
+      "M": -0.10050503372145204,
+      "E": 0.30062757549029545,
+      "risk": 1.075156893872574,
+      "risk_lower": 1.075156893872574,
+      "ambiguous_witnesses": 0,
+      "winner": 3,
+      "solver_calls": 10
+    },
+    {
+      "angle": 0.2,
+      "valid": true,
+      "B": 1.0,
+      "M": -0.10052319688530582,
+      "E": 0.3006456942017842,
+      "risk": 1.075161423550446,
+      "risk_lower": 1.075161423550446,
+      "ambiguous_witnesses": 0,
+      "winner": 3,
+      "solver_calls": 10
+    },
+    {
+      "angle": 0.6,
+      "valid": true,
+      "B": 1.0,
+      "M": -0.10051098308985862,
+      "E": 0.3006335102964969,
+      "risk": 1.0751583775741242,
+      "risk_lower": 1.0751583775741242,
+      "ambiguous_witnesses": 0,
+      "winner": 3,
+      "solver_calls": 10
+    },
+    {
+      "angle": 1.0,
+      "valid": true,
+      "B": 1.0,
+      "M": -0.10050861188729338,
+      "E": 0.3006311448976915,
+      "risk": 1.0751577862244228,
+      "risk_lower": 1.0751577862244228,
+      "ambiguous_witnesses": 0,
+      "winner": 3,
+      "solver_calls": 10
+    }
+  ],
+  "note": "Numerical values only; no claim of full BPTT/autodiff validation."
+}

@@ -1,0 +1,165 @@
+{
+  "passed": true,
+  "backend": "gpu",
+  "baseline_sha256": "8c17b5d2cf74c8ce94ffa03a192a8c36ae01227465a168e7b74d6e18ff121f32",
+  "environment": {
+    "schema": "giveway_single_integrator_v1",
+    "dt": 0.05,
+    "max_steps": 850,
+    "max_speed": 0.5,
+    "agent_radius": 0.16,
+    "corridor_width": 0.4,
+    "bay_top": 0.68,
+    "corridor_half_length": 1.3,
+    "wall_layout_scale": 1.0,
+    "wall_radius": 0.006666666666666667,
+    "wall_collision_margin": 0.005,
+    "agent_collision_margin": 0.0,
+    "agent_reward_margin": 0.005,
+    "goal_tolerance": 0.08,
+    "slow_speed": 0.05,
+    "congestion_goal_error": 0.1,
+    "deadlock_seconds": 1.0,
+    "detection_protocol": "window_progress_v2",
+    "progress_window_seconds": 2.0,
+    "deadlock_hold_seconds": 5.0,
+    "progress_epsilon": 0.01,
+    "speed_epsilon_fraction": 0.05,
+    "terminate_on_collision": true,
+    "terminate_on_success": true,
+    "terminate_on_deadlock": true
+  },
+  "cbf": {
+    "gamma": 1.0,
+    "gamma_wall": 1.0,
+    "separation_buffer": 0.0001,
+    "solver_ftol": 1e-12,
+    "feasibility_tol": 1e-09,
+    "optimality_tol": 2e-06,
+    "speed_tol": 1e-10,
+    "intervention_tol": 1e-06,
+    "max_iterations": 200,
+    "max_speed_cuts": 32
+  },
+  "monitor": {
+    "action_count": 251,
+    "operational_action_count": 251,
+    "applied_max_abs_error": 6.245004513516506e-17,
+    "candidate_equal": true,
+    "raw_deadlock_equal": true,
+    "historical_strict": true,
+    "operational_historical_strict": true,
+    "terminal_safe_deadlock": true,
+    "operational_terminal_safe_deadlock": true,
+    "first_deadlock_step": 251,
+    "no_post_terminal_projection_placeholders": true
+  },
+  "projection": {
+    "witness_min_cbf_residual": -9.08995101411847e-16,
+    "witness_max_speed_excess": 0.0,
+    "actual_min_cbf_residual": -2.7755575615628914e-17,
+    "actual_max_speed_excess": -0.3228279094724471,
+    "exact_zero_applied_steps": 0,
+    "near_cbf_active_entries": 230,
+    "near_speed_active_blocks": 0
+  },
+  "implication": {
+    "primary_event": true,
+    "direct_R_CERT": 1.6813450225406097,
+    "augmented_R_CERT": 1.085680175108144,
+    "passed": true
+  },
+  "gradient": {
+    "values": [
+      1.6813450225406097,
+      1.085680175108144
+    ],
+    "norms": [
+      0.8227850690245047,
+      0.05773525660376329
+    ],
+    "directional_derivative": [
+      0.03503977916260821,
+      0.003755285277207552
+    ],
+    "finite_differences": [
+      {
+        "step": 0.001,
+        "finite_difference": [
+          0.06220509180643319,
+          0.005238749664293607
+        ],
+        "relative_error": [
+          0.775270657893122,
+          0.39503373980396134
+        ]
+      },
+      {
+        "step": 0.0003,
+        "finite_difference": [
+          0.06225311202978646,
+          0.005244405592759923
+        ],
+        "relative_error": [
+          0.7766411066944807,
+          0.3965398646516911
+        ]
+      },
+      {
+        "step": 0.0001,
+        "finite_difference": [
+          0.06252863984368418,
+          0.0052643316106326665
+        ],
+        "relative_error": [
+          0.784504392950341,
+          0.40184599092488876
+        ]
+      },
+      {
+        "step": 3e-05,
+        "finite_difference": [
+          0.06151600276578979,
+          0.005189725478989733
+        ],
+        "relative_error": [
+          0.7556047508265975,
+          0.3819790231353176
+        ]
+      }
+    ],
+    "active_event_indices": [
+      111,
+      111
+    ],
+    "active_event_times": [
+      250,
+      250
+    ],
+    "intervention_actions": [
+      100,
+      120
+    ],
+    "genuinely_earlier_than_active": [
+      true,
+      true
+    ],
+    "direct_augmented_cosine": 0.9935142910757224
+  },
+  "term_diagnostics": {
+    "active_t": 250,
+    "margin_min": -17.419746880108274,
+    "margin_max": 0.0,
+    "nonfinite": 0,
+    "saturated_near_zero": 0,
+    "direct_nonpositive": 303,
+    "vi_nonpositive": 2424
+  },
+  "solver_failures": 0,
+  "sources": {
+    "scripts/check_c1_vi_r_cert.py": "84c72eea76f01ae436684905e2b1e484dfd26dec7c263150129a09ea7788fd88",
+    "single_integrator/c1/rollout_vi_r_cert.py": "d29b6a54356adc83c41fcd1787387d10091eba500aa5ea6fbfa14da20037fdf6",
+    "single_integrator/c1/risk/vi_r_cert.py": "d2aa104ec7e433571a4299f8dec4b06b53bea6ac4a65bdc893e847ab361327ce",
+    "single_integrator/c1/termination.py": "3be4e701227e42509b2e8514d2d9e26b94037b47c7f53a10a6281f1284404eec"
+  }
+}

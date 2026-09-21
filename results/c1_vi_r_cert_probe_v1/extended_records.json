@@ -1,0 +1,3602 @@
+[
+  {
+    "rid": 0,
+    "rollout_id": 74000,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 288,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 0,
+    "rollout_id": 74000,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 293,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 0,
+    "rollout_id": 74000,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 286,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 0,
+    "rollout_id": 74000,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 287,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 0,
+    "rollout_id": 74000,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 288,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 0,
+    "rollout_id": 74000,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 293,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 0,
+    "rollout_id": 74000,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 286,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 0,
+    "rollout_id": 74000,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 288,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 0,
+    "rollout_id": 74000,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 288,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 1,
+    "rollout_id": 74001,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 458,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 1,
+    "rollout_id": 74001,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 458,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 1,
+    "rollout_id": 74001,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 458,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 1,
+    "rollout_id": 74001,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 458,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 1,
+    "rollout_id": 74001,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 458,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 1,
+    "rollout_id": 74001,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 458,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 1,
+    "rollout_id": 74001,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 458,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 1,
+    "rollout_id": 74001,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 458,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 1,
+    "rollout_id": 74001,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 458,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 2,
+    "rollout_id": 74002,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 232,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 2,
+    "rollout_id": 74002,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 234,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 2,
+    "rollout_id": 74002,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 231,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 2,
+    "rollout_id": 74002,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 231,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 2,
+    "rollout_id": 74002,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 232,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 2,
+    "rollout_id": 74002,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 233,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 2,
+    "rollout_id": 74002,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 231,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 2,
+    "rollout_id": 74002,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 231,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 2,
+    "rollout_id": 74002,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 232,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 3,
+    "rollout_id": 74003,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 358,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 3,
+    "rollout_id": 74003,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 360,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 3,
+    "rollout_id": 74003,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 355,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 3,
+    "rollout_id": 74003,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 358,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 3,
+    "rollout_id": 74003,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 358,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 3,
+    "rollout_id": 74003,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 360,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 3,
+    "rollout_id": 74003,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 355,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 3,
+    "rollout_id": 74003,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 358,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 3,
+    "rollout_id": 74003,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 356,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 4,
+    "rollout_id": 74004,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 414,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 4,
+    "rollout_id": 74004,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 414,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 4,
+    "rollout_id": 74004,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 414,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 4,
+    "rollout_id": 74004,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 414,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 4,
+    "rollout_id": 74004,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 414,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 4,
+    "rollout_id": 74004,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 414,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 4,
+    "rollout_id": 74004,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 414,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 4,
+    "rollout_id": 74004,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 414,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 4,
+    "rollout_id": 74004,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 414,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 5,
+    "rollout_id": 74005,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 427,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 5,
+    "rollout_id": 74005,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 427,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 5,
+    "rollout_id": 74005,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 427,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 5,
+    "rollout_id": 74005,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 427,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 5,
+    "rollout_id": 74005,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 427,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 5,
+    "rollout_id": 74005,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 427,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 5,
+    "rollout_id": 74005,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 427,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 5,
+    "rollout_id": 74005,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 427,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 5,
+    "rollout_id": 74005,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 427,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 6,
+    "rollout_id": 74006,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 222,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 6,
+    "rollout_id": 74006,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 225,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 6,
+    "rollout_id": 74006,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 221,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 6,
+    "rollout_id": 74006,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 221,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 6,
+    "rollout_id": 74006,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 221,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 6,
+    "rollout_id": 74006,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 223,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 6,
+    "rollout_id": 74006,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 221,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 6,
+    "rollout_id": 74006,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 221,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 6,
+    "rollout_id": 74006,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 221,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 7,
+    "rollout_id": 74007,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 261,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 7,
+    "rollout_id": 74007,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 263,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 7,
+    "rollout_id": 74007,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 255,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 7,
+    "rollout_id": 74007,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 262,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 7,
+    "rollout_id": 74007,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 261,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 7,
+    "rollout_id": 74007,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 269,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 7,
+    "rollout_id": 74007,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 255,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 7,
+    "rollout_id": 74007,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 262,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 7,
+    "rollout_id": 74007,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 262,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 8,
+    "rollout_id": 74008,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 250,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 8,
+    "rollout_id": 74008,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 258,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 8,
+    "rollout_id": 74008,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 250,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 8,
+    "rollout_id": 74008,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 258,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 8,
+    "rollout_id": 74008,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 251,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 8,
+    "rollout_id": 74008,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 258,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 8,
+    "rollout_id": 74008,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 250,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 8,
+    "rollout_id": 74008,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 250,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 8,
+    "rollout_id": 74008,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 250,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 9,
+    "rollout_id": 74009,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 632,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 9,
+    "rollout_id": 74009,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 632,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 9,
+    "rollout_id": 74009,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 632,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 9,
+    "rollout_id": 74009,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 632,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 9,
+    "rollout_id": 74009,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 632,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 9,
+    "rollout_id": 74009,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 632,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 9,
+    "rollout_id": 74009,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 632,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 9,
+    "rollout_id": 74009,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 632,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 9,
+    "rollout_id": 74009,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 632,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 10,
+    "rollout_id": 74010,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 430,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 10,
+    "rollout_id": 74010,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 490,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 10,
+    "rollout_id": 74010,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 430,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 10,
+    "rollout_id": 74010,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 430,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 10,
+    "rollout_id": 74010,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 430,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 10,
+    "rollout_id": 74010,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 490,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 10,
+    "rollout_id": 74010,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 430,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 10,
+    "rollout_id": 74010,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 430,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 10,
+    "rollout_id": 74010,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 430,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 11,
+    "rollout_id": 74011,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 327,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 11,
+    "rollout_id": 74011,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 333,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 11,
+    "rollout_id": 74011,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 324,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 11,
+    "rollout_id": 74011,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 327,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 11,
+    "rollout_id": 74011,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 327,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 11,
+    "rollout_id": 74011,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 333,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 11,
+    "rollout_id": 74011,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 324,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 11,
+    "rollout_id": 74011,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 327,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 11,
+    "rollout_id": 74011,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 327,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 12,
+    "rollout_id": 74012,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 487,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 12,
+    "rollout_id": 74012,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 487,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 12,
+    "rollout_id": 74012,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 487,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 12,
+    "rollout_id": 74012,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 487,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 12,
+    "rollout_id": 74012,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 487,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 12,
+    "rollout_id": 74012,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 487,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 12,
+    "rollout_id": 74012,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 487,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 12,
+    "rollout_id": 74012,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 487,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 12,
+    "rollout_id": 74012,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 487,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 13,
+    "rollout_id": 74013,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 484,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 13,
+    "rollout_id": 74013,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 484,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 13,
+    "rollout_id": 74013,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 484,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 13,
+    "rollout_id": 74013,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 484,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 13,
+    "rollout_id": 74013,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 484,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 13,
+    "rollout_id": 74013,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 484,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 13,
+    "rollout_id": 74013,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 484,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 13,
+    "rollout_id": 74013,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 484,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 13,
+    "rollout_id": 74013,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 484,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 14,
+    "rollout_id": 74014,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 241,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 14,
+    "rollout_id": 74014,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 247,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 14,
+    "rollout_id": 74014,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 240,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 14,
+    "rollout_id": 74014,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 241,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 14,
+    "rollout_id": 74014,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 240,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 14,
+    "rollout_id": 74014,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 247,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 14,
+    "rollout_id": 74014,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 240,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 14,
+    "rollout_id": 74014,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 240,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 14,
+    "rollout_id": 74014,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 240,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 15,
+    "rollout_id": 74015,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 400,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 15,
+    "rollout_id": 74015,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 400,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 15,
+    "rollout_id": 74015,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 400,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 15,
+    "rollout_id": 74015,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 400,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 15,
+    "rollout_id": 74015,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 400,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 15,
+    "rollout_id": 74015,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 400,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 15,
+    "rollout_id": 74015,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 400,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 15,
+    "rollout_id": 74015,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 400,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 15,
+    "rollout_id": 74015,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 400,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 16,
+    "rollout_id": 74016,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 459,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 16,
+    "rollout_id": 74016,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 459,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 16,
+    "rollout_id": 74016,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 459,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 16,
+    "rollout_id": 74016,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 459,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 16,
+    "rollout_id": 74016,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 459,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 16,
+    "rollout_id": 74016,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 459,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 16,
+    "rollout_id": 74016,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 459,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 16,
+    "rollout_id": 74016,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 459,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 16,
+    "rollout_id": 74016,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 459,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 17,
+    "rollout_id": 74017,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 244,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 17,
+    "rollout_id": 74017,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 245,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 17,
+    "rollout_id": 74017,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 244,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 17,
+    "rollout_id": 74017,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 244,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 17,
+    "rollout_id": 74017,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 244,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 17,
+    "rollout_id": 74017,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 247,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 17,
+    "rollout_id": 74017,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 244,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 17,
+    "rollout_id": 74017,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 245,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 17,
+    "rollout_id": 74017,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 244,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 18,
+    "rollout_id": 74018,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 265,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 18,
+    "rollout_id": 74018,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 273,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 18,
+    "rollout_id": 74018,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 261,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 18,
+    "rollout_id": 74018,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 265,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 18,
+    "rollout_id": 74018,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 265,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 18,
+    "rollout_id": 74018,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 273,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 18,
+    "rollout_id": 74018,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 261,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 18,
+    "rollout_id": 74018,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 267,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 18,
+    "rollout_id": 74018,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 266,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 19,
+    "rollout_id": 74019,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 286,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 19,
+    "rollout_id": 74019,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 290,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 19,
+    "rollout_id": 74019,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 280,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 19,
+    "rollout_id": 74019,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 286,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 19,
+    "rollout_id": 74019,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 286,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 19,
+    "rollout_id": 74019,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 290,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 19,
+    "rollout_id": 74019,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 280,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 19,
+    "rollout_id": 74019,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 287,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 19,
+    "rollout_id": 74019,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 287,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 20,
+    "rollout_id": 74020,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 443,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 20,
+    "rollout_id": 74020,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 443,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 20,
+    "rollout_id": 74020,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 443,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 20,
+    "rollout_id": 74020,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 443,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 20,
+    "rollout_id": 74020,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 443,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 20,
+    "rollout_id": 74020,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 443,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 20,
+    "rollout_id": 74020,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 443,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 20,
+    "rollout_id": 74020,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 443,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 20,
+    "rollout_id": 74020,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 443,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 21,
+    "rollout_id": 74021,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 321,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 21,
+    "rollout_id": 74021,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 325,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 21,
+    "rollout_id": 74021,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 318,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 21,
+    "rollout_id": 74021,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 321,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 21,
+    "rollout_id": 74021,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 321,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 21,
+    "rollout_id": 74021,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 325,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 21,
+    "rollout_id": 74021,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 318,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 21,
+    "rollout_id": 74021,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 320,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 21,
+    "rollout_id": 74021,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 320,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 22,
+    "rollout_id": 74022,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 551,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 22,
+    "rollout_id": 74022,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 551,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 22,
+    "rollout_id": 74022,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 551,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 22,
+    "rollout_id": 74022,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 551,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 22,
+    "rollout_id": 74022,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 551,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 22,
+    "rollout_id": 74022,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 551,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 22,
+    "rollout_id": 74022,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 551,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 22,
+    "rollout_id": 74022,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 551,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 22,
+    "rollout_id": 74022,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 551,
+    "original_outcome": "success",
+    "outcome": "success",
+    "historical_strict": false,
+    "primary_deadlock": false,
+    "success": true,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 23,
+    "rollout_id": 74023,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 247,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 23,
+    "rollout_id": 74023,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 242,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 23,
+    "rollout_id": 74023,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 249,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 23,
+    "rollout_id": 74023,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 247,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 23,
+    "rollout_id": 74023,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 246,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 23,
+    "rollout_id": 74023,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 242,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 23,
+    "rollout_id": 74023,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 247,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 23,
+    "rollout_id": 74023,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 254,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 23,
+    "rollout_id": 74023,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 246,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 24,
+    "rollout_id": 74024,
+    "seed": 84220,
+    "arm": "reference",
+    "action_count": 237,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 24,
+    "rollout_id": 74024,
+    "seed": 84220,
+    "arm": "direct_negative",
+    "action_count": 236,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 24,
+    "rollout_id": 74024,
+    "seed": 84220,
+    "arm": "direct_positive",
+    "action_count": 238,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 24,
+    "rollout_id": 74024,
+    "seed": 84220,
+    "arm": "direct_random_0",
+    "action_count": 237,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 24,
+    "rollout_id": 74024,
+    "seed": 84220,
+    "arm": "direct_random_1",
+    "action_count": 234,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 24,
+    "rollout_id": 74024,
+    "seed": 84220,
+    "arm": "augmented_negative",
+    "action_count": 236,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 24,
+    "rollout_id": 74024,
+    "seed": 84220,
+    "arm": "augmented_positive",
+    "action_count": 237,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 24,
+    "rollout_id": 74024,
+    "seed": 84220,
+    "arm": "augmented_random_0",
+    "action_count": 237,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  },
+  {
+    "rid": 24,
+    "rollout_id": 74024,
+    "seed": 84220,
+    "arm": "augmented_random_1",
+    "action_count": 237,
+    "original_outcome": "safe_deadlock",
+    "outcome": "safe_deadlock",
+    "historical_strict": true,
+    "primary_deadlock": true,
+    "success": false,
+    "ordinary_timeout": false,
+    "stalled_details": {
+      "eligible": false
+    }
+  }
+]

@@ -1,0 +1,80 @@
+{
+  "all/2.0s": {
+    "n_states": 6591,
+    "n_positive": 21,
+    "positive_episodes": 7,
+    "episode_weighted_auc": {
+      "risk": 0.2590032183720249,
+      "base": 0.2590032183720248,
+      "escape": 0.6452025758339389,
+      "slow_speed": 0.9621272874312332,
+      "poor_progress": 0.7902176195862595,
+      "remaining_distance": 0.41812950430345686
+    }
+  },
+  "all/5.0s": {
+    "n_states": 6462,
+    "n_positive": 42,
+    "positive_episodes": 7,
+    "episode_weighted_auc": {
+      "risk": 0.2588276938084642,
+      "base": 0.2588276938084642,
+      "escape": 0.6170893904651485,
+      "slow_speed": 0.9757675063413302,
+      "poor_progress": 0.7635228177102762,
+      "remaining_distance": 0.4160612541538934
+    }
+  },
+  "development/2.0s": {
+    "n_states": 5216,
+    "n_positive": 18,
+    "positive_episodes": 6,
+    "episode_weighted_auc": {
+      "risk": 0.2726040445428728,
+      "base": 0.2726040445428728,
+      "escape": 0.6688760838259223,
+      "slow_speed": 0.9611705234785969,
+      "poor_progress": 0.8168427000145619,
+      "remaining_distance": 0.44037317925669356
+    }
+  },
+  "development/5.0s": {
+    "n_states": 5135,
+    "n_positive": 36,
+    "positive_episodes": 6,
+    "episode_weighted_auc": {
+      "risk": 0.2735532230766651,
+      "base": 0.27355322307666496,
+      "escape": 0.6370038915240173,
+      "slow_speed": 0.977082222543328,
+      "poor_progress": 0.7948102080569719,
+      "remaining_distance": 0.4386986100266816
+    }
+  },
+  "heldout/2.0s": {
+    "n_states": 1375,
+    "n_positive": 3,
+    "positive_episodes": 1,
+    "episode_weighted_auc": {
+      "risk": 0.2024948480909073,
+      "base": 0.2024948480909073,
+      "escape": 0.5294354790622803,
+      "slow_speed": 0.9805149087841781,
+      "poor_progress": 0.6800166917177493,
+      "remaining_distance": 0.32927259871022907
+    }
+  },
+  "heldout/5.0s": {
+    "n_states": 1327,
+    "n_positive": 6,
+    "positive_episodes": 1,
+    "episode_weighted_auc": {
+      "risk": 0.19763797033342786,
+      "base": 0.19763797033342786,
+      "escape": 0.5233407614995625,
+      "slow_speed": 0.9722091421046987,
+      "poor_progress": 0.6342677185696309,
+      "remaining_distance": 0.325869888454008
+    }
+  }
+}
