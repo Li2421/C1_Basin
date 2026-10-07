@@ -84,6 +84,13 @@ scenario/controller/state 指纹和 preflight 报告，尚未将新 rollout 写�
 
 ## Joint Flow Matching 训练与评估
 
+下列 `flow_dataset.py` 命令保留为 **旧版顺序通行实验** 的复现入口；其模型在
+Gap1 的安全投影闭环中并未达到双向单机器人/同向通行能力，不能作为论文里的
+安全死锁基线。新的、方向严格配对的非对抗导航训练、冻结 N=2 checkpoint、
+原始相向任务审查和 N=10 未通过的能力门槛见
+[`gap_flow_competence_training_20261007.md`](../docs/gap_flow_competence_training_20261007.md)。
+其中 N=2 的训练不含相向协调示范；N=10 尚无冻结的合格名义控制器。
+
 `flow_dataset.py` 用保守的单机器人轮流通行专家生成真实、安全、全队成功的轨迹；
 train/dev/test 使用独立 seed，局部门口扰动恢复只从 train/dev 专家状态产生。
 `train_flow.py` 复用旧四场景的官方 MACFlow `ActorVectorField`、联合动作 CFM、

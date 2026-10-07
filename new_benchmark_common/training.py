@@ -29,12 +29,20 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
                  batch_size: int = 256, log_interval: int = 250, validation_batches: int = 8,
                  early_transition_fraction: float = 0.0, early_steps: int = 1,
                  early_nominal_only: bool = False, actor_hidden_dims=None,
-                 source_balanced_sampling: bool = False, allow_non_four_agents: bool = False):
+                 source_balanced_sampling: bool = False, allow_non_four_agents: bool = False,
+                 snapshot_interval: int | None = None, near_goal_fraction: float = 0.0,
+                 near_goal_distance: float = 1.0):
     """Train only conventional Stage-I CFM; test is deliberately never opened."""
     if min(steps, batch_size, log_interval, validation_batches) <= 0:
         raise ValueError("training counts must be positive")
     if not 0.0 <= early_transition_fraction < 1.0 or early_steps <= 0:
         raise ValueError("invalid early-transition sampling parameters")
+    if snapshot_interval is not None and snapshot_interval <= 0:
+        raise ValueError("snapshot_interval must be positive")
+    if not 0 <= near_goal_fraction < 1 or early_transition_fraction + near_goal_fraction >= 1:
+        raise ValueError("invalid near-goal fraction")
+    if near_goal_distance <= 0:
+        raise ValueError("near_goal_distance must be positive")
     output = Path(output)
     if output.exists() and any(output.iterdir()):
         raise FileExistsError(f"output directory must be empty: {output}")
@@ -70,6 +78,15 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
         raise ValueError("no early transitions selected")
     early_obs = np.concatenate([t.observations[: min(early_steps, t.length)] for t in early_trajectories])
     early_act = np.concatenate([t.actions[: min(early_steps, t.length)] for t in early_trajectories])
+    if near_goal_fraction:
+        if train.observation_shape[1] < 6:
+            raise ValueError("near-goal sampler requires relative-goal features at columns 4:6")
+        goal_distance = np.linalg.norm(train.observations[:, :, 4:6], axis=2)
+        goal_tolerance = float(train.manifest.get("scenario_config", {}).get("goal_tolerance", 0.08))
+        near_goal_indices = np.flatnonzero(np.any(
+            (goal_distance > goal_tolerance) & (goal_distance < near_goal_distance), axis=1))
+        if not len(near_goal_indices):
+            raise ValueError("near-goal sampler found no eligible transitions")
     source_indices = {
         source: np.flatnonzero(train.sources == source)
         for source in sorted(set(train.sources.tolist()))
@@ -95,23 +112,31 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
             index[mask] = sample_rng.choice(indices_by_source[source], size=int(mask.sum()))
         return observations[index], actions[index]
     def sample_train():
-        if early_transition_fraction == 0.0:
+        if early_transition_fraction == 0.0 and near_goal_fraction == 0.0:
             if not source_balanced_sampling:
                 return train.sample(batch_size)
             obs, act = sample_source_balanced(source_indices, train.observations, train.actions, batch_size)
             return {"observations": obs, "actions": act}
         count = int(round(batch_size * early_transition_fraction))
+        near_count = int(round(batch_size * near_goal_fraction))
         if source_balanced_sampling:
             ordinary_obs, ordinary_act = sample_source_balanced(
-                source_indices, train.observations, train.actions, batch_size - count)
+                source_indices, train.observations, train.actions, batch_size - count - near_count)
             early_sample_obs, early_sample_act = sample_source_balanced(
                 early_source_indices, early_obs, early_act, count)
-            return {"observations": np.concatenate((ordinary_obs, early_sample_obs)),
-                    "actions": np.concatenate((ordinary_act, early_sample_act))}
-        ordinary = train.sample(batch_size - count)
-        index = sample_rng.integers(len(early_obs), size=count)
-        return {"observations": np.concatenate((ordinary["observations"], early_obs[index])),
-                "actions": np.concatenate((ordinary["actions"], early_act[index]))}
+            parts_obs=[ordinary_obs,early_sample_obs]
+            parts_act=[ordinary_act,early_sample_act]
+        else:
+            ordinary = train.sample(batch_size - count - near_count)
+            index = sample_rng.integers(len(early_obs), size=count)
+            parts_obs=[ordinary["observations"],early_obs[index]]
+            parts_act=[ordinary["actions"],early_act[index]]
+        if near_count:
+            chosen=sample_rng.choice(near_goal_indices,size=near_count)
+            parts_obs.append(train.observations[chosen])
+            parts_act.append(train.actions[chosen])
+        return {"observations": np.concatenate(parts_obs),
+                "actions": np.concatenate(parts_act)}
     fixed_train = tuple(sample_train() for _ in range(validation_batches))
     fixed_dev = tuple(dev.sample(batch_size) for _ in range(validation_batches))
     def fixed_loss(batches, salt):
@@ -126,7 +151,10 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
            "early_transition_fraction": early_transition_fraction, "early_steps": early_steps,
            "early_nominal_only": early_nominal_only,
            "source_balanced_sampling": source_balanced_sampling,
-           "allow_non_four_agents": allow_non_four_agents}
+           "allow_non_four_agents": allow_non_four_agents,
+           "snapshot_interval": snapshot_interval}
+    run.update(near_goal_fraction=near_goal_fraction, near_goal_distance=near_goal_distance,
+               near_goal_transition_count=int(len(near_goal_indices)) if near_goal_fraction else 0)
     (output / "config.json").write_text(json.dumps(run, indent=2, sort_keys=True))
     best, best_loss, best_step = agent, initial_dev, 0
     started = time.perf_counter()
@@ -136,6 +164,9 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
                 agent, info = agent.update(sample_train(), step)
                 if not np.isfinite(np.asarray([float(value) for value in info.values()])).all():
                     raise FloatingPointError(f"non-finite update at step {step}")
+            if snapshot_interval is not None and step > 0 and (step % snapshot_interval == 0 or step == steps):
+                save_checkpoint(output / f"snapshot_{step:07d}.pkl", agent,
+                                {"step": step, "selection_metric": "pending_closed_loop_dev"})
             if step % log_interval == 0 or step == steps:
                 train_loss, dev_loss = fixed_loss(fixed_train, 1001), fixed_loss(fixed_dev, 1002)
                 row = {"step": step, "fixed_train_loss": train_loss, "fixed_dev_loss": dev_loss,

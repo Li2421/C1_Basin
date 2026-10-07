@@ -32,3 +32,43 @@ def gate_waypoints(env):
 def policy_observation(env):
     return np.concatenate((env.observation()['agents'],
                            gate_waypoints(env)-env.positions),axis=1).astype(np.float32)
+
+
+def gate_waypoints_competence(env):
+    """Gap-1 waypoint with a look-ahead switch at the entrance.
+
+    The historical waypoint continues to point to the entry at the exact
+    expert entry state.  Its transition target is consequently inconsistent
+    with the action that crosses the gate.  Keep that historical function for
+    reproducibility and use this version only for the new competence data and
+    its frozen-checkpoint evaluations.  The eight input features are unchanged.
+    """
+    c = env.config
+    if len(c.barrier_x) != 1 or len(c.openings[0]) != 1:
+        raise ValueError('competence waypoint supports Gap 1 only')
+    gate_x, gate_y = c.barrier_x[0], c.openings[0][0][0]
+    offset = c.barrier_thickness / 2 + env.instance.geometry.margin + .12
+    waypoints = []
+    for position, goal in zip(env.positions, env.goals):
+        if np.linalg.norm(goal - position) <= c.goal_tolerance:
+            waypoints.append(goal)
+            continue
+        direction = 1 if goal[0] > gate_x else -1
+        progress = (position[0] - gate_x) * direction
+        entry = np.array((gate_x - direction * offset, gate_y))
+        exit = np.array((gate_x + direction * offset, gate_y))
+        if progress < -offset - .04 or (progress < offset - .04 and
+                                        abs(position[1] - gate_y) >= .08):
+            target = entry
+        elif progress < offset - .04:
+            target = exit
+        else:
+            target = goal
+        waypoints.append(target)
+    return np.asarray(waypoints)
+
+
+def policy_observation_competence(env):
+    return np.concatenate((env.observation()['agents'],
+                           gate_waypoints_competence(env)-env.positions),
+                          axis=1).astype(np.float32)

@@ -12,6 +12,7 @@ from dataclasses import replace
 import hashlib
 import json
 from pathlib import Path
+from types import SimpleNamespace
 
 import jax
 import numpy as np
@@ -23,14 +24,15 @@ from shared_control.hard_projection import CBFSolverError, HardProjectionConfig
 from shared_rollout_db.src.rollout_db import eta_identity, uid
 from shared_rollout_db.src.planner import preflight
 from .environment import BottleneckEnv
-from .observation import policy_observation
+from .observation import policy_observation, policy_observation_competence
 from .scenario import Config
 
 
 ROOT = Path('diagnostics/gap_flow_v1')
 SPECS = {2: 'n2_recovery_wide', 10: 'n10_wide_recovery', 50: 'n50_wide_recovery'}
 MODES = ('solo_even', 'solo_odd', 'solo_odd_remote', 'one_way', 'temporal_even_first',
-         'temporal_odd_first', 'opposing')
+         'temporal_odd_first', 'temporal_release_even_first',
+         'temporal_release_odd_first', 'opposing')
 
 
 def control_state(state, mode):
@@ -48,11 +50,19 @@ def control_state(state, mode):
     elif mode == 'one_way':
         positions[1::2] = np.asarray(state['goals'], dtype=np.float64)[1::2]
         goals[1::2] = np.asarray(state['positions'], dtype=np.float64)[1::2]
+    elif mode.startswith('temporal_release_'):
+        waiting = np.arange(1 if mode.endswith('even_first') else 0,len(goals),2)
+        goals[waiting] = positions[waiting]
+        # A 0.15 m same-room staging goal keeps the complete task from being
+        # marked successful before the second group is released.  Its control
+        # velocity remains explicitly zero until then.
+        goals[waiting,0] -= .15*np.sign(positions[waiting,0])
     return positions, goals
 
 
-def flow_action(agent, env, episode_key, step, samples):
-    observation = (policy_observation(env) if agent.config['obs_dim'] == 8 else
+def flow_action(agent, env, episode_key, step, samples, *, observation_version='historical'):
+    observer = policy_observation_competence if observation_version == 'competence_v2' else policy_observation
+    observation = (observer(env) if agent.config['obs_dim'] == 8 else
                    env.observation()['agents'].astype(np.float32))
     sampled = np.asarray(sample_bounded_actions(agent,
         np.repeat(observation[None], samples, axis=0),
@@ -62,19 +72,44 @@ def flow_action(agent, env, episode_key, step, samples):
     return action * np.minimum(1.0, env.config.max_speed / np.maximum(norms, 1e-30))
 
 
-def run(agents: int, mode: str, output: Path, *, samples=1, seed=17):
+def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
+        checkpoint_override=None, split='test', observation_version='historical',
+        fresh_count=0, fresh_seed=271828):
     if mode not in MODES or agents not in SPECS or samples < 1:
         raise ValueError('invalid N, mode, or sample count')
     if mode.startswith('solo_') and agents != 2:
         raise ValueError('single-active-task control is defined only for N=2')
+    if split not in ('dev','test') or observation_version not in ('historical','competence_v2') or fresh_count < 0:
+        raise ValueError('invalid split or observation version')
     output = Path(output)
     if output.exists() and any(output.iterdir()):
         raise FileExistsError(output)
     output.mkdir(parents=True, exist_ok=True)
     root = ROOT / SPECS[agents]
-    manifest, cases, audit = load_nominal_cases(root/'dataset', split='test', final_evaluation=True)
+    if fresh_count:
+        manifest_path=root/'dataset/manifest.json'
+        manifest=json.loads(manifest_path.read_text())
+        audit={'manifest_sha256':hashlib.sha256(manifest_path.read_bytes()).hexdigest()}
+        cases=[]
+    else:
+        manifest, cases, audit = load_nominal_cases(root/'dataset', split=split,
+                                                   final_evaluation=(split=='test'))
     config = Config(**manifest['scenario_config'])
-    checkpoint = root/'train/best.pkl'
+    if fresh_count:
+        rng=np.random.default_rng(fresh_seed)
+        fresh=[]
+        for index in range(fresh_count):
+            episode_seed=int(rng.integers(0,2**31-1))
+            instance=BottleneckEnv(replace(config,seed=episode_seed,split=split))
+            state={'positions':instance.positions.tolist(),
+                   'goals':instance.goals.tolist(),
+                   'episode_seed':episode_seed,'split':split}
+            fresh.append(SimpleNamespace(rollout_id=f'fresh_control_{index:04d}',
+                                         initial_state=state,archive_path=output/'fresh_control_states.json'))
+        cases=fresh
+        (output/'fresh_control_states.json').write_text(json.dumps(
+            {'fresh_seed':fresh_seed,'split':split,'cases':[c.initial_state for c in cases]},indent=2)+'\n')
+    checkpoint = Path(checkpoint_override) if checkpoint_override else root/'train/best.pkl'
     checkpoint_sha = hashlib.sha256(checkpoint.read_bytes()).hexdigest()
     agent, checkpoint_meta = load_checkpoint(
         checkpoint, expected_environment_fingerprint=manifest['environment_fingerprint'])
@@ -85,13 +120,15 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17):
     controller_uid = uid('ctl', {'flow_sha256':checkpoint_sha,
         'control':'gap_joint_macflow_stage1_plus_certified_hard_safety_v1',
         'mode':mode,'sample_count':samples,'evaluation_seed':seed,
+        'observation_version':observation_version,'split':split,
         'safety_config':cbf.to_dict()})
     requests=[]
     for case in cases:
         p,g=control_state(case.initial_state,mode)
         state_uid=uid('state',{'physical_fingerprint':config.physical_fingerprint,
             'positions':p.tolist(),'goals':g.tolist(),
-            'episode_seed':case.initial_state['episode_seed'],'control_mode':mode})
+            'episode_seed':case.initial_state['episode_seed'],'control_mode':mode,
+            'scheduled_goals':case.initial_state['goals'] if mode.startswith('temporal_release_') else None})
         requests.append(dict(state_uid=state_uid,
             eta_uid=eta_identity((0.,0.,0.))[0],controller_uid=controller_uid,
             seed_keys=[str(seed)]))
@@ -107,7 +144,7 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17):
     for index,case in enumerate(cases):
         state=case.initial_state
         p,g=control_state(state,mode)
-        env=BottleneckEnv(replace(config,seed=state['episode_seed'],split='test'))
+        env=BottleneckEnv(replace(config,seed=state['episode_seed'],split=split))
         env.reset(p,g)
         initial_hash=env.initial_state_sha256()
         episode_key=jax.random.fold_in(jax.random.PRNGKey(seed),index)
@@ -117,10 +154,12 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17):
             'active_pair_count','active_wall_count','active_speed_count',
             'min_wall_h','goal_error','status')}
         numerical_error=None;phase=0;phase_transition=None
-        first=np.arange(0 if mode=='temporal_even_first' else 1,agents,2)
-        second=np.arange(1 if mode=='temporal_even_first' else 0,agents,2)
+        even_first=mode.endswith('even_first')
+        first=np.arange(0 if even_first else 1,agents,2)
+        second=np.arange(1 if even_first else 0,agents,2)
         for step in range(config.max_steps):
-            flow=flow_action(agent,env,episode_key,step,samples)
+            flow=flow_action(agent,env,episode_key,step,samples,
+                             observation_version=observation_version)
             reference=flow.copy()
             if mode=='solo_even':
                 reference[1::2]=0
@@ -130,6 +169,8 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17):
                 if phase==0 and np.all(np.linalg.norm(env.positions[first]-env.goals[first],axis=1)
                                        <=config.goal_tolerance):
                     phase=1;phase_transition=step
+                    if mode.startswith('temporal_release_'):
+                        env.goals[second]=np.asarray(state['goals'],dtype=np.float64)[second]
                 reference[second if phase==0 else first]=0
             try:
                 result=projector(env.snapshot(),reference)
@@ -183,7 +224,9 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17):
             initial_state_sha256=initial_hash,config=env.config.to_dict(),
             start_step=0,episode_steps=env.step_count,complete=numerical_error is None,
             termination=terminal,collision=bool(env.collided),safety_enabled=True,
-            control_mode=mode,phase_transition_step=phase_transition)
+            control_mode=mode,phase_transition_step=phase_transition,
+            goal_release=mode.startswith('temporal_release_'),
+            observation_version=observation_version)
         payload={key:np.asarray(value) for key,value in series.items()}
         for key in ('u_flow','u_ref','u_safe'):
             payload[key]=payload[key].reshape((-1,agents,2))
@@ -194,7 +237,9 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17):
         checkpoint_sha256=checkpoint_sha,checkpoint_metadata=checkpoint_meta,
         dataset_manifest_sha256=audit['manifest_sha256'],samples_per_step=samples,
         safety='CertifiedHardSafetyFilter(HardProjectionConfig())',
-        safety_config=cbf.to_dict(),cache_preflight=cache['summary'],rollouts=rows)
+        safety_config=cbf.to_dict(),cache_preflight=cache['summary'],rollouts=rows,
+        observation_version=observation_version,split=split,
+        fresh_count=fresh_count,fresh_seed=fresh_seed if fresh_count else None)
     (output/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
     return result
 
@@ -206,8 +251,16 @@ def main():
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--samples-per-step',type=int,default=1)
     parser.add_argument('--seed',type=int,default=17)
+    parser.add_argument('--checkpoint-override',type=Path)
+    parser.add_argument('--split',choices=('dev','test'),default='test')
+    parser.add_argument('--observation-version',choices=('historical','competence_v2'),default='historical')
+    parser.add_argument('--fresh-count',type=int,default=0)
+    parser.add_argument('--fresh-seed',type=int,default=271828)
     args=parser.parse_args()
-    run(args.agents,args.mode,args.output,samples=args.samples_per_step,seed=args.seed)
+    run(args.agents,args.mode,args.output,samples=args.samples_per_step,seed=args.seed,
+        checkpoint_override=args.checkpoint_override,split=args.split,
+        observation_version=args.observation_version,
+        fresh_count=args.fresh_count,fresh_seed=args.fresh_seed)
 
 
 if __name__=='__main__':main()
