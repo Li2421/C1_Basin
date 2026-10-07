@@ -1,0 +1,12 @@
+Source audit: the existing four-formulation factorial cache contains two physical scenes (Toy GiveWay and Ring Exchange), eight candidate states per scene, four formulations (TT/TF/FT/FF), and 16 exact 3D eta points shared by all formulations within each scene. The separate Four Way Intersection dataset has one physical scene and is not a TT/TF/FT/FF factorial dataset; it is not used to fabricate two additional scenes.
+
+Membership: use the already established B15 criterion (at least 15 scientific successes among the fixed 16 continuation seeds). The one state with an unresolved B15 membership in any of its four formulations is excluded from candidate ranking so each selected state has all 16 points classified under all four formulations. The four panels show only formulation-specific basin membership; gray points are non-robust and vivid panel-colored points are robust. No rescue/break decomposition is used.
+
+Deterministic ranking: rank states by (1) total pairwise Hamming distance across the six formulation pairs and 16 shared eta points, descending; (2) number of formulations with at least 5 robust eta, descending; (3) number of formulations whose robust point cloud forms a full-rank 3D convex hull, descending; (4) number of distinct formulation-specific 16-bit basin patterns, descending; (5) number of distinct four-formulation membership patterns across eta points, descending; (6) minimum robust count across formulations, descending; then state_uid ascending. The top five classifiable states per scene are recorded; rank 1 is selected. This is for illustration only.
+
+The four formulations use the exact same eta coordinates, axis limits, camera angle, point index set, and B15 threshold within each scene. Robust points are larger and opaque, non-robust points are smaller and muted gray, and the figure has larger panel labels and a shared legend. Hulls are shown only when the selected formulation cloud has at least four points, full affine rank three, and a valid convex hull. Hulls are visual envelopes of sampled robust interventions, not certified continuous basin boundaries. The CSV tables retain every point index and exact coordinate.
+
+Toy GiveWay: family_v2_toy_195; robust counts TT/TF/FT/FF=4/8/4/10; hulls=4/4.
+Ring Exchange: family_v2_ring_dev_20261108; robust counts TT/TF/FT/FF=3/5/2/5; hulls=2/4.
+
+Only two physical scenes are present in this factorial dataset. No extra eta points, rollout, or model training were added.

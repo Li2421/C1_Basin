@@ -1,0 +1,51 @@
+# Success Basin C1: core-hypothesis adjudication
+
+## Executive conclusion
+
+The scientific object is the **successful set** \(\mathcal B(h,c)\), equivalently its seed-conditional feasibility field \(Q(h,\eta,c)\) when seed and controller semantics are fixed. A distribution \(q(\eta\mid h,c)\) is a proposal mechanism for that set, not evidence for a unique \(\eta^*(h)\). The present results do **not** support a universal deterministic \(h\to\eta^*\). They support real state dependence in hard Toy regimes, but strong global/scene-level eta preferences in the measured DB, Ring, and Four-Way panels. The existing shared state-aware critic has no demonstrated strict LOSO advantage over eta-only.
+
+Verdicts: `H_TO_FEASIBLE_SET_SUPPORTED` + `STATE_DEPENDENCE_ONLY_IN_HARD_REGIMES` + `GLOBAL_ETA_PREFERENCE_DOMINATES` for much of the current measured support. `CURRENT_H_NOT_INFORMATION_SUFFICIENT` is **not established**; cross-controller sufficiency remains `UNDERRESOLVED`.
+
+## Direct tests of whether state changes eta preference
+
+The fixed-eta panels in `orthoflow3_fixed_eta_state_to_q_identifiability_v2` were chosen using TRAIN outcomes and TEST coverage metadata, not TEST outcomes. We compared the *same exact eta UIDs* on distinct TEST source families with at least 16 compatible exact seeds per cell and one authoritative controller per scene. A reversal requires opposite empirical eta gaps of at least 0.25 in two states. Per-comparison 95% exact binomial intervals were checked as an additional descriptive sensitivity analysis; they are not corrected for multiple comparisons.
+
+| Held-out panel | Independent states | Full exact state–eta cells | Eta pairs with informative comparisons | Pairs reversing order across states | TRAIN-mean eta-only pair-order accuracy |
+|---|---:|---:|---:|---:|---:|
+| Toy | 32 | 427 | 122 | 49 | 76.0% |
+| DB | 16 | 192 | 21 | 0 | 100.0% |
+
+All 49 Toy reversing eta pairs also have at least one opposite-side witness in each direction with nonoverlapping individual 95% binomial intervals. They involve all 32 TEST states. This is strong evidence that *some* Toy feasible-set preferences are genuinely state-dependent, despite a strong common eta. It is not a claim that every state requires adaptation; the fixed common eta already covers 180/200 on the archived Toy hard cohort. On a separate fixed-eta test, Toy state-aware MLP improved MAE from per-eta constant 0.357 to 0.080 and ordered failure-versus-robust states correctly 97.9%; kNN MAE was 0.129. That is direct evidence that the Toy state representation contains useful within-scene information. DB's 0 reversals mean only that this particular 12-probe panel is globally ordered; it lacks robust/failure transitions needed to rule out state dependence on harder DB states. Existing 8-state Ring and Four-Way shared-eta probes also found no clear reversals, but their small support does not prove global absence.
+
+Toy's archived generator K16 oracle covers 194/200 versus fixed common eta 180/200. That proves a proposal *set* has value on some states, not that the Gaussian proposal depends correctly on \(h\). To intervene on state conditioning without retraining, we transferred the frozen generator's sample-0 eta from a different source family onto each of 67 prespecified Toy recipient states, using matched Q16 seeds. Native 40/67 B15, donor 35/67 (14 paired rescues, 9 breaks; exact paired p=.405); fixed common 59/67. Native mean Q16 exceeds donor by .075 with state-bootstrap 95% CI [−.053,.203]. Thus there is at most weak evidence of useful state personalization in this single-sample diagnostic; it does not establish the K16 state-conditioning contribution. These states were previously analyzed, so this is a mechanism test, not new independent generalization confirmation.
+
+## Why adding state hurts zero-shot transfer
+
+The repaired partial-count strict LOSO results remain frozen:
+
+| Target | State-aware shared | Source-only eta-only | K16 oracle |
+|---|---:|---:|---:|
+| Toy | 36/48 | 42/48 | 48/48 |
+| DB | 13/24 | 14/24 | 24/24 |
+| Four-Way | 21 confirmed + 3 unresolved /24 | 24/24 | 24/24 |
+| Ring | 0/60 | 27/60 | 60/60 |
+
+**1. Physical and joint support failure is directly observed.** In every fold, all target states lie above the source leave-family nearest-neighbor 95th-percentile distance; Ring's target median physical distance is 10.07 versus source 95th percentile 0.691, and source scenes have no Ring curvature. Eta marginal distance is much smaller (Ring median 0.149), so a flexible state-aware function must extrapolate much further in physical/state–eta space than eta-only. This is association, not proof that increasing source coverage alone would fix transfer.
+
+**2. The learned extrapolated eta ordering itself is wrong on Ring.** Source held-out VAL shows that state-aware conditioning can lower partial-count NLL and separate observed successes from failures substantially better than eta-only (Ring fold source Toy/DB/Four-Way VAL NLL: shared .262/.094/.036 versus eta-only .549/.348/.374). Yet Ring target selected predictions average .9997 while empirical Q is only about .019–.033, all 60 high-confidence picks fail B15. In 20 outcome-blind permutations of Ring state inputs with candidates fixed, selection remains 0/60 and 97.3% of top-1 indices stay unchanged. Averaging the shared score over *source TRAIN physical states*, rather than Ring states, also selects 0/60. Therefore it is inaccurate to explain Ring solely as an incorrect state-specific adaptation on each Ring state: the source-trained network induces a globally poor ranking of those Ring proposals. Source-only eta-only reaches 27/60 and target-supervised references are much stronger, consistent with scene-dependent eta preference. These state-input substitutions are functional diagnostics, not physically valid alternative simulator states.
+
+**3. Missing controller-response conditioning or noninvariance is plausible but unproven.** The unified entity input includes current agent geometry, goals, current frozen Flow reference, safety margins/monitor settings, and time. It does **not** encode the Flow checkpoint or the mapping from nearby physical states to future Flow/safety responses. Distinct frozen controllers can agree on the current reference while diverging later, so a scene-independent \(Q(h,\eta)\) need not be identifiable from this input. However the existing cross-scene physical supports scarcely overlap; no matched near-identical \((h,\eta)\) under two controllers with discordant Q has been established. Joint supervised Ring 58/60 demonstrates that this representation/network can fit target labels when exposed, but does not prove a common invariant law. Controller-context insufficiency and fundamental noninvariance therefore remain **underresolved**, not established causes.
+
+The early-stop negative-label omission was a real historical supervision bug, now repaired; the source failure fit improved, but Ring zero-shot stayed 0/60. It is therefore not a sufficient explanation. Model capacity alone is also not favored by the strong supervised fit. The observations do not establish that a transferable state–eta law is impossible; they establish that the current source-only model does not learn one on these folds.
+
+## Most defensible next formulation and discriminating evidence
+
+Represent the target as \(\mathcal B(h,c)\) or a calibrated \(Q(h,\eta,c)\), where \(c\) includes the relevant frozen-controller/scene response semantics. Use a context-level successful-eta prior and permit a **small, evidence-gated state-dependent residual** in regimes with held-out ranking reversals or fixed-eta failures. A continuous proposal distribution may approximate this set; its variance/multimodality are empirical capacity choices. Do not train against one arbitrary eta label, and do not claim a universal raw-eta ordering. This is a hypothesis for the next model, **not** a validated replacement pipeline.
+
+Two minimal future discriminators, not executed here: (i) compare the same exact eta probes across multiple independent source families in each scene, especially fixed-fail DB/Ring cases, to see whether state ranking reversals survive independent Q16/Q32 labels; (ii) a pre-registered matched-controller-response test: same physical state, eta and seed protocol under two compatible frozen Flow/safety variants, with current Flow response and short local response signature recorded. That separates merely absent source support from missing controller conditioning. New untouched LOSO confirmation cohorts are required before any improved model is called zero-shot successful; the archived targets have been examined repeatedly.
+
+## Integrity and reproduction
+
+No architecture, generator checkpoint, critic checkpoint, hard-safety semantics, or success definition was changed. The new Toy intervention requested 1,072 continuations; cache preflight found 0 exact/partial/aggregate reusable and 1,072 genuinely missing. It ran 1,072 matched continuations with zero collision/numerical failures, wrote 15 append-only journals, merged them into the global SQLite DB, and postflight found all 1,072 `EXACT_REUSE`, zero missing/ambiguous/incompatible. New rollout count: **1,072**. The preflight's `INCOMPATIBLE` status for an unknown state–eta key was separately checked against 67 known state/controller identities; it meant absent pair rather than a mismatched physics signature.
+
+Frozen sources: `orthoflow3_loso_partial_count_v1/final_report.txt`, `orthoflow3_loso_root_cause_v1/support_by_fold.csv`, `orthoflow3_state_eta_interaction_v1/REPORT.md`, `orthoflow3_fixed_eta_state_to_q_identifiability_v2/final_decision.json`. Local artifacts: `protocol.json`, `heldout_reversal_summary.json`, `heldout_reversal_witnesses.csv`, `source_VAL_state_value.csv`, `target_state_interventions.csv`, `source_h_marginal_result.json`, `generator_swap_manifest.json`, `generator_swap_paired.csv`, `generator_swap_summary.json`, `cache_preflight_generator_swap.json`, and `cache_postflight_generator_swap.json`. Rerun the read-only reversal audit with `python diagnostics/orthoflow3_core_hypothesis_audit_v1/reversal_audit.py` in the Basin_C1 root using the project environment.

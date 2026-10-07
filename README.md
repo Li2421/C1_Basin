@@ -3,6 +3,10 @@
 本仓库保存双机器人 GiveWay 的共享环境、冻结 Flow-BC 基线、联合欧氏安全投影、
 deadlock monitor、终止逻辑和两条相互隔离的 C1 研究路线。
 
+场景级新代码使用 `toy_giveway/` 命名空间；历史实现继续保留在
+`single_integrator/` 作为单一真源和完整向后兼容路径。该整理没有复制或修改物理、
+Flow-BC、安全投影、事件或终止逻辑，详见 `toy_giveway/README.md`。
+
 分支职责：
 
 - `main`：清理后的共享 C1 基线，不提供任何研究路线的默认算法入口。

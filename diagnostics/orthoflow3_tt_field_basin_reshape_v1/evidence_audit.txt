@@ -1,0 +1,183 @@
+Evidence and execution audit — TT/Field robust basin reshaping
+
+1. Actual formulation and exact question
+
+Authoritative controller files are in the sibling frozen worktree:
+/home/zhihan/research/Basin_C1_flow_field_poc_20261004/poc/field_controller.py
+/home/zhihan/research/Basin_C1_flow_field_poc_20261004/validation_v2/adapters.py
+/home/zhihan/research/Basin_C1_flow_field_poc_20261004/validation_stage2/factorial_controller.py
+
+The first letter denotes safety location, the second correction location.
+TT = terminal safety and terminal correction: P_U(P_U(native_Flow(x,xi))+g_eta).
+FF = field safety and field correction. At a fixed physical state, let h denote
+the physical action-space Flow iterate (not the state-conditioning feature h
+of earlier reports), s the pseudo-time and delta the anchored physical correction.
+The proposed vector field is u_theta(x,h,s)+delta. Its admissible projection is
+  w = [P_U(h + (1-s)(u_theta+delta)) - h] / (1-s).
+Each Euler update h += ds*w is implemented as a convex interpolation toward the
+projected point. At the final step it reaches the certified action set. FF applies
+no additional terminal correction or clip, only a hard-safety assertion.
+
+TF integrates correction within the Flow, without field safety, and projects the
+terminal result into the same hard-safety set. FT integrates field safety with
+zero correction, then adds delta and applies the mandatory terminal closure.
+The basis is OrthoFlow3: goal, Flow-perpendicular, relation. Every formulation
+recomputes the same basis rule from its own physical state and native safe Flow
+reference each physical step. At the same physical state and seed the anchored
+delta agrees; after trajectories diverge, state-dependent values appropriately
+diverge. Eta is held across the episode; the physical lifting is held through
+one pseudo-time integration. No extra gain rescaling, training or proposal
+selection is introduced by this analysis.
+
+TT->FF therefore measures the full formulation change. It does not alone isolate
+correction relocation from safety relocation. The existing TT->TF and FT->FF
+factorial contrasts supply that control. FT's terminal closure and TT's native
+decoder/clipping prevent a claim of perfect abstract factor orthogonality.
+Eta-zero matched controls and archived integration refinement constrain these
+issues; they do not prove that all implementation mechanisms are eliminated.
+
+2. Primary cache and sampling choice
+
+diagnostics/orthoflow3_tt_ff_matched_learnability_v1/plan.json and design.py froze
+all source/TEST families before eligible outcomes. This analysis takes EVERY
+TEST state, 16 Toy and 16 Ring, and EVERY one of the 16 shared Sobol interventions.
+No TRAIN Q4 labels, selected proposals, critic scores, oracle eta or promoted
+positive subset enters the primary basin table. State-specific generator K16
+proposal pools would define different eta measures per state and are excluded.
+
+Toy positions are drawn from the original WIDE-IC uniform distribution with
+independent absolute x in [0.55,1.05], y in [-0.025,0.025], zero velocities and
+fixed goals. Ring draws use native development sample_instance and frozen config.
+The TEST states are fresh to those source families and disjoint from family_v2;
+their outcomes have since appeared in reports. This reanalysis is retrospective.
+
+The scrambled Sobol bank has m=4, dimension3, seed202610042; eta domain is
+[0.5,1.25] x [-0.5,0.5] x [0,0.75]. It was frozen before family_v2 outcomes and
+then inherited without changing coordinates by the matched-learnability study.
+The bank is reconstructed bit-for-bit. One common bank does not quantify Sobol
+integration uncertainty across randomized scrambles. The exact primary estimand
+is a discrete, equally weighted robust fraction, with state sampling uncertainty.
+These points are not a dense mesh and justify no interpolated boundary or holes.
+
+3. Continuation, seeds and robust criterion
+
+Current experiments start at true t=0 with native empty monitors. No current Flow
+probe is a committed first action; every physical step samples native Flow.
+Physical time and remaining horizon are preserved, max_steps Toy850/Ring700,
+dt0.05. Each scene retains its native goals, collision checks, success thresholds,
+termination protocol and certified hard-safety tolerances in both branches.
+
+Historical CONTINUATION_CONTRACT.md distinguishes committed and uncommitted
+probes and warns that old snapshots cannot silently be reset to t0. The current
+paired protocol follows its own explicit true-t0 contract; it is not relabeled
+as the earlier committed-controller experiment. Future_root2026100403 and each
+state's alias-derived namespace differ from some default shared DB seed roots.
+Only exact root/namespace/index/controller matches are read; logical seed number
+alone never authorizes reuse. Controller UIDs remain separate for TT and FF.
+
+The primary Toy controller has JAX x64 enabled, Ring disabled; both branches agree
+within each scene. Physical projection uses NumPy float64. Historical family_v2
+had its own frozen precision context; its state cohort is reported separately,
+never merged with the primary cohort to manufacture a common precision contract.
+
+B15 is at least15 scientific successes among16 prespecified slots. Numerical
+failure is unknown, not non-success data. Store [s/16,(s+u)/16] and membership
+intervals. Primary TT/FF cells are all resolved despite46 numerical attempts.
+Factorial FT has one ambiguous B15 cell; all assignments are enumerated for
+conservative metric and test bounds. B14/B16 sensitivity likewise retains their
+remaining ambiguous classifications. No aggregate Q64 observation is invented
+as a particular Q16 seed label; no Q4 cell is promoted to a robust basin label.
+
+4. Read-only provenance verification and minimal rollout decision
+
+The authoritative global DB is shared_rollout_db/rollout.sqlite. Primary keys
+are exact state content, float64 eta identity, controller UID and serialized
+root/namespace/seed key. Every expected record is checked against its immutable
+journal, raw-record hash, controller payload, source-file hash, success flags,
+original canonical TEST key list and frozen test_truth.npz. Dependency and
+checkpoint hashes, executable smoke results and matched configuration equality
+are checked. No nearest-eta or alternate-controller label reuse is performed.
+
+Factorial data are in the isolated family_study_v2/rollout.sqlite. Case IDs are
+rederived from the full frozen task, each raw JSON hash and content is verified,
+and all per-state counts are independently reconciled with archival analysis.
+An outcome-blind subset (eta index0, seed0 for all16 states/all4 chains) also
+checks raw trajectory initial positions and shared physical-step noise keys,
+96 cross-chain comparisons. The historical postflight checked all traces.
+
+All33,792 records needed for primary, factorial and zero controls already exist.
+No unattempted records or ambiguous identities remain. All primary endpoints
+are identifiable despite numerical attempts, so the minimum additional rollout
+count is ZERO. No cached numerical attempt was retried to improve a table.
+SQLite is opened with mode=ro and query_only=ON. The analysis writes only into
+this new diagnostic directory and exports a portable compressed seed-level table.
+
+5. Existing reports: included, contextual, or excluded
+
+orthoflow3_core_hypothesis_audit_v1/final_report.md: Toy49 eta-pair ranking
+reversals across32 TEST states show state dependence, not TT/Field relocation.
+orthoflow3_controller_conditioning_probe_v1/final_report.md: eight16/16->0/16
+controller-swap cases establish future checkpoint dependence at fixed current
+conditioning. They change the base controller, not TT versus FF, and are excluded
+from this effect estimate.
+orthoflow3_t0_basin_shape_v1/final_report.md: useful state-conditioned geometry
+context, empirical samples only. Its morphology discussion supplies no evidence
+for a TT/FF volume comparison or topology claim here.
+success_basin_deformation/audit_report.md and its decomposition/refinements:
+J_def measures executed-action deformation, not success-set symmetric difference.
+Minimizing that cost is not equivalent to expanding a basin.
+
+Sibling validation_stage2/REPORT.md: matched frozen generator proposals gave Toy
+40->26 robust candidates, Ring4->7, DB48->48 and Four31->32. This is material
+opposite-direction evidence under another state/proposal distribution, preserved
+explicitly in the scope limitation. It prevents universal enlargement language.
+
+Sibling family_study_v1/REPORT.md: seven difficult states selected by a TT-only
+Q4 failure/non-saturation screen. Although the design preceded Field outcomes,
+the requested current question forbids TT-failure-focused cohort selection.
+It is contextual evidence only; none of its states is in either present cohort.
+
+Sibling family_study_v2/protocol.json, analysis.json, decision.json: all16
+prespecified independent-study states and16 shared Sobol eta are reusable. Its
+Toy states were outcome-blind hash selections within a prior archived hard
+cohort, so this is a bounded secondary distribution, not the fresh WIDE-IC
+primary population. The often quoted49->88 is TT->TF, not TT->FF (49->100).
+The four-way record allows correction/safety attribution without any new task
+execution. Zero/center auxiliaries are excluded from the volume measure.
+
+orthoflow3_field_transfer_small_v1/paper_evidence.json already summarized TT/FF
+direct gains, but its robust boolean alone could in principle hide unresolved
+cells. This audit returns to raw seeds, verifies no ambiguous primary B15 cells,
+and adds complete membership tables, state prevalence, conservative sensitivities,
+paired statistics and unbiased representative/all-state figures.
+
+Learnability/critic accuracy reports answer whether a model learns the basin,
+not whether the underlying controller formulation changes it. Their performance
+is not used to choose states, eta or the present scientific decision.
+
+6. Inference and remaining scope
+
+State/source family is the independent inference unit. Bootstrap resamples
+whole states and keeps all eta/seed dependence intact; scene-stratified pooled
+resampling keeps the50/50 Toy/Ring target mixture. The primary exact sign test
+uses per-state net robust-count changes, with ties reported. The supplemental
+whole-state sign-flip test assumes sign exchangeability/symmetry; it is not a
+random-treatment-assignment test. Neither a pooled512-cell McNemar test nor
+rollout-level binomial standard errors are used for the main effect.
+
+Separate exact matched-seed tests, Holm-corrected across512 cells, support actual
+outcome changes beyond anecdotal threshold crossings. They condition on common
+scientifically valid slots and do not establish general missingness assumptions.
+Seed resampling is a descriptive stability check conditional on the same finite
+seeds; it cannot certify a latent population success probability. Thresholds14,
+15 and16 are all shown, without selecting the most favorable definition.
+
+The report's strongest allowed decision denotes net empirical expansion, not
+set inclusion:16 primary breaks and two states with volume decreases are real.
+There is no connectedness, topology, hole, safety interpolation or continuous
+Lebesgue-volume claim. A broader claim over the continuous box would require
+new independently scrambled eta banks and corresponding new paired labels;
+those are unnecessary for the explicitly empirical target in this request.
+
+Reproduction and full paths: reproduce.sh; artifact_inventory.csv lists every
+local output; source_hashes.json lists every verified original source path.

@@ -1,0 +1,3 @@
+# Existing B63 manifold representation audit
+
+This is an offline-only comparison. It accepts only the prior exact B63 clouds and does not execute controller code, submit GPU work, query eta, or train a network. Independent Sobol B63 points are held out whenever at least 8 exist. Otherwise a deterministic SHA256 eta-key 80/20 construction-point split is explicitly secondary evidence. R0 is PCA affine 2-D; R1 is its quadratic normal graph with ridge alpha=0.0001; R2 is deterministic farthest-first Lloyd K-means plus local PCA planes for K=2,3,4, selected by train-only BIC proxy n*log(MSE)+6K*log(n); R3 is a held-out local k=8 PCA diagnostic ceiling. Tube thickness is empirical B63 support only, never a verified success claim.

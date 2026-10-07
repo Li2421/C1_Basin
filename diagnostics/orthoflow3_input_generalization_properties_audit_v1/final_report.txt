@@ -1,0 +1,240 @@
+Success Basin C1: input properties and why state-aware LOSO underperforms eta-only
+
+Conclusion
+----------
+The current input has useful cross-scene structural properties, but it is not
+established as a sufficient statistic for closed-loop feasibility or as an
+identifiable target mapping from the three source scenes. These are separate
+requirements. Current failure does not prove that a controller-conditioned Q
+can never generalize.
+
+This audit used existing frozen checkpoints, candidate pools and compatible
+outcome evidence. It ran 24 frozen model replays and diagnostic branch/input
+substitutions, with zero new training and NEW ROLLOUT=0. All 24 replays reproduced
+saved logits exactly. No production model, normalization, label, or historical
+LOSO result was changed. Target labels had already been opened: all new
+substitutions below are post-hoc mechanism tests, not new confirmation scores.
+
+What would a generalizable input need?
+------------------------------------
+Let w denote the full physical state, environment, controller, monitor memory,
+horizon, and stochastic continuation semantics. Let z=phi(w) be the supplied
+physical entities and controller summary. A representation sufficient for Q
+would satisfy:
+
+  phi(w1)=phi(w2) => Q(w1,eta)=Q(w2,eta)
+
+over the intended admissible controllers and scenes. Equivalently, scene or
+controller identity should supply no additional success information once
+z and eta are known. This is a property of the represented physical system,
+not of tensor shapes or neural network capacity.
+
+Learning that map from three source scenes also requires evidence or justified
+physical restrictions connecting source inputs to target inputs. Overlapping
+support is a sufficient route, not a universal mathematical necessity: an
+appropriate mechanistic model can extrapolate. The current generic learned
+MLP, however, is not supplied with such a transfer guarantee.
+
+A concrete non-identification example occurs in the Ring fold. Curvature and
+the curved-obstacle indicator are identically zero in all source obstacle
+entities. For any candidate logit function f(z,eta), adding a term that vanishes
+when curvature=0 but changes eta ordering on curved geometry leaves every
+source prediction/loss unchanged. Source TRAIN/VAL alone cannot identify which
+extension is correct on Ring. More expressive networks do not remove this
+ambiguity. They require additional data or defensible structural restrictions.
+
+Properties already established
+------------------------------
+* Shared physical schema, variable entity masks and counts, shared entity
+  encoders, goal-relative vectors, time/monitor fields, and common eta basis.
+* Archived permutation/passive-coordinate/mixed-padding checks pass. The
+  Toy integration basis-equivalence error was zero; mixed-padding error was
+  7.45e-9. Native CPU/GPU checks passed. These are useful symmetry/interface
+  properties, not evidence of invariance across different future controllers.
+* New replay of every H8 structured/contrast checkpoint, three seeds by four
+  folds, matched stored target logits with maximum error zero.
+* Current normalization uses fixed physical units and source-only eta/context
+  statistics. There is no target-trained normalization or explicit scene ID.
+
+Properties missing or unestablished
+----------------------------------
+1. Original (h,eta) sufficiency has strong direct counterevidence: a matched
+   future-controller swap with h error 5.97e-16 caused eight of 64 pairs to go
+   from 16/16 to 0/16; nine comparisons passed the recorded Holm-adjusted
+   significance check. This establishes an omitted-controller problem for
+   that admissible controller family, not that it alone causes every LOSO loss.
+2. Sufficiency of richer C remains UNDERRESOLVED. H8/H20 summarize only short
+   trajectories, often by means/extrema/integrals; probe stochastic dispersion
+   is saved but not given to the H8 critic. Nominal context does not encode the
+   candidate's future response. Even eta-conditioned finite probes do not in
+   general specify controller behavior after leaving the probed states.
+   Thirty Ring matched comparisons have |delta Q16|>=.75; 24 are close under
+   the chosen H20 metric, 23 under H100 nominal, 22 under the short function
+   signature. These are poor smoothness/metric diagnostics. They are NOT exact
+   augmented-input collisions and do NOT prove that every function of C is
+   non-identifiable. A small distance or low distance/Q correlation alone is
+   insufficient for that conclusion.
+3. Source coverage is inadequate for identifying Ring extrapolation. Current
+   source TRAIN contains no curved obstacles. The raw target curvature channel
+   ranges from -1.23077 to 4.44444 after fixed unit scaling, versus exactly zero
+   in source. The curved flag is 1 versus source 0; policy-axis-required is 0
+   versus source 1. The two zero source channels give their first Dense kernel
+   rows zero data gradient (apart from regularizer effects), so their target
+   effect was never learned from curvature variation. Source controller H8
+   support also misses Ring: every one of 60 targets is outside the source
+   1--99% envelope on at least three channels (median five).
+4. No explicit scene ID does not ensure the absence of a scene shortcut. Agent
+   count, obstacle count/curvature, speed, horizon, chart/monitor flags almost
+   identify these fixed scenes. These quantities are physically legitimate;
+   removing them indiscriminately would also remove relevant information. The
+   problem is a lack of varied physical/controller regimes breaking their
+   correlations with eta preference. Matched Flow interventions provide some
+   such variation, but only in a small set of closely related controllers and
+   source families. They do not create Ring-like source geometry in the Ring
+   LOSO fold.
+5. The scene encoder pools learned messages to 128 dimensions. Permutation
+   compatibility and no observed exact embedding aliases do not establish
+   injectivity or retention of all long-horizon-relevant interaction structure.
+
+New functional evidence: where wrong rankings are created
+---------------------------------------------------------
+The frozen structured model is z=B(eta,C)+I(h,eta,C), where z is a logit. Removing
+one branch at inference identifies its effect inside this fitted network.
+Branches were jointly trained and are not uniquely identifiable causal
+components: I also sees eta/C and need not be a pure state residual; B includes
+state-derived context. B-alone is not the separately trained eta-only model.
+
+Toy, same target K16 pools, independent training seeds 17/23/41:
+
+                         Full        B(eta,C) alone
+  structured_full        34,31,33     41,40,41 /48
+  contrast_full          33,31,34     40,41,42 /48
+  frozen eta-only                    42/48 source-selected
+
+All six networks improve when the branch containing full state interaction is
+removed. This directly supports harmful learned extrapolated ranking in this
+implementation, not a claim that physical state is intrinsically harmful.
+Toy was already known to have real fixed-eta state dependence: 49/122
+informative eta pairs reversed order across 32 held-out states, and a fixed-eta
+state model improved MAE .357 -> .080. The signal exists inside Toy; the learned
+three-scene interaction does not transfer it.
+
+Ring is different. The source-selected structured checkpoint is seed23:
+
+  full:                  0/60, selected mean logit 24.249
+  prior B alone:         0/60, selected mean logit 19.270
+  interaction I alone:   0/60
+  separate eta-only:    27/60
+
+At the full model's chosen proposals, mean prior contribution is +19.136 and
+mean interaction contribution is +5.113. Predicted p is effectively one, while
+the cached empirical Q16 interval averages .0094--.0302. Thus Ring is not
+explained solely by an interaction branch corrupting an otherwise correct
+prior. The learned context-dependent prior already makes the wrong ordering.
+Prior-only Ring counts for structured seeds are 0,0,12; contrast seeds 0,0,0.
+
+Two diagnostic input substitutions sharpen the interpretation:
+* Resetting Ring-only curvature/curved channels to zero, or resetting all raw
+  source-constant novel channels to source values, leaves the selected model
+  at 0/60. The unsupported curvature channels are real, but their direct random
+  contribution is not a sufficient explanation of the failure.
+* Replacing C by the source TRAIN mean still gives the full structured models
+  0,0,4/60. Prior-only under that substitution gives 0,4,42/60. The large
+  seed dependence precludes treating this as a repair. It shows that learned
+  prior/context routing and interactions matter, not one faulty input field.
+
+These substitutions can violate physical input consistency and are not
+deployment proposals. No target outcome selected a new checkpoint or model.
+
+Why eta-only can be better
+-------------------------
+Eta-only estimates source-marginal eta preference. The state-aware model can
+reduce source likelihood loss by conditioning on geometry/controller variables
+that track scene and eta outcomes. That conditional advantage only transfers
+if the learned conditional relation remains valid in the target regime.
+
+Archived Ring-fold source VAL shared NLL .262/.094/.036 (Toy/DB/Four) improves
+over eta-only .549/.348/.374, so the state branch has not simply failed to fit
+source labels. On unseen Ring the conditional extension is wrong. Eta-only
+cannot take that particular high-dimensional extrapolation path, which makes
+it the stronger current lower-complexity baseline, although 27/60 is still far
+from oracle 60/60. It has no universal lower-bound guarantee.
+
+The old physical-support audit is consistent: target Ring median state distance
+10.07 versus source leave-family p95 .691, while eta distance is only .149.
+Those values depend on the registered metric and are support diagnostics, not
+a theorem that distance causes Q errors.
+
+Source early-stop negative omission was a separate real bug. After repair,
+source Four negative mean prediction fell .9157 -> .0274 and source NLL improved,
+but Ring stayed 0/60. Missing negatives alone is therefore ruled out as a
+sufficient remaining cause. Joint supervised Ring58/60 and target-label
+adaptation establish fitting capacity when target support is supplied; they
+do not validate a transferable invariant. Two Ring TRAIN families gave
+eta-only47/60 on all three seeds versus adapted state-aware44/47/47. This is
+post-hoc evidence for a strong scene-specific eta prior, not zero-shot evidence.
+
+Interpretation of confidence and input use
+-----------------------------------------
+A sigmoid near one is a fitted probability, not a measurement of epistemic
+certainty. Source NLL does not calibrate arbitrary target inputs. Selecting
+the maximum among 16 proposals exposes the largest optimistic errors.
+Within-Ring state/context shuffle being ineffective also does not prove the
+network ignores every such input: all replacements share much of Ring's
+scene-level information. Branch/context substitutions demonstrate stronger
+effects when moving across regimes. Input-use claims must distinguish use as
+a scene/difficulty cue from correctly predicted conditional eta preference.
+
+Root-cause adjudication
+-----------------------
+HIGH: Source physical/controller support and conditional-shift limitation.
+  For: absent curvature supervision, disjoint physical neighborhoods, very
+  strong recovery from a few target families, source vs target fit contrast.
+  Against/limit: no matched source-support-expansion intervention yet proves
+  this alone repairs strict LOSO; eta-only also remains imperfect.
+HIGH (fitted-network behavior): Non-transferring conditional eta ordering.
+  For: six Toy branch removals improve, both Ring branches fail, source fit is
+  strong, Ring high-probability picks fail, no stable controller-reversal use.
+  Against/limit: functional ablations do not uniquely assign causal blame to h
+  or prove a particular optimizer/architecture is the unique cause.
+HIGH for original h; UNDERRESOLVED for richer C: Missing long-horizon controller
+  information / summary sufficiency.
+  For: matched exact-h future-controller intervention; compact probes omit
+  unvisited future behavior and lose temporal/entity detail.
+  Against/limit: no exact identical augmented (h,eta,C) with a certified
+  different Q has been demonstrated; richer C failure may still be learning.
+
+Not supported: theoretical impossibility of all cross-scene Q; no state signal;
+generator coverage as the cause of these perfect-oracle-pool selection losses;
+a newly discovered train/inference normalization or sigmoid-tie bug. The
+current audit reproduced all24 frozen logits exactly, and historical interface
+tests passed. This does not claim exhaustive verification of every simulator
+component.
+
+Two decisive remaining experiments, not launched in this audit
+-------------------------------------------------------------
+1. A source-only held-controller-out matched design with the same eta probes
+   across independent source families and controllers. Test whether a frozen C
+   predicts Q/ranking changes when controller identity is held out, using
+   eta-only/additive controls. Failure here precedes any credible LOSO claim.
+   Existing matched diagnostics show this gate is not yet passed; repeating
+   the same narrow checkpoint variants without new information is low value.
+2. A predeclared source physical-support intervention (e.g. curvature and
+   controller response varied independently within TRAIN), keeping critic/C
+   fixed, followed by a new untouched target confirmation set. Improvement
+   would support coverage; persistent failure despite covered response regimes
+   would increase concern about C sufficiency/learning. No target TEST tuning.
+
+Reproduce
+---------
+From /home/zhihan/research/Basin_C1:
+JAX_PLATFORMS=cpu OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 \
+  /home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python \
+  -m diagnostics.orthoflow3_input_generalization_properties_audit_v1.audit
+
+Outputs: input_support_properties.json, replay_checks.csv,
+branch_contributions.csv, functional_diagnostics.csv, protocol.json.
+Inherited evidence: orthoflow3_controller_intervention_generalization_v1,
+orthoflow3_controller_conditioning_probe_v1, orthoflow3_loso_partial_count_v1,
+orthoflow3_core_hypothesis_audit_v1, orthoflow3_unified_representation_v1,
+orthoflow3_cross_scene_zero_shot_v1, orthoflow3_loso_root_cause_v1.

@@ -1,0 +1,62 @@
+Success Basin C1: early-stop supervision repair and strict LOSO replication
+
+VERDICT: NOT_SUFFICIENT / NEGATIVE_SUPERVISION_FIX_INSUFFICIENT.
+Discarding early-stop negatives was a real source-supervision bias. Retaining them fixes source failure learning but does not establish cross-scene state-eta generalization. No primary fold shows a stable state-aware advantage over its matched source-only eta-only model.
+
+FROZEN K16 RESULTS (checkpoint and seed chosen only on source VAL)
+Target | N | old shared | same old pairs/count-weighted | partial shared | partial eta-only | negative-binary shared | oracle
+toy | 48 | 30 | 31 | 36 | 42 | 32 | 48
+db | 24 | 20 | 22 | 13 | 14 | 13 | 24
+four | 24 | 21+3 unknown | 23+1 unknown | 21+3 unknown | 24 | 22+2 unknown | 24
+ring | 60 | 0 | 0 | 0 | 27 | 18 | 60
+
+Four-Way partial shared has 21 confirmed B15 and 3 unresolved, not three confirmed failures. Its oracle gap is 0..3; eta-only has 24 confirmed B15. Numerical unresolved records remain interval-censored and were never turned into binary successes/failures.
+Available-B15 selection lower bounds: Toy75%, DB54.2%, Four87.5% (upper100%), Ring0%. All four candidate-set oracles cover every state. Matched target-supervised same-input references remain Toy45/48, DB24/24, Four22/24+2 unknown, Ring47/60. The stronger historical Ring-only classifier53/60 and enriched joint58/60 remain target-supervised references, not zero-shot successes.
+
+SEED STABILITY (17,23,41; no TEST selection)
+toy shared: 36;37;30 B15; 0;0;0 unknown; mean=34.33, sampleSD=3.79; source-selected seed=17
+toy eta_only: 42;42;42 B15; 0;0;0 unknown; mean=42.00, sampleSD=0.00; source-selected seed=17
+db shared: 13;12;13 B15; 0;0;0 unknown; mean=12.67, sampleSD=0.58; source-selected seed=41
+db eta_only: 13;13;14 B15; 0;0;0 unknown; mean=13.33, sampleSD=0.58; source-selected seed=41
+four shared: 21;22;24 B15; 3;1;0 unknown; mean=22.33, sampleSD=1.53; source-selected seed=17
+four eta_only: 23;24;24 B15; 0;0;0 unknown; mean=23.67, sampleSD=0.58; source-selected seed=41
+ring shared: 0;0;6 B15; 0;0;0 unknown; mean=2.00, sampleSD=3.46; source-selected seed=17
+ring eta_only: 23;27;28 B15; 0;0;0 unknown; mean=26.00, sampleSD=2.65; source-selected seed=23
+Negative-binary Ring shared is 0/0/18 across seeds; selected18 equals its matched eta-only18 (9 rescues and 9 breaks). It is not stable shared-state transfer. Do not replace the preregistered primary model by a target-best diagnostic variant.
+
+PAIRED RESULTS / UNCERTAINTY
+Toy partial vs old:9 rescues/3 breaks, net+6, exact paired p=.146; vs matched eta-only:3/9, net-6. The modest old-baseline gain does not establish state benefit.
+DB partial vs old:2/9, net-7; vs same-weight full-data-only control:0/9, p=.00391. Adding source partial data hurts this held-out regime.
+Ring partial vs matched eta-only:0/27, p=1.49e-8. Four comparisons retain unknown status; no success/failure imputation. Exact paired tests and state-bootstrap intervals are descriptive, unadjusted across comparisons; no positive claim relies on them. Q16 is a finite-seed estimate, not the latent exact probability.
+
+DID THE SOURCE MODEL LEARN THE FAILURES?
+Yes. In Ring's source Four-Way VAL (3330 certified nonB15 pairs), negative mean prediction 0.9157 -> 0.0274; count-NLL 0.8792 -> 0.0356; B15 AUROC 0.7417 -> 0.9996.
+This directly contradicts the explanation that the repaired likelihood simply failed to ingest or fit the newly retained source failures. Source-VAL improvement is not counted as transfer success.
+
+UPPER-TAIL PATHOLOGY
+Ring partial selected mean predicted p=.999664; compatible empirical Q16 interval averaged over states=.01875..0333333. All60 selections have p>.95 and are nonB15; B15 precision in that tail is0. Count with p>.9 and Q upper bound<=.5 remains60/60 (old60). At p>.95 old59 -> new60. No improvement.
+The failure is not uniform across folds: Toy partial is underconfident (selected p mean=.360, Q=.824); DB p=.164 versus Q=.776. Thus simply correcting global calibration cannot explain/fix the cross-scene rankings. Complete tails and per-seed predictions are retained.
+
+SUPERVISION REPAIR / RETENTION
+47486 unique canonical state-eta-controller pairs, including42840 added verified early-stop records (33090 stop at second failure;9750 stop at15 successes). No unrun continuation has been imputed.
+TRAIN: Toy48 states/2876pairs/29780 observed trials unchanged; DB69/1518/16627; Four64/16985/83842; Ring64/16865/92041. Detailed TRAIN/VAL positive/negative/count/eta statistics:dataset_audit.csv.
+TRAIN nonB15 retention:DB142/823 ->823/823; Four12/13356 ->13276/13356 (99.40%); Ring23/12997 ->12733/12997 (97.97%). Residual exclusions include numerical/unresolved stopping, not fabricated low-Q labels. Full-Q16 low-Q evidence remains scarce: repaired Four/Ring still have0 fully measured Q16<=.5 pairs in these training pools. Their short records supply observed failures and a nonB15 certificate, NOT exact Q16.
+OLD_FULL_ONLY means the frozen old completed-budget builder, not literally every pair having16 trials: old Toy includes planned Q4/Q8 and stronger Q64. Old pair membership/outcomes/normalization/results were retained. The extra full_continuation control isolates changing W1 to exposure weighting on the same original pair pool.
+
+LIKELIHOOD AND SPLITS
+Primary loss is -s log p-f log(1-p), using only observed successes/failures. Per source, uniform pairs are sampled and their total likelihood is divided by the fixed source TRAIN mean exposure; equal-size scene minibatches make scenes equally weighted in expectation. Within-scene contribution is continuation-equivalent (n=4 has one quarter the exposure of n=16). All retained historical trials remain; no trial cap or invented completion.
+Known first-stopping-time logic was validated against seed identities. Exhaustive stopped-path tests show zero expected likelihood gradient at the generating Bernoulli p, while naive equal-pair stopped empirical rates are biased. This assumes conditional exchangeable Bernoulli seed outcomes; it does not remove adaptive eta acquisition or physical-support bias.
+Binary diagnostic uses -log P(nonB15|p) with P(B15|p)=p^16+16p^15(1-p), not false Q=0. Each negative event gets one exposure; partial positives are excluded in that diagnostic. Its information content/weight differs from the main likelihood, so it is not a pure one-factor comparison of negative presence alone.
+Shared physical model and eta-only network unchanged; seeds17/23/41; source-only AdamW and early stopping. Each held-out scene is excluded from training, sampler statistics, normalization and model selection. No source TRAIN/VAL family overlap; no confirmation state UID overlap. Legacy state identity qualities are disclosed in state_identity_audit.json rather than relabelled CONTENT_EXACT.
+Strictness scope: critic-only source-label LOSO under the inherited frozen schema. The historical schema and target candidate-generators have prior scene exposure. These repeated frozen benchmarks are not new untouched confirmation sets, and this is not whole-pipeline zero-shot.
+
+ROOT-CAUSE UPDATE
+Confirmed: label ascertainment badly distorted source supervision, and this repair learns the source failure regions. Not established: it was the main cause of LOSO failure. Removing it does not rescue Ring and can worsen DB.
+Most specific remaining mechanism: state-conditioned extrapolation outside source physical/controller regimes. The earlier support audit found absent Ring curvature and disjoint physical neighborhoods; source-local fitting now succeeds while held-out Ring remains confidently wrong. These findings favor support/learned-extrapolation limits, but do not causally separate missing controller-response conditioning from harmful inductive extrapolation. Representation/invariance failure remains UNDERRESOLVED, not proven.
+KEEP the audited representation and generator unchanged. Do not launch target-guided architecture/ranking-loss sweeps. No additional source-side intervention is claimed here: the primary transfer improvement criterion was not met. A future matched source physical/controller-response support intervention would distinguish support from missing conditioning; it is not executed or counted as evidence.
+
+COST / REPRODUCTION
+NEW ROLLOUT=0. DB read-only.39936 target seed slots queried;37472 exact-complete-pair seed records and2273 reusable partial-pair seed records =39745 valid observations;191 unresolved/missing slots retained, not rerun. No journals/merger writes are required because no new outcomes were generated.
+72 new small-model runs (3 variants x2models x3seeds x4folds); frozen old baseline reused. Jobs1728 training,1731 frozen evaluation,1750 source audit each used1GPU shard/2CPU. User authorized up to6 shards, not a utilization requirement. Audit1748 failed only for unavailable sklearn; scipy rank-based AUC replacement did not change models/labels.
+Reproduction: cwd=/home/zhihan/research/Basin_C1; Python=/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python; PYTHONPATH=cwd. data.py prepare is freeze-guarded; train.py --fold {toy,db,four,ring} --variant {full_continuation,partial_count,negative_binary}; source training is blocked after frozen target prediction exists. evaluate.py evaluate reuses frozen predictions and DB evidence; source_audit.py computes the matched source diagnostic; finalize.py writes this report. Slurm wrappers are included.
+Key artifacts: protocol.json, all_pairs.parquet, partial_count_semantics.csv, seed_semantics_provenance.csv, fold dataset_manifest/normalization/models_frozen files, checkpoint_inventory.csv, primary_summary.csv, seed_stability.csv, paired_comparisons.csv, source_failure_learning.csv, upper_tail_calibration.csv, target_supervised_references.csv, budget_audit.json, integrity_audit.json, artifact_hashes.json.

@@ -1,0 +1,18 @@
+{
+  "name": "Basin_C1_standard_16_matched_continuations_v1",
+  "logical_indices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+  "important": "These are logical future_index values, not raw PRNG seeds.",
+  "toy_semantics": {
+    "future_root": 2026092811,
+    "derivation": "fold_in(fold_in(PRNGKey(future_root), state token or namespace), future_index), then fold by physical step",
+    "evidence": "orthoflow3_true_t0_point_learning_v1/run_state_search.py and run_eval_shard.py"
+  },
+  "double_bottleneck_semantics": {
+    "future_root": 2026092907,
+    "derivation": "fold_in(fold_in(PRNGKey(future_root), rng_namespace), future_index), then fold by physical step",
+    "evidence": "orthoflow3_db_shared_mode_transfer_v1/run_db.py"
+  },
+  "reuse_rule": "Logical indices are reusable only with matching scenario, state, controller, future_root, namespace/token, conditioning and RNG semantics fingerprints.",
+  "routine_robustness": "B15 means at least 15 successes among these 16 compatible matched continuations. Q32/Q64 evidence is retained and never rerun by default."
+}
+

@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+#SBATCH --job-name=gphi-cadence6
+#SBATCH --partition=gpu
+#SBATCH --gres=shard:6
+#SBATCH --cpus-per-task=12
+#SBATCH --mem=80G
+#SBATCH --time=00:30:00
+#SBATCH --output=/home/zhihan/research/Basin_C1/diagnostics/gphi_fixed_cadence_ablation_v1/slurm-%j.out
+#SBATCH --error=/home/zhihan/research/Basin_C1/diagnostics/gphi_fixed_cadence_ablation_v1/slurm-%j.err
+
+set -euo pipefail
+
+root=/home/zhihan/research/Basin_C1
+out="$root/diagnostics/gphi_fixed_cadence_ablation_v1"
+py=/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python
+export PYTHONPATH="$root:$out"
+export XLA_PYTHON_CLIENT_PREALLOCATE=false
+export XLA_PYTHON_CLIENT_MEM_FRACTION=0.12
+export OMP_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+
+cd "$root"
+nvidia-smi --query-gpu=index,name,memory.total,memory.used,utilization.gpu --format=csv,noheader
+
+cadences=(4 4 8 8 16 16)
+starts=(0 64 0 64 0 64)
+stops=(64 128 64 128 64 128)
+pids=()
+for shard in 0 1 2 3 4 5; do
+  "$py" "$out/run_evaluation.py" \
+    --cadence "${cadences[$shard]}" --namespace production --device gpu \
+    --start-index "${starts[$shard]}" --stop-index "${stops[$shard]}" \
+    >"$out/cadence_shard${shard}.out" \
+    2>"$out/cadence_shard${shard}.err" &
+  pids+=("$!")
+done
+
+status=0
+for pid in "${pids[@]}"; do
+  wait "$pid" || status=$?
+done
+exit "$status"

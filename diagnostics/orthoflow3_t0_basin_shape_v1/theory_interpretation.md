@@ -1,0 +1,3 @@
+# Theory interpretation
+
+Define the population basin as `B(h)={eta:Q(h,eta)>=1-epsilon}` under fixed t0 conditioning and persistent eta. Exact equality of `B(h)` across distinct h is not theoretically expected. If closed-loop outcome probability is smooth in h and eta and a boundary is regular, nearby states can induce smooth deformations of a shared boundary family. Topology may nevertheless change near coordination-critical events, safety-projection active-set changes, or deadlock bifurcations. Thus the scientifically appropriate hypothesis is a shared representation family with state-conditioned geometry—not one universal fixed shape. None of these smoothness or regularity assumptions is proven here; the observed Q64 samples provide only empirical evidence.

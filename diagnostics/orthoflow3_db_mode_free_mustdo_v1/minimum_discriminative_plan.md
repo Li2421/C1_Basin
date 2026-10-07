@@ -1,0 +1,7 @@
+# Minimum DB fixed-fail cohort plan (not executed)
+
+The compatible global database currently has 180 DB state×controller profiles with complete standard-16 fixed-common outcomes; all 180 are B15. Eight additional profiles have 15/15 fixed successes, which already certifies B15 for any completion to 16 seeds. No compatible fixed-fail/adaptive-success profile is known. Nineteen superficially plausible profiles belong to an incompatible historical controller fingerprint and must not be pooled.
+
+To obtain a discriminative cohort, first freeze a source-diverse, outcome-blind DB initial-condition panel using only pre-rollout geometry and congestion variables. Keep its source groups separate from generator/critic TRAIN/VAL and the existing hard panel. Run an exact-key cache preflight for fixed-common Q16 under the current frozen controller; execute only missing standard seeds. If fixed failures occur, retain the entire original panel for unbiased method comparison, and flag fixed-fail states as a prespecified challenge stratum. Only within that stratum, use existing compatible eta evidence first; if no B15 eta is known, plan a small, globally frozen candidate search and Q16 confirmation under a separate budget/preflight. Do not infer generator advantage merely from selecting states by fixed failure, and reserve a fresh source-isolated replication panel.
+
+No new IC construction, fixed rollout, or basin search was initiated by this plan.

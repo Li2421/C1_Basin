@@ -1,0 +1,13 @@
+# Source-only factorial: frozen interpretation rules
+
+This plan was written while the new source rollouts were running, before the independent eight-family validation labels were inspected. The held-controller confirmation set and cross-scene LOSO TEST remain unopened.
+
+The comparison is 24 versus 48 TRAIN source families crossed with H20 (1 s) versus H80 (4 s) controller response. Within either TRAIN size, H20 and H80 use the **same state–eta–controller labels**, 16 fixed eta probes, pure observed-count NLL, model architecture, optimizer, training steps, and seeds 17/23/41. All variants share the same eight new, source-family-isolated VAL families. Eta-only and context-only controls use the same labels and splits.
+
+Primary evidence of a learned state-specific residual requires more than an overall NLL gain: the physical-state-plus-context model must improve eligible-state B15 selection and strong state-dependent eta reversals over both eta-only and context-only controls across seeds, while state shuffling must impair those gains. Controller use requires the matched wrong-controller replacement to impair correct-context predictions or selections. Paired rescue/break and family-level bootstrap intervals are reported; no numeric threshold is tuned on held-controller or LOSO labels.
+
+The H80 effect is judged separately from TRAIN-family expansion. A positive H80 effect with matched labels implicates inadequate response horizon; a positive family-count effect at fixed horizon implicates support. If one metric improves but robust selection/reversals do not, the source state-residual gate is **not** passed. If the VAL panel has too few strong reversals or eligible states, the conclusion is **underresolved**, not a learned interaction. Only a source gate with repeatable selection/reversal evidence justifies opening an independent held-controller confirmation set; this source validation is not itself a cross-controller or cross-scene claim.
+
+No numerical-failure continuation is imputed, rerun at the same canonical key, or treated as a full Q16 label. All new task continuations must be journaled, merged into the global rollout DB, and postflight-audited before models train. The frozen generator is unchanged.
+
+Postflight input-quality amendment (before any model training): short physical-response probes failed for eta pairs in source states 33, 37, and 53 because the safety projection solver reported a numerical error. These **complete** source families are excluded across H20/H80 and every model, without consulting their rollout outcomes. Consequently the effective comparison is 24 versus 46 TRAIN families and seven VAL families. Their task rollout records remain in the global database; no context or outcome is imputed.

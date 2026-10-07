@@ -1,0 +1,3 @@
+# OrthoFlow3 true-t0 robust eta dataset and point learning v1
+
+The source-isolated TRAIN/VAL/TEST candidate orders are frozen before any new eta outcome. Each state is a genuine episode-start state with its exact h0/current-Flow identity. One global deterministic E_bridge Sobol sequence is shared by all states. The per-state search is capped at 32 candidates plus zero/common anchors, then one optional 32-candidate extension; only 8/8 candidates (or at most two 7/8 candidates after full-search failure) are promoted to Q64. Exact B63 means >=63/64. Target selection uses only local robustness and geometric interiority, never J_def or a learned score. Eta is selected once at t0 and remains fixed while OrthoFlow3 bases update every physical step.

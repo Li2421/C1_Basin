@@ -1,0 +1,46 @@
+Success Basin C1: complete LOSO and root-cause adjudication
+
+Conclusion: No reliable leave-one-scene-out state-aware advantage has been established. The strongest evidence is supervision ascertainment + source physical support failure, followed by harmful learned extrapolation. Neither intrinsic non-identifiability nor impossible shared dynamics has been proved.
+
+FROZEN LOSO (all methods use identical stochastic K16; mean excluded)
+Target | Oracle | shared | source-VAL-selected eta-only | shared seeds17/23/41 | verdict
+ring | 60/60 | 0 + 0 unresolved | 17 + 0 unresolved (eta_only) | 0+0u, 1+0u, 14+1u | FAILED_ZERO_SHOT
+toy | 48/48 | 30 + 0 unresolved | 32 + 0 unresolved (eta_only) | 30+0u, 32+0u, 28+0u | NO_SUPPORTED_STATE_AWARE_GAIN
+db | 24/24 | 20 + 0 unresolved | 23 + 0 unresolved (eta_kernel) | 20+0u, 19+0u, 18+0u | NO_GAIN_LOW_DISCRIMINABILITY
+four | 24/24 | 21 + 3 unresolved | 21 + 2 unresolved (eta_kernel) | 21+3u, 23+1u, 23+1u | FOLD_UNDERDISCRIMINATIVE_WITH_NUMERICAL_UNRESOLVED
+
+Source eta-only selection compares continuous MLP and kernel using source VAL, never chooses the best target score. MLP-only B15 is Ring17, Toy32, DB23, Four22. Numerical unresolved is neither success nor failure; Four shared has zero confirmed nonB15 selections, so its gap is 0..3, not three proven errors. DB has350/384 robust candidates and weak adaptive discrimination; its shared20/24 is still not evidence of success.
+Paired state-aware vs source-selected eta control: Ring0 rescue/17 break; Toy8/10; DB1/4; Four1/0 among19 resolved pairs. Source-only kernel remains reported even where source selection chose MLP (Toy kernel37/48). No positive claim survives paired uncertainty.
+
+CAPACITY / DATA INTERVENTION (supervised, NOT zero-shot)
+Target | same-input scene-only | generic joint | enriched joint | enriched seed range
+toy | 45+0u | 45+0u | 44+0u | [44, 45, 44]
+db | 24+0u | 24+0u | 24+0u | [24, 24, 24]
+four | 22+2u | 22+2u | 19+5u | [19, 20, 21]
+ring | 47+0u | 11+0u | 58+0u | [58, 57, 56]
+
+Enrichment reused5332 exact full-Q16 TRAIN/VAL pairs from existing proposal-aligned caches; no confirmation states or outcomes entered training. Same physical encoder, critic, W1, learning rate, budget, seeds and eta normalization; four-scene minibatches remain equally weighted. Dataset enlargement changes sampled minibatch identities/order; this is not a matched-edge proof isolating only boundary vs true-t0 vs proposal support. Generic and enriched selected seed17 both trained4000 steps, so Ring11->58 is not explained by extra optimization duration alone.
+The enriched model is NOT a repaired zero-shot model and cannot use target-derived proposal acquisition to claim source-only transfer. Ring-only historical B15-classifier reference53/60 and historical joint56/60 remain unchanged. Our matched physical scene-only Ring reference47/60 uses far less failure supervision and is not the strongest historical upper bound.
+
+STATE DEPENDENCE CHECK
+Ring enriched58/60 becomes56..59 (mean57.4) after ten fixed within-Ring h derangements. Ring-specific eta-only53/60. DB stays24/24 after every shuffle; DB-specific eta-only24/24. Toy enriched44/48 drops to30..37 (mean33.9), consistent with real Toy state dependence. Thus strong joint results establish scene-conditioned fitting capacity, NOT general transferable state-eta interaction. Exact cross-scene source-VAL reversal cases with two shared eta and margin>=.25: zero eligible cases; do not manufacture reversals from near-but-distinct eta.
+
+ROOT CAUSES, EVIDENCE ORDER
+1. Data/support: Four known nonB15 TRAIN13356->12; Ring12997->23 after full>=16 filter. Original Ring/Four no Q<=.5. Early stop after two failures is informative negative evidence, not an unbiased fixed-Q16 fraction. Dropping all such evidence induces survivorship selection. Enriched exact Q16 Ring failure pairs rise0->329 and restore supervised success. Source physical coverage is also disjoint: target/source-neighbor p95 thresholds exceeded for all targets; Ring has new curvature and policy-frame applicability. Distance is descriptive, not proof of causality.
+2. Learned extrapolation/negative transfer: source-held-out state-aware fitting is useful in Toy/DB, yet fails outside source physical regimes. Generic joint Ring11 versus matched Ring-only47 is direct negative-transfer evidence under limited supervision. Local source-only kNN is Toy39, DB15, Four22, Ring1; it does not rescue Ring and shows the failure is not exclusively a neural fitting pathology.
+3. Current successful target-supervised scores often rely on scene/global eta preference; shuffled-state and eta-only controls prevent interpreting58/60 as proof of state-conditioned cross-scene learning.
+Not established: information-theoretic representation insufficiency, base-controller invariance failure, or insufficient network capacity. Same representation can learn supervised regimes; exact cross-scene input aliases were not found. We do not have matched-state/different-controller intervention data to settle missing future response context.
+
+DECISION TREE
+Strict LOSO state-aware > source-only eta-only? NO credible fold. Ring fails clearly; Toy/DB no supported gain; Four is weakly discriminative and numerical-limited.
+Joint target-supervised fit possible without new architecture? YES, especially Ring after support enrichment; Four numerical status prevents a blanket four-scene near-oracle claim.
+Does this prove transferable state-eta interaction? NO; Ring/DB shuffle and eta-only controls remain strong.
+Representation: KEEP as audited shared supervised baseline; do not REDESIGN or declare intrinsically sufficient for unseen controller regimes. Missing controller-response information remains UNDERRESOLVED.
+Generator: unchanged; current candidate oracle is already perfect for these four confirmation panels. No generator zero-shot claim or new generator training.
+Next minimum: source-only acquisition/training that retains valid negative evidence and independently confirms a repaired model; a matched geometry/controller intervention only if needed to distinguish support from missing response context. Stop here rather than tune on these test pools.
+
+INTEGRITY / COST / REPRODUCTION
+NEW ROLLOUT=0. All labels queried read-only from global DB; cached numerical unknowns remain unknown.39936 requested evaluation seed slots,39745 valid cached outcomes,191 numerical/uncertified slots, no reruns. No generator, control, safety, horizon, mode ID or success-definition change.
+Training: Slurm1726 and1727, each1GPU shard,2CPU. Seeds17/23/41. First Ring fold hash retained. Canonical data keys, source splits and normalization under each fold/source_pairs.parquet, source_states.json, normalization.json. Cached training expansion admission in enrichment_audit.json.
+Python=/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python; cwd=/home/zhihan/research/Basin_C1; PYTHONPATH=cwd; JAX_PLATFORMS=cpu for read-only audits. Entrypoints: run.py prepare/train (existing freezes protected), train.sbatch, eval.py inputs/predict/evaluate, diagnostics.py prepare/evaluate/state_dependence, audit.py support/ascertainment/source_fit/local_control, finalize.py. Training uses source TRAIN/VAL exclusively; diagnostic outputs never overwrite strict results.
+Full tables: loso_summary.csv, loso_seed_stability.csv, source_fit_metrics.csv, joint_capacity_diagnostic.csv, state_dependence_diagnostic.csv, label_ascertainment.csv, support_by_fold.csv, local_control.csv, integrity_audit.json, hypothesis_status.json.

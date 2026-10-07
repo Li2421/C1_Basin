@@ -1,0 +1,5 @@
+numpy==2.4.6
+scipy==1.17.1
+pandas==3.0.6
+matplotlib==3.11.2
+# 动作探针还依赖原项目运行环境；不要用本文件替换原 JAX/Flax/Clarabel 配置。

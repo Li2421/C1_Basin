@@ -1,0 +1,6 @@
+Deterministic G_phi
+Architecture: 214 -> 128 -> 128 -> 4
+Hidden activation: SiLU; output: linear
+Parameters: 44548
+Primary loss: MSE to g*_exec
+Selected seed: 41

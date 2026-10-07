@@ -1,0 +1,3 @@
+The initial `interaction_models/seed*/ring_25_transfer/` outputs are invalid as a *frozen-trunk* adaptation control. AdamW weight decay changed non-adapter parameters despite zeroed gradients. They are retained for traceability and must not be used in conclusions.
+
+`ring_25_transfer_fixed/` zeros the actual optimizer updates for all non-Ring-adapter parameters and asserts bitwise identity with the Four-pretrained checkpoint. `ring_25_finetune/` is a separate, explicitly unfrozen few-shot control. Both were run at seeds 17, 23 and 41, using the same 12 Ring TRAIN source families and no new rollout.
