@@ -183,7 +183,8 @@ def render_video(path, meta, data, baseline=None):
                     for panel, (pm, pd) in enumerate(panels):
                         offset = 720 * panel
                         k = min(frame, len(pd['positions']) - 1)
-                        label = 'SUCCESS' if panel == len(panels)-1 else 'DEADLOCK BASELINE'
+                        label = (pm['termination'].upper() if baseline is None else
+                                 'SUCCESS' if panel == len(panels)-1 else 'DEADLOCK BASELINE')
                         draw.text((offset+24, 18), f'{pm["scenario"]} | {label}', fill='black')
                         draw.text((offset+24, 40), f'controller: {pm["controller"]} | seed: {pm["seed"]}', fill='black')
                         draw.text((offset+24, 62), f'step {k}/{len(pd["positions"])-1} | t={k*cfg["dt"]:.2f}s | 1x playback', fill='black')
