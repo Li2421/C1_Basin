@@ -94,3 +94,29 @@ single_integrator/results/**
 !results/c1_vi_vjp_one_sided_v2/
 !results/c1_vi_vjp_one_sided_v2/complete.json
 !results/c1_vi_vjp_one_sided_v2/report.json
+
+# Local rendering environment (FFmpeg/ffprobe are system dependencies)
+.venv-video/
+
+# Generated research evidence stays on disk, outside source snapshots.
+/diagnostics/**/*.json
+/diagnostics/**/*.jsonl
+/diagnostics/**/*.csv
+/diagnostics/**/*.tsv
+/diagnostics/**/*.msgpack
+/diagnostics/**/*.parquet
+/diagnostics/**/*.gz
+/diagnostics/**/*.out
+/diagnostics/**/*.err
+/diagnostics/**/*.stderr
+/diagnostics/**/*.stdout
+/diagnostics/**/*.lock
+/diagnostics/**/*.svg
+/diagnostics/**/*.pdf
+/diagnostics/**/*.html
+/diagnostics/**/*.xml
+/shared_rollout_db/rollout.sqlite*
+/shared_rollout_db/journals/
+/shared_rollout_db/audits/*.json
+/shared_rollout_db/audits/*.csv
+/shared_rollout_db/exports/*.csv
