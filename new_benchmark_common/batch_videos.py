@@ -6,6 +6,7 @@ See docs/batch_videos.md for the trace and batch manifest contracts.
 from __future__ import annotations
 
 import argparse
+import colorsys
 import hashlib
 import json
 from pathlib import Path
@@ -34,8 +35,11 @@ def load_trace(path):
     meta = json.loads(str(arrays.pop('metadata_json').item()))
     p = arrays['positions']
     scenario = meta['scenario']
-    count = 2 if scenario == 'toy_giveway' else 4
-    if scenario not in SCENARIOS or p.ndim != 3 or p.shape[1:] != (count, 2) or len(p) < 2:
+    count = (meta.get('config', {}).get('num_agents') if scenario == 'bottleneck_family'
+             else 2 if scenario == 'toy_giveway' else 4)
+    if type(count) is not int or count < 2:
+        raise ValueError('invalid num_agents')
+    if scenario not in (*SCENARIOS, 'bottleneck_family') or p.ndim != 3 or p.shape[1:] != (count, 2) or len(p) < 2:
         raise ValueError('invalid scenario or trajectory shape')
     if not np.isfinite(p).all():
         raise ValueError('nonfinite positions')
@@ -78,7 +82,11 @@ def validate_plan(plan, root):
         raise ValueError('batch_id required')
     entries = []
     used = set()
-    for scenario in SCENARIOS:
+    scenarios = SCENARIOS + (('bottleneck_family',) if 'bottleneck_family' in plan['scenarios'] else ())
+    unknown = set(plan['scenarios']) - set(scenarios)
+    if unknown:
+        raise ValueError(f'unknown scenarios: {sorted(unknown)}')
+    for scenario in scenarios:
         rows = plan['scenarios'].get(scenario, [])
         if {row['role'] for row in rows} != set(ROLES) or len(rows) != len(ROLES):
             raise ValueError(f'{scenario}: need exactly one selected video for each role {ROLES}')
@@ -123,7 +131,10 @@ def render_video(path, meta, data, baseline=None):
     panels = [(meta, data)] if baseline is None else [(baseline[1], baseline[2]), (meta, data)]
     width, height = 720 * len(panels), 640
     frames = max(len(d['positions']) for _, d in panels)
-    colors = ('#0072B2', '#D55E00', '#009E73', '#CC79A7')
+    count = data['positions'].shape[1]
+    colors = (('#0072B2', '#D55E00', '#009E73', '#CC79A7') if count <= 4 else
+              tuple(tuple(round(255*x) for x in colorsys.hsv_to_rgb((i*.61803398875)%1,.75,.75))
+                    for i in range(count)))
     cfg = meta['config']
     points = [d['positions'].reshape(-1, 2) for _, d in panels]
     points += [data['goals'], data['walls'].reshape(-1, 2)]
@@ -135,6 +146,22 @@ def render_video(path, meta, data, baseline=None):
     scale = min(640 / (hi[0] - lo[0]), 420 / (hi[1] - lo[1]))
     center = (lo + hi) / 2
     path.parent.mkdir(parents=True, exist_ok=True)
+    def xy(panel, point):
+        x, y = (np.asarray(point) - center) * scale
+        return (720*panel + 360 + x, 345 - y)
+    def circle(draw, panel, point, radius, fill=None, outline='black', line=2):
+        x, y = xy(panel, point); r = radius * scale
+        draw.ellipse((x-r, y-r, x+r, y+r), fill=fill, outline=outline, width=line)
+    static = Image.new('RGB', (width, height), 'white')
+    static_draw = ImageDraw.Draw(static)
+    for panel, (pm, pd) in enumerate(panels):
+        if pm['scenario'] == 'ring_exchange':
+            circle(static_draw, panel, (0,0), cfg['outer_radius'], fill='#eeeeee')
+            circle(static_draw, panel, (0,0), cfg['obstacle_radius'], fill='#777777')
+        for wall in pd['walls']:
+            static_draw.line([xy(panel, wall[0]), xy(panel, wall[1])], fill='#333333', width=3)
+    trails = Image.new('RGBA', (width, height), (0,0,0,0))
+    trail_draw = ImageDraw.Draw(trails)
     with tempfile.TemporaryDirectory(dir=path.parent) as temporary:
         target = Path(temporary) / 'video.mp4'
         cmd = ['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24',
@@ -144,16 +171,17 @@ def render_video(path, meta, data, baseline=None):
             process = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=errors)
             try:
                 for frame in range(frames):
-                    image = Image.new('RGB', (width, height), 'white')
+                    for panel, (_, pd) in enumerate(panels):
+                        if 0 < frame < len(pd['positions']):
+                            for agent, color in enumerate(colors[:pd['positions'].shape[1]]):
+                                trail_draw.line([xy(panel, pd['positions'][frame-1, agent]),
+                                                 xy(panel, pd['positions'][frame, agent])],
+                                                fill=color, width=2)
+                    image = static.copy()
+                    image.paste(trails, mask=trails.getchannel('A'))
                     draw = ImageDraw.Draw(image)
                     for panel, (pm, pd) in enumerate(panels):
                         offset = 720 * panel
-                        def xy(point):
-                            x, y = (np.asarray(point) - center) * scale
-                            return (offset + 360 + x, 345 - y)
-                        def circle(point, radius, fill=None, outline='black', line=2):
-                            x, y = xy(point); r = radius * scale
-                            draw.ellipse((x-r, y-r, x+r, y+r), fill=fill, outline=outline, width=line)
                         k = min(frame, len(pd['positions']) - 1)
                         label = 'SUCCESS' if panel == len(panels)-1 else 'DEADLOCK BASELINE'
                         draw.text((offset+24, 18), f'{pm["scenario"]} | {label}', fill='black')
@@ -161,18 +189,10 @@ def render_video(path, meta, data, baseline=None):
                         draw.text((offset+24, 62), f'step {k}/{len(pd["positions"])-1} | t={k*cfg["dt"]:.2f}s | 1x playback', fill='black')
                         status = pm['termination'] if k == len(pd['positions'])-1 else 'running'
                         draw.text((offset+24, 84), f'status: {status} | safety enabled: {pm["safety_enabled"]}', fill='black')
-                        if pm['scenario'] == 'ring_exchange':
-                            circle((0,0), cfg['outer_radius'], fill='#eeeeee')
-                            circle((0,0), cfg['obstacle_radius'], fill='#777777')
-                        for wall in pd['walls']:
-                            draw.line([xy(wall[0]), xy(wall[1])], fill='#333333', width=3)
                         for agent, color in enumerate(colors[:pd['positions'].shape[1]]):
-                            trail = [xy(p) for p in pd['positions'][:k+1, agent]]
-                            if len(trail) > 1:
-                                draw.line(trail, fill=color, width=2)
-                            circle(pd['goals'][agent], cfg['agent_radius'], outline=color)
-                            draw.text(xy(pd['goals'][agent]), 'goal', fill=color)
-                            circle(pd['positions'][k, agent], cfg['agent_radius'], fill=color, outline=color)
+                            circle(draw, panel, pd['goals'][agent], cfg['agent_radius'], outline=color)
+                            draw.text(xy(panel, pd['goals'][agent]), 'goal', fill=color)
+                            circle(draw, panel, pd['positions'][k, agent], cfg['agent_radius'], fill=color, outline=color)
                         if k:
                             draw.text((offset+24, 585), f'min swept clearance so far: {pd["swept_clearance"][:k].min():.5f} m', fill='black')
                         draw.text((offset+24, 607), f'rollout: {pm["rollout_id"]}', fill='black')

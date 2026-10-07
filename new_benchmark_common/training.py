@@ -29,7 +29,7 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
                  batch_size: int = 256, log_interval: int = 250, validation_batches: int = 8,
                  early_transition_fraction: float = 0.0, early_steps: int = 1,
                  early_nominal_only: bool = False, actor_hidden_dims=None,
-                 source_balanced_sampling: bool = False):
+                 source_balanced_sampling: bool = False, allow_non_four_agents: bool = False):
     """Train only conventional Stage-I CFM; test is deliberately never opened."""
     if min(steps, batch_size, log_interval, validation_batches) <= 0:
         raise ValueError("training counts must be positive")
@@ -43,8 +43,9 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
     dev = JointTransitionDataset(dataset_root, "dev", seed=seed + 1)
     if train.environment_fingerprint != dev.environment_fingerprint:
         raise ValueError("train/dev geometry fingerprints differ")
-    if train.observation_shape[0] != 4 or train.action_shape[0] != 4:
-        raise ValueError("this benchmark suite requires a true four-agent policy")
+    if (train.observation_shape[0] != train.action_shape[0] or
+            (train.observation_shape[0] != 4 and not allow_non_four_agents)):
+        raise ValueError("agent count mismatch or non-four training not explicitly enabled")
     config = get_config(
         agent_order=train.agent_order, num_agents=train.observation_shape[0],
         obs_dim=train.observation_shape[1], act_dim=train.action_shape[1],
@@ -124,7 +125,8 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
            "source_transitions": train.source_counts(), "test_opened": False,
            "early_transition_fraction": early_transition_fraction, "early_steps": early_steps,
            "early_nominal_only": early_nominal_only,
-           "source_balanced_sampling": source_balanced_sampling}
+           "source_balanced_sampling": source_balanced_sampling,
+           "allow_non_four_agents": allow_non_four_agents}
     (output / "config.json").write_text(json.dumps(run, indent=2, sort_keys=True))
     best, best_loss, best_step = agent, initial_dev, 0
     started = time.perf_counter()

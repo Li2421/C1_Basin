@@ -97,3 +97,12 @@ metadata = {
 输出 manifest 记录 trace/video SHA256、完整 provenance、帧数和 dt。视频与大型
 trace 保留在实验目录，不进普通 Git。失败重跑会移除旧成功 manifest，避免旧视频
 掩盖当前 batch 失败。此工具不自行启动实验或生成虚构的研究案例。
+
+
+## 可变数量母版
+
+`bottleneck_family` 素材从 `metadata.config.num_agents` 读取数量，渲染全部机器人。
+batch plan 可额外添加该场景的三个角色；四个原有场景仍为必选，未知场景名会报错。
+母版的数量/几何扫描应分别保存每档的完整视频，不可用小规模影片代表大规模结果。
+母版 plant 的 `stalled_groups` 只是候选诊断，不是正式 deadlock 标签，不能自动用来
+满足视频的死锁基线要求。

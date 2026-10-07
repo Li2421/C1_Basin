@@ -1,8 +1,8 @@
-"""Reusable *development-only* closed-loop evaluation primitives.
+"""Reusable closed-loop evaluation primitives with explicit split access.
 
-This module never constructs a ``JointTransitionDataset`` and never opens a
-test rollout archive.  It reads the manifest solely to select ``dev`` +
-``nominal`` entries, then opens exactly those archive paths.
+The ordinary loader never opens a test rollout archive. The general loader
+accepts test only through an explicit final-evaluation request and reads only
+the selected split's nominal archives.
 """
 
 from __future__ import annotations
@@ -28,8 +28,11 @@ class DevNominalCase:
     metadata: Mapping[str, Any]
 
 
-def load_dev_nominal_cases(dataset_root: str | Path, *, expected_count: int | None = None):
-    """Read initial states from dev nominal archives only, never test archives."""
+def load_nominal_cases(dataset_root: str | Path, *, split: str = 'dev',
+                       final_evaluation: bool = False, expected_count: int | None = None):
+    """Read one nominal split; opening test requires an explicit final gate."""
+    if split not in ('dev','test') or (split == 'test' and not final_evaluation):
+        raise ValueError('test archives require split=test and final_evaluation=True')
     root = Path(dataset_root).resolve()
     manifest_path = root / "manifest.json"
     manifest_bytes = manifest_path.read_bytes()
@@ -38,34 +41,39 @@ def load_dev_nominal_cases(dataset_root: str | Path, *, expected_count: int | No
         raise ValueError("dataset manifest is incomplete or has the wrong schema")
     selected = [
         row for row in manifest["files"]
-        if row.get("split") == "dev" and row.get("source") == "nominal"
+        if row.get("split") == split and row.get("source") == "nominal"
     ]
     if expected_count is not None and len(selected) != expected_count:
-        raise ValueError(f"expected {expected_count} dev nominal rollouts, found {len(selected)}")
+        raise ValueError(f"expected {expected_count} {split} nominal rollouts, found {len(selected)}")
     cases = []
     opened = []
     for row in sorted(selected, key=lambda value: str(value["rollout_id"])):
         relative = Path(row["file"])
-        if relative.is_absolute() or ".." in relative.parts or relative.parts[:2] != ("rollouts", "dev"):
-            raise ValueError(f"refusing non-dev archive {relative}")
+        if relative.is_absolute() or ".." in relative.parts or relative.parts[:2] != ("rollouts", split):
+            raise ValueError(f"refusing non-{split} archive {relative}")
         archive_path = root / relative
         with np.load(archive_path, allow_pickle=False) as archive:
             if str(archive["schema"].item()) != TRAJECTORY_SCHEMA:
                 raise ValueError(f"wrong trajectory schema in {archive_path}")
             metadata = json.loads(str(archive["metadata_json"].item()))
             initial_state = json.loads(str(archive["initial_state_json"].item()))
-        if metadata.get("split") != "dev" or metadata.get("source") != "nominal":
-            raise ValueError(f"archive metadata contradicts dev-nominal selection: {archive_path}")
+        if metadata.get("split") != split or metadata.get("source") != "nominal":
+            raise ValueError(f"archive metadata contradicts {split}-nominal selection: {archive_path}")
         if metadata.get("rollout_id") != row["rollout_id"]:
             raise ValueError(f"manifest/archive rollout id mismatch: {archive_path}")
         opened.append(str(relative))
         cases.append(DevNominalCase(str(row["rollout_id"]), initial_state, archive_path, metadata))
     audit = {
         "manifest_sha256": hashlib.sha256(manifest_bytes).hexdigest(),
-        "selected_split": "dev", "selected_source": "nominal", "opened_archives": opened,
-        "opened_test_archives": 0,
+        "selected_split": split, "selected_source": "nominal", "opened_archives": opened,
+        "opened_test_archives": len(opened) if split == 'test' else 0,
     }
     return manifest, tuple(cases), audit
+
+
+def load_dev_nominal_cases(dataset_root: str | Path, *, expected_count: int | None = None):
+    """Read initial states from dev nominal archives only, never test archives."""
+    return load_nominal_cases(dataset_root, split='dev', expected_count=expected_count)
 
 
 def evaluate_dev_nominal(

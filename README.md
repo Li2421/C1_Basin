@@ -9,11 +9,17 @@
 | `four_way_intersection/` | 四向交叉路口 |
 | `ring_exchange/` | 环形交换 |
 | `single_integrator/`、`flowbc/`、`shared_control/` | 共享/历史兼容的物理、策略和控制实现，仍被使用 |
+| `bottleneck_family/` | 可变 N 的 Gap/双瓶颈母版，几何与动力学已实现；大规模解锁待验证 |
 | `new_benchmark_common/` | 共享数据、训练、评估和完整仿真视频工具 |
 | `shared_rollout_db/` | 跨实验 rollout 索引与去重；运行前遵守其 README |
 | `diagnostics/` | 实验脚本、研究报告及本地生成证据 |
 | `datasets/`、`results/` | 本地数据和历史结果，大型资产不进普通 Git |
 | `docs/`、`tests/`、`scripts/` | 协议、审查记录、测试与启动入口 |
+
+可扩展母版的选型依据和四场景审查见 [母版审查](docs/scalable_scene_audit_20261007.md)，
+使用入口见 [bottleneck_family](bottleneck_family/README.md)。
+2/10/50-agent 的 Joint Flow Matching 训练与完整视频进度见
+[Gap 1 规模试验](docs/gap_flow_scaling_20261007.md)。
 
 ## 大 batch 必须交付视频
 

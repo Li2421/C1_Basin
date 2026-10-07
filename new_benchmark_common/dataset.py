@@ -15,7 +15,7 @@ from .protocol import ExpertContinuation, ScenarioProtocol
 
 DATASET_SCHEMA = "new_benchmark_joint_stage1_dataset_v1"
 TRAJECTORY_SCHEMA = "new_benchmark_joint_stage1_trajectory_v1"
-_SOURCES = {"nominal", "uniform_recovery", "targeted_wall_obstacle", "targeted_agent"}
+_SOURCES = {"nominal", "uniform_recovery", "gate_local_recovery", "targeted_wall_obstacle", "targeted_agent"}
 
 
 def _jsonable(value: Any):
@@ -147,7 +147,8 @@ class DatasetWriter:
             "observation_shape": list(self.scenario.observation_shape),
             "action_shape": list(self.scenario.action_shape), "scenario_config": _jsonable(self.scenario_config),
             "files": self.records, "counts": {"split": split_counts, "source": source_counts},
-            "recovery_protocol": "uniform anchors + local perturb/re-query; targeted sources limited to train/dev valid pre-collision states",
+            "recovery_protocol": getattr(self.scenario, "recovery_protocol",
+                "uniform anchors + local perturb/re-query; targeted sources limited to train/dev valid pre-collision states"),
             "extra_report": _jsonable(extra_report or {}),
         }
         path = self.root / "manifest.json"

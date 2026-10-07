@@ -100,6 +100,26 @@ class VideoContractTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'belong to this batch'):
             validate_plan(self.plan, self.root)
 
+    @unittest.skipUnless(shutil.which('ffmpeg') and shutil.which('ffprobe'), 'FFmpeg required')
+    def test_family_video_accepts_and_renders_100_agents(self):
+        from bottleneck_family import Config, build_instance
+        instance = build_instance(Config(num_agents=100))
+        path = self.root / self.plan['scenarios']['toy_giveway'][2]['trace']
+        meta, _ = load_trace(path)
+        meta.update(scenario='bottleneck_family', termination='timeout', episode_steps=1,
+                    config=instance.config.to_dict())
+        np.savez_compressed(path, positions=np.stack([instance.positions]*2),
+                            steps=np.arange(2), goals=instance.goals,
+                            walls=instance.geometry.walls, swept_clearance=np.array([.1]),
+                            metadata_json=np.array(json.dumps(meta)))
+        loaded, data = load_trace(path)
+        self.assertEqual(render_video(self.root / 'family100.mp4', loaded, data), 2)
+
+    def test_unknown_scene_cannot_be_silently_ignored(self):
+        self.plan['scenarios']['misspelled_scene'] = []
+        with self.assertRaisesRegex(ValueError, 'unknown scenarios'):
+            validate_plan(self.plan, self.root)
+
     def test_failed_batch_removes_previous_delivery_marker(self):
         output = self.root / 'delivery'
         output.mkdir()
