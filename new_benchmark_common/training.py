@@ -48,6 +48,7 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
                  active_action_normalization: bool = False,
                  architecture: str = "flat_mlp", set_width: int = 128,
                  set_layers: int = 2, init_checkpoint: str | Path | None = None,
+                 allow_motion_loss_change: bool = False,
                  transfer_set_checkpoint: str | Path | None = None):
     """Train only conventional Stage-I CFM; test is deliberately never opened."""
     if min(steps, batch_size, log_interval, validation_batches) <= 0:
@@ -89,6 +90,8 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
         raise ValueError("invalid Flow architecture configuration")
     if init_checkpoint is not None and transfer_set_checkpoint is not None:
         raise ValueError("resume and cross-N transfer are mutually exclusive")
+    if allow_motion_loss_change and init_checkpoint is None:
+        raise ValueError("changing the loss weight requires an initial checkpoint")
     if transfer_set_checkpoint is not None and architecture != "set_attention":
         raise ValueError("cross-N parameter transfer requires the set-attention actor")
     output = Path(output)
@@ -127,6 +130,7 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
         init_sha = hashlib.sha256(init_checkpoint.read_bytes()).hexdigest()
         agent, _ = load_checkpoint(init_checkpoint,
                                    expected_environment_fingerprint=train.environment_fingerprint)
+        original_motion_loss_weight = float(agent.config["motion_loss_weight"])
         if (agent.config["num_agents"] != train.observation_shape[0]
                 or agent.config["obs_dim"] != train.observation_shape[1]
                 or agent.config["act_dim"] != train.action_shape[1]
@@ -134,14 +138,16 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
                 or (architecture == "set_attention" and
                     (agent.config["set_width"] != set_width or
                      agent.config["set_layers"] != set_layers))
-                or agent.config["motion_loss_weight"] != motion_loss_weight):
+                or (not allow_motion_loss_change and
+                    agent.config["motion_loss_weight"] != motion_loss_weight)):
             raise ValueError("initial checkpoint architecture/shape/loss mismatch")
         if bool(agent.config.get("active_action_normalization", False)) != active_action_normalization:
             raise ValueError("initial checkpoint action normalization mode mismatch")
-        # Adding an endpoint objective changes only the training loss. The
-        # copied checkpoint keeps its weights and normalization exactly.
+        # A requested loss-only continuation keeps weights/normalization
+        # exactly; neither change alters the Flow sampler or safety chain.
         agent = agent.replace(config=flax.core.FrozenDict({
             **dict(agent.config),
+            "motion_loss_weight": float(motion_loss_weight),
             "endpoint_action_loss_weight": float(endpoint_action_loss_weight),
             "endpoint_motion_weight": float(endpoint_motion_weight)}))
     transfer_sha = None
@@ -388,6 +394,9 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
                architecture=architecture, set_width=set_width, set_layers=set_layers)
     run.update(init_checkpoint=str(init_checkpoint) if init_checkpoint else None,
                init_checkpoint_sha256=init_sha,
+               allow_motion_loss_change=bool(allow_motion_loss_change),
+               init_motion_loss_weight=(original_motion_loss_weight
+                                        if init_checkpoint else None),
                normalization_from_init_checkpoint=init_checkpoint is not None,
                transfer_set_checkpoint=str(transfer_set_checkpoint) if transfer_set_checkpoint else None,
                transfer_set_checkpoint_sha256=transfer_sha,

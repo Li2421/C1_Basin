@@ -41,6 +41,7 @@ def main():
     parser.add_argument('--set-width',type=int,default=128)
     parser.add_argument('--set-layers',type=int,default=2)
     parser.add_argument('--init-checkpoint',type=Path)
+    parser.add_argument('--allow-motion-loss-change',action='store_true')
     parser.add_argument('--transfer-set-checkpoint',type=Path)
     args=parser.parse_args()
     result=train_stage1(args.dataset,args.output,seed=args.seed,steps=args.steps,
@@ -75,6 +76,7 @@ def main():
                         architecture=args.architecture,
                         set_width=args.set_width,set_layers=args.set_layers,
                         init_checkpoint=args.init_checkpoint,
+                        allow_motion_loss_change=args.allow_motion_loss_change,
                         transfer_set_checkpoint=args.transfer_set_checkpoint)
     print(json.dumps(result,indent=2),flush=True)
 
