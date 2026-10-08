@@ -29,7 +29,8 @@ from .scenario import Config
 
 
 ROOT = Path('diagnostics/gap_flow_v1')
-SPECS = {2: 'n2_recovery_wide', 10: 'n10_wide_recovery', 50: 'n50_wide_recovery'}
+SPECS = {2: 'n2_recovery_wide', 10: 'n10_wide_recovery',
+         20: 'n20_competence_data_v2', 50: 'n50_wide_recovery'}
 MODES = ('solo_even', 'solo_odd', 'solo_odd_remote', 'one_way', 'temporal_even_first',
          'temporal_odd_first', 'temporal_release_even_first',
          'temporal_release_odd_first', 'opposing', 'one_way_mirror',
@@ -109,7 +110,8 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
     if output.exists() and any(output.iterdir()):
         raise FileExistsError(output)
     output.mkdir(parents=True, exist_ok=True)
-    root = ROOT / SPECS[agents]
+    root = (Path('diagnostics/gap_flow_scale_20261007') / SPECS[agents]
+            if agents == 20 else ROOT / SPECS[agents])
     if fresh_count:
         manifest_path=root/'dataset/manifest.json'
         manifest=json.loads(manifest_path.read_text())

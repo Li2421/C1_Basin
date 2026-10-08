@@ -1,4 +1,4 @@
-"""Summarize complete-horizon N=50 safety-pipeline competence traces.
+"""Summarize complete-horizon Gap1 safety-pipeline competence traces.
 
 Gate crossing, first goal entry and final goal occupancy remain distinct.
 """
@@ -13,6 +13,7 @@ import numpy as np
 
 def run(evaluations: list[Path], output: Path):
     rows = []
+    agent_counts = set()
     for directory in map(Path,evaluations):
         summary = json.loads((directory/"summary.json").read_text())
         for item in summary.get("rollouts",summary.get("rows",[])):
@@ -25,6 +26,7 @@ def run(evaluations: list[Path], output: Path):
                 pair=np.asarray(data["active_pair_count"]) if "active_pair_count" in data else np.asarray(data["pair_active"])
                 correction=np.asarray(data["projection_norm"])
             config=meta["config"]
+            agent_counts.add(int(config["num_agents"]))
             tolerance=float(config["goal_tolerance"])
             dt=float(config["dt"])
             distance=np.linalg.norm(x-goals[None],axis=2)
@@ -90,7 +92,11 @@ def run(evaluations: list[Path], output: Path):
             mean_wall_active_fraction=float(np.mean([r["wall_active_fraction"] for r in subset])),
             mean_pair_active_fraction=float(np.mean([r["pair_active_fraction"] for r in subset])),
             mean_projection_norm=float(np.mean([r["mean_projection_norm"] for r in subset])))
-    report=dict(schema="gap1_n50_complete_competence_summary_v1",evaluations=[str(p) for p in evaluations],
+    if len(agent_counts) != 1:
+        raise ValueError(f"evaluations must share one agent count: {sorted(agent_counts)}")
+    n = next(iter(agent_counts))
+    report=dict(schema=f"gap1_n{n}_complete_competence_summary_v1",N=n,
+                evaluations=[str(p) for p in evaluations],
                 grouped=grouped,rows=rows)
     output.parent.mkdir(parents=True,exist_ok=True)
     output.write_text(json.dumps(report,indent=2,sort_keys=True)+"\n")
@@ -99,10 +105,19 @@ def run(evaluations: list[Path], output: Path):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--evaluation",type=Path,action="append",required=True)
+    parser.add_argument("--evaluation",type=Path,action="append",default=[])
+    parser.add_argument("--root",type=Path,
+                        help="Include every immediate child containing summary.json")
+    parser.add_argument("--expected",type=int,
+                        help="Require this many complete evaluation directories")
     parser.add_argument("--output",type=Path,required=True)
     args=parser.parse_args()
-    print(json.dumps(run(args.evaluation,args.output)["grouped"],indent=2),flush=True)
+    evaluations=list(args.evaluation)
+    if args.root:
+        evaluations.extend(sorted(p.parent for p in args.root.glob("*/summary.json")))
+    if not evaluations or (args.expected is not None and len(evaluations)!=args.expected):
+        raise SystemExit(f"expected {args.expected} evaluations, found {len(evaluations)}")
+    print(json.dumps(run(evaluations,args.output)["grouped"],indent=2),flush=True)
 
 
 if __name__=="__main__":

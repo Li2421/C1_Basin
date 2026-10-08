@@ -33,6 +33,7 @@ def audit(design_dir: Path) -> dict:
         split_counts = Counter(s["split"] for s in states)
         q_distribution = Counter()
         robust_by_state: dict[str, set[int]] = {s["state_uid"]: set() for s in states}
+        logical_robust_by_state: dict[str, set[int]] = {s["state_uid"]: set() for s in states}
         observed_valid = numerical = collisions = timeouts = successes = 0
         logical_pairs = full_pairs = pair_files = 0
         errors = []
@@ -59,18 +60,30 @@ def audit(design_dir: Path) -> dict:
                 collisions += sum(row["collision"] for row in rows.values())
                 timeouts += sum(row["timeout"] for row in rows.values())
                 successes += sum(row["success"] for row in rows.values())
-                if pair.get("logical_robust_decision") is not None:
+                decision = pair.get("logical_robust_decision")
+                if decision is not None:
                     logical_pairs += 1
+                    valid = [row for row in rows.values() if not row["numerical_failure"]]
+                    n_success = sum(bool(row["success"]) for row in valid)
+                    n_failure = len(valid) - n_success
+                    if bool(decision["robust"]) != (n_success >= 15):
+                        errors.append(f"invalid B15 decision: {path}")
+                    if not decision["robust"] and n_failure < 2:
+                        errors.append(f"premature non-robust decision: {path}")
+                    if decision["robust"]:
+                        logical_robust_by_state[state["state_uid"]].add(eta_index)
                 if len(rows) != 16 or any(row["numerical_failure"] for row in rows.values()):
                     continue
                 full_pairs += 1
                 q16 = sum(bool(row["success"]) for row in rows.values())
-                if pair.get("Q16_success_count") != q16:
+                if ("Q16_success_count" in pair and
+                        pair["Q16_success_count"] != q16):
                     errors.append(f"Q16 count mismatch: {path}")
                 q_distribution[str(q16)] += 1
                 if q16 >= 15:
                     robust_by_state[state["state_uid"]].add(eta_index)
         expected_pairs = len(states) * len(eta_uids)
+        logical_complete = logical_pairs == expected_pairs and not errors
         complete = full_pairs == expected_pairs and not errors
         all_complete &= complete
         # Eligibility and K curves are exact only when every candidate for
@@ -83,6 +96,7 @@ def audit(design_dir: Path) -> dict:
             "state_eta_pairs_expected": expected_pairs,
             "pair_files": pair_files,
             "logical_robust_pairs": logical_pairs,
+            "logical_robust_complete": logical_complete,
             "full_Q16_pairs": full_pairs,
             "full_Q16_rollouts_expected": expected_pairs * 16,
             "observed_valid_rollouts": observed_valid,
@@ -94,6 +108,25 @@ def audit(design_dir: Path) -> dict:
             "complete": complete,
             "errors": errors,
         }
+        if logical_complete:
+            logical_counts = [len(logical_robust_by_state[s["state_uid"]]) for s in states]
+            logical_eligible = sum(x > 0 for x in logical_counts)
+            per_n["logical_B15_audit"] = {
+                "robust_success_pairs": sum(logical_counts),
+                "robust_success_prevalence": sum(logical_counts) / expected_pairs,
+                "states_with_no_sampled_robust_eta": len(states) - logical_eligible,
+                "states_with_at_least_one_robust_eta": logical_eligible,
+                "oracle_K_coverage": {
+                    str(k): {
+                        "all_states": sum(any(j < k for j in logical_robust_by_state[s["state_uid"]])
+                                          for s in states) / len(states),
+                        "eligible_states": (
+                            sum(any(j < k for j in logical_robust_by_state[s["state_uid"]])
+                                for s in states) / logical_eligible if logical_eligible else None
+                        ),
+                    } for k in K_VALUES
+                },
+            }
         if complete:
             robust_counts = [len(robust_by_state[s["state_uid"]]) for s in states]
             eligible = sum(x > 0 for x in robust_counts)

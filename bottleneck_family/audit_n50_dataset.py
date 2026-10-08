@@ -1,4 +1,4 @@
-"""Stream exact N=50 Gap1 demonstration phase and directional counts."""
+"""Stream exact Gap1 demonstration phase and directional counts."""
 from __future__ import annotations
 
 import argparse
@@ -108,7 +108,7 @@ def run(dataset: Path, output: Path, *, seed=846):
         for source_bucket in bucket["sources"].values():
             source_bucket["max_postgate_pending_quantiles"]=np.quantile(
                 source_bucket.pop("max_postgate_pending_per_trajectory"),[0,.5,1]).tolist()
-    report=dict(schema="gap1_n50_dataset_phase_audit_v1",dataset=str(dataset),
+    report=dict(schema=f"gap1_n{config.num_agents}_dataset_phase_audit_v1",dataset=str(dataset),
                 manifest_sha256=__import__("hashlib").sha256((dataset/"manifest.json").read_bytes()).hexdigest(),
                 seed=seed,phase_definitions={
                     "entry_start":-offset-.04,"gate_start":-.3,"postgate_start":offset-.04,

@@ -33,7 +33,7 @@ def one_way_state(instance, mode: str, index: int):
     g = p.copy()
     left = np.arange(0, instance.config.num_agents, 2)
     if mode == 'solo':
-        moving = left[index % len(left):index % len(left) + 1]
+        moving = left[[index % len(left)]]
     elif mode == 'five':
         moving = left[(np.arange(min(5, len(left))) + index) % len(left)]
     elif mode == 'half':
@@ -129,10 +129,16 @@ def collect(output: Path, *, agents: int, counts: dict[str, int], modes: tuple[s
     if output.exists() and any(output.iterdir()):
         raise FileExistsError(output)
     output.mkdir(parents=True)
-    if agents not in (10, 50) or permutations < 1:
-        raise ValueError('supported sizes are N=10 and N=50; permutations must be positive')
-    original = Path(f'diagnostics/gap_flow_v1/n{agents}_wide_recovery/dataset/manifest.json')
-    config = Config(**json.loads(original.read_text())['scenario_config'])
+    if agents not in (10, 20, 50) or permutations < 1:
+        raise ValueError('supported sizes are N=10, N=20 and N=50; permutations must be positive')
+    if agents == 20:
+        # The N=20 replacement keeps the same Gap1 plant and 0.62 m opening.
+        # No archived N=20 model or dataset exists to import.
+        config = Config(num_agents=20, max_steps=16000,
+                        openings=(((0., .62),),))
+    else:
+        original = Path(f'diagnostics/gap_flow_v1/n{agents}_wide_recovery/dataset/manifest.json')
+        config = Config(**json.loads(original.read_text())['scenario_config'])
     if config.openings[0][0][1] != .62:
         raise ValueError('exact original Gap1 0.62 m geometry required')
     rng = np.random.default_rng(seed)
@@ -228,7 +234,7 @@ def collect(output: Path, *, agents: int, counts: dict[str, int], modes: tuple[s
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--agents', type=int, choices=(10,50), required=True)
+    parser.add_argument('--agents', type=int, choices=(10,20,50), required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--train', type=int, required=True)
     parser.add_argument('--dev', type=int, required=True)
