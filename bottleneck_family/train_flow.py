@@ -16,6 +16,7 @@ def main():
     parser.add_argument('--early-steps',type=int,default=50)
     parser.add_argument('--early-nominal-only',action='store_true')
     parser.add_argument('--near-goal-fraction',type=float,default=0.0)
+    parser.add_argument('--near-goal-distance',type=float,default=1.0)
     parser.add_argument('--onset-recovery-fraction',type=float,default=0.0)
     parser.add_argument('--onset-recovery-steps',type=int,default=50)
     parser.add_argument('--terminal-recovery-fraction',type=float,default=0.0)
@@ -44,6 +45,7 @@ def main():
                         allow_non_four_agents=True,
                         snapshot_interval=args.snapshot_interval,
                         near_goal_fraction=args.near_goal_fraction,
+                        near_goal_distance=args.near_goal_distance,
                         onset_recovery_fraction=args.onset_recovery_fraction,
                         onset_recovery_steps=args.onset_recovery_steps,
                         terminal_recovery_fraction=args.terminal_recovery_fraction,

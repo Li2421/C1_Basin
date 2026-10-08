@@ -1,0 +1,36 @@
+#!/bin/bash
+#SBATCH --job-name=gap1_n20_screen
+#SBATCH --partition=cpu
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=4G
+#SBATCH --time=03:00:00
+#SBATCH --output=diagnostics/gap_flow_scale_20261007/n20_screen_%A_%a.log
+set -euo pipefail
+cd /home/zhihan/research/Basin_C1
+export OMP_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+export JAX_PLATFORMS=cpu
+: "${GAP1_TAG_PREFIX:?set screening output prefix}"
+snapshot_index=$((SLURM_ARRAY_TASK_ID / 32))
+local_index=$((SLURM_ARRAY_TASK_ID % 32))
+mode_index=$((local_index / 4))
+case_index=$((local_index % 4))
+if (( snapshot_index < 0 || snapshot_index >= 10 )); then
+  echo "Invalid snapshot index: $snapshot_index" >&2
+  exit 2
+fi
+steps=$(((snapshot_index + 1) * 2000))
+printf -v checkpoint_name 'snapshot_%07d.pkl' "$steps"
+checkpoint="diagnostics/gap_flow_scale_20261007/n20_train_navigation_v1/$checkpoint_name"
+modes=(single_even single_odd few_even few_odd one_way one_way_mirror \
+       temporal_release_even_first temporal_release_odd_first)
+mode=${modes[$mode_index]}
+printf -v case_name '%04d' "$case_index"
+output="diagnostics/gap_flow_scale_20261007/${GAP1_TAG_PREFIX}_s${steps}/${mode}_${case_name}"
+/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python \
+  -m bottleneck_family.evaluate_safety_audit \
+  --agents 20 --mode "$mode" --output "$output" \
+  --checkpoint-override "$checkpoint" \
+  --split dev --observation-version competence_v2 \
+  --fresh-count 1 --fresh-start "$case_index" \
+  --fresh-seed 162020 --seed 7404 --goal-stop

@@ -18,7 +18,7 @@ import time
 
 ROOT = Path('diagnostics/gap_flow_scale_20261007')
 ARRAYS = (9055, 9602)
-OWN_JOB_IDS = frozenset((*ARRAYS, 9620, 9647, 10024, 10113))
+OWN_JOB_IDS = frozenset((*ARRAYS, 9620, 9647, 10024, 10113, 10459, 10491))
 TOTAL_CPUS = 24
 PRIORITY_RESERVATION = 12
 ARRAY_TASK = re.compile(r'^(\d+)_(\d+)$')
@@ -54,11 +54,15 @@ def tick(*, path: Path, previous: tuple[int, int] | None) -> tuple[int, int]:
                 and row['state'] in ('R', 'PD', 'CG')
                 and row['reason'] not in ('(Dependency)', '(JobHeldUser)')]
     cap = TOTAL_CPUS - PRIORITY_RESERVATION if priority else TOTAL_CPUS
-    fixed = sum(row['cpus'] for row in rows if row['base'] in OWN_JOB_IDS
-                and row['base'] not in ARRAYS and
-                (row['state'] == 'R' or
-                 (row['state'] == 'PD' and row['reason'] not in
-                  ('(Dependency)', '(JobHeldUser)'))))
+    external_running = sum(row['cpus'] for row in priority if row['state'] == 'R')
+    cap = min(cap, max(0, TOTAL_CPUS - external_running))
+    fixed_running = sum(row['cpus'] for row in rows if row['base'] in OWN_JOB_IDS
+                        and row['base'] not in ARRAYS and row['state'] == 'R')
+    fixed_pending = sum(row['cpus'] for row in rows if row['base'] in OWN_JOB_IDS
+                        and row['base'] not in ARRAYS and row['state'] == 'PD'
+                        and row['reason'] not in
+                        ('(Dependency)', '(JobHeldUser)', '(JobArrayTaskLimit)'))
+    fixed = fixed_running + fixed_pending
     slots = max(0, cap - fixed)
     n10 = max(1, slots // 2)
     n2 = max(1, slots - n10)
@@ -75,7 +79,10 @@ def tick(*, path: Path, previous: tuple[int, int] | None) -> tuple[int, int]:
     rows = slurm_rows()
     running = [row for row in rows if row['base'] in OWN_JOB_IDS and row['state'] == 'R']
     allocated = sum(row['cpus'] for row in running)
-    if allocated > cap:
+    # Reserve a slot for runnable own fixed work so it can actually launch;
+    # merely reducing array throttles does not evict existing array workers.
+    running_limit = max(0, cap - fixed_pending)
+    if allocated > running_limit:
         candidates = [row for row in running if row['base'] in ARRAYS
                       and ARRAY_TASK.fullmatch(row['job_id'])]
         # Array IDs rise as tasks launch. Cancel the newest work first; each
@@ -83,7 +90,7 @@ def tick(*, path: Path, previous: tuple[int, int] | None) -> tuple[int, int]:
         candidates.sort(key=lambda row: int(ARRAY_TASK.fullmatch(row['job_id']).group(2)),
                         reverse=True)
         for row in candidates:
-            if allocated <= cap:
+            if allocated <= running_limit:
                 break
             result = command('scancel', row['job_id'])
             journal(dict(event='cancel_for_priority', job=row['job_id'],

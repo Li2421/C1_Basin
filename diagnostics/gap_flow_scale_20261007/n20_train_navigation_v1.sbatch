@@ -3,7 +3,7 @@
 #SBATCH --partition=debug
 #SBATCH --gres=shard:2
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=80G
+#SBATCH --mem=50G
 #SBATCH --time=02:00:00
 #SBATCH --output=diagnostics/gap_flow_scale_20261007/n20_train_navigation_v1_%j.log
 set -euo pipefail
