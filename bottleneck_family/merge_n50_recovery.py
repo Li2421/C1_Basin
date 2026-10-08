@@ -1,4 +1,4 @@
-"""Merge paired N=50 same-direction recovery shards with complete demos.
+"""Merge paired large-N same-direction recovery shards with complete demos.
 
 The source train/dev trajectories are copied exactly once. Only successful
 train-only recovery trajectories from the shards are added. No test or
@@ -29,6 +29,9 @@ def merge(source: Path, shards: list[Path], output: Path):
     output.mkdir(parents=True, exist_ok=True)
     source_manifest_path = source / "manifest.json"
     source_manifest = json.loads(source_manifest_path.read_text())
+    n = int(source_manifest["scenario_config"]["num_agents"])
+    if n not in (20, 50):
+        raise ValueError("recovery merge requires N=20 or N=50")
     if source_manifest["schema"] != DATASET_SCHEMA or not source_manifest["complete"]:
         raise ValueError("source dataset is not complete")
     records = list(source_manifest["files"])
@@ -48,12 +51,20 @@ def merge(source: Path, shards: list[Path], output: Path):
         report = manifest["extra_report"]
         recovery_parent = Path(report["source_dataset"]).resolve()
         if recovery_parent != source.resolve():
-            # A new, non-opposing parked-group demonstration collection may
-            # already have copied the recovery parent into its own dataset.
-            # Permit this only when every parent record is present unchanged.
-            copied_parent = source_manifest.get("extra_report", {}).get("source_dataset")
-            if copied_parent is None or Path(copied_parent).resolve() != recovery_parent:
-                raise ValueError("recovery shard provenance does not name source or copied parent")
+            # Multiple competence-only merges may be chained. Follow their
+            # recorded ancestry and require every original parent record to
+            # be present unchanged in the current source dataset.
+            ancestor = source.resolve()
+            visited = set()
+            while ancestor != recovery_parent:
+                if ancestor in visited:
+                    raise ValueError("cycle in recovery source ancestry")
+                visited.add(ancestor)
+                ancestor_manifest = json.loads((ancestor / "manifest.json").read_text())
+                copied_parent = ancestor_manifest.get("extra_report", {}).get("source_dataset")
+                if copied_parent is None:
+                    raise ValueError("recovery shard parent absent from source ancestry")
+                ancestor = Path(copied_parent).resolve()
             parent_manifest = json.loads((recovery_parent/"manifest.json").read_text())
             parent_rows = {row["rollout_id"]: row for row in parent_manifest["files"]}
             source_rows = {row["rollout_id"]: row for row in source_manifest["files"]}
@@ -64,7 +75,7 @@ def merge(source: Path, shards: list[Path], output: Path):
             raise ValueError("recovery shard is not mirrored by direction")
         source_label = report.get("source_label", "uniform_recovery")
         if source_label not in ("uniform_recovery", "late_postgate_recovery", "early_queue_recovery",
-                                "terminal_multi_recovery"):
+                                "terminal_multi_recovery", "gate_local_recovery"):
             raise ValueError("unsupported recovery source label")
         fresh = [row for row in manifest["files"] if row["source"] == source_label]
         if len(fresh) != sum(report["accepted"][d]["trajectories"] for d in ("LR","RL")):
@@ -114,7 +125,7 @@ def merge(source: Path, shards: list[Path], output: Path):
                        "source":{kind:sum(row["source"]==kind for row in records)
                                  for kind in sorted({row["source"] for row in records}
                                                     | set(source_manifest["counts"]["source"]))}}
-    final["extra_report"] = {"schema":"n50_dense_postgate_competence_dataset_v1",
+    final["extra_report"] = {"schema":f"n{n}_dense_postgate_competence_dataset_v1",
                               "source_dataset":str(source),
                               "source_manifest_sha256":_sha(source_manifest_path),
                               "shards":shard_info,"accepted_recovery":accepted,
@@ -129,7 +140,7 @@ def merge(source: Path, shards: list[Path], output: Path):
         data = JointTransitionDataset(output,split)
         if data.environment_fingerprint != final["environment_fingerprint"]:
             raise ValueError("merged dataset fingerprint failed reader validation")
-    summary = {"schema":"n50_dense_postgate_merge_v1","output":str(output),
+    summary = {"schema":f"n{n}_dense_postgate_merge_v1","output":str(output),
                "manifest_sha256":_sha(output/"manifest.json"),
                "counts":final["counts"],"accepted_recovery":accepted,"shards":shard_info}
     (output.parent/"merge_report.json").write_text(json.dumps(summary,indent=2)+"\n")

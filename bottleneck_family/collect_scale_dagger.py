@@ -119,8 +119,8 @@ def collect(source, checkpoint, output, *, cases_per_category=8,
     if not cases:
         raise ValueError('no train cases matched the recovery selection')
     config = Config(**manifest['scenario_config'])
-    if config.num_agents not in (10, 50):
-        raise ValueError('scale recovery collection supports N=10 or N=50')
+    if config.num_agents not in (10, 20, 50):
+        raise ValueError('scale recovery collection supports N=10, N=20 or N=50')
     checkpoint_sha = hashlib.sha256(checkpoint.read_bytes()).hexdigest()
     agent, _ = load_checkpoint(checkpoint,
         expected_environment_fingerprint=manifest['environment_fingerprint'])

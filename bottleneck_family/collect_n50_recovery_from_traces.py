@@ -1,4 +1,4 @@
-"""Collect N=50 train-only mirrored recoveries from saved non-opposing traces.
+"""Collect large-N train-only mirrored recoveries from non-opposing traces.
 
 The full Flow model traces have already passed rollout preflight. This mode
 avoids loading/copying the large original dataset in every recovery worker;
@@ -26,7 +26,8 @@ from .scenario import Config
 
 def collect(source: Path, model_trace_dir: Path, output: Path, *, anchors=(3000,5000,7000),
             terminal_offsets=(), seed=90127, source_label="uniform_recovery"):
-    if source_label not in ("uniform_recovery", "late_postgate_recovery", "early_queue_recovery"):
+    if source_label not in ("uniform_recovery", "late_postgate_recovery",
+                            "early_queue_recovery", "gate_local_recovery"):
         raise ValueError("invalid recovery source label")
     if any(int(offset) <= 0 for offset in terminal_offsets):
         raise ValueError("terminal offsets must be positive")
@@ -36,8 +37,8 @@ def collect(source: Path, model_trace_dir: Path, output: Path, *, anchors=(3000,
     output.mkdir(parents=True,exist_ok=True)
     manifest=json.loads((source/"manifest.json").read_text())
     config=Config(**manifest["scenario_config"])
-    if config.num_agents!=50:
-        raise ValueError("N=50 source required")
+    if config.num_agents not in (20,50):
+        raise ValueError("N=20 or N=50 source required")
     candidates=[]
     skipped_anchors=[]
     model_rows=[]
@@ -49,7 +50,8 @@ def collect(source: Path, model_trace_dir: Path, output: Path, *, anchors=(3000,
             meta=json.loads(str(data["metadata_json"].item()))
         if (meta["split"] != "train" or meta["category"] not in (
                 "full_LR", "full_RL", "half_LR", "half_RL",
-                "five_LR", "five_RL", "parked_half_LR", "parked_half_RL")
+                "five_LR", "five_RL", "parked_half_LR", "parked_half_RL",
+                "solo_LR", "solo_RL")
                 or meta["collision"]):
             raise ValueError(f"model trace is not valid train-only one-way data: {path}")
         if meta["physical_fingerprint"]!=config.physical_fingerprint:
@@ -144,7 +146,7 @@ def collect(source: Path, model_trace_dir: Path, output: Path, *, anchors=(3000,
                           "accepted":accepted}),flush=True)
     if accepted["LR"]!=accepted["RL"]:
         raise RuntimeError("directional recovery imbalance")
-    report=dict(schema="gap1_n50_recovery_from_saved_train_traces_v1",
+    report=dict(schema=f"gap1_n{config.num_agents}_recovery_from_saved_train_traces_v1",
         source_dataset=str(source),model_trace_dir=str(model_trace_dir),
         source_label=source_label,absolute_anchors=list(anchors),
         terminal_offsets=list(terminal_offsets),skipped_anchors=skipped_anchors,
@@ -167,7 +169,7 @@ def main():
     parser.add_argument("--terminal-offsets",type=int,nargs="+",default=())
     parser.add_argument("--seed",type=int,default=90127)
     parser.add_argument("--source-label",choices=("uniform_recovery", "late_postgate_recovery",
-                                                 "early_queue_recovery"),
+                                                 "early_queue_recovery", "gate_local_recovery"),
                         default="uniform_recovery")
     args=parser.parse_args()
     print(json.dumps(collect(args.source,args.model_trace_dir,args.output,

@@ -18,7 +18,9 @@ import time
 
 ROOT = Path('diagnostics/gap_flow_scale_20261007')
 ARRAYS = (9055, 9602)
-OWN_JOB_IDS = frozenset((*ARRAYS, 9620, 9647, 10024, 10113, 10459, 10491))
+OWN_JOB_IDS = frozenset((*ARRAYS, 9620, 9647, 10024, 10113, 10459, 10491,
+                         10633, 10708, 10725, 10736, 10811, 10908, 10917,
+                         10925, 10940, 10948, 10994, 11001, 11007, 11038))
 TOTAL_CPUS = 24
 PRIORITY_RESERVATION = 12
 ARRAY_TASK = re.compile(r'^(\d+)_(\d+)$')
@@ -64,16 +66,31 @@ def tick(*, path: Path, previous: tuple[int, int] | None) -> tuple[int, int]:
                         ('(Dependency)', '(JobHeldUser)', '(JobArrayTaskLimit)'))
     fixed = fixed_running + fixed_pending
     slots = max(0, cap - fixed)
-    n10 = max(1, slots // 2)
-    n2 = max(1, slots - n10)
+    active10 = any(row['base'] == 9055 and row['state'] in ('R', 'PD') for row in rows)
+    active2 = any(row['base'] == 9602 and row['state'] in ('R', 'PD') for row in rows)
+    if active10 and active2 and slots >= 2:
+        n10, n2 = slots // 2, slots - slots // 2
+    elif active10 and slots:
+        n10, n2 = slots, 0
+    elif active2 and slots:
+        n10, n2 = 0, slots
+    else:
+        n10 = n2 = 0
     target = (n10, n2)
     if target != previous:
         for job, throttle in zip(ARRAYS, target):
-            # Slurm may return an error for already-finished array members
-            # while still updating live members; verify via the next tick.
-            result = command('scontrol', 'update', f'JobId={job}',
-                             f'ArrayTaskThrottle={throttle}')
-            journal(dict(event='throttle', job=job, throttle=throttle,
+            if throttle == 0:
+                result = command('scontrol', 'hold', str(job))
+                event = 'hold_array'
+            else:
+                # Releasing does not interrupt running tasks.  Slurm may
+                # return an error for finished members while applying the
+                # action to pending members of the same array.
+                command('scontrol', 'release', str(job))
+                result = command('scontrol', 'update', f'JobId={job}',
+                                 f'ArrayTaskThrottle={throttle}')
+                event = 'throttle'
+            journal(dict(event=event, job=job, throttle=throttle,
                          exit_code=result.returncode, stderr=result.stderr.strip(),
                          priority_jobs=[row['job_id'] for row in priority]), path=path)
     rows = slurm_rows()

@@ -1,4 +1,4 @@
-"""Collect mirrored, train-only N=50 terminal occupancy recoveries.
+"""Collect mirrored, train-only Gap1 terminal occupancy recoveries.
 
 The perturbation uses completed one-way expert states, never an opposing
 rollout. Five already-arrived agents are displaced a short, collision-free
@@ -27,12 +27,15 @@ from .flow_dataset import GapFlowScenario
 from .scenario import Config
 
 
-def _candidate(config, states, goals, *, seed, pending_count=5):
+def _candidate(config, states, goals, *, seed, pending_count=5,
+               minimum_goal_occupancy=None, max_displacement=.32):
     """Use a fixed seeded rejection sampler; no model-result feedback."""
     distance = np.linalg.norm(states - goals[None], axis=2)
     occupancy = (distance <= config.goal_tolerance).sum(axis=1)
     crossed = (states[:, :, 0] > .8).all(axis=1)
-    anchors = np.flatnonzero((occupancy >= 45) & crossed)
+    if minimum_goal_occupancy is None:
+        minimum_goal_occupancy = config.num_agents - 5
+    anchors = np.flatnonzero((occupancy >= minimum_goal_occupancy) & crossed)
     if not len(anchors):
         return None, "no_train_terminal_anchor"
     # Distinct terminal snapshots across perturbation variants, but all
@@ -50,7 +53,7 @@ def _candidate(config, states, goals, *, seed, pending_count=5):
             placed = False
             for _ in range(100):
                 angle = rng.uniform(-np.pi, np.pi)
-                length = rng.uniform(.14, .32)
+                length = rng.uniform(.14, max_displacement)
                 candidate_position = goals[i] + length*np.array([np.cos(angle), np.sin(angle)])
                 if not env.instance.geometry.valid_points(candidate_position[None]).all():
                     continue
@@ -69,15 +72,22 @@ def _candidate(config, states, goals, *, seed, pending_count=5):
     return None, "no_valid_displacement_after_100_attempts"
 
 
-def collect(source: Path, output: Path, *, variants=8, seed=638270, pending_count=5):
+def collect(source: Path, output: Path, *, variants=8, seed=638270, pending_count=5,
+            minimum_goal_occupancy=None, max_displacement=.32):
     source, output = Path(source), Path(output)
     if output.exists() and any(output.iterdir()):
         raise FileExistsError(output)
     output.mkdir(parents=True)
     manifest = json.loads((source / "manifest.json").read_text())
     config = Config(**manifest["scenario_config"])
-    if config.num_agents != 50 or not 1 <= pending_count <= 25:
-        raise ValueError("N=50 source required")
+    if (config.num_agents not in (20, 50)
+            or not 1 <= pending_count <= config.num_agents // 2
+            or not .14 < max_displacement <= 2.0):
+        raise ValueError("N=20/50 source, valid pending count and displacement required")
+    if minimum_goal_occupancy is None:
+        minimum_goal_occupancy = config.num_agents - 5
+    if not pending_count <= minimum_goal_occupancy <= config.num_agents:
+        raise ValueError("minimum goal occupancy outside valid range")
     rows = [r for r in manifest["files"] if r["split"] == "train"
             and r["source"] == "nominal" and "_full_LR_perm0" in r["rollout_id"]]
     if not rows:
@@ -94,7 +104,9 @@ def collect(source: Path, output: Path, *, variants=8, seed=638270, pending_coun
                                                        variant, pending_count])
                                .generate_state(1)[0])
             candidate, reason = _candidate(episode_config, states, goals, seed=perturb_seed,
-                                           pending_count=pending_count)
+                                           pending_count=pending_count,
+                                           minimum_goal_occupancy=minimum_goal_occupancy,
+                                           max_displacement=max_displacement)
             if candidate is None:
                 rejected.append(dict(parent=row["rollout_id"], variant=variant, reason=reason))
                 continue
@@ -157,11 +169,13 @@ def collect(source: Path, output: Path, *, variants=8, seed=638270, pending_coun
                           "steps":len(result["actions"])}), flush=True)
     if accepted["LR"] != accepted["RL"]:
         raise RuntimeError("directional imbalance")
-    report = dict(schema="n50_train_only_mirrored_terminal_multi_recovery_v1",
+    report = dict(schema=f"n{config.num_agents}_train_only_mirrored_terminal_multi_recovery_v1",
         source_dataset=str(source), source_manifest_sha256=hashlib.sha256(
             (source/"manifest.json").read_bytes()).hexdigest(),
         source_label="terminal_multi_recovery",seed=seed,variants=variants,
         perturbed_agent_count=pending_count,
+        minimum_goal_occupancy=minimum_goal_occupancy,
+        max_displacement=max_displacement,
         source_trajectories=len(rows),candidates=len(candidates),
         rejected_geometry=rejected,teacher_failures=failures,
         accepted=accepted,preflight=cache["summary"],
@@ -178,9 +192,13 @@ def main():
     parser.add_argument("--variants",type=int,default=8)
     parser.add_argument("--seed",type=int,default=638270)
     parser.add_argument("--pending-count",type=int,default=5)
+    parser.add_argument("--minimum-goal-occupancy",type=int)
+    parser.add_argument("--max-displacement",type=float,default=.32)
     args=parser.parse_args()
     print(json.dumps(collect(args.source,args.output,variants=args.variants,seed=args.seed,
-                             pending_count=args.pending_count),
+                             pending_count=args.pending_count,
+                             minimum_goal_occupancy=args.minimum_goal_occupancy,
+                             max_displacement=args.max_displacement),
                      indent=2),flush=True)
 
 

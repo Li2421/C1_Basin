@@ -21,6 +21,8 @@ def main():
     parser.add_argument('--onset-recovery-steps',type=int,default=50)
     parser.add_argument('--terminal-recovery-fraction',type=float,default=0.0)
     parser.add_argument('--terminal-recovery-steps',type=int,default=150)
+    parser.add_argument('--gate-recovery-fraction',type=float,default=0.0)
+    parser.add_argument('--gate-recovery-steps',type=int,default=300)
     parser.add_argument('--initial-nominal-fraction',type=float,default=0.0)
     parser.add_argument('--initial-nominal-steps',type=int,default=5)
     parser.add_argument('--source-balanced-sampling',action='store_true')
@@ -50,6 +52,8 @@ def main():
                         onset_recovery_steps=args.onset_recovery_steps,
                         terminal_recovery_fraction=args.terminal_recovery_fraction,
                         terminal_recovery_steps=args.terminal_recovery_steps,
+                        gate_recovery_fraction=args.gate_recovery_fraction,
+                        gate_recovery_steps=args.gate_recovery_steps,
                         initial_nominal_fraction=args.initial_nominal_fraction,
                         initial_nominal_steps=args.initial_nominal_steps,
                         source_balanced_sampling=args.source_balanced_sampling,
