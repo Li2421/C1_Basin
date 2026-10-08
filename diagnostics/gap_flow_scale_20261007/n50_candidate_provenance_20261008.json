@@ -1,0 +1,307 @@
+{
+  "schema": "gap1_n50_candidate_provenance_v1",
+  "dataset_manifest": "diagnostics/gap_flow_scale_20261007/n50_dataset_v1/dataset/manifest.json",
+  "dataset_manifest_sha256": "f2c2bbeddc1d5c0d1d93b3adca4bf4f7526baa9e07f29d1a0f332775fe175f8e",
+  "training_data": {
+    "train_solo_LR": {
+      "trajectories": 16,
+      "transitions": 8980
+    },
+    "train_solo_RL": {
+      "trajectories": 16,
+      "transitions": 8980
+    },
+    "train_five_LR": {
+      "trajectories": 16,
+      "transitions": 27170
+    },
+    "train_five_RL": {
+      "trajectories": 16,
+      "transitions": 27170
+    },
+    "train_half_LR": {
+      "trajectories": 16,
+      "transitions": 115014
+    },
+    "train_half_RL": {
+      "trajectories": 16,
+      "transitions": 115014
+    },
+    "train_full_LR": {
+      "trajectories": 16,
+      "transitions": 222986
+    },
+    "train_full_RL": {
+      "trajectories": 16,
+      "transitions": 222986
+    },
+    "dev_solo_LR": {
+      "trajectories": 6,
+      "transitions": 3076
+    },
+    "dev_solo_RL": {
+      "trajectories": 6,
+      "transitions": 3076
+    },
+    "dev_five_LR": {
+      "trajectories": 6,
+      "transitions": 9586
+    },
+    "dev_five_RL": {
+      "trajectories": 6,
+      "transitions": 9586
+    },
+    "dev_half_LR": {
+      "trajectories": 6,
+      "transitions": 43006
+    },
+    "dev_half_RL": {
+      "trajectories": 6,
+      "transitions": 43006
+    },
+    "dev_full_LR": {
+      "trajectories": 6,
+      "transitions": 83868
+    },
+    "dev_full_RL": {
+      "trajectories": 6,
+      "transitions": 83868
+    }
+  },
+  "teacher_failures": [],
+  "reference": "same_direction_gate_release_after_exit; no opposing tasks",
+  "train_active_agent_step_fraction_threshold_0p1": 0.03778078310837899,
+  "train_multi_active_timestep_fraction_threshold_0p1": 0.6923479887745556,
+  "candidates": {
+    "wide_v4": {
+      "checkpoint": "diagnostics/gap_flow_scale_20261007/n50_train_wide_v4/best.pkl",
+      "checkpoint_sha256": "a746f36809f7d74c2d64c13bdc4e2e2260c7e4771566035fa5317a8745dbf6fc",
+      "config_path": "diagnostics/gap_flow_scale_20261007/n50_train_wide_v4/config.json",
+      "training_summary_path": "diagnostics/gap_flow_scale_20261007/n50_train_wide_v4/training_summary.json",
+      "config": {
+        "agent_order": [
+          "agent_000",
+          "agent_001",
+          "agent_002",
+          "agent_003",
+          "agent_004",
+          "agent_005",
+          "agent_006",
+          "agent_007",
+          "agent_008",
+          "agent_009",
+          "agent_010",
+          "agent_011",
+          "agent_012",
+          "agent_013",
+          "agent_014",
+          "agent_015",
+          "agent_016",
+          "agent_017",
+          "agent_018",
+          "agent_019",
+          "agent_020",
+          "agent_021",
+          "agent_022",
+          "agent_023",
+          "agent_024",
+          "agent_025",
+          "agent_026",
+          "agent_027",
+          "agent_028",
+          "agent_029",
+          "agent_030",
+          "agent_031",
+          "agent_032",
+          "agent_033",
+          "agent_034",
+          "agent_035",
+          "agent_036",
+          "agent_037",
+          "agent_038",
+          "agent_039",
+          "agent_040",
+          "agent_041",
+          "agent_042",
+          "agent_043",
+          "agent_044",
+          "agent_045",
+          "agent_046",
+          "agent_047",
+          "agent_048",
+          "agent_049"
+        ],
+        "allow_non_four_agents": true,
+        "architecture": "set_attention",
+        "batch_size": 64,
+        "dataset_manifest_sha256": "f2c2bbeddc1d5c0d1d93b3adca4bf4f7526baa9e07f29d1a0f332775fe175f8e",
+        "early_nominal_only": false,
+        "early_steps": 50,
+        "early_transition_fraction": 0.2,
+        "environment_fingerprint": "a05dc4e5deb7f67868759697e9dd73fe4044d2c9abddacba4875c1e4019f8393",
+        "flow_steps": 10,
+        "implementation": "official_ActorVectorField_ModuleDict_TrainState_Adam_CFM",
+        "init_checkpoint": null,
+        "init_checkpoint_sha256": null,
+        "motion_loss_weight": 20.0,
+        "near_goal_distance": 1.0,
+        "near_goal_fraction": 0.6,
+        "near_goal_transition_count": 183432,
+        "normalization_from_init_checkpoint": false,
+        "normalization_from_target_train": true,
+        "parameter_count": 200962,
+        "permutation_augmentation": true,
+        "schema": "new_benchmark_joint_stage1_train_v1",
+        "seed": 7054,
+        "set_layers": 2,
+        "set_width": 128,
+        "shared_agent_normalization": true,
+        "snapshot_interval": 15000,
+        "source_balanced_sampling": false,
+        "source_transitions": {
+          "gate_local_recovery": 0,
+          "nominal": 748300,
+          "targeted_agent": 0,
+          "targeted_wall_obstacle": 0,
+          "uniform_recovery": 0
+        },
+        "steps": 60000,
+        "test_opened": false,
+        "transfer_set_checkpoint": null,
+        "transfer_set_checkpoint_sha256": null
+      },
+      "training_summary": {
+        "best_fixed_dev_loss": 0.23153467290103436,
+        "best_step": 54000,
+        "final_fixed_dev_loss": 0.26330651342868805,
+        "final_fixed_train_loss": 0.30168737284839153,
+        "initial_fixed_dev_loss": 14.499079942703247,
+        "initial_fixed_train_loss": 14.46412217617035,
+        "training_seconds": 202.67915242910385
+      },
+      "selection": "minimum fixed non-opposing dev CFM loss; closed-loop competence still unverified"
+    },
+    "active_normalized_v5": {
+      "checkpoint": "diagnostics/gap_flow_scale_20261007/n50_train_active_norm_v5/best.pkl",
+      "checkpoint_sha256": "c58a6c030d7f0ef04e337483f79ba3d1acd3b970b26a0a808edcee736ac76225",
+      "config_path": "diagnostics/gap_flow_scale_20261007/n50_train_active_norm_v5/config.json",
+      "training_summary_path": "diagnostics/gap_flow_scale_20261007/n50_train_active_norm_v5/training_summary.json",
+      "config": {
+        "active_action_normalization": true,
+        "agent_order": [
+          "agent_000",
+          "agent_001",
+          "agent_002",
+          "agent_003",
+          "agent_004",
+          "agent_005",
+          "agent_006",
+          "agent_007",
+          "agent_008",
+          "agent_009",
+          "agent_010",
+          "agent_011",
+          "agent_012",
+          "agent_013",
+          "agent_014",
+          "agent_015",
+          "agent_016",
+          "agent_017",
+          "agent_018",
+          "agent_019",
+          "agent_020",
+          "agent_021",
+          "agent_022",
+          "agent_023",
+          "agent_024",
+          "agent_025",
+          "agent_026",
+          "agent_027",
+          "agent_028",
+          "agent_029",
+          "agent_030",
+          "agent_031",
+          "agent_032",
+          "agent_033",
+          "agent_034",
+          "agent_035",
+          "agent_036",
+          "agent_037",
+          "agent_038",
+          "agent_039",
+          "agent_040",
+          "agent_041",
+          "agent_042",
+          "agent_043",
+          "agent_044",
+          "agent_045",
+          "agent_046",
+          "agent_047",
+          "agent_048",
+          "agent_049"
+        ],
+        "allow_non_four_agents": true,
+        "architecture": "set_attention",
+        "batch_size": 64,
+        "dataset_manifest_sha256": "f2c2bbeddc1d5c0d1d93b3adca4bf4f7526baa9e07f29d1a0f332775fe175f8e",
+        "early_nominal_only": false,
+        "early_steps": 50,
+        "early_transition_fraction": 0.2,
+        "environment_fingerprint": "a05dc4e5deb7f67868759697e9dd73fe4044d2c9abddacba4875c1e4019f8393",
+        "flow_steps": 10,
+        "implementation": "official_ActorVectorField_ModuleDict_TrainState_Adam_CFM",
+        "init_checkpoint": null,
+        "init_checkpoint_sha256": null,
+        "motion_loss_weight": 20.0,
+        "near_goal_distance": 1.0,
+        "near_goal_fraction": 0.5,
+        "near_goal_transition_count": 183432,
+        "normalization_from_init_checkpoint": false,
+        "normalization_from_target_train": true,
+        "parameter_count": 26114,
+        "permutation_augmentation": true,
+        "schema": "new_benchmark_joint_stage1_train_v1",
+        "seed": 7055,
+        "set_layers": 1,
+        "set_width": 64,
+        "shared_agent_normalization": true,
+        "snapshot_interval": 15000,
+        "source_balanced_sampling": false,
+        "source_transitions": {
+          "gate_local_recovery": 0,
+          "nominal": 748300,
+          "targeted_agent": 0,
+          "targeted_wall_obstacle": 0,
+          "uniform_recovery": 0
+        },
+        "steps": 60000,
+        "test_opened": false,
+        "transfer_set_checkpoint": "diagnostics/gap_flow_scale_20261007/frozen/gap1_n10_flow_navigation_v1.pkl",
+        "transfer_set_checkpoint_sha256": "d062058c45e87c81a3c10f1f0c86523b111b90501a70f3230aa87b4c4918d980"
+      },
+      "training_summary": {
+        "best_fixed_dev_loss": 0.05913538672029972,
+        "best_step": 51000,
+        "final_fixed_dev_loss": 0.06024940963834524,
+        "final_fixed_train_loss": 0.08292285725474358,
+        "initial_fixed_dev_loss": 6.625085353851318,
+        "initial_fixed_train_loss": 6.107223987579346,
+        "training_seconds": 122.88764192699455
+      },
+      "selection": "minimum fixed non-opposing dev CFM loss; closed-loop competence still unverified"
+    }
+  },
+  "opposing_direction_demonstrations": 0,
+  "directional_trajectory_counts": {
+    "train_LR": 64,
+    "train_RL": 64,
+    "dev_LR": 24,
+    "dev_RL": 24
+  },
+  "directional_transition_counts": {
+    "train_LR": 374150,
+    "train_RL": 374150,
+    "dev_LR": 139536,
+    "dev_RL": 139536
+  }
+}

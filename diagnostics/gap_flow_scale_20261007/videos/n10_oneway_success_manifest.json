@@ -1,0 +1,12 @@
+{
+  "source_trace": "diagnostics/gap_flow_scale_20261007/n10_finetune15k_oneway_test/traces/test_gap_n10_0000.npz",
+  "trace_sha256": "1d410dacde6329c5ab3e74f448c1c26618e8059ca4157c1ee2a3b214d78f1ab5",
+  "video": "diagnostics/gap_flow_scale_20261007/videos/n10_oneway_success.mp4",
+  "video_sha256": "2acc93b5bd782f5d40352ab28257382c6d201297b6adeaa484cebd71f5ca797e",
+  "frames": 4515,
+  "episode_steps": 4514,
+  "checkpoint": "diagnostics/gap_flow_scale_20261007/n10_finetune_goal_v4/snapshot_0015000.pkl sha256=d062058c45e87c81a3c10f1f0c86523b111b90501a70f3230aa87b4c4918d980",
+  "seed": 1873948022,
+  "termination": "success",
+  "collision": false
+}

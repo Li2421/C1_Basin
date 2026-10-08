@@ -20,7 +20,8 @@ from .observation import policy_observation_competence
 from .scenario import Config
 
 
-def cases_from_dataset(root, split, *, max_cases_per_category=None, categories=None):
+def cases_from_dataset(root, split, *, max_cases_per_category=None, categories=None,
+                       rollout_id_substring=None):
     root = Path(root)
     manifest = json.loads((root / 'manifest.json').read_text())
     cases = []
@@ -28,9 +29,11 @@ def cases_from_dataset(root, split, *, max_cases_per_category=None, categories=N
     for row in manifest['files']:
         if row['split'] != split:
             continue
+        if rollout_id_substring is not None and rollout_id_substring not in row['rollout_id']:
+            continue
         with np.load(root / row['file'], allow_pickle=False) as data:
             state = json.loads(str(data['initial_state_json'].item()))
-        if not row['rollout_id'].endswith('swap0'):
+        if not row['rollout_id'].endswith(('swap0','perm0')):
             continue
         category = f"{state['mode']}_{state['direction']}"
         if categories is not None and category not in categories:
@@ -43,13 +46,20 @@ def cases_from_dataset(root, split, *, max_cases_per_category=None, categories=N
 
 
 def run(dataset_root, checkpoint, split, output, *, seed=17, samples=1,
-        max_cases_per_category=None, pilot_horizon=None, categories=None):
+        max_cases_per_category=None, pilot_horizon=None, categories=None,
+        hold_initially_passive=False, goal_stop=False,
+        latent_mode='per_step', rollout_id_substring=None):
+    if latent_mode not in ('per_step','per_episode'):
+        raise ValueError('invalid Flow latent mode')
     output = Path(output)
     if output.exists() and any(output.iterdir()):
         raise FileExistsError(output)
     output.mkdir(parents=True, exist_ok=True)
     manifest, cases = cases_from_dataset(dataset_root, split,
-        max_cases_per_category=max_cases_per_category,categories=categories)
+        max_cases_per_category=max_cases_per_category,categories=categories,
+        rollout_id_substring=rollout_id_substring)
+    if not cases:
+        raise ValueError('no competence cases match the requested split and filters')
     config = Config(**manifest['scenario_config'])
     checkpoint = Path(checkpoint)
     checkpoint_sha = hashlib.sha256(checkpoint.read_bytes()).hexdigest()
@@ -62,7 +72,9 @@ def run(dataset_root, checkpoint, split, output, *, seed=17, samples=1,
     controller_uid = uid('ctl', {'flow_sha256':checkpoint_sha,
         'control':'gap_competence_flow_plus_certified_hard_safety_v1',
         'sample_count':samples,'seed':seed,'safety':cbf.to_dict(),
-        'observation':'competence_v2'})
+        'observation':'competence_v2','goal_stop':goal_stop,
+        'hold_initially_passive':hold_initially_passive,
+        'latent_mode':latent_mode})
     requests=[]
     for rollout_id,category,state in cases:
         requests.append(dict(state_uid=uid('state',{
@@ -93,12 +105,17 @@ def run(dataset_root, checkpoint, split, output, *, seed=17, samples=1,
             observation=policy_observation_competence(env)
             sampled=np.asarray(sample_bounded_actions(agent,
                 np.repeat(observation[None],samples,axis=0),
-                jax.random.fold_in(episode_key,step)),dtype=np.float64)
+                jax.random.fold_in(episode_key,step) if latent_mode=='per_step'
+                else episode_key),dtype=np.float64)
             flow=sampled.mean(axis=0)
             norms=np.linalg.norm(flow,axis=1,keepdims=True)
             flow*=np.minimum(1.,config.max_speed/np.maximum(norms,1e-30))
             reference=flow.copy()
-            reference[passive]=0
+            if hold_initially_passive:
+                reference[passive]=0
+            if goal_stop:
+                reference[np.linalg.norm(env.goals-env.positions,axis=1)
+                          <=config.goal_tolerance]=0
             try:
                 result=projector(env.snapshot(),reference)
                 safe=np.asarray(result.velocity,dtype=np.float64)
@@ -155,7 +172,9 @@ def run(dataset_root, checkpoint, split, output, *, seed=17, samples=1,
             config=env.config.to_dict(),start_step=0,episode_steps=env.step_count,
             complete=numerical_error is None and pilot_horizon is None,
             termination=termination,collision=bool(env.collided),
-            safety_enabled=True,category=category,observation='competence_v2')
+            safety_enabled=True,category=category,observation='competence_v2',
+            hold_initially_passive=hold_initially_passive,goal_stop=goal_stop,
+            latent_mode=latent_mode)
         payload={name:np.asarray(values) for name,values in series.items()}
         for name in ('u_flow','u_ref','u_safe'):
             payload[name]=payload[name].reshape((-1,config.num_agents,2))
@@ -174,7 +193,11 @@ def run(dataset_root, checkpoint, split, output, *, seed=17, samples=1,
         checkpoint_sha256=checkpoint_sha,checkpoint_metadata=checkpoint_meta,
         dataset_manifest=str(Path(dataset_root)/'manifest.json'),split=split,
         samples_per_step=samples,seed=seed,safety='CertifiedHardSafetyFilter(HardProjectionConfig())',
-        summary=summary,rollouts=rows,pilot_horizon=pilot_horizon)
+        summary=summary,rollouts=rows,pilot_horizon=pilot_horizon,
+        hold_initially_passive=hold_initially_passive,
+        rollout_id_substring=rollout_id_substring)
+    result['goal_stop']=goal_stop
+    result['latent_mode']=latent_mode
     (output/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
     return result
 
@@ -190,11 +213,20 @@ def main():
     parser.add_argument('--max-cases-per-category',type=int)
     parser.add_argument('--pilot-horizon',type=int)
     parser.add_argument('--categories',nargs='+')
+    parser.add_argument('--rollout-id-substring')
+    parser.add_argument('--hold-initially-passive',action='store_true',
+                        help='Legacy clamped control; ordinary nominal Flow leaves this false')
+    parser.add_argument('--goal-stop',action='store_true',
+                        help='Reversible at-goal zero-action guard; included in controller identity')
+    parser.add_argument('--latent-mode',choices=('per_step','per_episode'),default='per_step')
     args=parser.parse_args()
     run(args.dataset_root,args.checkpoint,args.split,args.output,
         seed=args.seed,samples=args.samples_per_step,
         max_cases_per_category=args.max_cases_per_category,
-        pilot_horizon=args.pilot_horizon,categories=args.categories)
+        pilot_horizon=args.pilot_horizon,categories=args.categories,
+        hold_initially_passive=args.hold_initially_passive,
+        goal_stop=args.goal_stop,latent_mode=args.latent_mode,
+        rollout_id_substring=args.rollout_id_substring)
 
 
 if __name__=='__main__':main()

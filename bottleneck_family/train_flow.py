@@ -1,4 +1,4 @@
-"""Train the same official joint MACFlow architecture used by the four scenes."""
+"""Train joint Stage-I MACFlow, optionally with a permutation-equivariant actor."""
 import argparse,json
 from pathlib import Path
 from new_benchmark_common.training import train_stage1
@@ -14,6 +14,16 @@ def main():
     parser.add_argument('--snapshot-interval',type=int)
     parser.add_argument('--near-goal-fraction',type=float,default=0.0)
     parser.add_argument('--source-balanced-sampling',action='store_true')
+    parser.add_argument('--motion-loss-weight',type=float,default=1.0)
+    parser.add_argument('--permutation-augmentation',action='store_true')
+    parser.add_argument('--shared-agent-normalization',action='store_true')
+    parser.add_argument('--active-action-normalization',action='store_true')
+    parser.add_argument('--hidden-dims',type=int,nargs='+')
+    parser.add_argument('--architecture',choices=('flat_mlp','set_attention'),default='flat_mlp')
+    parser.add_argument('--set-width',type=int,default=128)
+    parser.add_argument('--set-layers',type=int,default=2)
+    parser.add_argument('--init-checkpoint',type=Path)
+    parser.add_argument('--transfer-set-checkpoint',type=Path)
     args=parser.parse_args()
     result=train_stage1(args.dataset,args.output,seed=args.seed,steps=args.steps,
                         batch_size=args.batch_size,log_interval=max(50,args.steps//20),
@@ -21,7 +31,16 @@ def main():
                         allow_non_four_agents=True,
                         snapshot_interval=args.snapshot_interval,
                         near_goal_fraction=args.near_goal_fraction,
-                        source_balanced_sampling=args.source_balanced_sampling)
+                        source_balanced_sampling=args.source_balanced_sampling,
+                        motion_loss_weight=args.motion_loss_weight,
+                        permutation_augmentation=args.permutation_augmentation,
+                        shared_agent_normalization=args.shared_agent_normalization,
+                        active_action_normalization=args.active_action_normalization,
+                        actor_hidden_dims=args.hidden_dims,
+                        architecture=args.architecture,
+                        set_width=args.set_width,set_layers=args.set_layers,
+                        init_checkpoint=args.init_checkpoint,
+                        transfer_set_checkpoint=args.transfer_set_checkpoint)
     print(json.dumps(result,indent=2),flush=True)
 
 

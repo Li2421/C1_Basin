@@ -1,0 +1,300 @@
+{
+  "schema": "gap1_n50_phase1_validation_v1",
+  "candidate_provenance": "diagnostics/gap_flow_scale_20261007/n50_candidate_provenance_20261008.json",
+  "sparse_screen": "diagnostics/gap_flow_scale_20261007/n50_sparse_screen_audit_20261008.json",
+  "safety_hashes": {
+    "diagnostics/double_bottleneck_eta3_basin/tools/exact_projection_retry.py": "94a478f7b1dc1897e1e3113a78fe4c4afa134cbb02ce924f4bc19befc6ce2f94",
+    "shared_control/hard_projection.py": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+    "bottleneck_family/environment.py": "9a30c23209735101193a4242e69c51112f8bb1465f69bd38278dc95e5f62c24f",
+    "bottleneck_family/evaluate_competence.py": "caa08693c03f0e356f822343cc655c93f27a92882886c3bdfe2406d3286cff7a",
+    "bottleneck_family/evaluate_safety_audit.py": "0241d463e715b8e289641f9f9f8a57b896cabdc44d9ce7c8181bae1d734179c1"
+  },
+  "results": {
+    "v4": {
+      "checkpoint_sha256": "a746f36809f7d74c2d64c13bdc4e2e2260c7e4771566035fa5317a8745dbf6fc",
+      "full_density": [
+        {
+          "source_summary": "diagnostics/gap_flow_scale_20261007/n50_v4_dev_full_v3/summary.json",
+          "state": "fresh_0",
+          "category": "full_LR",
+          "success": false,
+          "termination": "timeout",
+          "steps": 40000,
+          "collision": false,
+          "numerical_error": null,
+          "crossed_gate": 47,
+          "moving_agents": 50,
+          "at_goal": 4,
+          "final_mean_goal_distance": 1.330570286156346,
+          "final_max_goal_distance": 8.260362044246042,
+          "mean_projection_norm": 0.19019925431777157,
+          "wall_active_fraction": 0.99035,
+          "pair_active_fraction": 0.984325,
+          "min_swept_wall_clearance": 0.0001056477028630598,
+          "min_swept_agent_clearance": 0.00017715904288045925
+        },
+        {
+          "source_summary": "diagnostics/gap_flow_scale_20261007/n50_v4_dev_full_v3/summary.json",
+          "state": "fresh_0",
+          "category": "full_RL",
+          "success": false,
+          "termination": "timeout",
+          "steps": 40000,
+          "collision": false,
+          "numerical_error": null,
+          "crossed_gate": 49,
+          "moving_agents": 50,
+          "at_goal": 5,
+          "final_mean_goal_distance": 0.7623119545457071,
+          "final_max_goal_distance": 8.096921054674537,
+          "mean_projection_norm": 0.22872999371097957,
+          "wall_active_fraction": 0.975525,
+          "pair_active_fraction": 0.983325,
+          "min_swept_wall_clearance": 0.00012568437268226096,
+          "min_swept_agent_clearance": 0.00012665212720514019
+        },
+        {
+          "source_summary": "diagnostics/gap_flow_scale_20261007/n50_v4_dev_full_seed1/summary.json",
+          "state": "fresh_1",
+          "category": "full_LR",
+          "success": false,
+          "termination": "timeout",
+          "steps": 40000,
+          "collision": false,
+          "numerical_error": null,
+          "crossed_gate": 48,
+          "moving_agents": 50,
+          "at_goal": 4,
+          "final_mean_goal_distance": 1.0059290064179878,
+          "final_max_goal_distance": 5.783044152414741,
+          "mean_projection_norm": 0.12895278420774375,
+          "wall_active_fraction": 0.9389,
+          "pair_active_fraction": 0.932,
+          "min_swept_wall_clearance": 0.00010067387886167345,
+          "min_swept_agent_clearance": 0.00010062286214168603
+        },
+        {
+          "source_summary": "diagnostics/gap_flow_scale_20261007/n50_v4_dev_full_seed1/summary.json",
+          "state": "fresh_1",
+          "category": "full_RL",
+          "success": false,
+          "termination": "timeout",
+          "steps": 40000,
+          "collision": false,
+          "numerical_error": null,
+          "crossed_gate": 50,
+          "moving_agents": 50,
+          "at_goal": 6,
+          "final_mean_goal_distance": 0.6118772730559853,
+          "final_max_goal_distance": 1.094021280650119,
+          "mean_projection_norm": 0.1271796428866257,
+          "wall_active_fraction": 0.588575,
+          "pair_active_fraction": 0.88165,
+          "min_swept_wall_clearance": 0.0001365220390987243,
+          "min_swept_agent_clearance": 0.0001680377296890967
+        }
+      ],
+      "full_density_summary": {
+        "runs": 4,
+        "success": 0,
+        "collision": 0,
+        "numerical_failure": 0,
+        "median_crossed_gate": 48.5,
+        "median_at_goal": 4.5,
+        "median_projection_norm": 0.15957601926275766,
+        "median_wall_active_fraction": 0.9572125,
+        "median_pair_active_fraction": 0.9576625000000001
+      },
+      "temporal": {
+        "source_summary": "diagnostics/gap_flow_scale_20261007/n50_v4_temporal_fresh/summary.json",
+        "success": false,
+        "termination": "timeout",
+        "collision": false,
+        "numerical_error": null,
+        "steps": 40000,
+        "at_goal": 5,
+        "phase_transition_step": null,
+        "mean_projection_norm": 0.04754573675325561,
+        "active_pair_fraction": 0.97965,
+        "active_wall_fraction": 0.979825
+      }
+    },
+    "v5": {
+      "checkpoint_sha256": "c58a6c030d7f0ef04e337483f79ba3d1acd3b970b26a0a808edcee736ac76225",
+      "full_density": [
+        {
+          "source_summary": "diagnostics/gap_flow_scale_20261007/n50_v5_dev_full_v3/summary.json",
+          "state": "fresh_0",
+          "category": "full_LR",
+          "success": false,
+          "termination": "timeout",
+          "steps": 40000,
+          "collision": false,
+          "numerical_error": null,
+          "crossed_gate": 45,
+          "moving_agents": 50,
+          "at_goal": 1,
+          "final_mean_goal_distance": 2.366956774577038,
+          "final_max_goal_distance": 8.838555207131028,
+          "mean_projection_norm": 0.34245336025081496,
+          "wall_active_fraction": 0.97105,
+          "pair_active_fraction": 0.999775,
+          "min_swept_wall_clearance": 0.000641856002825153,
+          "min_swept_agent_clearance": 0.00021616121603873495
+        },
+        {
+          "source_summary": "diagnostics/gap_flow_scale_20261007/n50_v5_dev_full_v3/summary.json",
+          "state": "fresh_0",
+          "category": "full_RL",
+          "success": false,
+          "termination": "timeout",
+          "steps": 40000,
+          "collision": false,
+          "numerical_error": null,
+          "crossed_gate": 47,
+          "moving_agents": 50,
+          "at_goal": 9,
+          "final_mean_goal_distance": 0.7814815024240045,
+          "final_max_goal_distance": 8.546985820547928,
+          "mean_projection_norm": 0.21233792496439413,
+          "wall_active_fraction": 0.823175,
+          "pair_active_fraction": 0.99195,
+          "min_swept_wall_clearance": 0.0019783174295205097,
+          "min_swept_agent_clearance": 0.0006785899568744203
+        },
+        {
+          "source_summary": "diagnostics/gap_flow_scale_20261007/n50_v5_dev_full_seed1/summary.json",
+          "state": "fresh_1",
+          "category": "full_LR",
+          "success": false,
+          "termination": "timeout",
+          "steps": 40000,
+          "collision": false,
+          "numerical_error": null,
+          "crossed_gate": 47,
+          "moving_agents": 50,
+          "at_goal": 0,
+          "final_mean_goal_distance": 2.3716085754484943,
+          "final_max_goal_distance": 6.6811574431646825,
+          "mean_projection_norm": 0.2616810669750846,
+          "wall_active_fraction": 0.947975,
+          "pair_active_fraction": 0.99915,
+          "min_swept_wall_clearance": 0.00024010066530896768,
+          "min_swept_agent_clearance": 0.00024962265984745935
+        },
+        {
+          "source_summary": "diagnostics/gap_flow_scale_20261007/n50_v5_dev_full_seed1/summary.json",
+          "state": "fresh_1",
+          "category": "full_RL",
+          "success": false,
+          "termination": "timeout",
+          "steps": 40000,
+          "collision": false,
+          "numerical_error": null,
+          "crossed_gate": 46,
+          "moving_agents": 50,
+          "at_goal": 11,
+          "final_mean_goal_distance": 1.0411843436700694,
+          "final_max_goal_distance": 8.697711171933879,
+          "mean_projection_norm": 0.19563275212009623,
+          "wall_active_fraction": 0.685275,
+          "pair_active_fraction": 0.96815,
+          "min_swept_wall_clearance": 0.001321743731269115,
+          "min_swept_agent_clearance": 0.000414370936211772
+        }
+      ],
+      "full_density_summary": {
+        "runs": 4,
+        "success": 0,
+        "collision": 0,
+        "numerical_failure": 0,
+        "median_crossed_gate": 46.5,
+        "median_at_goal": 5.0,
+        "median_projection_norm": 0.23700949596973936,
+        "median_wall_active_fraction": 0.885575,
+        "median_pair_active_fraction": 0.9955499999999999
+      },
+      "temporal": {
+        "source_summary": "diagnostics/gap_flow_scale_20261007/n50_v5_temporal_fresh/summary.json",
+        "success": false,
+        "termination": "timeout",
+        "collision": false,
+        "numerical_error": null,
+        "steps": 40000,
+        "at_goal": 0,
+        "phase_transition_step": null,
+        "mean_projection_norm": 0.11576089569098429,
+        "active_pair_fraction": 0.775575,
+        "active_wall_fraction": 0.74725
+      }
+    }
+  },
+  "phase2_started": false,
+  "n50_status": "FLOW_COMPETENCE_FAILED",
+  "videos": {
+    "n50_v5_solo_rl_success": {
+      "schema": "gap_scale_full_rollout_video_v1",
+      "label": "sparse_single_agent_success",
+      "trace": "diagnostics/gap_flow_scale_20261007/n50_v5_solo_rl_full_video_source/traces/dev_scale_0000_solo_RL_perm0.npz",
+      "trace_sha256": "70c1942777c846726f50d46a35cb91c481d65757f1c6eef8bae732bdef567610",
+      "video": "diagnostics/gap_flow_scale_20261007/videos/n50_v5_solo_rl_success.mp4",
+      "video_sha256": "922ccffa2ca3e4cf6ce581a9d02ed28f4d550d8fff47131dc6ab4db285ca9b11",
+      "frames": 7283,
+      "simulator_steps": 7282,
+      "simulator_dt": 0.05,
+      "N": 50,
+      "geometry": {
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.62
+            ]
+          ]
+        ]
+      },
+      "rollout_id": "dev_scale_0000_solo_RL_perm0",
+      "controller": "joint_macflow_stage1_mc1_certified_hard_safety",
+      "checkpoint": "diagnostics/gap_flow_scale_20261007/n50_train_active_norm_v5/best.pkl sha256=c58a6c030d7f0ef04e337483f79ba3d1acd3b970b26a0a808edcee736ac76225",
+      "seed": 69948583,
+      "termination": "success",
+      "collision": false,
+      "min_swept_clearance": 0.01466945139862269
+    },
+    "n50_v4_oneway_failure_show": {
+      "schema": "gap_scale_full_rollout_video_v1",
+      "label": "nonconflicting_navigation_failure",
+      "trace": "diagnostics/gap_flow_scale_20261007/n50_v4_dev_full_v3/traces/dev_scale_s701051_0000_full_LR_perm0.npz",
+      "trace_sha256": "d99c11ce296e9c396dd0dcd98a69bd5e79b4545a8c20fcdd7d1cec091009ef48",
+      "video": "diagnostics/gap_flow_scale_20261007/videos/n50_v4_oneway_failure_show.mp4",
+      "video_sha256": "bc9d8e721715cfed11c17cc6c3c75701ec029d948a28185d9868eb9bb082d394",
+      "frames": 40001,
+      "simulator_steps": 40000,
+      "simulator_dt": 0.05,
+      "N": 50,
+      "geometry": {
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.62
+            ]
+          ]
+        ]
+      },
+      "rollout_id": "dev_scale_s701051_0000_full_LR_perm0",
+      "controller": "joint_macflow_stage1_mc1_certified_hard_safety",
+      "checkpoint": "diagnostics/gap_flow_scale_20261007/n50_train_wide_v4/best.pkl sha256=a746f36809f7d74c2d64c13bdc4e2e2260c7e4771566035fa5317a8745dbf6fc",
+      "seed": 1150903983,
+      "termination": "timeout",
+      "collision": false,
+      "min_swept_clearance": 0.0001056477028630598
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "source_trace": "diagnostics/gap_flow_scale_20261007/n10_frozen_opposing_test/traces/test_gap_n10_0000.npz",
+  "trace_sha256": "9134f44a001995f86b958fab9f953c5b1cef47ef3bcadd2067b93dd7e304b8f1",
+  "video": "diagnostics/gap_flow_scale_20261007/videos/n10_gridlock_show.mp4",
+  "video_sha256": "64265cac32ce741c19790b9b0aa3b8405d28fa1bf73ccb7b0066d754f97447e9",
+  "frames": 8001,
+  "episode_steps": 8000,
+  "checkpoint": "diagnostics/gap_flow_scale_20261007/frozen/gap1_n10_flow_navigation_v1.pkl sha256=d062058c45e87c81a3c10f1f0c86523b111b90501a70f3230aa87b4c4918d980",
+  "seed": 1873948022,
+  "termination": "timeout",
+  "collision": false,
+  "scientific_label": "clean_bounded_gridlock_candidate; see opposing_audit.json"
+}

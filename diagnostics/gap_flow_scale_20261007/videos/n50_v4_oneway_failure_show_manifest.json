@@ -1,0 +1,32 @@
+{
+  "schema": "gap_scale_full_rollout_video_v1",
+  "label": "nonconflicting_navigation_failure",
+  "trace": "diagnostics/gap_flow_scale_20261007/n50_v4_dev_full_v3/traces/dev_scale_s701051_0000_full_LR_perm0.npz",
+  "trace_sha256": "d99c11ce296e9c396dd0dcd98a69bd5e79b4545a8c20fcdd7d1cec091009ef48",
+  "video": "diagnostics/gap_flow_scale_20261007/videos/n50_v4_oneway_failure_show.mp4",
+  "video_sha256": "bc9d8e721715cfed11c17cc6c3c75701ec029d948a28185d9868eb9bb082d394",
+  "frames": 40001,
+  "simulator_steps": 40000,
+  "simulator_dt": 0.05,
+  "N": 50,
+  "geometry": {
+    "barrier_x": [
+      0.0
+    ],
+    "openings": [
+      [
+        [
+          0.0,
+          0.62
+        ]
+      ]
+    ]
+  },
+  "rollout_id": "dev_scale_s701051_0000_full_LR_perm0",
+  "controller": "joint_macflow_stage1_mc1_certified_hard_safety",
+  "checkpoint": "diagnostics/gap_flow_scale_20261007/n50_train_wide_v4/best.pkl sha256=a746f36809f7d74c2d64c13bdc4e2e2260c7e4771566035fa5317a8745dbf6fc",
+  "seed": 1150903983,
+  "termination": "timeout",
+  "collision": false,
+  "min_swept_clearance": 0.0001056477028630598
+}

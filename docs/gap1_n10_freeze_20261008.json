@@ -1,0 +1,91 @@
+{
+  "schema": "gap1_n10_flow_competence_freeze_v1",
+  "frozen_checkpoint": "diagnostics/gap_flow_scale_20261007/frozen/gap1_n10_flow_navigation_v1.pkl",
+  "checkpoint_sha256": "d062058c45e87c81a3c10f1f0c86523b111b90501a70f3230aa87b4c4918d980",
+  "source_checkpoint": "diagnostics/gap_flow_scale_20261007/n10_finetune_goal_v4/snapshot_0015000.pkl",
+  "training_config": "diagnostics/gap_flow_scale_20261007/n10_finetune_goal_v4/config.json",
+  "training_config_sha256": "c4fe607a2b0c6f3ff834911e6fb83d69911008fd5f374de16430a801bf2c6019",
+  "dataset_manifest": "diagnostics/gap_flow_scale_20261007/n10_dagger_v4/dataset/manifest.json",
+  "dataset_manifest_sha256": "3c9ad7dd11095188e7919f7470b887cb693a67a78480e93a2edd1e98f776b68b",
+  "controller": {
+    "flow_samples_per_step": 1,
+    "latent_mode": "per_step",
+    "observation_version": "competence_v2",
+    "goal_stop": true,
+    "safety": "CertifiedHardSafetyFilter(HardProjectionConfig())"
+  },
+  "test_not_used_for_selection": true,
+  "acceptance": {
+    "sparse_test": {
+      "solo_LR": {
+        "runs": 12,
+        "success": 12,
+        "collision": 0,
+        "timeout": 0,
+        "median_wall_active_fraction": 0.05212275108774739,
+        "median_projection_norm": 0.004118664918394412
+      },
+      "solo_RL": {
+        "runs": 12,
+        "success": 12,
+        "collision": 0,
+        "timeout": 0,
+        "median_wall_active_fraction": 0.04710167767747575,
+        "median_projection_norm": 0.004516039042172047
+      },
+      "pair_LR": {
+        "runs": 12,
+        "success": 12,
+        "collision": 0,
+        "timeout": 0,
+        "median_wall_active_fraction": 0.08906554743714257,
+        "median_projection_norm": 0.00787421799842989
+      },
+      "pair_RL": {
+        "runs": 12,
+        "success": 12,
+        "collision": 0,
+        "timeout": 0,
+        "median_wall_active_fraction": 0.065206040645835,
+        "median_projection_norm": 0.00830088230507544
+      },
+      "group5_LR": {
+        "runs": 8,
+        "success": 8,
+        "collision": 0,
+        "timeout": 0,
+        "median_wall_active_fraction": 0.17253888653130509,
+        "median_projection_norm": 0.026993354789358034
+      },
+      "group5_RL": {
+        "runs": 8,
+        "success": 8,
+        "collision": 0,
+        "timeout": 0,
+        "median_wall_active_fraction": 0.17357832157722317,
+        "median_projection_norm": 0.02301594311895598
+      }
+    },
+    "one_way_LR_test": {
+      "success": 12,
+      "runs": 12,
+      "collision": 0
+    },
+    "one_way_RL_test": {
+      "success": 12,
+      "runs": 12,
+      "collision": 0
+    },
+    "temporal_even_test": {
+      "success": 12,
+      "runs": 12,
+      "collision": 0
+    },
+    "temporal_odd_test": {
+      "success": 12,
+      "runs": 12,
+      "collision": 0
+    }
+  },
+  "opposing_test_opened_at_freeze": false
+}

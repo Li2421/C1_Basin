@@ -32,7 +32,9 @@ ROOT = Path('diagnostics/gap_flow_v1')
 SPECS = {2: 'n2_recovery_wide', 10: 'n10_wide_recovery', 50: 'n50_wide_recovery'}
 MODES = ('solo_even', 'solo_odd', 'solo_odd_remote', 'one_way', 'temporal_even_first',
          'temporal_odd_first', 'temporal_release_even_first',
-         'temporal_release_odd_first', 'opposing')
+         'temporal_release_odd_first', 'opposing', 'one_way_mirror',
+         'single_even', 'single_odd', 'few_even', 'few_odd',
+         'half_even', 'half_odd')
 
 
 def control_state(state, mode):
@@ -50,6 +52,21 @@ def control_state(state, mode):
     elif mode == 'one_way':
         positions[1::2] = np.asarray(state['goals'], dtype=np.float64)[1::2]
         goals[1::2] = np.asarray(state['positions'], dtype=np.float64)[1::2]
+    elif mode == 'one_way_mirror':
+        positions[1::2] = np.asarray(state['goals'], dtype=np.float64)[1::2]
+        goals[1::2] = np.asarray(state['positions'], dtype=np.float64)[1::2]
+        positions[:, 0] *= -1
+        goals[:, 0] *= -1
+    elif mode in ('single_even', 'single_odd', 'few_even', 'few_odd',
+                  'half_even', 'half_odd'):
+        original = goals.copy()
+        goals = positions.copy()
+        side = np.arange(0 if mode.endswith('even') else 1, len(goals), 2)
+        if mode.startswith('single_'):
+            side = side[:1]
+        elif mode.startswith('few_'):
+            side = side[:5]
+        goals[side] = original[side]
     elif mode.startswith('temporal_release_'):
         waiting = np.arange(1 if mode.endswith('even_first') else 0,len(goals),2)
         goals[waiting] = positions[waiting]
@@ -60,13 +77,15 @@ def control_state(state, mode):
     return positions, goals
 
 
-def flow_action(agent, env, episode_key, step, samples, *, observation_version='historical'):
+def flow_action(agent, env, episode_key, step, samples, *, observation_version='historical',
+                latent_mode='per_step'):
     observer = policy_observation_competence if observation_version == 'competence_v2' else policy_observation
     observation = (observer(env) if agent.config['obs_dim'] == 8 else
                    env.observation()['agents'].astype(np.float32))
     sampled = np.asarray(sample_bounded_actions(agent,
         np.repeat(observation[None], samples, axis=0),
-        jax.random.fold_in(episode_key, step)), dtype=np.float64)
+        jax.random.fold_in(episode_key, step) if latent_mode=='per_step'
+        else episode_key), dtype=np.float64)
     action = sampled.mean(axis=0)
     norms = np.linalg.norm(action, axis=1, keepdims=True)
     return action * np.minimum(1.0, env.config.max_speed / np.maximum(norms, 1e-30))
@@ -74,12 +93,14 @@ def flow_action(agent, env, episode_key, step, samples, *, observation_version='
 
 def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
         checkpoint_override=None, split='test', observation_version='historical',
-        fresh_count=0, fresh_seed=271828):
+        fresh_count=0, fresh_seed=271828, goal_stop=False,
+        latent_mode='per_step'):
     if mode not in MODES or agents not in SPECS or samples < 1:
         raise ValueError('invalid N, mode, or sample count')
     if mode.startswith('solo_') and agents != 2:
         raise ValueError('single-active-task control is defined only for N=2')
-    if split not in ('dev','test') or observation_version not in ('historical','competence_v2') or fresh_count < 0:
+    if (split not in ('dev','test') or observation_version not in ('historical','competence_v2')
+            or latent_mode not in ('per_step','per_episode') or fresh_count < 0):
         raise ValueError('invalid split or observation version')
     output = Path(output)
     if output.exists() and any(output.iterdir()):
@@ -121,7 +142,7 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
         'control':'gap_joint_macflow_stage1_plus_certified_hard_safety_v1',
         'mode':mode,'sample_count':samples,'evaluation_seed':seed,
         'observation_version':observation_version,'split':split,
-        'safety_config':cbf.to_dict()})
+        'safety_config':cbf.to_dict(),'goal_stop':goal_stop,'latent_mode':latent_mode})
     requests=[]
     for case in cases:
         p,g=control_state(case.initial_state,mode)
@@ -159,7 +180,8 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
         second=np.arange(1 if even_first else 0,agents,2)
         for step in range(config.max_steps):
             flow=flow_action(agent,env,episode_key,step,samples,
-                             observation_version=observation_version)
+                             observation_version=observation_version,
+                             latent_mode=latent_mode)
             reference=flow.copy()
             if mode=='solo_even':
                 reference[1::2]=0
@@ -171,7 +193,14 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
                     phase=1;phase_transition=step
                     if mode.startswith('temporal_release_'):
                         env.goals[second]=np.asarray(state['goals'],dtype=np.float64)[second]
-                reference[second if phase==0 else first]=0
+                # Hold only the unreleased group.  Once released, the first
+                # group must retain ordinary goal feedback: the safety QP can
+                # displace an agent just outside tolerance during phase two.
+                if phase==0:
+                    reference[second]=0
+            if goal_stop:
+                reference[np.linalg.norm(env.goals-env.positions,axis=1)
+                          <=config.goal_tolerance]=0
             try:
                 result=projector(env.snapshot(),reference)
                 safe=np.asarray(result.velocity,dtype=np.float64)
@@ -225,7 +254,8 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
             start_step=0,episode_steps=env.step_count,complete=numerical_error is None,
             termination=terminal,collision=bool(env.collided),safety_enabled=True,
             control_mode=mode,phase_transition_step=phase_transition,
-            goal_release=mode.startswith('temporal_release_'),
+            goal_release=mode.startswith('temporal_release_'),goal_stop=goal_stop,
+            latent_mode=latent_mode,
             observation_version=observation_version)
         payload={key:np.asarray(value) for key,value in series.items()}
         for key in ('u_flow','u_ref','u_safe'):
@@ -238,7 +268,8 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
         dataset_manifest_sha256=audit['manifest_sha256'],samples_per_step=samples,
         safety='CertifiedHardSafetyFilter(HardProjectionConfig())',
         safety_config=cbf.to_dict(),cache_preflight=cache['summary'],rollouts=rows,
-        observation_version=observation_version,split=split,
+        observation_version=observation_version,split=split,goal_stop=goal_stop,
+        latent_mode=latent_mode,
         fresh_count=fresh_count,fresh_seed=fresh_seed if fresh_count else None)
     (output/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
     return result
@@ -256,11 +287,15 @@ def main():
     parser.add_argument('--observation-version',choices=('historical','competence_v2'),default='historical')
     parser.add_argument('--fresh-count',type=int,default=0)
     parser.add_argument('--fresh-seed',type=int,default=271828)
+    parser.add_argument('--goal-stop',action='store_true',
+                        help='At-goal zero-action guard fixed before opposing evaluation')
+    parser.add_argument('--latent-mode',choices=('per_step','per_episode'),default='per_step')
     args=parser.parse_args()
     run(args.agents,args.mode,args.output,samples=args.samples_per_step,seed=args.seed,
         checkpoint_override=args.checkpoint_override,split=args.split,
         observation_version=args.observation_version,
-        fresh_count=args.fresh_count,fresh_seed=args.fresh_seed)
+        fresh_count=args.fresh_count,fresh_seed=args.fresh_seed,
+        goal_stop=args.goal_stop,latent_mode=args.latent_mode)
 
 
 if __name__=='__main__':main()

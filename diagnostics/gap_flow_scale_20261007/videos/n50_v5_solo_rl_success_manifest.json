@@ -1,0 +1,32 @@
+{
+  "schema": "gap_scale_full_rollout_video_v1",
+  "label": "sparse_single_agent_success",
+  "trace": "diagnostics/gap_flow_scale_20261007/n50_v5_solo_rl_full_video_source/traces/dev_scale_0000_solo_RL_perm0.npz",
+  "trace_sha256": "70c1942777c846726f50d46a35cb91c481d65757f1c6eef8bae732bdef567610",
+  "video": "diagnostics/gap_flow_scale_20261007/videos/n50_v5_solo_rl_success.mp4",
+  "video_sha256": "922ccffa2ca3e4cf6ce581a9d02ed28f4d550d8fff47131dc6ab4db285ca9b11",
+  "frames": 7283,
+  "simulator_steps": 7282,
+  "simulator_dt": 0.05,
+  "N": 50,
+  "geometry": {
+    "barrier_x": [
+      0.0
+    ],
+    "openings": [
+      [
+        [
+          0.0,
+          0.62
+        ]
+      ]
+    ]
+  },
+  "rollout_id": "dev_scale_0000_solo_RL_perm0",
+  "controller": "joint_macflow_stage1_mc1_certified_hard_safety",
+  "checkpoint": "diagnostics/gap_flow_scale_20261007/n50_train_active_norm_v5/best.pkl sha256=c58a6c030d7f0ef04e337483f79ba3d1acd3b970b26a0a808edcee736ac76225",
+  "seed": 69948583,
+  "termination": "success",
+  "collision": false,
+  "min_swept_clearance": 0.01466945139862269
+}

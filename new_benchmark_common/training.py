@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import time
@@ -12,7 +13,7 @@ import jax.numpy as jnp
 import numpy as np
 
 from .dataset import JointTransitionDataset, fit_train_normalization
-from .macflow import JointMACFlowAgent, get_config, parameter_count, save_checkpoint
+from .macflow import JointMACFlowAgent, get_config, load_checkpoint, parameter_count, save_checkpoint
 
 
 def _mean_loss(agent, dataset, batch_size: int, batches: int, seed: int) -> float:
@@ -31,7 +32,13 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
                  early_nominal_only: bool = False, actor_hidden_dims=None,
                  source_balanced_sampling: bool = False, allow_non_four_agents: bool = False,
                  snapshot_interval: int | None = None, near_goal_fraction: float = 0.0,
-                 near_goal_distance: float = 1.0):
+                 near_goal_distance: float = 1.0, motion_loss_weight: float = 1.0,
+                 permutation_augmentation: bool = False,
+                 shared_agent_normalization: bool = False,
+                 active_action_normalization: bool = False,
+                 architecture: str = "flat_mlp", set_width: int = 128,
+                 set_layers: int = 2, init_checkpoint: str | Path | None = None,
+                 transfer_set_checkpoint: str | Path | None = None):
     """Train only conventional Stage-I CFM; test is deliberately never opened."""
     if min(steps, batch_size, log_interval, validation_batches) <= 0:
         raise ValueError("training counts must be positive")
@@ -43,6 +50,18 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
         raise ValueError("invalid near-goal fraction")
     if near_goal_distance <= 0:
         raise ValueError("near_goal_distance must be positive")
+    if not np.isfinite(motion_loss_weight) or motion_loss_weight < 1:
+        raise ValueError("motion_loss_weight must be finite and at least one")
+    if permutation_augmentation and not shared_agent_normalization:
+        raise ValueError("online row permutation requires shared-agent normalization")
+    if active_action_normalization and not shared_agent_normalization:
+        raise ValueError("active-action normalization requires shared-agent normalization")
+    if architecture not in ("flat_mlp", "set_attention") or set_width <= 0 or set_layers <= 0:
+        raise ValueError("invalid Flow architecture configuration")
+    if init_checkpoint is not None and transfer_set_checkpoint is not None:
+        raise ValueError("resume and cross-N transfer are mutually exclusive")
+    if transfer_set_checkpoint is not None and architecture != "set_attention":
+        raise ValueError("cross-N parameter transfer requires the set-attention actor")
     output = Path(output)
     if output.exists() and any(output.iterdir()):
         raise FileExistsError(f"output directory must be empty: {output}")
@@ -59,13 +78,57 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
         obs_dim=train.observation_shape[1], act_dim=train.action_shape[1],
         environment_fingerprint=train.environment_fingerprint,
         max_speed=float(train.manifest.get("scenario_config", {}).get("max_speed", 1.0)),
+        motion_loss_weight=float(motion_loss_weight),
+        architecture=architecture, set_width=int(set_width), set_layers=int(set_layers),
     )
     if actor_hidden_dims is not None:
         config["actor_hidden_dims"] = tuple(int(x) for x in actor_hidden_dims)
-    config.update(fit_train_normalization(train))
+    config.update(fit_train_normalization(train, shared_agents=shared_agent_normalization,
+                                          active_action_scale=active_action_normalization))
+    config["active_action_normalization"] = bool(active_action_normalization)
     example = train.sample(batch_size)
-    agent = JointMACFlowAgent.create(seed, jnp.asarray(example["observations"]),
-                                     jnp.asarray(example["actions"]), config)
+    if init_checkpoint is None:
+        agent = JointMACFlowAgent.create(seed, jnp.asarray(example["observations"]),
+                                         jnp.asarray(example["actions"]), config)
+        init_sha = None
+    else:
+        init_checkpoint = Path(init_checkpoint)
+        init_sha = hashlib.sha256(init_checkpoint.read_bytes()).hexdigest()
+        agent, _ = load_checkpoint(init_checkpoint,
+                                   expected_environment_fingerprint=train.environment_fingerprint)
+        if (agent.config["num_agents"] != train.observation_shape[0]
+                or agent.config["obs_dim"] != train.observation_shape[1]
+                or agent.config["act_dim"] != train.action_shape[1]
+                or agent.config["architecture"] != architecture
+                or (architecture == "set_attention" and
+                    (agent.config["set_width"] != set_width or
+                     agent.config["set_layers"] != set_layers))
+                or agent.config["motion_loss_weight"] != motion_loss_weight):
+            raise ValueError("initial checkpoint architecture/shape/loss mismatch")
+        if bool(agent.config.get("active_action_normalization", False)) != active_action_normalization:
+            raise ValueError("initial checkpoint action normalization mode mismatch")
+    transfer_sha = None
+    if transfer_set_checkpoint is not None:
+        import pickle
+        transfer_set_checkpoint = Path(transfer_set_checkpoint)
+        transfer_sha = hashlib.sha256(transfer_set_checkpoint.read_bytes()).hexdigest()
+        with transfer_set_checkpoint.open("rb") as handle:
+            source_payload = pickle.load(handle)
+        source_config = source_payload["config"]
+        source_agent, _ = load_checkpoint(transfer_set_checkpoint,
+            expected_environment_fingerprint=source_config["environment_fingerprint"])
+        if (source_agent.config["architecture"] != "set_attention"
+                or source_agent.config["obs_dim"] != train.observation_shape[1]
+                or source_agent.config["act_dim"] != train.action_shape[1]
+                or source_agent.config["set_width"] != set_width
+                or source_agent.config["set_layers"] != set_layers):
+            raise ValueError("cross-N source architecture or feature shape mismatch")
+        target_leaves = jax.tree_util.tree_leaves(agent.network.params)
+        source_leaves = jax.tree_util.tree_leaves(source_agent.network.params)
+        if len(target_leaves) != len(source_leaves) or any(
+                a.shape != b.shape for a,b in zip(target_leaves,source_leaves)):
+            raise ValueError("cross-N set-actor parameter shapes differ")
+        agent = agent.replace(network=agent.network.replace(params=source_agent.network.params))
     # Long expert episodes make initial crossing/circulation decisions rare
     # under purely transition-uniform sampling.  This optional, documented
     # data-coverage intervention changes neither the CFM objective nor model:
@@ -101,6 +164,13 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
     if source_balanced_sampling and not source_indices:
         raise ValueError("source-balanced sampling requires training transitions")
     sample_rng = np.random.default_rng(seed + 8181)
+    def maybe_permute(batch):
+        if not permutation_augmentation:
+            return batch
+        observations, actions = batch["observations"], batch["actions"]
+        order = np.argsort(sample_rng.random((len(observations), train.observation_shape[0])), axis=1)
+        return {"observations":np.take_along_axis(observations, order[:, :, None], axis=1),
+                "actions":np.take_along_axis(actions, order[:, :, None], axis=1)}
     def sample_source_balanced(indices_by_source, observations, actions, count):
         if count == 0:
             return observations[:0], actions[:0]
@@ -114,9 +184,9 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
     def sample_train():
         if early_transition_fraction == 0.0 and near_goal_fraction == 0.0:
             if not source_balanced_sampling:
-                return train.sample(batch_size)
+                return maybe_permute(train.sample(batch_size))
             obs, act = sample_source_balanced(source_indices, train.observations, train.actions, batch_size)
-            return {"observations": obs, "actions": act}
+            return maybe_permute({"observations": obs, "actions": act})
         count = int(round(batch_size * early_transition_fraction))
         near_count = int(round(batch_size * near_goal_fraction))
         if source_balanced_sampling:
@@ -135,8 +205,8 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
             chosen=sample_rng.choice(near_goal_indices,size=near_count)
             parts_obs.append(train.observations[chosen])
             parts_act.append(train.actions[chosen])
-        return {"observations": np.concatenate(parts_obs),
-                "actions": np.concatenate(parts_act)}
+        return maybe_permute({"observations": np.concatenate(parts_obs),
+                              "actions": np.concatenate(parts_act)})
     fixed_train = tuple(sample_train() for _ in range(validation_batches))
     fixed_dev = tuple(dev.sample(batch_size) for _ in range(validation_batches))
     def fixed_loss(batches, salt):
@@ -154,7 +224,18 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
            "allow_non_four_agents": allow_non_four_agents,
            "snapshot_interval": snapshot_interval}
     run.update(near_goal_fraction=near_goal_fraction, near_goal_distance=near_goal_distance,
-               near_goal_transition_count=int(len(near_goal_indices)) if near_goal_fraction else 0)
+               near_goal_transition_count=int(len(near_goal_indices)) if near_goal_fraction else 0,
+               motion_loss_weight=motion_loss_weight,
+               permutation_augmentation=permutation_augmentation,
+               shared_agent_normalization=shared_agent_normalization,
+               active_action_normalization=active_action_normalization,
+               architecture=architecture, set_width=set_width, set_layers=set_layers)
+    run.update(init_checkpoint=str(init_checkpoint) if init_checkpoint else None,
+               init_checkpoint_sha256=init_sha,
+               normalization_from_init_checkpoint=init_checkpoint is not None,
+               transfer_set_checkpoint=str(transfer_set_checkpoint) if transfer_set_checkpoint else None,
+               transfer_set_checkpoint_sha256=transfer_sha,
+               normalization_from_target_train=init_checkpoint is None)
     (output / "config.json").write_text(json.dumps(run, indent=2, sort_keys=True))
     best, best_loss, best_step = agent, initial_dev, 0
     started = time.perf_counter()

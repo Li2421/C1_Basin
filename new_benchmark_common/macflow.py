@@ -16,6 +16,7 @@ from typing import Any, Mapping
 os.environ.setdefault("JAX_PLATFORMS", "cpu")
 
 import flax
+import flax.linen as nn
 import flax.serialization
 import jax
 import jax.numpy as jnp
@@ -36,6 +37,41 @@ from utils.networks import ActorVectorField  # noqa: E402
 
 
 CHECKPOINT_SCHEMA = "new_benchmark_joint_macflow_stage_i_v1"
+
+
+class SetActorVectorField(nn.Module):
+    """Permutation-equivariant joint Flow field for large agent sets.
+
+    It consumes the same physical per-agent observation and joint velocity
+    variables as the official flattened actor. Self-attention exposes nearby
+    and distant traffic without an agent-index priority or a release rule.
+    """
+
+    num_agents: int
+    obs_dim: int
+    act_dim: int
+    width: int = 128
+    layers: int = 2
+
+    @nn.compact
+    def __call__(self, observations, actions, times=None, is_encoded=False):
+        del is_encoded
+        batch = observations.shape[0]
+        observed = observations.reshape(batch, self.num_agents, self.obs_dim)
+        action = actions.reshape(batch, self.num_agents, self.act_dim)
+        if times is None:
+            clock = jnp.zeros((batch, self.num_agents, 1), dtype=observed.dtype)
+        else:
+            clock = jnp.broadcast_to(times[:, None, :], (batch, self.num_agents, 1))
+        hidden = nn.Dense(self.width)(jnp.concatenate((observed, action, clock), axis=-1))
+        hidden = nn.gelu(hidden)
+        for _ in range(self.layers):
+            attended = nn.SelfAttention(num_heads=4, qkv_features=self.width,
+                                        out_features=self.width)(hidden)
+            hidden = nn.LayerNorm()(hidden + attended)
+            residual = nn.Dense(self.width)(nn.gelu(nn.Dense(self.width)(hidden)))
+            hidden = nn.LayerNorm()(hidden + residual)
+        return nn.Dense(self.act_dim)(hidden).reshape(batch, self.num_agents * self.act_dim)
 
 
 class JointMACFlowAgent(flax.struct.PyTreeNode):
@@ -73,7 +109,20 @@ class JointMACFlowAgent(flax.struct.PyTreeNode):
         prediction = self.network.select("actor_bc_flow")(
             observations, x_t, time, params=grad_params
         )
-        loss = jnp.mean((prediction - velocity) ** 2)
+        squared_error = (prediction - velocity) ** 2
+        motion_weight = self.config.get("motion_loss_weight", 1.0)
+        if motion_weight != 1.0:
+            # Large-N one-way data contain many agents waiting safely while a
+            # few cross the gate. Preserve the complete joint target, but do
+            # not let the numerous zero-action rows dominate its CFM loss.
+            moving = jnp.linalg.norm(jnp.asarray(batch["actions"]), axis=-1) > 0.1
+            weights = 1.0 + (motion_weight - 1.0) * moving.astype(squared_error.dtype)
+            per_agent = jnp.mean(squared_error.reshape(
+                squared_error.shape[0], self.config["num_agents"], self.config["act_dim"]),
+                axis=-1)
+            loss = jnp.sum(per_agent * weights) / jnp.sum(weights)
+        else:
+            loss = jnp.mean(squared_error)
         return loss, {"bc_flow_loss": loss}
 
     @jax.jit
@@ -138,10 +187,19 @@ class JointMACFlowAgent(flax.struct.PyTreeNode):
         rng, init_rng = jax.random.split(jax.random.PRNGKey(seed))
         flat_observations = observations.reshape(len(observations), config["joint_obs_dim"])
         flat_actions = actions.reshape(len(actions), config["joint_act_dim"])
-        actor = ActorVectorField(
-            hidden_dims=config["actor_hidden_dims"], action_dim=config["joint_act_dim"],
-            layer_norm=config["actor_layer_norm"], encoder=None,
-        )
+        architecture = config.get("architecture", "flat_mlp")
+        if architecture == "flat_mlp":
+            actor = ActorVectorField(
+                hidden_dims=config["actor_hidden_dims"], action_dim=config["joint_act_dim"],
+                layer_norm=config["actor_layer_norm"], encoder=None,
+            )
+        elif architecture == "set_attention":
+            actor = SetActorVectorField(
+                num_agents=num_agents, obs_dim=obs_dim, act_dim=act_dim,
+                width=int(config["set_width"]), layers=int(config["set_layers"]),
+            )
+        else:
+            raise ValueError(f"unsupported Flow architecture: {architecture}")
         definition = ModuleDict({"actor_bc_flow": actor})
         params = definition.init(
             init_rng, actor_bc_flow=(flat_observations, flat_actions, jnp.zeros((len(actions), 1)))
@@ -165,7 +223,8 @@ def get_config(**overrides) -> ml_collections.ConfigDict:
         lr=3e-4, actor_hidden_dims=(256, 256, 256), actor_layer_norm=False,
         flow_steps=10, normalize=True, num_agents=4, obs_dim=0, act_dim=2,
         joint_obs_dim=0, joint_act_dim=0, agent_order=(), environment_fingerprint="",
-        max_speed=1.0,
+        max_speed=1.0, motion_loss_weight=1.0,
+        architecture="flat_mlp", set_width=128, set_layers=2,
     ))
     config.update(overrides)
     return config

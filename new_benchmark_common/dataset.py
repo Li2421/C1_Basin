@@ -218,14 +218,33 @@ class JointTransitionDataset:
         return len(self.actions)
 
 
-def fit_train_normalization(dataset: JointTransitionDataset, floor: float = 0.01) -> dict[str, tuple[float, ...]]:
+def fit_train_normalization(dataset: JointTransitionDataset, floor: float = 0.01,
+                            shared_agents: bool = False,
+                            active_action_scale: bool = False) -> dict[str, tuple[float, ...]]:
     if dataset.split != "train":
         raise ValueError("normalization must be fit exclusively on train")
+    if active_action_scale and not shared_agents:
+        raise ValueError("active-action normalization requires shared-agent normalization")
     result = {}
     for name, values in (("obs", dataset.observations), ("act", dataset.actions)):
         flat = values.reshape(len(values), -1).astype(np.float64)
-        result[f"{name}_mean"] = tuple(flat.mean(axis=0))
-        result[f"{name}_scale"] = tuple(np.maximum(flat.std(axis=0), floor))
+        if shared_agents:
+            pooled = values.reshape(-1, values.shape[-1]).astype(np.float64)
+            if name == "act" and active_action_scale:
+                # At large N, safe one-way data contain many waiting robots.
+                # Scaling actions by the all-agent standard deviation makes
+                # the same physical 0.5 m/s command grow with 1/sqrt(active
+                # fraction). Fit units on executed moving commands instead.
+                pooled = pooled[np.linalg.norm(pooled, axis=1) > 0.1]
+                if not len(pooled):
+                    raise ValueError("no moving actions for active normalization")
+            mean = np.tile(pooled.mean(axis=0), values.shape[1])
+            scale = np.tile(np.maximum(pooled.std(axis=0), floor), values.shape[1])
+        else:
+            mean = flat.mean(axis=0)
+            scale = np.maximum(flat.std(axis=0), floor)
+        result[f"{name}_mean"] = tuple(mean)
+        result[f"{name}_scale"] = tuple(scale)
     return result
 
 
