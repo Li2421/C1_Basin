@@ -18,9 +18,11 @@ import time
 
 ROOT = Path('diagnostics/gap_flow_scale_20261007')
 ARRAYS = (9055, 9602)
+FIXED_ARRAY_CONCURRENCY = {11243: 8, 11378: 4}
 OWN_JOB_IDS = frozenset((*ARRAYS, 9620, 9647, 10024, 10113, 10459, 10491,
                          10633, 10708, 10725, 10736, 10811, 10908, 10917,
-                         10925, 10940, 10948, 10994, 11001, 11007, 11038))
+                         10925, 10940, 10948, 10994, 11001, 11007, 11038,
+                         11228, 11243, 11354, 11378))
 TOTAL_CPUS = 24
 PRIORITY_RESERVATION = 12
 ARRAY_TASK = re.compile(r'^(\d+)_(\d+)$')
@@ -61,9 +63,21 @@ def tick(*, path: Path, previous: tuple[int, int] | None) -> tuple[int, int]:
     fixed_running = sum(row['cpus'] for row in rows if row['base'] in OWN_JOB_IDS
                         and row['base'] not in ARRAYS and row['state'] == 'R')
     fixed_pending = sum(row['cpus'] for row in rows if row['base'] in OWN_JOB_IDS
-                        and row['base'] not in ARRAYS and row['state'] == 'PD'
+                        and row['base'] not in ARRAYS
+                        and row['base'] not in FIXED_ARRAY_CONCURRENCY
+                        and row['state'] == 'PD'
                         and row['reason'] not in
                         ('(Dependency)', '(JobHeldUser)', '(JobArrayTaskLimit)'))
+    # squeue compresses a pending array into one row, whose CPU count is one
+    # task rather than the array's intended concurrency.  Reserve all of its
+    # runnable slots so the lower-priority eta workers do not starve it.
+    for job, concurrency in FIXED_ARRAY_CONCURRENCY.items():
+        if any(row['base'] == job and row['state'] == 'PD'
+               and row['reason'] not in ('(Dependency)', '(JobHeldUser)')
+               for row in rows):
+            running = sum(row['cpus'] for row in rows
+                          if row['base'] == job and row['state'] == 'R')
+            fixed_pending += max(0, concurrency - running)
     fixed = fixed_running + fixed_pending
     slots = max(0, cap - fixed)
     active10 = any(row['base'] == 9055 and row['state'] in ('R', 'PD') for row in rows)

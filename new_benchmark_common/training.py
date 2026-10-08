@@ -36,6 +36,7 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
                  onset_recovery_fraction: float = 0.0, onset_recovery_steps: int = 50,
                  terminal_recovery_fraction: float = 0.0, terminal_recovery_steps: int = 150,
                  gate_recovery_fraction: float = 0.0, gate_recovery_steps: int = 300,
+                 postgate_fraction: float = 0.0, postgate_min_goal_distance: float = 1.0,
                  initial_nominal_fraction: float = 0.0, initial_nominal_steps: int = 5,
                  near_goal_distance: float = 1.0, motion_loss_weight: float = 1.0,
                  endpoint_action_loss_weight: float = 0.0,
@@ -56,16 +57,19 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
     if (not 0 <= near_goal_fraction < 1 or not 0 <= onset_recovery_fraction < 1
             or not 0 <= terminal_recovery_fraction < 1
             or not 0 <= gate_recovery_fraction < 1
+            or not 0 <= postgate_fraction < 1
             or not 0 <= initial_nominal_fraction < 1
             or onset_recovery_steps <= 0 or terminal_recovery_steps <= 0
             or gate_recovery_steps <= 0
             or initial_nominal_steps <= 0
             or early_transition_fraction + near_goal_fraction + onset_recovery_fraction
-            + terminal_recovery_fraction + gate_recovery_fraction
+            + terminal_recovery_fraction + gate_recovery_fraction + postgate_fraction
             + initial_nominal_fraction >= 1):
         raise ValueError("invalid phase-sampling fractions")
     if near_goal_distance <= 0:
         raise ValueError("near_goal_distance must be positive")
+    if postgate_min_goal_distance <= 0:
+        raise ValueError("postgate_min_goal_distance must be positive")
     if not np.isfinite(motion_loss_weight) or motion_loss_weight < 1:
         raise ValueError("motion_loss_weight must be finite and at least one")
     if not np.isfinite(endpoint_action_loss_weight) or endpoint_action_loss_weight < 0:
@@ -204,6 +208,20 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
                                    for t in gate_trajectories])
         gate_act = np.concatenate([t.actions[: min(gate_recovery_steps, t.length)]
                                    for t in gate_trajectories])
+    if postgate_fraction:
+        if train.observation_shape[1] < 6:
+            raise ValueError("postgate sampler requires planar position and relative-goal features")
+        position_x = train.observations[:, :, 0]
+        goal_x = position_x + train.observations[:, :, 4]
+        goal_distance = np.linalg.norm(train.observations[:, :, 4:6], axis=2)
+        moving = np.linalg.norm(train.actions, axis=2) > 0.1
+        # A joint state qualifies only when an actually moving agent is on
+        # the goal side of the wall but still far from its final goal.
+        postgate_indices = np.flatnonzero(np.any(
+            (position_x * goal_x > 0) & (np.abs(position_x) > 0.5)
+            & (goal_distance > postgate_min_goal_distance) & moving, axis=1))
+        if not len(postgate_indices):
+            raise ValueError("postgate sampler found no eligible transitions")
     if near_goal_fraction:
         if train.observation_shape[1] < 6:
             raise ValueError("near-goal sampler requires relative-goal features at columns 4:6")
@@ -248,6 +266,7 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
         if (early_transition_fraction == 0.0 and near_goal_fraction == 0.0
                 and onset_recovery_fraction == 0.0 and terminal_recovery_fraction == 0.0
                 and gate_recovery_fraction == 0.0
+                and postgate_fraction == 0.0
                 and initial_nominal_fraction == 0.0):
             if not source_balanced_sampling:
                 return maybe_permute(train.sample(batch_size))
@@ -258,9 +277,10 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
         onset_count = int(round(batch_size * onset_recovery_fraction))
         terminal_count = int(round(batch_size * terminal_recovery_fraction))
         gate_count = int(round(batch_size * gate_recovery_fraction))
+        postgate_count = int(round(batch_size * postgate_fraction))
         initial_count = int(round(batch_size * initial_nominal_fraction))
         ordinary_count = (batch_size - count - near_count - onset_count
-                          - terminal_count - gate_count - initial_count)
+                          - terminal_count - gate_count - postgate_count - initial_count)
         if ordinary_count < 1:
             raise ValueError("rounded phase-sampling counts leave no ordinary samples")
         if source_balanced_sampling:
@@ -291,6 +311,10 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
             chosen=sample_rng.integers(len(gate_obs),size=gate_count)
             parts_obs.append(gate_obs[chosen])
             parts_act.append(gate_act[chosen])
+        if postgate_count:
+            chosen=sample_rng.choice(postgate_indices,size=postgate_count)
+            parts_obs.append(train.observations[chosen])
+            parts_act.append(train.actions[chosen])
         if initial_count:
             chosen=sample_rng.integers(len(initial_obs),size=initial_count)
             parts_obs.append(initial_obs[chosen])
@@ -319,6 +343,9 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
            "gate_recovery_fraction": gate_recovery_fraction,
            "gate_recovery_steps": gate_recovery_steps,
            "gate_recovery_transition_count": int(len(gate_obs)) if gate_recovery_fraction else 0,
+           "postgate_fraction": postgate_fraction,
+           "postgate_min_goal_distance": postgate_min_goal_distance,
+           "postgate_transition_count": int(len(postgate_indices)) if postgate_fraction else 0,
            "initial_nominal_fraction": initial_nominal_fraction,
            "initial_nominal_steps": initial_nominal_steps,
            "initial_nominal_transition_count": int(len(initial_obs)) if initial_nominal_fraction else 0,
