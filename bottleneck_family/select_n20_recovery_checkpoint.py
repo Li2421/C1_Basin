@@ -9,15 +9,25 @@ from pathlib import Path
 from bottleneck_family.select_n20_checkpoint import MODES
 
 
-def run(root: Path, train: Path, output: Path) -> dict:
+def run(root: Path, train: Path, output: Path, *, tag: str = "v5") -> dict:
     losses = {int(row['step']): float(row['fixed_dev_loss'])
               for line in (train / 'metrics.jsonl').read_text().splitlines()
               if (row := json.loads(line))['step'] > 0}
+    logged_steps = sorted(losses)
+    def offline_loss_proxy(step: int) -> float:
+        if step in losses:
+            return losses[step]
+        before = max((item for item in logged_steps if item < step), default=None)
+        after = min((item for item in logged_steps if item > step), default=None)
+        if before is None or after is None:
+            raise ValueError(f"no logged DEV losses bracketing snapshot {step}")
+        weight = (step - before) / (after - before)
+        return (1 - weight) * losses[before] + weight * losses[after]
     candidates = []
     for step in range(1000, 8001, 1000):
         checkpoint = train / f'snapshot_{step:07d}.pkl'
         sha = hashlib.sha256(checkpoint.read_bytes()).hexdigest()
-        folder = root / f'n20_select_v5_s{step}'
+        folder = root / f'n20_select_{tag}_s{step}'
         groups = {}
         for mode in MODES:
             rows = []
@@ -47,16 +57,17 @@ def run(root: Path, train: Path, output: Path) -> dict:
         occupancy = sum(r['individual_goal_fraction'] for r in all_rows)/32
         correction = sum(r['mean_projection_norm'] for r in all_rows)/32
         rank = (int(collision + numerical == 0), worst, total,
-                occupancy, -correction, -losses[step])
+                occupancy, -correction, -offline_loss_proxy(step))
         candidates.append(dict(step=step, checkpoint=str(checkpoint), sha256=sha,
                                per_mode=per_mode, total_success=total,
                                worst_mode_success=worst, collision=collision,
                                numerical=numerical, mean_goal_occupancy=occupancy,
                                mean_projection_norm=correction,
-                               offline_dev_loss=losses[step], rank=rank))
+                               offline_dev_loss_proxy=offline_loss_proxy(step), rank=rank))
     candidates.sort(key=lambda row: row['rank'], reverse=True)
-    report = dict(schema='gap1_n20_recovery_checkpoint_selection_v1',
+    report = dict(schema=f'gap1_n20_{tag}_checkpoint_selection_v1',
                   selection_distribution='fresh non-opposing DEV seed 162020; four states per mode',
+                  offline_tiebreaker='linear interpolation of logged fixed DEV losses when snapshot step is unlogged',
                   no_opposing_test_used=True, chosen=candidates[0], candidates=candidates)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2) + '\n')
@@ -68,11 +79,12 @@ def main() -> None:
     parser.add_argument('--root', type=Path, required=True)
     parser.add_argument('--train', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--tag', choices=('v5', 'v7'), default='v5')
     args = parser.parse_args()
-    report = run(args.root, args.train, args.output)
+    report = run(args.root, args.train, args.output, tag=args.tag)
     print(json.dumps([{key: row[key] for key in
                        ('step', 'total_success', 'worst_mode_success', 'collision',
-                        'numerical', 'mean_goal_occupancy', 'offline_dev_loss')}
+                       'numerical', 'mean_goal_occupancy', 'offline_dev_loss_proxy')}
                       for row in report['candidates']], indent=2))
 
 
