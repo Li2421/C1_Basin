@@ -25,12 +25,20 @@ from .scenario import Config
 
 
 def collect(source: Path, model_trace_dir: Path, output: Path, *, anchors=(3000,5000,7000),
-            terminal_offsets=(), seed=90127, source_label="uniform_recovery"):
+            terminal_offsets=(), seed=90127, source_label="uniform_recovery",
+            require_postgate=False, postgate_min_goal_distance=1.0,
+            postgate_quantiles=()):
     if source_label not in ("uniform_recovery", "late_postgate_recovery",
                             "early_queue_recovery", "gate_local_recovery"):
         raise ValueError("invalid recovery source label")
     if any(int(offset) <= 0 for offset in terminal_offsets):
         raise ValueError("terminal offsets must be positive")
+    if postgate_min_goal_distance <= 0:
+        raise ValueError("postgate_min_goal_distance must be positive")
+    if any(not 0 <= float(q) <= 1 for q in postgate_quantiles):
+        raise ValueError("postgate quantiles must lie in [0,1]")
+    if postgate_quantiles and not require_postgate:
+        raise ValueError("postgate quantiles require the postgate state filter")
     source, model_trace_dir, output = map(Path,(source,model_trace_dir,output))
     if output.exists() and any(output.iterdir()):
         raise FileExistsError(output)
@@ -71,8 +79,20 @@ def collect(source: Path, model_trace_dir: Path, output: Path, *, anchors=(3000,
         model_rows.append(dict(source=parent,trace=str(path),steps=len(positions)-1,
                                category=meta["category"],
                                checkpoint_sha256=meta["checkpoint_sha256"]))
+        postgate_steps = np.empty(0, dtype=int)
+        if require_postgate:
+            x = positions[:-1, moving, 0]
+            gx = goals[moving, 0]
+            distance = np.linalg.norm(positions[:-1, moving]-goals[moving], axis=2)
+            postgate_steps = np.flatnonzero(np.any(
+                (x * gx > 0) & (np.abs(x) > .5)
+                & (distance > postgate_min_goal_distance), axis=1))
+        phase_anchors = (postgate_steps[np.rint(np.asarray(postgate_quantiles)
+                         * (len(postgate_steps)-1)).astype(int)].tolist()
+                         if len(postgate_steps) else [])
         selected_anchors = sorted(set(int(anchor) for anchor in anchors) |
-                                  {len(positions)-1-int(offset) for offset in terminal_offsets})
+                                  {len(positions)-1-int(offset) for offset in terminal_offsets} |
+                                  set(phase_anchors))
         for anchor in selected_anchors:
             if anchor < 0:
                 skipped_anchors.append(dict(trace=str(path),anchor=anchor,
@@ -81,6 +101,10 @@ def collect(source: Path, model_trace_dir: Path, output: Path, *, anchors=(3000,
             if anchor>=len(positions)-1:
                 skipped_anchors.append(dict(trace=str(path),anchor=anchor,
                                             reason="model_terminated_before_anchor"))
+                continue
+            if require_postgate and anchor not in postgate_steps:
+                skipped_anchors.append(dict(trace=str(path),anchor=anchor,
+                                            reason="no_active_agent_far_postgate"))
                 continue
             candidates.append((f"{parent}_flow{meta['checkpoint_sha256'][:8]}_recovery_t{anchor:04d}",episode_config,
                                positions[anchor],velocities[anchor],goals,moving,parent,anchor,
@@ -149,6 +173,9 @@ def collect(source: Path, model_trace_dir: Path, output: Path, *, anchors=(3000,
     report=dict(schema=f"gap1_n{config.num_agents}_recovery_from_saved_train_traces_v1",
         source_dataset=str(source),model_trace_dir=str(model_trace_dir),
         source_label=source_label,absolute_anchors=list(anchors),
+        require_postgate=bool(require_postgate),
+        postgate_min_goal_distance=float(postgate_min_goal_distance),
+        postgate_quantiles=list(postgate_quantiles),
         terminal_offsets=list(terminal_offsets),skipped_anchors=skipped_anchors,
         model_trace_files=[str(p) for p in sorted(model_trace_dir.glob("*.npz"))],
         model_trace_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest()
@@ -171,11 +198,17 @@ def main():
     parser.add_argument("--source-label",choices=("uniform_recovery", "late_postgate_recovery",
                                                  "early_queue_recovery", "gate_local_recovery"),
                         default="uniform_recovery")
+    parser.add_argument("--require-postgate",action="store_true")
+    parser.add_argument("--postgate-min-goal-distance",type=float,default=1.0)
+    parser.add_argument("--postgate-quantiles",type=float,nargs="*",default=())
     args=parser.parse_args()
     print(json.dumps(collect(args.source,args.model_trace_dir,args.output,
                              anchors=tuple(args.anchors),
                              terminal_offsets=tuple(args.terminal_offsets),seed=args.seed,
-                             source_label=args.source_label),indent=2),flush=True)
+                             source_label=args.source_label,
+                             require_postgate=args.require_postgate,
+                             postgate_min_goal_distance=args.postgate_min_goal_distance,
+                             postgate_quantiles=tuple(args.postgate_quantiles)),indent=2),flush=True)
 
 
 if __name__=="__main__":

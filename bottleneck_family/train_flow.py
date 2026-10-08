@@ -23,6 +23,8 @@ def main():
     parser.add_argument('--terminal-recovery-steps',type=int,default=150)
     parser.add_argument('--gate-recovery-fraction',type=float,default=0.0)
     parser.add_argument('--gate-recovery-steps',type=int,default=300)
+    parser.add_argument('--late-postgate-recovery-fraction',type=float,default=0.0)
+    parser.add_argument('--late-postgate-recovery-steps',type=int,default=300)
     parser.add_argument('--postgate-fraction',type=float,default=0.0)
     parser.add_argument('--postgate-min-goal-distance',type=float,default=1.0)
     parser.add_argument('--initial-nominal-fraction',type=float,default=0.0)
@@ -56,6 +58,8 @@ def main():
                         terminal_recovery_steps=args.terminal_recovery_steps,
                         gate_recovery_fraction=args.gate_recovery_fraction,
                         gate_recovery_steps=args.gate_recovery_steps,
+                        late_postgate_recovery_fraction=args.late_postgate_recovery_fraction,
+                        late_postgate_recovery_steps=args.late_postgate_recovery_steps,
                         postgate_fraction=args.postgate_fraction,
                         postgate_min_goal_distance=args.postgate_min_goal_distance,
                         initial_nominal_fraction=args.initial_nominal_fraction,
