@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import time
 
+import flax.core
 import jax
 import jax.numpy as jnp
 import numpy as np
@@ -32,7 +33,12 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
                  early_nominal_only: bool = False, actor_hidden_dims=None,
                  source_balanced_sampling: bool = False, allow_non_four_agents: bool = False,
                  snapshot_interval: int | None = None, near_goal_fraction: float = 0.0,
+                 onset_recovery_fraction: float = 0.0, onset_recovery_steps: int = 50,
+                 terminal_recovery_fraction: float = 0.0, terminal_recovery_steps: int = 150,
+                 initial_nominal_fraction: float = 0.0, initial_nominal_steps: int = 5,
                  near_goal_distance: float = 1.0, motion_loss_weight: float = 1.0,
+                 endpoint_action_loss_weight: float = 0.0,
+                 endpoint_motion_weight: float = 1.0,
                  permutation_augmentation: bool = False,
                  shared_agent_normalization: bool = False,
                  active_action_normalization: bool = False,
@@ -46,12 +52,22 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
         raise ValueError("invalid early-transition sampling parameters")
     if snapshot_interval is not None and snapshot_interval <= 0:
         raise ValueError("snapshot_interval must be positive")
-    if not 0 <= near_goal_fraction < 1 or early_transition_fraction + near_goal_fraction >= 1:
-        raise ValueError("invalid near-goal fraction")
+    if (not 0 <= near_goal_fraction < 1 or not 0 <= onset_recovery_fraction < 1
+            or not 0 <= terminal_recovery_fraction < 1
+            or not 0 <= initial_nominal_fraction < 1
+            or onset_recovery_steps <= 0 or terminal_recovery_steps <= 0
+            or initial_nominal_steps <= 0
+            or early_transition_fraction + near_goal_fraction + onset_recovery_fraction
+            + terminal_recovery_fraction + initial_nominal_fraction >= 1):
+        raise ValueError("invalid phase-sampling fractions")
     if near_goal_distance <= 0:
         raise ValueError("near_goal_distance must be positive")
     if not np.isfinite(motion_loss_weight) or motion_loss_weight < 1:
         raise ValueError("motion_loss_weight must be finite and at least one")
+    if not np.isfinite(endpoint_action_loss_weight) or endpoint_action_loss_weight < 0:
+        raise ValueError("endpoint_action_loss_weight must be finite and nonnegative")
+    if not np.isfinite(endpoint_motion_weight) or endpoint_motion_weight < 1:
+        raise ValueError("endpoint_motion_weight must be finite and at least one")
     if permutation_augmentation and not shared_agent_normalization:
         raise ValueError("online row permutation requires shared-agent normalization")
     if active_action_normalization and not shared_agent_normalization:
@@ -79,6 +95,8 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
         environment_fingerprint=train.environment_fingerprint,
         max_speed=float(train.manifest.get("scenario_config", {}).get("max_speed", 1.0)),
         motion_loss_weight=float(motion_loss_weight),
+        endpoint_action_loss_weight=float(endpoint_action_loss_weight),
+        endpoint_motion_weight=float(endpoint_motion_weight),
         architecture=architecture, set_width=int(set_width), set_layers=int(set_layers),
     )
     if actor_hidden_dims is not None:
@@ -107,6 +125,12 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
             raise ValueError("initial checkpoint architecture/shape/loss mismatch")
         if bool(agent.config.get("active_action_normalization", False)) != active_action_normalization:
             raise ValueError("initial checkpoint action normalization mode mismatch")
+        # Adding an endpoint objective changes only the training loss. The
+        # copied checkpoint keeps its weights and normalization exactly.
+        agent = agent.replace(config=flax.core.FrozenDict({
+            **dict(agent.config),
+            "endpoint_action_loss_weight": float(endpoint_action_loss_weight),
+            "endpoint_motion_weight": float(endpoint_motion_weight)}))
     transfer_sha = None
     if transfer_set_checkpoint is not None:
         import pickle
@@ -141,6 +165,32 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
         raise ValueError("no early transitions selected")
     early_obs = np.concatenate([t.observations[: min(early_steps, t.length)] for t in early_trajectories])
     early_act = np.concatenate([t.actions[: min(early_steps, t.length)] for t in early_trajectories])
+    if initial_nominal_fraction:
+        initial_trajectories = tuple(t for t in train.trajectories if t.source == "nominal")
+        if not initial_trajectories:
+            raise ValueError("initial nominal sampler found no nominal trajectories")
+        initial_obs = np.concatenate([t.observations[: min(initial_nominal_steps, t.length)]
+                                      for t in initial_trajectories])
+        initial_act = np.concatenate([t.actions[: min(initial_nominal_steps, t.length)]
+                                      for t in initial_trajectories])
+    if onset_recovery_fraction:
+        onset_trajectories = tuple(t for t in train.trajectories
+                                   if t.source == "early_queue_recovery")
+        if not onset_trajectories:
+            raise ValueError("onset recovery sampler found no early_queue_recovery trajectories")
+        onset_obs = np.concatenate([t.observations[: min(onset_recovery_steps, t.length)]
+                                    for t in onset_trajectories])
+        onset_act = np.concatenate([t.actions[: min(onset_recovery_steps, t.length)]
+                                    for t in onset_trajectories])
+    if terminal_recovery_fraction:
+        terminal_trajectories = tuple(t for t in train.trajectories
+                                      if t.source == "terminal_multi_recovery")
+        if not terminal_trajectories:
+            raise ValueError("terminal recovery sampler found no terminal_multi_recovery trajectories")
+        terminal_obs = np.concatenate([t.observations[: min(terminal_recovery_steps, t.length)]
+                                       for t in terminal_trajectories])
+        terminal_act = np.concatenate([t.actions[: min(terminal_recovery_steps, t.length)]
+                                       for t in terminal_trajectories])
     if near_goal_fraction:
         if train.observation_shape[1] < 6:
             raise ValueError("near-goal sampler requires relative-goal features at columns 4:6")
@@ -182,22 +232,30 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
             index[mask] = sample_rng.choice(indices_by_source[source], size=int(mask.sum()))
         return observations[index], actions[index]
     def sample_train():
-        if early_transition_fraction == 0.0 and near_goal_fraction == 0.0:
+        if (early_transition_fraction == 0.0 and near_goal_fraction == 0.0
+                and onset_recovery_fraction == 0.0 and terminal_recovery_fraction == 0.0
+                and initial_nominal_fraction == 0.0):
             if not source_balanced_sampling:
                 return maybe_permute(train.sample(batch_size))
             obs, act = sample_source_balanced(source_indices, train.observations, train.actions, batch_size)
             return maybe_permute({"observations": obs, "actions": act})
         count = int(round(batch_size * early_transition_fraction))
         near_count = int(round(batch_size * near_goal_fraction))
+        onset_count = int(round(batch_size * onset_recovery_fraction))
+        terminal_count = int(round(batch_size * terminal_recovery_fraction))
+        initial_count = int(round(batch_size * initial_nominal_fraction))
+        ordinary_count = batch_size - count - near_count - onset_count - terminal_count - initial_count
+        if ordinary_count < 1:
+            raise ValueError("rounded phase-sampling counts leave no ordinary samples")
         if source_balanced_sampling:
             ordinary_obs, ordinary_act = sample_source_balanced(
-                source_indices, train.observations, train.actions, batch_size - count - near_count)
+                source_indices, train.observations, train.actions, ordinary_count)
             early_sample_obs, early_sample_act = sample_source_balanced(
                 early_source_indices, early_obs, early_act, count)
             parts_obs=[ordinary_obs,early_sample_obs]
             parts_act=[ordinary_act,early_sample_act]
         else:
-            ordinary = train.sample(batch_size - count - near_count)
+            ordinary = train.sample(ordinary_count)
             index = sample_rng.integers(len(early_obs), size=count)
             parts_obs=[ordinary["observations"],early_obs[index]]
             parts_act=[ordinary["actions"],early_act[index]]
@@ -205,6 +263,18 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
             chosen=sample_rng.choice(near_goal_indices,size=near_count)
             parts_obs.append(train.observations[chosen])
             parts_act.append(train.actions[chosen])
+        if onset_count:
+            chosen=sample_rng.integers(len(onset_obs),size=onset_count)
+            parts_obs.append(onset_obs[chosen])
+            parts_act.append(onset_act[chosen])
+        if terminal_count:
+            chosen=sample_rng.integers(len(terminal_obs),size=terminal_count)
+            parts_obs.append(terminal_obs[chosen])
+            parts_act.append(terminal_act[chosen])
+        if initial_count:
+            chosen=sample_rng.integers(len(initial_obs),size=initial_count)
+            parts_obs.append(initial_obs[chosen])
+            parts_act.append(initial_act[chosen])
         return maybe_permute({"observations": np.concatenate(parts_obs),
                               "actions": np.concatenate(parts_act)})
     fixed_train = tuple(sample_train() for _ in range(validation_batches))
@@ -220,12 +290,23 @@ def train_stage1(dataset_root: str | Path, output: str | Path, *, seed: int = 0,
            "source_transitions": train.source_counts(), "test_opened": False,
            "early_transition_fraction": early_transition_fraction, "early_steps": early_steps,
            "early_nominal_only": early_nominal_only,
+           "onset_recovery_fraction": onset_recovery_fraction,
+           "onset_recovery_steps": onset_recovery_steps,
+           "onset_recovery_transition_count": int(len(onset_obs)) if onset_recovery_fraction else 0,
+           "terminal_recovery_fraction": terminal_recovery_fraction,
+           "terminal_recovery_steps": terminal_recovery_steps,
+           "terminal_recovery_transition_count": int(len(terminal_obs)) if terminal_recovery_fraction else 0,
+           "initial_nominal_fraction": initial_nominal_fraction,
+           "initial_nominal_steps": initial_nominal_steps,
+           "initial_nominal_transition_count": int(len(initial_obs)) if initial_nominal_fraction else 0,
            "source_balanced_sampling": source_balanced_sampling,
            "allow_non_four_agents": allow_non_four_agents,
            "snapshot_interval": snapshot_interval}
     run.update(near_goal_fraction=near_goal_fraction, near_goal_distance=near_goal_distance,
                near_goal_transition_count=int(len(near_goal_indices)) if near_goal_fraction else 0,
                motion_loss_weight=motion_loss_weight,
+               endpoint_action_loss_weight=endpoint_action_loss_weight,
+               endpoint_motion_weight=endpoint_motion_weight,
                permutation_augmentation=permutation_augmentation,
                shared_agent_normalization=shared_agent_normalization,
                active_action_normalization=active_action_normalization,

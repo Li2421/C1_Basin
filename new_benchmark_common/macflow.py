@@ -125,9 +125,45 @@ class JointMACFlowAgent(flax.struct.PyTreeNode):
             loss = jnp.mean(squared_error)
         return loss, {"bc_flow_loss": loss}
 
+    def endpoint_bc_loss(self, batch, grad_params, rng):
+        """Optional supervision on the action actually produced by 10 Flow steps.
+
+        The conventional CFM velocity loss can be small while the sampled
+        endpoint falsely moves held agents or undershoots final goals. This
+        loss keeps the original Flow integration and penalizes that measured
+        endpoint error. It is disabled for all existing checkpoints.
+        """
+        observations, targets = self._flatten(
+            jnp.asarray(batch["observations"]), jnp.asarray(batch["actions"])
+        )
+        samples = jax.random.normal(rng, targets.shape)
+        for index in range(self.config["flow_steps"]):
+            time = jnp.full((observations.shape[0], 1), index / self.config["flow_steps"])
+            samples = samples + self.network.select("actor_bc_flow")(
+                observations, samples, time, params=grad_params
+            ) / self.config["flow_steps"]
+        squared_error = (samples - targets) ** 2
+        endpoint_motion_weight = float(self.config.get("endpoint_motion_weight", 1.0))
+        if endpoint_motion_weight != 1.0:
+            moving = jnp.linalg.norm(jnp.asarray(batch["actions"]), axis=-1) > 0.1
+            weights = 1.0 + (endpoint_motion_weight - 1.0) * moving.astype(squared_error.dtype)
+            per_agent = jnp.mean(squared_error.reshape(
+                squared_error.shape[0], self.config["num_agents"], self.config["act_dim"]),
+                axis=-1)
+            return jnp.sum(per_agent * weights) / jnp.sum(weights)
+        return jnp.mean(squared_error)
+
     @jax.jit
     def total_loss(self, batch, grad_params, rng=None):
         rng = self.rng if rng is None else rng
+        endpoint_weight = float(self.config.get("endpoint_action_loss_weight", 0.0))
+        if endpoint_weight:
+            _, flow_rng, endpoint_rng = jax.random.split(rng, 3)
+            flow_loss, info = self.flow_bc_loss(batch, grad_params, flow_rng)
+            endpoint_loss = self.endpoint_bc_loss(batch, grad_params, endpoint_rng)
+            total = flow_loss + endpoint_weight * endpoint_loss
+            return total, {**info, "endpoint_action_loss": endpoint_loss,
+                           "total_loss": total}
         _, flow_rng = jax.random.split(rng)
         return self.flow_bc_loss(batch, grad_params, flow_rng)
 
@@ -146,22 +182,53 @@ class JointMACFlowAgent(flax.struct.PyTreeNode):
     def sample_actions(self, observations: jnp.ndarray, seed):
         batch = observations.shape[0]
         flat_observations = observations.reshape(batch, self.config["joint_obs_dim"])
+        reflect_average = bool(self.config.get("reflect_average", False))
+        if reflect_average:
+            if self.config["obs_dim"] != 8 or self.config["act_dim"] != 2:
+                raise ValueError("reflection averaging requires the eight-feature planar Gap observation")
+            # The paired Gap1 data establish exact x-reflection for these
+            # physical features and targets. This optional Flow-only adapter
+            # symmetrizes the conditional action distribution; it supplies no
+            # priority, map route, safety constraint or yielding rule.
+            observation_sign = jnp.asarray([-1., 1., -1., 1., -1., 1., -1., 1.])
+            action_sign = jnp.asarray([-1., 1.])
+            reflected_observations = (observations.reshape(batch, self.config["num_agents"], 8)
+                                      * observation_sign).reshape(batch, self.config["joint_obs_dim"])
         if self.config["normalize"]:
             flat_observations = (
                 flat_observations - jnp.asarray(self.config["obs_mean"])
             ) / jnp.asarray(self.config["obs_scale"])
+            if reflect_average:
+                reflected_observations = (
+                    reflected_observations - jnp.asarray(self.config["obs_mean"])
+                ) / jnp.asarray(self.config["obs_scale"])
         actions = jax.random.normal(seed, (batch, self.config["joint_act_dim"]))
+        if reflect_average:
+            reflected_actions = (actions.reshape(batch, self.config["num_agents"], 2)
+                                 * action_sign).reshape(batch, self.config["joint_act_dim"])
         # Fixed by protocol: conventional Stage-I, ten Euler integrations.
         for index in range(self.config["flow_steps"]):
             time = jnp.full((batch, 1), index / self.config["flow_steps"])
             actions = actions + self.network.select("actor_bc_flow")(
                 flat_observations, actions, time
             ) / self.config["flow_steps"]
+            if reflect_average:
+                reflected_actions = reflected_actions + self.network.select("actor_bc_flow")(
+                    reflected_observations, reflected_actions, time
+                ) / self.config["flow_steps"]
         if self.config["normalize"]:
             actions = actions * jnp.asarray(self.config["act_scale"]) + jnp.asarray(
                 self.config["act_mean"]
             )
+            if reflect_average:
+                reflected_actions = (reflected_actions * jnp.asarray(self.config["act_scale"])
+                                     + jnp.asarray(self.config["act_mean"]))
         actions = jnp.clip(actions, -1.0, 1.0)
+        if reflect_average:
+            reflected_actions = jnp.clip(reflected_actions, -1.0, 1.0)
+            reflected_actions = (reflected_actions.reshape(batch,self.config["num_agents"],2)
+                                 * action_sign).reshape(batch,self.config["joint_act_dim"])
+            actions = 0.5 * (actions + reflected_actions)
         return actions.reshape(batch, self.config["num_agents"], self.config["act_dim"])
 
     @classmethod
@@ -223,7 +290,8 @@ def get_config(**overrides) -> ml_collections.ConfigDict:
         lr=3e-4, actor_hidden_dims=(256, 256, 256), actor_layer_norm=False,
         flow_steps=10, normalize=True, num_agents=4, obs_dim=0, act_dim=2,
         joint_obs_dim=0, joint_act_dim=0, agent_order=(), environment_fingerprint="",
-        max_speed=1.0, motion_loss_weight=1.0,
+        max_speed=1.0, motion_loss_weight=1.0, reflect_average=False,
+        endpoint_action_loss_weight=0.0, endpoint_motion_weight=1.0,
         architecture="flat_mlp", set_width=128, set_layers=2,
     ))
     config.update(overrides)

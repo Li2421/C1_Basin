@@ -1,5 +1,7 @@
 # 四场景 batch 视频交付
 
+纯 Q 函数的数据生成、训练和评估实验按 `AGENTS.md` 的例外处理，不需要运行本页视频入口。
+
 每个大 batch 必须有 **12 个正式视频**：每场景两个不同死锁解决案例和一个独立
 safety 成功案例。其中 `deadlock_show.mp4` 为展示版，仍必须保留全过程。
 四场景为 `toy_giveway`、`double_bottleneck`、`four_way_intersection`、`ring_exchange`。

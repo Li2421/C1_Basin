@@ -12,9 +12,20 @@ def main():
     parser.add_argument('--batch-size',type=int,default=256)
     parser.add_argument('--seed',type=int,default=0)
     parser.add_argument('--snapshot-interval',type=int)
+    parser.add_argument('--early-transition-fraction',type=float,default=.2)
+    parser.add_argument('--early-steps',type=int,default=50)
+    parser.add_argument('--early-nominal-only',action='store_true')
     parser.add_argument('--near-goal-fraction',type=float,default=0.0)
+    parser.add_argument('--onset-recovery-fraction',type=float,default=0.0)
+    parser.add_argument('--onset-recovery-steps',type=int,default=50)
+    parser.add_argument('--terminal-recovery-fraction',type=float,default=0.0)
+    parser.add_argument('--terminal-recovery-steps',type=int,default=150)
+    parser.add_argument('--initial-nominal-fraction',type=float,default=0.0)
+    parser.add_argument('--initial-nominal-steps',type=int,default=5)
     parser.add_argument('--source-balanced-sampling',action='store_true')
     parser.add_argument('--motion-loss-weight',type=float,default=1.0)
+    parser.add_argument('--endpoint-action-loss-weight',type=float,default=0.0)
+    parser.add_argument('--endpoint-motion-weight',type=float,default=1.0)
     parser.add_argument('--permutation-augmentation',action='store_true')
     parser.add_argument('--shared-agent-normalization',action='store_true')
     parser.add_argument('--active-action-normalization',action='store_true')
@@ -27,12 +38,22 @@ def main():
     args=parser.parse_args()
     result=train_stage1(args.dataset,args.output,seed=args.seed,steps=args.steps,
                         batch_size=args.batch_size,log_interval=max(50,args.steps//20),
-                        early_transition_fraction=.2,early_steps=50,
+                        early_transition_fraction=args.early_transition_fraction,
+                        early_steps=args.early_steps,
+                        early_nominal_only=args.early_nominal_only,
                         allow_non_four_agents=True,
                         snapshot_interval=args.snapshot_interval,
                         near_goal_fraction=args.near_goal_fraction,
+                        onset_recovery_fraction=args.onset_recovery_fraction,
+                        onset_recovery_steps=args.onset_recovery_steps,
+                        terminal_recovery_fraction=args.terminal_recovery_fraction,
+                        terminal_recovery_steps=args.terminal_recovery_steps,
+                        initial_nominal_fraction=args.initial_nominal_fraction,
+                        initial_nominal_steps=args.initial_nominal_steps,
                         source_balanced_sampling=args.source_balanced_sampling,
                         motion_loss_weight=args.motion_loss_weight,
+                        endpoint_action_loss_weight=args.endpoint_action_loss_weight,
+                        endpoint_motion_weight=args.endpoint_motion_weight,
                         permutation_augmentation=args.permutation_augmentation,
                         shared_agent_normalization=args.shared_agent_normalization,
                         active_action_normalization=args.active_action_normalization,

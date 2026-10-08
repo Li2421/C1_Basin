@@ -93,14 +93,17 @@ def flow_action(agent, env, episode_key, step, samples, *, observation_version='
 
 def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
         checkpoint_override=None, split='test', observation_version='historical',
-        fresh_count=0, fresh_seed=271828, goal_stop=False,
-        latent_mode='per_step'):
+        fresh_count=0, fresh_seed=271828, fresh_start=0, goal_stop=False,
+        latent_mode='per_step', archive_start=0, archive_count=0):
     if mode not in MODES or agents not in SPECS or samples < 1:
         raise ValueError('invalid N, mode, or sample count')
     if mode.startswith('solo_') and agents != 2:
         raise ValueError('single-active-task control is defined only for N=2')
     if (split not in ('dev','test') or observation_version not in ('historical','competence_v2')
-            or latent_mode not in ('per_step','per_episode') or fresh_count < 0):
+            or latent_mode not in ('per_step','per_episode') or fresh_count < 0
+            or fresh_start < 0 or (fresh_start and not fresh_count)
+            or archive_start < 0 or archive_count < 0
+            or (fresh_count and (archive_start or archive_count))):
         raise ValueError('invalid split or observation version')
     output = Path(output)
     if output.exists() and any(output.iterdir()):
@@ -115,12 +118,18 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
     else:
         manifest, cases, audit = load_nominal_cases(root/'dataset', split=split,
                                                    final_evaluation=(split=='test'))
+        if archive_start or archive_count:
+            cases=cases[archive_start:archive_start+archive_count if archive_count else None]
+            if not cases:
+                raise ValueError('empty archive-case shard')
     config = Config(**manifest['scenario_config'])
     if fresh_count:
         rng=np.random.default_rng(fresh_seed)
         fresh=[]
-        for index in range(fresh_count):
+        for index in range(fresh_start + fresh_count):
             episode_seed=int(rng.integers(0,2**31-1))
+            if index < fresh_start:
+                continue
             instance=BottleneckEnv(replace(config,seed=episode_seed,split=split))
             state={'positions':instance.positions.tolist(),
                    'goals':instance.goals.tolist(),
@@ -129,7 +138,8 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
                                          initial_state=state,archive_path=output/'fresh_control_states.json'))
         cases=fresh
         (output/'fresh_control_states.json').write_text(json.dumps(
-            {'fresh_seed':fresh_seed,'split':split,'cases':[c.initial_state for c in cases]},indent=2)+'\n')
+            {'fresh_seed':fresh_seed,'fresh_start':fresh_start,'split':split,
+             'cases':[c.initial_state for c in cases]},indent=2)+'\n')
     checkpoint = Path(checkpoint_override) if checkpoint_override else root/'train/best.pkl'
     checkpoint_sha = hashlib.sha256(checkpoint.read_bytes()).hexdigest()
     agent, checkpoint_meta = load_checkpoint(
@@ -168,7 +178,8 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
         env=BottleneckEnv(replace(config,seed=state['episode_seed'],split=split))
         env.reset(p,g)
         initial_hash=env.initial_state_sha256()
-        episode_key=jax.random.fold_in(jax.random.PRNGKey(seed),index)
+        episode_index=fresh_start+index if fresh_count else archive_start+index
+        episode_key=jax.random.fold_in(jax.random.PRNGKey(seed),episode_index)
         positions=[env.positions.copy()]
         series={key:[] for key in ('u_flow','u_ref','u_safe','swept_clearance',
             'swept_wall_clearance','swept_agent_clearance','projection_norm',
@@ -270,7 +281,10 @@ def run(agents: int, mode: str, output: Path, *, samples=1, seed=17,
         safety_config=cbf.to_dict(),cache_preflight=cache['summary'],rollouts=rows,
         observation_version=observation_version,split=split,goal_stop=goal_stop,
         latent_mode=latent_mode,
-        fresh_count=fresh_count,fresh_seed=fresh_seed if fresh_count else None)
+        fresh_count=fresh_count,fresh_seed=fresh_seed if fresh_count else None,
+        fresh_start=fresh_start if fresh_count else None,
+        archive_start=archive_start if not fresh_count else None,
+        archive_count=archive_count if not fresh_count else None)
     (output/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
     return result
 
@@ -287,6 +301,12 @@ def main():
     parser.add_argument('--observation-version',choices=('historical','competence_v2'),default='historical')
     parser.add_argument('--fresh-count',type=int,default=0)
     parser.add_argument('--fresh-seed',type=int,default=271828)
+    parser.add_argument('--fresh-start',type=int,default=0,
+                        help='First global fresh-case index; enables disjoint parallel shards')
+    parser.add_argument('--archive-start',type=int,default=0,
+                        help='First indexed archived case; preserves original Flow RNG index')
+    parser.add_argument('--archive-count',type=int,default=0,
+                        help='Archived cases per shard; 0 selects all remaining cases')
     parser.add_argument('--goal-stop',action='store_true',
                         help='At-goal zero-action guard fixed before opposing evaluation')
     parser.add_argument('--latent-mode',choices=('per_step','per_episode'),default='per_step')
@@ -295,7 +315,9 @@ def main():
         checkpoint_override=args.checkpoint_override,split=args.split,
         observation_version=args.observation_version,
         fresh_count=args.fresh_count,fresh_seed=args.fresh_seed,
-        goal_stop=args.goal_stop,latent_mode=args.latent_mode)
+        fresh_start=args.fresh_start,
+        goal_stop=args.goal_stop,latent_mode=args.latent_mode,
+        archive_start=args.archive_start,archive_count=args.archive_count)
 
 
 if __name__=='__main__':main()

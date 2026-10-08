@@ -2,8 +2,12 @@
 
 ## 四场景大 batch 的强制视频交付
 
+纯 Q 函数的数据生成、训练和评估实验不要求视频交付；该类实验以真实 rollout
+结果、数据集和数值评估为交付物，不运行视频验收入口。
+其余大型训练/评估/跨场景实验 batch 遵守下述要求。
+
 适用于 `toy_giveway`、`double_bottleneck`、`four_way_intersection`、`ring_exchange`。
-每次大型训练/评估/跨场景实验 batch 都必须交付每场景至少 3 个完整仿真视频：
+每次适用的大型训练/评估/跨场景实验 batch 都必须交付每场景至少 3 个完整仿真视频：
 两个不同的死锁解决案例（其中一个标为 `deadlock_show`），以及一个独立的
 `safety_success` 案例。另一个死锁案例标为 `deadlock_resolution`。
 这是对当前数量描述的保守执行；用户后续明确数量时以用户要求为准。

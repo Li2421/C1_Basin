@@ -15,7 +15,9 @@ from .protocol import ExpertContinuation, ScenarioProtocol
 
 DATASET_SCHEMA = "new_benchmark_joint_stage1_dataset_v1"
 TRAJECTORY_SCHEMA = "new_benchmark_joint_stage1_trajectory_v1"
-_SOURCES = {"nominal", "uniform_recovery", "gate_local_recovery", "targeted_wall_obstacle", "targeted_agent"}
+_SOURCES = {"nominal", "uniform_recovery", "late_postgate_recovery",
+            "early_queue_recovery", "terminal_multi_recovery",
+            "gate_local_recovery", "targeted_wall_obstacle", "targeted_agent"}
 
 
 def _jsonable(value: Any):

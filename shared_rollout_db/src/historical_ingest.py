@@ -133,7 +133,25 @@ class Ingestor:
   def insert_seed(self,r,p,su,eu,line):
     eta=self.eta(r);seed_key,seed_obj=self.seed(r)
     if not eta or seed_key is None:return 'ambiguous'
-    scid,scname=self.scenario(r,p);sid,sq=self.state(r,p,scid,eu);cid,cq=self.controller(r,p,scid,scname,sq);eid,_=eta
+    eid,_=eta
+    if r.get('cache_identity_schema')=='registered_exact_uid_v1':
+      # New workers register exact state/controller identities before preflight.
+      # A journal may reference them, but cannot silently redefine them.
+      scid,sid,cid=(r.get(k) for k in ('scenario_uid','state_uid','controller_uid'))
+      state=self.con.execute('SELECT scenario_uid,physical_state_json,identity_quality FROM state WHERE state_uid=?',(sid,)).fetchone()
+      controller=self.con.execute('SELECT scenario_uid,flow_checkpoint_sha256,compatibility_quality FROM controller_config WHERE controller_uid=?',(cid,)).fetchone()
+      scenario=self.con.execute('SELECT scenario_uid FROM scenario WHERE scenario_uid=?',(scid,)).fetchone()
+      physical={k:r[v] for k,v in (('positions','initial_positions'),('goals','goals'),('velocities','initial_velocities')) if v in r}
+      if (not state or not controller or not scenario or not physical or
+          state['scenario_uid']!=scid or controller['scenario_uid']!=scid or
+          canonical(physical)!=state['physical_state_json'] or
+          controller['flow_checkpoint_sha256']!=r.get('flow_checkpoint_sha256') or
+          controller['compatibility_quality']!='EXACT_PROFILE' or
+          state['identity_quality']!='CONTENT_EXACT' or
+          r.get('eta_uid')!=eid):return 'ambiguous'
+      sq,cq='CONTENT_EXACT','EXACT_PROFILE'
+    else:
+      scid,scname=self.scenario(r,p);sid,sq=self.state(r,p,scid,eu);cid,cq=self.controller(r,p,scid,scname,sq)
     vals=self.outcomes(r);identity={'state':sid,'eta':eid,'controller':cid,'seed':seed_key};rid=uid('roll',identity);rawh=jhash(r)
     existing=self.con.execute('SELECT * FROM rollout WHERE state_uid=? AND eta_uid=? AND controller_uid=? AND seed_key=?',(sid,eid,cid,seed_key)).fetchone()
     if existing:

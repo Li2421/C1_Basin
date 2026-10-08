@@ -38,6 +38,13 @@ def one_way_state(instance, mode: str, index: int):
         moving = left[(np.arange(min(5, len(left))) + index) % len(left)]
     elif mode == 'half':
         moving = left
+    elif mode == 'parked_half':
+        # Non-opposing second-stage navigation: the other group is already
+        # stationary at its destination, with no release or priority signal.
+        # This covers the goal-side occupancy absent from ordinary half mode.
+        p[1::2] = instance.goals[1::2]
+        g[1::2] = p[1::2]
+        moving = left
     elif mode == 'full':
         p[1::2] = instance.goals[1::2]
         moving = np.arange(instance.config.num_agents)
@@ -225,7 +232,7 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--train', type=int, required=True)
     parser.add_argument('--dev', type=int, required=True)
-    parser.add_argument('--modes', nargs='+', choices=('solo','five','half','full'), default=('full',))
+    parser.add_argument('--modes', nargs='+', choices=('solo','five','half','parked_half','full'), default=('full',))
     parser.add_argument('--permutations', type=int, default=2)
     parser.add_argument('--seed', type=int, default=701027)
     parser.add_argument('--source-dataset', type=Path)

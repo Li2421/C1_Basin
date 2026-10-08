@@ -93,17 +93,24 @@ def collect(source, checkpoint, output, *, cases_per_category=8,
             categories=('solo_LR', 'full_LR'), horizon=2000,
             anchors=(250,750,1500), seed=701027,
             goal_stop=False, hold_initially_passive=False,
-            source_id_substring=None):
+            source_id_substring=None, case_start=0, model_only=False):
     source, checkpoint, output = Path(source), Path(checkpoint), Path(output)
     if output.exists() and any(output.iterdir()):
         raise FileExistsError(output)
     output.mkdir(parents=True)
     manifest, all_cases = cases_from_dataset(source, 'train', categories=categories)
+    if case_start < 0 or cases_per_category < 1:
+        raise ValueError('case_start and cases_per_category must select positive ranges')
     counts = {}
+    seen = {}
     cases = []
     for case in all_cases:
         name, category, _ = case
         if source_id_substring is not None and source_id_substring not in name:
+            continue
+        ordinal = seen.get(category, 0)
+        seen[category] = ordinal + 1
+        if ordinal < case_start:
             continue
         if counts.get(category, 0) >= cases_per_category:
             continue
@@ -187,6 +194,12 @@ def collect(source, checkpoint, output, *, cases_per_category=8,
         print(json.dumps({'model_case':index+1,'source':name,
                           'steps':env.step_count,'termination':env.termination}),flush=True)
     (output/'model_rollouts.json').write_text(json.dumps(model_rows,indent=2)+'\n')
+    if model_only:
+        return {'schema':'gap1_scale_dagger_model_traces_v1',
+                'source_dataset':str(source),'checkpoint':str(checkpoint),
+                'checkpoint_sha256':checkpoint_sha,'model_rollouts':model_rows,
+                'model_preflight':model_cache['summary'],
+                'recovery_candidates':len(candidates)}
     recovery_requests = []
     for name,episode_config,p,v,g,moving,parent,anchor in candidates:
         recovery_requests.append(dict(state_uid=uid('state',{
@@ -214,6 +227,7 @@ def collect(source, checkpoint, output, *, cases_per_category=8,
             'checkpoint':str(checkpoint),'checkpoint_sha256':checkpoint_sha,
             'goal_stop':goal_stop,
             'source_id_substring':source_id_substring,
+            'case_start':case_start,'cases_per_category':cases_per_category,
             'hold_initially_passive':hold_initially_passive,
             'model_rollouts':model_rows,'candidate_count':len(candidates),
             'accepted':{'LR':{'trajectories':0,'transitions':0},
@@ -266,13 +280,17 @@ def main():
     parser.add_argument('--goal-stop',action='store_true')
     parser.add_argument('--hold-initially-passive',action='store_true')
     parser.add_argument('--source-id-substring')
+    parser.add_argument('--case-start',type=int,default=0)
+    parser.add_argument('--model-only',action='store_true',
+                        help='Save train-only model traces without copying the source dataset')
     args=parser.parse_args()
     print(json.dumps(collect(args.source,args.checkpoint,args.output,
         cases_per_category=args.cases_per_category,horizon=args.horizon,
         categories=tuple(args.categories),anchors=tuple(args.anchors),seed=args.seed,
         goal_stop=args.goal_stop,
         hold_initially_passive=args.hold_initially_passive,
-        source_id_substring=args.source_id_substring),indent=2),flush=True)
+        source_id_substring=args.source_id_substring,
+        case_start=args.case_start,model_only=args.model_only),indent=2),flush=True)
 
 
 if __name__=='__main__':
