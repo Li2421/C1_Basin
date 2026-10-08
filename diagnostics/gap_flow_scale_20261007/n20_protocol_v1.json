@@ -1,0 +1,50 @@
+{
+  "schema": "gap1_n20_predeclared_protocol_v1",
+  "num_agents": 20,
+  "opening_width_m": 0.62,
+  "max_steps": 16000,
+  "goal_tolerance_m": 0.08,
+  "flow_training": {
+    "data": "diagnostics/gap_flow_scale_20261007/n20_competence_data_v2/dataset",
+    "job_script": "diagnostics/gap_flow_scale_20261007/n20_train_navigation_v1.sbatch",
+    "init": "random_from_scratch",
+    "opposing_demonstrations": 0
+  },
+  "checkpoint_selection": {
+    "split": "dev",
+    "fresh_master_seed": 162020,
+    "cases_per_mode": 4,
+    "inference_variants": [
+      "raw_frozen_flow_sampling",
+      "paired_x_reflection_average_if_exact_dev_symmetry_audit_passes"
+    ],
+    "modes": [
+      "single_even", "single_odd", "few_even", "few_odd",
+      "one_way", "one_way_mirror",
+      "temporal_release_even_first", "temporal_release_odd_first"
+    ],
+    "rank_order": [
+      "zero_collision_and_numerical_failure",
+      "max_worst_mode_complete_success_count",
+      "max_total_complete_successes",
+      "max_mean_final_goal_occupancy",
+      "min_mean_safety_projection_correction",
+      "min_offline_validation_loss_tie_only"
+    ]
+  },
+  "pre_freeze_acceptance": {
+    "split": "dev",
+    "fresh_master_seed": 398201,
+    "cases_per_mode": 12,
+    "minimum_complete_success_per_mode": 11,
+    "maximum_collisions": 0,
+    "maximum_numerical_failures": 0
+  },
+  "frozen_opposing_test": {
+    "split": "test",
+    "fresh_master_seed": 2026102012,
+    "cases": 12,
+    "open_only_after_checkpoint_freeze": true
+  },
+  "eta_gate": "READY_FOR_ETA only after competent non-opposing navigation and meaningful frozen opposing safety gridlock"
+}

@@ -55,6 +55,9 @@ def one_way_state(instance, mode: str, index: int):
         g[1::2] = instance.positions[1::2]
     else:
         g[moving] = instance.goals[moving]
+    if mode == 'solo' and np.sum(np.linalg.norm(g - p, axis=1) >
+                                 instance.config.goal_tolerance) != 1:
+        raise RuntimeError('solo task must have exactly one initially active agent')
     return p, g, np.asarray(moving, dtype=int)
 
 

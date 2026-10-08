@@ -1,6 +1,6 @@
-"""Create a non-frozen, reflection-equivariant Flow sampling candidate.
+"""Create a non-frozen, reflection-equivariant Gap1 Flow sampling candidate.
 
-The underlying N=50 weights are copied exactly. Only the optional Flow
+The underlying weights are copied exactly. Only the optional Flow
 reflection-averaging flag is set; hard safety, observations and environment
 remain unchanged. This is for non-opposing competence screening only.
 """
@@ -22,6 +22,7 @@ def make(dataset:Path,source:Path,output:Path,audit:Path):
     if output.exists():
         raise FileExistsError(output)
     manifest=json.loads((dataset/'manifest.json').read_text())
+    n=int(manifest['scenario_config']['num_agents'])
     symmetry=json.loads(audit.read_text())
     if (symmetry['dataset_manifest_sha256']!=hashlib.sha256((dataset/'manifest.json').read_bytes()).hexdigest()
             or symmetry['exact_observation_reflection_max_error']!=0
@@ -29,10 +30,10 @@ def make(dataset:Path,source:Path,output:Path,audit:Path):
         raise ValueError('paired DEV observation/target reflection audit failed')
     agent,metadata=load_checkpoint(source,
         expected_environment_fingerprint=manifest['environment_fingerprint'])
-    if agent.config['num_agents']!=50 or agent.config['obs_dim']!=8 or agent.config['act_dim']!=2:
-        raise ValueError('candidate requires N=50 eight-feature planar Gap Flow')
-    om=np.asarray(agent.config['obs_mean']).reshape(50,8)
-    am=np.asarray(agent.config['act_mean']).reshape(50,2)
+    if agent.config['num_agents']!=n or agent.config['obs_dim']!=8 or agent.config['act_dim']!=2:
+        raise ValueError('candidate requires an eight-feature planar Gap Flow matching the dataset')
+    om=np.asarray(agent.config['obs_mean']).reshape(n,8)
+    am=np.asarray(agent.config['act_mean']).reshape(n,2)
     if np.max(np.abs(om[:,[0,2,4,6]]))>1e-8 or np.max(np.abs(am[:,0]))>1e-8:
         raise ValueError('checkpoint normalization does not commute with horizontal reflection')
     source_sha=hashlib.sha256(source.read_bytes()).hexdigest()

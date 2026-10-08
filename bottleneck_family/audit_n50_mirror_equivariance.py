@@ -1,4 +1,4 @@
-"""Audit exact data reflection and learned N=50 Flow reflection symmetry.
+"""Audit exact data reflection and learned Gap1 Flow reflection symmetry.
 
 Uses paired, untouched DEV one-way expert trajectories. Model statistics
 average independent standard-Gaussian Flow latents; no control is changed.
@@ -23,6 +23,7 @@ ACT_SIGN=np.asarray([-1,1],dtype=np.float32)
 def run(dataset:Path,checkpoints:list[Path],output:Path,*,latents=64,seed=6137):
     dataset,output=Path(dataset),Path(output)
     manifest=json.loads((dataset/'manifest.json').read_text())
+    n=int(manifest['scenario_config']['num_agents'])
     indexed={r['rollout_id']:r for r in manifest['files'] if r['split']=='dev'
              and r['source']=='nominal'}
     pairs=[]
@@ -76,7 +77,7 @@ def run(dataset:Path,checkpoints:list[Path],output:Path,*,latents=64,seed=6137):
             for t in (0,10,100)}
         results[str(path)]=dict(sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
                                 grouped=grouped,rows=rows)
-    report=dict(schema='gap1_n50_mirror_equivariance_audit_v1',
+    report=dict(schema=f'gap1_n{n}_mirror_equivariance_audit_v1',N=n,
         dataset_manifest_sha256=hashlib.sha256((dataset/'manifest.json').read_bytes()).hexdigest(),
         physical_pairs=len(pairs),frames=len(frames),latents_per_direction=latents,
         exact_observation_reflection_max_error=obs_error,
