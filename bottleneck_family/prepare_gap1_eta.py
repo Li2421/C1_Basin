@@ -9,6 +9,7 @@ import argparse
 from dataclasses import replace
 import hashlib
 import json
+import math
 from pathlib import Path
 
 import numpy as np
@@ -111,13 +112,22 @@ def register(output: Path) -> dict:
             "states": len(design["states"])}
 
 
-def prepare(output: Path) -> dict:
+def prepare(output: Path, *, eta_count: int = ETA_COUNT,
+            master_seed: int = MASTER_SEED, sobol_seed: int = SOBOL_SEED,
+            exclude_design: Path | None = None) -> dict:
     if output.exists() and any(output.iterdir()):
         raise FileExistsError(f"immutable eta design already exists: {output}")
+    if eta_count < 1 or eta_count & (eta_count - 1):
+        raise ValueError("eta_count must be a positive power of two")
+    excluded_hashes = set()
+    if exclude_design is not None:
+        prior = json.loads((exclude_design / "design_manifest.json").read_text())
+        excluded_hashes = {state["content_sha256"] for state in prior["states"]}
     output.mkdir(parents=True)
     basis = get_basis_family("orthoflow3")
     safety = HardProjectionConfig()
-    unit = qmc.Sobol(3, scramble=True, seed=SOBOL_SEED).random_base2(4)
+    unit = qmc.Sobol(3, scramble=True, seed=sobol_seed).random_base2(
+        int(math.log2(eta_count)))
     eta_values = qmc.scale(unit, DOMAIN_LOW, DOMAIN_HIGH)
     eta_pool = {
         "schema": "gap1_shared_global_eta_pool_v1",
@@ -125,22 +135,23 @@ def prepare(output: Path) -> dict:
         "basis_version": basis.metadata.version,
         "basis_semantics": list(basis.metadata.names),
         "dimension": 3,
-        "distribution": "first 16 points of independently scrambled Sobol(3), uniform box transform",
-        "sobol_seed": SOBOL_SEED,
+        "distribution": f"first {eta_count} points of scrambled Sobol(3), uniform box transform",
+        "sobol_seed": sobol_seed,
         "bounds_low": DOMAIN_LOW.tolist(),
         "bounds_high": DOMAIN_HIGH.tolist(),
         "shared_across_N": [2, 10, 20],
         "shared_across_physical_states": True,
-        "candidate_count": ETA_COUNT,
+        "candidate_count": eta_count,
         "eta": eta_values.tolist(),
         "eta_uid": [eta_identity(value)[0] for value in eta_values],
-        "K_nested_prefixes": [1, 2, 4, 8, 16],
+        "K_nested_prefixes": [k for k in (1, 2, 4, 8, 16, 32, 64, 128)
+                              if k <= eta_count],
     }
     dump(output / "eta_pool.json", eta_pool)
     all_requests = []
     all_states = []
     scenario_info = {}
-    state_hashes = set()
+    state_hashes = set(excluded_hashes)
     for n in (2, 10, 20):
         source_root = (Path("diagnostics/gap_flow_scale_20261007")
                        if n == 20 else ROOT)
@@ -189,7 +200,7 @@ def prepare(output: Path) -> dict:
         }
         for split_index, (logical_split, count) in enumerate(SPLIT_COUNTS.items()):
             generator = np.random.default_rng(np.random.SeedSequence(
-                [MASTER_SEED, n, split_index]
+                [master_seed, n, split_index]
             ))
             for index in range(count):
                 episode_seed = int(generator.integers(1, 2**31 - 1))
@@ -234,22 +245,39 @@ def prepare(output: Path) -> dict:
         "purpose": "state-conditioned Q(x,eta) and G(eta|x) supervision; no controller identity in model input",
         "N": [2, 10, 20],
         "state_count_per_N": SPLIT_COUNTS,
-        "physical_state_master_seed": MASTER_SEED,
+        "physical_state_master_seed": master_seed,
         "state_split_unit": "exact physical initial state",
         "eta_pool": str(output / "eta_pool.json"),
         "eta_pool_sha256": sha(output / "eta_pool.json"),
-        "eta_count_per_state": ETA_COUNT,
+        "eta_count_per_state": eta_count,
         "future_indices": list(STANDARD_SEEDS),
         "rollout_budget_full_Q16": len(all_requests) * len(STANDARD_SEEDS),
         "scenario_info": scenario_info,
         "states": all_states,
-        "N2_N10_design_frozen_before_prior_eta_outcomes": True,
-        "N2_N10_prior_eta_outcomes_exist": True,
-        "N20_prepared_before_any_N20_eta_outcome": True,
-        "prior_N2_N10_design": "datasets/gap1_eta_scaling_v2/design_manifest.json",
-        "prior_N2_N10_design_sha256": sha(Path(
-            "datasets/gap1_eta_scaling_v2/design_manifest.json")),
     }
+    if exclude_design is None:
+        manifest.update({
+            "N2_N10_design_frozen_before_prior_eta_outcomes": True,
+            "N2_N10_prior_eta_outcomes_exist": True,
+            "N20_prepared_before_any_N20_eta_outcome": True,
+            "prior_N2_N10_design": "datasets/gap1_eta_scaling_v2/design_manifest.json",
+            "prior_N2_N10_design_sha256": sha(Path(
+                "datasets/gap1_eta_scaling_v2/design_manifest.json")),
+        })
+    else:
+        manifest.update({
+            "prior_design": str(exclude_design),
+            "prior_design_sha256": sha(exclude_design / "design_manifest.json"),
+            "physical_state_overlap_with_prior": 0,
+            "prior_test_outcomes_seen_before_this_design": True,
+            "new_test_states_unopened_at_design": True,
+            "candidate_prefix_protocol": {
+                "global_prefixes": [32, 64, 128],
+                "first_stage": "TRAIN and VAL, first 32 eta per state; TEST sealed",
+                "expansion_gate": "For both N=10 and N=20, at least 8/32 TRAIN states and 2/8 VAL states must have a robust eta; otherwise expand the same global prefix to 64 then 128, without targeting states or eta regions",
+                "test_open_rule": "Only if the TRAIN/VAL coverage criterion passes at a fixed global prefix; otherwise keep TEST sealed",
+            },
+        })
     dump(output / "design_manifest.json", manifest)
     plan = {"schema": "gap1_eta_scaling_requests_v1", "requests": all_requests}
     dump(output / "planned_rollouts.json", plan)
@@ -269,6 +297,10 @@ def main() -> None:
                         default=Path("datasets/gap1_eta_scaling_v1"))
     parser.add_argument("--register-existing", action="store_true",
                         help="Register a previously frozen outcome-blind design")
+    parser.add_argument("--eta-count", type=int, default=ETA_COUNT)
+    parser.add_argument("--master-seed", type=int, default=MASTER_SEED)
+    parser.add_argument("--sobol-seed", type=int, default=SOBOL_SEED)
+    parser.add_argument("--exclude-design", type=Path)
     args = parser.parse_args()
     if args.register_existing:
         result = register(args.output)
@@ -276,7 +308,10 @@ def main() -> None:
         dump(args.output / "cache_preflight.json", cache)
         result["cache_preflight"] = cache["summary"]
     else:
-        result = prepare(args.output)
+        result = prepare(args.output, eta_count=args.eta_count,
+                         master_seed=args.master_seed,
+                         sobol_seed=args.sobol_seed,
+                         exclude_design=args.exclude_design)
     print(json.dumps(result, indent=2), flush=True)
 
 
