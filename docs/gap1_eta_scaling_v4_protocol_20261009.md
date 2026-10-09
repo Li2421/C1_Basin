@@ -38,3 +38,14 @@ Flow checkpoints. The shared rollout database must be registered and
 preflighted before Slurm submission. All workers commit exact per-seed
 records and the CPU governor limits Gap1 jobs to six shards. The old v3 TEST
 states are never reused or used to choose a new eta region.
+
+The immutable design was created as `datasets/gap1_eta_scaling_v4_global128/`.
+It contains 144 states and 18,432 planned state-eta pairs; the full Q16
+envelope is 294,912 future rollouts. The shared-cache preflight found zero
+exact/partial reuse and zero ambiguous identities. The v4 states have zero
+physical-state overlap with v3; the first 16 eta coordinates and exact IDs
+match v3. Only the first-stage 2,560 N=10/N=20 TRAIN/VAL pairs were submitted,
+as Slurm arrays 14986, 14989, and 14990. Array indices are mapped uniquely
+to physical-state index 0–39 and eta index 0–31; no TEST pair is in these
+arrays. `bottleneck_family/audit_gap1_eta_v4_prefix.py` reads only TRAIN/VAL
+pair files and applies the predeclared coverage gate.
