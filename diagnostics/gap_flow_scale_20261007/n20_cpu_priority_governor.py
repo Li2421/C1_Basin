@@ -20,14 +20,16 @@ ROOT = Path('diagnostics/gap_flow_scale_20261007')
 ARRAYS = (9055, 9602)
 FIXED_ARRAY_CONCURRENCY = {11243: 8, 11378: 4, 11469: 4, 11477: 1,
                            11681: 12, 11760: 8, 11902: 4, 12023: 8,
-                           12124: 8, 12187: 8, 12257: 4}
+                           12124: 8, 12187: 8, 12257: 12, 12543: 12,
+                           12703: 24}
 OWN_JOB_IDS = frozenset((*ARRAYS, 9620, 9647, 10024, 10113, 10459, 10491,
                          10633, 10708, 10725, 10736, 10811, 10908, 10917,
                          10925, 10940, 10948, 10994, 11001, 11007, 11038,
                          11228, 11243, 11354, 11378, 11466, 11469, 11477,
                          11501, 11517, 11530, 11543, 11544, 11546, 11572,
                          11618, 11661, 11681, 11760, 11891, 11902, 12023,
-                         12058, 12124, 12174, 12187, 12235, 12257))
+                         12058, 12124, 12174, 12187, 12235, 12257, 12543,
+                         12703))
 TOTAL_CPUS = 24
 PRIORITY_RESERVATION = 12
 ARRAY_TASK = re.compile(r'^(\d+)_(\d+)$')
@@ -57,7 +59,7 @@ def journal(payload: dict, *, path: Path) -> None:
         handle.flush()
 
 
-def tick(*, path: Path, previous: tuple[int, int] | None) -> tuple[int, int]:
+def tick(*, path: Path, previous: tuple[int, int, int] | None) -> tuple[int, int, int]:
     rows = slurm_rows()
     priority = [row for row in rows if row['base'] not in OWN_JOB_IDS
                 and row['state'] in ('R', 'PD', 'CG')
@@ -82,7 +84,7 @@ def tick(*, path: Path, previous: tuple[int, int] | None) -> tuple[int, int]:
                for row in rows):
             running = sum(row['cpus'] for row in rows
                           if row['base'] == job and row['state'] == 'R')
-            fixed_pending += max(0, concurrency - running)
+            fixed_pending += max(0, min(concurrency, cap) - running)
     fixed = fixed_running + fixed_pending
     slots = max(0, cap - fixed)
     active10 = any(row['base'] == 9055 and row['state'] in ('R', 'PD') for row in rows)
@@ -95,9 +97,9 @@ def tick(*, path: Path, previous: tuple[int, int] | None) -> tuple[int, int]:
         n10, n2 = 0, slots
     else:
         n10 = n2 = 0
-    target = (n10, n2)
+    target = (n10, n2, cap)
     if target != previous:
-        for job, throttle in zip(ARRAYS, target):
+        for job, throttle in zip(ARRAYS, target[:2]):
             if not any(row['base'] == job for row in rows):
                 continue
             if throttle == 0:
@@ -114,6 +116,19 @@ def tick(*, path: Path, previous: tuple[int, int] | None) -> tuple[int, int]:
             journal(dict(event=event, job=job, throttle=throttle,
                          exit_code=result.returncode, stderr=result.stderr.strip(),
                          priority_jobs=[row['job_id'] for row in priority]), path=path)
+        # The other task may become runnable while a large fixed Gap1 array
+        # already occupies all 24 slots. Lower its throttle before evicting
+        # running tasks; otherwise Slurm would immediately replace them.
+        for job, maximum in FIXED_ARRAY_CONCURRENCY.items():
+            if not any(row['base'] == job for row in rows):
+                continue
+            throttle = min(maximum, cap)
+            result = command('scontrol', 'update', f'JobId={job}',
+                             f'ArrayTaskThrottle={throttle}')
+            journal(dict(event='fixed_array_throttle', job=job,
+                         throttle=throttle, exit_code=result.returncode,
+                         stderr=result.stderr.strip(),
+                         priority_jobs=[row['job_id'] for row in priority]), path=path)
     rows = slurm_rows()
     running = [row for row in rows if row['base'] in OWN_JOB_IDS and row['state'] == 'R']
     allocated = sum(row['cpus'] for row in running)
@@ -121,17 +136,19 @@ def tick(*, path: Path, previous: tuple[int, int] | None) -> tuple[int, int]:
     # merely reducing array throttles does not evict existing array workers.
     running_limit = max(0, cap - fixed_pending)
     if allocated > running_limit:
-        candidates = [row for row in running if row['base'] in ARRAYS
-                      and ARRAY_TASK.fullmatch(row['job_id'])]
-        # Array IDs rise as tasks launch. Cancel the newest work first; each
-        # seed has an atomic journal and can be resumed under the same index.
-        candidates.sort(key=lambda row: int(ARRAY_TASK.fullmatch(row['job_id']).group(2)),
+        candidates = [row for row in running
+                      if ARRAY_TASK.fullmatch(row['job_id'])]
+        # Evict resumable eta labels first. Fixed-screen/acceptance indices
+        # are also journaled and must be rerun from scratch before audit.
+        candidates.sort(key=lambda row: (row['base'] in ARRAYS,
+                                         int(ARRAY_TASK.fullmatch(row['job_id']).group(2))),
                         reverse=True)
         for row in candidates:
             if allocated <= running_limit:
                 break
             result = command('scancel', row['job_id'])
             journal(dict(event='cancel_for_priority', job=row['job_id'],
+                         recovery_required=row['base'] not in ARRAYS,
                          exit_code=result.returncode, stderr=result.stderr.strip(),
                          cap=cap, priority_jobs=[item['job_id'] for item in priority]),
                     path=path)
