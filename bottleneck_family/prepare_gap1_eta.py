@@ -33,7 +33,7 @@ ROOT = Path("diagnostics/gap_flow_v1")
 CHECKPOINTS = {
     2: Path("diagnostics/gap_flow_competence_v3_recovery/frozen/gap1_n2_macflow_competence_v1.pkl"),
     10: Path("diagnostics/gap_flow_scale_20261007/frozen/gap1_n10_flow_navigation_v1.pkl"),
-    50: Path("diagnostics/gap_flow_scale_20261007/frozen/gap1_n50_flow_navigation_v1.pkl"),
+    20: Path("diagnostics/gap_flow_scale_20261007/frozen/gap1_n20_flow_navigation_v1.pkl"),
 }
 SPLIT_COUNTS = {"train": 32, "val": 8, "test": 8}
 PHYSICAL_SPLIT = {"train": "train", "val": "dev", "test": "test"}
@@ -129,7 +129,7 @@ def prepare(output: Path) -> dict:
         "sobol_seed": SOBOL_SEED,
         "bounds_low": DOMAIN_LOW.tolist(),
         "bounds_high": DOMAIN_HIGH.tolist(),
-        "shared_across_N": [2, 10, 50],
+        "shared_across_N": [2, 10, 20],
         "shared_across_physical_states": True,
         "candidate_count": ETA_COUNT,
         "eta": eta_values.tolist(),
@@ -141,8 +141,10 @@ def prepare(output: Path) -> dict:
     all_states = []
     scenario_info = {}
     state_hashes = set()
-    for n in (2, 10, 50):
-        source_manifest = ROOT / SPECS[n] / "dataset/manifest.json"
+    for n in (2, 10, 20):
+        source_root = (Path("diagnostics/gap_flow_scale_20261007")
+                       if n == 20 else ROOT)
+        source_manifest = source_root / SPECS[n] / "dataset/manifest.json"
         archived = json.loads(source_manifest.read_text())
         base = Config(**archived["scenario_config"])
         checkpoint = CHECKPOINTS[n]
@@ -230,7 +232,7 @@ def prepare(output: Path) -> dict:
     manifest = {
         "schema": "gap1_eta_scaling_design_v1",
         "purpose": "state-conditioned Q(x,eta) and G(eta|x) supervision; no controller identity in model input",
-        "N": [2, 10, 50],
+        "N": [2, 10, 20],
         "state_count_per_N": SPLIT_COUNTS,
         "physical_state_master_seed": MASTER_SEED,
         "state_split_unit": "exact physical initial state",
@@ -241,7 +243,12 @@ def prepare(output: Path) -> dict:
         "rollout_budget_full_Q16": len(all_requests) * len(STANDARD_SEEDS),
         "scenario_info": scenario_info,
         "states": all_states,
-        "prepared_before_any_eta_outcome": True,
+        "N2_N10_design_frozen_before_prior_eta_outcomes": True,
+        "N2_N10_prior_eta_outcomes_exist": True,
+        "N20_prepared_before_any_N20_eta_outcome": True,
+        "prior_N2_N10_design": "datasets/gap1_eta_scaling_v2/design_manifest.json",
+        "prior_N2_N10_design_sha256": sha(Path(
+            "datasets/gap1_eta_scaling_v2/design_manifest.json")),
     }
     dump(output / "design_manifest.json", manifest)
     plan = {"schema": "gap1_eta_scaling_requests_v1", "requests": all_requests}

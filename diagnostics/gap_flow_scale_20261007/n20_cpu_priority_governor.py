@@ -1,4 +1,4 @@
-"""Give other Slurm work twelve CPU slots while using idle capacity for Gap1.
+"""Cap Gap1 at six CPU slots while preserving other work's priority.
 
 This is an operational scheduler for the current resumable Gap1 eta arrays.
 Any non-Gap1 job which is running or eligible to run gets priority.  New
@@ -17,21 +17,21 @@ import time
 
 
 ROOT = Path('diagnostics/gap_flow_scale_20261007')
-ARRAYS = (9055, 9602)
+ARRAYS = (12894, 12895, 12896)
 FIXED_ARRAY_CONCURRENCY = {11243: 8, 11378: 4, 11469: 4, 11477: 1,
                            11681: 12, 11760: 8, 11902: 4, 12023: 8,
                            12124: 8, 12187: 8, 12257: 12, 12543: 12,
-                           12703: 24}
-OWN_JOB_IDS = frozenset((*ARRAYS, 9620, 9647, 10024, 10113, 10459, 10491,
+                           12703: 24, 12828: 24, 12871: 12, 12883: 3}
+OWN_JOB_IDS = frozenset((*ARRAYS, 9055, 9602, 9620, 9647, 10024, 10113, 10459, 10491,
                          10633, 10708, 10725, 10736, 10811, 10908, 10917,
                          10925, 10940, 10948, 10994, 11001, 11007, 11038,
                          11228, 11243, 11354, 11378, 11466, 11469, 11477,
                          11501, 11517, 11530, 11543, 11544, 11546, 11572,
                          11618, 11661, 11681, 11760, 11891, 11902, 12023,
                          12058, 12124, 12174, 12187, 12235, 12257, 12543,
-                         12703))
+                         12703, 12828, 12871, 12883))
 TOTAL_CPUS = 24
-PRIORITY_RESERVATION = 12
+MAX_OWN_CPUS = 6
 ARRAY_TASK = re.compile(r'^(\d+)_(\d+)$')
 
 
@@ -59,14 +59,13 @@ def journal(payload: dict, *, path: Path) -> None:
         handle.flush()
 
 
-def tick(*, path: Path, previous: tuple[int, int, int] | None) -> tuple[int, int, int]:
+def tick(*, path: Path, previous: tuple[int, ...] | None) -> tuple[int, ...]:
     rows = slurm_rows()
     priority = [row for row in rows if row['base'] not in OWN_JOB_IDS
                 and row['state'] in ('R', 'PD', 'CG')
                 and row['reason'] not in ('(Dependency)', '(JobHeldUser)')]
-    cap = TOTAL_CPUS - PRIORITY_RESERVATION if priority else TOTAL_CPUS
     external_running = sum(row['cpus'] for row in priority if row['state'] == 'R')
-    cap = min(cap, max(0, TOTAL_CPUS - external_running))
+    cap = min(MAX_OWN_CPUS, max(0, TOTAL_CPUS - external_running))
     fixed_running = sum(row['cpus'] for row in rows if row['base'] in OWN_JOB_IDS
                         and row['base'] not in ARRAYS and row['state'] == 'R')
     fixed_pending = sum(row['cpus'] for row in rows if row['base'] in OWN_JOB_IDS
@@ -87,19 +86,16 @@ def tick(*, path: Path, previous: tuple[int, int, int] | None) -> tuple[int, int
             fixed_pending += max(0, min(concurrency, cap) - running)
     fixed = fixed_running + fixed_pending
     slots = max(0, cap - fixed)
-    active10 = any(row['base'] == 9055 and row['state'] in ('R', 'PD') for row in rows)
-    active2 = any(row['base'] == 9602 and row['state'] in ('R', 'PD') for row in rows)
-    if active10 and active2 and slots >= 2:
-        n10, n2 = slots // 2, slots - slots // 2
-    elif active10 and slots:
-        n10, n2 = slots, 0
-    elif active2 and slots:
-        n10, n2 = 0, slots
-    else:
-        n10 = n2 = 0
-    target = (n10, n2, cap)
+    active_arrays = [job for job in ARRAYS if any(
+        row['base'] == job and row['state'] in ('R', 'PD') for row in rows)]
+    allocation = {job: 0 for job in ARRAYS}
+    if active_arrays:
+        quotient, remainder = divmod(slots, len(active_arrays))
+        for index, job in enumerate(active_arrays):
+            allocation[job] = quotient + (index < remainder)
+    target = tuple(allocation[job] for job in ARRAYS) + (cap,)
     if target != previous:
-        for job, throttle in zip(ARRAYS, target[:2]):
+        for job, throttle in zip(ARRAYS, target[:-1]):
             if not any(row['base'] == job for row in rows):
                 continue
             if throttle == 0:

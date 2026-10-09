@@ -33,7 +33,7 @@ from .observation import policy_observation_competence
 from .scenario import Config
 
 
-DEFAULT_DESIGN = Path("datasets/gap1_eta_scaling_v2")
+DEFAULT_DESIGN = Path("datasets/gap1_eta_scaling_v3_n20")
 
 
 def file_sha(path: Path) -> str:
@@ -174,7 +174,7 @@ def run_pair(design_dir: Path, n: int, pair_index: int, stage: str) -> dict:
     design = json.loads((design_dir/"design_manifest.json").read_text())
     pool = json.loads((design_dir/"eta_pool.json").read_text())
     states = [s for s in design["states"] if s["N"] == n]
-    if n not in (2,10,50) or not 0 <= pair_index < len(states)*len(pool["eta"]):
+    if n not in tuple(int(key) for key in design["scenario_info"]) or not 0 <= pair_index < len(states)*len(pool["eta"]):
         raise ValueError("invalid N or pair index")
     state = states[pair_index // len(pool["eta"])]
     eta_index = pair_index % len(pool["eta"])
@@ -282,7 +282,7 @@ def run_pair(design_dir: Path, n: int, pair_index: int, stage: str) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--design", type=Path, default=DEFAULT_DESIGN)
-    parser.add_argument("--agents", type=int, choices=(2,10,50), required=True)
+    parser.add_argument("--agents", type=int, choices=(2,10,20), required=True)
     parser.add_argument("--pair-index", type=int, required=True)
     parser.add_argument("--stage", choices=("logical_robust","full_q16"), required=True)
     args = parser.parse_args()

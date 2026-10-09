@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 
 
-DEFAULT_DESIGN = Path("datasets/gap1_eta_scaling_v2")
+DEFAULT_DESIGN = Path("datasets/gap1_eta_scaling_v3_n20")
 K_VALUES = (1, 2, 4, 8, 16)
 
 
@@ -27,7 +27,7 @@ def audit(design_dir: Path) -> dict:
         "per_N": {},
     }
     all_complete = True
-    for n in (2, 10, 50):
+    for n in design["N"]:
         states = [s for s in design["states"] if s["N"] == n]
         spec = design["scenario_info"][str(n)]
         split_counts = Counter(s["split"] for s in states)

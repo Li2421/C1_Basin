@@ -1,0 +1,46 @@
+{
+  "schema": "gap1_n20_flow_freeze_v1",
+  "freeze_time_utc": "2026-10-09T03:31:10.500878+00:00",
+  "checkpoint": "diagnostics/gap_flow_scale_20261007/frozen/gap1_n20_flow_navigation_v1.pkl",
+  "checkpoint_sha256": "0ab7321305863c8e3c362bf80119d78ba026296800219bec23bd1b452bd08c3c",
+  "source_checkpoint": "diagnostics/gap_flow_scale_20261007/n20_train_n10_transfer_v10/snapshot_0012000.pkl",
+  "source_checkpoint_sha256": "0ab7321305863c8e3c362bf80119d78ba026296800219bec23bd1b452bd08c3c",
+  "source_frozen_n10_checkpoint": "diagnostics/gap_flow_scale_20261007/frozen/gap1_n10_flow_navigation_v1.pkl",
+  "source_frozen_n10_sha256": "d062058c45e87c81a3c10f1f0c86523b111b90501a70f3230aa87b4c4918d980",
+  "pre_freeze_selection": "non-opposing DEV seed 162020, two then four cases per core mode",
+  "fresh_acceptance": "non-opposing DEV seed 398201, twelve cases in each of eight modes",
+  "fresh_acceptance_success": {
+    "single_even": "12/12",
+    "single_odd": "12/12",
+    "few_even": "12/12",
+    "few_odd": "12/12",
+    "one_way": "12/12",
+    "one_way_mirror": "12/12",
+    "temporal_release_even_first": "11/12",
+    "temporal_release_odd_first": "12/12"
+  },
+  "known_acceptance_failure": "temporal_release_even_first case 10: collision-free timeout before second group release",
+  "opposing_test_opened_at_freeze": false,
+  "provenance_sha256": {
+    "training_config": "084c5c4621f6c3ae6deede322112bd030992ec49b09ba4cc811728031fee6702",
+    "dataset_manifest": "00ea903221efb3d7384c0a75f199ccd9f126dd8b71e6103045e928bf6a09e830",
+    "pilot_selection": "45540ca3d11132d7b8d4bd5ab66be6aa469298b40b97c975ad9499e115999995",
+    "extended_selection": "0725f18a19d0d7dc3adc815e96fd9318ec18961940e91f391496c8688d0e6c78",
+    "fresh_acceptance_audit": "e551690757f0f9880974fde73fe8dfa15ec40212644b22722862488a6917a5ab",
+    "safety_projection": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+    "certified_filter": "94a478f7b1dc1897e1e3113a78fe4c4afa134cbb02ce924f4bc19befc6ce2f94",
+    "observation": "83bdaf96865aea72c4d82ef80883cdeb6e5d587d4d00fbc3defcfc879f78bfdd",
+    "evaluator": "c5e8c74b66c09e857a3173129b8d4c5abd5c7b86279f78b9fe651c637d2ee572"
+  },
+  "provenance_paths": {
+    "training_config": "diagnostics/gap_flow_scale_20261007/n20_train_n10_transfer_v10/config.json",
+    "dataset_manifest": "diagnostics/gap_flow_scale_20261007/n20_competence_merged_v7/dataset/manifest.json",
+    "pilot_selection": "diagnostics/gap_flow_scale_20261007/n20_v10_selection_pilot.json",
+    "extended_selection": "diagnostics/gap_flow_scale_20261007/n20_v10_selection_extended.json",
+    "fresh_acceptance_audit": "diagnostics/gap_flow_scale_20261007/n20_accept_v10_s12000_audit.json",
+    "safety_projection": "shared_control/hard_projection.py",
+    "certified_filter": "diagnostics/double_bottleneck_eta3_basin/tools/exact_projection_retry.py",
+    "observation": "bottleneck_family/observation.py",
+    "evaluator": "bottleneck_family/evaluate_safety_audit.py"
+  }
+}
