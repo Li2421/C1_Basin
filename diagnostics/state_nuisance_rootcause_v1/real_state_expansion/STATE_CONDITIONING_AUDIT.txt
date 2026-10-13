@@ -1,0 +1,43 @@
+问题：512 个 TRAIN state 后，Q(s, eta) 能否在需要 state-conditioning 的新 TEST state
+上稳定超过 TRAIN 学到的 Q(eta)？
+
+这里的“需要”特指：TRAIN 的 eta-only 策略选固定 eta 索引 13，但在某个 TEST state
+的前 8 次真实 rollout 中，存在另一 eta，其成功率下界比 eta13 的成功率上界
+至少高 0.25。只用前 8 次挑 state；所有下述策略效果只用独立的后 8 次计算。
+这是一项事后诊断分析，不是训练或 checkpoint 的选择规则。
+
+符合条件的有 7/48 个全新 TEST state，索引为 573, 576, 581, 587, 596,
+600, 604。在后 8 次 rollout 上，TRAIN eta-only 固定 eta13 的平均成功率是
+37.5%。512-state Q(s,eta) 在三次独立训练初始化下分别是 66.1%、83.9%、
+89.3%，平均 79.8%，比固定 eta13 高 42.3 个百分点。该增益按 7 个物理
+state 配对重采样的 95% 区间为 [22.0, 63.7] 个百分点。结果所选 eta 与
+基线的成功率比较没有数值异常造成的上下界歧义。
+
+倒过来，用后 8 次定义子集、前 8 次评估，得到 5 个 state；固定 eta13 的
+成功率为 20.0%，512-state 模型三个训练初始化为 55.0%、70.0%、82.5%，
+平均 69.2%。这 5 个 state 包含在前述 7 个中；不能视作完全独立的第二次复现。
+
+不过，32-state 模型在前一子集上平均为 84.5%，也超过固定 eta13。这不能
+单独归功于 state-conditioning：32-state 模型的一个训练初始化在全部 48 个
+state 中有 42 个都选 eta4，在完整测试集的平均成功率仅为 86.3%，低于固定
+eta13 的 89.3%。在局部受益可以只是碰巧偏好另一固定 eta。
+
+512-state 模型的一个训练初始化在 48 个 state 中分别给 eta13、eta4、eta1
+选了 21、16、11 次，确实随 state 改变选择。完整 48 个 state 上，固定
+eta13 成功率 89.3%，512-state Q(s,eta) 三个训练初始化分别为 91.4%、
+93.8%、94.7%，平均 93.3%。但是平均增益 4.0 个百分点按物理 state
+bootstrap 的 95% 区间为 [-1.5, 10.1] 个百分点，跨过 0。
+因此“这 48 个 state 上 top-1 决策整体显著胜出”目前没有获得同等强的证据。
+完整 TEST 的概率预测 NLL 则从 eta-only 的 0.301 改进到 Q(s,eta) 的 0.249，
+配对 95% 差值区间 [-0.099, -0.002]；state 效应相关性也从原32-state
+训练的 0.185 提高到 0.566。
+
+直接回答：在本次事后定义的高需求测试 state 上，512-state Q(s,eta) 的选择
+成功率确实在三个训练 seed 和两种 rollout 半区切法下超过 Q(eta)。但只有
+5–7 个相关 state，而且32-state模型也能在该子集上胜出；目前不能据此断言
+“512 个训练 state 已让 state-conditioning 的 top-1 决策在更广泛新 state 上
+稳定胜出”。需要新的独立 state cohort 再检验这一子集结论。
+
+数值来自 state_conditioning_subset_audit.json；可用同目录中的
+state_conditioning_subset_audit.py 对 frozen logits 与原始结果重算。
+本 Q 评估不要求视频交付。

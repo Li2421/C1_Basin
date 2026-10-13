@@ -1,0 +1,50 @@
+Ring FF state/context nuisance-input root-cause diagnostic
+
+结论：支持“当前模型对随state变化的响应context过拟合，削弱eta先验”这一局部机制。
+没有支持“显式物理state h本身就是主要噪声来源”，也没有证明state普遍冗余或这是唯一根本原因。
+
+设计：Ring FF，32个TRAIN family、8个VAL family、16个既有TEST family，固定16个eta。
+四组完全相同的full_context网络，每组seed17/23/41；初始化与minibatch序列逐seed校验相同。
+完整2x2输入对照：真实/固定h × 真实/固定C。固定值只取TRAIN均值，C按eta分别平均。
+固定均值是计算上的输入干预，不声称这些平均张量对应真实可实现物理状态。
+训练规则与原实验相同；每组按三seed平均VAL NLL选共同checkpoint。无新rollout。
+constant_context为看到初始三组结果后的机制补充，记录在factorial_amendment.json。
+
+Selected checkpoint results (NLL三seed平均；B15为各seed在16个TEST state中的计数):
+arm | step | TRAIN NLL | VAL NLL | TEST NLL | TEST B15
+Eta only | original300 | 0.3026 | 0.3322 | 0.3252 | [14, 14, 14]
+Full | 100 | 0.2242 | 0.3867 | 0.3627 | [13, 11, 11]
+Fixed h, real C | 100 | 0.2241 | 0.3864 | 0.3626 | [13, 11, 11]
+Real h, fixed C | 200 | 0.2994 | 0.3403 | 0.3356 | [14, 14, 14]
+Fixed h and C | 300 | 0.3055 | 0.3347 | 0.3337 | [14, 14, 14]
+
+主要判别：
+1. 固定h而保留真实C：结果几乎不变，不能把显式state分支当作本轮主要噪声源。C本身仍含state信息。
+2. 保留真实h而固定C：恢复14/16、14/16、14/16；固定全部state变化也恢复同样计数。
+3. 所有新组网络容量一致，排除了仅凭eta-only与full网络容量不同而作因果解释的混淆。
+4. 完整模型TRAIN误差更低但VAL/TEST更高；训练至2000步TRAIN NLL进一步降至约0.091，VAL却升至约0.765。
+5. 仅保留h变化、固定C的模型长训也会过拟合；因此C并非唯一可能发生过拟合的路径。
+
+按独立TEST family重采样的配对误差差异（负值表示改善；回顾性、描述性区间）：
+constant_h - full: delta NLL=-0.00009, 95%=[-0.0007363944240009864, 0.0004848655029501409]; B15 delta95%=[0.0, 0.0]
+constant_context - full: delta NLL=-0.02711, 95%=[-0.04962856763120992, -0.0034761320566599903]; B15 delta95%=[0.0, 0.3125]
+constant_all - full: delta NLL=-0.02898, 95%=[-0.054204793912865784, -0.0047513263025544235]; B15 delta95%=[0.0, 0.3125]
+
+不能省略的反证与边界：
+- Full的TRAIN-state平均Q仍只能达到14/11/11，说明有害影响也已写入平均eta偏好；仅推理时抹平state并不能完全修复。
+- 所有组同在step100比较时，固定C/固定全部只达到14/14/11，完整恢复发生在各组按相同VAL规则选点后。
+- Full在step2000的B15也达到14/14/14，但TEST NLL约0.829，远差于所选step100。概率拟合和top1选择并不完全一致，不能将top1差距全部归因于state噪声。
+- 固定h+C的TEST NLL仍略差于eta-only，未消除全部概率预测差距。
+- 原有8个VAL state上Full的B15是8/8，eta-only是7/8；小验证集未预测到TEST的选择下降。
+- 16个TEST family限制二元选择差异的统计精度；三训练seed不构成48个独立state。
+- 已知TEST标签后的回顾性诊断，不是新独立确认，也没有区分样本数、context噪声、特征尺度、表示与优化各自的唯一贡献。
+- Toy TT的已存证据是正面对照：去除state依赖后NLL由约0.281恶化为0.534，不能推广为state普遍无用。
+
+保护eta先验的缓存诊断：
+只按原VAL NLL选择alpha，Ring FF得到p=0.75*p_eta+0.25*p_full；TEST B15三seed均14/16，平均NLL约0.321。
+这是已有概率的收缩诊断，不是新训练的残差网络；恢复表现本身不证明冗余或唯一根因。
+
+完整文件：protocol.json、factorial_amendment.json、experiment_initial.py、experiment.py、analyze.py、
+intervention_metrics.csv、intervention_contrasts.json、selection.json、cached_metrics.csv、
+mixture_selection.json、replay_integrity.json、training_replay_parity.json、fits/。
+图：state_context_ablation.png / .pdf。

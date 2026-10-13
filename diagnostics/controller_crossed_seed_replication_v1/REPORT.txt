@@ -1,0 +1,40 @@
+FROZEN SOURCE MODEL / INDEPENDENT ROLLOUT SEEDS
+SOURCE_INTERACTION_REPLICATION_UNCERTAIN
+All32originalRingTRAINphysicalstates x5actualFFFlow-referencecontrollers x4prefixedeta. Oldseed0/1 remain unchanged; onlyseed2/3new. No newstates/controllers,candidatechange,modeltraining,normalizationorcheckpointselection.
+The12existingmodels/predictionswerehashedbeforeanynewoutcomes. SameFlow,execution,safetyandprecisionidentitieschecked. Existing1280outcomesreused;1280missingoutcomesgeneratedafterauthoritativecachepreflight. TT/H20repeated-seed evidence hasdifferentexecutionsemanticsandcannotreplace these labels.
+This tests whether fitted source physicalstates carry reproducibleQ effects. It is NOT fresh-state generalization, an unseencontroller test, four-sceneLOSO or B15. K4/Q2 selectionmetrics are diagnostics only.
+20,000physical-statebootstrap replicates; allC/eta/rollout measurementscluster together. Unknownnumericaloutcomeskeptascensorbounds. Noise-correctedMSEuses (prediction-Y_seed2)*(prediction-Y_seed3); centeredvariantsrecenterwithineachbootstrap. Negativeunbiasedestimatesarepreserved,notclipped. Unknowncenteringboundsareconservative.
+OldQ2lookup is an explicit fixed diagnostic predictor formed fromoriginalseed0/1; originalunknowns mapto0.5inthis predictor,notdeclaredtrueoutcomes. Controller-etaprior removesitsstateassociation. Allnewlabelsremainscensored; nounknownexclusion.
+Unknownold=18,unknownnew=23,collisionsold=0,collisionsnew=0.
+
+arm interaction midpoint_corr predictive_skill_bounds skill95CI noise_corrected_MSE_bounds MSE95CI
+eta_only raw_Q 0.21030170594172318 [0.11038922877050936, 0.12405172686558216] [0.0776497006736463, 0.15820262901659585] [0.1599009441582521, 0.1755251286689227] [0.13917092173633047, 0.19721446148334415]
+eta_only state_eta None [2.0174771109271462e-08, 2.114101828043502e-08] [1.4633401790309364e-08, 2.632179114003816e-08] [0.0249074936346047, 0.04863204945213926] [0.009421231649391371, 0.06376995344014363]
+eta_only state_controller_eta None [0.0, 0.0] [0.0, 0.0] [0.0031234817504882826, 0.03444624710083008] [-0.008628409004211426, 0.04665314655303956]
+union_native_slots raw_Q 0.8783717973321696 [0.2620093450329646, 0.2689746170843117] [0.219267552186232, 0.3167431407803277] [0.01634273578030776, 0.02298395594007035] [0.005512635423752288, 0.036885272382666486]
+union_native_slots state_eta 0.689539613482417 [0.02224641805304479, 0.027326961808365625] [0.008049992052521349, 0.03996169544106351] [0.0031788534079791276, 0.02012204342433362] [-0.006609521872317354, 0.03160611142630737]
+union_native_slots state_controller_eta 0.5544628756259603 [0.005349459551839084, 0.009305402139183992] [-0.003778765361224946, 0.0176516909875536] [-0.0026540639178872583, 0.025142055504588128] [-0.012683123392896213, 0.037273886897697325]
+uniform_eta_only raw_Q 0.20891396761265113 [0.11152267018333077, 0.12537484038621188] [0.07939673889195548, 0.15897129925433545] [0.15858985021707106, 0.17435404242944408] [0.13769838920325478, 0.19620627080319883]
+uniform_eta_only state_eta None [-1.3620618605214573e-09, 6.402583185849409e-11] [-4.941833006699703e-09, 3.91155221823869e-09] [0.02490749331346055, 0.048632049917526135] [0.009421231355549115, 0.06376995323216451]
+uniform_eta_only state_controller_eta None [0.0, 0.0] [0.0, 0.0] [0.0031234817504882826, 0.03444624710083008] [-0.008628409004211426, 0.04665314655303956]
+uniform_native_slots raw_Q 0.8741122280566718 [0.25997615664135876, 0.26752189907631574] [0.21768078221269316, 0.31458777895882317] [0.018199812619749477, 0.024608284440725478] [0.006699116674668523, 0.037564002887220505]
+uniform_native_slots state_eta 0.6779004054735009 [0.02054950255560133, 0.025799469126010343] [0.006791079105271745, 0.03831318189754684] [0.004780905500633759, 0.021751274275966404] [-0.005000450304033756, 0.0325644809090098]
+uniform_native_slots state_controller_eta 0.5361672061180461 [0.003827927391060215, 0.007729050012087968] [-0.004739572357878499, 0.016334615671129305] [-0.0012268820204824288, 0.02676182428135031] [-0.011125096345259104, 0.03821529643899932]
+old_Q2_lookup_midpoint raw_Q 0.8618069586789124 [0.2541015625, 0.2626953125] [0.21162109375, 0.3096704101562498] [0.0232421875, 0.0302734375] [0.010349121093750002, 0.045703125]
+old_Q2_lookup_midpoint state_eta 0.6457134774373632 [0.0147003173828125, 0.020849609375] [5.485534667968757e-05, 0.03416090011596677] [0.009573745727539062, 0.027791166305541994] [-0.0015020805597305295, 0.04089306354522704]
+old_Q2_lookup_midpoint state_controller_eta 0.5043490649194876 [-0.0011193847656249998, 0.0033294677734374994] [-0.01120766448974609, 0.01281312561035156] [0.0025476627349853517, 0.03249028205871581] [-0.008655179691314699, 0.04658612461090088]
+old_controller_eta_prior raw_Q 0.7335738733229492 [0.21767578125, 0.2265869140625] [0.18555877685546873, 0.2561160278320312] [0.0586669921875, 0.0669677734375] [0.03519256591796875, 0.093896484375]
+old_controller_eta_prior state_eta None [0.0, 0.0] [0.0, 0.0] [0.024907493591308595, 0.048632049560546876] [0.009421231746673584, 0.06376995325088501]
+old_controller_eta_prior state_controller_eta None [0.0, 0.0] [0.0, 0.0] [0.0031234817504882826, 0.03444624710083008] [-0.008628409004211426, 0.04665314655303956]
+
+Selection secondary: arm success matched-minus-mismatch95CI vs-perC-best-fixed95CI unknown collision
+eta_only [0.18125, 0.19375] [0.0, 0.0] [-0.671875, -0.528125] 4 0
+union_native_slots [0.7875, 0.8] [0.014121500677900151, 0.07209481930981507] [-0.0125, 0.03125] 4 0
+uniform_eta_only [0.18125, 0.19375] [0.0, 0.0] [-0.671875, -0.528125] 4 0
+uniform_native_slots [0.79375, 0.803125] [0.015456340378198, 0.07951672465658494] [-0.003125, 0.03125] 3 0
+old_Q2_lookup_midpoint [0.771875, 0.778125] [0.08463377518230134, 0.19045865638849158] [-0.046875, 0.021875] 2 0
+old_controller_eta_prior [0.778125, 0.790625] [0.0, 0.0] [-0.0125, 0.0] 4 0
+
+Decision boundary: positiveindependent-sourceinteractionskill would ruleout pureTRAIN-noise memorization as the whole explanation. It would not ruleout partialnoiseoverfit or insufficientunseen-statecoverage. Failure here would require precision/estimationdiagnosis before blindlyexpandingstates; it would not aloneproveinputinsufficiency.
+No automatic retraining or datasetexpansion is triggered. This finding is combined with the already-completed sourceVAL/allfourLOSOandnative512controls for the next single root-cause contrast.
+Artifacts: immutableprotocol/modelsmanifest/cacheaudit/preflight;rawper-seedJSON+journals+SQLitekeys;raw_labels.npz;individualmodelpredictions;matched/mismatch selections;allfixedandallqualifyingreversalresults;20kbootstrap;allstatecasesCSV. No videos required forpureQexperiments.

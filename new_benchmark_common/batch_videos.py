@@ -124,8 +124,8 @@ def validate_plan(plan, root):
     return entries
 
 
-def render_video(path, meta, data, baseline=None):
-    """Every stored simulation state is rendered once, at native simulation time."""
+def render_video(path, meta, data, baseline=None, *, playback_fps=None, panel_labels=None):
+    """Render every simulator state once; optional playback FPS only changes viewing time."""
     from PIL import Image, ImageDraw
 
     panels = [(meta, data)] if baseline is None else [(baseline[1], baseline[2]), (meta, data)]
@@ -164,8 +164,11 @@ def render_video(path, meta, data, baseline=None):
     trail_draw = ImageDraw.Draw(trails)
     with tempfile.TemporaryDirectory(dir=path.parent) as temporary:
         target = Path(temporary) / 'video.mp4'
+        fps = float(playback_fps) if playback_fps is not None else 1 / cfg['dt']
+        if not np.isfinite(fps) or fps <= 0:
+            raise ValueError('playback_fps must be positive and finite')
         cmd = ['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24',
-               '-s', f'{width}x{height}', '-r', str(1 / cfg['dt']), '-i', '-', '-an',
+               '-s', f'{width}x{height}', '-r', str(fps), '-i', '-', '-an',
                '-c:v', 'libx264', '-threads', '1', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', str(target)]
         with tempfile.TemporaryFile() as errors:
             process = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=errors)
@@ -183,11 +186,12 @@ def render_video(path, meta, data, baseline=None):
                     for panel, (pm, pd) in enumerate(panels):
                         offset = 720 * panel
                         k = min(frame, len(pd['positions']) - 1)
-                        label = (pm['termination'].upper() if baseline is None else
+                        label = (panel_labels[panel] if panel_labels is not None else
+                                 pm['termination'].upper() if baseline is None else
                                  'SUCCESS' if panel == len(panels)-1 else 'DEADLOCK BASELINE')
-                        draw.text((offset+24, 18), f'{pm["scenario"]} | {label}', fill='black')
-                        draw.text((offset+24, 40), f'controller: {pm["controller"]} | seed: {pm["seed"]}', fill='black')
-                        draw.text((offset+24, 62), f'step {k}/{len(pd["positions"])-1} | t={k*cfg["dt"]:.2f}s | 1x playback', fill='black')
+                        draw.text((offset+24, 18), f'{pm.get("display_label", pm["scenario"])} | {label}', fill='black')
+                        draw.text((offset+24, 40), f'controller: {pm["controller"][:20]} | seed: {pm["seed"]}', fill='black')
+                        draw.text((offset+24, 62), f'step {k}/{len(pd["positions"])-1} | sim t={k*cfg["dt"]:.2f}s | {fps*cfg["dt"]:.2f}x playback', fill='black')
                         status = pm['termination'] if k == len(pd['positions'])-1 else 'running'
                         draw.text((offset+24, 84), f'status: {status} | safety enabled: {pm["safety_enabled"]}', fill='black')
                         for agent, color in enumerate(colors[:pd['positions'].shape[1]]):

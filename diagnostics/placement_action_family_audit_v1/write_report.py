@@ -1,0 +1,504 @@
+"""Assemble the Chinese audit report from verified scientific outputs."""
+from analyze import HERE,PREV,read,DISPLAY
+
+def main():
+    geom=read(HERE/'geometry.json');pair=read(HERE/'paired_geometry.json')
+    fam=read(HERE/'sampled_families.json');basin=read(HERE/'basin_groups.json')
+    counts=read(HERE/'basin_counts.json');assoc=read(HERE/'associations.json')['results']
+    lin=read(PREV/'candidate_linearization.json')
+    def med(v,k):return v[k]['quantiles'][2]
+    def table(headers,rows):return '\n'.join([' | '.join(headers)]+[' | '.join(str(x) for x in row) for row in rows])
+    scenes=[('toy_give_way','Toy'),('ring_exchange','Ring')]
+    sv=[];direction=[];finite=[];angles=[];groups=[];linear=[]
+    for sc,name in scenes:
+        for ch in DISPLAY:
+            v=geom[f'{sc}:initial:{ch}'];c=fam['individual'][sc+':'+ch]
+            sv.append([name,ch,v['reliable'],*[f'{med(v,f"sigma{i}"):.3g}' for i in [1,2,3]],
+                       '/'.join(str(v['rank_resolved_counts'].get(str(i),0)) for i in [1,2,3])])
+            direction.append([name,ch,*[f'{med(v,f"basis{i}_gain"):.3f}' for i in range(3)],
+                              '/'.join(f'{100*v[f"basis{i}_annihilated"]["mean"]:.1f}%' for i in range(3))])
+            finite.append([name,ch,f'{med(v,"effective_norm"):.4f}',f'{med(v,"finite_gain"):.3f}',
+                           f'{med(v,"finite_rotation"):.1f}°',f'{med(c,"diameter"):.4f}'])
+            q=lin[sc+':'+ch]['all_candidate_pairs']
+            linear.append([name,ch,f'{med(q,"absolute_error"):.4f}',f'{med(q,"relative_error")*100:.1f}%',
+                           f'{q["fraction_error_over_25pct"]*100:.1f}%'])
+        for contrast in ['TT-TF','TT-FT','TT-FF','TF-FT','TF-FF','FT-FF']:
+            v=pair[f'{sc}:initial:{contrast}'];q=basin[sc+':'+contrast]['counts']
+            angles.append([name,contrast.replace('-','→'),f'{med(v,"principal_max"):.1f}°',
+                           f'{med(v,"subspace_distance"):.3f}',f'{med(v,"finite_angle"):.1f}°'])
+            groups.append([name,contrast.replace('-','→'),*[q.get(k,0) for k in ['both_success','loss','rescue','both_failure','unresolved']]])
+    corrs=[]
+    for sc,pairname,feat,title in [('ring_exchange','TT-FF','log_effective_ratio','Ring TT→FF：有限增益对数比'),
+             ('ring_exchange','TT-FF','subspace_distance','Ring TT→FF：子空间距离'),
+             ('toy_give_way','TT-TF','subspace_distance','Toy TT→TF：子空间距离'),
+             ('toy_give_way','TF-FF','lateral_gain_difference','Toy TF→FF：侧向基增益差')]:
+        a=assoc[sc+':'+pairname][feat]['qdiff_low']
+        fmt=lambda x:f'{x[0]:.3f}, {x[1]:.3f}'
+        corrs.append([title,f'{a["rho"]:.3f} [{fmt(a["cluster95"])}]',
+                      f'{a["rho_state_eta_fe"]:.3f} [{fmt(a["cluster95_state_eta_fe"])}]'])
+    paragraph=r'''在固定控制器及配对 Flow 噪声下，干预 placement 通过改变参数化动作族 η↦u_p(x,ξ,η) 及其闭环展开，改变成功事件在 η 域中的原像。终端修正产生投影后的平移动作族，而场内修正沿 Flow 积分和状态相关安全投影产生非线性变形。其局部切向满足 J_{η,p}=M_p(x,ξ;Bη)B，但有限修正一般需要沿修正路径累积该导数。由于 η 在整段 continuation 保持不变、B 随状态重算，与成功盆直接对应的是参数化动作序列族 U_p(x_0,Ξ;η)。四 placement 的配对缓存显示方向增益、有效子空间和有限动作分布均发生变化；同时存在初始候选动作族在浮点精度内相同、成功盆成员仍翻转的案例。因此，这些结果支持状态与路径相关的动作族变形机制，但不足以将成功盆重塑归结为单一局部矩阵或某个谱指标的独立因果作用。'''
+    report=r'''四 placement 的有限动作族与闭环 Success Basin 机制审计
+2026-10-07；固定每个场景的底层控制器
+
+结论：数学上的连接可以闭合为
+  placement → 参数化有限动作族 → 持续 eta 的闭环动作序列 → 成功事件的参数原像。
+这条连接不需要新的 N 算子，也不要求一个 M 覆盖整个候选域。
+数值上，动作族确实发生可测的各向异性变形，但初始动作族或一个局部矩阵不足以
+解释所有成功盆翻转。特别是：Toy 有 8 个初态，在全部 16 候选×16 噪声上，TT 与 FT
+初始动作族相同到浮点精度，却有 28 个稳健成功盆成员翻转。完整轨迹显示差异稍后
+出现。因此必须使用带 eta 参数对应关系的闭环序列族，而不能只比较初始动作集合。
+
+相对于原分级，有限、状态与路径相关的动作族机制得到 B 级支持；用一个局部 M
+解释完整候选幅度仍为 C。没有获得 A 所需的、排除候选身份及路径累积影响的强预测
+或中介机制证据。D 与直接代码和动作层证据不符。
+
+1. 本次证据与边界
+
+本次新增 rollout=0，新增控制器动作调用=0；没有训练模型或修改控制器。
+重新读取并核验 3,840 份动作诊断 JSON 及对应 NPZ，共 7,680 个 journal 哈希。
+21,504 个共态动作上下文均有 TT/FT/TF/FF 配对；其中初态 12,288 个，轨迹状态
+9,216 个。每个场景的初态部分为 24 states×16 eta×16 seeds。
+成功标签覆盖既有 49,152 条四 placement 确认评估。本轮进一步读取 960 条已有
+完整轨迹，核验其 1,920 个文件哈希；全部初始动作与动作探针重放误差为 0，
+1,920 次共同前缀噪声比较均相同，物理积分残差最大 2.22e-16。
+不是重新生成、也不是宣称本轮逐一重新验证了全部 49,152 个原始轨迹文件。
+
+报告主队列是困难初态确认集。普通初态的 TT/FF 队列不与它合并；上一轮 DB/Four
+各两个 FF 动作探针没有四 placement 的配对标签，不能支持新的四场景盆结论。
+不研究 critic、控制器泛化、跨控制器迁移或全局盆拓扑。
+
+代码与数据根目录：
+  F=/home/zhihan/research/Basin_C1_flow_field_poc_20261004
+  H=/home/zhihan/research/Basin_C1_hard_field_20261006
+  当前报告及脚本=/home/zhihan/research/Basin_C1/diagnostics/placement_action_family_audit_v1
+  前轮独立验证=/home/zhihan/research/Basin_C1/diagnostics/field_transfer_operator_audit_v3
+
+主要实现入口：
+  F/validation_stage2/factorial_controller.py:23  四 placement 的实际分派
+  F/poc/field_controller.py:96,198,215,222,248  Euler、nominal、prepare、integrate、action
+  F/validation_v2/adapters.py:18,48,125,139  Toy 投影、场景观测与坐标适配
+  F/validation_stage2/run_rollouts.py:20  实际精度与 runtime 选择
+  F/source/shared_control/basis_families.py:114  orthoflow3 基
+  F/source/single_integrator/cbf.py:98  Toy 主投影器，注意实际是 SLSQP 外切 QP
+  F/source/shared_control/hard_projection.py:178  Ring 主 SOCP 投影器
+  H/runner.py:23,40  公用未来噪声与物理 continuation
+
+2. 实际四映射：修正、安全、裁剪和数值分支
+
+记 x 包含位置、上一执行速度、目标及固定环境配置；一次动作计算中这些量均冻结。
+u 是世界坐标联合速度，Toy d=4，Ring d=8。xi 包括实际 PRNG key 及其确定产生的
+正态样本。两种场景各自固定 checkpoint，不在场景之间共享或比较控制器性能。
+
+归一化观测 o_x 输入 actor_bc_flow。其输出记 v_theta(o_x,z,s)；网络为 GELU MLP。
+Sigma=diag(act_scale)>0，mu=act_mean。R_x 是局部动作到世界坐标的块旋转：Toy
+为 I，Ring 为每个 agent 的径向/逆时针切向框架。Ring 观测和网络计算保留原始
+float32，Toy runtime 开启 JAX x64；NumPy 投影使用 float64，未偷换精度。
+
+原生 sampler 积分标准化动作 z，而不是机器人位置：
+  z_0=xi，z_{k+1}=z_k+0.1 v_theta(o_x,z_k,k/10)，k=0,...,9；
+  a_ref=Rad_world[R_x Rad_local(clip_{[-1,1]}(mu+Sigma z_10))]。
+两个 Rad 分别是 JAX 逐 agent 速度球限幅和 float64 世界坐标重限幅；它们的浮点
+执行顺序保留。Ring vmax=0.52，Toy vmax=0.5，物理 dt=0.05；伪时间网格与物理
+步长不同。原生采样的 clip 只属于参考动作路径，不能偷偷放到场积分末端。
+
+安全集合的数学目标为
+  U_x={u: A_x u >= b_x，||u_i||_2 <= vmax，所有 agent i}；
+  P_x(y)=argmin_{u in U_x} (1/2)||u-y||_2^2。
+pair CBF 使用距离平方 barrier，wall 使用到有限线段最近点的距离 barrier，
+约束下界为 -gamma*h；gamma=gamma_wall=1。Ring 的安全适配器使用 48 边外接
+中心障碍多边形和 48 边内接外边界多边形；物理环境仍是圆形。Toy 的有限墙段
+最近点采用 clip 到 [0,1]，墙段端点、角点和活动约束切换均属于状态相关分支。
+
+为了在计算意义上精确，下面把标准 safety.project 调用写作 Pi_x^T，把场步的
+project_field_target 写作 Pi_x^F。理想精确算术下两者都实现同一个 P_x，但实际
+数值分支不同，不能假装每一位浮点值都相同：
+  • Pi^T：已满足全部约束则原样返回；否则 Toy 首先用 SLSQP 解外切速度球的 QP，
+    逐步加支持平面，检查真实速度球和非负乘子 KKT。失败才进入更紧的 Clarabel
+    同一 SOCP，然后同约束 SLSQP polish。并非 Toy 的主路径就是 SOCP。
+  • Ring 的 Pi^T：Clarabel SOCP，失败后更紧 SOCP，再同问题 SLSQP polish。
+  • Pi^F：先逐 agent 径向投影到速度球；若全部线性 CBF 行也精确满足 >=0，
+    直接返回。该点确实也是交集投影；否则调用 Pi^T。没有修改可行集合。
+  • 所有接受分支均检查可行性；feasibility_tol=1e-9、speed_tol=1e-10、
+    optimality_tol=2e-6。重试不放宽这些证书。最终仍失败就抛异常，不能计为
+    正常控制动作或擅自填成“失败标签”。数值 unknown 在标签中保留区间。
+
+所有 placement 共用同一次 nominal 参考：
+  a_safe=Pi_x^T(a_ref)，B=B(x,xi)，delta=B eta。
+逐 agent 令 bound(q)=q min(1,vmax/max(||q||,1e-30))，则
+  B_goal,i=bound(g_i-p_i)；
+  B_perp,i=3.303687238760696 *
+    [a_safe,i - ((a_safe,i·B_goal,i)/(||B_goal,i||^2+(1e-6 vmax)^2)) B_goal,i]；
+  B_rel,i=(n_agents-1)^(-1) sum_{j!=i} bound(p_i-p_j)。
+B_rel 是先按 pair 限幅，再取均值。B_perp 和合成 delta 没有额外 clip。
+B 依赖噪声及安全 nominal，但在同一个动作的 eta 扰动实验里固定，不对 eta 重算。
+
+场积分的状态 h 是解码后的物理动作样本，不是物理位置或已执行速度：
+  h_0=R_x(mu+Sigma xi)，不作原生裁剪；
+  f_x(h,s)=R_x Sigma v_theta(o_x,Sigma^(-1)(R_x^T h-mu),s)。
+以 H_x^0(delta) 表示十步无投影积分的末端，以 H_x^F(delta) 表示十步场安全
+积分的末端；二者均隐含同一 xi。
+
+无投影：h_{k+1}=h_k+0.1[f_x(h_k,s_k)+delta]。
+场安全：r_k=1-s_k，rho_k=min(1,0.1/r_k)，
+  q_k=h_k+r_k[f_x(h_k,s_k)+delta]，
+  h_{k+1}=(1-rho_k)h_k+rho_k Pi_x^F(q_k)。
+投影的是“完整向量场加修正”构成的剩余时间端点 q_k。delta 在十步中恒定；
+总注入时间为 1，没有十倍修正。最后 rho_9=1，FF 已由该内部步骤落入安全集合。
+
+首字母是 safety placement，第二字母是 correction placement：
+
+  placement | 精确计算映射 u_p(x,xi,eta)
+  TT | Pi_x^T(a_safe+B eta)
+  TF | Pi_x^T(H_x^0(B eta))
+  FT | Pi_x^T(H_x^F(0)+B eta)
+  FF | H_x^F(B eta)
+
+FT 确实还有终端安全 closure；FF 最后只有安全断言，没有额外终端 clip/投影。
+因此必须按这四个完整实现解释 factorial 对比，不能省略 FT 的 closure。
+每次动作 nominal/场积分的 Flow 调用数为 TT 10、其余 20；投影调用为 TT/TF 2、
+FT 12、FF 11。即使场分支不执行 a_safe，共用参考采样和初次投影仍为 B 计算所需。
+最后 env.step 原样执行 u：p_{t+1}=p_t+0.05u_t、v_{t+1}=u_t，无隐藏裁剪。
+
+其余非线性与分支包括：网络 GELU；观测/动作归一化及 Ring 框架随位置变化；
+目标和相对方向的径向限幅；原生坐标 clip；速度球曲率和 CBF 活动集；求解器的
+可行直返/快速球投影/重试；终止事件。Toy position_only 分支存在但所用 checkpoint
+未开启。只有事件及求解异常离散地改变 continuation 长度，不能强行对该长度求导。
+
+3. 有限动作族、持续 eta 与成功盆的精确联系
+
+实际候选盒 H=[0.5,1.25]×[-0.5,0.5]×[0,0.75]；实验只评估其中固定 Sobol 集
+H_16={eta_0,...,eta_15}。本报告的 eta[j] 均是零起始候选索引。
+eta=0 不在 H 中；u_p(0) 是合法的诊断扩展，不是实际候选成员。
+
+精确有限族为
+  A_TT(x,xi)=Pi_x^T(a_safe+B H)；
+  A_TF(x,xi)={Pi_x^T(H_x^0(B eta)):eta in H}；
+  A_FT(x,xi)=Pi_x^T(H_x^F(0)+B H)；
+  A_FF(x,xi)={H_x^F(B eta):eta in H}。
+这里是集合的像；A_p^16 以 H_16 替代 H。数值集合距离和直径只针对 A_p^16。
+共同安全集合不意味着这些动作族互相包含。离散 Hausdorff 距离也不能证明连续
+动作族的包含关系或体积变化。
+
+各 placement 的修正响应必须按自身基线定义：
+  d_p(eta)=u_p(eta)-u_p(0)；
+  u_q(eta)-u_p(eta)=[u_q(0)-u_p(0)]+[d_q(eta)-d_p(eta)]。
+本次对全部上下文检查该恒等分解，误差在浮点舍入范围内。
+TT→FT 仅改变投影平移动作族的中心：a_safe 换成 H_x^F(0)，B H 不变。
+即使中心变化很小，落到不同活动约束上仍可改变切向。
+TT→TF 把修正送入无投影 Flow，并在末端投影；它还涉及 native clip 路径与
+物理场积分路径的差别，必须报告零修正偏移。
+TF→FF 把安全投影从末端带入每个场积分步，改变后续向量场的求值路径。
+FT→FF 把后加的修正送入同一场安全递推，使投影和修正沿全路径交互。
+这些影响不能假设相加。u_FF-u_FT-u_TF+u_TT 的范数中位数在初态为
+Toy 0.00096、Ring 0.02717；Toy critical_TT 共态探针变为 0.02403。
+
+在物理 continuation 中，eta 固定，但 B_t=B(x_{p,t},xi_t) 每步重算。
+令 X_t 为包含事件监测历史的完整环境状态，F 为环境一步映射：
+  u_{p,t}=u_p(X_t,xi_t,eta)，X_{t+1}=F(X_t,u_{p,t})。
+未来噪声 Xi=(xi_0,xi_1,...) 由固定初态 uid、seed、step 构造，不依赖 placement
+或已经演化到的位置；不同 placement 的已执行共同前缀复用同一实际 key。
+定义带停止信息的动作序列
+  U_p(X_0,Xi;eta)=(u_{p,0},...,u_{p,T_p-1}; T_p, termination)，
+  frak A_p(X_0,Xi)={U_p(X_0,Xi;eta):eta in H}。
+该族不是每一步 A_p 的笛卡尔积：同一个 eta 耦合所有物理步。轨迹分离后，状态、
+B 和物理 delta 都可能不同；此时不能再声称四条原始 rollout“每步物理修正相同”。
+共态动作缓存用于隔离一步 placement 差异，完整轨迹用于观察闭环展开。
+
+还须保留参数对应关系 eta↦U_p。两个未标记动作集合即使相同，若参数化不同，
+同一 eta 的成功标签也可不同；单独一个未标记集合不足以定义 eta 空间成功盆。
+固定环境初态与监测历史后，动作序列唯一确定位置、碰撞、到达和死锁等事件。
+若 S(X_0,U) 是真实环境成功谓词，则经验稳健成功盆正是
+  Bhat_{15/16,p}={eta in H_16:
+       (1/16) sum_{seed=0}^{15} S(X_0,U_p(X_0,Xi_seed;eta)) >=15/16}。
+数值异常对应不完整映射，使用既有上下界，不将其混入正常失败。
+这建立的是有限噪声面板上的原像关系，不把 Q16=15/16 解释为总体成功率置信保证。
+
+4. 局部切向及其适用范围
+
+固定 x、xi、nominal、B 和 eta_0，令 delta_0=B eta_0。
+代码允许把任意物理 delta 送入同样的分支，因此在该物理输入扩展上可定义
+  M_p(x,xi;delta_0)=D_delta u_p(delta_0)，J_{eta,p}=M_p B。
+只有给定局部中心且可微时它才是一个确定矩阵；不能写成仅依赖 x 的全域 M_x。
+若只知道 J 而没有物理 delta 扰动，等式 M B=J 不确定 im(B) 以外的 M。
+边界上使用方向导数或报告分支不稳定，不把中央差分自动叫作真正的 Jacobian。
+以下导数是原算法的连续数学抽象；实际浮点程序的量化台阶通过数值稳定性审计
+处理，不能把数值一致性升级成处处可微的证明。
+
+令 D_k=D_h f_x(h_k,s_k)，S_k=partial h_k/partial delta，S_0=0：
+  无投影：S_{k+1}=(I+0.1D_k)S_k+0.1I；
+  场安全：S_{k+1}=(1-rho_k)S_k
+             +rho_k DP_x(q_k)[(I+r_kD_k)S_k+r_kI]。
+于是
+  M_TT=DP_x(a_safe+delta_0)，M_FT=DP_x(H_x^F(0)+delta_0)；
+  M_TF=DP_x(H_x^0(delta_0)) S_10^0，M_FF=S_10^F。
+TF 的末端投影×纯 Flow 分解成立。FF 可取最后一步
+  M_FF=DP_x(q_9)[(I+0.1D_9)S_9+0.1I]，
+但括号内已经包含前九次投影及后续 Flow 反馈，绝不是无投影的“纯 Flow”。
+在固定正则活动集上可用 KKT 导数；速度球曲率必须进入 Hessian，不是简单把
+法向分量抹掉就结束。相应独立 AD/KKT 递推见上一轮 local_probes.py。
+
+凸欧氏投影非扩张，所以理想精确投影下 TT/FT 满足
+  ||u_p(eta')-u_p(eta)|| <= ||B(eta'-eta)||。
+它们不会放大物理修正差，但可以消除方向或改变方向。TF/FF 有 Flow 非线性和
+多步输入累积，不能由“每一次投影非扩张”推出整个修正映射收缩。
+
+有限响应的正确表达，在路径绝对连续且几乎处处可微时是
+  u_p(eta_1)-u_p(eta_0)
+    = integral_0^1 J_{eta,p}(eta_0+t(eta_1-eta_0))(eta_1-eta_0) dt。
+对实际候选间路径 eta_0,eta_1 in H，整条线段在 H 内；从 0 到 eta 的诊断路径
+部分在候选域外。该积分恒等式需要沿路导数，不是一个免费的一阶预测器。
+
+闭环切向还包含状态反馈：在停止分支不变的共同区间，Y_0=0，
+  K_t=D_X u_p Y_t+J_{eta,p}(X_t,xi_t,eta)，
+  Y_{t+1}=D_X F Y_t+D_u F K_t。
+D_X u_p 包括 B 的状态依赖和观测/安全集合变化。某个方向在单步被抹掉，不说明
+它在未来全部步骤的堆叠 K_t 中仍为零；也不能把单步 J 直接堆叠成闭环导数。
+
+5. 数值方法、秩与方向结果
+
+复用 h_eta=1e-2,1e-3,1e-4 的中心差分和 h_delta/vmax 同三档差分。
+每个正负比较共享完全相同的 x、实际噪声、名义样本和 B，独立核对 J≈M B。
+本轮可靠条件比前轮略严：旧物理差分标志通过（中小档差<=5%、单边不一致<=20%），
+再要求 eta 差分中小档差<=5% 和链式误差<=5%。失败或非有限矩阵保留，不用于 SVD。
+全部 21,504 上下文中的可靠数：TT 21,055，TF 21,362，FT 21,070，FF 21,345。
+FF 初态 J 中小档相对差 p90 为 Toy 1.59e-5、Ring 0.00555。
+上一轮 48 个固定噪声控制中，独立 Flow AD 与差分最大相对差为 Toy 5.13e-7、
+Ring 0.00378；FF KKT 递推分别为 5.13e-7、0.00696。本轮不重复调用控制器。
+
+数值秩同时保存 tau=1e-3 sigma_1 的结果和保守可分辨阈值
+  tau_res=max(1e-3 sigma_1,3||J_small-J_medium||_2,1e-7)。
+后者只是经验分辨规则，不是数学秩证明，也不是严谨误差界。初态结果如下；
+奇异值列为各自中位数，不能拼成某个真实单一样本的完整谱：
+
+@SVD@
+
+Ring FF 的可分辨秩 3 占 97.0%，固定相对阈值秩 3 为 100%；所以此前完整 d×d
+物理 M 的近秩亏不能等同于三维 eta 族塌缩。TT 为 76.3%，TF 99.1%，FT 80.8%。
+Toy FF 的可分辨秩 3 为 44.5%，TT 为 25.8%；但 Toy 输入 B 本身就病态，条件数
+中位数约 475，goal 与 relative 几乎反平行。把 eta 单位和物理单位混淆会夸大
+“干预维数丢失”。限制到 im(B) 的单位物理输入后，FF 最小增益中位数为 Toy
+0.0731、Ring 0.1402；TT 对应约 1.23e-12、0.00190。不是所有小 sigma(J) 都来自 Flow。
+
+每个基方向的物理归一化局部增益 ||J[:,j]||/||B[:,j]||：
+
+@DIRECTIONS@
+
+近消除定义为增益<=0.01；这是局部数值定义，不是整个候选幅度下的“完全无效”。
+输入基本身范数<=1e-8 时记未定义，不当作被算子消除；初态三列均超过该阈值。
+Toy 的 TT/FT 目标和相对方向有很强的饱和分支，而侧向基往往较能保留；FF 中
+目标/相对方向在初态大多未被近消除，但整个有限修正响应更小。
+在 Toy critical_TT 共态探针，FF 三基增益中位数变为约 0.002/0.100/接近 0；
+不能把初态的“方向保留”当作全轨迹事实。Ring FF 初态对应 0.154/0.285/0.156，
+early_TT 共态变为约 0.361/0.215/0.363。轨迹探针按既有事件/兜底规则抽取，
+是条件性描述，不能视为整个 rollout 的均匀时间平均。
+
+FF 初态非近零方向的旋转中位数，Toy 为 goal/perp/rel=27.1°/30.2°/27.1°，
+Ring 为 47.4°/12.3°/47.4°。这排除了固定标量衰减，但不支持“场级总抹掉侧向”。
+TT/FT 未观察到增益>1.05 的基方向；Toy FF 各基放大比例约 0.8%/0.2%/0.8%，
+Ring 为 0。Toy FF 在 im(B) 中存在单位物理组合方向增益>1.05 的比例为 3.36%；
+最大增益方向未必是任何单独基向量。前轮全物理 M 的放大/反射证据限于该完整
+空间；J 为矩形，不能对它报告“行列式符号”。
+
+代表性奇异向量已逐矩阵保存于 representative_jacobians.json。例如 Toy 820001、
+seed 0、eta[4] 的 FF 最强右奇异向量约 (-.706,-.016,.708)，最弱约
+(-.694,-.185,-.696)；其输入 ||Bv|| 分别约 1.000 与 0.00208。
+弱方向已在输入基中严重相消，不能全归因于执行器消除。
+Ring 920001 同索引的 FF 最强方向约 (.270,-.954,-.128)，最弱约
+(.636,.077,.767)；对应 sigma=0.1343、0.00713。符号任意，方向本身仅局部成立。
+
+主角计算使用可分辨列空间的正交基 Q_p；另外报告
+  ||Q_p Q_p^T-Q_q Q_q^T||_F/sqrt(max(rank_p,rank_q,1))
+及维数差。仅给 min(rank_p,rank_q) 个主角时，包含关系可造成全部零角，即使
+丢失了维数；Toy 的两个三维子空间位于四维空间，也必然有非平凡交集。
+以下最大主角和距离均是初态配对中位数，完整角列表和秩配对在 CSV/JSON：
+
+@ANGLES@
+
+最后一列是有限修正向量 d_p、d_q 的夹角，与子空间主角含义不同。
+例如 Toy TT→FF 最大主角约 62°，实际候选修正夹角约 25°，两者不应混用。
+
+6. 有限幅度动作族、局部线性失效和路径积分
+
+下表每个指标均按各自输出统计中位数。||d_p|| 为执行速度单位；增益分母是同一
+物理 ||B eta||；角度相对该物理输入；直径是每个 x,xi 下实际 16 个候选的像：
+
+@FINITE@
+
+初态样本族在场内修正时通常收缩，但局部 J 的有效秩可同时上升。局部斜率、
+有限位移、离散族直径三者回答不同问题，不能互相替换。
+Toy TT→FF 的离散 Hausdorff 距离中位数 0.1869，同 eta 配对 RMS 距离 0.2170；
+Ring 分别 0.1448 和 0.0869。保留同 eta 对应关系与只比较未标记点云确实不同。
+这些是 16 点像的统计，不是连续 H 上的可达集证明。
+
+投影与 Flow 的分解：初态 ||J_exec||_F/||J_pre||_F 中位数
+  Toy：TT .0771，TF 1.000，FT .0771，FF 1.000；
+  Ring：TT .2595，TF .6492，FT .2597，FF .9276。
+TT/FT 的 pre 是加法 target；TF 的 pre 是无投影 Flow 末端；FF 的 pre 是最后一次
+场投影之前的 q_9，已含前九次投影反馈。不能把 FF 的比值接近 1 解读为“安全
+投影不重要”。不同 pre 语义已在原始 probe.py:131 核对。
+
+固定实际 noise、delta=0 的跨状态控制进一步排除了简单的投影解释。上一轮
+24 states/scene 的矩阵相对 Frobenius 离散度，Toy 纯 Flow/TF/FF 为
+0.520/0.577/0.571；Ring 世界坐标为 0.340/0.377/0.405，移除 Ring 框架旋转后
+仍为 0.309/0.349/0.383。Toy 的 12 个无活动场投影状态中，纯 Flow=FF，离散度
+仍约 0.529。状态依赖不是只有离散安全分支；也不能将这些差异当作可加的方差
+分解，因为投影会改变后续 Flow 路径。
+
+直接检查 e(Delta eta)=||u(eta+Delta eta)-u(eta)-J_eta Delta eta||。
+使用缓存全部非对角候选对，而非只取无穷小扰动；Delta eta 的中位范数约 0.565，
+最近候选距离中位约 0.240。下列为前轮独立核验的可靠性口径，和本轮稍严 J
+筛选的分母不混用；相对误差分母是实际动作变化范数：
+
+@LINEAR@
+
+TT/FT 也会因投影饱和跨活动集而失效，非线性并非 FF 独有。
+前轮从零点预测实际完整候选的 FF 响应，误差中位 Toy 61.7%、Ring 40.4%；
+缩到 1% 幅度才降至 0.68%、0.34%。完整幅度约 93.1% 的探针与零点投影活动
+签名不同；没有投影的纯 Flow 也存在显著有限幅度误差。
+8 个预定状态/候选的 FF 射线路径积分（9/17/33 节点）具有数值收敛证据；
+33 节点相对误差为 0.02%–1.06%，而同一路径起点的单个局部矩阵误差为
+17.4%–596%。这是对路径变化导数的动作层校验，不是对未知 basin label 的预测。
+本轮没有新增 TT/TF/FT 路径积分实验；其单矩阵误差已用全部真实候选对检查，
+积分关系由同样的绝对连续条件给出，不能声称四条分支都完成了独立积分验证。
+
+7. 与四 placement 成功盆的配对关系
+
+每个场景 384 个 state–eta cells，阈值为 16 次配对未来中至少 15 次成功：
+  Toy：TT 120，TF 15，FT 203，FF 35；
+  Ring：TT 30，TF 77，FT 34–44，FF 75。
+Ring 涉及 FT 的 10 个 B15 cell 未决；即使 B15 已可判定，部分 Q 仍有数值区间。
+四类别和 unknown 完整保留，下面“丢失/新增”相对箭头左侧：
+
+@BASIN@
+
+固定安全在终端时移动修正 TT→TF，Toy 丢失 111、新增 6，Ring 丢失 1、新增 48。
+固定修正在终端时改变安全路径 TT→FT，Toy 丢失 9、新增 92，且初态族往往
+几乎不变。TF→FF 在 Toy 保留全部 15 个原成员并新增 20 个，在 Ring 丢失 4、
+新增 2。由此不能把“场安全的效果”和“场修正的效果”合成一个通用正负增益。
+
+统计关联以 state–eta cell 为单位，先对 16 个配对 seed 汇总；有限动作量使用
+全部有限输出，局部子空间量仅平均通过可靠性检查的配对。控制 ||B eta||、
+||eta|| 和 state 固定效应，500 次 state 聚类 bootstrap；另加入 eta 候选固定效应，
+并检查 16 seeds 全部可靠的 cell 子集。没有把 6,144 个相关动作当作独立状态。
+完整 6 特征×6 对比×2 场景表在 associations.json，未根据显著性筛选。
+以下列出几个有解释价值的结果，格式为偏 Spearman [95% 聚类区间]，Ring 展示
+Qdiff_low 情景而不是把它误称为相关系数的严格下界：
+
+@CORRELATIONS@
+
+Ring TT→FF 有限增益比用 Qdiff_high 的估计为 -0.173，加入 eta FE 后为 0.064，
+同样没有稳定的额外关联。Toy TT→TF 的子空间距离仍留有弱关联，但没有多重
+比较校正或前瞻预测验证，不能单独升级为强机制解释。
+eta FE 敏感性也可能扣除机制经 eta 产生的真实变化；关联减弱不能被反过来当作
+“不存在机制”的证据。它说明当前数据尚未建立一个独立、稳定的几何指标解释。
+单一“范数更小”“侧向更小”或“子空间转得更多”的单调成功规律均不成立。
+
+8. 明确反例与完整轨迹复核
+
+所有例子是从完整面板按写入 sequence_selection.json 的条件规则选择，用于
+反驳过强命题；不是无偏的效果大小估计。seed-level 成败与 B15 盆成员严格区分。
+
+反例一：初始有限族相同，成功盆不同。
+Toy 的 820002、820004、820005、820009、820010、820014、820017、820023 共 8
+初态，在每个初态的全部 16 eta×16 seeds 上，TT/FT 最大动作差不超过 4.01e-16，
+却共翻转 28 个 B15 成员。这直接否定仅凭初始 A_p^16 判定盆成员的充分性。
+820002、eta[4]：Q_TT=11/16、Q_FT=16/16，初始 J 差均值 6.46e-13。
+实际 seed 2 的首动作差 5.93e-17；第 9 步（0.45 秒）差异超过 1e-5，随后共同
+前缀最大动作差 0.0411。TT 在第 245 步死锁，FT 在第 476 步成功。
+反方向同样存在：820014、eta[13]，Q 为 16/16→12/16；seed 2 首动作差
+7.09e-18，第 9 步开始明显分离，TT 第 322 步成功、FT 第 850 步超时。
+
+反例二：初始动作族差很大，盆成员不变。
+Ring 920013、eta[6] 的 TT/FF 都是 Q=0；seed 0 首动作差 0.3704，共同轨迹动作
+RMS 差 0.2740，两者都第 700 步超时。几何变形明显不保证产生成功成员。
+Toy 的“双方 B15 失败”也不能当作每个 seed 都失败：820005、eta[6]，TT Q=0、
+FF Q=.75，均不在 B15 中，但 seed 0 是 TT 死锁、FF 成功。稳健阈值本身会丢失
+部分成功率变化信息，所以同时报告 Q 差和盆标签。
+
+反例三：非常小的初始变化，产生很大的闭环与成功变化。
+Ring 920017、eta[1]，TT Q=1/16、FF Q=16/16；seed 0 首动作差仅 .0143，
+后来共同前缀最大差 1.6728，TT 超时、FF 第 384 步成功。
+Toy 820004、eta[6] 的 TF→FF，Q=0→15/16；seed 0 首动作差 .00110，
+TF 第 302 步死锁、FF 第 744 步成功。不是初始差异大小直接决定翻转方向。
+
+反例四：局部可微不等于有限候选线性。
+上节全部候选对误差及 8 个路径积分例直接说明这一点。靠减小 FD epsilon 可以
+改善导数估计，不能把真实候选间的大误差消除。前轮边界例还表明正负方向斜率
+不同，即使连续两档中央差分近似一致，也不能宣称经典 Jacobian 存在。
+
+9. 严格成立、经验支持、关联与尚未证明
+
+严格的结构性结论（在理想投影/连续算术解释下）：四条计算递推和动作族定义；
+J=M B 的局部链式法则；TF 的末端分解及 FF 的多步递推；TT/FT 的非扩张界；
+持续 eta 的序列耦合；成功盆作为带参数序列成功事件的原像。这些来自实现和
+条件明确的数学推导，而非从相关性猜出来。
+
+直接数值证据：同态、同噪声、同物理修正下的有限动作变化；方向增益、列空间、
+数值秩及其步长敏感性；固定噪声去投影控制中的状态依赖；实际候选尺度的非线性；
+8 个 FF 路径积分检查；完整轨迹的初始等族反例与后来分离。它们足以排除
+“场级只是固定 scalar gain”和“一个初始局部 M 足以解释盆”的说法。
+
+仅关联：有限增益、方向/子空间指标与 Q/B15 的统计关系；其中很多关系在加入
+候选身份后明显减弱。还没有证明哪一方向的旋转或消除独立导致哪个成员翻转。
+当前输入配对确实隔离了四个完整 placement 实现的总行为差异；不能把这个总
+差异再无依据地归因于某一个谱指标。动作序列经确定性 plant 生成成功事件的
+结构关系，也不等同于已获得一个紧凑、可预测的低维中介模型。
+
+尚未证明：连续 H 全域的稳定秩或包含关系；单步族/谱指标对闭环成功的充分性；
+统一的单调衰减/旋转规律；鲁棒成功的总体概率保证；跨控制器结论。未计算完整
+闭环 eta 雅可比或事件敏感性，因为现有动作缓存只含固定状态的 eta 扰动。
+
+当前审计没有执行硬阻塞，所需代码与配对缓存足够回答上述范围内的问题。
+若下一步要把特征关联升级为中介因果证据，最小缺口是少数翻转 cell 的受控
+continuation，而不是扩大随机初态数据集：在同一固定 eta、同一未来 Xi 下，
+以显式构造并检验可行性的范数匹配终端修正作为对照，保留/改变方向分别比较，
+并记录全程动作族及活动集。可先选 Toy/Ring 各 2 个已知翻转 cell、各 16 seeds；
+原 TT/FF 已有，仅新增所需对照。范数匹配若不可行必须记失败，不能默认成功。
+这种实验仍只能检验选定变形分量，不能证明一个全局 M。现有数据没有这些
+受控完整 continuation，所以本报告不提前宣称该因果结论。
+
+对用户五个问题的直接回答：
+  1) TT/FT 是投影后的平移动作族，TF/FF 是分别经无场投影/有场投影积分的
+     非线性参数像；精确式见第 2–3 段。
+  2) 终端修正下移动安全改变族中心及投影活动面；场修正下移动安全还改变
+     整条 Flow 路径。移动修正会改变方向、增益和有限参数像，并与安全交互。
+  3) 被消除、保留、旋转和放大的方向随状态、噪声、eta 中心变化；三基增益及
+     奇异向量给出可复核的局部答案，没有一条始终被场级抹掉的侧向规则。
+  4) 这些变化伴随大量配对盆成员翻转，但初始相同动作族也可翻转；真正联系
+     盆的是固定 eta 的闭环序列及其事件原像。
+  5) 计算映射、局部导数关系和序列原像关系有结构性依据；谱特征与成功关系
+     仍是探索性关联；紧凑中介因果解释和有限域单矩阵近似尚未成立。
+
+10. 可用于 RSS theory/mechanism 部分的中文段落
+
+@PARAGRAPH@
+
+复核与复现
+
+本目录 reproduce.sh 只读既有缓存；不会运行 env.step 或生成控制器动作。
+protocol.txt 记录分析口径；context_metrics.csv.gz、paired_context_metrics.csv.gz
+保存全部上下文指标；sampled_action_families.csv 和 sampled_family_distances.csv
+保存离散族；basin_action_family_pairs.csv 保存六个对比的完整 cell 表；
+representative_jacobians.json 保存矩阵、左右奇异向量和物理基。
+selected_sequence_examples.json、selected_sequence_arrays.npz、sequence_selection.json 与
+sequence_provenance.json 保存反例完整轨迹的可追溯引用和共同前缀比较。
+geometry.json、paired_geometry.json、associations.json 为汇总；未决、数值失败、
+零输入与低秩均未静默填补。previous_evidence_hashes.json 固定前轮引用证据。
+verification.json 中 20 项证据完整性和独立公式检查全部通过。
+figures/action_family_audit.{pdf,png,svg} 为静态科学图；figure_caption.txt 为图注。
+没有修改原始 source、rollout、checkpoint 或前轮审计证据。
+'''
+    replace={
+      '@SVD@':table(['场景','placement','可靠/6144','sigma1','sigma2','sigma3','可分辨秩 1/2/3 数量'],sv),
+      '@DIRECTIONS@':table(['场景','placement','goal 增益','perp 增益','rel 增益','近消除 goal/perp/rel'],direction),
+      '@FINITE@':table(['场景','placement','||d_p||','||d_p||/||B eta||','旋转角','16 点族直径'],finite),
+      '@ANGLES@':table(['场景','对比','最大主角','列空间投影距离','有限修正夹角'],angles),
+      '@BASIN@':table(['场景','对比','双方成功','丢失','新增','双方失败','未决'],groups),
+      '@LINEAR@':table(['场景','placement','绝对误差','相对误差','误差>25%比例'],linear),
+      '@CORRELATIONS@':table(['特征','幅度+state 控制','再加 eta 固定效应'],corrs),
+      '@PARAGRAPH@':paragraph}
+    for k,v in replace.items():report=report.replace(k,v)
+    (HERE/'final_report.txt').write_text(report)
+    (HERE/'mechanism_paragraph.txt').write_text(paragraph+'\n')
+    print('Chinese report written:',len(report),'characters')
+if __name__=='__main__':main()

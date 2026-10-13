@@ -1,0 +1,46 @@
+Ring FF 全checkpoint过拟合、概率校准与选择表现诊断
+
+结论：完整critic有显著的概率预测过拟合，主要表现为置信度过强；其eta排序和top1选择在这段训练中反而改善。
+因此不能把完整模型的NLL恶化直接解释成state越来越干扰eta排序。
+
+读取既有4组×3seed×20checkpoint=240个模型快照；没有新训练、rollout或按TEST重选模型。
+每个checkpoint用同一批TRAIN/VAL/TEST state与同一16-eta候选池计算；训练loss采用全TRAIN平均，而非单batch值。
+NLL直接由原始logit通过logaddexp计算，以避免晚期极端概率被clip后低估误差。
+
+完整critic，三个训练seed平均：
+step | TRAIN NLL | VAL NLL | TEST NLL | TEST within-state AUROC | TEST B15 by seed | confident-wrong trials
+100 | 0.2242 | 0.3867 | 0.3627 | 0.9586 | [13, 11, 11] | 0.57%
+500 | 0.1060 | 0.5825 | 0.6008 | 0.9768 | [14, 14, 14] | 3.91%
+1000 | 0.0887 | 0.7327 | 0.8270 | 0.9787 | [14, 14, 14] | 5.26%
+2000 | 0.0905 | 0.7647 | 0.8914 | 0.9825 | [14, 14, 14] | 6.53%
+
+Step2000相对100的逐family平均TEST NLL变化为0.5282，family bootstrap95%=[0.2571293818944129, 0.8453107917475863]。
+过拟合证据是TRAIN误差降低而VAL/TEST误差升高。Full的19个相邻checkpoint转换中，12次同时出现TRAIN NLL下降、TEST NLL上升。
+没有出现TRAIN NLL下降同时三seed平均TEST B15下降的相邻转换；B15总体改善、局部仍有波动，within-state AUROC从约0.959改善到0.982。
+
+置信度诊断：正温度T只改变概率强弱，严格保留同一state内eta排序和argmax。
+每个checkpoint只用8个VAL family选一个T，三个训练seed共用；TEST只用于事后评价。
+Full step100: T=1.5525, calibrated TEST NLL=0.3404, B15=[13, 11, 11]（排序不变）。
+Full step2000: T=5.1306, calibrated TEST NLL=0.3251, B15=[14, 14, 14]（排序不变）。
+Step2000的校准NLL回到约0.325，与原eta-only接近。这支持晚期NLL恶化很大程度来自过度自信；不证明所有state泛化误差已经消失。
+
+确有“训练loss下降而实际选择变差”的对照：
+真实h、固定C，step200: TRAIN NLL=0.2994, TEST NLL=0.3356, B15=[14, 14, 14]。
+真实h、固定C，step1000: TRAIN NLL=0.1521, TEST NLL=0.5035, B15=[13, 14, 14]。
+真实h、固定C，step2000: TRAIN NLL=0.1098, TEST NLL=0.6326, B15=[12, 12, 13]。
+该组训练后期确实损失排序/选择质量；正温度校准无法改变这些选错的eta。因此并非所有变差都只靠校准能修复。
+
+对上轮根因结论的进一步限定：
+- 当前早期checkpoint上，固定context恢复选择的配对事实保留。
+- 全训练轨迹表明，Full能学到更好的排序，同时概率越来越过于自信。
+- 因此“state相关信息本质是噪声”不成立；应区分概率校准过拟合、排序过拟合，以及checkpoint选择指标。
+- 当前Full已按VAL NLL选了最早保存的step100，并非没有early stopping；100步之前没有快照，无法据此定位更早的最优点。
+- 不应直接按训练loss更低增加训练步数，也不应在已打开的TEST上挑B15最好的checkpoint。
+- 若目标是选eta，应在独立验证state上同时检查选择/排序与概率校准；本轮未部署或替换任何critic。
+
+数值更正：上轮报告step2000 TEST NLL约0.829使用了clip后的概率。稳定原logit算法得到约0.891；早期selected-checkpoint表和B15计数不受影响。
+本轮是既有TEST已打开后的回顾性诊断，独立TEST样本只有16个family；训练seed和checkpoint均不是新增独立样本。
+
+文件：metrics_by_checkpoint.csv、mean_metrics_by_checkpoint.csv、adjacent_step_changes.csv、summary.json、
+temperature_fits.csv、temperature_metrics.csv、protocol.json、calibration_protocol.json、export_manifest.json。
+图：loss_vs_selection.png / .pdf。

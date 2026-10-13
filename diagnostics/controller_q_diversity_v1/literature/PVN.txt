@@ -1,0 +1,782 @@
+                                                                                     Policy Evaluation Networks
+
+
+                                                                       Jean Harb 1 2 Tom Schaul 2 Doina Precup 2 Pierre-Luc Bacon 3
+
+
+                                                                    Abstract                              agent to generalize its value representation among different
+                                                Many reinforcement learning algorithms use                policies, by providing a policy description as input. We
+                                                value functions to guide the search for better poli-      hypothesize that an agent trained in this way could predict
+arXiv:2002.11833v1 [cs.LG] 26 Feb 2020
+
+
+
+
+                                                cies. These methods estimate the value of a single        the value of a new, unseen policy with sufficient accuracy to
+                                                policy while generalizing across many states. The         guide further search through policy space. In particular, if
+                                                core idea of this paper is to flip this convention        we were to train a network to estimate the value of a policy
+                                                and estimate the value of many policies, for a            from an initial start state distribution, we would have access
+                                                single set of states. This approach opens up the          to the gradient of the expected return with respect to the
+                                                possibility of performing direct gradient ascent in       policy’s parameters and could use it to improve the policy.
+                                                policy space without seeing any new data. The             The value function would not need to take states as input
+                                                main challenge for this approach is finding a way         at all, relying instead on an encoding of the policy itself in
+                                                to represent complex policies that facilitates learn-     order to predict the expected return of the entire episode,
+                                                ing and generalization. To address this problem,          from the starting state distribution.
+                                                we introduce a scalable, differentiable fingerprint-      Our first contribution is to introduce the Policy Evaluation
+                                                ing mechanism that retains essential policy infor-        Network (PVN), a network that learns to predict the ex-
+                                                mation in a concise embedding. Our empirical              pected return of a policy in a fully differentiable way. Using
+                                                results demonstrate that combining these three ele-       a dataset of policy networks along with their returns, the
+                                                ments (learned Policy Evaluation Network, policy          PVN is trained with supervised learning.
+                                                fingerprints, gradient ascent) can produce policies
+                                                that outperform those that generated the training         However, it is not trivial to embed a policy in a way that
+                                                data, in zero-shot manner.                                allows the embedding to be sufficiently informative for the
+                                                                                                          value function, yet not too large. For example, the naive
+                                                                                                          approach of flattening a policy network into a large vec-
+                                         1. Introduction                                                  tor loses information on the dependencies between layers,
+                                                                                                          while the vector can still become intractably large. The
+                                         Value functions are core quantities estimated by most rein-      second major contribution of this paper is a new method to
+                                         forcement learning (RL) algorithms, and used to inform the       fingerprint a policy network in order to create an embedding
+                                         search for good policies. Usually, value functions receive       that is sufficiently small, yet retains information about the
+                                         as input a description of the state (or state-action pair) and   network structure.
+                                         estimate the expected return for some distribution of inputs,
+                                         conditioned on some behavior, or policy. When the policy         Finally, we introduce a novel policy gradient algorithm,
+                                         changes, value estimates have to keep up.                        which performs gradient ascent through a learned PVN
+                                                                                                          in order to obtain, in zero-shot manner, policies that are
+                                         One way to view this process is that value functions are         superior to any of those evaluated during training.
+                                         trained using large amounts of transitions, coming from
+                                         the set of policies that have been used by the agent in the      We present small scale experiments to illustrate the behavior
+                                         past, without seeing from which policy each transition came.     of our approach, then present experiments that show how
+                                         As the policy changes, the value function estimate is still      fingerprinting allows us to evaluate not only linear policy
+                                         influenced by previously seen policies, possibly in an unpre-    networks, but also multi-layered ones.
+                                         dictable way, because the policy is not typically represented
+                                         as an input. Our goal is to explore the idea of pushing the      2. Background
+                                            1                             2            3
+                                             Mila - McGill University DeepMind Mila - University          In RL, an agent’s goal is to learn how to maximize its re-
+                                         of Montreal. Correspondence to: Jean Harb <jean.merheb-          turn by interacting with an environment modelled, which
+                                         harb@mail.mcgill.ca>.                                            is usually assumed to be a Markov Decision Processes
+                                                                                                          (MDP) hS, A, P, γ, ri, where S is a set of states, A is a
+                                                           Policy Evaluation Networks
+
+set of actions, P : S × A × S → [0, 1] represents the                        expected return for any policy in a zero-shot fashion: the
+environment dynamics, γ ∈ [0, 1] is a discount factor and                    performance measure itself. In vector notation, we can write
+r : S × A → R is the reward function. A randomized                           the performance measure explicitly as:
+policy π : S × A → [0, 1] is a distribution over actions,
+conditioned on states.                                                                    J(θ) ..= d0 > (I − γPπθ )−1 rθ π .             (2)
+In this paper, we consider the problem of finding the param-                 where Pπθ and rθ π are the transition matrix and reward
+eters θ ∈ Rk of a stochastic policy πθ which maximize the                    model induced by πθ . Hence, there is a function of θ that
+expected discounted return
+                         P∞ from a distribution over initial                 can compute the value of πθ .
+states d0 : J(θ) ..= E [ t=0 γ t r(St , At )| S0 ∼ d0 ]. The
+policy gradient theorem (Sutton et al., 2000) shows that                     Policy Evaluation Networks aim to approximate this func-
+gradient of this objective is given by:                                      tion J, so that the gradient of a parameterized policy can
+                                                                             be obtained instantaneously. Furthermore, we show that
+    ∂J(θ) X         X ∂πθ (a|s)                                              this can be achieved in a completely model-free fashion,
+         =  dπθ (s)             Qπθ (s, a) ,                           (1)
+     ∂θ                 ∂θ                                                   without having to estimate Pπθ and rπθ , or to form any of
+                s∈S                a∈A
+                                                                             the matrices in (2).
+and where Qπθ (s, a) is the action-value function corre-
+                                                                             Distributional Predictions. While approximating J could
+sponding to policy πθ and dπθ is a discounted weighting of
+                                                                             be directly cast as a regression problem, we view it instead
+states:
+                                                                             as a classification problem: that of predicting the bucket
+                X                  ∞
+                                   X                                         index corresponding to the estimated return of a given input
+   dπ (s) ..=
+      θ
+                        d0 (s0 )         γ t Pπθ (St = s|S0 = s0 ) .         policy. This strategy has proven to be effective in the train-
+                s0 ∈S              t=0                                       ing of deep neural networks, both in the supervised learning
+                                                                             regime (van den Oord et al., 2016) and in reinforcement
+Here, Pπθ (St = s|S0 = s0 ) is the probability of reaching s
+                                                                             learning (Bellemare et al., 2017a). Predicting buckets in-
+from s0 at time step t, given the environment dynamics and
+                                                                             stead of exact real values provides a regularization effect,
+the fact that actions are chosen from πθ .
+                                                                             similar to the idea of learning with auxiliary tasks (Caruana,
+The gradient (1) is typically estimated with samples taken                   1997; Sutton et al., 2011; Jaderberg et al., 2017c; Lyle et al.,
+under the undiscounted distribution induced by πθ in the                     2019).
+MDP (Thomas, 2014). In actor-critic architectures (Sutton,
+                                                                             Inspired by Bellemare et al. (2017b), we discretize the set of
+1984), a learned estimate of the action-value function Qπθ
+                                                                             sampled returns into buckets of the same size. The PVN then
+is usually maintained in a two-timescale manner (Konda &
+                                                                             outputs a probability distribution over the set of buckets, and
+Tsitsiklis, 2000), ie., by allowing the iterates of Qπθ to con-
+                                                                             the loss we use is the KL-divergence between the predicted
+verge faster than the policy parameters. This requirement
+                                                                             and target distributions. In practice, the target is determined
+is crucial for the stability of such methods in practice (Fuji-
+                                                                             by rolling out multiple episodes per policy and discretizing
+moto et al., 2018).
+                                                                             the resulting returns.
+In this paper, we propose a new gradient-based optimization
+                                                                             Maximizing Undiscounted Returns. RL algorithms have
+method which does not rely on maintaining a value function
+                                                                             traditionally been viewed as optimizing for the discounted
+estimate in this two-timescale fashion. Our key observation
+                                                                             return, with some given discount factor γ. However, the
+is that rather than using a stochastic gradient of the perfor-
+                                                                             practice of policy gradient methods has evolved towards the
+mance measure, we can learn an estimate of J(θ) directly
+                                                                             use of discounting as a knob to control the bias-variance
+(as a neural network) and compute a deterministic gradient
+                                                                             tradeoff (Xi-Ren Cao & Yat-Wah Wan, 1998; Baxter &
+from it using any automatic differentiation package. We
+                                                                             Bartlett, 2001). Controlling the variance of the gradient
+will now introduce the core idea of this approach.
+                                                                             estimator is of paramount importance, because it can grow
+                                                                             exponentially in the horizon (Glynn & Olvera-Cravioto,
+3. Policy Evaluation Networks                                                2019). Hence, rather than seeing the discount factor as
+                                                                             being part of the task specification, practitioners tend to
+By definition, a value function represents the expected re-
+                                                                             view it as a hyperparameter to be optimized (Schulman
+turn associated with a given policy. So, one could expect,
+                                                                             et al., 2016).
+as in regression methods, that training could be done on
+some policies and generalize to others. But, value func-                     We are ultimately interested in the undiscounted perfor-
+tion approximation methods are not typically designed with                   mance of a policy as in Thomas (2014). Because Policy
+the goal of leveraging any information about the policy it-                  Evaluation Networks form a deterministic gradient of an
+self in order to generalize to new policies. Conceptually,                   approximated loss, they sidestep the need to pick a discount
+though, there exists a function capable of computing the                     factor and optimize a proxy objective. Our experiments
+                                                  Policy Evaluation Networks
+
+show that our approach is capable of optimizing for the
+undiscounted performance directly, and outperforms the
+state-of-the art discounted methods.                                   ss12                           concat
+                                                                          s3                (⋅|   )              PVN        ( )
+
+
+Learning Objective for the PVN. When the PVN (denoted
+ψ) provides a categorical output over return bins, we need
+to specify how a scalar expected return estimate is obtained
+from this output. A straightforward approach consists in
+using the midpoint of each interval as a representative of the
+                                                                 Figure 1. Diagram of the complete Policy Evaluation Network
+return, which we then weight by the predicted probability        setup, including Network Fingerprinting (in gray). The blue color
+(denoted by ψi (θ)) for this interval:                           of the probing states and PVN indicates that they can be seen as
+                                                                 one set of weights, trained in unison.
+                  1
+            h ..=   (Gmax − Gmin )
+                  m
+                  m−1                  
+         ˆ    ..=
+                  X                h                             by feeding it a set of n learned probing states as input
+         J(θ)         ψi (θ) Gmin + + ih ,
+                  i=0
+                                   2                             φ = [s1 , . . . , sn ] ∈ Rn×k , where k is the dimensionality
+                                                                 of a state vector. φ is a synthetic input to the policy net-
+where m is the number of bins, h is the width of each bin,       work whose sole purpose is to elicit a representative output.
+and Gmin and Gmax are the minimum and maximum returns            This output can be a distribution over discrete actions or
+observed in the dataset. However, rather than minimizing         continuous action vectors, which we then concatenate and
+                          ˆ and samples of J(θ), we use a
+the L2 distance between J(θ)                                     use as input to the PVN. In discrete action spaces, we can
+classification loss: the KL-divergence between the output of     view a PVN as function ψ : Rn|A| → Rm receiving a
+the PVN and an empirical probability mass function over the      |A|n-dimensional vector of probabilities over actions and
+discretized returns. We then view a PVN as a function of the     returning a distribution over m categories corresponding
+form ψ(θ; w) where w are the parameters of the network           to the discretized return. The output of the PVN is then
+itself and θ are the policy network parameters fed as input.     computed through the composition ψ(πθ (· | φ))
+We then use stochastic gradient descent to minimize the
+expected KL loss:                                                Motivation for Network Fingerprinting. To see why this
+                                                                 might be a viable method, we can show an equivalence
+                                                                 between using n probing states and having n hidden units
+                       h                   i
+               min E DKL (P̂θ || ψ(θ; w)) ,
+               w                                                 in the first layer of a PVN which evaluates linear policies.
+                                                                 Consider a linear, deterministic policy in a 1D action space,
+where the expectation is taken under a given distribution
+                                                                 defined by πθ (s) = θ> s ∈ R. Probing this policy in n states
+over policy network weights (random in our experiments)
+                                                                 φ produces the fingerprint vector y = πθ (φ) = θ> φ ∈ Rn .
+and P̂θ is obtained from a histogram of the returns induced
+                                                                 On the other hand, feeding the full policy weights θ as
+by a policy πθ .
+                                                                 input to a PVN with n hidden units in the first layer will
+                                                                 produce the hidden activations y = θ> W ∈ Rn at that
+4. Network Fingerprinting                                        layer. Clearly then, there is a choice of probing states φ and
+                                                                 network initialisation W that produces exactly equivalent
+While the performance measure J is by definition a function
+                                                                 results.
+of the policy network parameters, we need to figure out
+how to provide the policy as an input to a PVN, in a way         Choosing Probing States. The choice of probing states is
+which does not require too much space and also leads to          important. One possible approach is to randomly generate
+good generalization among policies. If we try to naively         states. Since we know the dimensionality of inputs to the
+flatten the policy into a vector input, we run into severla      policy, one could simply choose a sampling distribution and
+issues. First, the number of weights in the policy network       create fake states made of noise. Alternatively, we could
+can be very large, which requires a weight matrix in the         also sample states from the environment, because we are
+input layer of the PVN of at least the same size. Second, the    interested in learning to evaluate the performance of the
+dependencies between layers contain valuable information,        policy on states that we actually observe.
+which is lost by a direct concatenation of the parameters.
+                                                                 Because the entire PVN architecture is differentiable, we
+To address these issues, we propose network fingerprinting:      can also use backpropagation to learn the probing states, as
+a methodology which allows us to learn a neural network          we can see in Fig. 1. These states can be viewed as weights
+embedding in a fully differentiable way, independently of        of the PVN, helping extract information from the policy
+the number of parameters in the policy network. The intu-        to improve prediction accuracy. In this paper, we adopt
+itive idea is to characterize the response of a policy network   an hybrid approach. First, we initialize the probing states
+                                                  Policy Evaluation Networks
+
+by sampling random noise. Then, we refine those probing           Algorithm 1 Train PVN with fingerprinting
+states throughout learning, while learning the PVN weights          Initialize PVN parameters w, φ, choose learning rate α
+jointly. When using the classification loss, our minimization       for step s = 1 to S do
+problem becomes:                                                       Sample training batch {(πθi , Ri )}B
+                                                                                                          i=1 ∼ D
+                 h                              i                      L(w, φ) ← DKL (hist(RB )||ψ(πθB (·|φ); w))
+           min E DKL (P̂θ || ψ(πθ (·|φ); w)) ,                         update parameters w ← w − adam(α, ∇w L(w, φ))
+           w,φ
+                                                                       update parameters φ ← φ − adam(α, ∇φ L(w, φ))
+which we optimize by stochastic gradient descent.                   end for
+
+5. Policy Improvement By Gradient Ascent                          Algorithm 2 Gradient Ascent Through a Trained PVN
+Using a trained PVN, it is possible to do gradient ascent           Θ←∅
+in the space of parameterized policies without having to            for ascent policies i = 1 to A do
+interact with the environment. Because the PVN is an ap-              Initialize policy πi parameters θi using Glorot Initial-
+proximation to the real performance measure in functional             ization
+form, we can directly apply automatic differentiation to ob-          D←∅
+tain an exact deterministic gradient. For example, when               for ascent steps j = 1 to T do
+                                                                         θi ← θi + β∇θi J(θˆ i)
+using network fingerprinting inside a PVN ψ parameterized
+by w, our gradient ascent procedure computes the iterates:               Sample Monte-Carlo return GM C using policy πθi
+                                                                         D ← D ∪ (θi , GM C )
+           θt+1 = θt + ηt ∇θt ψ(πθt (·|φ); w) ,                       end for
+                                                                      Θ ← Θ ∪ (argmaxθi (D), max(D))
+where ηt is the learning rate at time t and φ are the learned       end for
+probe states.                                                       return argmaxθ (Θ)
+A benefit of not having to interact with the environment
+to get fresh gradient estimates for every new policy is that
+we can do gradient ascent in parallel via our learned PVN.        known dynamics, which allows us to visualize how our al-
+This feature is particularly useful to escape local maxima,       gorithm works. We then move on to function approximation
+as many concurrent solutions can be maintained simulta-           on the Cart Pole environment, where we analyze the effects
+neously as in (Jaderberg et al., 2017b). Statistical active       of using Network Fingerprinting on single and multi-layered
+learning techniques (Cohn et al., 1995) could make this pro-      networks. Finally, we move to the Swimmer environment to
+cess more efficient, but would require PVNs with epistemic        show our algorithm’s performance on a continuous control
+uncertainty.                                                      task.
+Because the gradient ascent procedure may lead us to re-
+                                                                  6.1. Polytope
+gions of the policy space where fewer samples have been
+obtained to train the PVN, being able to maintain multiple        For the first set of experiments, we built a 2-state, 2-action
+candidate solutions in parallel is particularly useful. To fur-   MDP (details described in Appendix), for which we know
+ther avoid falling too quickly into the out-of-distribution       the transition matrix and reward function. Having this in-
+regime, we can also limit the number of gradient steps and        formation allows us to calculate exact expected returns and
+periodically verify that the performance is still increasing.     policy gradients for any policy, ∇θ J(θ). Moreover, be-
+                                                                  cause the MDP is so small, we can visualize the value
+6. Experiments                                                    polytope (Dadashi et al., 2019), as seen in Figure 2a. A
+                                                                  value polytope maps the space of policies to value space,
+In order to test our proposed method, we first create a set       meaning that any one point in the polytope is a policy and
+of policies by choosing a neural network architecture and         its coordinates are its values in states 1 and 2. Note that the
+initializing it a number of times. Second, we obtain the          corners of the polytope represent deterministic policies. In
+expected returns of these policies by averaging returns from      this environment, a policy can be represented as a simple 2-
+a number of Monte-Carlo rollouts. This results in a dataset,      dimensional vector, π = [P (a1 |s1 ), P (a1 |s2 )], from which
+where the policies are the inputs and the expected returns        we can infer P (a2 |s) = 1 − P (a1 |s).
+are the targets. Finally, we create a PVN and regress on the
+                                                                  To run our experiments, we first obtain a random set of 40
+dataset.
+                                                                  policies by sampling from a uniform distribution over the
+We ran experiments on a variety of environments of differ-        policy space. Then we evaluate them, using eq. (2), to get
+ent complexities. We start with a simple 2-state MDP with         their values, and split the data into a training and test set.
+                                                                                                    Policy Evaluation Networks
+
+                                                                                                                                                                                  102
+         1.25                                                                                                                                                                                                                       train
+                                                                                                   1.25                                                                                                                             test
+                                                                                                                                                                                  101
+         1.00                                                                                      1.00
+                                                                                                                                                                                  100
+         0.75                                                                                      0.75
+                                                                                                                                                                                 10 1
+
+
+
+
+                                                                                                                                                                       L2 loss
+V (s2)
+
+
+
+
+                                                                                      V (s2)
+         0.50                                                                                      0.50
+                                                                                                                                                                                 10 2
+         0.25                                                                                      0.25
+                                                                                                                                                                                 10 3
+         0.00                                                                                      0.00
+                                                                                                                                                                                 10 4
+         0.25                                                                                      0.25
+                                                                                                                                                                                 10 5
+                        1.0         0.8     0.6           0.4   0.2   0.0                                  1.0     0.8          0.6         0.4         0.2   0.0                       0    2500 5000 7500 10000 12500 15000 17500 20000
+                                           V (s1)                                                                               V (s1)                                                                     Training Steps
+
+(a) This polytope represents the space of                                          (b) Sampled training set (in blue) and test                                       (c) Training curves on training and test sets.
+policies (in green) in value space. The cor-                                       set (in red) policies in the value polytope.
+ners (in orange) are deterministic policies.
+
+Figure 2. Visualization of a value polytope and a sampled dataset of policies. Training curves show a PVN can learn to generalize and
+predict the points in the test set.
+
+            1.0                                                                              1.0                                                                                            approx
+                                                                                                                                                                              1.25          exact
+            0.8                                                                              0.8                                                                              1.00
+
+            0.6                                                                              0.6                                                                              0.75
+  (a1|s2)
+
+
+
+
+                                                                                   (a1|s2)
+
+
+
+
+                                                                                                                                                                     V (s2)
+                                                                                                                                                                              0.50
+            0.4                                                                              0.4
+                                                                                                                                                                              0.25
+            0.2                                                                              0.2                                                                              0.00
+                                                                                                                                                                              0.25
+            0.0                                                                              0.0
+                  0.0         0.2         0.4         0.6       0.8         1.0                      0.0     0.2         0.4          0.6         0.8         1.0                           1.0      0.8       0.6     0.4    0.2     0.0
+                                                (a1|s1)                                                                        (a1|s1)                                                                        V (s1)
+
+(a) Exact gradient field of the value in policy                                   (b) Approximated gradient field of the value                                      (c) Comparison of gradient ascent through
+space.                                                                            in policy space, calculated from a trained                                        the exact and approximated value functions.
+                                                                                  PVN.
+
+Figure 3. Comparison of gradient fields of the exact and approximated value functions. The two axes in Figures 3a and 3b are the policy
+spaces in each of the two states, and the arrows represent the gradient ∂J(θ)
+                                                                         ∂θ
+                                                                              and ∂ψ(θ)
+                                                                                   ∂θ
+                                                                                        . The blue and red dots are steps of the gradient
+ascent process, mapped onto the polytope in Figure 3c. Both ascents were run for 100 steps.
+
+
+The two sets of policies can be seen in Figure 2b. Finally,                                                                       is noisier, they still both converge to the optimal solution.
+we train a 2-layered neural network on this regression task,                                                                      Figure 3c compares the two paths in polytope space, to give
+where the network takes policy vectors as input and outputs                                                                       a different perspective. Both ascents performed a series of
+their expected return.                                                                                                            100 policy gradient steps.
+Policy Search. Once we have a learned PVN, we can per-                                                                            These results indicate that PVNs can both approximate pol-
+form gradient ascent through the network to search for the                                                                        icy values and be used to calculate policy gradients in a
+optimal policy. First, we can compare the exact policy gra-                                                                       practical manner.
+dients ∂J(θ)
+          ∂θ   and those calculated from the learned PVN
+∂ψ(θ)                                                                                                                             6.2. Cart Pole
+  ∂θ   . In Figures 3a and 3b, we show the difference in the
+discretized gradient fields of the true policy gradients and                                                                      In the next set of experiments, we move to the Cart Pole
+the learned ones. As we can see, the gradient fields are quite                                                                    environment with policy functions that map states to action
+similar, with only a few differences around the edges of the                                                                      distributions. The environment was run using ’CartPole-v0’
+policy space.                                                                                                                     in OpenAI Gym (Brockman et al., 2016). This environment
+Finally, to perform gradient ascent, we start with an arbitrary                                                                   has an observation space of 4 features and 2 discrete actions,
+policy, in this case [0.5, 0], calculate its gradient through                                                                     accelerating to the left and right. The main goal of this
+the learned PVN, take a small step in that direction and                                                                          section is to show that Network Fingerprinting is crucial to
+repeat the process with the new policy. In Figures 3a and                                                                         scaling PVNs to larger networks.
+3b, we compare performing gradient ascent with the exact                                                                          Linear Policy. First we start with the simplest case, a policy
+policy gradient and with our approximated one. The dots                                                                           network consisting of a single linear layer with a softmax
+represent the paths taken by the gradient ascent process, and                                                                     over the logits.
+we can see that while the path given by the learned function
+                                                                                                Policy Evaluation Networks
+
+                             Histogram of                                                                                                Histogram of
+                          Training Set Values                 Performance Through Gradient Ascent                                     Training Set Values                     Performance Through Gradient Ascent
+                    100        Training Set             PVN with fingerprints                                                   100           Training Set            PVN with fingerprints
+                               Rejected Set             PVN without fingerprints                                                              Rejected Set            PVN without fingerprints
+                               Cutoff                                                                                                         Cutoff
+                    80                                                                                                          80
+  Expected Return
+
+
+
+
+                                                                                                              Expected Return
+                    60                                                                                                          60
+
+                    40                                                                                                          40
+
+                    20                                                                                                          20
+
+                           150 100 50           0   0           20           40          60      80     100                             100      50          0   0       50      100    150 200 250          300    350   400
+                               Count                                       # Gradient Updates                                                 Count                                     # Gradient Updates
+
+                                                    (a) Linear Policy                                                                                                (b) MLP Policy
+
+Figure 4. Plots showing histograms of training policies’ expected returns and the performance of gradient ascent through a learned PVN.
+The effects of Network Fingerprinting are drastic when using MLP policies.
+
+
+To generate a dataset in this setting, we start by creating                                                     of policies as they perform a number of gradient steps, in
+a set of randomly generated linear policy networks, and                                                         a lighter color. The darker line is the average policy ascent
+getting a set of Monte-Carlo returns for each network. As                                                       path. The starting policies are randomly selected by network
+the exact expected returns cannot be known, we instead                                                          initialization. Finally, the red dashed line marks the training
+have to approximate them from samples. Of course, with                                                          set performance limit of 30.
+a large enough number of rollouts, the approximation can
+                                                                                                               We compare training PVNs in 2 ways: with and without Net-
+become accurate. This is now our dataset, where the policy
+                                                                                                               work Fingerprinting. As discussed in Section 4, performing
+networks are the inputs and the discretized distributions of
+                                                                                                               network fingerprinting on linear networks is equivalent to
+sampled returns are the desired outputs to the PVN. In these
+                                                                                                               flattening the network’s weights and feeding them directly
+experiments, we generate a set of 1000 randomly initialized
+                                                                                                               as input to a PVN. As expected, both the flattened weights
+policies and run each policy for 100 episodes. The return
+                                                                                                               and network fingerprinting worked similarly. Furthermore,
+distributions are discretized into 41 evenly sized bins.
+                                                                                                               gradient ascent using either approach led to policies with
+When generating randomly initialized networks, some of                                                         an expected return of around 70, well above the training set
+the networks can have near optimal performance, making it                                                      limit of 30.
+difficult to show that our method can lead to policies better
+                                                                                                                MLP Policy. The main challenge of building PVNs was
+than the training set. In order to deal with this, we filter
+                                                                                                                to build a scalable mechanism allowing us to give a multi-
+out of the training set any policy with an expected return
+                                                                                                                layered policy network (MLP) as input to a PVN. In these
+above a specified level. This allows us to see if the PVN
+                                                                                                                experiments we will show that network fingerprinting allows
+generalizes outside of the distribution of policies seen in
+                                                                                                                us to do so.
+training and whether the gradient ascent can be effective
+and find substantially better policies. In our experiments,                                                    We built the network fingerprinting with 20 probing states,
+the training set consists of randomly initialized policies with                                                leading to a policy fingerprint of 40 dimensions. These
+an expected undiscounted return no higher than 30, while                                                       probing states were randomly initialized and trained jointly
+the maximum possible return is 100.                                                                            with the PVN. We performed 400 steps of gradient ascent.
+                                                                                                               The rest of the training procedure is exactly as described for
+Once we have a trained PVN, we then perform gradient
+                                                                                                               the linear policy.
+ascent for 100 steps on 5 randomly sampled starting policies.
+When comparing methods, the same 5 policies are given to                                                        In Figure 4b, we can clearly see that giving a flattened neu-
+all. This allows for a fairer comparison, as one policy might                                                   ral net as input to a PVN does not work. On the other hand,
+be easier to improve than another.                                                                              network fingerprinting sees no scalability issues and allows
+                                                                                                                the policy to improve up to the optimal policy. Furthermore,
+The remaining figures are designed in two parts. The left
+                                                                                                                gradient ascent was consistently successful across the differ-
+subplot is a histogram showing the distribution of expected
+                                                                                                                ent starting policies, improving to near optimal performance
+returns achieved by the training set policies. In green is the
+                                                                                                                from all starting points.
+training data used by the PVN to train. In red is the data
+that was initially generated but then thrown away, as it was                                                    Comparing the histograms from Figures 4a and 4b, we can
+above our set expected return limit of 30. This allows us to                                                    notice that the distribution of generated linear policies has a
+show the performance achievable by gradient ascent relative                                                     long tail, with some randomly generated policies achieving
+to the training data. The right subplot is the performance                                                      near optimal performance. On the other hand, the distribu-
+                                                                                      Policy Evaluation Networks
+
+                            Histogram of                                                             terminology. Sometimes they are characterized as black-box
+                         Training Set Values            Performance Through Gradient Ascent
+                   250           Training Set                                                        optimization, as they treat the mapping from policy param-
+                   200                                                                               eters to return (or “fitness”) as a black box, sometimes as
+                   150
+                                                                                                     evolutionary algorithms, with recent incarnations in (Sal-
+ Expected Return
+
+
+
+
+                   100
+                    50
+                                                                                                     imans et al., 2017; Such et al., 2017; Mania et al., 2018).
+                     0                                                                               They are related to this work in two dimensions: a number
+                                                                                              PVN
+                    50                                                                        ddpg   of black-box methods also pursue a form of policy gradi-
+                   100                                                                        sac
+                                                                                              td3    ent ascent (Spall et al., 1992; Peters et al., 2010; Wierstra
+                          400     200           0   0    200      400         600      800    1000   et al., 2014), generally by employing a noisy form of finite
+                                Count                            # Gradient Updates
+                                                                                                     differences. In theory, one could use finite differences to
+                                                                                                     compute the exact gradient; however, there are too many
+Figure 5. Gradient ascent performed on Swimmer.             We
+                                                                                                     parameters to make this a tractable solution. Our method
+compare the improvement of 5 starting policies and
+plot the average improvement in bold.                Horizontal
+                                                                                                     on the other hand, is a low-variance but biased estimate of a
+dashed lines are baselines. Their scores were taken from                                             policy’s expected return, which in turn gives us a biased gra-
+https://spinningup.openai.com/en/latest/spinningup/bench.html                                        dient. The second dimension of similarity is the analogue of
+                                                                                                     our PVNs, also called ‘surrogate models’ or ‘response sur-
+                                                                                                     faces’ which aim to generalize across the fitness landscape,
+tion of randomly generated MLP policies has much lower                                               for example (Booker et al., 1998; Box & Wilson, 1951;
+ceiling of performance. As networks become larger, it be-                                            Moore & Schneider, 1996; Ong et al., 2003; Loshchilov
+comes more difficult to randomly generate good policies.                                             et al., 2012); see (Jones, 2001) for an overview. In contrast
+                                                                                                     to our approach, which explicitly introduces an inductive
+6.3. MuJoCo - Swimmer                                                                                bias to make suitable generalizations across policies, these
+                                                                                                     methods make fewer assumptions and model only (often
+Our last set of experiments is on Swimmer, a Mu-                                                     local) surface-level regularities of the fitness.
+JoCo (Todorov et al., 2012) continuous control environment
+where the agent is a small worm that has to move forward                                             Our work has some similarities to synthetic gradients (Jader-
+by moving its joints. We test our approach on this task to                                           berg et al., 2017a), which are networks that learn to output
+show whether PVNs can scale to larger experiments. Also,                                             another network’s gradients. However, our networks are
+as explained in Section 3, state of the art RL algorithms                                            never trained to output gradients; these are available to us
+tend to do poorly on Swimmer, compared to other MuJoCo                                               as a byproduct of the architecture.
+tasks, because of the discounting. Agents optimizing for the                                         Generalized policy improvement (Barreto et al., 2017) finds
+discounted return learn to act in a myopic way, sacrificing                                          a better policy as a mixture of a set of policies, which is
+long term gains, due to the discount. Since our approach                                             a similar objective to ours, but the methodology is very
+can be used without discounting, we can avoid this problem                                           different, as it relies on having Q-values for each policy.
+by optimizing for the true objective directly.
+                                                                                                     Universal Value Function Approximators (UVFA, Schaul
+In these experiments, we trained PVNs with Network Fin-                                              et al., 2015) are value functions that generalize across both
+gerprinting on a dataset of 2000 deterministic policies and                                          states and goals. More specifically, since many policies
+500 rollouts each to estimate their returns. The return dis-                                         can achieve the same goals, UVFAs output the value of the
+tributions are discretized into 51 evenly sized bins. Once                                           optimal policy for a certain goal. In contrast, our method
+the PVN is trained, we do gradient ascent with 5 randomly                                            generalizes across policies, regardless of their optimality,
+initialized starting policies for 1000 steps each. The rest                                          and is less complex because it does not depend on state.
+of the algorithmic details are in the Appendix. In Figure 5,
+we compare the performance of the 5 policy ascents with                                              Finally, our work can be considered a case of off-policy
+3 baselines, DDPG (Lillicrap et al., 2015), SAC (Haarnoja                                            learning (Sutton & Barto (2018), Precup (2000), Munos
+et al., 2018) and TD3 (Fujimoto et al., 2018), which are state                                       et al. (2016)), a class of algorithms which allow one to
+of the art model-free RL algorithms. We can see that the                                             evaluate and improve policies given data generated from
+set of policies all finished with an expected return above all                                       a set of different policies. One major difference is that
+baselines. The best of the curves achieved expected returns                                          our method only looks at expected returns of policies, as
+around 250, substantially outperforming other algorithms.                                            opposed to all transitions generated by the set of policies, as
+                                                                                                     is usually done.
+
+7. Related Work
+Methods that aim to solve RL problems by searching di-
+rectly in policy space have a long history, and often different
+                                                 Policy Evaluation Networks
+
+8. Conclusion and future work                                   References
+We introduced a network that can generalize in policy space,    Barreto, A., Dabney, W., Munos, R., Hunt, J. J., Schaul, T.,
+by taking policy fingerprints as inputs. These fingerprints       van Hasselt, H. P., and Silver, D. Successor features for
+are differentiable policy embeddings obtained by inspect-         transfer in reinforcement learning. In Advances in neural
+ing the policy’s behaviour in a set of key states. We also        information processing systems, pp. 4055–4065, 2017.
+described a novel policy gradient algorithm which is per-
+formed directly through the Policy Evaluation Network,          Baxter, J. and Bartlett, P. L. Infinite-horizon policy-gradient
+allowing the computation of a policy gradient estimate for        estimation. J. Artif. Int. Res., 15(1):319350, November
+any policy, even if it has never been seen by the network.        2001. ISSN 1076-9757.
+
+Extension to value functions. Until now, we have only           Bellemare, M. G., Dabney, W., and Munos, R. A distribu-
+looked at Policy Evaluation Networks which output the             tional perspective on reinforcement learning. In Proceed-
+expected return of a policy, from the initial state distribu-     ings of the 34th International Conference on Machine
+tion. While this has benefits over the usual way of doing         Learning, ICML 2017, Sydney, NSW, Australia, 6-11 Au-
+policy gradient, there are also disadvantages. Traditional        gust 2017, pp. 449–458, 2017a.
+RL algorithms can usually learn on-line, that is learn as
+                                                                Bellemare, M. G., Dabney, W., and Munos, R. A distribu-
+more samples are seen, whereas our method requires en-
+                                                                  tional perspective on reinforcement learning. In Proceed-
+tire trajectories before learning. This, however, does not
+                                                                  ings of the 34th International Conference on Machine
+have to be the case. Our method is extendable to the state-
+                                                                  Learning-Volume 70, pp. 449–458. JMLR. org, 2017b.
+dependent value function setting V (s, θ). This can give rise
+to zero-shot policy evaluation for a variety of algorithms.     Booker, A., Dennis, J. J., Frank, P., and Serafini, D. Opti-
+In actor-critic algorithms for instance, when the policy up-      mization using surrogate objectives on a helicopter test
+dates, the value function is lagging behind and requires          example. Computational Methods in Optimal Design and
+samples from the new policy before it becomes accurate.           Control, 1998.
+Our method would allow a value function to generalize to
+unseen policies, meaning when the policy is updated, the        Box, G. E. P. and Wilson, K. B. On the experimental at-
+value function would immediately update as well. This has         tainment of optimum conditions. Journal of the Royal
+the potential to improve data efficiency, as policies would       Statistical Society, 13(1):1–45, 1951.
+not have to wait for value functions to catch up.
+                                                                Brockman, G., Cheung, V., Pettersson, L., Schneider, J.,
+Inductive Biases. We designed PVNs in the simplest way            Schulman, J., Tang, J., and Zaremba, W. OpenAI gym.
+possible, as feed-forward neural networks. However, the           arXiv preprint arXiv:1606.01540, 2016.
+structure of the network is very important. Inductive biases
+incorporated into the architecture can substantially improve    Caruana, R. Multitask learning. Machine Learning, 28(1):
+data efficiency and generalization in policy space (Wolpert       41–75, Jul 1997.
+& Macready, 1997). There is much structure in MDPs that
+can be leveraged. Instead of simply building an MLP, one        Cohn, D. A., Ghahramani, Z., and Jordan, M. I. Active
+can build a state transition model and use this information       learning with statistical models. Journal of Artificial
+to make value predictions. Other works, such as TreeQN            Intelligence Research, 4:129–145, 1995.
+(Farquhar et al., 2018), the Predictron (Silver et al., 2017)   Dadashi, R., Taiga, A. A., Roux, N. L., Schuurmans, D.,
+and Value Prediction Networks (Oh et al., 2017) are exam-         and Bellemare, M. G. The value function polytope in
+ples of value functions built with inductive biases, looking      reinforcement learning. arXiv preprint arXiv:1901.11524,
+to improve generalization.                                        2019.
+ACKNOWLEDGMENTS                                                 Farquhar, G., Rocktäschel, T., Igl, M., and Whiteson, S.
+                                                                  TreeQN and ATreeC: Differentiable tree planning for
+We’d like to acknowledge Simon Osindero, Kory Mathew-
+                                                                  deep reinforcement learning. In International Conference
+son, Tyler Jackson, Chantal Remillard and Sasha Vezhnevets
+                                                                  on Learning Representations. International Conference
+for useful discussions and feedback on the paper. Most im-
+                                                                  on Learning Representations, 2018.
+portantly, we’d like to thank Emma Brunskill for inviting
+Jean Harb to her lab, where this work was started. Pierre-      Fujimoto, S., van Hoof, H., and Meger, D. Addressing
+Luc Bacon is supported by the Facebook CIFAR AI chair             function approximation error in actor-critic methods. In
+program and IVADO. Doina Precup is a CIFAR fellow and             Proceedings of the 35th International Conference on Ma-
+is supported by the Canada CIFAR chair program.                   chine Learning, ICML 2018, Stockholmsmässan, Stock-
+                                                                  holm, Sweden, July 10-15, 2018, pp. 1582–1591, 2018.
+                                                  Policy Evaluation Networks
+
+Glynn, P. W. and Olvera-Cravioto, M. Likelihood ratio gra-       Munos, R., Stepleton, T., Harutyunyan, A., and Bellemare,
+  dient estimation for steady-state parameters. Stochastic        M. Safe and efficient off-policy reinforcement learning.
+  Systems, 9(2):83–100, June 2019.                                In Advances in Neural Information Processing Systems,
+                                                                  pp. 1054–1062, 2016.
+Haarnoja, T., Zhou, A., Abbeel, P., and Levine, S. Soft
+  actor-critic: Off-policy maximum entropy deep reinforce-       Oh, J., Singh, S., and Lee, H. Value prediction network. In
+  ment learning with a stochastic actor. arXiv preprint           Advances in Neural Information Processing Systems, pp.
+  arXiv:1801.01290, 2018.                                          6118–6128, 2017.
+
+Jaderberg, M., Czarnecki, W. M., Osindero, S., Vinyals, O.,      Ong, Y. S., Nair, P. B., and Keane, A. J. Evolutionary
+  Graves, A., Silver, D., and Kavukcuoglu, K. Decoupled            optimization of computationally expensive problems via
+  neural interfaces using synthetic gradients. In Proceed-         surrogate modeling. AIAA journal, 41(4):687–696, 2003.
+  ings of the 34th International Conference on Machine           Peters, J., Mulling, K., and Altun, Y. Relative entropy policy
+  Learning-Volume 70, pp. 1627–1635. JMLR. org, 2017a.             search. In Twenty-Fourth AAAI Conference on Artificial
+                                                                   Intelligence, 2010.
+Jaderberg, M., Dalibard, V., Osindero, S., Czarnecki, W. M.,
+  Donahue, J., Razavi, A., Vinyals, O., Green, T., Dunning,      Precup, D. Eligibility traces for off-policy policy evalua-
+  I., Simonyan, K., et al. Population based training of neural     tion. Computer Science Department Faculty Publication
+  networks. arXiv preprint arXiv:1711.09846, 2017b.                Series, pp. 80, 2000.
+Jaderberg, M., Mnih, V., Czarnecki, W. M., Schaul, T.,           Salimans, T., Ho, J., Chen, X., Sidor, S., and Sutskever,
+  Leibo, J. Z., Silver, D., and Kavukcuoglu, K. Reinforce-         I. Evolution strategies as a scalable alternative to rein-
+  ment learning with unsupervised auxiliary tasks. In 5th          forcement learning. arXiv preprint arXiv:1703.03864,
+  International Conference on Learning Representations,            2017.
+  ICLR 2017, Toulon, France, April 24-26, 2017, Confer-
+  ence Track Proceedings, 2017c.                                 Schaul, T., Horgan, D., Gregor, K., and Silver, D. Uni-
+                                                                   versal value function approximators. In International
+Jones, D. R. A taxonomy of global optimization methods             Conference on Machine Learning, pp. 1312–1320, 2015.
+  based on response surfaces. Journal of Global Optimiza-
+                                                                 Schulman, J., Moritz, P., Levine, S., Jordan, M. I., and
+  tion, 21:345–383, 2001.
+                                                                   Abbeel, P. High-dimensional continuous control using
+Konda, V. R. and Tsitsiklis, J. N. Actor-critic algorithms.        generalized advantage estimation. In International Con-
+  In NIPS, pp. 1008–1014, 2000.                                    ference on Learning Representations (ICLR), 2016.
+
+Lillicrap, T. P., Hunt, J. J., Pritzel, A., Heess, N., Erez,     Silver, D., van Hasselt, H., Hessel, M., Schaul, T., Guez, A.,
+  T., Tassa, Y., Silver, D., and Wierstra, D. Continuous            Harley, T., Dulac-Arnold, G., Reichert, D., Rabinowitz,
+  control with deep reinforcement learning. arXiv preprint          N., Barreto, A., et al. The predictron: End-to-end learning
+  arXiv:1509.02971, 2015.                                           and planning. In Proceedings of the 34th International
+                                                                    Conference on Machine Learning-Volume 70, pp. 3191–
+Loshchilov, I., Schoenauer, M., and Sebag, M. Self-adaptive         3199. JMLR. org, 2017.
+  surrogate-assisted covariance matrix adaptation evolution
+                                                                 Spall, J. C. et al. Multivariate stochastic approximation
+  strategy. In Proceedings of the 14th annual conference
+                                                                   using a simultaneous perturbation gradient approximation.
+  on Genetic and evolutionary computation, pp. 321–328,
+                                                                   IEEE transactions on automatic control, 37(3):332–341,
+  2012.
+                                                                   1992.
+Lyle, C., Bellemare, M. G., and Castro, P. S. A compara-         Such, F. P., Madhavan, V., Conti, E., Lehman, J., Stanley,
+  tive analysis of expected and distributional reinforcement       K. O., and Clune, J. Deep neuroevolution: Genetic algo-
+  learning. In Proceedings of the AAAI Conference on               rithms are a competitive alternative for training deep neu-
+  Artificial Intelligence, volume 33, pp. 4504–4511, 2019.         ral networks for reinforcement learning. arXiv preprint
+                                                                   arXiv:1712.06567, 2017.
+Mania, H., Guy, A., and Recht, B. Simple random search
+ provides a competitive approach to reinforcement learn-         Sutton, R. S. Temporal credit assignment in reinforce-
+ ing. arXiv preprint arXiv:1803.07055, 2018.                       ment learning. PhD thesis, University of Massachusetts
+                                                                   Amherst, 1984.
+Moore, A. W. and Schneider, J. Memory-based stochastic
+ optimization. In Advances in Neural Information Pro-            Sutton, R. S. and Barto, A. G. Reinforcement learning: An
+ cessing Systems, 1996.                                            introduction. MIT press, 2018.
+                                                Policy Evaluation Networks
+
+Sutton, R. S., McAllester, D. A., Singh, S. P., and Mansour,
+  Y. Policy gradient methods for reinforcement learning
+  with function approximation. In Advances in neural in-
+  formation processing systems, pp. 1057–1063, 2000.
+Sutton, R. S., Modayil, J., Delp, M., Degris, T., Pilarski,
+  P. M., White, A., and Precup, D. Horde: a scalable
+  real-time architecture for learning knowledge from unsu-
+  pervised sensorimotor interaction. In 10th International
+  Conference on Autonomous Agents and Multiagent Sys-
+  tems (AAMAS 2011), Taipei, Taiwan, May 2-6, 2011,
+  Volume 1-3, pp. 761–768, 2011.
+Thomas, P. Bias in natural actor-critic algorithms. In Pro-
+  ceedings of the 31th International Conference on Ma-
+  chine Learning, ICML 2014, Beijing, China, 21-26 June
+  2014, pp. 441–448, 2014.
+Todorov, E., Erez, T., and Tassa, Y. Mujoco: A physics
+  engine for model-based control. In 2012 IEEE/RSJ Inter-
+  national Conference on Intelligent Robots and Systems,
+  pp. 5026–5033. IEEE, 2012.
+van den Oord, A., Kalchbrenner, N., and Kavukcuoglu,
+  K. Pixel recurrent neural networks. In Proceedings of
+  the 33nd International Conference on Machine Learning,
+  ICML 2016, New York City, NY, USA, June 19-24, 2016,
+  pp. 1747–1756, 2016.
+Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters,
+ J., and Schmidhuber, J. Natural evolution strategies. The
+ Journal of Machine Learning Research, 15(1):949–980,
+ 2014.
+
+Wolpert, D. H. and Macready, W. G. No free lunch theo-
+ rems for optimization. IEEE transactions on evolutionary
+ computation, 1(1):67–82, 1997.
+Xi-Ren Cao and Yat-Wah Wan. Algorithms for sensitivity
+  analysis of markov systems through potentials and pertur-
+  bation realization. IEEE Transactions on Control Systems
+  Technology, 6(4):482–494, July 1998. ISSN 2374-0159.
+                                                       Supplementary Material
+
+
+A. Polytope Experiment Details
+A.1. Markov Decision Process Specifications
+To describe the 2 state MDP used in our polytope experiments, we use the following convention (Dadashi et al., 2019):
+
+                                                              r(si , aj ) = r̂[i × |A| + j]
+
+                                                        P (sk |si , aj ) = P̂ [i × |A| + j][k]
+where our MDP has the following properties.
+                                                                       |A| = 2, γ = 0.8
+                                                              r̂ = [−0.45, −0.1, 0.5, 0.5]
+                                            P̂ = [[0.6, 0.4], [0.99, 0.01], [0.2, 0.8], [0.99, 0.01]]
+
+A.2. Visualization of Predictions
+In the polytope experiments, 40 points were randomly sampled and split into equally sized training and test sets of 20 points.
+In Figure A.1a, we show the sampled points projected in the value polytope. In contrast, Figure A.1b shows the values of
+the points predicted by a trained PVN.
+
+
+                         1.25                                                             1.25
+                         1.00                                                             1.00
+                         0.75                                                             0.75
+                                                                                 V (s2)
+                V (s2)
+
+
+
+
+                         0.50                                                             0.50
+                         0.25                                                             0.25
+
+                         0.00                                                             0.00
+
+                         0.25                                                             0.25
+
+                                1.0   0.8     0.6       0.4      0.2      0.0                    1.0   0.8   0.6      0.4   0.2   0.0
+                                              V (s1)                                                         V (s1)
+
+                                 (a) Exact policy values                           (b) Policy values predicted by the trained PVN
+
+Figure A.1. Results of training a network to predict policy values, projected in a value polytope. The training set is in blue and the test set
+is in red.
+                                                    Policy Evaluation Networks
+
+B. Hyperparameters
+
+Table B.1. Hyperparameters used in various experiments. The last three rows are only applicable when using probing states.
+
+           Parameter                                      Polytope     Cartpole Linear      Cartpole MLP       Swimmer
+           Policy architecture (hidden layer sizes)          N/A                       []              [30]          [30]
+           PVN Architecture (hidden layer sizes)             [50]                   [80]               [80]          [80]
+           NN activations                                  ReLU                   ReLU               ReLU          ReLU
+           Temperature                                       N/A                       3                  3             3
+           # Bins                                            N/A                      41                 41            51
+           Grad ascent learning rate                           0.1                0.001              0.001         0.002
+           Grad ascent optimizer                            SGD                   Adam               Adam          Adam
+           Grad ascent steps                                  100                   100                400          1000
+           Discount factor (γ)                                 0.8                     1                  1             1
+           Batch size                                           32                    32                 32            32
+           PVN learning rate                                 0.01                 0.003              0.003         0.003
+           PVN optimizer                                 RMSProp                  Adam               Adam          Adam
+           Training steps                                  20000                   3000               3000          5000
+           # Policies                                           20                 1000               1000          2000
+           # Returns per policy                              N/A                    100                100           500
+           Training set performance limit                    N/A                      30                 30          N/A
+           Train probing states                                N/A                 True               True          True
+           Randomly generate probing states                    N/A                 True               True          True
+           # Probing states                                    N/A                   20                 20            20
+
+
+C. Dataset collection algorithm
+
+Algorithm 3 Collect dataset of policies for PVN training
+  Choose number of policies K and rollouts B
+  D←∅
+  for policy i = 1 to K do
+    Initialize policy πi parameters θi using Glorot Initialization
+    R←∅
+    for rollout b = 1 to B do
+       Sample Monte-Carlo return GM C using policy πθi
+       R ← R ∪ GM C
+    end for
+    D ← D ∪ (θi , R)
+  end for
+  return D
+

@@ -1,0 +1,270 @@
+Controller / state / Q 实验与根因记录（开发诊断，任务仍在推进）
+
+当前结论：Ring内真实state adaptation已成立；当前带controller的四场景LOSO还未成立。
+已修正的输入问题不等于已经解决跨场景学习。Q标量误差下降、controller平均效应和state改变eta选择是不同证据。
+
+当前使用的controller信息：合并数据实验使用静态compact64场描述和physical entity/API slots；当前FF动作、约束响应、已知参数和初始化分布均为已完成的诊断对照。
+H20只用于旧bug定位对照，不作为当前正式输入；复用旧rollout标签不等于复用旧context。
+
+已完成测试：
+R01 独立 state 覆盖不足
+  测试：原 Ring FF：32 到512独立 TRAIN states；另256自然 fresh states。
+  结论：Ring内 state selection 已确认；扩大state覆盖确实解决过记忆训练state的问题。
+  边界：不能外推到所有 controller 或 LOSO。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/state_nuisance_rootcause_v1
+
+R02 旧 H20 controller 归属错误
+  测试：审计缓存key；相同trainer只替换正确controller的context。
+  结论：缓存key遗漏controller是已证实实现错误；修正改善controller-effect学习。
+  边界：它不是所有后续失败的充分解释；H20不是当前部署输入。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_cached_ff_relearn_v1
+
+R03 旧输入不具有辨别性
+  测试：相同初态、eta、短描述下，比较不同真实FF程序；独立seed halves验证Q差异。
+  结论：nominal/当前分支/endpoint描述可把真实不同Q的程序混为一谈。
+  边界：证明针对这些描述及程序；不能据此宣称任意controller表示都不可能。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_response_families_v1
+
+R04 FF算子信息补齐是否足够
+  测试：真实场函数的静态query；相同标签下替换输入。
+  结论：改善部分source/joint Q；没有解决LOSO。
+  边界：输入更丰富不等于模型已经学习可迁移的组合关系。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_operator_repair_v1
+
+R05 单纯缩放、简单模型或controller数量
+  测试：复用归一化、bilinear、4x128 vs8x64、source-only几何投影实验。
+  结论：已有多种对照；没有一个构成通用LOSO修复。
+  边界：不能排除所有未来正则化/架构，但不重复泛泛调参。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_q_diversity_v1/checks/factorial_breadth8
+
+R06 直接给真实controller参数
+  测试：旧实验已经测过8解析controller、64states、fused与bilinear输入。
+  结论：真实六参数并未稳定解决held-scene或held-controller泛化。
+  边界：它只描述解析场；不等于任意Flow完整执行程序。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_q_diversity_v1/checks/privileged_parameters
+
+R07 source增加还是目标域支持缺失
+  测试：等标签预算：增加source vs少量target训练；wrong-C/wrong-eta对照。
+  结论：加入目标域支持对部分Q泛化更有效，证据支持数据支持结构的重要性。
+  边界：用了target训练标签，所以不是LOSO结果，也不是零样本修复。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_cross_scene_root_v2/crossed_support
+
+R08 历史native成功标签是否解决
+  测试：matrix标签 + native实际标签，对比native标签替成scene/eta均值。
+  结论：多数表面收益可由eta prior解释；未稳定恢复state use。
+  边界：当时Toy/Ring训练仅32states，DB/Four56；不是512-state controller实验。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_ff_crossed_cache_full_v1
+
+R09 当前FF动作合成是否是唯一难点
+  测试：直接提供当前state的实际FF action统计；不执行物理step。
+  结论：部分Q误差降低，但state/controller ranking迁移未修复。
+  边界：排除“只要知道当前动作就足够”；不排除长程组合困难。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_ff_action_mediation_v1
+
+R10 约束附近controller响应
+  测试：增加map/agent接触姿态响应；geometry-only及wrong-C响应对照。
+  结论：小型held-Ring开发集上，正确controller响应有超出几何的Q信息。
+  边界：8states、K4、开发诊断；不是state-adaptive selection或完整LOSO证明。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_ff_encounter_mediation_v1
+
+R11 训练controller是否抹掉eta作用
+  测试：同state/eta/seed，把简单goal reference换成frozen Flow nominal reference。
+  结论：Toy/Ring独立seed的state×eta信号恢复；controller数据设计是实际瓶颈之一。
+  边界：不是证明旧Flow LOSO失败只因数据量不足。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_flow_endpoint_probe_v1
+
+R12 联合修复信息与监督
+  测试：四场景、10controller、32TRAIN+8VAL states/scene；75fits，joint+四折LOSO。
+  结论：Toy joint有真实state use；所有LOSO matched−mismatch CI跨0；Ring存在训练记忆。
+  边界：K4/Q2-Q4机制实验，不冒充K16/B15正式benchmark。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_ff_factorial_repair_v1
+
+R13 新的entity表示是否损失state学习
+  测试：同一Ring512缓存，physical23 vs entity；额外仅添加native API slot标识。
+  结论：entity state-effect corr .225→slot .639；正确state selection优于错配state。
+  边界：同时比较编码与encoder时不能只归因为某一个特征；slot干预也未单独证明长期Q非对称。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_entity_symmetry_probe_v1
+
+R14 slot修复是否同时解决LOSO
+  测试：复用所有75baseline；相同数据/shape/初始化/训练，15个slot fits。
+  结论：四折LOSO仍未恢复可靠state use。
+  边界：Ring内编码问题是局部已修根因，不是所有迁移失败的唯一根因。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_ff_slot_repair_v1
+
+R15 native Flow是否真的具有agent置换对称
+  测试：确定性 F(Ps,Ph,t) 对 P F(s,h,t)，保持物理伪动作对应。
+  结论：33600个比较均不等价；native场的API顺序确实重要。
+  边界：不单独推出Q不对称；修正旧“相同PRNG key”等价于正确耦合的误判。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_entity_symmetry_probe_v1/field_equivariance_protocol.json
+
+R16 跨场景相同廉价controller程序
+  测试：共享导航程序pilot，32旧自然states、3C、K4、Q2；768新outcomes，1536旧对照复用。
+  结论：0碰撞、24数值未知；缺少干净的多场景state×eta/reversal监督，已剪枝。
+  边界：不扩大弱信号数据，也不宣称共享controller在理论上不可行。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_shared_navigation_probe_v1
+
+R17 显式给出FF初始化分布
+  测试：两场景旧标签；exact参数/参数+initializer/field+initializer；18fits及全部paired诊断。
+  结论：部分Q误差下降，但held-scene matched−mismatch无可靠正优势，fixed解释未排除。
+  边界：参数本身旧测试已存在；新增信息是initializer。原FINAL已打开，只作DEVELOPMENT。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_program_input_probe_v1
+
+R18 合并现有actual-FF数据是否足以修复
+  测试：97,280缓存outcomes、784physicalstates；60fits；相同标签state-erasure控制及全部四折机制审计。
+  结论：联合Toy仍能学到交互；四折LOSO均无可靠正S×C×eta skill，DB/Four/Ring显著低于零交互预测。合并覆盖未修复迁移。
+  边界：512states属于nativeRing，不能冒充每个crossed controller均有512states；不能据此排除所有有用的数据扩展。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_cached_union_v1
+
+R19 平均效应是否掩盖交互学习
+  测试：同一输入、网络、标签、抽样；完整Q-MSE与直接state×eta目标回归；30fits和全部四折机制评估。
+  结论：直接交互目标没有修复任何held-scene交互/错配检验；不再沿loss权重调参。
+  边界：原BCE checkpoint规则不同；此结论只排除该项作为充分修复。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_interaction_target_v1
+
+R20 混合训练曝光与任务干扰
+  测试：nativeRing512；相同native样本/次数下移除其他任务，再比较密集训练；同形状C-field/zero控制。
+  结论：独立64state的交互相关0.329→0.605→0.754；误差改善CI支持。去掉C特征更差。混合训练与低曝光确实损害该分支。
+  边界：固定一个controller的局部因果证据，不是controller迁移或整个LOSO根因；P/E核数值差异已定位，三个原checkpoint完整复现。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_native_exposure_v1
+
+R21 旧少量目标支持是否真的恢复state适应
+  测试：复用30个旧fits；补state/C/eta去均值、同scene错配、全部fixed及独立seed reversal；零新fit/rollout。
+  结论：目标Q误差下降未恢复state-conditioned selection；Ring→Toy的交互skill显著为负。不能拿旧Q误差改善当作适应证据。
+  边界：旧contact-bilinear输入、8目标state；目标标签用于训练，非LOSO。不能排除更充分且合理的数据支持。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_support_mechanism_v1
+
+R22 是否存在一致的跨任务梯度冲突
+  测试：复用6个原checkpoint，按实际采样权重计算完整SOURCE TRAIN梯度；分nativeRing、其他Ring C、其他scene。
+  结论：native与总梯度仅2/6反向；没有一致冲突，PCGrad路径已剪枝。
+  边界：这是checkpoint处全量梯度，不是历史Adam更新；梯度量级差异本身不构成因果证明。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_gradient_competition_v1
+
+R23 恢复旧native采样质量是否修复
+  测试：唯一干预：native在scene内质量5.263%恢复至原20%；相同数据/输入/预算；公平eta-only；30新fits、30旧fits复用；四折和native64全部完成。
+  结论：native64 Q误差.05045→.03670，交互相关.332→.568；成功92.09%→95.41%，paired CI[+.68,+6.74]pp。但所有四折LOSO错配CI跨0，三重交互skill负。
+  边界：局部训练退化得到独立state支持的修复，不是LOSO完整根因。已打开DEVELOPMENT；零新rollout。禁止继续扫采样权重。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_native_mass_repair_v1
+
+R24 有效交叉state/controller监督到底有多少
+  测试：旧预测与逐seed缓存复算，四场景分别检查TRAIN32/VAL8的独立半分信号。
+  结论：Ring Flow三重相关TRAIN .949、VAL .087；Toy两者约.93/.89。native512不等于每个交叉C有512state。
+  边界：Q2未知结果使部分真实三重信号CI跨0；高训练相关本身不证明真实关系已学到。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_crossed_support_audit_v1
+
+R25 训练state上的交互是不是纯标签噪声记忆
+  测试：冻结12旧模型；同32Ring state、5Flow C、K4补独立seed2/3共1280条；无新fit。
+  结论：独立seed的state×eta skill CI[.00805,.03996]、matched−mismatch CI[.01412,.07209]为正；纯噪声解释不充分。
+  边界：三重state×controller×eta skill CI[-.00378,.01765]仍不确定；这是训练physicalstate的新seed，不是新state/LOSO。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_crossed_seed_replication_v1
+
+R26 只提高标签精度能否修复新state泛化
+  测试：原32state不变，复用独立seed使Q2变Q4；六个state/eta公平fits；输入/采样/预算均固定。
+  结论：源Ring VAL Q误差改善CI[.00303,.02513]；state×eta误差改善CI[-.00154,.00818]跨0，充分修复门槛未通过。
+  边界：有限Q2→Q4不是全部噪声效应的排除；不继续扫Q8/Q16。标签已成为新模型TRAIN，不再作为其独立检验。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_crossed_precision_v1
+
+R27 固定Q4后增加S/C联合覆盖是否有因果改善
+  测试：复用96个已有自然TRAIN physicalstates，为5个现有Flow参考controller补7680个缺失K4Q4标签；32→128states/C；输入、归一化、采样、6000步及CPU绑定固定；公平eta baseline。
+  结论：Ring SOURCEVAL8中Q误差下降36%、state×eta误差下降40%，3/3seed同时改善；paired Q改善CI[.01197,.05933]、S×eta[.00352,.02148]、三重交互[.00216,.01614]。有效联合覆盖不足是该局部Q泛化差的实证原因。
+  边界：验证state仅8且参与checkpoint选择；top1未提高，错配优势未成立。新增96组合在新模型中是TRAIN，不能冒充TEST。不是LOSO根因闭环；后续三折检验已完成，见R28。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_crossed_coverage_v1
+
+R28 局部coverage修复能否迁移到其他scene
+  测试：固定Q4、同CPU成对比较N32/N128；含Ring源数据的三折36新fits，joint12及heldRing6旧fits复用；零新rollout。
+  结论：四个held场景的三重交互skill CI均为负，matched−mismatch CI均跨0；Four标量Q误差改善而DB恶化。覆盖改善不等于transfer修复。
+  边界：全部opened DEVELOPMENT/K4/Q2或Q4；Ring fold不含新增源数据，属于no-treatment reference。未跑新confirmation，不盲扩512。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_crossed_coverage_loso_v1
+
+R29 是否只是当前输入没有识别局部controller算子
+  测试：1664缓存S/C行、所有active agents及五折实际归一化输入，解析恢复四个非耦合M；按程序结构拆全部C pairs，复算现有预测。
+  结论：M最大误差2.384e-7、family识别100%；非耦合Flow Toy/Ring与共享goal Toy/Four有真实三方交互信号，held模型skill仍为负。缺少off-agent Jacobian不能是整个原因。
+  边界：仅证明四类局部M可识别，不证明有限descriptor充分描述任意controller未来行为。零新fit/query/rollout。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_operator_sufficiency_localization_v1
+
+R30 局部动作可学性与长期Q是否分离
+  测试：复用7680真实首步动作和10240独立静态动作，18个joint目标/输入对照fit及多checkpoint复算。
+  结论：完整动作向量保留真实state×eta信号；source局部学习主要由Toy推动，另三场景对独立动作噪声泛化差。
+  边界：没有运行被source gate否定的72个held fits；局部动作不是Q输入。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_local_to_return_probe_v1/vector_control
+
+R31 局部监督噪声是否阻碍交互学习
+  测试：全部6个两key子集×3fit seeds，common-vs-IID共享完全相同聚合训练标签；36fits。
+  结论：DB/Four/Ring局部state×eta学习有可复现改善，6/6panel方向一致；sourceVAL对应CI为正。
+  边界：没有证明三方交互普遍学到，也不是长期Q或LOSO修复。零新rollout。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_noise_coupling_v1
+
+R32 局部噪声解释能否延伸到长期Q
+  测试：Four原32TRAIN×4C×K4×Q4只改变跨state噪声耦合；2048新rollouts，旧独立噪声Q复用。
+  结论：state×eta标签方差只下降3.24%；旧509个已知Q2cell全部seed一致。预设gate失败，停止该分支Q fits及其他场景扩张。
+  边界：否定它作为Four goal长期Q失败的充分解释；不声称所有场景完全没有噪声问题。7unknown/0collision。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_q_noise_coupling_v1
+
+R33 当前compact64是否完整描述随机初始化程序
+  测试：解析构造mean/scale使单descriptor-key初值不变，四场景各8自然TRAIN×4M；复用2048原动作。
+  结论：compact64数学上相同，数值差≤4.77e-7；2034/2048独立key FF动作不同。
+  边界：纯静态，无Env.step；扩展controller类的输入不足反例，不等于原生训练分布中已经发生同输入冲突。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_initializer_alias_v1
+
+R34 当前输入混淆能否传到长期Q
+  测试：Four原32TRAIN×4C×K4×Q2改变初始化分布；1024原标签复用，1024新标签，独立seed乘积及state bootstrap。
+  结论：相同描述下平均Q下降约8.4pp，CI[-10.16,-6.84]pp；delta-Q的state×eta能量CI[.00383,.01480]正，证明遗漏信息影响长期Q。
+  边界：所有states仍有同一fixed eta15成功，严格eta排名反转为0；不能据此宣称selection迁移原因已找到或修复。不在这批饱和数据训练。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_initializer_alias_q_v1
+
+R35 初始化输入混淆是否也影响Ring Flow Q
+  测试：复用1024原标签；原32自然TRAIN×4M×K4×Q2增加1024别名初始化标签，所有6个eta pair及独立seed验证。
+  结论：相同compact64的delta-Q能量CI[.03320,.10938]；但eta/state×eta差异CI跨0，1个发现反转、0个独立确认。
+  边界：原17、新59数值未知保留有界统计，0碰撞；只证明Q信息缺失，不证明迁移selection根因。停止加seed和alpha搜索。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_initializer_alias_ring_q_v1
+
+R36 失败是否只发生在长期Q组合
+  测试：复用全部静态动作；72输入、共同四key监督、24个source-only局部动作fits，独立UID噪声评估及同TRAIN key复算。
+  结论：12/12 sourceVAL场景/折的state×eta skill CI为正；held DB/Four为负，Toy/Ring跨0，四折triple skill全负。同key复算仍失败。
+  边界：失败已出现于一步FF映射，长期Q/未知未来Flow不能单独解释。局部动作是target，绝非Q输入；仍未唯一分离program支持和几何组合问题。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_local_transfer_localization_v1
+
+R37 eta在pool后才输入是否是局部迁移障碍
+  测试：仅将现有eta另送入三个零agent通道；相同参数形状及初值、数据、预算；12新fits，旧24fits复用，成对state bootstrap。
+  结论：没有held场景获得正state×eta skill CI；DB/Four相对旧路由显著更差，四折triple CI仍负。
+  边界：否定该路由修改作为充分修复；不扩展Q训练或宽度/深度/lr搜索。零新query/rollout。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_early_eta_localization_v1
+
+R38 统一完整初始化程序后局部关系能否迁移
+  测试：全256profile历史审计，160旧自然states；统一0/vmax Cartesian初始化但保持goal reference/M/FF/safety；16384静态动作，24新source-onlyfits，旧24复用。
+  结论：四fold均无held state_eta正CI；源场景独立UID验证仅4/12通过；同TRAIN四key复算9/12源场景通过，held仍失败。
+  边界：统一初始化单独没有修复；源学习gate变弱，不能直接把原因唯一归到几何。Ring finite-key学习与独立噪声有差异；不扩seed/scale。零terminal rollout。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_common_initializer_local_v1
+
+R39 失败是否早于FF积分：实际correction映射
+  测试：32旧basis states复用，128静态basis查询，24source-onlyfits；输入/网络/预算不变，target改为精确确定性delta；对全部4个eta做固定仿射分解。
+  结论：9/12源场景state_eta正CI；held Ring通过、Four明确失败，Toy/DB不确定。Four相对几何Brelative的state效应skill CI[-.00334,-.00109]；既有输入可重建真Brelative误差1.82e-8。
+  边界：故障位置跨场景不同；Four存在FF积分之前的已知几何/干预映射学习失败，不需长期Q噪声解释。实际delta仍含预备safety(reference)，不是全部纯几何。不是Q根因闭环。
+  证据：/home/zhihan/research/Basin_C1/diagnostics/controller_correction_transfer_local_v1
+
+已证实的原因及修复边界：
+1. 旧H20缓存错配controller：真实实现错误，已修正；不能解释修正后的所有失败。
+2. 旧短描述/endpoint输入混淆不同FF程序：真实不可辨别性；场函数输入解决了部分区别，但不是充分迁移表示证明。
+3. 低独立state覆盖与不合适的对称性假设：Ring内有直接修复证据；未解决全部LOSO。
+4. 部分廉价controller数据缺少有效state×eta监督：独立seed对照成立；已停止扩张不合格导航pilot。
+
+尚未完成因果闭环的部分：
+当前全部controller信息与physical geometry的长期组合是否仍有输入混淆、source支持是否足够，以及现有encoder如何学习这种组合。
+不能把剩余问题直接称为“理论不可迁移”，也不能只凭训练loss下降称为“只剩过拟合”。
+已做source-vs-target支持干预，但target标签参与的实验只能解释机制，不能当作LOSO成功。
+
+统计与数据纪律：
+保存所有原始标签、未知数值结果、预测、多个错配排列、physical-state bootstrap、全部fixed policies与失败案例。
+四场景机制表是K4、Q2/Q4；joint行是四场景均参与训练后的新state诊断，不是四个独立单场景模型。
+它不替代K16/B15正式pipeline；Safety若没有同controller/seed语义的缓存，不拿其他controller的Safety数字填表。
+已打开的旧FINAL都标作DEVELOPMENT。新的正结论必须另外用untouched确认集。
+
+历史复用纠正：
+直接输入六参数的旧实验已存在，初次检索漏掉了checks/privileged_parameters。本轮6个parameter-only fits与已答问题重叠；保留证据并披露。
+早前9个physical23 coverage fits也与已有证据重叠；已停止重复。没有删除任何数据。
+已建立115个相关诊断目录、2777个代码/证据文件的索引；后续先查索引，再查配置和checkpoint语义。
+
+最近缓存合并60个fits及所有四折/独立Q16/交互评估均已完成，新增rollout=0。报告：../controller_cached_union_v1/REPORT.txt。
+直接交互目标、native曝光/干扰、旧target-support机制复算均已完成，详见R19–R21。
+完整SOURCE梯度审计与native采样质量恢复已完成，见R22–R23。native64局部修复成立；四折LOSO仍失败。当前表在../controller_native_mass_repair_v1/matrix_summary.csv；Stage13表已明确标成历史。
+coverage32→128局部有效但LOSO未修复，见R27–R28；局部M输入可识别性见R29。局部噪声修复及长期Q否证见R30–R32；当前输入确有初始化分布alias，见R33–R34，但Four饱和，无严格eta反转。根因尚未闭环。
+局部原因已证实；整体LOSO尚未完成因果闭环。旧单source迁移也失败，因此不能把所有失败归因于混合scene训练。

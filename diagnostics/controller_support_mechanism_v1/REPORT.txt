@@ -1,0 +1,41 @@
+Stage20 — reuse old crossed-support tests; calibration versus adaptation
+
+COMPLETE:30oldfits reused;zero newfits/queries/rollouts. Both sourcedirections,all12oldpanels incl32openedQ16states/scenewithunseenC6/7. PhysicalTRAIN/evaluationoverlap0.
+Originaltreatment:64SOURCEstates x8analyticC;512extraoutcomes from8moreSOURCEstates or8TARGETstates x4C. Wrong-C/eta controlsalreadyfit. Same6000steps,source-onlynorm,fixedfinalcheckpoint. OLDstate_contact_bilinearinput;notcurrentcompact64repair.
+Crossedarms useTARGETlabels;NOTzero-shotLOSO. All oldconfirmationisDEVELOPMENT. EmpiricalSOURCEeta-priorreferenceisnotatrained/fairpairedQeta.
+Addedanalysis removesstate/eta/Cpriors;recenterinside20000physical-statebootstrap;same-scenemismatchresamplesdonor/recipient;all16fixed/bootstrapbest;8/8independenthalf reversal. Savedpredictions/permutations/per-seedlabels/bootstrap.
+Keyresult:8targetstates improvedQ_MSE butdidNOTrestorestate-conditionedselection onindependentunseen-C targetpanels. Both mismatchCIsinclude0;SxCxeta skillnotpositive. Ringsource->Toytargetinteractionissignificantlynegativeevenwithcorrecttargetsupport.
+
+TargetnaturalQ16:sourcefold arm Q_MSE S_eta_corr success matched-mismatchCI best-fixedCI
+toy more_source 0.23769 0.005804493116959014 [0.8857421875, 0.947265625] [-0.021312443134291623, 0.10883434867417716] [-0.169921875, 0.0087890625]
+toy crossed 0.20865 -0.05824019552187642 [0.8671875, 0.9072265625] [-0.03938814092722625, 0.03859842745452949] [-0.205078125, -0.01171875]
+toy crossed_wrong_controller 0.43347 0.043292487426208656 [0.9140625, 0.97265625] [-0.07044694403545276, 0.044222110243791225] [-0.1533203125, 0.0234375]
+toy crossed_wrong_eta 0.21216 -0.06754709726336267 [0.884765625, 0.943359375] [-0.060324199197024475, 0.045638178343413965] [-0.1689453125, 0.0126953125]
+toy source 0.47897 -0.018186807159547513 [0.666015625, 0.724609375] [-0.002833192531218549, 0.05105633657105778] [-0.41796875, -0.169921875]
+ring more_source 0.48043 -0.009227364438187561 [0.4306640625, 0.4306640625] [0.0, 0.0] [-0.0546875, -0.0009765625]
+ring crossed 0.24992 0.00786030161934809 [0.4306640625, 0.4306640625] [-0.008874615561602838, 0.0004999369959677327] [-0.0546875, -0.0009765625]
+ring crossed_wrong_controller 0.36252 0.011641205314651107 [0.4423828125, 0.4423828125] [-0.003925821080135335, 0.02168675191763994] [-0.021484375, -0.0009765625]
+ring crossed_wrong_eta 0.29938 -0.0040079325142456995 [0.4326171875, 0.4326171875] [-0.005541148512815165, 0.0029433117052824606] [-0.052734375, 0.0]
+ring source 0.40236 0.023043363944650414 [0.4306640625, 0.4306640625] [-0.0005051185344827587, 0.0005208333333333333] [-0.0546875, -0.0009765625]
+
+Independenttargetinteraction:positivegainmeansbetterthansecond
+toy S_eta crossed-zero: [-0.0019096084465930491, -0.00024224080246160358];CI=[-0.0036803295782456046, 0.0006096182691440263]
+toy S_eta crossed-more_source: [-0.0017978569146012147, 0.0004803884265297542];CI=[-0.0035659729458815135, 0.0016621848817330966]
+toy S_eta crossed-crossed_wrong_controller: [0.005778230991349942, 0.01084569989140155];CI=[0.002449172622852251, 0.013152617128684152]
+toy S_eta crossed-crossed_wrong_eta: [-0.0018321326748579891, -0.00020356914377289703];CI=[-0.0034673795574830025, 0.0006108128373487992]
+toy S_C_eta crossed-zero: [-0.004786657933103878, -0.0005480309567726166];CI=[-0.008999065907576619, 0.0015982526766835441]
+toy S_C_eta crossed-more_source: [-0.005395009524549188, 0.0018276855186476482];CI=[-0.009106431524238534, 0.004734564113727094]
+toy S_C_eta crossed-crossed_wrong_controller: [0.0004325087631427138, 0.023684006978387906];CI=[-0.00890271246986023, 0.031776233394484384]
+toy S_C_eta crossed-crossed_wrong_eta: [-0.0046569081772586856, -0.0005172699869488611];CI=[-0.008645563860678902, 0.001595916372479533]
+ring S_eta crossed-zero: [-0.006350842573514339, -0.006350842573514339];CI=[-0.008065373003156486, -0.00408055281901312]
+ring S_eta crossed-more_source: [-0.0047434175963415, -0.0047434175963415];CI=[-0.006383480256904999, -0.0026731530585131775]
+ring S_eta crossed-crossed_wrong_controller: [-0.005565829270016635, -0.005565829270016635];CI=[-0.00738014083288373, -0.0031912472919238093]
+ring S_eta crossed-crossed_wrong_eta: [-0.0015289227023209048, -0.0015289227023209048];CI=[-0.002830174516724505, -0.0003180130525219708]
+ring S_C_eta crossed-zero: [-0.012702562673583696, -0.012702562673583696];CI=[-0.01619314954163542, -0.008148458516473493]
+ring S_C_eta crossed-more_source: [-0.009462483855739112, -0.009462483855739112];CI=[-0.012839305335158068, -0.005189426461540837]
+ring S_C_eta crossed-crossed_wrong_controller: [-0.012056044428703006, -0.012056044428703006];CI=[-0.015577862814660915, -0.007446097274889386]
+ring S_C_eta crossed-crossed_wrong_eta: [-0.0028384448207958712, -0.0028384448207958712];CI=[-0.005400211019929024, -0.0004934142042303699]
+
+Boundary:WithdrawstrongerreadingofoldQcalibration/supportresultsasadaptive-transferproof. Notproofallcoverageexpansionsfail. Oldinput,8targetstates,Q1trainingremainlimitations.
+Single-sourcetransferalsofailed:Stage19mixed-sceneinterferencecannotaloneexplainallhistoricaltransferfailure. Stage19stillisolatesa realnative-branchtrainingcause. RepairmusttestthatcausewithoutcallingitthecompleteLOSOrationale.
+Artifacts:protocol,per-foldresults,summary/interactionCSV,bootstrapNPZ,matched/mismatchedpredictions;original30checkpoints/rawseedlabelsreferencedinprotocol.

@@ -1,0 +1,47 @@
+Real controller-input-free Q(s, eta) state-coverage experiment
+Q DATA GENERATION AND NUMERICAL EVALUATION COMPLETE. VIDEOS ARE NOT REQUIRED.
+
+512 TRAIN /32 VAL /64 TEST physical states; TEST=16 previously opened +48 fresh.
+16 exact eta per state,4 TRAIN seeds,16 held-out seeds;57344 real rollout records.
+8192 exact cached trials +49152 new trials; numerical unknowns=234; collisions=0.
+No controller identifier, weights, flow, response fingerprints, H20 trajectory or state ID enters a predictor.
+The physical execution policy remains fixed to define success probabilities. The protocol retains its provenance.
+FF-own valid Bernoulli labels are used uniformly, including the retrained32-state baseline.
+Normalization is frozen from the original32 TRAIN states. Every size uses the same32-state validation cohort.
+Checkpoint selection uses mean3-fit validation NLL. Fresh TEST labels are generated after the model choices freeze.
+
+PRIMARY FRESH-TEST RESULTS (mean of3 training seeds):
+arm | states | selected step | state rho | state-eta interaction rho | same-eta sign accuracy | both reversal directions correct | NLL | top1 success lower
+local92_eta | 128 | 600 | 0.1376 | 0.1107 | 0.6032 | 0.1920 | 0.3408 | 0.8780
+local92_eta | 256 | 600 | 0.2230 | 0.1813 | 0.6347 | 0.1809 | 0.3130 | 0.8911
+local92_eta | 32 | 400 | 0.0819 | 0.0474 | 0.5520 | 0.0760 | 0.4102 | 0.7674
+local92_eta | 512 | 1400 | 0.4159 | 0.3712 | 0.7288 | 0.3368 | 0.2831 | 0.9301
+local92_eta | 64 | 600 | 0.1285 | 0.1416 | 0.5498 | 0.1801 | 0.3944 | 0.8698
+physical23_eta | 128 | 600 | 0.2933 | 0.2482 | 0.6838 | 0.2518 | 0.3114 | 0.9023
+physical23_eta | 256 | 800 | 0.3595 | 0.3120 | 0.7170 | 0.2714 | 0.2904 | 0.9206
+physical23_eta | 32 | 400 | 0.1853 | 0.1808 | 0.6136 | 0.1904 | 0.3869 | 0.8633
+physical23_eta | 512 | 1400 | 0.5664 | 0.5315 | 0.8099 | 0.4490 | 0.2493 | 0.9327
+physical23_eta | 64 | 400 | 0.1968 | 0.1692 | 0.6173 | 0.1702 | 0.3447 | 0.8598
+physical23_heads | 128 | 400 | 0.2536 | 0.2400 | 0.6655 | 0.3500 | 0.3341 | 0.9240
+physical23_heads | 256 | 600 | 0.3505 | 0.3188 | 0.7013 | 0.3568 | 0.2967 | 0.9297
+physical23_heads | 32 | 200 | 0.2408 | 0.2250 | 0.6187 | 0.2545 | 0.3334 | 0.9097
+physical23_heads | 512 | 1400 | 0.5507 | 0.5116 | 0.8000 | 0.4581 | 0.2570 | 0.9293
+physical23_heads | 64 | 200 | 0.2657 | 0.2603 | 0.6509 | 0.3326 | 0.3078 | 0.9080
+physical23_heads_shuffled | 512 | 400 | -0.0181 | -0.0088 | 0.4674 | 0.0826 | 0.3175 | 0.8728
+physical25_heads | 32 | 100 | 0.1500 | 0.1474 | 0.5833 | 0.1801 | 0.3371 | 0.8950
+physical25_heads | 512 | 1200 | 0.5491 | 0.5136 | 0.7911 | 0.4988 | 0.2541 | 0.9349
+eta_only | 32 | 0 | NA | NA | 0.5000 | 0.0000 | 0.3500 | 0.8932
+eta_only | 64 | 0 | NA | NA | 0.5000 | 0.0000 | 0.3053 | 0.8932
+eta_only | 128 | 0 | NA | NA | 0.5000 | 0.0000 | 0.3016 | 0.8932
+eta_only | 256 | 0 | NA | NA | 0.5000 | 0.0000 | 0.2994 | 0.8932
+eta_only | 512 | 0 | NA | NA | 0.5000 | 0.0000 | 0.3010 | 0.8932
+
+Reversals require two states to prefer opposite eta orders with both empirical gaps at least0.25, including numerical-unknown bounds.
+Overlapping reversal pairs are descriptive cases, not independent sample units.
+95% intervals resample48 physical states jointly across methods, averaging model seeds within each resample.
+See physical_state_bootstrap.json for paired changes versus32 states and versus eta-only.
+The synthetic256-state fixture from the previous diagnosis is NOT part of this real training dataset.
+A finite512-state learning curve tests the coverage hypothesis; it cannot prove all larger data sizes are sufficient or futile.
+
+Exported training/validation/fresh_test NPZs contain physical inputs, exact eta, Bernoulli counts and per-seed outcomes.
+state_eta_results.csv is the direct state-to-outcome data table. protocol.json contains original physical states and fingerprints.

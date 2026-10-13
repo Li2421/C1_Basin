@@ -1,0 +1,115 @@
+本次真实数据扩充与诊断结论
+
+数值实验和数据导出已经完成。Q 实验不需要视频交付。
+
+实验仍然去掉 critic 输入中的 controller：预测器只接收物理 state 和 eta，
+不接收 controller ID、权重、flow、响应指纹、未来轨迹、state ID 或随机种子。
+产生真实 rollout 标签的执行策略固定为原 FF；因此这里估计的是该固定策略下的
+Q(s, eta)=成功概率。适用范围是 Ring Exchange 的原始 t0 分布和固定 16 个 eta。
+
+数据规模与标签
+
+TRAIN：512 个独立物理 state × 16 个 eta × 4 个未来随机种子 = 32,768 次。
+VAL：32 个独立 state × 16 个 eta × 16 个种子 = 8,192 次。
+TEST：64 个独立 state × 16 个 eta × 16 个种子 = 16,384 次。
+TEST 中 16 个属于先前已经查看的诊断数据；本报告确认性结果只用另外 48 个新 state。
+所有模型和 checkpoint 选择冻结后，才生成这 48 个新 state 的 TEST 标签。
+
+合计 57,344 条真实 rollout，其中 49,152 条本次新执行，8,192 条精确命中缓存。
+234 条数值异常保留为 unknown，没有当作失败，也没有重新运行来替换结果。
+每个 (state, eta) 的经验成功率为 success/(success+failure)，保留原始计数和
+每个 seed 的实际结果。CSV 同时保留 unknown 引起的成功率上下界。
+预测器训练使用有效 Bernoulli 计数的负对数似然，没有 Bellman/TD 自举标签。
+
+直接看数据：state 确实改变 eta 的效果
+
+在新 TEST 的相互独立的前 8 和后 8 个 seed 上，去除 eta 均值后的 state 效应
+相关性为 0.922。这是 rollout 结果之间的重复性，不是任何 critic 的学习得分。
+一个事后挑选的直观例子（索引从 0 开始，完整来源见 direct_state_eta_example.json）：
+
+全局 state 索引    eta 索引 6 的成功次数    eta 索引 11 的成功次数
+567                 16/16                     0/16
+574                  0/16                    16/16
+
+这四个组合均没有数值异常，前后两半 seed 都有相同的偏好翻转。
+该例子说明存在 state-dependent eta 排序；它不是总体效果估计，也不证明真实概率
+恰好为 0 或 1，或某个 eta 是全 eta 空间中的唯一最优值。
+
+同一 Q(s, eta) 的独立测试结果
+
+以下是预先设置的 physical23_eta 模型，三次初始化训练结果的均值。
+保持同一 64×64 网络、优化器、16 eta、每对 4 个训练 seed、归一化、32 个 VAL
+state 和选择规则，只扩充独立训练 state。另做相同 2,000 步预算的对照。
+
+训练 state 数        32        64        128       256       512
+state 效应相关性     0.185     0.197     0.293     0.359     0.566
+同 eta 变化方向准确率 61.4%     61.7%     68.4%     71.7%     81.0%
+state×eta 交互相关性  0.181     0.169     0.248     0.312     0.532
+TEST NLL（越低越好）  0.387     0.345     0.311     0.290     0.249
+选中 eta 成功率下界   86.3%     86.0%     90.2%     92.1%     93.3%
+
+state 效应相关性：对每个 eta 去掉跨 state 均值后，比较预测与真实结果；
+避免仅靠 eta 的整体好坏获得高分。交互相关性进一步去掉 state 的整体难度。
+方向准确率只在经验差距至少 0.25、且考虑 unknown 界限后方向仍明确的组合上计算。
+这些配对并非相互独立样本。置信区间以 48 个物理 state 为重采样单位，
+不是把 eta、state 对或模型 seed 当作独立证据。
+
+512 相对 32 的 state 相关性提升为 0.381，配对 bootstrap 95% 区间 [0.226, 0.556]。
+固定 2,000 步时，32→512 个 state 的相关性也从 0.246 提升到 0.572。
+因此结果不只是更大的数据集被允许训练更多步。
+
+同为 512 个训练 state 的 eta-only 基线 TEST NLL=0.301，选中 eta 成功率下界=89.3%。
+Q(s, eta) 的 NLL 差值 95% 区间为 [-0.099, -0.002]。
+93.3% 对 89.3% 是选择成功率的点估计，此处不宣称该差值达到统计显著。
+
+补充对照与原因判断
+
+1. 原始 92 维物理输入加 eta，state 相关性也从 0.082 提升到 0.416。
+   紧凑 23 维表示表现更好，但这不能单独证明维数冗余是唯一原因。
+2. 23 维物理 state 输出 16 个 eta 的 Q 值，相关性从 0.241 提升到 0.551；
+   打乱 TRAIN 的 state 与整行 eta 结果的对应后，相关性降至 -0.018。
+   保留真实 state-label 对应关系是产生这一泛化效果的关键。
+3. 加回绝对世界朝向的 25 维对照，512 个 state 时相关性为 0.549，与 23 维
+   多输出模型相近；遗漏绝对朝向不足以解释原来的大幅失败。
+4. 排除含 unknown 的整个 TEST 单元后，多输出模型的相关性仍为 0.551，
+   主要结论没有依赖数值异常的处理。
+
+目前最有支持的解释：独立 state 覆盖不足限制了跨 state 泛化，过度训练又损害
+概率预测。state 本身含有可学习的信息，不能简单当作整体无用的噪声。
+这一实验没有独立拆开“更多 state 的覆盖”与“更多总 rollout”的所有贡献，
+也没有证明上述解释是所有历史实验失败的唯一根因。
+
+过拟合确实存在，需区分概率误差与 eta 排序
+
+512-state physical23_eta，从 VAL 选定的 1,400 步继续到 12,000 步：
+TRAIN NLL：0.200 → 0.098；新 TEST NLL：0.249 → 0.443。
+TEST state 相关性：0.566 → 0.507。
+这是明确的概率泛化恶化。与此同时，所选 eta 的成功率下界仍为 93.3% → 94.0%，
+不能把它描述成所有决策指标都随 loss 下降而变差。
+最终结果使用 VAL 选择的 checkpoint，没有按 TEST 选择训练时长。
+
+512 个训练 state 已足以在独立数据上确认改善，但尚未证明达到数据量饱和。
+256→512 的 state 相关性增益 95% 区间仍为 [0.150, 0.282]；512-state 模型的
+state 效应 R² 约 0.300，仍只解释了一部分变化。不能宣称已经完整学会 Q。
+
+文件使用
+
+training_dataset.npz：512-state 训练集。
+validation_dataset.npz：32-state 验证集。
+fresh_test_dataset.npz：48-state 新独立测试集。
+original_test_dataset.npz：16-state 旧诊断测试集。
+state_eta_results.csv：每个 state/eta 的直接结果计数、成功率及上下界。
+protocol.json：全部物理初态、精确 eta、执行配置、来源与实验协议。
+
+NPZ 的 state23/state92/state25 是已归一化物理输入；eta 是实际物理 eta，
+normalized_eta 是模型所用 eta。success/failure/numerical_unknown 是计数。
+rollout_outcomes 最后一维依次是 [success, numerical_failure, collision]；
+其余维度依次是 [state, eta, seed]。TRAIN 形状为 [512,16,4,3]。
+state_indices/state_uids 仅用于追溯，禁止作为输入特征。
+positions/velocities/goals 和归一化参数也随每个 split 的 NPZ 导出。
+
+完整机器可读指标见 research_results.json、metrics.csv、physical_state_bootstrap.json。
+图见 real_learning_curve.png 和 overfitting_curves.png；核对结果见 verification.json。
+所有 57,344 条标签均已与共享 rollout 数据库的精确身份逐条核对。
+
+本实验的状态和结果以 batch_status.json、verification.json 记录；无需视频验收。

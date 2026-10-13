@@ -1,0 +1,28 @@
+FULL-VECTOR LOCAL-EXECUTION SOURCE GATE
+{"aggregate_half_CI95": [[2.967328806130181e-06, 1.8772422845800864e-05], [1.3661220757866245e-06, 1.3266139959659757e-05]], "aggregate_skill_CI95": [2.417401269688466e-06, 1.5558188007168555e-05], "boundary": "SOURCEVAL checkpointselected usingthese labels,so gateisfitness/powerdiagnostic,NOTconfirmation. Heldlabelsnotused. Actiontarget uses everyactivecomponent; rawactionsinclude laternumericalQfailures.", "local_complete_beats_eta_state_eta_MSE_by_seed": [true, true, true], "new_query": 0, "new_rollout": 0, "next": "Runallfourheldlocal/return contrasts asfrozen.", "passed": true, "rule": ">=2/3seeds SOURCEVALinteractionMSE betterthaneta AND 20kstratifiedphysicalstatebootstrap mean-scene interactionskillCIpositive."}
+AllopenedDEVELOPMENT; noheldlabelsusedforgate. Sharedencoderinitializationverified; target-specificoutput/checkpointcriteriadiffer.
+scene arm interaction skill CI95
+double_bottleneck current state_eta 6.991719e-07 [-7.50165290629064e-07, 2.0990410148111264e-06]
+double_bottleneck current state_controller_eta -1.713035e-07 [-4.160699122117106e-07, 1.226310403482061e-07]
+double_bottleneck complete state_eta 6.665717e-07 [-9.079167817165269e-07, 2.085449093526953e-06]
+double_bottleneck complete state_controller_eta -2.071671e-07 [-4.1917351759148587e-07, -4.164379326210041e-09]
+double_bottleneck eta_only state_eta -1.360023e-15 [-1.3600232058976777e-15, -1.3600232043111307e-15]
+double_bottleneck eta_only state_controller_eta 0 [0.0, 0.0]
+four_way_intersection current state_eta -9.169788e-07 [-2.8016763637262754e-06, 1.1342037296213852e-06]
+four_way_intersection current state_controller_eta -2.465776e-07 [-3.982513082870294e-07, -6.256097382681677e-08]
+four_way_intersection complete state_eta -1.636567e-06 [-3.4124835807478624e-06, 5.703673839898374e-07]
+four_way_intersection complete state_controller_eta -3.266247e-07 [-5.149977567573024e-07, -1.0029388237154316e-07]
+four_way_intersection eta_only state_eta -1.360023e-15 [-1.360023206088317e-15, -1.3600232045745119e-15]
+four_way_intersection eta_only state_controller_eta 0 [0.0, 0.0]
+ring_exchange current state_eta 9.198159e-07 [-1.1815219431925973e-07, 1.6844223007479287e-06]
+ring_exchange current state_controller_eta -1.187414e-07 [-4.124966636548517e-07, 2.5987032443724653e-07]
+ring_exchange complete state_eta 4.591584e-07 [-2.3100171318644845e-07, 9.962266239415148e-07]
+ring_exchange complete state_controller_eta -3.317301e-07 [-5.963313569940665e-07, -2.880460751140847e-08]
+ring_exchange eta_only state_eta -1.360023e-15 [-1.36002320593003e-15, -1.3600232043095556e-15]
+ring_exchange eta_only state_controller_eta 0 [0.0, 0.0]
+toy_give_way current state_eta 4.151081e-05 [1.0104245551986229e-05, 6.272266715595783e-05]
+toy_give_way current state_controller_eta 1.548607e-06 [2.04056333725408e-07, 2.422404104978789e-06]
+toy_give_way complete state_eta 4.146152e-05 [1.040024368329549e-05, 6.247104142678056e-05]
+toy_give_way complete state_controller_eta 1.56584e-06 [2.6199605480190496e-07, 2.4776038147858173e-06]
+toy_give_way eta_only state_eta -1.110223e-15 [-1.1102230253069343e-15, -1.1102230233197621e-15]
+toy_give_way eta_only state_controller_eta 0 [0.0, 0.0]

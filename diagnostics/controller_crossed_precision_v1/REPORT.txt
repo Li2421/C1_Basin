@@ -1,0 +1,42 @@
+SAME SUPPORT / Q2->Q4 PRECISION ONLY
+SOURCE_PRECISION_GATE_PASSED=False
+Sixfits,all32Ringstates and5Flow-referencecontrollers unchanged. Allnonlabelarrays,eligiblecells,samplerweights,drawRNG,optimizer,6000steps,sourceVALrule unchanged;sourceTRAINnormalization asserted identical. Eta-only receives exactlysameQ4labels.
+Reused1280newcachedindependentseedoutcomes. No rolloutgenerated here. Stage24frozenmodelreplicationremainsvalidforoldmodels;thoseoutcomesnowTRAINfornewmodels.
+All4SOURCEscenesandbothgoal/Flowbranchesreported.20kphysical-statepairedbootstrap,censorbounds;midpointcorrelationssensitivityonly. SOURCEVALselectedandN8,so a positivegateisnotindependentconfirmation.
+RingFlowpairedcontrast: {"scene": "ring_exchange", "reference": "flow", "N": 8, "Q_MSE_gain": {"identification_bounds": [0.012228193477474354, 0.015281805137422173], "censor_CI95": [0.003033548345912514, 0.025129394288964876]}, "selection_gain": {"identification_bounds": [0.0125, 0.0125], "censor_CI95": [0.0, 0.037500000000000006]}, "state_eta_MSE_gain": {"identification_bounds": [0.0022210861422788273, 0.005070515772720418], "censor_CI95": [-0.0015365709126785988, 0.008175790715943263]}, "state_controller_eta_MSE_gain": {"identification_bounds": [0.003001373845945654, 0.00547423438667467], "censor_CI95": [7.805255468543508e-05, 0.007493216083206989]}, "individual_fit_Q_gain": [{"seed": 17, "bounds": [0.027171849081461065, 0.032959523603670646]}, {"seed": 23, "bounds": [0.021817189631249345, 0.028285487563488976]}, {"seed": 41, "bounds": [0.01884336715751872, 0.02284029840839938]}], "individual_fit_state_eta_gain": [{"seed": 17, "bounds": [0.0028139517662340782, 0.006304505748789944]}, {"seed": 23, "bounds": [0.009944061963589945, 0.015182599465599366]}, {"seed": 41, "bounds": [0.002223337272400272, 0.00490849987788522]}]}
+
+scene reference model Q_MSE state_eta_corr triple_corr selected_success
+double_bottleneck flow q4_state 0.0036637818797539087 -0.14022740740880574 -0.20488483504450436 [1.0, 1.0]
+double_bottleneck flow q4_eta 0.12887181456976368 None None [1.0, 1.0]
+double_bottleneck flow q2_state 0.0040791858875905895 -0.12906338520330476 -0.18570281043416847 [1.0, 1.0]
+double_bottleneck flow q2_eta 0.1288068612942507 None None [1.0, 1.0]
+double_bottleneck goal q4_state 3.949130961331148e-08 None None [0.0, 0.0]
+double_bottleneck goal q4_eta 0.19359831385158732 None None [0.0, 0.0]
+double_bottleneck goal q2_state 9.518155327073674e-11 None None [0.0, 0.0]
+double_bottleneck goal q2_eta 0.19360543376747869 None None [0.0, 0.0]
+four_way_intersection flow q4_state 0.005474849151046355 0.5641044934605772 0.5329527094649187 [1.0, 1.0]
+four_way_intersection flow q4_eta 0.11571242896684245 None None [1.0, 1.0]
+four_way_intersection flow q2_state 0.008307228935034418 0.35547779881435865 0.31817987811027787 [0.9875, 0.9875]
+four_way_intersection flow q2_eta 0.11557792570889344 None None [1.0, 1.0]
+four_way_intersection goal q4_state 0.021312569272165148 -0.11559877969223095 -0.07761867878484881 [1.0, 1.0]
+four_way_intersection goal q4_eta 0.32244646673866345 None None [1.0, 1.0]
+four_way_intersection goal q2_state 0.0203982048557436 -0.19649872316224185 -0.17626559586862647 [1.0, 1.0]
+four_way_intersection goal q2_eta 0.3225437350476196 None None [1.0, 1.0]
+ring_exchange flow q4_state 0.09420643179611156 0.15838196270064056 0.16503283879728167 [0.8, 0.8125]
+ring_exchange flow q4_eta 0.1796461258906199 None None [0.2, 0.225]
+ring_exchange flow q2_state 0.10796143110355985 0.11623900354617372 0.08670224308927961 [0.7875, 0.8]
+ring_exchange flow q2_eta 0.17964351730402908 None None [0.2, 0.225]
+ring_exchange goal q4_state 0.034838780005677125 0.3380116818204661 0.3667663441094963 [0.4625, 0.55]
+ring_exchange goal q4_eta 0.24428075904802218 None None [0.36875, 0.41875]
+ring_exchange goal q2_state 0.04165809437610692 0.3310387387161073 0.37868397493916905 [0.4625, 0.55]
+ring_exchange goal q2_eta 0.24436567019652924 None None [0.36875, 0.41875]
+toy_give_way flow q4_state 0.019971973584704334 0.9107555443881196 0.8703480753349746 [0.61875, 0.61875]
+toy_give_way flow q4_eta 0.1831680824405773 None None [0.30625, 0.30625]
+toy_give_way flow q2_state 0.014409715285229737 0.92632877484102 0.8923310852174168 [0.6375, 0.6375]
+toy_give_way flow q2_eta 0.18314336812105378 None None [0.30625, 0.30625]
+toy_give_way goal q4_state 0.0696543796533467 0.026695338474978743 0.05499706291786187 [0.3125, 0.3125]
+toy_give_way goal q4_eta 0.2403975602596326 None None [0.25625, 0.25625]
+toy_give_way goal q2_state 0.041644368683651144 0.26053762253921536 0.26180500887917896 [0.3125, 0.3125]
+toy_give_way goal q2_eta 0.2404636195765843 None None [0.25625, 0.25625]
+
+A failureprunesQ2->Q4precisionas a sufficientrepair,notallpossiblenoiseeffects. NoautomaticQ8/16sweep. Input-sufficiencyandstatecoverageare notsettledbythiscontrast.

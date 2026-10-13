@@ -1,0 +1,56 @@
+Stage17 — compatible cache union + state-erased supervision control
+
+COMPLETE: 60 fits, all four held-scene panels, independent opened Q16 panels, and controller interaction audit.
+97,280 cached outcomes; 784 physical states; 4,032 state-controller rows; 1,794 numerical unknowns. New rollouts: 0.
+The union is heterogeneous: native Ring has 512 TRAIN states, while the crossed goal/Flow operator panel still has 32 TRAIN states per scene. A larger total is not 512 states for every controller.
+SOURCE-only gradient labels, normalization and checkpoint choice. No physical TRAIN/VAL overlap. All target panels are DEVELOPMENT, not final confirmation.
+K4/Q2-Q4 factorial panels are mechanism diagnostics; the K16/Q16 panel contains 32 states per scene and two previously unseen analytic controllers. Do not report the former as B15 benchmark success.
+
+Flow-reference operator panel: success and mismatch/fixed-policy comparisons (probability units):
+fold scene model N success_lower success_upper matched-minus-mismatch_95CI model-minus-bootstrap-best-per-C-fixed_95CI
+joint toy_give_way eta_only 8 0.30625 0.30625 [0.00000,0.00000] [-0.43750,-0.15000]
+joint toy_give_way union_native_slots 8 0.61875 0.61875 [0.10179,0.13036] [0.00000,0.03125]
+joint toy_give_way union_slots_state_erased 8 0.60625 0.60625 [0.00000,0.00000] [0.00000,0.00000]
+joint double_bottleneck eta_only 8 1.00000 1.00000 [0.00000,0.00000] [0.00000,0.00000]
+joint double_bottleneck union_native_slots 8 1.00000 1.00000 [0.00000,0.00000] [0.00000,0.00000]
+joint double_bottleneck union_slots_state_erased 8 1.00000 1.00000 [0.00000,0.00000] [0.00000,0.00000]
+joint four_way_intersection eta_only 8 1.00000 1.00000 [0.00000,0.00000] [0.00000,0.00000]
+joint four_way_intersection union_native_slots 8 1.00000 1.00000 [0.00000,0.02143] [0.00000,0.00000]
+joint four_way_intersection union_slots_state_erased 8 0.98750 0.98750 [-0.02679,0.00000] [-0.03750,0.00000]
+joint ring_exchange eta_only 8 0.20000 0.22500 [0.00000,0.00000] [-0.70000,-0.46250]
+joint ring_exchange union_native_slots 8 0.80000 0.80625 [0.00000,0.03482] [-0.02500,0.00000]
+joint ring_exchange union_slots_state_erased 8 0.80000 0.80625 [0.00000,0.00000] [-0.02500,0.00000]
+held_toy toy_give_way eta_only 40 0.43375 0.43375 [0.00000,0.00000] [-0.28750,-0.13625]
+held_toy toy_give_way union_native_slots 40 0.43375 0.43375 [0.00045,0.00157] [-0.28750,-0.13625]
+held_toy toy_give_way union_slots_state_erased 40 0.43375 0.43375 [0.00000,0.00000] [-0.28750,-0.13625]
+held_db double_bottleneck eta_only 40 0.17125 0.17125 [0.00000,0.00000] [-0.84125,-0.80375]
+held_db double_bottleneck union_native_slots 40 0.78250 0.78500 [-0.01490,0.01103] [-0.22500,-0.20000]
+held_db double_bottleneck union_slots_state_erased 40 0.00000 0.00000 [0.00000,0.00000] [-1.00000,-0.98250]
+held_four four_way_intersection eta_only 40 0.99750 0.99750 [0.00000,0.00000] [-0.00500,0.00000]
+held_four four_way_intersection union_native_slots 40 0.89375 0.90500 [-0.01891,0.02240] [-0.13250,-0.06625]
+held_four four_way_intersection union_slots_state_erased 40 0.99500 0.99500 [-0.00179,0.00090] [-0.01000,0.00000]
+held_ring ring_exchange eta_only 40 0.18000 0.20000 [0.00000,0.00000] [-0.66625,-0.54250]
+held_ring ring_exchange union_native_slots 40 0.23125 0.25375 [-0.02369,0.06311] [-0.61500,-0.48250]
+held_ring ring_exchange union_slots_state_erased 40 0.44000 0.45625 [-0.07224,0.05327] [-0.41750,-0.27750]
+
+State-dependent controller x eta skill after removal of all C/eta means:
+Positive skill means lower squared error than predicting zero interaction; censor bounds and bootstrap recenter inside each physical-state replicate.
+joint double_bottleneck: skill=[-0.0005334018364062667, -0.0005334018364062667], CI=[-0.0017304348446815444, 0.0006979884965898098]
+joint four_way_intersection: skill=[-0.0030885220050108344, -0.00015243277153009164], CI=[-0.008706399140353017, 0.005648849260023359]
+joint ring_exchange: skill=[-0.03546456919019779, -0.02276653668694867], CI=[-0.0463981327665681, -0.0037339215714544596]
+joint toy_give_way: skill=[0.048973535269526594, 0.048973535269526594], CI=[0.013950300603042294, 0.0626788275987039]
+held_toy toy_give_way: skill=[-0.006167663956021485, -0.006167663956021485], CI=[-0.013060773489962884, 0.0005166358538109573]
+held_db double_bottleneck: skill=[-0.0026494286883048035, -0.002601284289698421], CI=[-0.003626958695078723, -0.0014837668375528863]
+held_four four_way_intersection: skill=[-0.011141663077150858, -0.007943900456166282], CI=[-0.013872509804433813, -0.005314638125715847]
+held_ring ring_exchange: skill=[-0.020047292632765057, -0.013378460438937798], CI=[-0.025519904780083372, -0.008271250721222333]
+
+Interpretation:
+Toy joint/source VAL genuinely carries state/controller/eta interaction; it is checkpoint-selection data, not a final confirmation.
+No held scene shows reliable positive controller x state x eta skill. DB/Four/Ring skill is significantly negative relative to zero; Toy interval includes zero.
+Held-Toy has a tiny positive K4 matched-minus-mismatch difference, but remains far below best per-controller fixed eta; this is not successful adaptive transfer.
+The independent opened Q16 unseen-controller panels do not repair this conclusion: all matched-minus-mismatch CIs include zero, and no strong discovery reversal pair qualifies.
+Therefore combining this existing support is not a sufficient repair. This does NOT prove that every useful data expansion would fail, nor that Q is theoretically unlearnable.
+Safety: no collision in these retained panels. Numerical unknowns remain bounded, not silently counted as success/failure. There is no compatible matched Safety baseline for every diagnostic controller, so none is fabricated.
+Next narrow test: learn the state x eta interaction directly, with a same-network full-Q regression control. This tests interference from nuisance mean effects; it is not yet a causal root-cause claim.
+
+Artifacts: protocol.json; dataset_audit.json; dataset.npz; rows.json; fits/; matrix_results.json; interaction_results.json; q16_*_results.json; corresponding raw predictions and bootstrap NPZs; summary.csv.

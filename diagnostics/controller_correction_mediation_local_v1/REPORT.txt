@@ -1,0 +1,18 @@
+ORACLE ACTUAL CORRECTION — LOCAL FF ACTION PREDICTION
+Source state_eta positiveCI 12/12; qualifyingheldfolds []
+Correctcorrectioninput didnotrepairlocalFFtransfer. Upstreamlifting-learningfailure isNOTasufficientexplanation underthisoracleinterface. Stopthisfeature/representationbranch; do notrunnewQfits/rolloutsfromthisnegative.
+Oracleintermediateprovidedforlearning, nothard-wired solver orperfectdecoder. Negative result falsifies thissufficientrepair, notallpossibleuseofcorrection; doesnotprovewhattheremaininguniqueQcauseis. Actualruntimealwayscomputedcorrectcorrection; failureisinlearnedpredictors. DEVELOPMENTsource-onlyfits, nofreshconfirmation.
+
+Fold | metric | original skill | mediated skill [95%CI] | pairedchange [95%CI]
+toy | state_eta | 1.9071062e-06 | -8.0514863e-06 [-1.0514646106035081e-05, -5.24878417235806e-06] | -9.9585925e-06 [-1.3345483326331743e-05, -6.030752699472068e-06]
+toy | state_controller_eta | -2.702174e-06 | -2.8430201e-06 [-3.676219776734028e-06, -1.9198772985056787e-06] | -1.4084607e-07 [-5.313757104262763e-07, 2.220385041834372e-07]
+db | state_eta | -1.8766283e-06 | 2.1030196e-07 [-3.662314017938969e-07, 7.634383957003823e-07] | 2.0869303e-06 [1.528221882791053e-06, 2.5224223457822805e-06]
+db | state_controller_eta | -2.8720382e-07 | -1.5078792e-07 [-2.6433690533753897e-07, -2.776944648214578e-08] | 1.3641589e-07 [2.0508086381979836e-08, 2.4818510155080574e-07]
+four | state_eta | -2.7655952e-05 | -7.4323614e-06 [-9.133016250469148e-06, -5.5154702584163144e-06] | 2.0223591e-05 [5.60322997891374e-06, 3.822800745225222e-05]
+four | state_controller_eta | -4.7482116e-06 | -2.2461802e-06 [-2.8505359134785476e-06, -1.595497703145075e-06] | 2.5020314e-06 [9.256744127909022e-07, 4.4726224397126824e-06]
+ring | state_eta | 1.6432443e-07 | 3.2176742e-07 [-2.364877469433094e-07, 8.522442813831068e-07] | 1.5744299e-07 [-6.769274078510897e-08, 3.7668688052213406e-07]
+ring | state_controller_eta | -3.8275692e-07 | -3.5445445e-07 [-5.61508548265247e-07, -1.1945642744173543e-07] | 2.8302465e-08 [-6.635081291748227e-08, 1.257596680589151e-07]
+
+AllStage35labels/K4/160naturalphysicalstates/source-onlynormalization/sourceVALcheckpoint/6000steps/networkshapes preserved. Onlyactualdelta injectedinto2zeroagentchannels beforepooling, retainingalloldinformation. Everyfitseedandallscenecontrols saved.
+12newstatefits; old12eta andall24baselinefits reused. 0queries,0physicalsteps,0rollouts. Localactionmetrics NOTQ/success metrics. Physicalstatepairedbootstrap20000, recenter/donorresample, triplepowerweakRingreported.
+Relatedprimaryperspective consulted beforeprotocol: https://arxiv.org/abs/2004.07780. Thisisanempiricaloracleintermediatecontrast, notnaturalcausalmediation identification.

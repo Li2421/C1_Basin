@@ -1,0 +1,9 @@
+CONTROLLER INITIALIZER ALIAS — TERMINAL Q DIAGNOSTIC
+{'target': 'raw_Q_difference', 'controller': 'all', 'physical_states': 32, 'point_bounds': [0.0546875, 0.08203125], 'CI95': [0.033203125, 0.109375]}
+{'target': 'eta_preference_difference', 'controller': 'all', 'physical_states': 32, 'point_bounds': [0.0135498046875, 0.066650390625], 'CI95': [-0.0023193359375, 0.085693359375]}
+{'target': 'state_eta_difference', 'controller': 'all', 'physical_states': 32, 'point_bounds': [-0.029453396797180176, 0.08653652667999268], 'CI95': [-0.057586684823036194, 0.10957486927509308]}
+{'target': 'state_controller_eta_difference', 'controller': 'all', 'physical_states': 32, 'point_bounds': [-0.06010953336954117, 0.10210945457220078], 'CI95': [-0.09594391789287329, 0.1331661304458976]}
+[{'arm': 'original', 'successes': 326, 'rollouts': 1024, 'collision': 0, 'deadlock': 0, 'timeout': 681, 'numerical_failure': 17}, {'arm': 'altered_initializer', 'successes': 220, 'rollouts': 1024, 'collision': 0, 'deadlock': 0, 'timeout': 745, 'numerical_failure': 59}]
+{'bounds': [-0.1201171875, -0.0458984375], 'CI95': [-0.15234375, -0.013671875]}
+Q_alias_supported=True;state_eta_alias_supported=False
+Broader-controller-class information counterexample on32DEVELOPMENT TRAINstates. Not a causal explanation of existing native-distribution LOSO or a validated repair. Q2 independent halves, all unknowns bounded, physical-state bootstrap; no trained model or fresh confirmation.

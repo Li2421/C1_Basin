@@ -1,0 +1,18 @@
+LOCAL ACTION READOUT VALIDITY — SHARED PER-AGENT HEAD
+Source state_eta positiveCI 12/12; qualifyingheldfolds ['db', 'ring']
+Inspectqualifyinglocalfolds/controllerinteraction andQhistory beforeaQrepair.
+No oracleinputs; exactStage35physical/C72inputs. Onlylocalreadoutchanged; encoder+eta initializationbitexact, shareddecoderhas290fewerparameters. Positive resultinvalidatesusingoldglobalactionheadfailureasproofthatlocalmappingisunlearnable. NeitheroutcomealonecausallyidentifiesoriginalQroot. DEVELOPMENTonly.
+
+Fold | metric | original skill | mediated skill [95%CI] | pairedchange [95%CI]
+toy | state_eta | 1.9071062e-06 | 4.2081974e-06 [2.891308382641904e-06, 5.447991143847944e-06] | 2.3010912e-06 [-5.612388106446294e-07, 5.0755977738812035e-06]
+toy | state_controller_eta | -2.702174e-06 | -1.2405258e-06 [-1.7647095186760382e-06, -7.250285689228256e-07] | 1.4616482e-06 [7.273283396381899e-07, 2.1065525850994435e-06]
+db | state_eta | -1.8766283e-06 | 1.8048171e-06 [1.1740403276283809e-06, 2.3368351152002744e-06] | 3.6814454e-06 [2.8932357351404065e-06, 4.207773753655442e-06]
+db | state_controller_eta | -2.8720382e-07 | -2.888184e-07 [-5.142944484438965e-07, -4.402912754158798e-08] | -1.6145864e-09 [-1.8865153413605442e-07, 1.9815277286223092e-07]
+four | state_eta | -2.7655952e-05 | -0.00074017416 [-0.0008110054424843894, -0.0006243598051949858] | -0.00071251821 [-0.0007779379228219231, -0.0006048954706789314]
+four | state_controller_eta | -4.7482116e-06 | -7.525795e-05 [-8.51234990050627e-05, -6.167630730574534e-05] | -7.0509738e-05 [-8.089704829092948e-05, -5.668429213941557e-05]
+ring | state_eta | 1.6432443e-07 | 5.3291807e-06 [4.190721137064118e-06, 6.198754651684731e-06] | 5.1648563e-06 [4.06190246212319e-06, 6.049279010514035e-06]
+ring | state_controller_eta | -3.8275692e-07 | -4.8879529e-07 [-7.999918679693994e-07, -1.55272653389443e-07] | -1.0603837e-07 [-4.250336533211961e-07, 2.2406923112479946e-07]
+
+AllStage35labels/K4/160naturalphysicalstates/source-onlynormalization/sourceVALcheckpoint/6000steps preserved; encodershapesunchanged,decoderreplacedwithparametercountmatching. Retainagentlatentfromoldencoderanduseashared2-coordinateper-agenthead. No oraclefeatures. Everyfitseedandallscenecontrols saved.
+12newstatefits; old12eta andall24baselinefits reused. 0queries,0physicalsteps,0rollouts. Localactionmetrics NOTQ/success metrics. Physicalstatepairedbootstrap20000, recenter/donorresample, triplepowerweakRingreported.
+Relatedprimaryperspective consulted beforeprotocol: https://arxiv.org/abs/1612.00222. Passiveequivarianceverifiedwithagentidentityandcontrollerinformationmovingwithagents; doesNOTassumenativeactiveagentexchangeinvariance.

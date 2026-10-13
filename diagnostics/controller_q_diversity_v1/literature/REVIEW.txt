@@ -1,0 +1,76 @@
+Controller-conditioned value functions: primary-source audit, 2026-10-09
+
+PVN / Policy Evaluation Networks (Harb et al., 2020)
+https://arxiv.org/abs/2002.11833
+Policy queried at learned probing states. Concatenated action distributions form
+the fingerprint. This does not require a future environment rollout to query the
+policy. Evidence primarily concerns value generalization across policies, not our
+unseen geometry/scene protocol. Learned probes can be synthetic policy inputs.
+
+PeVFA (Tang et al.)
+https://arxiv.org/abs/2010.09536
+SPR encodes individual (state, action) pairs with a shared network, then mean pools;
+OPR encodes policy parameters using permutation-invariant transformations.
+Policy-recovery and contrastive auxiliary losses are proposed in addition to
+value fitting. Recovery tests whether an embedding predicts actions at states.
+Evidence mainly concerns policies within each RL task, not a four-scene LOSO.
+Official implementation checked: ppo_pevf_aux_spr_ad.py, mean pool line 188,
+policy reconstruction negative log likelihood line 124 (local downloaded copy).
+https://github.com/TJU-DRL-LAB/self-supervised-rl
+
+PD-VF (Raileanu et al., ICML 2020)
+https://proceedings.mlr.press/v119/raileanu20a.html
+https://proceedings.mlr.press/v119/raileanu20a/raileanu20a.pdf
+Policy Transformer receives an unordered set of (s,a) pairs; decoder predicts a
+given s and policy embedding. Dynamics Transformer receives (s,a,s_next); decoder
+predicts s_next. Value W(s0,z_policy,z_dynamics) is quadratic in policy embedding.
+Policies/checkpoints are executed across training environments to cross factors.
+At deployment a short interaction prefix identifies new dynamics; this is not
+our no-preview, no-target-interaction protocol. Shared state/action/reward spaces
+and related dynamics are assumed; not arbitrary new robot geometry.
+Official code checked: train_policy_embedding.py, train_dynamics_embedding.py.
+https://github.com/rraileanu/policy-dynamics-value-functions
+
+PAnDR (Sang et al., IJCAI 2022)
+https://www.ijcai.org/proceedings/2022/0474.pdf
+https://arxiv.org/abs/2204.02877
+Separate policy behavior (s,a) and environment context (s,a,r) embeddings. Action
+reconstruction supervises policy embedding; contrastive context learning trains
+environment embedding. Mutual-information objectives discourage entanglement
+while preserving joint information. Crossed policy/environment offline buffer;
+few interactions infer test environment. Official value network concatenates
+state, environment embedding and policy embedding (pdvf_networks.py line 53).
+https://github.com/TJU-DRL-LAB/self-supervised-rl
+
+Our inference / next hypothesis, not an established repair:
+1. Test descriptor sufficiency by held-state action/distribution reconstruction,
+   before using Q-label improvement as the only representation quality measure.
+2. Preserve controller x scene crossing; do not make controller ID a scene ID.
+3. Audit the full FF execution kernel. The six analytic parameters do not include
+   inherited per-scene initialization mean/scale and all execution conditions.
+4. A controller embedding may require a separate observable environment/task
+   description. This is conditional on what existing physical features already
+   contain; neither state-only impossibility nor controller-only sufficiency follows.
+5. For FF, endpoint action fingerprints may omit vector-field intervention
+   sensitivity. Include function probes of the actual field only as a separately
+   audited experiment, never retrofit frozen confirmation inputs/checkpoints.
+6. Current confirmation stays frozen. These papers motivate later controls;
+   they do not license selecting a method on the current confirmation labels.
+
+No new rollouts or fitting were triggered by this literature audit.
+Downloaded PDFs/text and selected official code are retained in this directory.
+
+Counterevidence / newer scaling study:
+Massively Scaling Explicit Policy-conditioned Value Functions (Bohlinger and
+Peters, arXiv 2502.11949, 2025), https://arxiv.org/abs/2502.11949
+In its Ant optimization ablation, 200 learned action probes underperform raw
+policy parameters; combining the two still does not match the raw-parameter
+baseline. This prevents assuming that learned behavior probes automatically
+improve value learning. Parallel simulator batch size is not a number of
+distinct scene distributions; its scaling result is not a four-scene transfer
+guarantee and does not prescribe our required controller count.
+
+User instruction recorded 2026-10-09: before each NEW research stage, consult
+relevant primary papers and public implementations; identify applicable existing
+solutions before designing another expensive experiment. Frozen experiments
+retain their definitions; literature is not permission to adapt to final labels.

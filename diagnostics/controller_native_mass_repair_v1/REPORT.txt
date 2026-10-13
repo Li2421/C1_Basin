@@ -1,0 +1,74 @@
+STAGE22: RESTORE THE EXISTING NATIVE20% SAMPLER
+Result: REPAIRED_LOCAL_NATIVE_LEARNING_BUT_NOT_CONTROLLER_CONDITIONED_LOSO. Research remains active.
+One intervention, no weight sweep: native sampling5.263% ->20% within native-containing source scenes; other controllers share80%. Same cached97,280 outcomes, current physical/API-slot+compact64 input, architecture, optimizer,6000steps and source-only checkpoint rule. Fair eta-only retrained with identical draws/labels.
+30 new fits,30 old fits reused. All four held folds completed after the prospectively frozen SOURCE gate passed. No new physical rollouts or static controller queries. Three new native TEST inferences; old native predictions reused.
+All evaluated states are opened DEVELOPMENT. Joint sourceVAL rows are descriptive; native64 and opened Q16 have no training/validation state overlap. No untouched positive confirmation or formal K16/B15 four-scene benchmark is claimed.
+Statistics:20000 physical-state paired bootstraps, not rollout resampling. Mismatch donors and recipients jointly resampled;200 saved derangements. Numerical outcomes unidentified -> success intervals and censor-aware CIs, not silently failures. All fixed candidates included; best fixed reselected inside bootstrap.
+Matrix K4 Q2/Q4; native Ring64 K16 Q16; independent analytic Q16 panels32 physicalstates with2 unseen controllers. No fabricated same-controller Safety baseline. Raw labels and every failure/state retained.
+Matrix engine aliases are documented in ANALYSIS_CORRECTION.json: no new state-erasure/encounter intervention occurred in this stage. Old donor-fixed bootstrap corrected equally for cachedold/new models.
+
+PRIMARY NATIVE64: arm Q_MSE state_eta_corr success B15 matched-minus-mismatch95CI versus-reselected-best-fixed95CI
+eta_only 0.179109 0.0 [0.90625, 0.90625] [52, 52]/64 [0.0, 0.0] [0.0, 0.0]
+union_native_slots 0.036699 0.5683928069054379 [0.9541015625, 0.9541015625] [55, 55]/64 [0.026537524107294465, 0.11666828316356503] [0.01171875, 0.09375]
+uniform_eta_only 0.185156 0.0 [0.76171875, 0.76171875] [27, 27]/64 [0.0, 0.0] [-0.2197265625, -0.06640625]
+uniform_native_slots 0.050446 0.3322803581728141 [0.9208984375, 0.9208984375] [53, 53]/64 [0.0034984618113919935, 0.0750105044017899] [-0.0205078125, 0.0537109375]
+Native64 paired new minus uniform: {"variant": "joint_source_selected", "panel": "test_all", "scene": "ring_exchange", "controller_group": "native_flow", "N": 64, "selection_gain": {"identification_bounds": [0.033203125, 0.033203125], "censor_CI95": [0.0068359375, 0.0673828125]}, "Q_MSE_gain": {"identification_bounds": [0.013699226909417911, 0.013794863197859594], "censor_CI95": [0.008795822841942351, 0.018999046713070056]}, "interaction_MSE_gain": {"identification_bounds": [0.009431815522568245, 0.009742508533328833], "censor_CI95": [0.0059224859061570104, 0.013017588839920265]}}
+
+FOUR-SCENE FLOW-REFERENCE DEVELOPMENT: fold arm success oracle mismatch95CI vs-fixed95CI SxCxeta-skill95CI
+joint toy_give_way N=8 eta_only [0.30625, 0.30625] [0.6375, 0.6375] [0.0, 0.0] [-0.4375, -0.15] [0.0, 0.0]
+joint toy_give_way N=8 uniform_native_slots [0.61875, 0.61875] [0.6375, 0.6375] [0.0, 0.22250000000000003] [0.0, 0.03125] [0.013950300603042294, 0.0626788275987039]
+joint toy_give_way N=8 union_native_slots [0.6375, 0.6375] [0.6375, 0.6375] [0.03214285714285715, 0.23976190476190476] [0.00625, 0.06875] [0.014546991522847422, 0.06328763987842478]
+joint toy_give_way N=8 uniform_eta_only [0.30625, 0.30625] [0.6375, 0.6375] [0.0, 0.0] [-0.4375, -0.15] [0.0, 0.0]
+joint double_bottleneck N=8 eta_only [1.0, 1.0] [1.0, 1.0] [0.0, 0.0] [0.0, 0.0] [0.0, 0.0]
+joint double_bottleneck N=8 uniform_native_slots [1.0, 1.0] [1.0, 1.0] [0.0, 0.0] [0.0, 0.0] [-0.0017304348446815444, 0.0006979884965898098]
+joint double_bottleneck N=8 union_native_slots [1.0, 1.0] [1.0, 1.0] [0.0, 0.0] [0.0, 0.0] [-0.0034741817592228623, 0.0008177281808273556]
+joint double_bottleneck N=8 uniform_eta_only [1.0, 1.0] [1.0, 1.0] [0.0, 0.0] [0.0, 0.0] [0.0, 0.0]
+joint four_way_intersection N=8 eta_only [1.0, 1.0] [1.0, 1.0] [0.0, 0.0] [0.0, 0.0] [0.0, 0.0]
+joint four_way_intersection N=8 uniform_native_slots [1.0, 1.0] [1.0, 1.0] [0.0, 0.025000000000000005] [0.0, 0.0] [-0.008706399140353017, 0.005648849260023359]
+joint four_way_intersection N=8 union_native_slots [0.9875, 0.9875] [1.0, 1.0] [-0.022500000000000006, 0.0] [-0.0375, 0.0] [-0.008605788695025984, 0.004796431591749747]
+joint four_way_intersection N=8 uniform_eta_only [1.0, 1.0] [1.0, 1.0] [0.0, 0.0] [0.0, 0.0] [0.0, 0.0]
+joint ring_exchange N=8 eta_only [0.2, 0.225] [0.80625, 0.81875] [0.0, 0.0] [-0.7, -0.4625] [0.0, 0.0]
+joint ring_exchange N=8 uniform_native_slots [0.8, 0.80625] [0.80625, 0.81875] [0.0, 0.04] [-0.025, 0.0] [-0.0463981327665681, -0.0037339215714544596]
+joint ring_exchange N=8 union_native_slots [0.7875, 0.8] [0.80625, 0.81875] [-0.009523809523809521, 0.044941964285714155] [-0.05625, 0.0125] [-0.051581707633751674, 0.003765593009440771]
+joint ring_exchange N=8 uniform_eta_only [0.2, 0.225] [0.80625, 0.81875] [0.0, 0.0] [-0.7, -0.4625] [0.0, 0.0]
+held_toy toy_give_way N=40 eta_only [0.43375, 0.43375] [0.7025, 0.7025] [0.0, 0.0] [-0.2875, -0.13624999999999998] [0.0, 0.0]
+held_toy toy_give_way N=40 uniform_native_slots [0.43375, 0.43375] [0.7025, 0.7025] [0.0, 0.0035326622168727197] [-0.2875, -0.13624999999999998] [-0.013060773489962884, 0.0005166358538109573]
+held_toy toy_give_way N=40 union_native_slots [0.44375, 0.44375] [0.7025, 0.7025] [-0.010811291808002334, 0.013097900785400782] [-0.27625, -0.12875] [-0.014933727123093023, -0.0008919423584587691]
+held_toy toy_give_way N=40 uniform_eta_only [0.43375, 0.43375] [0.7025, 0.7025] [0.0, 0.0] [-0.2875, -0.13624999999999998] [0.0, 0.0]
+held_db double_bottleneck N=40 eta_only [0.17125, 0.17125] [0.995, 0.995] [0.0, 0.0] [-0.8412499999999999, -0.80375] [0.0, 0.0]
+held_db double_bottleneck N=40 uniform_native_slots [0.7825, 0.785] [0.995, 0.995] [-0.0012345146259620072, 0.002801280911478281] [-0.225, -0.2] [-0.003626958695078723, -0.0014837668375528863]
+held_db double_bottleneck N=40 union_native_slots [0.9575, 0.96] [0.995, 0.995] [-0.0014499554499554479, 0.0007465258781048185] [-0.06, -0.015] [-0.002264921883345194, -0.0013576033413837361]
+held_db double_bottleneck N=40 uniform_eta_only [0.17125, 0.17125] [0.995, 0.995] [0.0, 0.0] [-0.8412499999999999, -0.80375] [0.0, 0.0]
+held_four four_way_intersection N=40 eta_only [0.9975, 0.9975] [1.0, 1.0] [0.0, 0.0] [-0.005, 0.0] [0.0, 0.0]
+held_four four_way_intersection N=40 uniform_native_slots [0.89375, 0.905] [1.0, 1.0] [-0.01221215851479009, 0.013571927154163997] [-0.1325, -0.06625] [-0.013872509804433813, -0.005314638125715847]
+held_four four_way_intersection N=40 union_native_slots [0.61125, 0.63125] [1.0, 1.0] [-0.020343713037791977, 0.016524888755151897] [-0.4575, -0.29874999999999996] [-0.020073111941823325, -0.009805530169771865]
+held_four four_way_intersection N=40 uniform_eta_only [0.9975, 0.9975] [1.0, 1.0] [0.0, 0.0] [-0.005, 0.0] [0.0, 0.0]
+held_ring ring_exchange N=40 eta_only [0.18, 0.2] [0.80625, 0.81375] [0.0, 0.0] [-0.66625, -0.5425] [0.0, 0.0]
+held_ring ring_exchange N=40 uniform_native_slots [0.23125, 0.25375] [0.80625, 0.81375] [-0.012708320795491841, 0.04976675169602794] [-0.615, -0.48250000000000004] [-0.025519904780083372, -0.008271250721222333]
+held_ring ring_exchange N=40 union_native_slots [0.22875, 0.25] [0.80625, 0.81375] [-0.05797394940487045, 0.019432066555421776] [-0.6300000000000001, -0.47375] [-0.02276246928279102, -0.004397490609117964]
+held_ring ring_exchange N=40 uniform_eta_only [0.18, 0.2] [0.80625, 0.81375] [0.0, 0.0] [-0.66625, -0.5425] [0.0, 0.0]
+
+Independent32-state Q16 unseen analytic6/7: scene fold arm success state_eta_corr mismatch95CI
+toy_give_way joint eta_only [0.4306640625, 0.4306640625] 0.0 [0.0, 0.0]
+toy_give_way joint union_native_slots [0.43359375, 0.43359375] 0.033653933981755584 [-0.004476572276487764, 0.0010753213205645115]
+toy_give_way joint uniform_eta_only [0.4306640625, 0.4306640625] 0.0 [0.0, 0.0]
+toy_give_way joint uniform_native_slots [0.43359375, 0.43359375] -0.0017788801559294662 [-0.002862370950361512, 0.0029872637710882458]
+toy_give_way held_toy eta_only [0.4306640625, 0.4306640625] 0.0 [0.0, 0.0]
+toy_give_way held_toy union_native_slots [0.4306640625, 0.4306640625] 0.007965695196827948 [0.0, 0.0]
+toy_give_way held_toy uniform_eta_only [0.4306640625, 0.4306640625] 0.0 [0.0, 0.0]
+toy_give_way held_toy uniform_native_slots [0.4306640625, 0.4306640625] -0.004271482788940936 [0.0, 0.0]
+ring_exchange joint eta_only [0.939453125, 1.0] 0.0 [0.0, 0.0]
+ring_exchange joint union_native_slots [0.9501953125, 1.0] -0.006699387618781657 [-0.03857058024127337, 0.03916326843193823]
+ring_exchange joint uniform_eta_only [0.9619140625, 1.0] 0.0 [0.0, 0.0]
+ring_exchange joint uniform_native_slots [0.9599609375, 1.0] -0.08294722796482618 [-0.038044963412141135, 0.045675797647601164]
+ring_exchange held_ring eta_only [0.8447265625, 0.8818359375] None [0.0, 0.0]
+ring_exchange held_ring union_native_slots [0.94921875, 1.0] -0.07036335338737422 [-0.019875079763725566, 0.02136496890973436]
+ring_exchange held_ring uniform_eta_only [0.962890625, 1.0] 0.0 [0.0, 0.0]
+ring_exchange held_ring uniform_native_slots [0.962890625, 1.0] -0.03615904122048241 [0.0, 0.0]
+
+Causal interpretation:
+The sampler restoration improves independent native Ring Q, interaction and selected success, beyond the source gate. Native success rises92.09% ->95.41%; paired+3.32pp95CI[+0.68,+6.74]. Local underexposure/training allocation was consequential and repairable.
+All four held-scene state-mismatch CIs still include0; all four Flow-reference SxCxeta skill CIs are negative. Large DB success gains over eta-only are global/controller-prior effects and are worse than a fixed eta. They do not establish state-conditioned transfer.
+This rules out native-data dilution as a sufficient explanation or repair. It does not exclude joint causes or prove current descriptors sufficient. Do not tune more sampling weights on these results.
+The remaining input-sufficiency versus learnable-composition/support distinction is unresolved. No theoretical impossibility claim and no complete root-cause claim.
+Safety: all current matrix/Q16/native selected collisions are0. Unknown/numerical, timeout and deadlock counts remain separately in original results and summary tables. Zero observed collisions is not a universal safety guarantee.

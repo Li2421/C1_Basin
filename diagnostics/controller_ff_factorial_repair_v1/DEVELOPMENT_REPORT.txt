@@ -1,0 +1,25 @@
+FACTORIAL INFORMATION/SUPERVISION REPAIR — DEVELOPMENT DIAGNOSTIC
+
+No final confirmation or B15 claim: K4 diagnostic (original candidate indices0,5,10,15), Q2TRAIN/Q4VAL. Source-onlyLOSO holds40physicalstates/scene; jointwithin uses8VALstates and is optimistic because VAL selectedcheckpoint. FiveFlowreferenceC perstate.
+
+All15360labels retained;8960reused,6400new. Numericalunknown199; collisions0. No unknownimputation. Threeoptimizerseeds averaged; paired bootstrap20000physicalstates.
+
+Flow-reference stratum, prespecified, all four scenes:
+fold | scene | N | eta selectedQ | full selectedQ | oracle | full-minus-mismatch [95%CI] | full-minus-best-perCfixed [95%CI]
+joint | toy_give_way | 8 | [0.3063,0.3063] | [0.6188,0.6188] | [0.6375,0.6375] | [0.1089,0.1089] [0.0893,0.1286] | [0.0125,0.0125] [0.0000,0.0312]
+joint | double_bottleneck | 8 | [1.0000,1.0000] | [1.0000,1.0000] | [1.0000,1.0000] | [0.0000,0.0000] [0.0000,0.0000] | [0.0000,0.0000] [0.0000,0.0000]
+joint | four_way_intersection | 8 | [1.0000,1.0000] | [1.0000,1.0000] | [1.0000,1.0000] | [0.0036,0.0036] [0.0000,0.0107] | [0.0000,0.0000] [0.0000,0.0000]
+joint | ring_exchange | 8 | [0.2000,0.2250] | [0.7812,0.7875] | [0.8063,0.8187] | [-0.0027,-0.0009] [-0.0464,0.0232] | [-0.0187,-0.0187] [-0.0688,0.0000]
+held_toy | toy_give_way | 40 | [0.4338,0.4338] | [0.4387,0.4387] | [0.7025,0.7025] | [0.0004,0.0004] [-0.0151,0.0172] | [-0.2075,-0.2075] [-0.2812,-0.1325]
+held_db | double_bottleneck | 40 | [0.1713,0.1713] | [0.1350,0.1350] | [0.9950,0.9950] | [-0.0028,-0.0028] [-0.0272,0.0187] | [-0.8600,-0.8575] [-0.8875,-0.8300]
+held_four | four_way_intersection | 40 | [0.8638,0.8788] | [0.9613,0.9650] | [1.0000,1.0000] | [-0.0077,-0.0018] [-0.0296,0.0170] | [-0.0363,-0.0325] [-0.0600,-0.0138]
+held_ring | ring_exchange | 40 | [0.1800,0.2000] | [0.2325,0.2512] | [0.8063,0.8137] | [0.0020,0.0068] [-0.0227,0.0345] | [-0.5663,-0.5388] [-0.6125,-0.4913]
+
+Decisive observations:
+- AllfourLOSO matched-state-minus-mismatch intervals crosszero. Higherselectedsuccess inFour/Ringdoesnot establishstateadaptation; allfixed-falsificationfails.
+- JointToy learnsstate×eta(corr~.745), correctCfeatures andrealFlowstate labels addQinformation.
+- JointRing trainstate×eta corr~.955;VAL~-.061 despite independenthalfsignal~.643. Within-domain estimation/generalization failure remains.
+- Field/encounter input repair and more informativecontroller labels are not sufficientforLOSO. Negativecontrolresults are retained; no claimofoneexclusivecause.
+- Historicalnormalization,passiveinvariance,physical23coverageexperiments are reused. Currententity512onprovennativeRingcacheis a separate representation/encoderdiagnostic.
+
+Full rawlabels, predictions, fixedpolicies, reversals, mismatches, unknownbounds and bootstrap samples: raw_labels.npz, development_predictions.npz, development_results.json, development_bootstrap.npz. Failurecase classification is inrows and rawlabels.
