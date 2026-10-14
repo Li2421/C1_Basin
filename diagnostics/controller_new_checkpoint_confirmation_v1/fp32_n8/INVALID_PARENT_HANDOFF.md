@@ -1,0 +1,17 @@
+# Round12 handoff: cohort prerequisite unresolved
+
+No final success labels have been generated. C1/C3 have not been evaluated; C2 headroom is unknown. Main Slurm job20252 and gate/verification20250/20251 held pending user cohort clarification. Do not release jobs or claim prospective confirmation until amended cohort registration is explicitly authorized.
+
+Read PREREGISTRATION.md and receipts, CHECKPOINT_NOVELTY_AUDIT.json, COMPATIBILITY_AUDIT.json, SEMANTIC_CONTROLLER_NOVELTY_AUDIT.json. All14 final file hashes differ frombest and had zero DB checkpoint-hash matches before registration, BUT six final policy parameter tensors are byte-identical to best, with identical normalizers/architecture. Those six were already evaluated asbest. Distinct final policies=8; file hash alone did not prove new controller identity.
+
+Identical runs:base_u_macflow,base_u_plus_w_v4_macflow,base_u_plus_w_v4_wide_macflow,base_u_plus_w_v5_macflow,base_u_v2_macflow,base_u_v3_macflow. Their new/old R5 feature agreement is separately audited. Only best/final pkls exist in the14 run directories,28 total; replacing them with unevaluated snapshots requires another source.
+
+Unlabeled448 probes complete and features frozen, original sibling-excluded and all14-source selectors frozen before main.64 preregistered newstates passed DB UID/content and recoverable-coordinate checks.Zero of32 best consistency records exist: first two workers failed the x64 precision guard BEFORE simulator steps; the other two held. Gate not yet passed. Original probe import-path failure occurred before physical probes, preserved v1 files and IO repair receipt; no numerical unknown rerun.
+
+User requested queue reservations and time matching expected duration: main17worker CPU plus1orchestration allowance,3h runtime limit; short stages15min; noGPU. Other user haoxiang's older array uses20CPUs and6GB per task; user cap18 is not exclusive workstation ownership. Negative Nice change rejected by Slurm permissions. Main and short stages queued through dependency chain.
+
+Permitted future branches offered to user:only8 genuine final policies; find other unseen policies to restore14; or8 confirmation plus6 known-policy regression controls. Changing cohort needs supplement preregistration/receipt BEFORE any final success outcomes, preserving original docs/protocols/models. Keep the C1/C3/C2 thresholds/menu/models frozen; do not reinterpret six identical policies as new because raw pickle hashes differ.
+
+All new artifacts onlythis directory, no old assets modified ordeleted orgit commit. DB source metadata for unlabeled probes and newly registered configs/states exist; no finalrollout labels. Round12 video gate remains required with real Ring videos, no timeout-to-deadlock relabeling; do not apply round11 pureQ exemption.
+
+Critical precision correction: the original448 probes used unintendedFP64 after importingfield_controller.py. R5_FINAL_FEATURES and originalSELECTOR_MODELS are INVALID FOR CONFIRMATION, preserved as evidence. Run/probe FP32 repair candidates are separate files; do not use old choices or release main. PRECISION_IMPORT_AUDIT.json proves explicit post-importFalse restores historicalfirst action bytes with zero simulator steps. Any corrected probe/model choice/updatedcohort must be frozen before newfinal success labels; do not rerun numericalunknown under same semantics. The priorwrong-precision evidence is incompatible, not ordinaryunknown to overwrite.

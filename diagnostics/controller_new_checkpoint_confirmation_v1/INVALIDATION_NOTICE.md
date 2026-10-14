@@ -1,0 +1,7 @@
+# Round12 precision incident: active evidence location
+
+The parent `probe/`, `R5_FINAL_FEATURES.npz`, `R5_FROZEN.receipt.json`, `SELECTOR_MODELS.json`, `SELECTOR_FROZEN.receipt.json`, `FROZEN_CHOICES.csv` and parent planned `protocol.json` belong to the invalid x64=True phase. They remain unchanged, including their original receipts. Do not use them for confirmation or resume old held/canceled jobs.
+
+User-authorized supplement: `PREREGISTRATION_ADDENDUM_N8_FP32.md` with its receipt. Six parameter-identical final siblings are excluded; eight truly different final policies remain. Active corrected evidence lives in `fp32_n8/`. See its `INVALID_PRECISION_EVIDENCE.json` for original preserved hashes and explicit invalidity, `RESUMED_STATE_NOVELTY_AUDIT.json` for cohort/state checks, `COMPATIBILITY_AUDIT.json` for explicit FP32, and fresh R5/selector receipts. Original source-fit coefficients are unchanged; corrected target observations and selections are newly frozen. All32 historical best consistency cases pass exact outcome, length and first-action bytes before any main final label.
+
+Main corrected run contains12288 cases. While running, no final success outcomes are inspected for analysis; endpoint opening requires all12288 raw files. `RUN_STATUS.json` records current stage. Final `REPORT.md` and `HANDOFF.md` will describe the corrected phase and retain snapshots of replaced task reports. Historical assets outside this experiment are untouched.

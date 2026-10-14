@@ -1,0 +1,9 @@
+from core import *
+from shared_rollout_db.src.rollout_db import connect
+prereg();labels_allowed();inventory=read(HERE/'gate_CACHE_INVENTORY.json');assert inventory['genuinely_missing']==0 and len(inventory['reused'])==32
+old=ROOT/'diagnostics/controller_new_checkpoint_confirmation_v1/fp32_n8';oldp=read(old/'protocol.json');newp=read(HERE/'protocol.json');assert sha(HERE/'run.py')==sha(old/'run.py');assert newp['runner_sha256']==oldp['runner_sha256']==sha(R9/'run.py');checks=[]
+with connect(True) as db:
+ for c in read(HERE/'gate_CASES.json'):
+  path=old/'gate/raw'/f"{c['rollout_uid']}.json";r=read(path);assert r['case']==c and r['jax_enable_x64'] is False;assert r['execution_code_sha256']==newp['runner_sha256'];ctl=newp['controllers']['ring_exchange'][c['controller_name']];assert ctl==oldp['controllers']['ring_exchange'][c['controller_name']];stored=db.execute('SELECT success,numerical_failure,outcome,episode_length,conflict_quarantined FROM rollout WHERE rollout_uid=?',(c['rollout_uid'],)).fetchone();assert tuple(stored)==(r['success'],r['numerical_failure'],r['outcome'],r['episode_length'],0);assert sha(r['trace_path'])==r['trace_sha256'];dest=HERE/'gate/raw'/path.name;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(path.read_bytes());checks.append(dict(rollout_uid=c['rollout_uid'],source=str(path),source_sha256=sha(path),local_sha256=sha(dest),execution_semantics_identical=True))
+write(HERE/'GATE_EXACT_REUSE.receipt.json',dict(utc=utc(),passed=True,reused=32,new_gate_rollouts=0,checks=checks,old_gate_report_sha256=sha(old/'CONSISTENCY_GATE.json'),same_numerical_loop_and_adapter_and_binding_bytes=True,io_only_differences='experiment paths/prereg/feature freeze checks; no action/physics/precision/seed changes'))
+print('32 cached exact-consistent gate records reused; no redundant rollouts')
