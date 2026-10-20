@@ -55,3 +55,7 @@ bash scripts/test.sh
 2026-10-07 清理前快照已推送：`43b5264`。旧实现副本 `archive/legacy_pre_git_split/`
 已移除，可从该提交恢复。清理范围、保留项和 Git 备份边界见
 [本次目录审查](docs/workspace_cleanup_20261007.md)。
+
+2026-10-20 的 HDD 归档位置、预测缓存链接和重复轨迹清理记录见
+[HDD 分类迁移记录](docs/hdd_migration_20261020.md)。归档根目录为
+`/mnt/hdd/zhihan/Basin_C1/archive_20261020/`，原路径保留符号链接。
