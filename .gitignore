@@ -120,3 +120,11 @@ single_integrator/results/**
 /shared_rollout_db/audits/*.json
 /shared_rollout_db/audits/*.csv
 /shared_rollout_db/exports/*.csv
+
+# HDD-archived disposable directories (local compatibility symlinks)
+/diagnostics/**/__pycache__
+/diagnostics/**/pipcache
+/diagnostics/**/plot_env
+/diagnostics/**/plot_vendor
+/diagnostics/**/firefox_preview_profile
+/diagnostics/**/visual_preview_profile
