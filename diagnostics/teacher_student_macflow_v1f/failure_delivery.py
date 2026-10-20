@@ -1,0 +1,22 @@
+"""Report a blocked stage honestly; no substitute training, checkpoint, or outcome."""
+from core import *
+from guard import guard
+from analysis import summary,FULL
+from audit_utils import source_inventory
+G=guard()
+def main():
+ run=read(HERE/'RUN_STATUS.json');assert run['status']=='INCOMPLETE';assert not (HERE/'DELIVERY.receipt.json').exists();gate=read(HERE/'DISTILLATION_GATE.json') if (HERE/'DISTILLATION_GATE.json').exists() else {};cap=read(HERE/'CAPABILITY_GATE.json') if (HERE/'CAPABILITY_GATE.json').exists() else {};audit=read(HERE/'INTEGRITY_COMPARISON.json');gaps=read(HERE/'GAPS.json');ts=read(HERE/'TEACHERS.json');names=[r['name'] for r in ts];arms=['nominal only','safety baseline','F10','F13','S300','S500','RHR-fair'];shape=(14,32,2,7);success=np.full(shape,-1,np.int8);collision=success.copy();timeout=success.copy();rows={r['rollout_uid']:r for r in read(HERE/'V0_DB_ROWS.json')};cases=[c for c in read(D/'teacher_student_macflow_v1c/main_CASES.json') if c['arm'] in arms]+[c for c in read(D/'teacher_student_macflow_v1d/fair_CASES.json') if c.get('kind')=='student']
+ for c in cases:
+  rr=rows[c['rollout_uid']];ix=(names.index(c['base_controller_name']),c['state_index'],c['seed'],arms.index(c['arm']))
+  for k,a in [('success',success),('collision',collision),('timeout',timeout)]:a[ix]=-1 if rr['numerical_failure'] else rr[k]
+ table={};lines=['| 臂 | 原学生（离线蒸馏、各自噪声；V0）成功率下界[95%CI] | 碰撞率 | 超时率 | 两类新学生 |','|---|---|---|---|---|']
+ labels=['只跑学生，不加安全层或修正','只加安全层，修正系数为零','全程使用第10组修正参数','全程使用第13组修正参数','前300步第13组、之后第10组修正参数的时间表','前500步第13组、之后第10组修正参数的时间表','公平调参右手规则：无进展触发、2秒、0.25米每秒']
+ for j,a in enumerate(arms):
+  lo=summary((success[...,j]==1).astype(float));up=summary((success[...,j]!=0).astype(float));table[a]=dict(success_lower=lo,success_upper=up,collision=float((collision[...,j]==1).mean()),timeout=float((timeout[...,j]==1).mean()),unknown=int((success[...,j]<0).sum()));lines.append(f"| {labels[j]}（{a}） | {lo['mean']:.2%} {lo['CI95']} | {table[a]['collision']:.2%} | {table[a]['timeout']:.2%} | 未完成合格学生主评估，不能填值 |")
+ own=(timeout[...,0]==1)&(collision[...,0]==0);induced=(collision[...,0]==1)&(timeout[...,1]==1);failure={}
+ for k,mask in [('自身停滞',own),('安全层导致的停滞',induced)]:failure[k]=dict(count=int(mask.sum()),fraction_all=float(mask.mean()),rescued={a:int((mask&(success[...,j]==1)).sum()) for j,a in enumerate(arms)})
+ noeligible=bool(cap) and not cap['eligible'];status='COMPLETE_NO_ELIGIBLE_STUDENTS' if noeligible else 'INCOMPLETE_WITH_EVIDENCE_GAPS'
+ results=dict(utc=utc(),status=status,guard=guard(),source_integrity=audit,distillation_gate=gate,capability_gate=cap,gaps=gaps,original_student_table=table,original_student_failure_composition=failure,new_student_endpoints='INCONCLUSIVE: no complete eligible main-evaluation cohort',new_student_evidence_not_fabricated=True,resource_exceptions=[read(p) for p in [HERE/'RESOURCE_EXCEPTION.json',HERE/'RESOURCE_EXCEPTION_EXTERNAL_QUEUE.json'] if p.exists()]);write(HERE/'results.json',results)
+ first=f"源码完整性审计{'通过' if audit['protected_content_pass'] else '未通过'}，Basin_C1共享数据库与journal路径断言通过。闭环重标注学生（各自噪声；V1）与闭环重标注加共享随机种子学生（V3）没有形成完整且通过两个门的主评估组，不能判定其能力提升是否成立；通过门后安全层停滞、修正救回及相对公平调参右手规则的检验均证据不足。原学生（离线蒸馏、各自噪声；V0）的自身停滞/安全层导致停滞为{failure['自身停滞']['count']}/{failure['安全层导致的停滞']['count']}局；新学生失败构成缺少合格主评估，不能推断变化。"
+ text=first+'\n\n状态：'+status+'。受阻原因逐项保存在GAPS.json；没有把未训练完成记作蒸馏门失败，也没有补造新学生标签。unknown保留，不重跑。timeout不直接称为deadlock。\n\n'+json.dumps(gaps,ensure_ascii=False,indent=2)+'\n\n资源例外保存在RESOURCE_EXCEPTION*.json；不能宣称全程资源合规。共享随机种子按用户确认的场景与世界噪声共同旋转定义测试，另报固定键诊断。\n\n'+'\n'.join(lines)+'\n\n蒸馏门（已完成项）：\n\n'+json.dumps(gate,ensure_ascii=False,indent=2)+'\n\n能力门（已完成项）：\n\n'+json.dumps(cap,ensure_ascii=False,indent=2)+'\n';(HERE/'REPORT.md').write_text(text);(HERE/'PAPER_TABLE.md').write_text('\n'.join(lines)+'\n');(HERE/'FAILURE_COMPOSITION.md').write_text(json.dumps(dict(original_student=failure,new_students='No complete eligible main cohort'),ensure_ascii=False,indent=2)+'\n');(HERE/'HANDOFF.md').write_text((HERE/'HANDOFF.md').read_text()+'\n调度程序已遇到受阻阶段并结束。请读REPORT.md/results.json/GAPS.json；不得把本轮标成所有实验成功完成。保留所有部分采集、checkpoint、标签和收据，独立完成的证据已汇总。\n');source_inventory('imports_failure_delivery.json');seal('GAP_DELIVERY.receipt.json',[HERE/n for n in ['REPORT.md','HANDOFF.md','results.json','PAPER_TABLE.md','FAILURE_COMPOSITION.md','INTEGRITY_COMPARISON.json']],status=status,no_new_rollouts=True)
+if __name__=='__main__':main()

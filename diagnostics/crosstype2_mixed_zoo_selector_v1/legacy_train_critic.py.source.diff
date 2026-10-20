@@ -1,0 +1,10 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/crosstype1b_generator_critic_pipeline_v1/train_critic.py
++++ /home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/legacy_train_critic.py
+@@ -1,6 +1,6 @@
+ """GPU three-seed fits cached by the exact set of source types."""
+ from common import *
+-from critic_model import network,initialize,source_transform,transform_arrays,observations,sampling_weights,metrics,SEEDS,MODES
++from legacy_critic_model import network,initialize,source_transform,transform_arrays,observations,sampling_weights,metrics,SEEDS,MODES
+ from frozen_networks import stable_int
+ from flax import serialization
+ import jax,jax.numpy as jnp

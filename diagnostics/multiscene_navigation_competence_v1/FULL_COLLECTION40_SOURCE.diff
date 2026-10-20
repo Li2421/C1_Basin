@@ -1,0 +1,79 @@
+--- collect39.py
++++ full_collection40.py
+@@ -11,6 +11,7 @@
+ from shared_rollout_db.src.rollout_db import uid,canonical
+ import math,fcntl,jax
+ 
++from full_geometry40 import require_pilot,verify_full
+ POLICIES=[(k,s) for k in ['deterministic','mixture'] for s in [17,23]]
+ def checkpoint(family,kind,seed,round_index):return HERE/'policies39'/f'{family}_{kind}_{seed}'/f'round_{round_index}'/'best.msgpack'
+ 
+@@ -19,13 +20,13 @@
+  path=Path(path)
+  return dict(checkpoint_sha256=sha(path),normalization_sha256=sha(path.parent/'NORMALIZATION.json'),policy_config_sha256=sha(path.parent/'CONFIG.json'))
+ 
+-def prepare(family,round_index,kind=None,seed=None):
++def _prepare(family,round_index,kind=None,seed=None):
+  from freeze_guard39 import verify
+  verify()
+  assert read(HERE/'TRAINING39_UNIT_TESTS.json')['passed'];assert (HERE/'TRAINING_PIPELINE39.receipt.json').exists()
+- assert read(HERE/'EXPERT_GATE_RESULTS.json')['families'][family]['passed']
++ assert read(HERE/f'FULL_{family}_EXPERT_GATE_RESULTS.json')['families'][family]['passed']
+  assert round_index in range(4)
+- catalog=read(HERE/'PILOT_GEOMETRY_FROZEN.json')[family];train=[s for s in catalog if s['role'] in ['train','train_new']];assert len(train)==64
++ catalog=read(HERE/f'FULL_{family}_GEOMETRY_FROZEN.json')[family];train=[s for s in catalog if s['role'] in ['train','train_new']];assert len(train)==64
+  spec=round_specs(family);policy_index=POLICIES.index((kind,seed)) if round_index else None
+  previous=checkpoint(family,kind,seed,round_index-1) if round_index else None
+  if previous:assert (previous.parent/'COMPLETE.receipt.json').exists()
+@@ -58,35 +59,8 @@
+  seal(f'{stage}_BATCH_PLAN.receipt.json',[HERE/f'{stage}_MISSING_GROUPS.json',HERE/f'{stage}_MISSING_CASES.json'],independent_single_agent_environments=True,maximum_group_size=32)
+  return stage
+ 
+-def worker(stage,index):
+- from freeze_guard39 import verify
+- from batch_collect39 import collect_batch
+- verify()
+- cases=read(HERE/f'{stage}_MISSING_CASES.json');groups=read(HERE/f'{stage}_MISSING_GROUPS.json');folder=HERE/stage;folder.mkdir(exist_ok=True)
+- while True:
+-  with (folder/'cursor').open('a+') as f:
+-   fcntl.flock(f,fcntl.LOCK_EX);f.seek(0);group=int(f.read().strip() or 0);f.seek(0);f.truncate();f.write(str(group+1));f.flush()
+-  if group>=len(groups):break
+-  selected=[cases[i] for i in groups[group] if not (folder/'raw'/f"{cases[i]['rollout_uid']}.json").exists()]
+-  if not selected:continue
+-  cfg=dict(selected[0]['config']);cfg['num_agents']=4;geo=GeneratedGeometry(Config(**cfg),selected[0]['state']['rectangles']);envs=[];policies=[];keys=[]
+-  for c in selected:
+-   s=c['state'];cfg=dict(c['config']);cfg['num_agents']=4;envs.append(SingleAgentGeneratedEnv(geo,s['positions'],s['goals'],Config(**cfg)))
+-   policies.append(load_policy(c['checkpoint']) if c['checkpoint'] else None)
+-   keys.append(jax.random.fold_in(jax.random.PRNGKey(2026101740),int(hashlib.sha256(c['state_uid'].encode()).hexdigest()[:8],16)))
+-  try:records=collect_batch(envs,policies,keys)
+-  except Exception as e:
+-   records=[dict(observations=np.zeros((0,39),np.float32),labels=np.zeros((0,2),np.float32),actions=np.zeros((0,1,2)),positions=np.asarray(c['state']['positions'])[None],wall_clearance=np.zeros(0),outcome='numerical_failure',error=dict(type=type(e).__name__,message=str(e))) for c in selected]
+-  for c,record in zip(selected,records):
+-   s=c['state'];error=record['error'];trace=folder/'traces'/f"{c['rollout_uid']}.npz";trace.parent.mkdir(exist_ok=True)
+-   np.savez_compressed(trace,**{k:v for k,v in record.items() if k not in ['outcome','error']})
+-   term=record['outcome'];actions=record['actions']
+-   result=dict(cache_identity_schema='registered_exact_uid_v1',experiment_uid=EXP,scenario='Generated '+s['family'],**{k:c[k] for k in ['scenario_uid','state_uid','controller_uid','eta_uid','rollout_uid','seed_key']},eta=c['eta'],future_index=c['seed'],future_root=2026101740,initial_positions=s['positions'],initial_velocities=s['velocities'],goals=s['goals'],flow_checkpoint_sha256=c['flow_checkpoint_sha256'],success=int(term=='success' and error is None),collision=int(term=='collision'),timeout=int(term=='timeout'),deadlock=0,numerical_failure=int(error is not None),outcome=term,error=error,episode_length=len(actions),first_action=actions[0] if len(actions) else None,trace_path=str(trace),trace_sha256=sha(trace),case=c)
+-   write(folder/'raw'/f"{c['rollout_uid']}.json",result);journal=cache_writer.append_journal([clean(result)],EXP,f'{stage}_{index}');assert journal.is_relative_to(ROOT/'shared_rollout_db/journals'/EXP)
+-  print(group,len(records),{term:sum(r['outcome']==term for r in records) for term in set(r['outcome'] for r in records)},flush=True)
+-
+-def freeze_dataset(family,kind,seed,round_index):
+- training={s['geometry_seed'] for s in read(HERE/'PILOT_GEOMETRY_FROZEN.json')[family] if s['role'] in ['train','train_new']};records=[]
++def _freeze_dataset(family,kind,seed,round_index):
++ training={s['geometry_seed'] for s in read(HERE/f'FULL_{family}_GEOMETRY_FROZEN.json')[family] if s['role'] in ['train','train_new']};records=[]
+  stages=[f'data39_{family}_round_0']+[f'data39_{family}_round_{r}_{kind}_{seed}' for r in range(1,round_index+1)]
+  for stage in stages:
+   for c in read(HERE/f'{stage}_CASES.json'):
+@@ -97,4 +71,12 @@
+  p=HERE/'datasets39'/f'{family}_{kind}_{seed}_round_{round_index}.npz';p.parent.mkdir(exist_ok=True);np.savez_compressed(p,**arrays)
+  write(p.with_suffix('.json'),dict(family=family,kind=kind,seed=seed,round=round_index,dataset_sha256=sha(p),heldout_geometry_used=False,provenance=provenance,transitions={k:len(v) for k,v in arrays.items()}))
+  seal(str(p.relative_to(HERE))+'.receipt.json',[p,p.with_suffix('.json')],before_training=True)
+-if __name__=='__main__':worker(sys.argv[1],int(sys.argv[2]))
++
++
++def prepare(family,round_index,kind=None,seed=None):
++ require_pilot();verify_full();assert family in 'ACDEG' and len(family)==1
++ return _prepare(family,round_index,kind,seed)
++
++def freeze_dataset(family,kind,seed,round_index):
++ require_pilot();verify_full();assert family in 'ACDEG' and len(family)==1
++ return _freeze_dataset(family,kind,seed,round_index)

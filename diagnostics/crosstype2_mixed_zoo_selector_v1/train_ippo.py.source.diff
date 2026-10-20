@@ -1,0 +1,22 @@
+--- diagnostics/crosstype1_learned_zoo_selector_v1/train_ippo.py
++++ diagnostics/crosstype2_mixed_zoo_selector_v1/train_ippo.py
+@@ -1,6 +1,7 @@
+ """Fixed 20M robot-step Ring curriculum; checkpoint selection is a later phase."""
+ from common import *
+-from training_env import TrainingEnv,observation,to_world
++from training_env import observation,to_world
++from conservative_reward import ConservativeEnv as TrainingEnv
+ from ippo import Actor,Critic,logprob,base_normalize,online_normalize,update_stats,decode_action,generalized_advantage
+ import jax
+ import jax.numpy as jnp
+@@ -14,8 +15,8 @@
+ def train(index):
+     prereg()
+     assert read(HERE/'TRAINING_ENV_GATE.json')['passed']
+-    gates=read(HERE/'REPRODUCTION_GATE.json')['type_passed']
+-    assert any(gates[k] for k in ('deterministic','mixture','diffusion','G'))
++    assert read(HERE/'EXECUTION_REPRODUCTION.json')['group_passed']['crosstype1b']
++    assert read(HERE/'CONSERVATIVE_REWARD_TESTS.json')['passed']
+     assert all(d.platform=='gpu' for d in jax.devices())
+     cfg=read(HERE/'IPPO_TRAINING_CONFIGS.json')[index]
+     folder=HERE/'policies'/cfg['name'];folder.mkdir(parents=True,exist_ok=True)

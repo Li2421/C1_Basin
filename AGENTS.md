@@ -7,32 +7,12 @@
 证据；能够通过旧结果、旧预测重算或旧 checkpoint 推理回答的问题，不重复训练
 或生成 rollout。只有明确存在证据缺口时才补跑，并说明差异与必要性。
 更换 critic 输入编码本身不使 execution semantics 相同的旧 rollout 标签失效。
+rollout 运行前遵守 `shared_rollout_db/README.md` 的 preflight/cache 规则。
+timeout 不能直接当作 deadlock。图像只读取仿真证据，不改控制器、物理、事件或成功标准。
 
-## 四场景大 batch 的强制视频交付
+## 视频（可选）
 
-纯 Q 函数的数据生成、训练和评估实验不要求视频交付；该类实验以真实 rollout
-结果、数据集和数值评估为交付物，不运行视频验收入口。
-其余大型训练/评估/跨场景实验 batch 遵守下述要求。
-
-适用于 `toy_giveway`、`double_bottleneck`、`four_way_intersection`、`ring_exchange`。
-每次适用的大型训练/评估/跨场景实验 batch 都必须交付每场景至少 3 个完整仿真视频：
-两个不同的死锁解决案例（其中一个标为 `deadlock_show`），以及一个独立的
-`safety_success` 案例。另一个死锁案例标为 `deadlock_resolution`。
-这是对当前数量描述的保守执行；用户后续明确数量时以用户要求为准。
-
-- 必须从真实 rollout 的初始状态播放到终止状态，逐步保留整个过程；不能用
-  静态轨迹图、最后几帧、局部恢复片段、合成轨迹或重复视频充数。
-- 死锁解决案例必须显示同初态、同 seed 的死锁基线与成功干预轨迹；标明
-  controller/checkpoint、seed、终止原因及死锁判据。timeout 不能直接冒充 deadlock。
-- safety 成功案例必须全程无碰撞并成功到达目标；保留实际 simulator 的连续运动
-  碰撞检查结果，不能仅凭渲染图或采样位置间距判断安全。
-- 用 `docs/batch_videos.md` 中的统一入口生成 MP4 和可追溯 manifest。
-  大 batch 最终报告之前必须运行该入口并成功；视频缺失则 batch 交付未完成。
-  没有合格案例时报告缺口，不得伪造成功，也不能默默跳过场景。
-- 新增/修改 batch launcher 时将视频生成命令接入最后的成功路径，使用非零退出码
-  阻止缺视频的 batch 被标成完成。历史脚本尚未统一改造，运行它们也必须遵循此要求。
-- 图像/视频生成只读取仿真证据，不改控制器、物理、事件或成功标准。
-- rollout 运行前继续遵守 `shared_rollout_db/README.md` 的 preflight/cache 规则。
+默认不要求视频交付。用户或 prompt 明确要求视频时，按 `docs/video_delivery_optional.md` 执行。
 
 ## 仓库清理和备份
 
@@ -53,5 +33,3 @@ Double-Bottleneck 为串联瓶颈变体；依据见 `docs/scalable_scene_audit_2
 - 区分几何有效、单机器人有路、联合可解、控制器成功和死锁解决五层证据。
   当前母版只完成工程层验证；`stalled_groups` 只是诊断候选，正常排队也可能满足。
 - 旧四场景是机制/回归基准；现有固定数量 checkpoint 不能宣称直接支持 N=100。
-- 母版参与正式 batch 时也保留完整仿真视频，明确 N/geometry。几何预览图和
-  单元测试用轨迹不属于正式视频交付；原四场景的视频要求继续适用。

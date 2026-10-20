@@ -1,0 +1,20 @@
+from common import *
+import copy
+from shared_rollout_db.src.rollout_db import eta_identity
+p=read(R13/'protocol.json');four=read(R19/'FIXED_PROTOCOL.json');recipes=['base_u_v5_outer_buffer_macflow','base_u_v9_world_goal_recovery_macflow','base_u_v9_world_goal_recovery_source_balanced_macflow'];names=[n+'__'+f for n in recipes for f in ['best','final']];assert all(n in four['profiles'] for n in names)
+profiles={sc:copy.deepcopy(p['base_profiles'][sc]) for sc in SCENES};profiles['four_way_intersection']={n:four['profiles'][n] for n in names};inventory={};files={}
+for sc in SCENES:
+ selected=profiles[sc];inventory[sc]=dict(controllers=list(selected),checkpoint_count=len(set(c['payload']['flow_checkpoint_sha256'] for c in selected.values())),runtime='FourFlowAdapter + FlowEndpointMatchedField(isotropic)' if sc=='four_way_intersection' else 'native_runtime + FlowEndpointMatchedField(family)',placement='FF',historical_x64=next(iter(selected.values()))['payload']['jax_enable_x64'],new_execution_x64=False,horizon=p['horizons'][sc] if 'horizons' in p else p['environments'][sc]['config']['config']['max_steps'])
+ for c in selected.values():
+  v=c['payload'];path=v['flow_checkpoint_path'];assert sha(path)==v['flow_checkpoint_sha256'];files[path]=sha(path)
+with rollout_db.connect(True) as db:
+ eta={}
+ for i in [10,13,15]:
+  eid,values,hx=eta_identity(p['eta'][i]);row=dict(db.execute('SELECT * FROM eta WHERE eta_uid=?',(eid,)).fetchone());assert row['canonical_hex']==hx;eta[str(i)]=dict(uid=eid,values=[row[f'eta{k}'] for k in [1,2,3]],canonical_hex=hx)
+ counts={sc:db.execute('SELECT COUNT(*) FROM rollout r JOIN controller_config c ON c.controller_uid=r.controller_uid WHERE c.flow_checkpoint_sha256 IN ('+','.join('?' for _ in profiles[sc])+')',[x['payload']['flow_checkpoint_sha256'] for x in profiles[sc].values()]).fetchone()[0] for sc in SCENES}
+for folder in [R13,R19,R20,D/'cross_scene_fewshot_v1']:
+ for name in ['REPORT.md','protocol.json','FIXED_PROTOCOL.json','SCHEDULE_PROTOCOL.json','LABELS.npz','R5_FROZEN.npz','PROBE_FEATURES.json','PREREGISTRATION.md']:
+  path=folder/name
+  if path.exists():files[str(path)]=sha(path)
+write(HERE/'HISTORICAL_INVENTORY.json',dict(utc=utc(),scenes=inventory,profiles=profiles,environments=p['environments'],eta=eta,old_DB_rollouts_for_checkpoints=counts,source_files=files,missing=['No compatible scene-independent LOSO critic/checkpoints exist for prescribed physical/controller/eta features','New32 evaluation states per scene missing9-arm labels; pilot capability and full5-stat R5 missing outside compatible R19 cached probes'],reuse=['R13 original seven-arm labels and affine controller runtimes','R19 selected six native checkpoints, fixed and compatible schedule labels','R19 full unlabeled probe traces to recompute round20-compatible5statistics','R20 original Toy isotropic3statistics retained as partial source descriptor; unavailable speed/projection are missing, not fabricated','R23 algorithms reused numerically, never import side-effect analysis script'],selection='Toy/DB/Ring three named historical affine operators share one checkpoint per scene; not3 independently trained policies. Four six checkpoints chosen from3 historically identified regime-diverse compatible recipes, both best/final. Fixed before new pilot.',precision_issue='Toy R13/R20 FP64 conflicts with shared FP32. Test16 records under FP32, never enable FP64 to force gate. If failed, Toy prospective evaluation/probe blocked; historical FP64 source-only labels retain original semantics and grade.',Toy_source_rule='Use old isotropic source labels and R20 original partial3-stat descriptor only, impute2 missing quantities from source-fold-only training means; no new Toy probe after failed gate. TargetToy model can train on3other scenes, but absent eval yieldsgap; sourceToy historical evidence may train other3-target models without using their target scene. Full4-target XS1 unavailable ifToygap.'))
+print('Historical inventory ready',inventory,flush=True)

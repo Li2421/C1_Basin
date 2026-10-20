@@ -1,0 +1,46 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/crosstype1b_generator_critic_pipeline_v1/critic_model.py
++++ /home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_model.py
+@@ -8,7 +8,7 @@
+ jax.config.update('jax_enable_x64',False)
+ 
+ SEEDS=(17,23,41)
+-MODES=('full','no_controller','no_state')
++MODES=('full','no_controller','no_state','action_only')
+ 
+ 
+ class Critic(nn.Module):
+@@ -34,7 +34,7 @@
+ 
+ def network(mode):
+     assert mode in MODES
+-    return Critic(use_state=mode!='no_state',use_controller=mode!='no_controller')
++    return Critic(use_state=mode in ('full','no_controller'),use_controller=mode in ('full','no_state'))
+ 
+ 
+ def source_transform(data,source_types):
+@@ -69,7 +69,7 @@
+ 
+ def initialize(mode,seed,initialization,transform,original=None):
+     net=network(mode)
+-    params=net.init(jax.random.PRNGKey(seed),jnp.zeros((1,100)),jnp.zeros((1,33)),jnp.zeros((1,24)),jnp.zeros((1,10)))
++    params=net.init(jax.random.PRNGKey(seed),jnp.zeros((1,100)),jnp.zeros((1,33)),jnp.zeros((1,34)),jnp.zeros((1,16)))
+     if initialization=='scratch':return params
+     assert initialization=='warm'
+     old,norm=original if original is not None else original_parameters()
+@@ -80,14 +80,14 @@
+         ratio=np.asarray(new_scale)/np.asarray(old_scale)
+         shift=(np.asarray(new_mean)-np.asarray(old_mean))/np.asarray(old_scale)
+         return dict(kernel=(ratio[:,None]*kernel).astype(np.float32),bias=(bias+shift@kernel).astype(np.float32))
+-    if mode!='no_state':
++    if mode in ('full','no_controller'):
+         q['ring_adapter']=adapted('ring_adapter',transform['h_mean'],transform['h_scale'],norm['h_mean'],norm['h_std'])
+         q['context']=adapted('context',transform['c_mean'],transform['c_scale'],norm['c_mean'],norm['c_std'])
+     q['action_encoder']['kernel'][:3]=np.asarray(old['eta_encoder']['kernel'])
+     q['action_encoder']['kernel'][3:]=0.
+     q['action_encoder']['bias']=np.asarray(old['eta_encoder']['bias']).copy()
+     q['shared1']['kernel'][:]=0.
+-    if mode=='no_state':
++    if mode in ('no_state','action_only'):
+         q['shared1']['kernel'][:32]=np.asarray(old['shared1']['kernel'])[128:160]
+         hh=(np.asarray(transform['h_mean'])-norm['h_mean'])/np.asarray(norm['h_std'])
+         cc=(np.asarray(transform['c_mean'])-norm['c_mean'])/np.asarray(norm['c_std'])

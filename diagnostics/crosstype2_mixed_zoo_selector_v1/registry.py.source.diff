@@ -1,0 +1,13 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/crosstype1b_generator_critic_pipeline_v1/registry.py
++++ /home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/registry.py
+@@ -21,8 +21,8 @@
+             db.execute('INSERT OR IGNORE INTO '+t+'('+','.join(v)+') VALUES('+','.join('?' for _ in v)+')',list(v.values()))
+             added[t].add(v[key]);inserted.append(dict(table=t,row=dict(db.execute('SELECT * FROM '+t+' WHERE '+key+'=?',(v[key],)).fetchone())))
+         identity=HERE/'EXPERIMENT_REGISTERED_IDENTITY.json'
+-        if not identity.exists():write(identity,dict(experiment_uid=EXP,name='Cross-type 1b generator and controller-state critic',path=str(HERE),
+-            protocol_hash=sha(HERE/'PREREGISTRATION.md'),code_hash=sha(__file__),metadata_json=canonical(dict(series='crosstype',round='1b'))))
++        if not identity.exists():write(identity,dict(experiment_uid=EXP,name='Cross-type 2 mixed zoo generator and critic',path=str(HERE),
++            protocol_hash=sha(HERE/'PREREGISTRATION.md'),code_hash=sha(__file__),metadata_json=canonical(dict(series='crosstype',round='2'))))
+         ins('experiment',read(identity))
+         for s in p['states']:
+             ins('state',dict(state_uid=s['state_uid'],scenario_uid=s['scenario_uid'],source_group=s.get('family',s['uid']),content_hash=s['content_hash'],

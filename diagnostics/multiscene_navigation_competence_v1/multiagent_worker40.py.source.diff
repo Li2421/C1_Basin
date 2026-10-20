@@ -1,0 +1,20 @@
+--- diagnostics/multiscene_generalization_v1/generated_worker.py
++++ diagnostics/multiscene_navigation_competence_v1/multiagent_worker40.py
+@@ -28,7 +28,7 @@
+         if any(p is None for p in paths):raise ValueError('registered navigation state has no path')
+         policy=None
+         if case['kind']=='learned':
+-            from policies import load_policy
++            from nominal39_callback import load_policy
+             policy=load_policy(case['checkpoint'])
+         for step in range(env.config.max_steps):
+             try:
+@@ -55,7 +55,7 @@
+     return clean(result)
+ 
+ def worker(stage,index):
+-    prereg();assert read(HERE/'REPRODUCTION_GATE.json')['passed'];assert read(HERE/'GEOMETRY_EQUIVALENCE.json')['passed']
++    prereg();assert read(HERE/'REPRODUCTION_GATE.json')['passed'];assert read(HERE/'ROUND39_GEOMETRY_EQUIVALENCE.json')['passed']
+     rows=read(HERE/f'{stage}_MISSING_CASES.json');folder=HERE/stage;folder.mkdir(exist_ok=True)
+     while True:
+         with (folder/'cursor').open('a+') as f:

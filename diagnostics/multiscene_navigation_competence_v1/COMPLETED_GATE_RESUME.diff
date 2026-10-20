@@ -1,0 +1,13 @@
+--- pilot_training40.before_completed_gate_skip.py
++++ pilot_training40.py
+@@ -22,6 +22,10 @@
+     results=read(HERE/'EXPERT_GATE_RESULTS.json')['families']
+     for family in 'BF':
+         if not results[family]['passed']:continue
++        gate=HERE/f'NAVIGATION_CAPABILITY_{family}.json';gate_receipt=HERE/f'NAVIGATION_CAPABILITY_{family}.receipt.json'
++        if gate.exists() and gate_receipt.exists():
++            assert all(sha(path)==expected for path,expected in read(gate_receipt)['files'].items())
++            continue
+         try:
+             for r in range(4):
+                 write(HERE/'ACTIVE_STAGE.json',dict(utc=utc(),phase='pilot_training',family=family,round=r))

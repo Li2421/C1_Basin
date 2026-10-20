@@ -1,0 +1,31 @@
+# Shared constrained reachability: local existence and its limits
+
+## Scope and frozen evidence
+
+Fix a task, geometry, single-integrator dynamics `x⁺=x+Δt u`, and the actual CBF/speed action set `U(x)`. The Toy source is `single_integrator/{environment,cbf}.py`; its frozen evaluation checkpoint is `F/validation_v2/assets/toy_ckpt.pkl`, where `F=/home/zhihan/research/Basin_C1_flow_field_poc_20261004`. The checkpoint SHA256 is `8c17b5d2cf74c8ce94ffa03a192a8c36ae01227465a168e7b74d6e18ff121f32`. It loads corridor half-length **1.3 m**, rather than the source default 2.5 m. The full eight-segment, 16-wall-row, pair-row and speed-ball proof is archived in `diagnostics/toy_K_quantitative_certification_20261017_v1/final_K_certification.md`. We reuse that proof, rather than introduce a new trajectory.
+
+The inspected prior experiments are listed in `MANIFEST.json`. Old theory is `docs/part1_implementation_theory_audit_20261012.md`, `docs/part3_theory_validation_20261012.md`, and `diagnostics/shared_escape_cross_controller_audit_20261019/THEOREM_AUDIT.md`. The prior Ring symmetric rotation class is excluded from a claim about the historical benchmark: `diagnostics/ring_shared_escape_full_trajectory_20261020/REPORT.md` certifies that its fixed goal-radius condition excludes every archived episode in that audit. No new Ring template is introduced here.
+
+## Definitions
+
+For a finite horizon `T`, safe coordination set `K`, and local exit set `G`, define
+
+`R_safe^T(K,G)={x₀∈K: ∃u₀,…,u_{T−1}, x_{k+1}=f(x_k,u_k), x_k∈K, u_k∈U(x_k), x_T∈G}`.
+
+Early arrival is represented by an admissible hold action or by the union over `T'≤T`. `K` may be a union of staged tubes; the exit set need not be the final task goal. Fixed task, geometry, dynamics and safety make this *definition* controller independent. That observation alone is not a scientific existence theorem.
+
+**Local existence proposition (Toy, PROVEN under the archived source/configuration).** There are a four-dimensional Lebesgue-positive initial box `E`, a staged safe set `K`, and a local passing exit `G_pass`, such that `E⊂R_safe^{≤850}(K,G_pass)`. The controls are reference members of the *original* full CBF action set, independent of any nominal controller. No initial positive relative lateral offset is assumed.
+
+The abstract, checkable hypotheses behind this construction are: a connected main corridor and side refuge with strict robot-wall and robot-pair clearance on a finite-width entry tube; an admissible yielding action whose CBF margins remain positive along the tube; a downstream separated passing tube with an admissible longitudinal action of uniform positive speed; valid transitions between tubes; and a summed step bound below the task horizon. These are geometric/CBF inequalities to check, not assumptions that a controller already escapes. They are sufficient for this reference construction, not claimed necessary for all configurations.
+
+**Proof.** In the frozen Toy geometry, let `E={x₁∈[−.705,−.590], x₂∈[.590,.705], y₁,y₂∈[−.02,.02]}`. Its 4D configuration volume is `(0.115)^2(0.04)^2=2.116×10⁻⁵ m⁴`; its interior is a nonempty open subset of the reach-avoid set. The archive proves a common staged reference from *every* point of `E`: align the lower agent (`≤16` steps), align its x coordinate (`≤22`), move the other to the bay mouth (`≤282`), yield vertically (`≤280`), and pass longitudinally (`≤198`). Total `≤798<850` physical steps. Each stage uses actual finite-wall, squared-pair CBF and speed constraints. The final fractional action lies between the certified action and hold action, hence remains feasible by convexity. The frozen `Δt=.05 s`, `γΔt=.05≤1`, and the archived swept-segment argument provide physical-interval safety. The reference moving speeds and short fractional steps also satisfy the archived low-speed monitor bound. Thus each point reaches the local passing exit safely. See the cited certificate for all numerical inequalities and branch checks. □
+
+For precision, the intermediate `K_entry` has volume `1.2×10⁻⁵ m⁴`, wall clearance at least `.0082333 m` and pair distance at least `.325 m`; `K_pass` has volume `7.92×10⁻⁵ m⁴`, wall clearance at least `.0032333 m` and pair distance at least `.38 m`. Their actual coupled coordinates and finite wall-segment formulas are in the archived proof. They are not a Cartesian invariant set for arbitrary actions. The archived comparison ratio `vol(K_entry)/vol(Ω_conf)=0.20057565%` refers only to the specifically defined main-channel geometric conflict domain `Ω_conf`, not to a controller/state probability distribution. `K_pass` is outside that comparison domain.
+
+The proposition proves a **nontrivial local reachability structure**, not identical controller trajectories, TT escape, a full reachability set, or task-goal completion. The side refuge and positive separation are sufficient path devices. The actual final return, goal arrival, and learned policy success are separate questions.
+
+## Requirements extracted from task and safety
+
+In a one-lane exchange, two bodies cannot reverse longitudinal order while their lateral separation stays too small for safe overlap. This follows by continuity: at a change of longitudinal order, `s=x₁−x₂=0`; pair safety then requires `|z|=|y₂−y₁|≥D_s` at that instant. Thus **some relative reconfiguration or alternate geometric route is necessary** for this topology. In the selected Toy branch, side refuge clearance makes lateral separation a sufficient construction route. A particular Yield–Hold–Pass trace, a positive `z` at entry, or simultaneous motion is not necessary for every successful trajectory.
+
+Task completion requires eventual signed progress toward each goal, but neither agent must progress monotonically at each step. The finite-stage reference uses: (i) enough relative clearance at longitudinal overlap, (ii) maintaining safety while order changes, (iii) positive signed passing progress while inside the certified tube, and (iv) resuming final goals. Stage inequalities such as `u₂y≥ν_y`, `u₁x−u₂x≥ν_p`, or `|u₂y−u₁y|≤κ` are **analysis tools/sufficient guards** when coupled to a state tube and time bound. None is a universal necessary instantaneous condition. At pair contact with `z=0`, the CBF itself may forbid positive passing progress, explaining why stage order matters.

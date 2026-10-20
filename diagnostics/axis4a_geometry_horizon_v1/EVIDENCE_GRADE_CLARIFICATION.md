@@ -1,0 +1,4 @@
+# Evidence-grade clarification for exact prefix reuse
+UTC 2026-10-15T11:41:27.545109+00:00
+
+OriginalR10 labels retain their original provenance/grade. Re-keying a derived H500/H1000 record does not make a fresh physical trial. Pure reanalysis ofoldR10 prefixes/earlyterminalepisodes is DEVELOPMENT for the newly posed horizon question, with exactsource provenance, even though oldR10 collection wasprospective. Newly collected current-round suffixes/episodes and their predeclared comparisons are CONFIRMATORY; exact derivations from current-round freshbaseline data retain current prospective provenance, with sharedprefix correlation keptpaired. Eachcase records newlyexecutedsteps and root sourcegrade. Unit tables/report disclose mixedold/new evidence ratherthanupgrade allfactor records into newindependentphysicalepisodes. No controller/parameter/menu/endpoint change, beforefirstnewrollout.

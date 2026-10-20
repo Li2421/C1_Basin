@@ -1,0 +1,5 @@
+UTC: 2026-10-17T19:06:02.249606+00:00
+
+固定最终训练几何诊断复用第三轮重标注的起点、目标与配置，物理state_uid已经存在。新诊断别名和用途被误放入同一state_uid的来源元数据，官方登记拒绝了内容差异；原日志和冲突审计保留，事务回滚，旧行未修改。核对scenario_uid、content_hash、physical_state_json、goals_geometry_json与identity_quality完全一致，差异仅source_group和provenance_json。
+
+现仅复用已存在状态的完整原登记行；新用途继续由本轮local case和不同最终控制器profile表明，不UPDATE或DELETE任何已有行。物理不一致时仍拒绝相关状态。诊断的几何、任务、样本数、策略、随机数、运行代码与结果标准完全不变，没有任何诊断回合在冲突前执行，未重跑任何旧回合。旧方案与源码、第二版收据、差异保留；第三版仅修正登记元数据复用。

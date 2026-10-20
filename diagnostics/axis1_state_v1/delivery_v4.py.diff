@@ -1,0 +1,23 @@
+--- delivery_v3.py
++++ delivery_v4.py
+@@ -52,8 +52,19 @@
+  for section,changes in changed_paths.items():
+   for kind,paths in changes.items():
+    for path in paths:text+='- '+kind+': `'+path+'`\n'
+- text+='\n上述路径位于并发round30工作目录；本轮没有执行修改它们的操作。完整哈希与git状态依据保留于INTEGRITY_BEGIN/END及EXACT_CHANGED_PATHS.json。\n'
++ text+='\n以上为审计检测到的目录外变化；本轮没有执行修改它们的操作。完整哈希与git状态依据保留于INTEGRITY_BEGIN/END及EXACT_CHANGED_PATHS.json。\n'
+  text+='\n资源调度补充：用户要求总计使用18个CPU；原6个worker仅短暂暂停以移交未开始的case，保留当前episode和全部已完成证据。15416个未执行case经追加preflight转入互斥共享队列，数值episode函数逐字不变。raw目录内预留标记不是证据，最终已逐条校验全部16128条真实记录且预留标记清零。动态并发维持其他用户作业计入后的总18CPU目标；收据见SPEEDUP_OWNERSHIP、SPEEDUP_PREFLIGHT及SPEEDUP_IMPLEMENTATION_AUDIT。\n'
++
++ contrast=result['state_shift_contrasts']['A3 zero-shot']
++ text+='\n从1a到1b，A3成功率变化区间为'+str(contrast['success_change_pp'])+'pp，平均遗憾变化区间为'+str(contrast['regret_change_pp'])+'pp（描述性unknown包络）。\n'
++ text+='\n按预注册偏移参数分层的结果：\n'
++ for key,value in result['shift_strata'].items():text+='- '+key+'：n='+str(value['states'])+'，A3成功率'+str(value['A3_success_pct'])+'%，交叉拟合遗憾'+str(value['A3_crossfit_regret_pp'])+'pp。\n'
++ text+='\n逐controller/方法的成功率与遗憾见CONTROLLER_DETAILS.json；nominal碰撞后的转移比例已列于results.json的fractions字段。\n'
++ if result['1a']['endpoint']['status']=='SUPPORTED':text+='\nST1支持：对已见controller，同分布新state上的预注册标准成立。\n'
++ if result['1b']['endpoint']['status']=='SUPPORTED':text+='\nST2支持：本轮指定state偏移下的预注册标准成立。\n'
++ else:text+='\nST2未获支持：仅按以上已预注册分层描述失效或不确定性，不能据此调整生成器或阈值。\n'
++ label={'gain':'有增益','harm':'有损','undetected':'未检出差别'}
++ text+='\nST3合并结论：'+label[result['ST3_pooled']['status']]+'；逐组oracle潜在增益与置信区间见results.json。该潜在增益来自交叉拟合，不能把样本内oracle当作可实现收益。\n'
+  (HERE/'REPORT.md').write_text(text)
+  (HERE/'HANDOFF.md').write_text('Round32 numerical pipeline complete. Read REPORT.md first.\n\nDirectory: '+str(HERE)+'\nPython: /home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python\nAll16128 raw records and traces preserved. LABELS.npz/results.json/AXIS_TABLE.{md,csv} contain finalized evidence. Official DB registration and merged journal receipts are retained. Never rerun unknown or cached identities. Source integrity timing qualification is documented; do not erase it.\n\nThe next requested task, only after reviewing round32 completion and audit, is to read docs/prompt_round33_axis2_controller_20261015.md in full and execute it in its own new directory. Rounds34–36 follow sequentially; none has been started by this pipeline.\n')
+  seal('NUMERICAL_COMPLETE.receipt.json',[HERE/'results.json',HERE/'AXIS_TABLE.md',HERE/'AXIS_TABLE.csv',HERE/'REPORT.md',HERE/'HANDOFF.md'],status=result['status'])

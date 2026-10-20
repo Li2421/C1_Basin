@@ -1,0 +1,42 @@
+"""39-dimensional world-coordinate behavior cloning, unchanged network and decoding."""
+from common import *
+from policies import Policy
+from flax import serialization
+import jax,jax.numpy as jnp
+from observation39 import observe
+jax.config.update('jax_enable_x64',False)
+DIMENSIONS=39
+
+def loss(net,kind,parameters,x,y):
+ if kind=='deterministic':return jnp.mean(jnp.square(net.apply(parameters,x)-y))
+ logits,means,logs=net.apply(parameters,x)
+ component=-jnp.sum(.5*jnp.square((y[:,None]-means)*jnp.exp(-logs))+logs+.5*jnp.log(2*jnp.pi),-1)
+ return -jnp.mean(jax.scipy.special.logsumexp(jax.nn.log_softmax(logits,-1)+component,-1))
+
+def decode(net,kind,parameters,x,key,normal):
+ normalized=(x-jnp.asarray(normal['obs_mean']))/jnp.asarray(normal['obs_scale'])
+ if kind=='deterministic':z=net.apply(parameters,normalized)
+ else:
+  logits,means,logs=net.apply(parameters,normalized);a,b=jax.random.split(key);indices=jax.random.categorical(a,logits,axis=-1)
+  z=means[jnp.arange(len(x)),indices]+jnp.exp(logs[jnp.arange(len(x)),indices])*jax.random.normal(b,(len(x),2))
+ raw=jnp.clip(jnp.asarray(normal['act_mean'])+jnp.asarray(normal['act_scale'])*z,-1.,1.)
+ return raw*jnp.minimum(1.,.5/jnp.maximum(jnp.linalg.norm(raw,axis=-1,keepdims=True),1e-30))
+
+_cache={}
+def bound_and_stop(velocity,env):
+ velocity=np.asarray(velocity,np.float64).copy()
+ velocity*=np.minimum(1.,env.config.max_speed/np.maximum(np.linalg.norm(velocity,axis=1,keepdims=True),1e-30))
+ velocity[np.linalg.norm(env.goals-env.positions,axis=1)<=env.config.goal_tolerance]=0
+ return velocity
+
+def load_policy(checkpoint):
+ path=Path(checkpoint);key=(str(path.resolve()),sha(path))
+ if key in _cache:return _cache[key]
+ cfg=read(path.parent/'CONFIG.json');assert cfg['observation_dimensions']==39
+ normal=read(path.parent/'NORMALIZATION.json');net=Policy(cfg['family']);parameters=serialization.from_bytes(net.init(jax.random.PRNGKey(0),jnp.zeros((1,39),jnp.float32)),path.read_bytes())
+ sample=jax.jit(lambda x,key:decode(net,cfg['family'],parameters,x,key,normal))
+ def from_observation(env,observed,key):
+  return bound_and_stop(np.asarray(sample(jnp.asarray(observed),key),np.float64),env)
+ def act(env,fields,key):return from_observation(env,observe(env,fields),key)
+ act.from_observation=from_observation
+ _cache[key]=act;return act

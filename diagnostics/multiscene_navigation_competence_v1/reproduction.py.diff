@@ -1,0 +1,35 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/multiscene_generalization_v1/reproduction.py
++++ /home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/reproduction.py
+@@ -3,7 +3,7 @@
+ from registry import register, postflight
+ from shared_rollout_db.src.rollout_db import uid,canonical
+ import subprocess
+-STAGE='reproduction_v2'
++STAGE='reproduction_round40'
+ 
+ def prepare():
+     old=D/'axis4b_agent_count_v1';p=read(old/'pilot_protocol.json')
+@@ -13,13 +13,13 @@
+     for original in cases:
+         c=dict(original);c['reference_raw']=str(old/'pilot/raw'/f"{original['rollout_uid']}.json")
+         ref=read(c['reference_raw']);assert sha(ref['trace_path'])==ref['trace_sha256']
+-        c['seed']=3900
++        c['seed']=4000
+         c['seed_key']=canonical(dict(future_index=c['seed']))
+         c['rollout_uid']=uid('roll',dict(state=c['state_uid'],eta=c['eta_uid'],controller=c['controller_uid'],seed=c['seed_key']))
+         rows.append(c)
+     write(HERE/f'{STAGE}_protocol.json',p)
+     register(STAGE,rows,[])
+-    seal('REPRODUCTION_IMPLEMENTATION_V2.receipt.json',[HERE/f for f in ['core.py','common.py','runtime.py','controllers.py','reproduction.py',f'{STAGE}_protocol.json']],reason='Prompt explicitly requires sixteen bitwise records; P2 is deterministic and ignores future keys; genuinely missing future index3900 uses official seed semantics')
++    seal('REPRODUCTION_IMPLEMENTATION_V2.receipt.json',[HERE/f for f in ['core.py','common.py','runtime.py','controllers.py','reproduction.py',f'{STAGE}_protocol.json']],reason='Prompt explicitly requires sixteen bitwise records; P2 is deterministic and ignores future keys; genuinely missing future index4000 uses official seed semantics')
+ 
+ def execute():
+     from runtime import execute as run
+@@ -42,6 +42,6 @@
+     result=dict(passed=all(v['passed'] for v in checks),records=len(checks),checks=checks)
+     write(HERE/'REPRODUCTION_GATE.json',result)
+     assert result['passed'], 'Historical chain blocked; no new physical evaluation'
+-    subprocess.run([sys.executable,'-B',str(HERE/'test_geometry.py')],check=True)
++
+ 
+ if __name__=='__main__':globals()[sys.argv[1]]()

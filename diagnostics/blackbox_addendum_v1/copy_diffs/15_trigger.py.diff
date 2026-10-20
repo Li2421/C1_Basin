@@ -1,0 +1,29 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1d/fair_rhr.py
++++ /home/zhihan/research/Basin_C1/diagnostics/blackbox_addendum_v1/trigger.py
+@@ -1,11 +1,4 @@
+-"""Private speed/progress histories and clockwise tangent after local CBF."""
+ from core import *
+-from pipeline import LocalSafety
+-import jax
+-jax.config.update('jax_enable_x64',False)
+-MODES=['always','slow','progress']
+-def grid():
+-    return [dict(mode=m,steps=t,speed=v) for m in MODES for t in ([0] if m=='always' else [20,40]) for v in [.10,.15,.25,.35]]
+ class Trigger:
+     def __init__(self,rule):self.rule=rule;self.reset()
+     def reset(self):self.last=-1;self.count=np.zeros(4,int);self.distances={};self.active=np.zeros(4,bool)
+@@ -24,14 +17,3 @@
+         for k in list(self.distances):
+             if k<t-max(w,1):del self.distances[k]
+         return active.copy()
+-class FairRuntime:
+-    def __init__(self,base,rule):self.base=base;self.rule=rule;self.trigger=Trigger(rule);self.active_log=[];self.neighbor_log=[]
+-    def __getattr__(self,name):return getattr(self.base,name)
+-    def action(self,env,key,eta,chain='old'):
+-        active=self.trigger.update(env);nominal=np.stack([self.base.nominal(env,key)[1][i] for i in range(4)])
+-        filters=[LocalSafety(env.positions,i,env.config,1.5) for i in range(4)];safe=np.stack([f.project(nominal[i:i+1])[0][0] for i,f in enumerate(filters)]);target=safe.copy()
+-        for i in range(4):
+-            if active[i]:q=env.positions[i];target[i]+=self.rule['speed']*np.array([q[1],-q[0]])/max(np.linalg.norm(q),1e-30)
+-        executed=np.stack([f.project(target[i:i+1])[0][0] for i,f in enumerate(filters)])
+-        self.active_log.append(active);self.neighbor_log.append([len(f.neighbor_indices) for f in filters])
+-        return executed,dict(min_linear_residual=min(f.certificate(executed[i:i+1])['min_linear_residual'] for i,f in enumerate(filters))),sum(f.calls for f in filters)

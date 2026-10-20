@@ -1,0 +1,14 @@
+"""Outcome-blind verification of the prompt's seen-controller premise."""
+from common import *
+def main():
+ q=read(D/'controller_universal_eta_schedule_v1/protocol.json');p=read(D/'ring_controller_population_v1/protocol.json');frozen=read(D/'ring_controller_critic_v1/DATA_AUDIT.json');novel=read(D/'ring_controller_population_v1/CHECKPOINT_NOVELTY_AUDIT.json');names=np.load(D/'ring_controller_population_v1/R5_FEATURES.npz')['controller_names'].tolist();source={n:p['controllers']['ring_exchange'][n]['payload']['flow_checkpoint_sha256'] for n in names};original={n:v['payload']['flow_checkpoint_sha256'] for n,v in q['base_profiles'].items()};assert len(source)==frozen['source']['controllers']==56
+ records={r['name']:r for r in novel['checkpoints']};assert set(records)==set(names)
+ for n in names:assert source[n]==records[n]['checkpoint_sha256']
+ original_params={r['recipe']:r['original_parameter_sha256'] for r in records.values()};source_params={n:r['parameter_sha256'] for n,r in records.items()}
+ file_matches={n:[s for s,v in source.items() if v==h] for n,h in original.items()};param_matches={n:[s for s,v in source_params.items() if v==h] for n,h in original_params.items()}
+ assert len(original)==len(original_params)==14 and not any(file_matches.values()) and not any(param_matches.values())
+ out=dict(utc=utc(),main_evaluation_labels_read=False,source_controllers=56,test_controllers=14,exact_checkpoint_overlap=0,parameter_hash_overlap=0,shared_recipe_count=14,original_checkpoint_sha256=original,source_checkpoint_sha256=source,original_parameter_sha256=original_params,source_parameter_sha256=source_params,checkpoint_matches=file_matches,parameter_matches=param_matches,prompt_premise='14 original controllers are in round15 training',finding='False for exact controller checkpoints/parameters; true only for recipe families',scope='Seen recipe, unseen exact checkpoint, unseen state. Strict State-only axis is not isolated.',action='Finish specified14-controller evaluation without extra rollout or refit; preserve numerical endpoints, qualify scope and mark pure State-axis gap.',historical_T2_scope_also_qualified=True)
+ write(HERE/'CONTROLLER_MEMBERSHIP_AUDIT.json',out)
+ paths=[D/'controller_universal_eta_schedule_v1/protocol.json',D/'ring_controller_population_v1/protocol.json',D/'ring_controller_population_v1/R5_FEATURES.npz',D/'ring_controller_population_v1/CHECKPOINT_NOVELTY_AUDIT.json',D/'ring_controller_critic_v1/DATA_AUDIT.json',D/'ring_controller_critic_v1/fit.py',HERE/'controller_membership_audit.py',HERE/'CONTROLLER_MEMBERSHIP_AUDIT.json'];seal('CONTROLLER_MEMBERSHIP_AUDIT.receipt.json',paths,main_evaluation_labels_read=False,no_scientific_parameter_selection_changed=True)
+ print('Exact checkpoints/parameters seen:0/14. Recipes seen:14/14.')
+if __name__=='__main__':main()

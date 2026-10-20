@@ -1,0 +1,10 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/crosstype1b_generator_critic_pipeline_v1/common.py
++++ /home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/common.py
+@@ -1,6 +1,6 @@
+ """Round38 output boundary and authoritative DB imports."""
+ from core import *
+-EXP='exp_crosstype1b_generator_critic_pipeline_v1'
++EXP='exp_crosstype2_mixed_zoo_selector_v1'
+ import shared_rollout_db
+ assert Path(shared_rollout_db.__file__).resolve().is_relative_to(ROOT/'shared_rollout_db')
+ from shared_rollout_db.src import rollout_db,cache_writer,planner

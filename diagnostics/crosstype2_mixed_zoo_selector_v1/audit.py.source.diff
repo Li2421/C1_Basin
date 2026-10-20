@@ -1,0 +1,14 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/crosstype1b_generator_critic_pipeline_v1/audit.py
++++ /home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/audit.py
+@@ -11,9 +11,9 @@
+ HERE = Path(__file__).resolve().parent
+ POC = Path('/home/zhihan/research/Basin_C1_flow_field_poc_20261004')
+ OFFICIAL = Path('/home/zhihan/research/01_MACFlow_Baseline_Reproduction/MACFlow_Official')
+-PREFIXES = ('decentralized_', 'teacher_student_', 'multiscene_', 'crosstype2_')
++PREFIXES = ('decentralized_', 'teacher_student_', 'multiscene_')
+ 
+-REQUIRED_HISTORY = {'crosstype1_learned_zoo_selector_v1','orthoflow3_generator_critic_v1','orthoflow3_generator_critic_frozen_test_v1','orthoflow3_ring_k16_diagnostic_v1','orthoflow3_c1_generalization_v1','ring_controller_critic_v1','axis4a_geometry_horizon_v1','blackbox_families_v1'}
++REQUIRED_HISTORY = {'crosstype1b_generator_critic_pipeline_v1','blackbox_addendum_v1','axis2_controller_v1','other_controller_classes_v1','crosstype1_learned_zoo_selector_v1','orthoflow3_generator_critic_v1','orthoflow3_generator_critic_frozen_test_v1','orthoflow3_ring_k16_diagnostic_v1','orthoflow3_c1_generalization_v1','ring_controller_critic_v1','axis4a_geometry_horizon_v1','blackbox_families_v1'}
+ 
+ def digest(data):
+     return hashlib.sha256(data).hexdigest()

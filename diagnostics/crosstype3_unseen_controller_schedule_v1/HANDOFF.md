@@ -1,0 +1,20 @@
+# 跨类型3接手说明
+
+
+完整输出目录：/home/zhihan/research/Basin_C1/diagnostics/crosstype3_unseen_controller_schedule_v1。REPORT.md给结论，AXIS_TABLE.md/CSV与AXIS_METRICS.json给逐类型、族和两阶段统计。仅三个新类型新状态是确认性证据，事后归因为开发证据。
+
+有效规范为PROMPT_REVISION_20261019_V2.md，原预注册与两次修订收据均保留；盲化能力/机制例外和保守额外动作授权分别在USER_DESIGN_DECISIONS与CONSERVATIVE_EVALUATION_AUTHORIZATION收据。
+
+可直接复用：104个旧类型的精确profile，62实例旧动作索引与DB标签；冻结生成器、STATE_INPUTS/CANDIDATES；三个新控制器代码和Transformer checkpoints；24维机制特征和原轨迹索引；TRAINING_BUNDLE、critic_fits/、源内曲线及SELECTED_MODELS。
+
+每份旧目录构造器可能写自己的缓存。下一轮复制到新目录、记录SHA并先复现，不直接运行本目录入口。new_execution.py只经既有公开cache供给新nominal，物理循环完全沿用复现过的mixed runtime。
+
+16折留一类型、3族留一描述模型按精确source set缓存156组×2分支，每拟合3个seed。推理恢复h/c float32与C统计float64，highest矩阵乘法。动作编码为前期3、后期3、后期−前期3、切换步/700；与旧编码同维但不能互换。
+
+新评估请求顺序优先未见类型，所有方法在首次新状态提交前选定并密封。保守动作去重后单列3744上限；事后诊断仅在CONFIRMATORY_RESULTS.receipt之后提交。
+
+数据按KNOWN_EVAL_BUNDLE与UNSEEN_EVAL_BUNDLE分开，分别24与48状态，−2为缺失填充、−1为unknown；不可混淆。全部实际动作与两个seed明细见CONTROLLER_STATE_DETAILS.csv。
+
+下一轮若继续用这三个已打开的类型，应标开发范围；不能重新宣称它们是研究者未见类型。新类型不得由能力不合格的替代类型顶替。
+
+全部缺口见GAPS.md；保留大型数据、checkpoint和SQLite，不清理，不做Git提交。

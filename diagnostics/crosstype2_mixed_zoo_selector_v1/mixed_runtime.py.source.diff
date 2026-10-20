@@ -1,0 +1,10 @@
+--- diagnostics/crosstype2_mixed_zoo_selector_v1/rollout_runtime.py
++++ diagnostics/crosstype2_mixed_zoo_selector_v1/mixed_runtime.py
+@@ -1,6 +1,6 @@
+ """New-arm execution and 300-step probes around the read-only Ring runtime."""
+ from common import *
+-from zoo_runtime import make
++from mixed_controllers import make
+ from historical_controllers import Observed
+ from right_hand import RightHand
+ from progress import ProgressSwitch

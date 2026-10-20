@@ -1,0 +1,19 @@
+--- diagnostics/crosstype1_learned_zoo_selector_v1/initial_actions.py
++++ diagnostics/crosstype2_mixed_zoo_selector_v1/initial_actions.py
+@@ -1,6 +1,6 @@
+ """No physics: eight independent initial-observation nominal-action queries."""
+ from common import *
+-from zoo_runtime import make
++from mixed_controllers import make
+ from diagnostics.orthoflow3_tt_ff_matched_learnability_v1.execution import key_for
+ import jax
+ jax.config.update('jax_enable_x64',False)
+@@ -8,7 +8,7 @@
+ 
+ def main(phase,index,workers):
+     p=read(HERE/f'{phase}_protocol.json');cache={}
+-    for name in p['controller_order'][index::workers]:
++    for name in [n for n in p['controller_order'] if p['types'][n] not in ('Flow','gaussian','deterministic','mixture','diffusion','chunking','recurrent','cvae','ring_ippo')][index::workers]:
+         target=HERE/phase/'initial_actions'/f'{name}.npz'
+         receipt=target.with_suffix('.receipt.json')
+         if receipt.exists():

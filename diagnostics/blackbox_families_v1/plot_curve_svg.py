@@ -1,0 +1,18 @@
+"""Dependency-free vector rendering of the exact scientific curve table."""
+from common import *
+import math,html
+r=read(HERE/'results.json');names={'centralized_sampling':'Centralized random-shooting model predictive control','cross_entropy':'Cross-entropy method model predictive control','deterministic':'Deterministic behavior-cloning policy','mixture':'Mixture-density behavior-cloning policy','diffusion':'Diffusion behavior-cloning policy','combined':'All five implementation-valid families'};items=[(k,v) for k,v in r['families'].items() if v['methods']]+[('combined',r['combined'])];colors=['#4477aa','#ee6677','#228833','#ccbb44','#66ccee','#000000'];ks=[2,4,8,16]
+W,H=1120,550;left,right,top,bottom=85,650,80,440;maxval=max(v['methods']['pilot_'+str(k)]['mean_regret_pp'][1] for _,v in items for k in ks);minval=min(0,min(v['methods']['pilot_'+str(k)]['mean_regret_pp'][0] for _,v in items for k in ks));ymin=math.floor(minval);ymax=max(4,math.ceil(maxval+1));x=lambda k:left+(math.log2(k)-1)*(right-left)/3;y=lambda v:bottom-(v-ymin)*(bottom-top)/(ymax-ymin)
+parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">','<rect width="100%" height="100%" fill="white"/>','<g font-family="sans-serif" font-size="12" fill="#222">']
+def text(px,py,s,anchor='start',size=12):parts.append(f'<text x="{px}" y="{py}" text-anchor="{anchor}" font-size="{size}">{html.escape(s)}</text>')
+def line(x1,y1,x2,y2,color='#dddddd',width=1,dash=''):parts.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{color}" stroke-width="{width}"'+(f' stroke-dasharray="{dash}"' if dash else '')+'/>')
+for tick in range(ymin,ymax+1):line(left,y(tick),right,y(tick));text(left-10,y(tick)+4,str(tick),'end')
+for k in ks:line(x(k),top,x(k),bottom);text(x(k),bottom+24,str(k),'middle');text(x(k),top-13,str(2*k),'middle')
+line(left,bottom,right,bottom,'#222');line(left,top,left,bottom,'#222');line(left,y(3),right,y(3),'#666',1,'5,4')
+for i,(family,unit) in enumerate(items):
+ lo=[unit['methods']['pilot_'+str(k)]['mean_regret_pp'][0] for k in ks];hi=[unit['methods']['pilot_'+str(k)]['mean_regret_pp'][1] for k in ks];color=colors[i];poly=[(x(k),y(v)) for k,v in zip(ks,lo)]+[(x(k),y(v)) for k,v in reversed(list(zip(ks,hi)))];points=' '.join(f'{a:.3f},{b:.3f}' for a,b in poly);parts.append(f'<polygon points="{points}" fill="{color}" opacity="0.13"/>');points=' '.join(f'{x(k):.3f},{y(v):.3f}' for k,v in zip(ks,lo));parts.append(f'<polyline points="{points}" fill="none" stroke="{color}" stroke-width="{3 if family=="combined" else 1.8}"/>')
+ for k,v in zip(ks,lo):parts.append(f'<circle cx="{x(k):.3f}" cy="{y(v):.3f}" r="3.5" fill="{color}"/>')
+ ly=top+20+i*44;line(690,ly,717,ly,color,2);text(727,ly+4,names[family],size=11)
+text((left+right)/2,35,'Closed-loop labels per controller (two arms per pilot state)','middle');text((left+right)/2,490,'Pilot states per controller','middle');parts.append(f'<text transform="translate(20,{(top+bottom)/2}) rotate(-90)" text-anchor="middle">Mean regret (percentage points)</text>');text(left,522,'Shading: unknown-outcome bounds, not sampling confidence intervals. Dashed line: three-percentage-point criterion.',size=11);parts+=['</g>','</svg>'];(HERE/'PILOT_LABEL_COST_CURVE.svg').write_text('\n'.join(parts)+'\n')
+write(HERE/'CURVE_RENDERING_NOTE.json',dict(utc=utc(),matplotlib_available=False,no_package_installation=True,vector_svg_and_numerical_csv_complete=True,pdf_png_optional_not_generated=True,data_source_sha256=sha(HERE/'PILOT_LABEL_COST_CURVE.csv')))
+print('SVG and numerical curve complete; no package installation')

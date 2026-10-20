@@ -1,0 +1,17 @@
+本轮全部相对路径均以 `/home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1` 为根目录；原始任务规范为 `/home/zhihan/research/Basin_C1/docs/prompt_crosstype2_mixed_zoo_selector_20261018.md`。
+
+本轮混合黑盒动物园已完成开发、冻结、一次性新状态确认和完整性审计。主结论、终点与证据限制以REPORT.md和GAPS.md为准；不得利用本轮确认标签调整模型后继续把原确认称为有效。
+
+下一轮跨类型第三轮可以只读复用：CANDIDATES.json与candidates.py（冻结生成器规则）；RHR_SHORTLIST.json（历史一次性短名单）；ZOO_MANIFEST.csv与各policies/实例checkpoint；PROBE_MANIFEST/PROBE_TRAJECTORY_INDEX、CONTROLLER_FEATURES.npz与可读CONTROLLER_FEATURES.csv（空白为缺失）；TRAINING_BUNDLE.npz及NEW_EVAL_BUNDLE.npz；FROZEN_PIPELINE.json与NEW_EVAL_CHOICES.receipt.json；SOURCE_AND_INPUT_RECEIPTS.json与INTEGRITY_COMPARISON.json。
+
+当前有效入口：mixed_controllers.py、mixed_runtime.py、mixed_execution.py、zoo_design.py、train_critic.py（四种模式共用缓存）、select_mixed.py、single_source_selection.py、inference.py、new_choices.py、statistics_pipeline.py。保留的旧名称训练/选择文件主要是源码参考；新流程由advance.py协调，不能把参考旧入口的固定62/13维设定当成本轮入口。
+
+所有构造器、core/common会将临时目录指向当前文件所在实验目录；下一轮不要直接运行本目录这些有写副作用的入口。按共同协议复制到新目录、记录源SHA/diff，并先复现。旧rollout标签不因critic表示变化失效；先DB preflight与原始RNG/物理/执行指纹核查，只补真正缺失，unknown不重跑。
+
+规模曲线源集合与source-controller内层缓存路径在SCALING_TRAINING_PLAN.json、SCALING_DRAWS.json、SCALING_RESULTS.json；源集合完全相同才能复用对应fit，不应重复训练。m=1的controller内层例外得到用户明确授权，见USER_DESIGN_DECISIONS。
+
+本轮新状态种子202610182001–202610182024；下一轮生成新状态时需再次对DB全体去重，包括本轮24个状态。实际锁定类型只有两种，可选隐式类型缺口不能由其他类型顶替。
+
+冻结与模型推理必须恢复h/c统计float32、C统计float64，并使用float32 highest矩阵乘法。原生Flow预训练范围限制仍存在。所有新资源授权重新按最新prompt执行；本轮按用户后续授权，无其他任务时24CPU，有其他任务时其优先并回到18CPU总上限；GPU在没有其他GPU任务时可用全部8个shard，有其他GPU任务时回到2个上限。不得修改旧源码或旧目录、安装包或执行Git写操作。
+
+当前资源配置为RESOURCE_LIMITS_ACTIVE.json；RESOURCE_LIMITS.json为CPU授权时的历史原件，为保持收据有效而保留。CPU24和GPU8授权事件见RESOURCE_AUTHORIZATION_24_CPU与RESOURCE_AUTHORIZATION_8_GPU的JSON及收据。调度器在提交前核查所有作业；模型、数据和统计设计不因扩容而改变。

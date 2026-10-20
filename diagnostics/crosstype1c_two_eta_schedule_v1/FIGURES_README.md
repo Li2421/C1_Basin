@@ -1,0 +1,5 @@
+# 图像证据
+
+所有SVG均为独立静态矢量文件，数值来自冻结选择和已保存的实验结果，没有额外rollout。既有venv和系统Python均无Matplotlib/Plotly；按不安装包约束用标准SVG输出，原始绘图数组保留在FIGURE_PLOT_DATA.json。
+
+三个η分量各给前期/后期散点与直方图，类型颜色固定，η13/η10只画历史参照。方向余弦对零差向量未定义，明确排除并保留计数。切换图把对角元单列为无实际切换；实际执行过后期η的比例另见PIPELINE_SWITCH_EXECUTION。外层NLL/排序曲线仅诊断，checkpoint及权重只按源内选择。

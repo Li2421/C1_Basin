@@ -1,0 +1,24 @@
+--- 
++++ 
+@@ -23,6 +23,12 @@
+  return raw*jnp.minimum(1.,.5/jnp.maximum(jnp.linalg.norm(raw,axis=-1,keepdims=True),1e-30))
+ 
+ _cache={}
++def bound_and_stop(velocity,env):
++ velocity=np.asarray(velocity,np.float64).copy()
++ velocity*=np.minimum(1.,env.config.max_speed/np.maximum(np.linalg.norm(velocity,axis=1,keepdims=True),1e-30))
++ velocity[np.linalg.norm(env.goals-env.positions,axis=1)<=env.config.goal_tolerance]=0
++ return velocity
++
+ def load_policy(checkpoint):
+  path=Path(checkpoint);key=(str(path.resolve()),sha(path))
+  if key in _cache:return _cache[key]
+@@ -30,7 +36,5 @@
+  normal=read(path.parent/'NORMALIZATION.json');net=Policy(cfg['family']);parameters=serialization.from_bytes(net.init(jax.random.PRNGKey(0),jnp.zeros((1,39),jnp.float32)),path.read_bytes())
+  sample=jax.jit(lambda x,key:decode(net,cfg['family'],parameters,x,key,normal))
+  def act(env,fields,key):
+-  velocity=np.asarray(sample(jnp.asarray(observe(env,fields)),key),np.float64).copy()
+-  velocity[np.linalg.norm(env.goals-env.positions,axis=1)<=env.config.goal_tolerance]=0
+-  return velocity
++  return bound_and_stop(np.asarray(sample(jnp.asarray(observe(env,fields)),key),np.float64),env)
+  _cache[key]=act;return act

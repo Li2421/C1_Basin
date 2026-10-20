@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -56,7 +56,7 @@
+  def _fallback(self,p):
+   # Steepest decrease among the eight grid neighbors; only visible links.
+   ij=np.rint((p-np.array([self.grid.x[0],self.grid.y[0]]))/SPACING).astype(int)
+-  offsets=np.array([(dx,dy) for dy in [-1,0,1] for dx in [-1,0,1]])
++  offsets=np.array([(dx,dy) for dy in [-1,0,1] for dx in [-1,0,1] if dx or dy])
+   q=ij[:,None]+offsets;q[:,:,0]=np.clip(q[:,:,0],0,len(self.grid.x)-1);q[:,:,1]=np.clip(q[:,:,1],0,len(self.grid.y)-1)
+   targets=self.grid.points[q[:,:,1],q[:,:,0]];cost=self.cost[q[:,:,1],q[:,:,0]]
+   dist=np.linalg.norm(targets-p[:,None],axis=-1)

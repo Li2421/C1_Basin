@@ -1,0 +1,2 @@
+from core import *
+prereg();rows=[read(f) for f in (HERE/'gate/checks').glob('*.json')];assert len(rows)==16 and all(r['passed'] for r in rows);write(HERE/'CONSISTENCY_GATE.json',dict(utc=utc(),passed=True,replayed=16,source='R27 existing centralized TT records',native_outcome_length_first_action_and_full_positions_bitwise=True,single_robot_component_tests=read(HERE/'UNIT_TESTS.json'),no_new_task_labels_for_gate=True));print('Round28 central consistency PASS16')

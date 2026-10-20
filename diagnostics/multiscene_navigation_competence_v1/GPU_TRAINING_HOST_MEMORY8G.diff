@@ -1,0 +1,10 @@
+--- submit_training39.before_memory8g.py
++++ submit_training39.py
+@@ -20,6 +20,6 @@
+  path=HERE/f'{stage}_TASKS.json';write(path,tasks)
+  script=HERE/f'{stage}_entry.py';script.write_text("from common import *\nfrom training39 import train\nfor task in read(HERE/"+repr(path.name)+")[int(sys.argv[1])::"+str(n)+"]:\n try:\n  train(**task)\n except Exception as error:\n  tag=\"{family}_{kind}_{seed}_round_{round_index}\".format(**task)\n  write(HERE/\"training_errors\"/(tag+\".json\"),dict(task=task,type=type(error).__name__,message=str(error)))\n")
+  command=' '.join(['env','PYTHONDONTWRITEBYTECODE=1','JAX_PLATFORMS=cuda','OPENBLAS_NUM_THREADS=1','OMP_NUM_THREADS=1',shlex.quote(sys.executable),'-B',shlex.quote(str(script)),'$SLURM_ARRAY_TASK_ID'])
+- args=['sbatch','--parsable','--gres=shard:1','-p','gpu','--cpus-per-task=1','--mem=4G','--time=12:00:00','--array',f'0-{n-1}%{n}','-J','r40_'+stage,'-o',str(HERE/f'{stage}_%A_%a.log'),'--wrap',command]
++ args=['sbatch','--parsable','--gres=shard:1','-p','gpu','--cpus-per-task=1','--mem=8G','--time=12:00:00','--array',f'0-{n-1}%{n}','-J','r40_'+stage,'-o',str(HERE/f'{stage}_%A_%a.log'),'--wrap',command]
+  seal(f'{stage}_SUBMISSION_PREFLIGHT.receipt.json',[script,path,HERE/'training39.py',HERE/'TRAINING_PIPELINE39.receipt.json']+datasets,queue=q,requested_cpu_shards=n,requested_gpu_shards=n,budget=b)
+  job=subprocess.check_output(args,text=True).strip();write(HERE/f'{stage}_SUBMISSION.json',dict(utc=utc(),job=job,args=args,queue=q));return job

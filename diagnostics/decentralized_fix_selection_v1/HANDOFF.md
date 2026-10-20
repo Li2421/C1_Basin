@@ -1,0 +1,15 @@
+# 分布式黑盒修法选择交接（DEVELOPMENT）
+
+目标：冻结五族46个黑盒，在无标签300步安全诊断后，对六种固定修法做五折留一族controller级选择。用户规范为 docs/prompt_round30h_decentralized_fix_selection_20261017.md；全部新实现和产物仅在本目录。任何历史文件、PoC、官方MACFlow仓库与Python环境均只读；DB仅官方登记、默认journal与单进程merger追加。
+
+源码完整性审计未通过，官方共享数据库包与默认 journal 路径断言均通过。五个黑盒 controller 族的最佳固定修法分别为原离线蒸馏各自噪声分布式学生：前500步η13、之后η10的时间表；共享观测联合MACFlow教师（分布式安全层）：前500步η13、之后η10的时间表；共享观测高斯行为克隆策略：前500步η13、之后η10的时间表；分布式模型预测控制：右手规则甲（1秒无进展、0.35m/s）；A*规划controller：右手规则乙（邻居0.8m以内、0.10m/s）。不看成败的诊断能够在本样本用冻结比例完全区分分布式模型预测控制与其余四族，但原学生、联合教师和高斯行为克隆策略的特征有重叠。五族留一族评估中，规则选择器通过、诊断 critic 选择器未通过“优于任何单一固定修法”的配对置信区间标准。本轮全部为 DEVELOPMENT。全仓审计未通过项为本轮未写入、未导入的multiscene_generalization_v1/test_observation.py发生外部变化；不得将本轮标为完整验收通过。
+
+阅读顺序：REPORT.md → PREREGISTRATION.md → results.json → 各fold的RULE_SELECTION/STEP_SELECTION/CRITIC_SELECTION/CHOICES_FROZEN.receipt.json。CONTROLLER_SIX_ARM_TABLE.csv逐格注明历史来源，ANALYSIS_MANIFEST.json逐条含UID、raw与trace路径和sha256。历史学生使用本目录STUDENTS.json指定的有效原checkpoint；不使用round30f新学生。
+
+复用9728条，补7936条，共17664条。诊断736条全部独立存储，不写任务DB。旧R5缺失不填，旧通用critic有32实例分布式探测兼容证据；14教师另保留原联合流R5和冻结选择作历史协议描述性对照。unknown保留且不重跑；timeout不是deadlock。三个右手规则参数曾用历史族结果选定，因此菜单携带族信息；这轮仅是DEVELOPMENT。
+
+流水线脚本：support.py建立冻结身份；integrity.py BEGIN/END；design_new.py历史逐格审计、登记与preflight；replay_gate.py 16条复现；submit_new.py/run.py生成诊断与缺失任务；freeze_diagnostics.py封存全部特征；postflight.py调用官方merger；pack_labels.py生成各折SOURCE_ONLY文件；fit_selector.py仅拟合源族规则和critic；analyze.py在choice冻结后评价；plots.py只读结果画科学图；report.py整理文档；verify_delivery.py核验交付。复制的worker.py、pipeline.py及右手规则核心执行逐字不改，新的support.runtime仅预载原学生/教师。
+
+本轮仿真与分析已完成，但全仓一致性审计因外部未导入文件变化未通过，不能视为完整验收通过；本轮已停止实验流水线。不应重新提交rollout或重跑unknown，也不得恢复外部文件来使审计表面通过。确需新实验先查共享DB并重新预注册。复核只需读取收据并运行verify_delivery.py（它不提交作业，不运行仿真，不修改历史或DB）。JAX精度False；所有入口先加载并断言官方DB路径。Slurm提交前记录squeue；本轮最多18 CPU shard、未使用GPU。
+
+单进程DB合并的命令、ps/squeue审计保存在supplement_MERGER_PREFLIGHT.json和supplement_MERGE.log；登记前后旧行哈希及新登记行在registration/supplement/。INTEGRITY_COMPARISON.json列出并行任务外部新增项，IMPORT_SOURCE_AUDIT.json复核所有实际import源文件。最终交付检查见FINAL_VERIFICATION.json和DELIVERY.receipt.json。
