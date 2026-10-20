@@ -39,7 +39,8 @@ N=20 v7 保留版本的相对符号链接。重新校验 SHA256 后移除重复�
 
 ## 跨类型2预测缓存迁移
 
-状态：已获用户授权，准备执行；完成数量以归档目录 `summary.json` 为准。
+状态：迁移完成，238,800 个原路径链接全部验收通过。
+迁移程序与路径说明在执行前已提交并推送：`3b6c2fc`。
 
 源目录：
 `/home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits/`。
@@ -47,7 +48,7 @@ N=20 v7 保留版本的相对符号链接。重新校验 SHA256 后移除重复�
 归档目录：
 `/mnt/hdd/zhihan/Basin_C1/archive_20261020/prediction_caches/crosstype2_mixed_zoo_selector_v1/`。
 
-仅迁移 `分支/源集合/step*_predictions.npz`，预计 238,800 个文件、
+仅迁移 `分支/源集合/step*_predictions.npz`，共 238,800 个文件、
 84,873,221,270 字节（79.04 GiB）。归档目录 `files/` 内保留相同相对路径；
 原文件位置建立绝对符号链接。checkpoint、训练输入、曲线和收据留在工作盘。
 
@@ -55,3 +56,8 @@ N=20 v7 保留版本的相对符号链接。重新校验 SHA256 后移除重复�
 原子替换源副本。归档目录 `migration.jsonl` 记录源路径、目标路径、大小和
 SHA256，`summary.json` 记录完成状态和链接验收；迁移程序为
 `scripts/archive_critic_predictions.py`。源链接依赖 `/mnt/hdd` 挂载。
+
+目标文件系统已完成落盘。完整迁移清单的路径唯一性、数量与字节数均已核对；
+8 个模型分支分别通过原路径 `np.load` 读取，且与原 `COMPLETE.receipt.json`
+的 SHA256 一致；冻结配置中引用的 90 个 checkpoint 均仍为工作盘上的普通
+文件，SHA256 与冻结配置一致。验收记录为归档目录 `verification.json`。
