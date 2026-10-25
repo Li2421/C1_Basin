@@ -1,0 +1,173 @@
+{
+  "status": "complete_and_verified",
+  "utc": "2026-10-25T03:23:16.693295+00:00",
+  "migration_code_commit": "efdefa4",
+  "maintenance_branch": "maintenance/storage-20261025",
+  "source_head_unchanged": "0d102abf949801641aba498733a03d8255fe6c39",
+  "files": 246440,
+  "bytes": 142131133836,
+  "GiB": 132.36993349716067,
+  "cumulative_two_batches_files": 469807,
+  "cumulative_two_batches_GiB": 278.3453684290871,
+  "root_filesystem_after": {
+    "total_bytes": 3947066867712,
+    "available_bytes": 893816836096,
+    "used_bytes": 2852673486848
+  },
+  "root_available_GiB": 832.4317970275879,
+  "jobs": [
+    {
+      "name": "crosstype2_checkpoints",
+      "summary": {
+        "name": "crosstype2_checkpoints",
+        "source": "/home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits",
+        "target": "/mnt/ssd/zhihan/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits",
+        "pattern": "*/*/step*.msgpack",
+        "files": 238800,
+        "bytes": 119726495880,
+        "status": "complete",
+        "utc": "2026-10-25T03:14:10.235023+00:00",
+        "verified_sha256_files": 238800,
+        "verified_links": 238800
+      },
+      "verification": {
+        "status": "passed",
+        "utc": "2026-10-25T03:23:03.160283+00:00",
+        "job": "crosstype2_checkpoints",
+        "files": 238800,
+        "bytes": 119726495880,
+        "GiB": 111.50398839265108,
+        "all_links_verified": 238800,
+        "nonselected_entries_unchanged": 286560,
+        "old_symlinks_unchanged": 238800,
+        "nonselected_metadata_sha256": "72b58f8f4894bf2f6d4ff7ed003d3c86c9817703b0a4171e0eba4a9d1822f645",
+        "frozen_checkpoints_sha256_verified": 90,
+        "sample_original_path_loads": [
+          {
+            "branch": "action_only_scratch",
+            "path": "/home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits/action_only_scratch/01ac53a3c70885eaeb38/step100.msgpack",
+            "sha256_matches": true,
+            "checkpoint_deserialized": true,
+            "top_level_keys": [
+              "params"
+            ]
+          },
+          {
+            "branch": "action_only_warm",
+            "path": "/home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits/action_only_warm/01ac53a3c70885eaeb38/step100.msgpack",
+            "sha256_matches": true,
+            "checkpoint_deserialized": true,
+            "top_level_keys": [
+              "params"
+            ]
+          },
+          {
+            "branch": "full_scratch",
+            "path": "/home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits/full_scratch/00096d226e6626e79289/step100.msgpack",
+            "sha256_matches": true,
+            "checkpoint_deserialized": true,
+            "top_level_keys": [
+              "params"
+            ]
+          },
+          {
+            "branch": "full_warm",
+            "path": "/home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits/full_warm/00096d226e6626e79289/step100.msgpack",
+            "sha256_matches": true,
+            "checkpoint_deserialized": true,
+            "top_level_keys": [
+              "params"
+            ]
+          },
+          {
+            "branch": "no_controller_scratch",
+            "path": "/home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits/no_controller_scratch/00096d226e6626e79289/step100.msgpack",
+            "sha256_matches": true,
+            "checkpoint_deserialized": true,
+            "top_level_keys": [
+              "params"
+            ]
+          },
+          {
+            "branch": "no_controller_warm",
+            "path": "/home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits/no_controller_warm/00096d226e6626e79289/step100.msgpack",
+            "sha256_matches": true,
+            "checkpoint_deserialized": true,
+            "top_level_keys": [
+              "params"
+            ]
+          },
+          {
+            "branch": "no_state_scratch",
+            "path": "/home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits/no_state_scratch/01ac53a3c70885eaeb38/step100.msgpack",
+            "sha256_matches": true,
+            "checkpoint_deserialized": true,
+            "top_level_keys": [
+              "params"
+            ]
+          },
+          {
+            "branch": "no_state_warm",
+            "path": "/home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits/no_state_warm/01ac53a3c70885eaeb38/step100.msgpack",
+            "sha256_matches": true,
+            "checkpoint_deserialized": true,
+            "top_level_keys": [
+              "params"
+            ]
+          }
+        ],
+        "original_head_unchanged": "0d102abf949801641aba498733a03d8255fe6c39"
+      },
+      "audit": "/mnt/ssd/zhihan/Basin_C1/audits/storage_20261025_batch2/crosstype2_checkpoints"
+    },
+    {
+      "name": "crosstype6_predictions",
+      "summary": {
+        "name": "crosstype6_predictions",
+        "source": "/home/zhihan/research/Basin_C1/diagnostics/crosstype6_shared_correction_controller_information_v1/critic_fits",
+        "target": "/mnt/hdd/zhihan/Basin_C1/archive_20261025/prediction_caches/crosstype6_shared_correction_controller_information_v1/files",
+        "pattern": "*/*/step*_predictions.npz",
+        "files": 7640,
+        "bytes": 22404637956,
+        "status": "complete",
+        "utc": "2026-10-25T03:13:56.625321+00:00",
+        "verified_sha256_files": 7640,
+        "verified_links": 7640
+      },
+      "verification": {
+        "status": "passed",
+        "utc": "2026-10-25T03:17:32.681891+00:00",
+        "job": "crosstype6_predictions",
+        "files": 7640,
+        "bytes": 22404637956,
+        "GiB": 20.865945104509592,
+        "all_links_verified": 7640,
+        "nonselected_entries_unchanged": 9168,
+        "old_symlinks_unchanged": 0,
+        "nonselected_metadata_sha256": "352e944a3de12d7cb2c904383b7114119de9220ba83d9199c0d6df143131ea90",
+        "frozen_checkpoints_sha256_verified": 40,
+        "sample_original_path_loads": [
+          {
+            "branch": "full",
+            "path": "/home/zhihan/research/Basin_C1/diagnostics/crosstype6_shared_correction_controller_information_v1/critic_fits/full/0049d4b5795518a25905/step1000_predictions.npz",
+            "sha256_matches": true,
+            "npz_crc_ok": true,
+            "arrays_loaded": 3
+          },
+          {
+            "branch": "no_controller",
+            "path": "/home/zhihan/research/Basin_C1/diagnostics/crosstype6_shared_correction_controller_information_v1/critic_fits/no_controller/0049d4b5795518a25905/step1000_predictions.npz",
+            "sha256_matches": true,
+            "npz_crc_ok": true,
+            "arrays_loaded": 3
+          }
+        ],
+        "original_head_unchanged": "0d102abf949801641aba498733a03d8255fe6c39"
+      },
+      "audit": "/mnt/hdd/zhihan/Basin_C1/audits/storage_20261025_batch2/crosstype6_predictions"
+    }
+  ],
+  "active_data_and_sqlite_unchanged": true,
+  "backup_status": "Migration, not an independent second backup. Original paths require SSD/HDD mounts.",
+  "recovery": "Each audit directory holds a durable SHA256 manifest with every original relative path, size and digest. To restore, copy each target file to a temporary file alongside its original home symlink, verify SHA256, then atomically replace the symlink with that file. Keep data-disk files until complete restored-path verification."
+}
