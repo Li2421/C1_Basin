@@ -1,0 +1,13 @@
+{
+  "source_root": "/home/zhihan/research/Basin_C1",
+  "destination_root": "/mnt/ssd/zhihan/Basin_C1",
+  "audit_root": "/mnt/ssd/zhihan/Basin_C1/audits/storage_20261025",
+  "min_age_hours": 24,
+  "directories": [
+    "diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_circle_five_initial",
+    "diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_crowded_random_initial",
+    "diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_circle_five_fallback",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/free_main",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/swap_main"
+  ]
+}
