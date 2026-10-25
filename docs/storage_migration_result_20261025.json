@@ -1,0 +1,127 @@
+{
+  "status": "complete",
+  "directories": [
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_circle_five_initial",
+      "destination": "/mnt/ssd/zhihan/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_circle_five_initial",
+      "files": 1415,
+      "bytes": 6953607567,
+      "status": "complete",
+      "utc": "2026-10-25T03:01:19.748253+00:00",
+      "verified_sha256_files": 1415
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_crowded_random_initial",
+      "destination": "/mnt/ssd/zhihan/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_crowded_random_initial",
+      "files": 110208,
+      "bytes": 9815949392,
+      "status": "complete",
+      "utc": "2026-10-25T03:01:36.800028+00:00",
+      "verified_sha256_files": 110208
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_circle_five_fallback",
+      "destination": "/mnt/ssd/zhihan/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_circle_five_fallback",
+      "files": 16128,
+      "bytes": 116057954233,
+      "status": "complete",
+      "utc": "2026-10-25T03:02:37.230329+00:00",
+      "verified_sha256_files": 16128
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/free_main",
+      "destination": "/mnt/ssd/zhihan/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/free_main",
+      "files": 31680,
+      "bytes": 7778380568,
+      "status": "complete",
+      "utc": "2026-10-25T03:06:26.573595+00:00",
+      "verified_sha256_files": 31680
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/swap_main",
+      "destination": "/mnt/ssd/zhihan/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/swap_main",
+      "files": 63936,
+      "bytes": 16134038003,
+      "status": "complete",
+      "utc": "2026-10-25T03:06:55.030862+00:00",
+      "verified_sha256_files": 63936
+    }
+  ],
+  "files": 223367,
+  "bytes": 156739929763,
+  "verification": {
+    "status": "passed",
+    "utc": "2026-10-25T03:08:11.706297+00:00",
+    "files": 223367,
+    "bytes": 156739929763,
+    "GiB": 145.97543493192643,
+    "original_head_unchanged": "0d102abf949801641aba498733a03d8255fe6c39",
+    "tracked_worktree_clean": true,
+    "active_data_and_sqlite_kept_on_home": true,
+    "directories": [
+      {
+        "source": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_circle_five_initial",
+        "target": "/mnt/ssd/zhihan/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_circle_five_initial",
+        "verified_manifest_files": 1415,
+        "sample_npz": "traces/roll_75f607ccb69219130bac01591fe605c5f4599392552e5eb0b0acc292948e4ead.npz",
+        "sample_sha256_matches": true,
+        "npz_crc_ok": true,
+        "npz_arrays_loaded": 13
+      },
+      {
+        "source": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_crowded_random_initial",
+        "target": "/mnt/ssd/zhihan/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_crowded_random_initial",
+        "verified_manifest_files": 110208,
+        "sample_npz": "traces/roll_3cadacc2e3186288fb4559dd0bd7845a5f3e48d03347e60aceb0ae3aa2b7e0b3.npz",
+        "sample_sha256_matches": true,
+        "npz_crc_ok": true,
+        "npz_arrays_loaded": 13
+      },
+      {
+        "source": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_circle_five_fallback",
+        "target": "/mnt/ssd/zhihan/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/lit_circle_five_fallback",
+        "verified_manifest_files": 16128,
+        "sample_npz": "traces/roll_b4300cb0f3cdc4e671508b7408f09917cf915595574dd351d1041f6e5c9b0360.npz",
+        "sample_sha256_matches": true,
+        "npz_crc_ok": true,
+        "npz_arrays_loaded": 13
+      },
+      {
+        "source": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/free_main",
+        "target": "/mnt/ssd/zhihan/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/free_main",
+        "verified_manifest_files": 31680,
+        "sample_npz": "traces/roll_d82f38a196215dd2b9a43fb964710cc3db1875180b58f460c87ff2ac13c48ee9.npz",
+        "sample_sha256_matches": true,
+        "npz_crc_ok": true,
+        "npz_arrays_loaded": 12
+      },
+      {
+        "source": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/swap_main",
+        "target": "/mnt/ssd/zhihan/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/swap_main",
+        "verified_manifest_files": 63936,
+        "sample_npz": "traces/roll_dbc30427cc9d73b787465ab8a8a925bc62a069c551cfd726b20f5ecd8adf5454.npz",
+        "sample_sha256_matches": true,
+        "npz_crc_ok": true,
+        "npz_arrays_loaded": 14
+      }
+    ],
+    "root_filesystem_after": {
+      "total_bytes": 3947066867712,
+      "available_bytes": 752317145088,
+      "used_bytes": 2994173177856
+    },
+    "root_available_bytes_increase": 157109669888,
+    "migration_is_not_second_backup": true
+  },
+  "historical_layout": "Code and environments stay in home; reusable results use the dedicated SSD; existing HDD archives retained.",
+  "audit_directory": "/mnt/ssd/zhihan/Basin_C1/audits/storage_20261025",
+  "maintenance_branch": "maintenance/storage-20261025",
+  "code_commit_before_transfer": "c65b4d7",
+  "excluded": [
+    "running cross_scene_correction_v1",
+    "shared_rollout_db SQLite/WAL/SHM",
+    "code and Python environments",
+    "mixed source/result directories"
+  ],
+  "restore_guidance": "Keep SSD mounted. To restore a directory to home, copy SSD contents into a temporary home directory, verify every SHA256 against sha256.jsonl, then atomically exchange the original-path symlink and the restored directory. Keep SSD contents until restored paths have passed verification."
+}
