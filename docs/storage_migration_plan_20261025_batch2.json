@@ -1,0 +1,29 @@
+{
+  "authorization": "User approved the next batch: crosstype2 checkpoints to SSD and crosstype6 predictions to HDD.",
+  "jobs": [
+    {
+      "name": "crosstype2_checkpoints",
+      "repository": "/home/zhihan/research/Basin_C1",
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits",
+      "target": "/mnt/ssd/zhihan/Basin_C1/diagnostics/crosstype2_mixed_zoo_selector_v1/critic_fits",
+      "audit": "/mnt/ssd/zhihan/Basin_C1/audits/storage_20261025_batch2/crosstype2_checkpoints",
+      "pattern": "*/*/step*.msgpack",
+      "min_age_hours": 24,
+      "expected_files": 238800,
+      "expected_bytes": 119726495880,
+      "historical_evidence": "crosstype2 HANDOFF.md and CRITIC_TRAINING_WORKER_*_COMPLETE.json; previous HDD prediction archive verification remains applicable."
+    },
+    {
+      "name": "crosstype6_predictions",
+      "repository": "/home/zhihan/research/Basin_C1",
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/crosstype6_shared_correction_controller_information_v1/critic_fits",
+      "target": "/mnt/hdd/zhihan/Basin_C1/archive_20261025/prediction_caches/crosstype6_shared_correction_controller_information_v1/files",
+      "audit": "/mnt/hdd/zhihan/Basin_C1/audits/storage_20261025_batch2/crosstype6_predictions",
+      "pattern": "*/*/step*_predictions.npz",
+      "min_age_hours": 24,
+      "expected_files": 7640,
+      "expected_bytes": 22404637956,
+      "historical_evidence": "crosstype6 HANDOFF_FINAL.md, COORDINATOR_COMPLETE.json, CRITIC_WORKER_*_COMPLETE.json and DELIVERY_REVIEW.receipt.json."
+    }
+  ]
+}
