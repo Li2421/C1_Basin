@@ -1,0 +1,2679 @@
+{
+  "configurations": [
+    {
+      "scene": "hs_obst_n08_R140_r045",
+      "physical_wall_margin": 0.049999999999999996,
+      "CBF_wall_margin": 0.0501,
+      "physical_minus_CBF_margin": -0.00010000000000000286,
+      "controller_wall_radius": 0.0,
+      "geometry_wall_radius": 0.0,
+      "wall_count": 8
+    },
+    {
+      "scene": "hs_obst_n08_R142_r050_te",
+      "physical_wall_margin": 0.055,
+      "CBF_wall_margin": 0.0551,
+      "physical_minus_CBF_margin": -0.00010000000000000286,
+      "controller_wall_radius": 0.0,
+      "geometry_wall_radius": 0.0,
+      "wall_count": 8
+    },
+    {
+      "scene": "xsc_hs_box_n09_r013_f25_te",
+      "physical_wall_margin": 0.06166666666666667,
+      "CBF_wall_margin": 0.1351,
+      "physical_minus_CBF_margin": -0.07343333333333332,
+      "controller_wall_radius": 0.0,
+      "geometry_wall_radius": 0.006666666666666667,
+      "wall_count": 12
+    },
+    {
+      "scene": "xsc_hs_box_n09_r014_f25",
+      "physical_wall_margin": 0.06166666666666667,
+      "CBF_wall_margin": 0.1451,
+      "physical_minus_CBF_margin": -0.08343333333333333,
+      "controller_wall_radius": 0.0,
+      "geometry_wall_radius": 0.006666666666666667,
+      "wall_count": 12
+    },
+    {
+      "scene": "xsc_hs_plus_w025",
+      "physical_wall_margin": 0.06166666666666667,
+      "CBF_wall_margin": 0.0551,
+      "physical_minus_CBF_margin": 0.006566666666666665,
+      "controller_wall_radius": 0.0,
+      "geometry_wall_radius": 0.006666666666666667,
+      "wall_count": 28
+    },
+    {
+      "scene": "xsc_hs_plus_w030_te",
+      "physical_wall_margin": 0.06166666666666667,
+      "CBF_wall_margin": 0.0551,
+      "physical_minus_CBF_margin": 0.006566666666666665,
+      "controller_wall_radius": 0.0,
+      "geometry_wall_radius": 0.006666666666666667,
+      "wall_count": 28
+    },
+    {
+      "scene": "xsc_hs_swap_n06_te",
+      "physical_wall_margin": 0.055,
+      "CBF_wall_margin": 0.0551,
+      "physical_minus_CBF_margin": -0.00010000000000000286,
+      "controller_wall_radius": 0.0,
+      "geometry_wall_radius": 0.0,
+      "wall_count": 0
+    },
+    {
+      "scene": "xsc_hs_swap_n07",
+      "physical_wall_margin": 0.055,
+      "CBF_wall_margin": 0.0551,
+      "physical_minus_CBF_margin": -0.00010000000000000286,
+      "controller_wall_radius": 0.0,
+      "geometry_wall_radius": 0.0,
+      "wall_count": 0
+    }
+  ],
+  "collision_evidence": [
+    {
+      "rollout_uid": "roll_adcf7084f5d47a2d1156b6918dde0de198c1b6dc60eb694c6ffba531ee8235c7",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_adcf7084f5d47a2d1156b6918dde0de198c1b6dc60eb694c6ffba531ee8235c7.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 142,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23829079742351705,
+        0.44204145688313895
+      ],
+      "after": [
+        -0.23862125755234065,
+        0.4419835413755334
+      ],
+      "executed_velocity": [
+        -0.006609202576471984,
+        -0.0011583101521110849
+      ],
+      "swept_distance": 0.06137874244765934,
+      "physical_clearance": -0.00028792421900732806,
+      "CBF_margin_clearance": 0.006278742447659337,
+      "minimum_recorded_linear_residual": 1.0948707218627618e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_50cb0ce77092ab083d3785c22323c94ef481d35f1a716e07ec872165ab783a06",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_50cb0ce77092ab083d3785c22323c94ef481d35f1a716e07ec872165ab783a06.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 142,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23829079742351705,
+        0.44204145688313895
+      ],
+      "after": [
+        -0.23862125755234065,
+        0.4419835413755334
+      ],
+      "executed_velocity": [
+        -0.006609202576471984,
+        -0.0011583101521110849
+      ],
+      "swept_distance": 0.06137874244765934,
+      "physical_clearance": -0.00028792421900732806,
+      "CBF_margin_clearance": 0.006278742447659337,
+      "minimum_recorded_linear_residual": 1.0948707218627618e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_46e74119e56ce55e6bd45e04880afd040fdc3a91e3213f0cd66cd12fe99a0c33",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_46e74119e56ce55e6bd45e04880afd040fdc3a91e3213f0cd66cd12fe99a0c33.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "blend_goal",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 142,
+      "agent": 2,
+      "wall": 19,
+      "wall_segment": [
+        [
+          0.3,
+          -0.3
+        ],
+        [
+          0.3,
+          -1.6
+        ]
+      ],
+      "before": [
+        0.23807207768355354,
+        -0.5359616561849957
+      ],
+      "after": [
+        0.23841347379937572,
+        -0.5362722948397061
+      ],
+      "executed_velocity": [
+        0.006827922316443697,
+        -0.006212773094206313
+      ],
+      "swept_distance": 0.06158652620062427,
+      "physical_clearance": -8.01404660423985e-05,
+      "CBF_margin_clearance": 0.006486526200624267,
+      "minimum_recorded_linear_residual": 2.748669347685251e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_a3071faede3bcefd0bb39ccfd53b3dc26430e6dd607e1ac7635c7f20e7c18721",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_a3071faede3bcefd0bb39ccfd53b3dc26430e6dd607e1ac7635c7f20e7c18721.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "blend_goal",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 142,
+      "agent": 2,
+      "wall": 19,
+      "wall_segment": [
+        [
+          0.3,
+          -0.3
+        ],
+        [
+          0.3,
+          -1.6
+        ]
+      ],
+      "before": [
+        0.23807207768355354,
+        -0.5359616561849957
+      ],
+      "after": [
+        0.23841347379937572,
+        -0.5362722948397061
+      ],
+      "executed_velocity": [
+        0.006827922316443697,
+        -0.006212773094206313
+      ],
+      "swept_distance": 0.06158652620062427,
+      "physical_clearance": -8.01404660423985e-05,
+      "CBF_margin_clearance": 0.006486526200624267,
+      "minimum_recorded_linear_residual": 2.748669347685251e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_630e4d8fde04258db8166575888341931c8fce3c3b3697b2ccc9a28c27d9e498",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_630e4d8fde04258db8166575888341931c8fce3c3b3697b2ccc9a28c27d9e498.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "T_only",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 143,
+      "agent": 2,
+      "wall": 19,
+      "wall_segment": [
+        [
+          0.3,
+          -0.3
+        ],
+        [
+          0.3,
+          -1.6
+        ]
+      ],
+      "before": [
+        0.23801224079281574,
+        -0.4425456272238013
+      ],
+      "after": [
+        0.2383566287531744,
+        -0.4424522863990391
+      ],
+      "executed_velocity": [
+        0.006887759207173276,
+        0.0018668164952443988
+      ],
+      "swept_distance": 0.06164337124682559,
+      "physical_clearance": -2.3295419841078135e-05,
+      "CBF_margin_clearance": 0.006543371246825587,
+      "minimum_recorded_linear_residual": 1.0966054453387386e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_71c505071bfa624848a4fede4b93e0b09408b23a21111c72789e1ba81f12a567",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_71c505071bfa624848a4fede4b93e0b09408b23a21111c72789e1ba81f12a567.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "T_only",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 143,
+      "agent": 2,
+      "wall": 19,
+      "wall_segment": [
+        [
+          0.3,
+          -0.3
+        ],
+        [
+          0.3,
+          -1.6
+        ]
+      ],
+      "before": [
+        0.23801224079281574,
+        -0.4425456272238013
+      ],
+      "after": [
+        0.2383566287531744,
+        -0.4424522863990391
+      ],
+      "executed_velocity": [
+        0.006887759207173276,
+        0.0018668164952443988
+      ],
+      "swept_distance": 0.06164337124682559,
+      "physical_clearance": -2.3295419841078135e-05,
+      "CBF_margin_clearance": 0.006543371246825587,
+      "minimum_recorded_linear_residual": 1.0966054453387386e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_a0e8b972d5defd3e26c16c01342c09ffe32386301ec1ae6b3e1b8f0b0b39c485",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_a0e8b972d5defd3e26c16c01342c09ffe32386301ec1ae6b3e1b8f0b0b39c485.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GRTY",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 142,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23829079742351705,
+        0.44204145688313895
+      ],
+      "after": [
+        -0.23862125755234065,
+        0.4419835413755334
+      ],
+      "executed_velocity": [
+        -0.006609202576471984,
+        -0.0011583101521110849
+      ],
+      "swept_distance": 0.06137874244765934,
+      "physical_clearance": -0.00028792421900732806,
+      "CBF_margin_clearance": 0.006278742447659337,
+      "minimum_recorded_linear_residual": 1.0948707218627618e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_a0cd37d832acb1e0b1457532df853bda30e867f5d6bba82a0b717889cbd06ea0",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_a0cd37d832acb1e0b1457532df853bda30e867f5d6bba82a0b717889cbd06ea0.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GRTY",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 142,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23829079742351705,
+        0.44204145688313895
+      ],
+      "after": [
+        -0.23862125755234065,
+        0.4419835413755334
+      ],
+      "executed_velocity": [
+        -0.006609202576471984,
+        -0.0011583101521110849
+      ],
+      "swept_distance": 0.06137874244765934,
+      "physical_clearance": -0.00028792421900732806,
+      "CBF_margin_clearance": 0.006278742447659337,
+      "minimum_recorded_linear_residual": 1.0948707218627618e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_f5d6ea5239a85cb68c8d0f67dff939dd7730c396d203435d69a22117490be5c1",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_f5d6ea5239a85cb68c8d0f67dff939dd7730c396d203435d69a22117490be5c1.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GPTY",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 142,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23829079742351705,
+        0.44204145688313895
+      ],
+      "after": [
+        -0.23862125755234065,
+        0.4419835413755334
+      ],
+      "executed_velocity": [
+        -0.006609202576471984,
+        -0.0011583101521110849
+      ],
+      "swept_distance": 0.06137874244765934,
+      "physical_clearance": -0.00028792421900732806,
+      "CBF_margin_clearance": 0.006278742447659337,
+      "minimum_recorded_linear_residual": 1.0948707218627618e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_eec3476080441fd42eabe2f932e5c16aaacb004e35716ee39961fce692143b74",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_eec3476080441fd42eabe2f932e5c16aaacb004e35716ee39961fce692143b74.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GPTY",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 142,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23829079742351705,
+        0.44204145688313895
+      ],
+      "after": [
+        -0.23862125755234065,
+        0.4419835413755334
+      ],
+      "executed_velocity": [
+        -0.006609202576471984,
+        -0.0011583101521110849
+      ],
+      "swept_distance": 0.06137874244765934,
+      "physical_clearance": -0.00028792421900732806,
+      "CBF_margin_clearance": 0.006278742447659337,
+      "minimum_recorded_linear_residual": 1.0948707218627618e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_4290ece8873269b14a2d48d4134a708022670422b312445fa83cb26227fb1eaf",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_4290ece8873269b14a2d48d4134a708022670422b312445fa83cb26227fb1eaf.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTR",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 143,
+      "agent": 2,
+      "wall": 19,
+      "wall_segment": [
+        [
+          0.3,
+          -0.3
+        ],
+        [
+          0.3,
+          -1.6
+        ]
+      ],
+      "before": [
+        0.23801224079281574,
+        -0.4425456272238013
+      ],
+      "after": [
+        0.2383566287531744,
+        -0.4424522863990391
+      ],
+      "executed_velocity": [
+        0.006887759207173276,
+        0.0018668164952443988
+      ],
+      "swept_distance": 0.06164337124682559,
+      "physical_clearance": -2.3295419841078135e-05,
+      "CBF_margin_clearance": 0.006543371246825587,
+      "minimum_recorded_linear_residual": 1.0966054453387386e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_b799fe0f2900ec8e769b9b367713622e2ea530d8a7ab6bd5c12c7f45439c2b73",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_b799fe0f2900ec8e769b9b367713622e2ea530d8a7ab6bd5c12c7f45439c2b73.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTR",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 143,
+      "agent": 2,
+      "wall": 19,
+      "wall_segment": [
+        [
+          0.3,
+          -0.3
+        ],
+        [
+          0.3,
+          -1.6
+        ]
+      ],
+      "before": [
+        0.23801224079281574,
+        -0.4425456272238013
+      ],
+      "after": [
+        0.2383566287531744,
+        -0.4424522863990391
+      ],
+      "executed_velocity": [
+        0.006887759207173276,
+        0.0018668164952443988
+      ],
+      "swept_distance": 0.06164337124682559,
+      "physical_clearance": -2.3295419841078135e-05,
+      "CBF_margin_clearance": 0.006543371246825587,
+      "minimum_recorded_linear_residual": 1.0966054453387386e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_255c75cd001b1eeaa81bdf466b61e6b76e684b42d16ccdc18f73d20008aa4acb",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_255c75cd001b1eeaa81bdf466b61e6b76e684b42d16ccdc18f73d20008aa4acb.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTY",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 142,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23829079742351705,
+        0.44204145688313895
+      ],
+      "after": [
+        -0.23862125755234065,
+        0.4419835413755334
+      ],
+      "executed_velocity": [
+        -0.006609202576471984,
+        -0.0011583101521110849
+      ],
+      "swept_distance": 0.06137874244765934,
+      "physical_clearance": -0.00028792421900732806,
+      "CBF_margin_clearance": 0.006278742447659337,
+      "minimum_recorded_linear_residual": 1.0948707218627618e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_43b26c4f83c4cbb632cd15fdf5e7eefe6d3ebe33678fda35a8bdb08d453aacbf",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_43b26c4f83c4cbb632cd15fdf5e7eefe6d3ebe33678fda35a8bdb08d453aacbf.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTY",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 142,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23829079742351705,
+        0.44204145688313895
+      ],
+      "after": [
+        -0.23862125755234065,
+        0.4419835413755334
+      ],
+      "executed_velocity": [
+        -0.006609202576471984,
+        -0.0011583101521110849
+      ],
+      "swept_distance": 0.06137874244765934,
+      "physical_clearance": -0.00028792421900732806,
+      "CBF_margin_clearance": 0.006278742447659337,
+      "minimum_recorded_linear_residual": 1.0948707218627618e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_17384e0531975e4583b8c41fab268eda987840292fd00689f4d261f1f7824c2f",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_17384e0531975e4583b8c41fab268eda987840292fd00689f4d261f1f7824c2f.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal_release",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 142,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.2382907974231961,
+        0.35209431880038145
+      ],
+      "after": [
+        -0.23862125755197083,
+        0.3504969920224934
+      ],
+      "executed_velocity": [
+        -0.006609202575495159,
+        -0.03194653555776134
+      ],
+      "swept_distance": 0.061378742448029155,
+      "physical_clearance": -0.0002879242186375128,
+      "CBF_margin_clearance": 0.006278742448029152,
+      "minimum_recorded_linear_residual": 2.6716823198214e-13,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_f1823f3880b6965497cce77d0128ae41b04423b22351826608c883e66437f9b2",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_f1823f3880b6965497cce77d0128ae41b04423b22351826608c883e66437f9b2.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal_release",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 142,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.2382907974231961,
+        0.35209431880038145
+      ],
+      "after": [
+        -0.23862125755197083,
+        0.3504969920224934
+      ],
+      "executed_velocity": [
+        -0.006609202575495159,
+        -0.03194653555776134
+      ],
+      "swept_distance": 0.061378742448029155,
+      "physical_clearance": -0.0002879242186375128,
+      "CBF_margin_clearance": 0.006278742448029152,
+      "minimum_recorded_linear_residual": 2.6716823198214e-13,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_43abfa02b80dbba1796e00a0a7b7e64e772d9b79596afbbb58bef15d7336d300",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_43abfa02b80dbba1796e00a0a7b7e64e772d9b79596afbbb58bef15d7336d300.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "RHR_A",
+      "state": 16,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 202,
+      "agent": 1,
+      "wall": 14,
+      "wall_segment": [
+        [
+          -0.3,
+          -0.3
+        ],
+        [
+          -1.6,
+          -0.3
+        ]
+      ],
+      "before": [
+        -0.33708697154479467,
+        -0.23799657035704413
+      ],
+      "after": [
+        -0.33599368827044657,
+        -0.23834174183918594
+      ],
+      "executed_velocity": [
+        0.02186566548696211,
+        -0.00690342964283597
+      ],
+      "swept_distance": 0.06165825816081405,
+      "physical_clearance": -8.408505852618153e-06,
+      "CBF_margin_clearance": 0.006558258160814047,
+      "minimum_recorded_linear_residual": 3.910066714851723e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_04bc649e790bfccb41ee82e6e99b2c2f6099279fbdf8d8a0c281625eaa06f4a5",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_04bc649e790bfccb41ee82e6e99b2c2f6099279fbdf8d8a0c281625eaa06f4a5.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23812672577558772,
+        0.4420015560146694
+      ],
+      "after": [
+        -0.2384653894868078,
+        0.44194727903942116
+      ],
+      "executed_velocity": [
+        -0.00677327422440142,
+        -0.0010855395049644038
+      ],
+      "swept_distance": 0.0615346105131922,
+      "physical_clearance": -0.0001320561534744677,
+      "CBF_margin_clearance": 0.006434610513192197,
+      "minimum_recorded_linear_residual": 1.0848960618758952e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_1d852899984676a4c7a7f7a4153fc0371e726833886ea58bfc4c458ca0be9ac8",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_1d852899984676a4c7a7f7a4153fc0371e726833886ea58bfc4c458ca0be9ac8.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23812672577558772,
+        0.4420015560146694
+      ],
+      "after": [
+        -0.2384653894868078,
+        0.44194727903942116
+      ],
+      "executed_velocity": [
+        -0.00677327422440142,
+        -0.0010855395049644038
+      ],
+      "swept_distance": 0.0615346105131922,
+      "physical_clearance": -0.0001320561534744677,
+      "CBF_margin_clearance": 0.006434610513192197,
+      "minimum_recorded_linear_residual": 1.0848960618758952e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_ef6989f8f78f6bdfa8d0c4ca52fb5320bd0e0b8029c6256ee4e83772e633fed9",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_ef6989f8f78f6bdfa8d0c4ca52fb5320bd0e0b8029c6256ee4e83772e633fed9.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "blend_goal",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 146,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23821800105845317,
+        0.5329234336447772
+      ],
+      "after": [
+        -0.23855210100553037,
+        0.5333783191640254
+      ],
+      "executed_velocity": [
+        -0.006681998941544125,
+        0.0090977103849649
+      ],
+      "swept_distance": 0.06144789899446962,
+      "physical_clearance": -0.00021876767219704968,
+      "CBF_margin_clearance": 0.006347898994469615,
+      "minimum_recorded_linear_residual": 2.688821387764051e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_f1143f146e7445fea1f60c1229b5029fe788675d85eb176297eaa9a14f926a59",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_f1143f146e7445fea1f60c1229b5029fe788675d85eb176297eaa9a14f926a59.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "blend_goal",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 146,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23821800105845317,
+        0.5329234336447772
+      ],
+      "after": [
+        -0.23855210100553037,
+        0.5333783191640254
+      ],
+      "executed_velocity": [
+        -0.006681998941544125,
+        0.0090977103849649
+      ],
+      "swept_distance": 0.06144789899446962,
+      "physical_clearance": -0.00021876767219704968,
+      "CBF_margin_clearance": 0.006347898994469615,
+      "minimum_recorded_linear_residual": 2.688821387764051e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_22727b6f1fd844ed3610490b728037eb88a5c3fcb111ba5ea7101fa730de08eb",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_22727b6f1fd844ed3610490b728037eb88a5c3fcb111ba5ea7101fa730de08eb.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "T_only",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 143,
+      "agent": 1,
+      "wall": 14,
+      "wall_segment": [
+        [
+          -0.3,
+          -0.3
+        ],
+        [
+          -1.6,
+          -0.3
+        ]
+      ],
+      "before": [
+        -0.44243853720951515,
+        -0.23801251717186056
+      ],
+      "after": [
+        -0.442352985934514,
+        -0.23835689131326698
+      ],
+      "executed_velocity": [
+        0.0017110255000228544,
+        -0.006887482828128494
+      ],
+      "swept_distance": 0.061643108686733006,
+      "physical_clearance": -2.3557979933662432e-05,
+      "CBF_margin_clearance": 0.006543108686733003,
+      "minimum_recorded_linear_residual": 1.093135998386785e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_9689b49f298bd7d4e122e77fdf50b71c8799e6eca88ebbfc0091d8d35e026879",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_9689b49f298bd7d4e122e77fdf50b71c8799e6eca88ebbfc0091d8d35e026879.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "T_only",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 143,
+      "agent": 1,
+      "wall": 14,
+      "wall_segment": [
+        [
+          -0.3,
+          -0.3
+        ],
+        [
+          -1.6,
+          -0.3
+        ]
+      ],
+      "before": [
+        -0.44243853720951515,
+        -0.23801251717186056
+      ],
+      "after": [
+        -0.442352985934514,
+        -0.23835689131326698
+      ],
+      "executed_velocity": [
+        0.0017110255000228544,
+        -0.006887482828128494
+      ],
+      "swept_distance": 0.061643108686733006,
+      "physical_clearance": -2.3557979933662432e-05,
+      "CBF_margin_clearance": 0.006543108686733003,
+      "minimum_recorded_linear_residual": 1.093135998386785e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_6f11f0e6c1b593a1f7e05e065f45302a3cdefad1510c0200294926d2b89d0e04",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_6f11f0e6c1b593a1f7e05e065f45302a3cdefad1510c0200294926d2b89d0e04.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GRTY",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23812672577558772,
+        0.4420015560146694
+      ],
+      "after": [
+        -0.2384653894868078,
+        0.44194727903942116
+      ],
+      "executed_velocity": [
+        -0.00677327422440142,
+        -0.0010855395049644038
+      ],
+      "swept_distance": 0.0615346105131922,
+      "physical_clearance": -0.0001320561534744677,
+      "CBF_margin_clearance": 0.006434610513192197,
+      "minimum_recorded_linear_residual": 1.0848960618758952e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_647167abc268584ba4cb215a711e22431c0cc935d52925e033e108e9865fb830",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_647167abc268584ba4cb215a711e22431c0cc935d52925e033e108e9865fb830.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GRTY",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23812672577558772,
+        0.4420015560146694
+      ],
+      "after": [
+        -0.2384653894868078,
+        0.44194727903942116
+      ],
+      "executed_velocity": [
+        -0.00677327422440142,
+        -0.0010855395049644038
+      ],
+      "swept_distance": 0.0615346105131922,
+      "physical_clearance": -0.0001320561534744677,
+      "CBF_margin_clearance": 0.006434610513192197,
+      "minimum_recorded_linear_residual": 1.0848960618758952e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_b55d28c6c1c63b1afada90989835059b1c154ab4d278ff8cef0b980456218800",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_b55d28c6c1c63b1afada90989835059b1c154ab4d278ff8cef0b980456218800.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GPTY",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23812672577558772,
+        0.4420015560146694
+      ],
+      "after": [
+        -0.2384653894868078,
+        0.44194727903942116
+      ],
+      "executed_velocity": [
+        -0.00677327422440142,
+        -0.0010855395049644038
+      ],
+      "swept_distance": 0.0615346105131922,
+      "physical_clearance": -0.0001320561534744677,
+      "CBF_margin_clearance": 0.006434610513192197,
+      "minimum_recorded_linear_residual": 1.0848960618758952e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_512d9398aeb442bc949564dccb53eafc502447281ca67375c57ea1006754c4d2",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_512d9398aeb442bc949564dccb53eafc502447281ca67375c57ea1006754c4d2.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GPTY",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23812672577558772,
+        0.4420015560146694
+      ],
+      "after": [
+        -0.2384653894868078,
+        0.44194727903942116
+      ],
+      "executed_velocity": [
+        -0.00677327422440142,
+        -0.0010855395049644038
+      ],
+      "swept_distance": 0.0615346105131922,
+      "physical_clearance": -0.0001320561534744677,
+      "CBF_margin_clearance": 0.006434610513192197,
+      "minimum_recorded_linear_residual": 1.0848960618758952e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_60c2371b430e72cecbfc1c92068e9d4da97e197a2d5fff43ee22ef38a694bfe8",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_60c2371b430e72cecbfc1c92068e9d4da97e197a2d5fff43ee22ef38a694bfe8.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTR",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 143,
+      "agent": 1,
+      "wall": 14,
+      "wall_segment": [
+        [
+          -0.3,
+          -0.3
+        ],
+        [
+          -1.6,
+          -0.3
+        ]
+      ],
+      "before": [
+        -0.44243853720951515,
+        -0.23801251717186056
+      ],
+      "after": [
+        -0.442352985934514,
+        -0.23835689131326698
+      ],
+      "executed_velocity": [
+        0.0017110255000228544,
+        -0.006887482828128494
+      ],
+      "swept_distance": 0.061643108686733006,
+      "physical_clearance": -2.3557979933662432e-05,
+      "CBF_margin_clearance": 0.006543108686733003,
+      "minimum_recorded_linear_residual": 1.093135998386785e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_fdb164cef6ceaf71b1278d85a613267f4b8ca90387ddf7c8924c0d38156e14e2",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_fdb164cef6ceaf71b1278d85a613267f4b8ca90387ddf7c8924c0d38156e14e2.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTR",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 143,
+      "agent": 1,
+      "wall": 14,
+      "wall_segment": [
+        [
+          -0.3,
+          -0.3
+        ],
+        [
+          -1.6,
+          -0.3
+        ]
+      ],
+      "before": [
+        -0.44243853720951515,
+        -0.23801251717186056
+      ],
+      "after": [
+        -0.442352985934514,
+        -0.23835689131326698
+      ],
+      "executed_velocity": [
+        0.0017110255000228544,
+        -0.006887482828128494
+      ],
+      "swept_distance": 0.061643108686733006,
+      "physical_clearance": -2.3557979933662432e-05,
+      "CBF_margin_clearance": 0.006543108686733003,
+      "minimum_recorded_linear_residual": 1.093135998386785e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_274dfc3c7e182b81b5363f49109a7dde79e838ab1d185ab5b4a05b83af22b1d2",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_274dfc3c7e182b81b5363f49109a7dde79e838ab1d185ab5b4a05b83af22b1d2.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTY",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23812672577558772,
+        0.4420015560146694
+      ],
+      "after": [
+        -0.2384653894868078,
+        0.44194727903942116
+      ],
+      "executed_velocity": [
+        -0.00677327422440142,
+        -0.0010855395049644038
+      ],
+      "swept_distance": 0.0615346105131922,
+      "physical_clearance": -0.0001320561534744677,
+      "CBF_margin_clearance": 0.006434610513192197,
+      "minimum_recorded_linear_residual": 1.0848960618758952e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_4526b16fae24c9977f6add90c6cab65a6ecbeea53bd178e5e1bb8172539a1709",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_4526b16fae24c9977f6add90c6cab65a6ecbeea53bd178e5e1bb8172539a1709.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTY",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23812672577558772,
+        0.4420015560146694
+      ],
+      "after": [
+        -0.2384653894868078,
+        0.44194727903942116
+      ],
+      "executed_velocity": [
+        -0.00677327422440142,
+        -0.0010855395049644038
+      ],
+      "swept_distance": 0.0615346105131922,
+      "physical_clearance": -0.0001320561534744677,
+      "CBF_margin_clearance": 0.006434610513192197,
+      "minimum_recorded_linear_residual": 1.0848960618758952e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_bef74705153b5b70fc91d595bab00f1f5abde061ec710ae86ce24c4eab3133c8",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_bef74705153b5b70fc91d595bab00f1f5abde061ec710ae86ce24c4eab3133c8.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal_release",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 1,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23812672577543828,
+        0.36545589603230405
+      ],
+      "after": [
+        -0.23846538948664966,
+        0.36336992483094044
+      ],
+      "executed_velocity": [
+        -0.006773274224227655,
+        -0.0417194240272721
+      ],
+      "swept_distance": 0.061534610513350324,
+      "physical_clearance": -0.00013205615331634418,
+      "CBF_margin_clearance": 0.006434610513350321,
+      "minimum_recorded_linear_residual": 2.169445179056595e-13,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_c89f9122d124eb352db3239d0cc9665d05ad9716b65465a0683fdacf69a62dd6",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_c89f9122d124eb352db3239d0cc9665d05ad9716b65465a0683fdacf69a62dd6.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal_release",
+      "state": 17,
+      "controller": "centralized_sampling",
+      "seed": 2,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23812672577543828,
+        0.36545589603230405
+      ],
+      "after": [
+        -0.23846538948664966,
+        0.36336992483094044
+      ],
+      "executed_velocity": [
+        -0.006773274224227655,
+        -0.0417194240272721
+      ],
+      "swept_distance": 0.061534610513350324,
+      "physical_clearance": -0.00013205615331634418,
+      "CBF_margin_clearance": 0.006434610513350321,
+      "minimum_recorded_linear_residual": 2.169445179056595e-13,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_21ad770237f934a5e1797622e1d6b332bda172cf48d1469ef24b32a9835b9bde",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_21ad770237f934a5e1797622e1d6b332bda172cf48d1469ef24b32a9835b9bde.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 140,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.2380590655131709,
+        0.3876711385103423
+      ],
+      "after": [
+        -0.23840111223751206,
+        0.38662436761041874
+      ],
+      "executed_velocity": [
+        -0.006840934486823358,
+        -0.020935417998470728
+      ],
+      "swept_distance": 0.061598887762487925,
+      "physical_clearance": -6.777890417874327e-05,
+      "CBF_margin_clearance": 0.006498887762487922,
+      "minimum_recorded_linear_residual": 5.719383300295533e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_7ce1133ec1519d69c1c1764ecdd8425e797faf435037d9ab533ffaf7b1d9f661",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_7ce1133ec1519d69c1c1764ecdd8425e797faf435037d9ab533ffaf7b1d9f661.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 140,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.2380590655131709,
+        0.3876711385103423
+      ],
+      "after": [
+        -0.23840111223751206,
+        0.38662436761041874
+      ],
+      "executed_velocity": [
+        -0.006840934486823358,
+        -0.020935417998470728
+      ],
+      "swept_distance": 0.061598887762487925,
+      "physical_clearance": -6.777890417874327e-05,
+      "CBF_margin_clearance": 0.006498887762487922,
+      "minimum_recorded_linear_residual": 5.719383300295533e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_75969bcf8527bee7e33d13da9a9785481839bf4c39044202d630cfcbe389a1f5",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_75969bcf8527bee7e33d13da9a9785481839bf4c39044202d630cfcbe389a1f5.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "blend_goal",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 145,
+      "agent": 1,
+      "wall": 14,
+      "wall_segment": [
+        [
+          -0.3,
+          -0.3
+        ],
+        [
+          -1.6,
+          -0.3
+        ]
+      ],
+      "before": [
+        -0.4762087811520127,
+        -0.2382924096528928
+      ],
+      "after": [
+        -0.4768617706894334,
+        -0.23862278917024796
+      ],
+      "executed_velocity": [
+        -0.013059790748413711,
+        -0.0066075903471031665
+      ],
+      "swept_distance": 0.06137721082975203,
+      "physical_clearance": -0.0002894558369146358,
+      "CBF_margin_clearance": 0.006277210829752029,
+      "minimum_recorded_linear_residual": 4.013282761672343e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_f8ceb174af2be522a1e322172fed78fd5e3ae1d1ac237b7407ef568e52057f0a",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_f8ceb174af2be522a1e322172fed78fd5e3ae1d1ac237b7407ef568e52057f0a.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "blend_goal",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 145,
+      "agent": 1,
+      "wall": 14,
+      "wall_segment": [
+        [
+          -0.3,
+          -0.3
+        ],
+        [
+          -1.6,
+          -0.3
+        ]
+      ],
+      "before": [
+        -0.4762087811520127,
+        -0.2382924096528928
+      ],
+      "after": [
+        -0.4768617706894334,
+        -0.23862278917024796
+      ],
+      "executed_velocity": [
+        -0.013059790748413711,
+        -0.0066075903471031665
+      ],
+      "swept_distance": 0.06137721082975203,
+      "physical_clearance": -0.0002894558369146358,
+      "CBF_margin_clearance": 0.006277210829752029,
+      "minimum_recorded_linear_residual": 4.013282761672343e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_9c63a3aef847d83720f8d5de0c0100558f25aa5024a3e0ccd5fcbdd2f9a38071",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_9c63a3aef847d83720f8d5de0c0100558f25aa5024a3e0ccd5fcbdd2f9a38071.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "T_only",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 149,
+      "agent": 2,
+      "wall": 19,
+      "wall_segment": [
+        [
+          0.3,
+          -0.3
+        ],
+        [
+          0.3,
+          -1.6
+        ]
+      ],
+      "before": [
+        0.23828211990014292,
+        -0.3879557862756094
+      ],
+      "after": [
+        0.23861301390513545,
+        -0.38686562652712564
+      ],
+      "executed_velocity": [
+        0.006617880099850911,
+        0.02180319496967473
+      ],
+      "swept_distance": 0.06138698609486454,
+      "physical_clearance": -0.00027968057180213085,
+      "CBF_margin_clearance": 0.006286986094864534,
+      "minimum_recorded_linear_residual": 6.1556662545037e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_320cb4539166b637e9c4ab4306ec8ad4ee830677efe597a63b740539cbebfb80",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_320cb4539166b637e9c4ab4306ec8ad4ee830677efe597a63b740539cbebfb80.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "T_only",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 149,
+      "agent": 2,
+      "wall": 19,
+      "wall_segment": [
+        [
+          0.3,
+          -0.3
+        ],
+        [
+          0.3,
+          -1.6
+        ]
+      ],
+      "before": [
+        0.23828211990014292,
+        -0.3879557862756094
+      ],
+      "after": [
+        0.23861301390513545,
+        -0.38686562652712564
+      ],
+      "executed_velocity": [
+        0.006617880099850911,
+        0.02180319496967473
+      ],
+      "swept_distance": 0.06138698609486454,
+      "physical_clearance": -0.00027968057180213085,
+      "CBF_margin_clearance": 0.006286986094864534,
+      "minimum_recorded_linear_residual": 6.1556662545037e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_3f9fd7bfc8656f3d3d35e1e6da7214bf2892d67f960a510ed18f26e1f43ebab5",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_3f9fd7bfc8656f3d3d35e1e6da7214bf2892d67f960a510ed18f26e1f43ebab5.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GRTY",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 140,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.2380590655131709,
+        0.3876711385103423
+      ],
+      "after": [
+        -0.23840111223751206,
+        0.38662436761041874
+      ],
+      "executed_velocity": [
+        -0.006840934486823358,
+        -0.020935417998470728
+      ],
+      "swept_distance": 0.061598887762487925,
+      "physical_clearance": -6.777890417874327e-05,
+      "CBF_margin_clearance": 0.006498887762487922,
+      "minimum_recorded_linear_residual": 5.719383300295533e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_01e0562007d12513c9034990ecb2c28f2ca2c6a545ea8a8aea4d148bf9177932",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_01e0562007d12513c9034990ecb2c28f2ca2c6a545ea8a8aea4d148bf9177932.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GRTY",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 140,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.2380590655131709,
+        0.3876711385103423
+      ],
+      "after": [
+        -0.23840111223751206,
+        0.38662436761041874
+      ],
+      "executed_velocity": [
+        -0.006840934486823358,
+        -0.020935417998470728
+      ],
+      "swept_distance": 0.061598887762487925,
+      "physical_clearance": -6.777890417874327e-05,
+      "CBF_margin_clearance": 0.006498887762487922,
+      "minimum_recorded_linear_residual": 5.719383300295533e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_a9917d015ecf485ff30e8a5aa853be2402ea49020d70d08e0ebe4fdabcad1ff9",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_a9917d015ecf485ff30e8a5aa853be2402ea49020d70d08e0ebe4fdabcad1ff9.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GPTY",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 140,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.2380590655131709,
+        0.3876711385103423
+      ],
+      "after": [
+        -0.23840111223751206,
+        0.38662436761041874
+      ],
+      "executed_velocity": [
+        -0.006840934486823358,
+        -0.020935417998470728
+      ],
+      "swept_distance": 0.061598887762487925,
+      "physical_clearance": -6.777890417874327e-05,
+      "CBF_margin_clearance": 0.006498887762487922,
+      "minimum_recorded_linear_residual": 5.719383300295533e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_a12c44c80a6daee25594c5b0e723c6f5facea857b92d7219795ef3e7ca910d3b",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_a12c44c80a6daee25594c5b0e723c6f5facea857b92d7219795ef3e7ca910d3b.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GPTY",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 140,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.2380590655131709,
+        0.3876711385103423
+      ],
+      "after": [
+        -0.23840111223751206,
+        0.38662436761041874
+      ],
+      "executed_velocity": [
+        -0.006840934486823358,
+        -0.020935417998470728
+      ],
+      "swept_distance": 0.061598887762487925,
+      "physical_clearance": -6.777890417874327e-05,
+      "CBF_margin_clearance": 0.006498887762487922,
+      "minimum_recorded_linear_residual": 5.719383300295533e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_0ae8fb6f62a623bcf4bb3c5bfca3fd53b702afc8e261670b11b6e7611592bc8a",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_0ae8fb6f62a623bcf4bb3c5bfca3fd53b702afc8e261670b11b6e7611592bc8a.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTR",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 149,
+      "agent": 2,
+      "wall": 19,
+      "wall_segment": [
+        [
+          0.3,
+          -0.3
+        ],
+        [
+          0.3,
+          -1.6
+        ]
+      ],
+      "before": [
+        0.23828211990014292,
+        -0.3879557862756094
+      ],
+      "after": [
+        0.23861301390513545,
+        -0.38686562652712564
+      ],
+      "executed_velocity": [
+        0.006617880099850911,
+        0.02180319496967473
+      ],
+      "swept_distance": 0.06138698609486454,
+      "physical_clearance": -0.00027968057180213085,
+      "CBF_margin_clearance": 0.006286986094864534,
+      "minimum_recorded_linear_residual": 6.1556662545037e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_5f58a454c34230a26d56d8c01cfc255a71247baf93f5b727ce2709a22246dcdc",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_5f58a454c34230a26d56d8c01cfc255a71247baf93f5b727ce2709a22246dcdc.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTR",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 149,
+      "agent": 2,
+      "wall": 19,
+      "wall_segment": [
+        [
+          0.3,
+          -0.3
+        ],
+        [
+          0.3,
+          -1.6
+        ]
+      ],
+      "before": [
+        0.23828211990014292,
+        -0.3879557862756094
+      ],
+      "after": [
+        0.23861301390513545,
+        -0.38686562652712564
+      ],
+      "executed_velocity": [
+        0.006617880099850911,
+        0.02180319496967473
+      ],
+      "swept_distance": 0.06138698609486454,
+      "physical_clearance": -0.00027968057180213085,
+      "CBF_margin_clearance": 0.006286986094864534,
+      "minimum_recorded_linear_residual": 6.1556662545037e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_7a29064fd39fe624c779f67e9f580536cb75e578165fcb0a4fd5827406ec0ed4",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_7a29064fd39fe624c779f67e9f580536cb75e578165fcb0a4fd5827406ec0ed4.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTY",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 140,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.2380590655131709,
+        0.3876711385103423
+      ],
+      "after": [
+        -0.23840111223751206,
+        0.38662436761041874
+      ],
+      "executed_velocity": [
+        -0.006840934486823358,
+        -0.020935417998470728
+      ],
+      "swept_distance": 0.061598887762487925,
+      "physical_clearance": -6.777890417874327e-05,
+      "CBF_margin_clearance": 0.006498887762487922,
+      "minimum_recorded_linear_residual": 5.719383300295533e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_8dea4ca493417253553a42b04ae642e9c6b3a0266738e92b868bb7f62487ec3f",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_8dea4ca493417253553a42b04ae642e9c6b3a0266738e92b868bb7f62487ec3f.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTY",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 140,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.2380590655131709,
+        0.3876711385103423
+      ],
+      "after": [
+        -0.23840111223751206,
+        0.38662436761041874
+      ],
+      "executed_velocity": [
+        -0.006840934486823358,
+        -0.020935417998470728
+      ],
+      "swept_distance": 0.061598887762487925,
+      "physical_clearance": -6.777890417874327e-05,
+      "CBF_margin_clearance": 0.006498887762487922,
+      "minimum_recorded_linear_residual": 5.719383300295533e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_fb4f4c47fa2ea135209e1c7fd010b86e68af618b42a97c4449ce8c8383e772cd",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_fb4f4c47fa2ea135209e1c7fd010b86e68af618b42a97c4449ce8c8383e772cd.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal_release",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 140,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.2380590655108869,
+        0.3541220992395768
+      ],
+      "after": [
+        -0.23840111223533128,
+        0.3524500484573148
+      ],
+      "executed_velocity": [
+        -0.006840934488887688,
+        -0.033441015645240595
+      ],
+      "swept_distance": 0.06159888776466871,
+      "physical_clearance": -6.777890199795994e-05,
+      "CBF_margin_clearance": 0.006498887764668705,
+      "minimum_recorded_linear_residual": 1.2771034230141254e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_858e38ffe3549fbdac6fa1ee5cf7f645fe0afbf531eacdf22167d18fb0f36f3e",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_858e38ffe3549fbdac6fa1ee5cf7f645fe0afbf531eacdf22167d18fb0f36f3e.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal_release",
+      "state": 16,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 140,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.2380590655108869,
+        0.3541220992395768
+      ],
+      "after": [
+        -0.23840111223533128,
+        0.3524500484573148
+      ],
+      "executed_velocity": [
+        -0.006840934488887688,
+        -0.033441015645240595
+      ],
+      "swept_distance": 0.06159888776466871,
+      "physical_clearance": -6.777890199795994e-05,
+      "CBF_margin_clearance": 0.006498887764668705,
+      "minimum_recorded_linear_residual": 1.2771034230141254e-14,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_498a23ad2e6873646c98c61c7547b1d7050d038a10a233bd4244ccc5a35b02fb",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_498a23ad2e6873646c98c61c7547b1d7050d038a10a233bd4244ccc5a35b02fb.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23805252173707603,
+        0.385605484564586
+      ],
+      "after": [
+        -0.23839489565022204,
+        0.38484455587637534
+      ],
+      "executed_velocity": [
+        -0.00684747826292009,
+        -0.01521857376421317
+      ],
+      "swept_distance": 0.06160510434977795,
+      "physical_clearance": -6.156231688871777e-05,
+      "CBF_margin_clearance": 0.006505104349777947,
+      "minimum_recorded_linear_residual": 3.8675659896902914e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_ce56502a2f307cc25b1569ca2861f8347d730faff6d07a0166ffd9c516b0cd5a",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_ce56502a2f307cc25b1569ca2861f8347d730faff6d07a0166ffd9c516b0cd5a.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23805252173707603,
+        0.385605484564586
+      ],
+      "after": [
+        -0.23839489565022204,
+        0.38484455587637534
+      ],
+      "executed_velocity": [
+        -0.00684747826292009,
+        -0.01521857376421317
+      ],
+      "swept_distance": 0.06160510434977795,
+      "physical_clearance": -6.156231688871777e-05,
+      "CBF_margin_clearance": 0.006505104349777947,
+      "minimum_recorded_linear_residual": 3.8675659896902914e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_f21260593f7d5faad90167099da3b8b968c389c458bd0fdcca4ae03cc084c68c",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_f21260593f7d5faad90167099da3b8b968c389c458bd0fdcca4ae03cc084c68c.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "blend_goal",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 144,
+      "agent": 3,
+      "wall": 4,
+      "wall_segment": [
+        [
+          0.3,
+          0.3
+        ],
+        [
+          1.6,
+          0.3
+        ]
+      ],
+      "before": [
+        0.535452766221526,
+        0.23804131984908355
+      ],
+      "after": [
+        0.5357874738488805,
+        0.23838425385662923
+      ],
+      "executed_velocity": [
+        0.006694152547089506,
+        0.006858680150913695
+      ],
+      "swept_distance": 0.06161574614337076,
+      "physical_clearance": -5.0920523295909514e-05,
+      "CBF_margin_clearance": 0.006515746143370756,
+      "minimum_recorded_linear_residual": 2.7356589216154248e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_247b19add83c02027fa6783e5626bb5caa11ba8d2c0f5384d06e3425f5576c01",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_247b19add83c02027fa6783e5626bb5caa11ba8d2c0f5384d06e3425f5576c01.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "blend_goal",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 144,
+      "agent": 3,
+      "wall": 4,
+      "wall_segment": [
+        [
+          0.3,
+          0.3
+        ],
+        [
+          1.6,
+          0.3
+        ]
+      ],
+      "before": [
+        0.535452766221526,
+        0.23804131984908355
+      ],
+      "after": [
+        0.5357874738488805,
+        0.23838425385662923
+      ],
+      "executed_velocity": [
+        0.006694152547089506,
+        0.006858680150913695
+      ],
+      "swept_distance": 0.06161574614337076,
+      "physical_clearance": -5.0920523295909514e-05,
+      "CBF_margin_clearance": 0.006515746143370756,
+      "minimum_recorded_linear_residual": 2.7356589216154248e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_ff42b54635448d21e2186fe926aa7648d881d78c43294863d04454a0c2e9304a",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_ff42b54635448d21e2186fe926aa7648d881d78c43294863d04454a0c2e9304a.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "T_only",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 147,
+      "agent": 1,
+      "wall": 14,
+      "wall_segment": [
+        [
+          -0.3,
+          -0.3
+        ],
+        [
+          -1.6,
+          -0.3
+        ]
+      ],
+      "before": [
+        -0.38910000589888477,
+        -0.23814304395067626
+      ],
+      "after": [
+        -0.38788335720580597,
+        -0.23848089175314208
+      ],
+      "executed_velocity": [
+        0.024332973861576183,
+        -0.006756956049316484
+      ],
+      "swept_distance": 0.06151910824685791,
+      "physical_clearance": -0.00014755841980875622,
+      "CBF_margin_clearance": 0.006419108246857909,
+      "minimum_recorded_linear_residual": 7.243337873941158e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_a293c40f40a8a03e3530caf50273b3ba82fbc1131bb33863c13cee0dd4cfa4e7",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_a293c40f40a8a03e3530caf50273b3ba82fbc1131bb33863c13cee0dd4cfa4e7.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "T_only",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 147,
+      "agent": 1,
+      "wall": 14,
+      "wall_segment": [
+        [
+          -0.3,
+          -0.3
+        ],
+        [
+          -1.6,
+          -0.3
+        ]
+      ],
+      "before": [
+        -0.38910000589888477,
+        -0.23814304395067626
+      ],
+      "after": [
+        -0.38788335720580597,
+        -0.23848089175314208
+      ],
+      "executed_velocity": [
+        0.024332973861576183,
+        -0.006756956049316484
+      ],
+      "swept_distance": 0.06151910824685791,
+      "physical_clearance": -0.00014755841980875622,
+      "CBF_margin_clearance": 0.006419108246857909,
+      "minimum_recorded_linear_residual": 7.243337873941158e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_e5eb0172d895fe782704534e91d2669dd028cfb3176af3d125eb0c7aed432c29",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_e5eb0172d895fe782704534e91d2669dd028cfb3176af3d125eb0c7aed432c29.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GRTY",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23805252173707603,
+        0.385605484564586
+      ],
+      "after": [
+        -0.23839489565022204,
+        0.38484455587637534
+      ],
+      "executed_velocity": [
+        -0.00684747826292009,
+        -0.01521857376421317
+      ],
+      "swept_distance": 0.06160510434977795,
+      "physical_clearance": -6.156231688871777e-05,
+      "CBF_margin_clearance": 0.006505104349777947,
+      "minimum_recorded_linear_residual": 3.8675659896902914e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_12032751973badaa1506b2734c16d4b4b29a5fcb1a7ff4a822cff19d5cb3bda8",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_12032751973badaa1506b2734c16d4b4b29a5fcb1a7ff4a822cff19d5cb3bda8.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GRTY",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23805252173707603,
+        0.385605484564586
+      ],
+      "after": [
+        -0.23839489565022204,
+        0.38484455587637534
+      ],
+      "executed_velocity": [
+        -0.00684747826292009,
+        -0.01521857376421317
+      ],
+      "swept_distance": 0.06160510434977795,
+      "physical_clearance": -6.156231688871777e-05,
+      "CBF_margin_clearance": 0.006505104349777947,
+      "minimum_recorded_linear_residual": 3.8675659896902914e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_d5e4eed3336a10341569b275602d15ec40e5134131ea37bf8465c8954cffb7c3",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_d5e4eed3336a10341569b275602d15ec40e5134131ea37bf8465c8954cffb7c3.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GPTY",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23805252173707603,
+        0.385605484564586
+      ],
+      "after": [
+        -0.23839489565022204,
+        0.38484455587637534
+      ],
+      "executed_velocity": [
+        -0.00684747826292009,
+        -0.01521857376421317
+      ],
+      "swept_distance": 0.06160510434977795,
+      "physical_clearance": -6.156231688871777e-05,
+      "CBF_margin_clearance": 0.006505104349777947,
+      "minimum_recorded_linear_residual": 3.8675659896902914e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_06aef7c94376db5c6d14eb81437200afff476e994723a69aad6c43809de8f049",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_06aef7c94376db5c6d14eb81437200afff476e994723a69aad6c43809de8f049.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GPTY",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23805252173707603,
+        0.385605484564586
+      ],
+      "after": [
+        -0.23839489565022204,
+        0.38484455587637534
+      ],
+      "executed_velocity": [
+        -0.00684747826292009,
+        -0.01521857376421317
+      ],
+      "swept_distance": 0.06160510434977795,
+      "physical_clearance": -6.156231688871777e-05,
+      "CBF_margin_clearance": 0.006505104349777947,
+      "minimum_recorded_linear_residual": 3.8675659896902914e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_501f722a0ef098660e0104a7375dcdda1fe86454728086e557cb5ea781c3dfca",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_501f722a0ef098660e0104a7375dcdda1fe86454728086e557cb5ea781c3dfca.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTR",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 147,
+      "agent": 1,
+      "wall": 14,
+      "wall_segment": [
+        [
+          -0.3,
+          -0.3
+        ],
+        [
+          -1.6,
+          -0.3
+        ]
+      ],
+      "before": [
+        -0.38910000589888477,
+        -0.23814304395067626
+      ],
+      "after": [
+        -0.38788335720580597,
+        -0.23848089175314208
+      ],
+      "executed_velocity": [
+        0.024332973861576183,
+        -0.006756956049316484
+      ],
+      "swept_distance": 0.06151910824685791,
+      "physical_clearance": -0.00014755841980875622,
+      "CBF_margin_clearance": 0.006419108246857909,
+      "minimum_recorded_linear_residual": 7.243337873941158e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_8a260161f047a2c92cfd3e249468721869889770ba084d7dc128cc2d63cdf2a7",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_8a260161f047a2c92cfd3e249468721869889770ba084d7dc128cc2d63cdf2a7.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTR",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 147,
+      "agent": 1,
+      "wall": 14,
+      "wall_segment": [
+        [
+          -0.3,
+          -0.3
+        ],
+        [
+          -1.6,
+          -0.3
+        ]
+      ],
+      "before": [
+        -0.38910000589888477,
+        -0.23814304395067626
+      ],
+      "after": [
+        -0.38788335720580597,
+        -0.23848089175314208
+      ],
+      "executed_velocity": [
+        0.024332973861576183,
+        -0.006756956049316484
+      ],
+      "swept_distance": 0.06151910824685791,
+      "physical_clearance": -0.00014755841980875622,
+      "CBF_margin_clearance": 0.006419108246857909,
+      "minimum_recorded_linear_residual": 7.243337873941158e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_7a3ccb0b2d76168d22a6faa989dc9282960f7198bcddb91715b0ea2332b9d138",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_7a3ccb0b2d76168d22a6faa989dc9282960f7198bcddb91715b0ea2332b9d138.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTY",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23805252173707603,
+        0.385605484564586
+      ],
+      "after": [
+        -0.23839489565022204,
+        0.38484455587637534
+      ],
+      "executed_velocity": [
+        -0.00684747826292009,
+        -0.01521857376421317
+      ],
+      "swept_distance": 0.06160510434977795,
+      "physical_clearance": -6.156231688871777e-05,
+      "CBF_margin_clearance": 0.006505104349777947,
+      "minimum_recorded_linear_residual": 3.8675659896902914e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_708bd930f96b298ac26a4899fc24648b5c2666cf80d76712b7cf81a293687c43",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_708bd930f96b298ac26a4899fc24648b5c2666cf80d76712b7cf81a293687c43.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "GTY",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23805252173707603,
+        0.385605484564586
+      ],
+      "after": [
+        -0.23839489565022204,
+        0.38484455587637534
+      ],
+      "executed_velocity": [
+        -0.00684747826292009,
+        -0.01521857376421317
+      ],
+      "swept_distance": 0.06160510434977795,
+      "physical_clearance": -6.156231688871777e-05,
+      "CBF_margin_clearance": 0.006505104349777947,
+      "minimum_recorded_linear_residual": 3.8675659896902914e-15,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_d739e1803f263a7d80eb034085b28a24c0bafc0ebf8ffb03ca705e18a13ac10b",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_d739e1803f263a7d80eb034085b28a24c0bafc0ebf8ffb03ca705e18a13ac10b.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal_release",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 1,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23805252173431743,
+        0.3604692151976067
+      ],
+      "after": [
+        -0.23839489564753957,
+        0.3585674739142706
+      ],
+      "executed_velocity": [
+        -0.006847478264442804,
+        -0.038034825666722526
+      ],
+      "swept_distance": 0.061605104352460416,
+      "physical_clearance": -6.156231420625241e-05,
+      "CBF_margin_clearance": 0.006505104352460413,
+      "minimum_recorded_linear_residual": 2.814762312119967e-13,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    },
+    {
+      "rollout_uid": "roll_c92ba18755b38fa75e49ec83384675031e3e92cbb9bcd9649e4acc308df74144",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_c92ba18755b38fa75e49ec83384675031e3e92cbb9bcd9649e4acc308df74144.npz",
+      "scene": "xsc_hs_plus_w030_te",
+      "method": "add_goal_release",
+      "state": 17,
+      "controller": "gradient_mpc",
+      "seed": 2,
+      "terminal_step": 135,
+      "agent": 0,
+      "wall": 9,
+      "wall_segment": [
+        [
+          -0.3,
+          0.3
+        ],
+        [
+          -0.3,
+          1.6
+        ]
+      ],
+      "before": [
+        -0.23805252173431743,
+        0.3604692151976067
+      ],
+      "after": [
+        -0.23839489564753957,
+        0.3585674739142706
+      ],
+      "executed_velocity": [
+        -0.006847478264442804,
+        -0.038034825666722526
+      ],
+      "swept_distance": 0.061605104352460416,
+      "physical_clearance": -6.156231420625241e-05,
+      "CBF_margin_clearance": 0.006505104352460413,
+      "minimum_recorded_linear_residual": 2.814762312119967e-13,
+      "restoration_steps": 0,
+      "original_constraint_violation_steps": 0
+    }
+  ],
+  "conclusion": "Existing bottleneck geometry uses wall_radius=4/600 while LiteratureConfig uses0. Original solver certificates do not certify the larger swept collision geometry. No safety/physics change was made."
+}

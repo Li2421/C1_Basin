@@ -1,0 +1,51 @@
+{
+  "python": "3.11.16 (main, Aug 27 2026, 14:44:21) [GCC 14.3.0]",
+  "executable": "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python",
+  "platform": "Linux-7.0.0-30-generic-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "jax": "0.6.2",
+    "jaxlib": "0.6.2",
+    "clarabel": "0.11.1"
+  },
+  "raw_files": {
+    "candidates.jsonl": {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/candidates.jsonl",
+      "bytes": 36110163,
+      "sha256": "b9e2c6cd5f1891aedcacfd2471b7ded176c7bbcfb35492d4fc7a20b56ba7c561"
+    },
+    "legacy_candidates.jsonl": {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/legacy_candidates.jsonl",
+      "bytes": 284431,
+      "sha256": "5dfce5450fd977d89723efdc96e1c0fb92a4b621f2ca937b7ed6b81bd4315905"
+    },
+    "legacy_prior_candidates.jsonl": {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/legacy_prior_candidates.jsonl",
+      "bytes": 32950,
+      "sha256": "693768ad8daefc7239f5f1c22ebebfece49c729fb77e3c49577a6e6c47ce1edb"
+    },
+    "candidates_verified.jsonl": {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/candidates_verified.jsonl",
+      "bytes": 40177328,
+      "sha256": "1e299b0816e30d0f7b41162c3bd6d1f1e47e278f9c3dbe64373d1002db105830"
+    }
+  },
+  "trace_directories": {
+    "traces": {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces",
+      "count": 13312,
+      "bytes": 6870961385,
+      "sha256": "not computed for all NPZ; exact UID filenames and presence checked by verify.py"
+    },
+    "legacy_traces": {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/legacy_traces",
+      "count": 160,
+      "bytes": 19611605,
+      "sha256": "not computed for all NPZ; exact UID filenames and presence checked by verify.py"
+    }
+  },
+  "cpu_limit": 18,
+  "gpu_used": 0,
+  "backup": "Local evidence only; no external data backup performed."
+}

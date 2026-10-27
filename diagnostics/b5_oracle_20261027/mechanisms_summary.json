@@ -1,0 +1,65 @@
+[
+  {
+    "scene": "xsc_hs_plus_w025",
+    "controller": "centralized_sampling",
+    "speed": 0.0002148885816957857,
+    "rank": 3,
+    "max_rank": 5,
+    "vertex_count": 2496,
+    "arrived": 0
+  },
+  {
+    "scene": "xsc_hs_box_n09_r014_f25",
+    "controller": "centralized_sampling",
+    "speed": 0.06925533384288017,
+    "rank": 3,
+    "max_rank": 5,
+    "vertex_count": 2496,
+    "arrived": 7
+  },
+  {
+    "scene": "xsc_hs_box_n09_r014_f25",
+    "controller": "gradient_mpc",
+    "speed": 0.0675038853122562,
+    "rank": 2,
+    "max_rank": 4,
+    "vertex_count": 2496,
+    "arrived": 8
+  },
+  {
+    "scene": "xsc_hs_swap_n07",
+    "controller": "centralized_sampling",
+    "speed": 0.026646991650690913,
+    "rank": 3,
+    "max_rank": 5,
+    "vertex_count": 2496,
+    "arrived": 0
+  },
+  {
+    "scene": "xsc_hs_swap_n07",
+    "controller": "gradient_mpc",
+    "speed": 0.01706738083992336,
+    "rank": 3,
+    "max_rank": 5,
+    "vertex_count": 2496,
+    "arrived": 0
+  },
+  {
+    "scene": "hs_obst_n08_R140_r045",
+    "controller": "centralized_sampling",
+    "speed": 5.585436421749004e-06,
+    "rank": 1,
+    "max_rank": 3,
+    "vertex_count": 2496,
+    "arrived": 7
+  },
+  {
+    "scene": "hs_obst_n08_R140_r045",
+    "controller": "gradient_mpc",
+    "speed": 0.00020063962856866835,
+    "rank": 2,
+    "max_rank": 4,
+    "vertex_count": 2496,
+    "arrived": 7
+  }
+]

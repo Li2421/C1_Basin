@@ -1,0 +1,387 @@
+{
+  "designs": {
+    "add_goal": {
+      "name": "add_goal_r13_t-0.75",
+      "mode": "add",
+      "recipe": "goal",
+      "role": {
+        "yielder": 6,
+        "passer": 5,
+        "direction": "hold",
+        "scale": 0.0
+      },
+      "eta": [
+        0.875,
+        0.0,
+        0.375,
+        -0.75,
+        1.0
+      ],
+      "role_order": "descending"
+    },
+    "add_cluster": {
+      "name": "add_cluster_r13_t0.75",
+      "mode": "add",
+      "recipe": "cluster",
+      "role": {
+        "yielder": 6,
+        "passer": 5,
+        "direction": "hold",
+        "scale": 0.0
+      },
+      "eta": [
+        0.875,
+        0.0,
+        0.375,
+        0.75,
+        1.0
+      ],
+      "role_order": "descending"
+    },
+    "add_wall": {
+      "name": "add_wall_sob2",
+      "mode": "add",
+      "recipe": "wall",
+      "role": {
+        "yielder": 5,
+        "passer": 6,
+        "direction": "back",
+        "scale": 1.0
+      },
+      "eta": [
+        0.7710839766077697,
+        0.1107287835329771,
+        0.6525043034926057,
+        0.847698874771595,
+        0.8568194163963199
+      ],
+      "role_order": "ascending"
+    },
+    "blend_goal": {
+      "name": "blend_goal_sob3",
+      "mode": "blend",
+      "recipe": "goal",
+      "role": {
+        "yielder": 5,
+        "passer": 6,
+        "direction": "back",
+        "scale": 2.0
+      },
+      "eta": [
+        1.183902831049636,
+        -0.4170497842133045,
+        0.32363618491217494,
+        -0.8958365190774202,
+        0.21004703268408775
+      ],
+      "role_order": "ascending"
+    },
+    "blend_cluster": {
+      "name": "blend_cluster_T0.75",
+      "mode": "blend",
+      "recipe": "cluster",
+      "eta": [
+        0.875,
+        0.0,
+        0.375,
+        0.75,
+        0.0
+      ]
+    },
+    "blend_wall": {
+      "name": "blend_wall_r22_t-0.75",
+      "mode": "blend",
+      "recipe": "wall",
+      "role": {
+        "yielder": 6,
+        "passer": 5,
+        "direction": "right",
+        "scale": 2.0
+      },
+      "eta": [
+        0.875,
+        0.0,
+        0.375,
+        -0.75,
+        1.0
+      ],
+      "role_order": "descending"
+    },
+    "T_only": {
+      "name": "frozen_T_only",
+      "mode": "add",
+      "recipe": "goal",
+      "eta": [
+        0.875,
+        0.0,
+        0.375,
+        -0.75,
+        0.0
+      ]
+    },
+    "GRTY": {
+      "name": "frozen_GRTY",
+      "mode": "add",
+      "recipe": "goal",
+      "role": {
+        "yielder": 6,
+        "passer": 5,
+        "direction": "hold",
+        "scale": 0.0
+      },
+      "eta": [
+        0.875,
+        0.0,
+        0.375,
+        -0.75,
+        1.0
+      ],
+      "role_order": "descending",
+      "keep": [
+        0,
+        2,
+        3,
+        4
+      ]
+    },
+    "GPTY": {
+      "name": "frozen_GPTY",
+      "mode": "add",
+      "recipe": "goal",
+      "role": {
+        "yielder": 6,
+        "passer": 5,
+        "direction": "hold",
+        "scale": 0.0
+      },
+      "eta": [
+        0.875,
+        0.0,
+        0.375,
+        -0.75,
+        1.0
+      ],
+      "role_order": "descending",
+      "keep": [
+        0,
+        1,
+        3,
+        4
+      ]
+    },
+    "GTR": {
+      "name": "frozen_GTR",
+      "mode": "add",
+      "recipe": "goal",
+      "role": {
+        "yielder": 6,
+        "passer": 5,
+        "direction": "hold",
+        "scale": 0.0
+      },
+      "eta": [
+        0.875,
+        0.0,
+        0.375,
+        -0.75,
+        1.0
+      ],
+      "role_order": "descending",
+      "keep": [
+        0,
+        2,
+        3
+      ]
+    },
+    "GTY": {
+      "name": "frozen_GTY",
+      "mode": "add",
+      "recipe": "goal",
+      "role": {
+        "yielder": 6,
+        "passer": 5,
+        "direction": "hold",
+        "scale": 0.0
+      },
+      "eta": [
+        0.875,
+        0.0,
+        0.375,
+        -0.75,
+        1.0
+      ],
+      "role_order": "descending",
+      "keep": [
+        0,
+        3,
+        4
+      ]
+    },
+    "add_goal_release": {
+      "name": "frozen_release",
+      "mode": "add",
+      "recipe": "goal",
+      "role": {
+        "yielder": 6,
+        "passer": 5,
+        "direction": "hold",
+        "scale": 0.0
+      },
+      "eta": [
+        0.875,
+        0.0,
+        0.375,
+        -0.75,
+        1.0
+      ],
+      "role_order": "descending",
+      "schedule": "release_third",
+      "release_eta": [
+        0.875,
+        0.0,
+        0.375
+      ]
+    },
+    "safety": {
+      "name": "safety",
+      "mode": "b3",
+      "eta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "RHR_A": {
+      "name": "RHR_A",
+      "mode": "exact_rhr_goal",
+      "eta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adapter_sha256": "64ac733466784c0fd9cade8f60b7977ba5321c02ada0febcdcdb8864fa5efe99"
+    },
+    "RHR_B": {
+      "name": "RHR_B",
+      "mode": "exact_rhr_centre",
+      "eta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adapter_sha256": "64ac733466784c0fd9cade8f60b7977ba5321c02ada0febcdcdb8864fa5efe99"
+    }
+  },
+  "b3": {
+    "xsc_hs_plus_w025__centralized_sampling": {
+      "name": "b3_23",
+      "mode": "b3",
+      "eta": [
+        1.25,
+        0.5,
+        0.75,
+        0.0,
+        0.0
+      ]
+    },
+    "xsc_hs_plus_w025__gradient_mpc": {
+      "name": "b3_22",
+      "mode": "b3",
+      "eta": [
+        1.25,
+        0.5,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "xsc_hs_box_n09_r014_f25__centralized_sampling": {
+      "name": "b3_23",
+      "mode": "b3",
+      "eta": [
+        1.25,
+        0.5,
+        0.75,
+        0.0,
+        0.0
+      ]
+    },
+    "xsc_hs_box_n09_r014_f25__gradient_mpc": {
+      "name": "b3_3",
+      "mode": "b3",
+      "eta": [
+        1.0026288856752217,
+        0.056379557587206364,
+        0.7455985327251256,
+        0.0,
+        0.0
+      ]
+    },
+    "xsc_hs_swap_n07__centralized_sampling": {
+      "name": "b3_deep_215",
+      "mode": "b3",
+      "eta": [
+        0.515423393342644,
+        -0.2982649700716138,
+        0.5946861673146486,
+        0.0,
+        0.0
+      ]
+    },
+    "xsc_hs_swap_n07__gradient_mpc": {
+      "name": "b3_19",
+      "mode": "b3",
+      "eta": [
+        0.5,
+        0.5,
+        0.75,
+        0.0,
+        0.0
+      ]
+    },
+    "hs_obst_n08_R140_r045__centralized_sampling": {
+      "name": "b3_23",
+      "mode": "b3",
+      "eta": [
+        1.25,
+        0.5,
+        0.75,
+        0.0,
+        0.0
+      ]
+    },
+    "hs_obst_n08_R140_r045__gradient_mpc": {
+      "name": "eta10",
+      "mode": "b3",
+      "eta": [
+        1.2463931469246745,
+        -0.2889987491071224,
+        0.18647276004776359,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "source": "Initial pilot state8 only, before any independent test; global B5 transfer to both controllers.",
+  "role_policy": "Nearest initial pair; preserve frozen ordered orientation and waypoint. No test outcome selects role or T.",
+  "test_scenes": [
+    "xsc_hs_plus_w030_te",
+    "xsc_hs_box_n09_r013_f25_te",
+    "xsc_hs_swap_n06_te",
+    "hs_obst_n08_R142_r050_te"
+  ],
+  "test_states": [
+    16,
+    17
+  ],
+  "test_future_indices": [
+    1,
+    2
+  ]
+}

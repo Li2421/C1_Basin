@@ -1,0 +1,27 @@
+{
+  "evidence": {
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset/fresh.jsonl": {
+      "sha256": "efc1773fe555f560b9659827aa2527b559bc8484370b4191ac2c264bf60b2877",
+      "bytes": 7782139
+    },
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset/scenes_all2.json": {
+      "sha256": "77a87548d4773ffef70bbfba7aaec5ed2a737c3e84d0d4f3d759166373c0d685",
+      "bytes": 1823558
+    },
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset/acceltest.py": {
+      "sha256": "74c12b9f8a4682866a15d24570d105bb7af41ec86eecd54da50f56d6e44dccf9",
+      "bytes": 1026
+    },
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset/FINAL_FROZEN.json": {
+      "sha256": "b2f848f7f748d2a27cf1bfcc42da5630d653cb20ce0335a09528cad3ce4f55d7",
+      "bytes": 33285
+    },
+    "/home/zhihan/research/Basin_C1/docs/cleanup_hetero_set_20261027.md": {
+      "sha256": "62095a2e182a79a6ee1c72021e7ee38f713b795f081a6382c4b72ccc840e28cd",
+      "bytes": 5343
+    }
+  },
+  "snapshot_vs_live_python_differences": [],
+  "reference_package": "NOT_FOUND recursive /home/zhihan /tmp /mnt",
+  "base_commit": "fe3ec0b96901dcc735a7713c7ae14e6746673bf4"
+}

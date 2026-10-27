@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "rows": 14694,
+  "unique_saved_traces": 13472,
+  "registered_exact_cache_rows": 14694,
+  "imported_compatible_evidence": 0,
+  "metadata_amendments": 1024,
+  "duplicate_ids": 0,
+  "conflicts": 0,
+  "code_files": {
+    "write_report.py": {
+      "bytes": 28379,
+      "sha256": "3395d75b1c9b4f16ed71aaf272f2f3f17ad58b3a06dc9c825b49b87cd91696e1"
+    },
+    "oracle.py": {
+      "bytes": 15957,
+      "sha256": "a68f393a089e75846437eac05b816978f7be02ebf73f49499eed731f5ac976c6"
+    },
+    "runtime.py": {
+      "bytes": 6439,
+      "sha256": "5ccbe107bd3d695e2d5ef33928e8de5454c35e1e9116515a3b1e04788b49b894"
+    },
+    "supplement.py": {
+      "bytes": 2230,
+      "sha256": "997edbbf0aea07950035fcf0faae9d393c36158852ba1b5774214fc8650cbc6b"
+    },
+    "legacy_mechanisms.py": {
+      "bytes": 5163,
+      "sha256": "ece3c6a61a19b37880a542e9a582631aab1ae36b56354e49e97dfee127ca5571"
+    },
+    "analyze.py": {
+      "bytes": 12762,
+      "sha256": "526666a2472b3d8b5e833e12178734214eafca523f4d027935d4424e9f62d3d9"
+    },
+    "independent.py": {
+      "bytes": 3880,
+      "sha256": "f4fa7cd93977361e0ead48516690bf1258baeffc3c67201034b5438886da531b"
+    },
+    "legacy.py": {
+      "bytes": 13430,
+      "sha256": "5651cd97293533f73826b96254a762cd917901843bd16185069847b88a537844"
+    },
+    "mechanisms.py": {
+      "bytes": 8456,
+      "sha256": "04691944e344891de893c46e159daad24bb5329c35245060509cce83eddb6873"
+    },
+    "delivery_manifest.py": {
+      "bytes": 1532,
+      "sha256": "132414e5ca688f8d8ca0dd0ab093832efec1ac44bfdaa782afb0e8f9e565d627"
+    },
+    "checks.py": {
+      "bytes": 3314,
+      "sha256": "8e600706b0e23e560bf5661dcb7e1b5cf33d4e4668676dc7e0565105d0106aac"
+    },
+    "expand.py": {
+      "bytes": 2208,
+      "sha256": "3f2b7fe8bb0352d84c417d4ee8039540c2949eb7e57ed9a132ba02b8371aef85"
+    },
+    "safety_audit.py": {
+      "bytes": 2716,
+      "sha256": "9cf5b8fb2108b1262b81dd7bc8933a56af29a9e8f724cef3d6c43a3cc757cb0c"
+    },
+    "verify.py": {
+      "bytes": 7798,
+      "sha256": "1817c0e6d69560a0de58e71098f9ed4bed284880f281ffef9584ec5629bf5a22"
+    },
+    "rhr_exact.py": {
+      "bytes": 1594,
+      "sha256": "64ac733466784c0fd9cade8f60b7977ba5321c02ada0febcdcdb8864fa5efe99"
+    },
+    "plot.py": {
+      "bytes": 1118,
+      "sha256": "d2394d42eca43770363e5608eff58e92e6fc633f1d355fa673585c44d2d335e5"
+    },
+    "legacy_prior.py": {
+      "bytes": 2726,
+      "sha256": "56ba6803427dfeaa3effcd14d8de971177a069a2a0c75d9db714fdafc63faf1f"
+    },
+    "shared_control/correction_b5.py": {
+      "bytes": 4484,
+      "sha256": "3c369a6fd1f474880304d319c2b817c20c10c55c5acf2608eb2180372b04b078"
+    }
+  },
+  "reference_package_checks": "NOT_RUN: reference ZIP absent",
+  "data_backup": "Raw JSONL, NPZ and SQLite remain local ignored research evidence; Git commit is not their backup."
+}
