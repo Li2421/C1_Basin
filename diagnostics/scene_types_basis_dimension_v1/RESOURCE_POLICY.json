@@ -1,0 +1,10 @@
+{
+  "user_authorized_cpus_before_deadline": 24,
+  "deadline": "2026-10-28T09:00:00+08:00",
+  "user_total_cpus_after_deadline": 18,
+  "gpus": 0,
+  "one_cpu_per_worker": true,
+  "blas_threads": 1,
+  "only_cancel_prefix": "stb_",
+  "interpretation": "Preserve earlier request to release six CPUs at 09:00; latest user raises present limit to 24."
+}
