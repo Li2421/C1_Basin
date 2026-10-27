@@ -10,7 +10,7 @@ def main():
     output=[];geometry_cache={}
     for p in sorted((HERE/'raw').glob('*.json')):
         r=read(p)
-        if r['scene']not in scenes or not r['numerical_failure']:continue
+        if r['scene']not in scenes or not r['numerical_failure']or r.get('safety_layer')!='distributed':continue
         if 'route'not in (r.get('error')or{}).get('message','').lower():continue
         s=scenes[r['scene']]
         if r['scene']not in geometry_cache:geometry_cache[r['scene']]=route_geometry(geometry(s))
@@ -36,7 +36,7 @@ def main():
                                 geometric_witness=np.vstack((position,tail));break
                         if geometric_witness is not None:break
                 points.append(dict(agent=i,position=position,goal=goal,start_valid=bool(valid[0]),goal_valid=bool(valid[1]),minimum_wall_distance=float(np.min(distances)),route_margin=float(geom.margin),clearance_above_route_margin=clearance,nearest_wall_index=int(np.argmin(distances)),path_none=geom.path(position,goal)is None,original_roadmap_visible_nodes=sum(geom.visible(position,q)for q in geom.nodes),diagnostic_short_connector_path=geometric_witness,connector_used_for_control=False))
-            output.append(dict(uid=r['rollout_uid'],type_id=r['type_id'],controller=r['controller'],state_index=r['state_index'],step=(r.get('error')or{}).get('step'),spec=r['spec'],points=points,last_projection=certificates[-1]if certificates else None,reported_constraint_violation_steps=r.get('constraint_violation_steps'),reported_restoration_steps=r.get('restoration_steps'),reported_minimum_swept_clearance=r.get('minimum_swept_clearance')))
+            output.append(dict(uid=r['rollout_uid'],type_id=r['type_id'],controller=r['controller'],state_index=r['state_index'],purpose=r['purpose'],solo=r['solo'],step=(r.get('error')or{}).get('step'),spec=r['spec'],points=points,last_projection=certificates[-1]if certificates else None,reported_constraint_violation_steps=r.get('constraint_violation_steps'),reported_restoration_steps=r.get('restoration_steps'),reported_minimum_swept_clearance=r.get('minimum_swept_clearance')))
     dump(HERE/'ROUTE_UNKNOWN_DIAGNOSTICS.json',dict(cases=output,n=len(output),scope='Read-only original Geometry.path/valid_points applied to final saved positions; no rollout, solver change, geometry relaxation or retry. A negative route-margin clearance is an interface/applicability unknown, not automatically a physical collision or deadlock.'))
     print('route-unknown saved-state audit',len(output),flush=True)
     return output

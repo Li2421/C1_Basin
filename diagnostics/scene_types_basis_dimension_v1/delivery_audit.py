@@ -6,7 +6,15 @@ def main(rows,frozen,labels):
     attempts={}
     for p in(HERE/'attempts').glob('*.json'):
         r=read(p);attempts.setdefault(r['rollout_uid'],[]).append(float(r['time']))
-    heldout={x['uid']for ll in labels.values()for x in ll}
+    heldout={x['uid']for ll in labels.values()for x in ll};primary=set(heldout)
+    range_timeline=None
+    if(HERE/'GOAL_RANGE_LABELS.json').exists():
+        extra={x['uid']for ll in read(HERE/'GOAL_RANGE_LABELS.json').values()for x in ll}-primary
+        heldout|=extra
+        first=min((t for uid in extra for t in attempts.get(uid,[])),default=None)
+        frozen_at=datetime.datetime.fromisoformat(read(HERE/'GOAL_RANGE_FROZEN.json')['freeze_time']).timestamp()
+        assert first is not None and frozen_at<=first
+        range_timeline=dict(protocol_freeze=frozen_at,first_additional_candidate_attempt=first)
     if(HERE/'paper_holdout_planned.json').exists():heldout|={c['rollout_uid']for c in read(HERE/'paper_holdout_planned.json')['exact_configs']}
     earliest=min((t for uid in heldout for t in attempts.get(uid,[])),default=None)
     family_path=HERE/'FAMILIES_FROZEN.json'
@@ -38,4 +46,5 @@ def main(rows,frozen,labels):
             assert digest(e['scene'])==digest(prior[e['type_id']])
             unchanged.append(e['type_id'])
     output=dict(passed=True,complete_records=len(rows),attempts=attempt_count,hard_cap=45000,official_db_raw_mismatches=db_errors,missing_trace_files=missing_traces,reserved_state_rollouts=reserved,invalid_geometry_primary_holdout=invalid_primary,completed_unknown_later_attempts=unknown_retries,family_freeze_sha256=sha(family_path),family_freeze_mtime=family_path.stat().st_mtime,earliest_heldout_attempt=earliest,earliest_paper_heldout_attempt=earliest_paper,unchanged_valid_scene_types=unchanged,source_scene_freeze_time=frozen['freeze_time'],physical_split_note='Only states0..3 tune/select. States4..7 heldout after frozen families. States8..11 unused. Exact initial-state RNG key certification uses input-only arithmetic and creates no labels.',scope='All local raw records have matching official indexed outcomes and trace files. Existing per-record trace hashes were computed at write time; this audit does not rehash every large trace.')
+    output['supplementary_range_freeze_timeline']=range_timeline
     dump(HERE/'DELIVERY_AUDIT.json',output);return output

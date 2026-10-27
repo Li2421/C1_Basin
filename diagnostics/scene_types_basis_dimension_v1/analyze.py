@@ -1,4 +1,4 @@
-"""Read-only analysis of frozen plans and saved evidence, no rollouts."""
+"""Close the frozen supplementary range control, then analyze saved evidence."""
 from core import *
 from discovery import NAMES,support,mask
 from scenes import TITLES,geometry
@@ -148,6 +148,9 @@ def final_integrity():
     dump(HERE/'INTEGRITY_END.json',result);assert not changed and not result['python_protection_events'];return result
 
 def main():
+    if(HERE/'GOAL_RANGE_FROZEN.json').exists():
+        from goal_range_followup import main as range_control
+        range_control()
     try:
         from route_unknown_audit import main as route_unknown_audit
         route_unknown_audit()
@@ -205,6 +208,7 @@ def main():
     # Count actual nonzero supports, not the declared containing family. A
     # five-column family can succeed using a two-column sparse candidate.
     linear_uids={x['uid']for name,ll in labels.items()if name.isdigit()or name in('safety','historical_GC2_fixed','B3_goal_zero_face')for x in ll}
+    if(HERE/'GOAL_RANGE_LABELS.json').exists():linear_uids|={x['uid']for ll in read(HERE/'GOAL_RANGE_LABELS.json').values()for x in ll}
     witness_by_case={}
     for uid in linear_uids:
         if uid not in rows or not rows[uid]['success']:continue
@@ -260,6 +264,9 @@ def main():
             ll.sort(key=lambda x:x['candidate']);pool=[rows[x['uid']]for x in ll if x['uid']in rows]
             if pool:face_rows.append(next((r for r in pool if r['success']),pool[0]))
         reference['B3_goal_zero_face']=dict(K=6,overall=stats(face_rows),by_type={str(t):stats([r for r in face_rows if r['type_id']==t])for t in range(1,18)},scope='Separate Goal=0 boundary ablation. Not part of the dimension verdict; not the continuous widened-box optimum.')
+    if(HERE/'GOAL_RANGE_LABELS.json').exists():
+        from range_analysis import main as analyze_range
+        reference.update({'B3_'+name+'_range_control':value for name,value in analyze_range(rows,stats,case_rows).items()})
     papers={}
     for r in rows.values():
         if r['purpose']=='paper_holdout':papers.setdefault(r['controller'],[]).append(r)
@@ -355,12 +362,16 @@ def main():
         text.append('|'+TITLES[t]+'|'+'|'.join(counts)+'|\n')
     text += [f'\n推荐族固定参数：`{json.dumps(fixed,ensure_ascii=False)}`。完整逐场景结果见 [per_type_results.csv](per_type_results.csv)，逐名义控制器分解见 [PER_CONTROLLER_RESULTS.json](PER_CONTROLLER_RESULTS.json)，论文端口与参照规则的逐场景成功和时间见 [baseline_per_type_results.csv](baseline_per_type_results.csv)，预算曲线见 [budget_curves.csv](budget_curves.csv)。参数与族在读取留出结果前冻结。[固定参数选取覆盖](FIXED_SELECTION_COVERAGE.json)逐配置列出搜索案例观测量；S3/S4仅补未覆盖案例，所以“最好已观测配置”不等于对所有配置做过统一全队列调参，部署差距不能单独证明需要学习型Generator。维度推荐使用预登记的留出决策规则，是本测试集上的描述性选择，不是另一次独立泛化确认。\n\n',
         '## 论文对应 baseline\n\n五篇论文的六个机制版本使用上一轮冻结参数和同一实际 SI 物理环境，另以预先冻结的26项开发菜单选择参数，保留两个 profile 分别报告。它们保留论文自身 controller、安全 solver、优先级/临时目标机制，区别于两个冻结 nominal 下的修正列消融。论文端口接收真实目标，不附加 C1 的可见图路线引导；有墙地图上的差异因此还包含全局路径信息差异。Oracle@16 是逐案例选择的有限池上限，而论文 profile 是一套固定参数，两者不构成同等部署能力的直接比较；应同时查看修正族固定参数结果。每个论文 profile 有15类×4初态=60局，C1每个族有两个 nominal、共120案例，不能把分母直接混为同一实验。论文原生 benchmark 与原理论假设未复现，原端口适配限制沿用 [上轮报告](../paper_baselines_20261028/report.md)。原始代码 commit 和依赖见 [端口来源](PAPER_PORT_INPUTS.json)。\n\n',
-        '| 论文机制端口 | 成功 | 碰撞/超时/unknown（数值或实现异常） | success条件平均时间(s) | 全队列截断均时(s) | 内部solver失败事件 |\n|---|---|---|---|---|---|\n']
+        '各 profile 的精确参数和开发集计数见 [PAPER_PARAMETERS_FROZEN.json](PAPER_PARAMETERS_FROZEN.json)。unknown 包括求解、原生规划预算和接口异常；原始兼容字段仍名为 numerical_failure，不能据字段名将全部异常都归因于数值 solver。unknown 比例较高的端口不足以用于原论文方法的能力排名。\n\n',
+        '| 论文机制端口 | 成功 | 碰撞/超时/unknown | success条件平均时间(s) | 全队列截断均时(s) | 内部solver失败事件 |\n|---|---|---|---|---|---|\n']
     registry={x['id']:x for x in read(ROOT/'diagnostics/paper_baselines_20261028/PAPER_REGISTRY.json')['allowed']}
     for method,v in paper_stats.items():
         s=v['overall'];entry=registry[method.split('__')[0]];title='['+entry['name']+']('+entry['source']+')'+('（本轮开发集选参）'if'__development_selected'in method else'（上轮冻结参数）');text.append(f"|{title}|{s['success']}/{s['n']}|{s['collision']}/{s['timeout']}/{s['numerical_unknown']}|{display_time(s['success_mean_time'])}|{display_time(s['all_cohort_truncated_mean'])}|{s['solver_internal_failure_events']}|\n")
     face_result=reference.get('B3_goal_zero_face',{}).get('overall',{})
     effective=read(HERE/'EFFECTIVE_DIMENSION_WITNESSES.json')
+    if(HERE/'GOAL_RANGE_ABLATION_RESULTS.json').exists():
+        ranged=read(HERE/'GOAL_RANGE_ABLATION_RESULTS.json');narrow=ranged['results']['narrow32']['overall'];wide=ranged['results']['wide32']['overall']
+        text+=[f"\n### 朝目标参数范围的同预算补充对照\n\n两组原三列各32点，前16点完全相同，后16点成对仅改变朝目标系数。原范围覆盖 {narrow['success']}/{narrow['n']}，放宽到0的结构化范围覆盖 {wide['success']}/{wide['n']}；成功条件平均时间分别为 {display_time(narrow['success_mean_time'])}s、{display_time(wide['success_mean_time'])}s。配对物理初态分块的成功率差95%区间为 `{ranged['paired_physical_block_rate_difference_bootstrap95']}`。新点逐对比较中，降低朝目标系数独有成功 {ranged['paired_point_wide_rescues']} 点次，原系数独有成功 {ranged['paired_point_narrow_rescues']} 点次。\n\n此补充协议在主留出已经启动、但未读取留出结局选点时冻结；不修改七族名单、固定参数或主维度判定。它补足旧轮小规模范围消融和本轮仅6点零边界控制的证据缺口，不能冒充连续参数空间最优。[精确池与预算](GOAL_RANGE_FROZEN.json)、[逐点配对及各族相对放宽三列的补救案例](GOAL_RANGE_ABLATION_RESULTS.json)。\n\n"]
     text += [f"\n原三列朝目标系数固定为0的边界消融（另冻结6点）：覆盖 {face_result.get('success')}/{face_result.get('n')}，不参与维度判定。这只比较边界有限池，不是整个放宽参数盒的最优。实际成功候选的最小非零支持见 [EFFECTIVE_DIMENSION_WITNESSES.json](EFFECTIVE_DIMENSION_WITNESSES.json)；只有五个非零系数点成功、而所有已测低维点均未成功的留出案例数为 {len(effective['five_only_among_tested'])}，仍不能据此证明连续参数空间中五维不可替代。\n\n",
         '经典右手目标偏转与群中心旋转启发式是本轮 prompt 指定的附加参照，结果见 [REFERENCE_RESULTS.json](REFERENCE_RESULTS.json)；它们不冒充 Wang、Chen 或 Merry-Go-Round 的完整论文方法，也不参与维度判定。[TIMING_REFERENCE_WITNESSES.json](TIMING_REFERENCE_WITNESSES.json) 列出触发式规则成功而当前固定线性候选池未覆盖的案例。规则同时在归一化、强度与朝目标系数策略上有差别，因此这不是仅改变阶段时序的因果消融。\n\n',
         '## 时间、置信区间与计算成本\n\n[物理初态分块置信区间](CONFIDENCE_INTERVALS.json) 对每个冻结地图内的4个初态分层重采样，把同一初态的两个 nominal 作为同一块；不把8个案例视为独立样本。成功条件均值只包含成功局；[配对成功时间](PAIRED_SUCCESS_TIMES.json)只在两方法均成功的同一 controller×state 上比较；失败局的截断时间使用完整任务时限。Oracle 完成时间取冻结顺序中第一个成功候选的时间，不把最短成功候选时间充作部署速度。Oracle 的计算成本应累加全部 16 候选，不能只算被选成功局。[计算成本](COMPUTE_COSTS.json)和[局部进展代理时间](LOCAL_PROGRESS_TIMES.json)另存，逐候选 wall_seconds 与完整轨迹均保留。Wilson 95% 区间是案例层描述区间，两个 nominal 的成败相关、每类仅四个独立物理初态，不能解释为八个独立样本的严格总体置信区间。\n\n',
