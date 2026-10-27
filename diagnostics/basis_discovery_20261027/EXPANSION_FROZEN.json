@@ -1,0 +1,791 @@
+{
+  "selected_pairs": [
+    [
+      "Y3",
+      "C2"
+    ],
+    [
+      "S1",
+      "C2"
+    ],
+    [
+      "Y1",
+      "C2"
+    ],
+    [
+      "T3",
+      "C2"
+    ],
+    [
+      "T2",
+      "C2"
+    ],
+    [
+      "Y4",
+      "C2"
+    ],
+    [
+      "Y2",
+      "C2"
+    ],
+    [
+      "P2",
+      "C2"
+    ],
+    [
+      "T5",
+      "Y4"
+    ],
+    [
+      "R2",
+      "Y2"
+    ],
+    [
+      "Y2",
+      "Y4"
+    ],
+    [
+      "P2",
+      "Y2"
+    ]
+  ],
+  "ranking": [
+    {
+      "names": [
+        "Y3",
+        "C2"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "S1",
+        "C2"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "Y1",
+        "C2"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "T3",
+        "C2"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "T2",
+        "C2"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "Y4",
+        "C2"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "Y2",
+        "C2"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "P2",
+        "C2"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "T5",
+        "Y4"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "R2",
+        "Y2"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "Y2",
+        "Y4"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "P2",
+        "Y2"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "T3",
+        "R2"
+      ],
+      "success_cases": 6
+    },
+    {
+      "names": [
+        "C1",
+        "C2"
+      ],
+      "success_cases": 5
+    },
+    {
+      "names": [
+        "T5",
+        "Y1"
+      ],
+      "success_cases": 5
+    },
+    {
+      "names": [
+        "T3",
+        "Y1"
+      ],
+      "success_cases": 5
+    },
+    {
+      "names": [
+        "T2",
+        "Y2"
+      ],
+      "success_cases": 5
+    },
+    {
+      "names": [
+        "R2",
+        "Y3"
+      ],
+      "success_cases": 5
+    },
+    {
+      "names": [
+        "T3",
+        "Y3"
+      ],
+      "success_cases": 5
+    },
+    {
+      "names": [
+        "P2",
+        "Y3"
+      ],
+      "success_cases": 5
+    },
+    {
+      "names": [
+        "T1",
+        "C1"
+      ],
+      "success_cases": 5
+    },
+    {
+      "names": [
+        "T5",
+        "R2"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T5",
+        "C2"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T2",
+        "T5"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T5",
+        "Y2"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T3",
+        "S1"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T5",
+        "P2"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T2",
+        "S1"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T2",
+        "T3"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "Y1",
+        "Y2"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "Y1",
+        "Y3"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "P2",
+        "Y1"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T3",
+        "Y4"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T4",
+        "C2"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "R2",
+        "C2"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "R2",
+        "S1"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "Y3",
+        "Y4"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T1",
+        "T5"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T1",
+        "C2"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T1",
+        "R2"
+      ],
+      "success_cases": 4
+    },
+    {
+      "names": [
+        "T3",
+        "T5"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T2",
+        "R2"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T5",
+        "R3"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T3",
+        "P2"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T5",
+        "S1"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T5",
+        "C1"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T4",
+        "T5"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "Y3",
+        "S1"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "Y1",
+        "S1"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "Y2",
+        "S1"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "Y4",
+        "S1"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "R3",
+        "C2"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T3",
+        "Y2"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "R2",
+        "Y4"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T2",
+        "Y1"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "R2",
+        "Y1"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "R2",
+        "C1"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T4",
+        "Y2"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T3",
+        "R3"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T1",
+        "Y3"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T1",
+        "T3"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T1",
+        "Y2"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T1",
+        "P2"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T1",
+        "T2"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T1",
+        "R3"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "T1",
+        "T4"
+      ],
+      "success_cases": 3
+    },
+    {
+      "names": [
+        "Y3",
+        "C1"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "Y2",
+        "Y3"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "T2",
+        "R3"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "R2",
+        "R3"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "P2",
+        "R2"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "Y1",
+        "Y4"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "R3",
+        "Y1"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "R3",
+        "S1"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "T2",
+        "Y3"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "T5",
+        "Y3"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "T4",
+        "Y3"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "R3",
+        "Y3"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "T1",
+        "S1"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "T1",
+        "Y4"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "T1",
+        "Y1"
+      ],
+      "success_cases": 2
+    },
+    {
+      "names": [
+        "T2",
+        "Y4"
+      ],
+      "success_cases": 1
+    },
+    {
+      "names": [
+        "Y2",
+        "C1"
+      ],
+      "success_cases": 1
+    },
+    {
+      "names": [
+        "Y4",
+        "C1"
+      ],
+      "success_cases": 1
+    },
+    {
+      "names": [
+        "P2",
+        "S1"
+      ],
+      "success_cases": 1
+    },
+    {
+      "names": [
+        "R3",
+        "Y4"
+      ],
+      "success_cases": 1
+    },
+    {
+      "names": [
+        "T4",
+        "R2"
+      ],
+      "success_cases": 1
+    },
+    {
+      "names": [
+        "R3",
+        "Y2"
+      ],
+      "success_cases": 1
+    },
+    {
+      "names": [
+        "T3",
+        "C1"
+      ],
+      "success_cases": 1
+    },
+    {
+      "names": [
+        "T3",
+        "T4"
+      ],
+      "success_cases": 1
+    },
+    {
+      "names": [
+        "S1",
+        "C1"
+      ],
+      "success_cases": 1
+    },
+    {
+      "names": [
+        "T2",
+        "P2"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "P2",
+        "R3"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "P2",
+        "C1"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "Y1",
+        "C1"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "P2",
+        "Y4"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "R3",
+        "C1"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "T2",
+        "T4"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "T2",
+        "C1"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "T4",
+        "P2"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "T4",
+        "C1"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "T4",
+        "R3"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "T4",
+        "Y4"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "T4",
+        "Y1"
+      ],
+      "success_cases": 0
+    },
+    {
+      "names": [
+        "T4",
+        "S1"
+      ],
+      "success_cases": 0
+    }
+  ],
+  "sparse_seed": 2026102802,
+  "selection": "All105 pairs received2 configs on6 stratified cases; expand top12, also test sparse3..5 and full15 independent of ranking."
+}

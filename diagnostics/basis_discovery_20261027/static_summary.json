@@ -1,0 +1,140 @@
+{
+  "columns": {
+    "T1": {
+      "states": 22,
+      "nonzero": 22,
+      "rank_gain_states": 22,
+      "projection_changes": 22,
+      "mean_outside_B3": 0.7133384370192188,
+      "mean_norm": 1.0560319010648003,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "T2": {
+      "states": 22,
+      "nonzero": 18,
+      "rank_gain_states": 18,
+      "projection_changes": 14,
+      "mean_outside_B3": 0.7268035724380343,
+      "mean_norm": 0.16396016213785647,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "T3": {
+      "states": 22,
+      "nonzero": 20,
+      "rank_gain_states": 20,
+      "projection_changes": 14,
+      "mean_outside_B3": 0.8939023382189223,
+      "mean_norm": 0.17264231158546275,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "T4": {
+      "states": 22,
+      "nonzero": 2,
+      "rank_gain_states": 1,
+      "projection_changes": 2,
+      "mean_outside_B3": 0.5000010079879068,
+      "mean_norm": 0.045454545454545456,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "T5": {
+      "states": 22,
+      "nonzero": 7,
+      "rank_gain_states": 7,
+      "projection_changes": 7,
+      "mean_outside_B3": 0.6112142770966381,
+      "mean_norm": 0.10485461956239678,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "P2": {
+      "states": 22,
+      "nonzero": 4,
+      "rank_gain_states": 2,
+      "projection_changes": 3,
+      "mean_outside_B3": 0.3512421568227085,
+      "mean_norm": 0.048290158698505434,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "R2": {
+      "states": 22,
+      "nonzero": 20,
+      "rank_gain_states": 20,
+      "projection_changes": 14,
+      "mean_outside_B3": 0.32989272447949897,
+      "mean_norm": 0.2733886018595645,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "R3": {
+      "states": 22,
+      "nonzero": 20,
+      "rank_gain_states": 20,
+      "projection_changes": 9,
+      "mean_outside_B3": 0.4320775700925858,
+      "mean_norm": 0.3075828651632349,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "Y1": {
+      "states": 22,
+      "nonzero": 20,
+      "rank_gain_states": 20,
+      "projection_changes": 14,
+      "mean_outside_B3": 0.8431297187653681,
+      "mean_norm": 0.41167602370244955,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "Y2": {
+      "states": 22,
+      "nonzero": 20,
+      "rank_gain_states": 20,
+      "projection_changes": 18,
+      "mean_outside_B3": 0.9221169850977355,
+      "mean_norm": 0.45454545454545453,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "Y3": {
+      "states": 22,
+      "nonzero": 20,
+      "rank_gain_states": 20,
+      "projection_changes": 18,
+      "mean_outside_B3": 0.9221169850977358,
+      "mean_norm": 0.45454545454545453,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "Y4": {
+      "states": 22,
+      "nonzero": 17,
+      "rank_gain_states": 17,
+      "projection_changes": 0,
+      "mean_outside_B3": 0.8282441313219779,
+      "mean_norm": 0.004954898159779975,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "S1": {
+      "states": 22,
+      "nonzero": 20,
+      "rank_gain_states": 20,
+      "projection_changes": 14,
+      "mean_outside_B3": 0.868528992231632,
+      "mean_norm": 0.6239068794593109,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "C1": {
+      "states": 22,
+      "nonzero": 1,
+      "rank_gain_states": 1,
+      "projection_changes": 0,
+      "mean_outside_B3": 0.8661102557470493,
+      "mean_norm": 0.022727272727272728,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    },
+    "C2": {
+      "states": 22,
+      "nonzero": 22,
+      "rank_gain_states": 22,
+      "projection_changes": 22,
+      "mean_outside_B3": 0.33258012389788044,
+      "mean_norm": 1.094436451029311,
+      "outside_mean_condition": "only numerically nonzero columns, norm>1e-8"
+    }
+  },
+  "elapsed": 0.5771652637049556
+}

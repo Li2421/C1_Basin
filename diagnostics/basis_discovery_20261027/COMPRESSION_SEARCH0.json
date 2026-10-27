@@ -1,0 +1,341 @@
+{
+  "children": [
+    {
+      "names": [
+        "G",
+        "T1",
+        "T5"
+      ],
+      "covered": 22
+    },
+    {
+      "names": [
+        "G",
+        "S1",
+        "C2"
+      ],
+      "covered": 21
+    },
+    {
+      "names": [
+        "G",
+        "T3",
+        "C2"
+      ],
+      "covered": 21
+    },
+    {
+      "names": [
+        "G",
+        "T5",
+        "C2"
+      ],
+      "covered": 21
+    },
+    {
+      "names": [
+        "G",
+        "Y1",
+        "C2"
+      ],
+      "covered": 21
+    },
+    {
+      "names": [
+        "G",
+        "Y2",
+        "C2"
+      ],
+      "covered": 21
+    },
+    {
+      "names": [
+        "G",
+        "Y3",
+        "C2"
+      ],
+      "covered": 21
+    },
+    {
+      "names": [
+        "G",
+        "P",
+        "T5"
+      ],
+      "covered": 20
+    },
+    {
+      "names": [
+        "G",
+        "R",
+        "T5"
+      ],
+      "covered": 20
+    },
+    {
+      "names": [
+        "G",
+        "R3",
+        "C2"
+      ],
+      "covered": 20
+    },
+    {
+      "names": [
+        "G",
+        "T5",
+        "R2"
+      ],
+      "covered": 20
+    },
+    {
+      "names": [
+        "G",
+        "R",
+        "C2"
+      ],
+      "covered": 19
+    },
+    {
+      "names": [
+        "G",
+        "T2",
+        "C2"
+      ],
+      "covered": 19
+    },
+    {
+      "names": [
+        "R",
+        "T1",
+        "T5"
+      ],
+      "covered": 19
+    },
+    {
+      "names": [
+        "G",
+        "P",
+        "C2"
+      ],
+      "covered": 18
+    },
+    {
+      "names": [
+        "G",
+        "T1",
+        "C2"
+      ],
+      "covered": 18
+    },
+    {
+      "names": [
+        "P",
+        "T5",
+        "C2"
+      ],
+      "covered": 17
+    },
+    {
+      "names": [
+        "R",
+        "T5",
+        "C2"
+      ],
+      "covered": 16
+    },
+    {
+      "names": [
+        "R",
+        "T5",
+        "R2"
+      ],
+      "covered": 16
+    },
+    {
+      "names": [
+        "G",
+        "R",
+        "T1"
+      ],
+      "covered": 15
+    },
+    {
+      "names": [
+        "T1",
+        "T5",
+        "C2"
+      ],
+      "covered": 15
+    },
+    {
+      "names": [
+        "G",
+        "R",
+        "R2"
+      ],
+      "covered": 14
+    },
+    {
+      "names": [
+        "G",
+        "R",
+        "S1"
+      ],
+      "covered": 14
+    },
+    {
+      "names": [
+        "G",
+        "R",
+        "Y1"
+      ],
+      "covered": 14
+    },
+    {
+      "names": [
+        "G",
+        "R",
+        "Y2"
+      ],
+      "covered": 14
+    },
+    {
+      "names": [
+        "G",
+        "R",
+        "Y3"
+      ],
+      "covered": 14
+    },
+    {
+      "names": [
+        "G",
+        "R",
+        "R3"
+      ],
+      "covered": 13
+    },
+    {
+      "names": [
+        "G",
+        "R",
+        "T3"
+      ],
+      "covered": 13
+    },
+    {
+      "names": [
+        "R",
+        "Y1",
+        "C2"
+      ],
+      "covered": 12
+    },
+    {
+      "names": [
+        "G",
+        "P",
+        "T3"
+      ],
+      "covered": 10
+    },
+    {
+      "names": [
+        "P",
+        "T3",
+        "C2"
+      ],
+      "covered": 10
+    },
+    {
+      "names": [
+        "R",
+        "S1",
+        "C2"
+      ],
+      "covered": 10
+    },
+    {
+      "names": [
+        "R",
+        "T3",
+        "C2"
+      ],
+      "covered": 10
+    },
+    {
+      "names": [
+        "R",
+        "Y2",
+        "C2"
+      ],
+      "covered": 10
+    },
+    {
+      "names": [
+        "R",
+        "Y3",
+        "C2"
+      ],
+      "covered": 9
+    },
+    {
+      "names": [
+        "G",
+        "R",
+        "T2"
+      ],
+      "covered": 8
+    },
+    {
+      "names": [
+        "R",
+        "R3",
+        "C2"
+      ],
+      "covered": 7
+    },
+    {
+      "names": [
+        "R",
+        "T2",
+        "C2"
+      ],
+      "covered": 7
+    }
+  ],
+  "selected": [
+    [
+      "G",
+      "T1",
+      "T5"
+    ],
+    [
+      "G",
+      "S1",
+      "C2"
+    ],
+    [
+      "G",
+      "T3",
+      "C2"
+    ],
+    [
+      "G",
+      "T5",
+      "C2"
+    ],
+    [
+      "G",
+      "Y1",
+      "C2"
+    ],
+    [
+      "G",
+      "Y2",
+      "C2"
+    ]
+  ],
+  "selection": "Top at most6 children, within1 case of best existing coverage;16 Sobol coefficients only on still-uncovered cases; no test labels."
+}

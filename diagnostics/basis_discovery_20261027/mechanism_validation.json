@@ -1,0 +1,4713 @@
+{
+  "passed": true,
+  "max_C2_fd_error": 5.817435422272865e-11,
+  "states": [
+    {
+      "case": {
+        "scene": "xsc_hs_plus_w025",
+        "controller": "centralized_sampling",
+        "state_index": 10,
+        "hard": true,
+        "baseline_eta": [
+          1.25,
+          0.5,
+          0.0
+        ],
+        "baseline_rollout_uid": "roll_a3fedf3d85ed787ec679800924e6f3ec418aa3a19cbc7bd0749c4fa6b17659ba",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_a3fedf3d85ed787ec679800924e6f3ec418aa3a19cbc7bd0749c4fa6b17659ba.npz"
+      },
+      "C2_fd_max_error": 8.880646218401012e-12,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002630437611526,
+            1.7324947273730031,
+            1.0003500983367128,
+            1.732647922746569
+          ],
+          "max_nullspace_residual": 2.727935961631873e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002630437611526,
+            1.7324947273730031,
+            1.0003500983367128,
+            1.732647922746569
+          ],
+          "max_nullspace_residual": 2.727935961631873e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002630437611526,
+            1.7324947273730031,
+            1.0003500983367128,
+            1.732647922746569
+          ],
+          "max_nullspace_residual": 2.727935961631873e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002630437611526,
+            1.7324947273730031,
+            1.0003500983367128,
+            1.732647922746569
+          ],
+          "max_nullspace_residual": 2.727935961631873e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002630437611526,
+            1.7324947273730031,
+            1.0003500983367128,
+            1.732647922746569
+          ],
+          "max_nullspace_residual": 2.727935961631873e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002630437611526,
+            1.7324947273730031,
+            1.0003500983367128,
+            1.732647922746569
+          ],
+          "max_nullspace_residual": 2.727935961631873e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002630437611526,
+            2.2365837245894387,
+            1.0003500983367128,
+            2.236761767367413
+          ],
+          "max_nullspace_residual": 2.727935961631873e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002630437611526,
+            2.2365837245894387,
+            1.0003500983367128,
+            2.236761767367413
+          ],
+          "max_nullspace_residual": 2.727935961631873e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002630437611526,
+            2.2365837245894387,
+            1.0003500983367128,
+            2.236761767367413
+          ],
+          "max_nullspace_residual": 2.727935961631873e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_plus_w025",
+        "controller": "centralized_sampling",
+        "state_index": 11,
+        "hard": true,
+        "baseline_eta": [
+          0.6005927280057222,
+          0.45831789541989565,
+          0.7155816543381661
+        ],
+        "baseline_rollout_uid": "roll_96e8a528af1e596e7a6bb556253fb4ce2e80bf4aeb0a7234238bad00391ab10d",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_96e8a528af1e596e7a6bb556253fb4ce2e80bf4aeb0a7234238bad00391ab10d.npz"
+      },
+      "C2_fd_max_error": 3.368645640211554e-12,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002101141239417,
+            1.7321276541424482,
+            1.0000970860023157,
+            1.732381932603351
+          ],
+          "max_nullspace_residual": 2.0452264073067017e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002101141239417,
+            1.7321276541424482,
+            1.0000970860023157,
+            1.732381932603351
+          ],
+          "max_nullspace_residual": 2.0452264073067017e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002101141239417,
+            1.7321276541424482,
+            1.0000970860023157,
+            1.732381932603351
+          ],
+          "max_nullspace_residual": 2.0452264073067017e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002101141239417,
+            1.7321276541424482,
+            1.0000970860023157,
+            1.732381932603351
+          ],
+          "max_nullspace_residual": 2.0452264073067017e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002101141239417,
+            1.7321276541424482,
+            1.0000970860023157,
+            1.732381932603351
+          ],
+          "max_nullspace_residual": 2.0452264073067017e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002101141239417,
+            1.7321276541424482,
+            1.0000970860023157,
+            1.732381932603351
+          ],
+          "max_nullspace_residual": 2.0452264073067017e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002101141239417,
+            2.236157236290394,
+            1.0000970860023157,
+            2.236452711160332
+          ],
+          "max_nullspace_residual": 2.0452264073067017e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002101141239417,
+            2.236157236290394,
+            1.0000970860023157,
+            2.236452711160332
+          ],
+          "max_nullspace_residual": 2.0452264073067017e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0002101141239417,
+            2.236157236290394,
+            1.0000970860023157,
+            2.236452711160332
+          ],
+          "max_nullspace_residual": 2.0452264073067017e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_plus_w025",
+        "controller": "centralized_sampling",
+        "state_index": 12,
+        "hard": true,
+        "baseline_eta": [
+          1.25,
+          0.5,
+          0.0
+        ],
+        "baseline_rollout_uid": "roll_4139b4308dd4b19591e1335d4a41c0a559c9a6d7207e614f03eaf0c9afc08a99",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_4139b4308dd4b19591e1335d4a41c0a559c9a6d7207e614f03eaf0c9afc08a99.npz"
+      },
+      "C2_fd_max_error": 5.978897932301663e-12,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7326646127809164,
+            1.0002700863658682,
+            1.7325066917182397,
+            1.0003596244033586
+          ],
+          "max_nullspace_residual": 1.3657848575559173e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7326646127809164,
+            1.0002700863658682,
+            1.7325066917182397,
+            1.0003596244033586
+          ],
+          "max_nullspace_residual": 1.3657848575559173e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7326646127809164,
+            1.0002700863658682,
+            1.7325066917182397,
+            1.0003596244033586
+          ],
+          "max_nullspace_residual": 1.3657848575559173e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7326646127809164,
+            1.0002700863658682,
+            1.7325066917182397,
+            1.0003596244033586
+          ],
+          "max_nullspace_residual": 1.3657848575559173e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7326646127809164,
+            1.0002700863658682,
+            1.7325066917182397,
+            1.0003596244033586
+          ],
+          "max_nullspace_residual": 1.3657848575559173e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7326646127809164,
+            1.0002700863658682,
+            1.7325066917182397,
+            1.0003596244033586
+          ],
+          "max_nullspace_residual": 1.3657848575559173e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.23678115972393,
+            1.0002700863658682,
+            2.236597623652665,
+            1.0003596244033586
+          ],
+          "max_nullspace_residual": 1.3657848575559173e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.23678115972393,
+            1.0002700863658682,
+            2.236597623652665,
+            1.0003596244033586
+          ],
+          "max_nullspace_residual": 1.3657848575559173e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.23678115972393,
+            1.0002700863658682,
+            2.236597623652665,
+            1.0003596244033586
+          ],
+          "max_nullspace_residual": 1.3657848575559173e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_plus_w025",
+        "controller": "centralized_sampling",
+        "state_index": 13,
+        "hard": true,
+        "baseline_eta": [
+          0.5078851231373847,
+          -0.06736976280808449,
+          0.6471800354775041
+        ],
+        "baseline_rollout_uid": "roll_1a407f4bb0c0c74dd2f65a9fee4637275d5e2f88525f6a0a9577ad0b36a0fb0b",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_1a407f4bb0c0c74dd2f65a9fee4637275d5e2f88525f6a0a9577ad0b36a0fb0b.npz"
+      },
+      "C2_fd_max_error": 4.859529445511157e-12,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0007122372651558,
+            1.7330073221513178,
+            1.0005607277636603,
+            1.7332735072059533
+          ],
+          "max_nullspace_residual": 1.6625888320359125e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0007122372651558,
+            1.7330073221513178,
+            1.0005607277636603,
+            1.7332735072059533
+          ],
+          "max_nullspace_residual": 1.6625888320359125e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0007122372651558,
+            1.7330073221513178,
+            1.0005607277636603,
+            1.7332735072059533
+          ],
+          "max_nullspace_residual": 1.6625888320359125e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0007122372651558,
+            1.7330073221513178,
+            1.0005607277636603,
+            1.7332735072059533
+          ],
+          "max_nullspace_residual": 1.6625888320359125e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0007122372651558,
+            1.7330073221513178,
+            1.0005607277636603,
+            1.7332735072059533
+          ],
+          "max_nullspace_residual": 1.6625888320359125e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0007122372651558,
+            1.7330073221513178,
+            1.0005607277636603,
+            1.7332735072059533
+          ],
+          "max_nullspace_residual": 1.6625888320359125e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0007122372651558,
+            2.2371791919347657,
+            1.0005607277636603,
+            2.2374886358375417
+          ],
+          "max_nullspace_residual": 1.454527874011916e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0007122372651558,
+            2.2371791919347657,
+            1.0005607277636603,
+            2.2374886358375417
+          ],
+          "max_nullspace_residual": 1.454527874011916e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0007122372651558,
+            2.2371791919347657,
+            1.0005607277636603,
+            2.2374886358375417
+          ],
+          "max_nullspace_residual": 1.454527874011916e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_plus_w025",
+        "controller": "centralized_sampling",
+        "state_index": 14,
+        "hard": true,
+        "baseline_eta": [
+          1.25,
+          0.5,
+          0.0
+        ],
+        "baseline_rollout_uid": "roll_abecc6ba0e687316d732927d5ca33631d26113e09e15b5e13f2cac227d57bdde",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_abecc6ba0e687316d732927d5ca33631d26113e09e15b5e13f2cac227d57bdde.npz"
+      },
+      "C2_fd_max_error": 6.871989088885755e-12,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7326662443449186,
+            1.0003567992935787,
+            1.7326594449441097,
+            1.0003528079719355
+          ],
+          "max_nullspace_residual": 6.984142829105408e-17
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7326662443449186,
+            1.0003567992935787,
+            1.7326594449441097,
+            1.0003528079719355
+          ],
+          "max_nullspace_residual": 6.984142829105408e-17
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7326662443449186,
+            1.0003567992935787,
+            1.7326594449441097,
+            1.0003528079719355
+          ],
+          "max_nullspace_residual": 6.984142829105408e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7326662443449186,
+            1.0003567992935787,
+            1.7326594449441097,
+            1.0003528079719355
+          ],
+          "max_nullspace_residual": 6.984142829105408e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7326662443449186,
+            1.0003567992935787,
+            1.7326594449441097,
+            1.0003528079719355
+          ],
+          "max_nullspace_residual": 6.984142829105408e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7326662443449186,
+            1.0003567992935787,
+            1.7326594449441097,
+            1.0003528079719355
+          ],
+          "max_nullspace_residual": 6.984142829105408e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.2367830324705347,
+            1.0003567992935787,
+            2.2367751298441862,
+            1.0003528079719355
+          ],
+          "max_nullspace_residual": 6.984142829105408e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.2367830324705347,
+            1.0003567992935787,
+            2.2367751298441862,
+            1.0003528079719355
+          ],
+          "max_nullspace_residual": 6.984142829105408e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.2367830324705347,
+            1.0003567992935787,
+            2.2367751298441862,
+            1.0003528079719355
+          ],
+          "max_nullspace_residual": 6.984142829105408e-17
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_plus_w025",
+        "controller": "centralized_sampling",
+        "state_index": 15,
+        "hard": true,
+        "baseline_eta": [
+          1.1816712743602693,
+          0.3942391136661172,
+          0.5486148172058165
+        ],
+        "baseline_rollout_uid": "roll_687b449eb73b5a3851e185ab66406227a7fc726fd66b8e9110141a31c15f2141",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_687b449eb73b5a3851e185ab66406227a7fc726fd66b8e9110141a31c15f2141.npz"
+      },
+      "C2_fd_max_error": 1.9086711378069054e-12,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7320283932027327,
+            1.0000530786981185,
+            1.7321163814248055,
+            1.0000350123254618
+          ],
+          "max_nullspace_residual": 7.857365498656848e-17
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7320283932027327,
+            1.0000530786981185,
+            1.7321163814248055,
+            1.0000350123254618
+          ],
+          "max_nullspace_residual": 7.857365498656848e-17
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7320283932027327,
+            1.0000530786981185,
+            1.7321163814248055,
+            1.0000350123254618
+          ],
+          "max_nullspace_residual": 7.857365498656848e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7320283932027327,
+            1.0000530786981185,
+            1.7321163814248055,
+            1.0000350123254618
+          ],
+          "max_nullspace_residual": 7.857365498656848e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7320283932027327,
+            1.0000530786981185,
+            1.7321163814248055,
+            1.0000350123254618
+          ],
+          "max_nullspace_residual": 7.857365498656848e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.7320283932027327,
+            1.0000530786981185,
+            1.7321163814248055,
+            1.0000350123254618
+          ],
+          "max_nullspace_residual": 7.857365498656848e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.236041931788742,
+            1.0000530786981185,
+            2.236144166930915,
+            1.0000350123254618
+          ],
+          "max_nullspace_residual": 7.864166433991553e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.236041931788742,
+            1.0000530786981185,
+            2.236144166930915,
+            1.0000350123254618
+          ],
+          "max_nullspace_residual": 7.864166433991553e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.236041931788742,
+            1.0000530786981185,
+            2.236144166930915,
+            1.0000350123254618
+          ],
+          "max_nullspace_residual": 7.864166433991553e-17
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_swap_n07",
+        "controller": "centralized_sampling",
+        "state_index": 8,
+        "hard": true,
+        "baseline_eta": [
+          0.515423393342644,
+          -0.2982649700716138,
+          0.5946861673146486
+        ],
+        "baseline_rollout_uid": "roll_6c0479f3af9632b92600ab645edf5f142bc78a336e59e19263b81d05d8ec155e",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_6c0479f3af9632b92600ab645edf5f142bc78a336e59e19263b81d05d8ec155e.npz"
+      },
+      "C2_fd_max_error": 5.817435422272865e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.1039615303302892,
+            1.0943754165396848,
+            1.0,
+            1.0390344378072847,
+            1.008279162936821,
+            1.422746062181074,
+            1.9041822409063232
+          ],
+          "max_nullspace_residual": 2.390587007875384e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.1039615303302892,
+            1.0943754165396848,
+            1.0,
+            1.0390344378072847,
+            1.008279162936821,
+            1.422746062181074,
+            1.9041822409063232
+          ],
+          "max_nullspace_residual": 2.390587007875384e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.1039615303302892,
+            1.0943754165396848,
+            1.0,
+            1.0390344378072847,
+            1.008279162936821,
+            1.422746062181074,
+            1.9041822409063232
+          ],
+          "max_nullspace_residual": 2.390587007875384e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.1121776916744939,
+            1.0943754165396848,
+            2.0388708540017473,
+            1.4716249274797233,
+            1.40551367999771,
+            1.1612356915929898,
+            1.9041822409063232
+          ],
+          "max_nullspace_residual": 1.9703526271775944e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.1121776916744939,
+            1.0943754165396848,
+            2.0388708540017473,
+            1.4716249274797233,
+            1.40551367999771,
+            1.1612356915929898,
+            1.9041822409063232
+          ],
+          "max_nullspace_residual": 1.9703526271775944e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.1121776916744939,
+            1.0943754165396848,
+            2.0388708540017473,
+            1.4716249274797233,
+            1.40551367999771,
+            1.1612356915929898,
+            1.9041822409063232
+          ],
+          "max_nullspace_residual": 1.9703526271775944e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.2351933408669797,
+            1.474794340539287,
+            2.6520096874869283,
+            1.6352099807295555,
+            1.354368447425828,
+            1.1612356915929898,
+            2.419551038080296
+          ],
+          "max_nullspace_residual": 5.577810174707917e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.2351933408669797,
+            1.474794340539287,
+            2.6520096874869283,
+            1.6352099807295555,
+            1.354368447425828,
+            1.1612356915929898,
+            2.419551038080296
+          ],
+          "max_nullspace_residual": 5.577810174707917e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.2351933408669797,
+            1.474794340539287,
+            2.6520096874869283,
+            1.6352099807295555,
+            1.354368447425828,
+            1.1612356915929898,
+            2.419551038080296
+          ],
+          "max_nullspace_residual": 5.577810174707917e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_swap_n07",
+        "controller": "centralized_sampling",
+        "state_index": 9,
+        "hard": true,
+        "baseline_eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "baseline_rollout_uid": "roll_2ff450f679211dac8de968c777afc9ee235d54e1a8dfb90eb2d5de2b2a229a2b",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_2ff450f679211dac8de968c777afc9ee235d54e1a8dfb90eb2d5de2b2a229a2b.npz"
+      },
+      "C2_fd_max_error": 1.3728573833304836e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.288121146719107,
+            1.8768374131023293,
+            1.2732782616606226,
+            2.129960081845121,
+            1.7562901984951378,
+            1.0258666901038673,
+            1.9265235862829926
+          ],
+          "max_nullspace_residual": 1.5357392031925177e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.288121146719107,
+            1.8768374131023293,
+            1.2732782616606226,
+            2.129960081845121,
+            1.7562901984951378,
+            1.0258666901038673,
+            1.9265235862829926
+          ],
+          "max_nullspace_residual": 1.5357392031925177e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.288121146719107,
+            1.8768374131023293,
+            1.2732782616606226,
+            2.129960081845121,
+            1.7562901984951378,
+            1.0258666901038673,
+            1.9265235862829926
+          ],
+          "max_nullspace_residual": 1.5357392031925177e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.288121146719107,
+            1.0531314786904868,
+            1.1075895679618726,
+            1.3046072958578638,
+            1.7562901984951378,
+            1.3066412044704898,
+            1.9265235862829926
+          ],
+          "max_nullspace_residual": 2.329122603205051e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.288121146719107,
+            1.0531314786904868,
+            1.1075895679618726,
+            1.3046072958578638,
+            1.7562901984951378,
+            1.3066412044704898,
+            1.9265235862829926
+          ],
+          "max_nullspace_residual": 2.329122603205051e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.288121146719107,
+            1.0531314786904868,
+            1.1075895679618726,
+            1.3046072958578638,
+            1.7562901984951378,
+            1.3066412044704898,
+            1.9265235862829926
+          ],
+          "max_nullspace_residual": 2.329122603205051e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.3295209690860619,
+            1.2886832454271602,
+            1.2875836232417843,
+            1.74698327151687,
+            1.6956200114326025,
+            1.3352932317370192,
+            2.3673095397459742
+          ],
+          "max_nullspace_residual": 2.5354188802657775e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.3295209690860619,
+            1.2886832454271602,
+            1.2875836232417843,
+            1.74698327151687,
+            1.6956200114326025,
+            1.3352932317370192,
+            2.3673095397459742
+          ],
+          "max_nullspace_residual": 2.5354188802657775e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.3295209690860619,
+            1.2886832454271602,
+            1.2875836232417843,
+            1.74698327151687,
+            1.6956200114326025,
+            1.3352932317370192,
+            2.3673095397459742
+          ],
+          "max_nullspace_residual": 2.5354188802657775e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_swap_n07",
+        "controller": "centralized_sampling",
+        "state_index": 10,
+        "hard": true,
+        "baseline_eta": [
+          0.5869771582074463,
+          -0.4283745754510164,
+          0.6948941890150309
+        ],
+        "baseline_rollout_uid": "roll_29f6eb81cb3623fb27ef62dc9984d9ca4f37c36e18c9012dec3aac0183f9a87e",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_29f6eb81cb3623fb27ef62dc9984d9ca4f37c36e18c9012dec3aac0183f9a87e.npz"
+      },
+      "C2_fd_max_error": 3.8914663158529095e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0381009136232713,
+            2.630369357429988,
+            1.1479850743043267,
+            1.57043626648782,
+            1.3867621101887657,
+            1.071761314285838,
+            2.7649102727784753
+          ],
+          "max_nullspace_residual": 1.4926057708656251e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0381009136232713,
+            2.630369357429988,
+            1.1479850743043267,
+            1.57043626648782,
+            1.3867621101887657,
+            1.071761314285838,
+            2.7649102727784753
+          ],
+          "max_nullspace_residual": 1.4926057708656251e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0381009136232713,
+            2.630369357429988,
+            1.1479850743043267,
+            1.57043626648782,
+            1.3867621101887657,
+            1.071761314285838,
+            2.7649102727784753
+          ],
+          "max_nullspace_residual": 1.4926057708656251e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0381009136232713,
+            2.630369357429988,
+            1.3540717177654122,
+            1.57043626648782,
+            1.3867621101887657,
+            1.2448662777282011,
+            1.2483639402068427
+          ],
+          "max_nullspace_residual": 2.8298206162967357e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0381009136232713,
+            2.630369357429988,
+            1.3540717177654122,
+            1.57043626648782,
+            1.3867621101887657,
+            1.2448662777282011,
+            1.2483639402068427
+          ],
+          "max_nullspace_residual": 2.8298206162967357e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0381009136232713,
+            2.630369357429988,
+            1.3540717177654122,
+            1.57043626648782,
+            1.3867621101887657,
+            1.2448662777282011,
+            1.2483639402068427
+          ],
+          "max_nullspace_residual": 2.8298206162967357e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.1257829252898397,
+            2.5340682503213983,
+            1.326036958506912,
+            1.4383154660611353,
+            1.7201240778315565,
+            1.4349066067181089,
+            1.2622426396564879
+          ],
+          "max_nullspace_residual": 1.0769398091693868e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.1257829252898397,
+            2.5340682503213983,
+            1.326036958506912,
+            1.4383154660611353,
+            1.7201240778315565,
+            1.4349066067181089,
+            1.2622426396564879
+          ],
+          "max_nullspace_residual": 1.0769398091693868e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.1257829252898397,
+            2.5340682503213983,
+            1.326036958506912,
+            1.4383154660611353,
+            1.7201240778315565,
+            1.4349066067181089,
+            1.2622426396564879
+          ],
+          "max_nullspace_residual": 1.0769398091693868e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_swap_n07",
+        "controller": "centralized_sampling",
+        "state_index": 12,
+        "hard": true,
+        "baseline_eta": [
+          0.5,
+          -0.5,
+          0.75
+        ],
+        "baseline_rollout_uid": "roll_77291b89fdfb25b72192737d35e17715590eb387516dbc7b51ada60f5c846630",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_77291b89fdfb25b72192737d35e17715590eb387516dbc7b51ada60f5c846630.npz"
+      },
+      "C2_fd_max_error": 2.6340055137019647e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            1,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0,
+            1.856131741839682,
+            1.0,
+            1.3597797618701701,
+            1.7940483904205724,
+            2.0709495801513826,
+            1.153738073224856
+          ],
+          "max_nullspace_residual": 1.0806013915699434e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            1,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0,
+            1.856131741839682,
+            1.0,
+            1.3597797618701701,
+            1.7940483904205724,
+            2.0709495801513826,
+            1.153738073224856
+          ],
+          "max_nullspace_residual": 1.0806013915699434e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            1,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0,
+            1.856131741839682,
+            1.0,
+            1.3597797618701701,
+            1.7940483904205724,
+            2.0709495801513826,
+            1.153738073224856
+          ],
+          "max_nullspace_residual": 1.0806013915699434e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            1,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0,
+            1.0719210231159455,
+            1.0,
+            1.2978856452837002,
+            1.04399494232717,
+            1.1255632496643109,
+            1.0237187781823207
+          ],
+          "max_nullspace_residual": 1.971088327874468e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            1,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0,
+            1.0719210231159455,
+            1.0,
+            1.2978856452837002,
+            1.04399494232717,
+            1.1255632496643109,
+            1.0237187781823207
+          ],
+          "max_nullspace_residual": 1.971088327874468e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            1,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0,
+            1.0719210231159455,
+            1.0,
+            1.2978856452837002,
+            1.04399494232717,
+            1.1255632496643109,
+            1.0237187781823207
+          ],
+          "max_nullspace_residual": 1.971088327874468e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.300958659542415,
+            1.2324420025864358,
+            1.0,
+            1.4079018174017022,
+            1.2899511087407767,
+            1.5369982758335172,
+            1.2071488354341833
+          ],
+          "max_nullspace_residual": 2.241633044402726e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.300958659542415,
+            1.2324420025864358,
+            1.0,
+            1.4079018174017022,
+            1.2899511087407767,
+            1.5369982758335172,
+            1.2071488354341833
+          ],
+          "max_nullspace_residual": 2.241633044402726e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.300958659542415,
+            1.2324420025864358,
+            1.0,
+            1.4079018174017022,
+            1.2899511087407767,
+            1.5369982758335172,
+            1.2071488354341833
+          ],
+          "max_nullspace_residual": 2.241633044402726e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_swap_n07",
+        "controller": "centralized_sampling",
+        "state_index": 13,
+        "hard": true,
+        "baseline_eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "baseline_rollout_uid": "roll_df8297b0e9e3546aece1f08f3a76aa2005f843e02546c1d230463573cea12210",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_df8297b0e9e3546aece1f08f3a76aa2005f843e02546c1d230463573cea12210.npz"
+      },
+      "C2_fd_max_error": 2.0840829062507282e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0356769019341763,
+            1.8016683450771862,
+            1.2843494504681952,
+            1.7586616445614178,
+            2.350276915904992,
+            1.0169391602420381,
+            2.1647764015950495
+          ],
+          "max_nullspace_residual": 1.2418145429945287e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0356769019341763,
+            1.8016683450771862,
+            1.2843494504681952,
+            1.7586616445614178,
+            2.350276915904992,
+            1.0169391602420381,
+            2.1647764015950495
+          ],
+          "max_nullspace_residual": 1.2418145429945287e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0356769019341763,
+            1.8016683450771862,
+            1.2843494504681952,
+            1.7586616445614178,
+            2.350276915904992,
+            1.0169391602420381,
+            2.1647764015950495
+          ],
+          "max_nullspace_residual": 1.2418145429945287e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.2906138323129326,
+            1.8016683450771862,
+            1.2843494504681952,
+            1.2192876884178534,
+            2.350276915904992,
+            1.2240402393231384,
+            2.1647764015950495
+          ],
+          "max_nullspace_residual": 1.9374334924560466e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.2906138323129326,
+            1.8016683450771862,
+            1.2843494504681952,
+            1.2192876884178534,
+            2.350276915904992,
+            1.2240402393231384,
+            2.1647764015950495
+          ],
+          "max_nullspace_residual": 1.9374334924560466e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.2906138323129326,
+            1.8016683450771862,
+            1.2843494504681952,
+            1.2192876884178534,
+            2.350276915904992,
+            1.2240402393231384,
+            2.1647764015950495
+          ],
+          "max_nullspace_residual": 1.9374334924560466e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0381237449223004,
+            1.9597553656154345,
+            1.1609897371402358,
+            1.479953431967356,
+            2.2332363359341043,
+            1.1608967271860011,
+            1.7888398728286643
+          ],
+          "max_nullspace_residual": 3.0592715765023993e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0381237449223004,
+            1.9597553656154345,
+            1.1609897371402358,
+            1.479953431967356,
+            2.2332363359341043,
+            1.1608967271860011,
+            1.7888398728286643
+          ],
+          "max_nullspace_residual": 3.0592715765023993e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0381237449223004,
+            1.9597553656154345,
+            1.1609897371402358,
+            1.479953431967356,
+            2.2332363359341043,
+            1.1608967271860011,
+            1.7888398728286643
+          ],
+          "max_nullspace_residual": 3.0592715765023993e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_swap_n07",
+        "controller": "centralized_sampling",
+        "state_index": 14,
+        "hard": true,
+        "baseline_eta": [
+          0.5,
+          -0.5,
+          0.75
+        ],
+        "baseline_rollout_uid": "roll_ba12f855aecd6d21e748b4ab32bd941601ce698ad331cabcf11e4813b5a96b8f",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_ba12f855aecd6d21e748b4ab32bd941601ce698ad331cabcf11e4813b5a96b8f.npz"
+      },
+      "C2_fd_max_error": 1.296460161448465e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2
+          ],
+          "condition": [
+            1.3149697303242929,
+            1.9685239679241464,
+            1.8096551819508628,
+            1.8473515012672768,
+            1.0,
+            1.8193878631052454,
+            2.4698406914531987
+          ],
+          "max_nullspace_residual": 1.6054692784735986e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2
+          ],
+          "condition": [
+            1.3149697303242929,
+            1.9685239679241464,
+            1.8096551819508628,
+            1.8473515012672768,
+            1.0,
+            1.8193878631052454,
+            2.4698406914531987
+          ],
+          "max_nullspace_residual": 1.6054692784735986e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2
+          ],
+          "condition": [
+            1.3149697303242929,
+            1.9685239679241464,
+            1.8096551819508628,
+            1.8473515012672768,
+            1.0,
+            1.8193878631052454,
+            2.4698406914531987
+          ],
+          "max_nullspace_residual": 1.6054692784735986e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0138963513149308,
+            1.1087702368151853,
+            1.0509598041415351,
+            1.2812233148231236,
+            2.05517818123003,
+            1.065795809631894,
+            1.436702902723312
+          ],
+          "max_nullspace_residual": 6.186053625016888e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0138963513149308,
+            1.1087702368151853,
+            1.0509598041415351,
+            1.2812233148231236,
+            2.05517818123003,
+            1.065795809631894,
+            1.436702902723312
+          ],
+          "max_nullspace_residual": 6.186053625016888e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0138963513149308,
+            1.1087702368151853,
+            1.0509598041415351,
+            1.2812233148231236,
+            2.05517818123003,
+            1.065795809631894,
+            1.436702902723312
+          ],
+          "max_nullspace_residual": 6.186053625016888e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.191686976931475,
+            1.5199646009379528,
+            1.3133459583832914,
+            1.353123205226571,
+            2.662625593020473,
+            1.2420439325881336,
+            1.8678527631186495
+          ],
+          "max_nullspace_residual": 3.378681420147755e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.191686976931475,
+            1.5199646009379528,
+            1.3133459583832914,
+            1.353123205226571,
+            2.662625593020473,
+            1.2420439325881336,
+            1.8678527631186495
+          ],
+          "max_nullspace_residual": 3.378681420147755e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.191686976931475,
+            1.5199646009379528,
+            1.3133459583832914,
+            1.353123205226571,
+            2.662625593020473,
+            1.2420439325881336,
+            1.8678527631186495
+          ],
+          "max_nullspace_residual": 3.378681420147755e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "hs_obst_n08_R140_r045",
+        "controller": "centralized_sampling",
+        "state_index": 9,
+        "hard": true,
+        "baseline_eta": [
+          0.6264321873895824,
+          -0.36308222729712725,
+          0.655959902331233
+        ],
+        "baseline_rollout_uid": "roll_882727acb80e1ce85a49d7b27c227208f4de0942a452f325190125589306ff15",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_882727acb80e1ce85a49d7b27c227208f4de0942a452f325190125589306ff15.npz"
+      },
+      "C2_fd_max_error": 3.4382219293860317e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            0,
+            2,
+            0,
+            2
+          ],
+          "condition": [
+            1.0373171223704052,
+            1.0373120141452392,
+            1.3282532267493112,
+            1.530134917782613,
+            null,
+            1.0680197662986552,
+            null,
+            1.3859266374042842
+          ],
+          "max_nullspace_residual": 2.5528231467501485e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            0,
+            2,
+            0,
+            2
+          ],
+          "condition": [
+            1.0373171223704052,
+            1.0373120141452392,
+            1.3282532267493112,
+            1.530134917782613,
+            null,
+            1.0680197662986552,
+            null,
+            1.3859266374042842
+          ],
+          "max_nullspace_residual": 2.5528231467501485e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            0,
+            2,
+            0,
+            2
+          ],
+          "condition": [
+            1.0373171223704052,
+            1.0373120141452392,
+            1.3282532267493112,
+            1.530134917782613,
+            null,
+            1.0680197662986552,
+            null,
+            1.3859266374042842
+          ],
+          "max_nullspace_residual": 2.5528231467501485e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            0,
+            2,
+            0,
+            2
+          ],
+          "condition": [
+            1.376233039331684,
+            1.4539684573752316,
+            1.3163117018570574,
+            2.002990089822315,
+            null,
+            1.0680197662986552,
+            null,
+            1.1341259272432602
+          ],
+          "max_nullspace_residual": 2.9528762761241475e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            0,
+            2,
+            0,
+            2
+          ],
+          "condition": [
+            1.376233039331684,
+            1.4539684573752316,
+            1.3163117018570574,
+            2.002990089822315,
+            null,
+            1.0680197662986552,
+            null,
+            1.1341259272432602
+          ],
+          "max_nullspace_residual": 2.9528762761241475e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            0,
+            2,
+            0,
+            2
+          ],
+          "condition": [
+            1.376233039331684,
+            1.4539684573752316,
+            1.3163117018570574,
+            2.002990089822315,
+            null,
+            1.0680197662986552,
+            null,
+            1.1341259272432602
+          ],
+          "max_nullspace_residual": 2.9528762761241475e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            0,
+            2,
+            0,
+            2
+          ],
+          "condition": [
+            1.772043064105904,
+            1.578761382743081,
+            1.3163117018570574,
+            2.0071502559801244,
+            null,
+            1.4770808718162498,
+            null,
+            1.1341259272432602
+          ],
+          "max_nullspace_residual": 2.9528762761241475e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            0,
+            2,
+            0,
+            2
+          ],
+          "condition": [
+            1.772043064105904,
+            1.578761382743081,
+            1.3163117018570574,
+            2.0071502559801244,
+            null,
+            1.4770808718162498,
+            null,
+            1.1341259272432602
+          ],
+          "max_nullspace_residual": 2.9528762761241475e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            0,
+            2,
+            0,
+            2
+          ],
+          "condition": [
+            1.772043064105904,
+            1.578761382743081,
+            1.3163117018570574,
+            2.0071502559801244,
+            null,
+            1.4770808718162498,
+            null,
+            1.1341259272432602
+          ],
+          "max_nullspace_residual": 2.9528762761241475e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "hs_obst_n08_R140_r045",
+        "controller": "centralized_sampling",
+        "state_index": 12,
+        "hard": true,
+        "baseline_eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "baseline_rollout_uid": "roll_c27d42d3a83690639901e6a2bd5a06d7fc956168083382db40fbbf293774f219",
+        "baseline_success": 0,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_c27d42d3a83690639901e6a2bd5a06d7fc956168083382db40fbbf293774f219.npz"
+      },
+      "C2_fd_max_error": 2.8104824023600372e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.0583095351207814,
+            1.4427425922337977,
+            1.9917243532641193,
+            1.2868338535252208,
+            1.7771481196940933,
+            1.056473954815057,
+            1.029775534199803,
+            1.8768587576540414
+          ],
+          "max_nullspace_residual": 2.413998954078644e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.0583095351207814,
+            1.4427425922337977,
+            1.9917243532641193,
+            1.2868338535252208,
+            1.7771481196940933,
+            1.056473954815057,
+            1.029775534199803,
+            1.8768587576540414
+          ],
+          "max_nullspace_residual": 2.413998954078644e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.0583095351207814,
+            1.4427425922337977,
+            1.9917243532641193,
+            1.2868338535252208,
+            1.7771481196940933,
+            1.056473954815057,
+            1.029775534199803,
+            1.8768587576540414
+          ],
+          "max_nullspace_residual": 2.413998954078644e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.5341414505921578,
+            1.0718315149599758,
+            1.3620532524515838,
+            1.2166238789468982,
+            2.28747407547631,
+            1.3470603161043448,
+            1.3051379274432766,
+            1.8768587576540414
+          ],
+          "max_nullspace_residual": 1.9504130248481982e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.5341414505921578,
+            1.0718315149599758,
+            1.3620532524515838,
+            1.2166238789468982,
+            2.28747407547631,
+            1.3470603161043448,
+            1.3051379274432766,
+            1.8768587576540414
+          ],
+          "max_nullspace_residual": 1.9504130248481982e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.5341414505921578,
+            1.0718315149599758,
+            1.3620532524515838,
+            1.2166238789468982,
+            2.28747407547631,
+            1.3470603161043448,
+            1.3051379274432766,
+            1.8768587576540414
+          ],
+          "max_nullspace_residual": 1.9504130248481982e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.0091405311108224,
+            1.3581846994993478,
+            1.2344152301786104,
+            1.3942396116647047,
+            1.8263874168489347,
+            1.525393889337163,
+            1.1021741307736719,
+            1.6967333924027628
+          ],
+          "max_nullspace_residual": 4.639810979544682e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.0091405311108224,
+            1.3581846994993478,
+            1.2344152301786104,
+            1.3942396116647047,
+            1.8263874168489347,
+            1.525393889337163,
+            1.1021741307736719,
+            1.6967333924027628
+          ],
+          "max_nullspace_residual": 4.639810979544682e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            2.0091405311108224,
+            1.3581846994993478,
+            1.2344152301786104,
+            1.3942396116647047,
+            1.8263874168489347,
+            1.525393889337163,
+            1.1021741307736719,
+            1.6967333924027628
+          ],
+          "max_nullspace_residual": 4.639810979544682e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_plus_w025",
+        "controller": "centralized_sampling",
+        "state_index": 8,
+        "hard": false,
+        "baseline_eta": [
+          1.2259909729473293,
+          0.40439489763230085,
+          0.05669324495829642
+        ],
+        "baseline_rollout_uid": "roll_068ebe624896c88072eaed1450a20b0f6574d7cc2cc25d44fbc98e97a37e0b46",
+        "baseline_success": 1,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_71f2379bff28cdbf3ed118e365d9b1a930fca91de2d20bbb9be8ed49896e916a.npz"
+      },
+      "C2_fd_max_error": 7.273320834499941e-12,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.002487434296389,
+            1.736363181647468,
+            1.0024517824320156,
+            1.7363037326689892
+          ],
+          "max_nullspace_residual": 1.860744772888314e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.002487434296389,
+            1.736363181647468,
+            1.0024517824320156,
+            1.7363037326689892
+          ],
+          "max_nullspace_residual": 1.860744772888314e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.002487434296389,
+            1.736363181647468,
+            1.0024517824320156,
+            1.7363037326689892
+          ],
+          "max_nullspace_residual": 1.860744772888314e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.002487434296389,
+            1.736363181647468,
+            1.0024517824320156,
+            1.7363037326689892
+          ],
+          "max_nullspace_residual": 1.860744772888314e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.002487434296389,
+            1.736363181647468,
+            1.0024517824320156,
+            1.7363037326689892
+          ],
+          "max_nullspace_residual": 1.860744772888314e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.002487434296389,
+            1.736363181647468,
+            1.0024517824320156,
+            1.7363037326689892
+          ],
+          "max_nullspace_residual": 1.860744772888314e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.002487434296389,
+            2.2410776713033167,
+            1.0024517824320156,
+            2.241008447476513
+          ],
+          "max_nullspace_residual": 1.3629004566641102e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.002487434296389,
+            2.2410776713033167,
+            1.0024517824320156,
+            2.241008447476513
+          ],
+          "max_nullspace_residual": 1.3629004566641102e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.002487434296389,
+            2.2410776713033167,
+            1.0024517824320156,
+            2.241008447476513
+          ],
+          "max_nullspace_residual": 1.3629004566641102e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_plus_w025",
+        "controller": "gradient_mpc",
+        "state_index": 8,
+        "hard": false,
+        "baseline_eta": [
+          1.2259909729473293,
+          0.40439489763230085,
+          0.05669324495829642
+        ],
+        "baseline_rollout_uid": "roll_283da60cc1f3ba302a0e53328d4069a06c24b381d0d0fd038a12250dc2dd3419",
+        "baseline_success": 1,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_283da60cc1f3ba302a0e53328d4069a06c24b381d0d0fd038a12250dc2dd3419.npz"
+      },
+      "C2_fd_max_error": 4.0015657454262055e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            1,
+            2,
+            2
+          ],
+          "condition": [
+            1.232511997646829,
+            1.0,
+            1.3387674660488322,
+            1.9751359797705408
+          ],
+          "max_nullspace_residual": 7.171889500177496e-17
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            1,
+            2,
+            2
+          ],
+          "condition": [
+            1.232511997646829,
+            1.0,
+            1.3387674660488322,
+            1.9751359797705408
+          ],
+          "max_nullspace_residual": 7.171889500177496e-17
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            1,
+            2,
+            2
+          ],
+          "condition": [
+            1.232511997646829,
+            1.0,
+            1.3387674660488322,
+            1.9751359797705408
+          ],
+          "max_nullspace_residual": 7.171889500177496e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            1,
+            2,
+            2
+          ],
+          "condition": [
+            1.232511997646829,
+            1.0,
+            1.3387674660488322,
+            1.9751359797705408
+          ],
+          "max_nullspace_residual": 7.171889500177496e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            1,
+            2,
+            2
+          ],
+          "condition": [
+            1.232511997646829,
+            1.0,
+            1.3387674660488322,
+            1.9751359797705408
+          ],
+          "max_nullspace_residual": 7.171889500177496e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            1,
+            2,
+            2
+          ],
+          "condition": [
+            1.232511997646829,
+            1.0,
+            1.3387674660488322,
+            1.9751359797705408
+          ],
+          "max_nullspace_residual": 7.171889500177496e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            1,
+            2,
+            2
+          ],
+          "condition": [
+            1.232511997646829,
+            1.0,
+            1.3387674660488322,
+            2.5180963678864146
+          ],
+          "max_nullspace_residual": 4.816243185362349e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            1,
+            2,
+            2
+          ],
+          "condition": [
+            1.232511997646829,
+            1.0,
+            1.3387674660488322,
+            2.5180963678864146
+          ],
+          "max_nullspace_residual": 4.816243185362349e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            1,
+            2,
+            2
+          ],
+          "condition": [
+            1.232511997646829,
+            1.0,
+            1.3387674660488322,
+            2.5180963678864146
+          ],
+          "max_nullspace_residual": 4.816243185362349e-17
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_box_n09_r014_f25",
+        "controller": "centralized_sampling",
+        "state_index": 8,
+        "hard": false,
+        "baseline_eta": [
+          1.25,
+          0.5,
+          0.75
+        ],
+        "baseline_rollout_uid": "roll_35133d4dbac0041355d846a87d0a71211d19c10570a970589eedc02123da6160",
+        "baseline_success": 1,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_d740410500ced70e38248623a5f03e7f92b38d7eca2d26a150c4654b4ae85d4b.npz"
+      },
+      "C2_fd_max_error": 3.22976229094607e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            1.6864806944368564,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 7.532568713494863e-17
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            1.6864806944368564,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 7.532568713494863e-17
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            1.6864806944368564,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 7.532568713494863e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            1.6864806944368564,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 7.532568713494863e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            1.6864806944368564,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 7.532568713494863e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            1.6864806944368564,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 7.532568713494863e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            1,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            1.6864806944368564,
+            null,
+            1.0,
+            null
+          ],
+          "max_nullspace_residual": 7.532568713494863e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            1,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            1.6864806944368564,
+            null,
+            1.0,
+            null
+          ],
+          "max_nullspace_residual": 7.532568713494863e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            1,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            1.6864806944368564,
+            null,
+            1.0,
+            null
+          ],
+          "max_nullspace_residual": 7.532568713494863e-17
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_box_n09_r014_f25",
+        "controller": "gradient_mpc",
+        "state_index": 8,
+        "hard": false,
+        "baseline_eta": [
+          1.0026288856752217,
+          0.056379557587206364,
+          0.7455985327251256
+        ],
+        "baseline_rollout_uid": "roll_d6b50b40835484d3d8becedce46e1228c8b88ed0aa0ecc0dd49a088563279bd4",
+        "baseline_success": 1,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_66e94d302af2824886d0acc8e18bfe06211c0a9d487afd2bb4ed9d8313c63365.npz"
+      },
+      "C2_fd_max_error": 1.5439927114613283e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.2677984849460333,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 6.891179162474397e-17
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.2677984849460333,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 6.891179162474397e-17
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.2677984849460333,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 6.891179162474397e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.2677984849460333,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 6.891179162474397e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.2677984849460333,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 6.891179162474397e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.2677984849460333,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 6.891179162474397e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            1.2677984849460333,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 6.891179162474397e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            1.2677984849460333,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 6.891179162474397e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            1.2677984849460333,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 6.891179162474397e-17
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_swap_n07",
+        "controller": "centralized_sampling",
+        "state_index": 11,
+        "hard": false,
+        "baseline_eta": [
+          0.562171065248549,
+          -0.3615773478522897,
+          0.6961268512532115
+        ],
+        "baseline_rollout_uid": "roll_5028b9c3d9b9c4f3761f083ed8636cec5a53e737c1bbcd231d800055db401398",
+        "baseline_success": 1,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_66837ad430a1659761ae102e518379e73bdf2f1d838fe5458350487e3fe7724f.npz"
+      },
+      "C2_fd_max_error": 4.9573400939806334e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0255340444713987,
+            4.04889559249395,
+            1.2210300389296724,
+            2.4580863329969818,
+            3.1134009838802417,
+            2.82972447793987,
+            3.1568565529110733
+          ],
+          "max_nullspace_residual": 1.357568545273877e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0255340444713987,
+            4.04889559249395,
+            1.2210300389296724,
+            2.4580863329969818,
+            3.1134009838802417,
+            2.82972447793987,
+            3.1568565529110733
+          ],
+          "max_nullspace_residual": 1.357568545273877e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0255340444713987,
+            4.04889559249395,
+            1.2210300389296724,
+            2.4580863329969818,
+            3.1134009838802417,
+            2.82972447793987,
+            3.1568565529110733
+          ],
+          "max_nullspace_residual": 1.357568545273877e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.4253033105752275,
+            4.04889559249395,
+            1.255965520634629,
+            2.4580863329969818,
+            1.2538712221947808,
+            1.599643811470705,
+            3.1568565529110733
+          ],
+          "max_nullspace_residual": 1.871705540273516e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.4253033105752275,
+            4.04889559249395,
+            1.255965520634629,
+            2.4580863329969818,
+            1.2538712221947808,
+            1.599643811470705,
+            3.1568565529110733
+          ],
+          "max_nullspace_residual": 1.871705540273516e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.4253033105752275,
+            4.04889559249395,
+            1.255965520634629,
+            2.4580863329969818,
+            1.2538712221947808,
+            1.599643811470705,
+            3.1568565529110733
+          ],
+          "max_nullspace_residual": 1.871705540273516e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.4931808154629191,
+            2.365637815252038,
+            1.0857005989890154,
+            1.692950213484824,
+            1.3273241457799818,
+            2.0769211036649904,
+            3.153206518798794
+          ],
+          "max_nullspace_residual": 4.527826984415195e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.4931808154629191,
+            2.365637815252038,
+            1.0857005989890154,
+            1.692950213484824,
+            1.3273241457799818,
+            2.0769211036649904,
+            3.153206518798794
+          ],
+          "max_nullspace_residual": 4.527826984415195e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.4931808154629191,
+            2.365637815252038,
+            1.0857005989890154,
+            1.692950213484824,
+            1.3273241457799818,
+            2.0769211036649904,
+            3.153206518798794
+          ],
+          "max_nullspace_residual": 4.527826984415195e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "xsc_hs_swap_n07",
+        "controller": "gradient_mpc",
+        "state_index": 8,
+        "hard": false,
+        "baseline_eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "baseline_rollout_uid": "roll_43099a3af581d18ef32cb691a1912b4deb96e127998549d451b8f63c4105cd65",
+        "baseline_success": 1,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_b6dcb63e11b7879efbe26bae0bc854adf93bccbe3e9a7d6cd0adfb08845dfc9a.npz"
+      },
+      "C2_fd_max_error": 2.7482103398535074e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0247368994686363,
+            1.8196510185501074,
+            2.491946663713303,
+            1.4633748873548589,
+            1.1894300454402704,
+            1.5200568403829238,
+            1.4609138646073205
+          ],
+          "max_nullspace_residual": 1.148119787659881e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0247368994686363,
+            1.8196510185501074,
+            2.491946663713303,
+            1.4633748873548589,
+            1.1894300454402704,
+            1.5200568403829238,
+            1.4609138646073205
+          ],
+          "max_nullspace_residual": 1.148119787659881e-16
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.0247368994686363,
+            1.8196510185501074,
+            2.491946663713303,
+            1.4633748873548589,
+            1.1894300454402704,
+            1.5200568403829238,
+            1.4609138646073205
+          ],
+          "max_nullspace_residual": 1.148119787659881e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.3210106210697214,
+            1.08373972479189,
+            2.491946663713303,
+            1.3317946938039142,
+            1.1894300454402704,
+            1.090062240853417,
+            1.9237471011188174
+          ],
+          "max_nullspace_residual": 4.333169664765556e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.3210106210697214,
+            1.08373972479189,
+            2.491946663713303,
+            1.3317946938039142,
+            1.1894300454402704,
+            1.090062240853417,
+            1.9237471011188174
+          ],
+          "max_nullspace_residual": 4.333169664765556e-16
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.3210106210697214,
+            1.08373972479189,
+            2.491946663713303,
+            1.3317946938039142,
+            1.1894300454402704,
+            1.090062240853417,
+            1.9237471011188174
+          ],
+          "max_nullspace_residual": 4.333169664765556e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.4959135805139474,
+            1.5539781905593555,
+            2.8904912474363584,
+            1.3317946938039142,
+            1.207522149850181,
+            1.5524445192278395,
+            1.8008225155426876
+          ],
+          "max_nullspace_residual": 1.3392370841435794e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.4959135805139474,
+            1.5539781905593555,
+            2.8904912474363584,
+            1.3317946938039142,
+            1.207522149850181,
+            1.5524445192278395,
+            1.8008225155426876
+          ],
+          "max_nullspace_residual": 1.3392370841435794e-16
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "condition": [
+            1.4959135805139474,
+            1.5539781905593555,
+            2.8904912474363584,
+            1.3317946938039142,
+            1.207522149850181,
+            1.5524445192278395,
+            1.8008225155426876
+          ],
+          "max_nullspace_residual": 1.3392370841435794e-16
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "hs_obst_n08_R140_r045",
+        "controller": "centralized_sampling",
+        "state_index": 8,
+        "hard": false,
+        "baseline_eta": [
+          1.25,
+          0.5,
+          0.75
+        ],
+        "baseline_rollout_uid": "roll_aed7f1eaddca1838fd3d05fc7b02e3b641d528a9d84fe553dfbaeccaf77ee7ee",
+        "baseline_success": 1,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_ab6ac52b3dec88ff3fe4250b5c30b7aa78aed17ca9f51c3f0b806e72a40adcc5.npz"
+      },
+      "C2_fd_max_error": 1.6305790051518443e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 2.7755575615628914e-17
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 2.7755575615628914e-17
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 2.7755575615628914e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 2.7755575615628914e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 2.7755575615628914e-17
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 2.7755575615628914e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 2.7755575615628914e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 2.7755575615628914e-17
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 2.7755575615628914e-17
+        }
+      ]
+    },
+    {
+      "case": {
+        "scene": "hs_obst_n08_R140_r045",
+        "controller": "gradient_mpc",
+        "state_index": 8,
+        "hard": false,
+        "baseline_eta": [
+          1.2463931469246745,
+          -0.2889987491071224,
+          0.18647276004776359
+        ],
+        "baseline_rollout_uid": "roll_ed8ce13c8a39356a79a194dae23726c3aba398ebeacf46ad5c2a093711bf67f6",
+        "baseline_success": 1,
+        "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_72a2df966b53afdcd8910edbc20304bcc41b4b15f294617b7ad5597cbe914e61.npz"
+      },
+      "C2_fd_max_error": 1.2302214802417666e-11,
+      "C2_fd_epsilon": 1e-06,
+      "T5_sensitivity": [
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-08,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 0.0
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-10,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 0.0
+        },
+        {
+          "near_relative": 0.01,
+          "svd_relative": 1e-12,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 0.0
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-08,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 0.0
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-10,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 0.0
+        },
+        {
+          "near_relative": 0.05,
+          "svd_relative": 1e-12,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 0.0
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-08,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 0.0
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-10,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 0.0
+        },
+        {
+          "near_relative": 0.1,
+          "svd_relative": 1e-12,
+          "ranks": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "condition": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            1.0,
+            null,
+            null
+          ],
+          "max_nullspace_residual": 0.0
+        }
+      ]
+    }
+  ],
+  "interpretation": "Local fixed-neighbor-set finite differences; numerical verification, not global smoothness at nearest-feature or neighbor-set changes."
+}

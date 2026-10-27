@@ -1,0 +1,25 @@
+{
+  "children": [
+    {
+      "names": [
+        "G"
+      ],
+      "covered": 7
+    },
+    {
+      "names": [
+        "C2"
+      ],
+      "covered": 6
+    }
+  ],
+  "selected": [
+    [
+      "G"
+    ],
+    [
+      "C2"
+    ]
+  ],
+  "selection": "Top at most6 children, within1 case of best existing coverage;16 Sobol coefficients only on still-uncovered cases; no test labels."
+}

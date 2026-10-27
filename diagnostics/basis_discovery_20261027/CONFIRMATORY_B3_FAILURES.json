@@ -1,0 +1,26 @@
+{
+  "at16": [
+    {
+      "scene": "xsc_hs_swap_n06_te",
+      "controller": "centralized_sampling",
+      "state_index": 20
+    },
+    {
+      "scene": "xsc_hs_swap_n06_te",
+      "controller": "gradient_mpc",
+      "state_index": 20
+    }
+  ],
+  "at48": [
+    {
+      "scene": "xsc_hs_swap_n06_te",
+      "controller": "centralized_sampling",
+      "state_index": 20
+    },
+    {
+      "scene": "xsc_hs_swap_n06_te",
+      "controller": "gradient_mpc",
+      "state_index": 20
+    }
+  ]
+}

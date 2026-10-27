@@ -1,0 +1,37 @@
+{
+  "parent_families": [
+    {
+      "mask": 131073,
+      "names": [
+        "G",
+        "C2"
+      ],
+      "covered_cases": 22
+    }
+  ],
+  "witnesses": [
+    "roll_e372fa22c449ac4220787771d8214087ee14049531ef83b89d3b0bcb4dfba4de",
+    "roll_eb8957047d8d3411b20c7e550fbd9908c1ea4e7fe0f2bbb29fddc152ba5c0939",
+    "roll_e5a4d37ced88e67e95e7e222b67434fbf714589f6cbfdeb331dd71cadb6c9c4e",
+    "roll_1f9ae6c121d04a106add7836d1a2d50c8b3f5d4c954dc042a80304ba649f0ac8",
+    "roll_5cdb05e5a716718d0eda17bd36a61af4a7e4dea77fdf1912a59378ce5cde55c8",
+    "roll_5dc5d53f361c2dc33fc46289f1ed88ab689e7effda8587280e29c7e440c2f2dc",
+    "roll_ed96abb6581b3590b0d70577b7c17ce0b710648deee5b9a228c8e6eda1fc537c",
+    "roll_448609f861922e6c9d7f1fa6bbc6dfff615b0de76fdc9073757c7cca95c2f66b",
+    "roll_d0940e410e136d904555aab464a7a3a88be51e2c2e362e83c94aad08c5a01729",
+    "roll_329a9c8be2d0977369d06d2ae089a2bcf986d1d53e2ddfa102e93bcf58eea1c1",
+    "roll_7bd06a1526da95f49f5315ff4af8fe8fb914c5257b24127eff0f13b9e017fa80",
+    "roll_43f794361d844291bb32ffe62bd058b95827403ee71068305169ef87863fecbc",
+    "roll_fd50eae0c5b807a7718a280ddce0463ea3fb7f424a619bb8622849f0a2b2a027",
+    "roll_683a5c8c491243975b45ac2fd2535d8ca219406571149366c3873c50bb292530",
+    "roll_a9c5c82bae16085a889288c745e06a1cdb618a5d34702e241c6c4ec1082e9246",
+    "roll_74af2e43093c3cddde312f9aa7586c734f3b37b3302a482009a11385dea237c4",
+    "roll_ada844c0fcd765510b6ae088903e90bb073566567a46c2c67616b495a49da811",
+    "roll_7e880c7a72faa4fb10277614388f996e02f3fed3bac43a3f6f5d7b769fb4f103",
+    "roll_3f3287ea008d035381046928f76ddb9f8297574a74f765bf37ef871471525480",
+    "roll_688baf607debc910d7ed24dc850c482559d0992eb404cf2ce38362e845e05ffd",
+    "roll_7aec18fbd1bde36e9851b87e70437b0ced4a9bd171eb5f2b610d4001d0676037",
+    "roll_32b3558e9eba39db848c6ace57366372f7ca722d5f564b19c76dc651a6bb826a"
+  ],
+  "rule": "delete each active column from fastest witness in each parent family/case"
+}

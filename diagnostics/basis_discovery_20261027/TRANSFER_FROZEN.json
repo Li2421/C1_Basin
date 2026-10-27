@@ -1,0 +1,294 @@
+{
+  "families": [
+    {
+      "mask": 132101,
+      "names": [
+        "G",
+        "R",
+        "R3",
+        "C2"
+      ],
+      "covered_cases": 22,
+      "id": "family0",
+      "pool": [
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "coefficients": {
+            "C2": 1.0
+          }
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "coefficients": {
+            "C2": 0.5
+          }
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "coefficients": {
+            "R3": 1.0
+          }
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.0
+          ],
+          "coefficients": {
+            "C2": 1.0
+          }
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.75
+          ],
+          "coefficients": {}
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "coefficients": {
+            "R3": 0.5
+          }
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.0
+          ],
+          "coefficients": {
+            "R3": 0.375
+          }
+        },
+        {
+          "eta": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "coefficients": {}
+        }
+      ]
+    },
+    {
+      "mask": 163845,
+      "names": [
+        "G",
+        "R",
+        "S1",
+        "C2"
+      ],
+      "covered_cases": 22,
+      "id": "family1",
+      "pool": [
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "coefficients": {
+            "S1": 0.8175489134155214,
+            "C2": 0.4682126580737531
+          }
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "coefficients": {
+            "S1": 0.5157644283026457,
+            "C2": 0.39559295191429555
+          }
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "coefficients": {
+            "C2": 1.0
+          }
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "coefficients": {
+            "C2": 0.5
+          }
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "coefficients": {
+            "S1": 1.0
+          }
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.0
+          ],
+          "coefficients": {
+            "C2": 1.0
+          }
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "coefficients": {
+            "S1": 0.984880797797814,
+            "C2": 0.9904570817016065
+          }
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.75
+          ],
+          "coefficients": {}
+        }
+      ]
+    },
+    {
+      "names": [
+        "G",
+        "P",
+        "R",
+        "T5"
+      ],
+      "reference": "best_single_class",
+      "id": "family2",
+      "pool": [
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "coefficients": {
+            "T5": -0.75
+          },
+          "t5_seed": "tangent"
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "coefficients": {
+            "T5": 0.75
+          },
+          "t5_seed": "tangent"
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.75
+          ],
+          "coefficients": {}
+        },
+        {
+          "eta": [
+            0.875,
+            0.5,
+            0.375
+          ],
+          "coefficients": {}
+        },
+        {
+          "eta": [
+            0.875,
+            0.0,
+            0.0
+          ],
+          "coefficients": {
+            "T5": -0.75
+          },
+          "t5_seed": "tangent"
+        },
+        {
+          "eta": [
+            0.0,
+            0.5,
+            0.0
+          ],
+          "coefficients": {}
+        },
+        {
+          "eta": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "coefficients": {
+            "T5": -0.75
+          },
+          "t5_seed": "tangent"
+        },
+        {
+          "eta": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "coefficients": {}
+        }
+      ]
+    }
+  ],
+  "single_scores": {
+    "T1": 6,
+    "T2": 5,
+    "T3": 10,
+    "T4": 1,
+    "T5": 12,
+    "P2": 0,
+    "R2": 5,
+    "R3": 6,
+    "Y1": 9,
+    "Y2": 10,
+    "Y3": 11,
+    "Y4": 1,
+    "S1": 8,
+    "C1": 0,
+    "C2": 11
+  },
+  "rule": "First two canonical minimum witness-cover families; tie lexical, excluding T5 cost when possible; plus strongest single-class reference.",
+  "split": "22 discovery cases only; holdout states18/19 seed3 not read"
+}

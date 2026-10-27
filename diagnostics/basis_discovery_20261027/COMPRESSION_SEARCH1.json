@@ -1,0 +1,106 @@
+{
+  "children": [
+    {
+      "names": [
+        "G",
+        "C2"
+      ],
+      "covered": 19
+    },
+    {
+      "names": [
+        "G",
+        "T5"
+      ],
+      "covered": 19
+    },
+    {
+      "names": [
+        "T1",
+        "T5"
+      ],
+      "covered": 17
+    },
+    {
+      "names": [
+        "T5",
+        "C2"
+      ],
+      "covered": 15
+    },
+    {
+      "names": [
+        "G",
+        "T1"
+      ],
+      "covered": 14
+    },
+    {
+      "names": [
+        "G",
+        "Y1"
+      ],
+      "covered": 13
+    },
+    {
+      "names": [
+        "G",
+        "S1"
+      ],
+      "covered": 12
+    },
+    {
+      "names": [
+        "G",
+        "T3"
+      ],
+      "covered": 12
+    },
+    {
+      "names": [
+        "Y1",
+        "C2"
+      ],
+      "covered": 12
+    },
+    {
+      "names": [
+        "S1",
+        "C2"
+      ],
+      "covered": 10
+    },
+    {
+      "names": [
+        "G",
+        "Y2"
+      ],
+      "covered": 9
+    },
+    {
+      "names": [
+        "T3",
+        "C2"
+      ],
+      "covered": 9
+    },
+    {
+      "names": [
+        "Y2",
+        "C2"
+      ],
+      "covered": 8
+    }
+  ],
+  "selected": [
+    [
+      "G",
+      "C2"
+    ],
+    [
+      "G",
+      "T5"
+    ]
+  ],
+  "selection": "Top at most6 children, within1 case of best existing coverage;16 Sobol coefficients only on still-uncovered cases; no test labels."
+}

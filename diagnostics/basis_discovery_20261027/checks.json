@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "real_state_zero_extension_checks": 66,
+  "original_projection_equal_checks": 414,
+  "max_projection_error": 0.0,
+  "T1_T2_prior_alias_exact": true,
+  "P_zero_P2_nonzero": true,
+  "T5_nullspace_and_pair_antisymmetry": true,
+  "C1_credible_corridor": true,
+  "Y3_both_sides": true,
+  "Y1_zero_goal_no_fallback": true,
+  "mean_all15_evaluation_seconds": 0.0005338854565652031,
+  "no_rollouts_generated": true
+}

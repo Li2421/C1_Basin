@@ -1,0 +1,174 @@
+{
+  "params": {
+    "rule": "rhr_centre",
+    "W": 20,
+    "thr": 0.05,
+    "s": 0.35,
+    "H": 1
+  },
+  "ranking": [
+    {
+      "params": {
+        "rule": "rhr_centre",
+        "W": 20,
+        "thr": 0.05,
+        "s": 0.35,
+        "H": 1
+      },
+      "success": 20,
+      "collision": 0,
+      "truncated_time": 11.047727272727274
+    },
+    {
+      "params": {
+        "rule": "rhr_centre",
+        "W": 40,
+        "thr": 0.05,
+        "s": 0.35,
+        "H": 1
+      },
+      "success": 18,
+      "collision": 1,
+      "truncated_time": 13.079545454545455
+    },
+    {
+      "params": {
+        "rule": "rhr_centre",
+        "W": 40,
+        "thr": 0.05,
+        "s": 0.5,
+        "H": 1
+      },
+      "success": 18,
+      "collision": 1,
+      "truncated_time": 13.115909090909092
+    },
+    {
+      "params": {
+        "rule": "rhr_centre",
+        "W": 40,
+        "thr": 0.05,
+        "s": 0.15,
+        "H": 40
+      },
+      "success": 18,
+      "collision": 1,
+      "truncated_time": 13.215909090909093
+    },
+    {
+      "params": {
+        "rule": "rhr_centre",
+        "W": 40,
+        "thr": 0.05,
+        "s": 0.35,
+        "H": 40
+      },
+      "success": 15,
+      "collision": 1,
+      "truncated_time": 13.884090909090908
+    },
+    {
+      "params": {
+        "rule": "rhr_centre",
+        "W": 20,
+        "thr": 0.05,
+        "s": 0.5,
+        "H": 40
+      },
+      "success": 13,
+      "collision": 1,
+      "truncated_time": 12.784090909090908
+    },
+    {
+      "params": {
+        "rule": "rhr_always",
+        "s": 0.35
+      },
+      "success": 12,
+      "collision": 8,
+      "truncated_time": 12.172727272727274
+    },
+    {
+      "params": {
+        "rule": "rhr_goal",
+        "W": 20,
+        "thr": 0.05,
+        "s": 0.5,
+        "H": 40
+      },
+      "success": 12,
+      "collision": 8,
+      "truncated_time": 13.55909090909091
+    },
+    {
+      "params": {
+        "rule": "rhr_goal",
+        "W": 20,
+        "thr": 0.05,
+        "s": 0.35,
+        "H": 1
+      },
+      "success": 10,
+      "collision": 7,
+      "truncated_time": 14.777272727272726
+    },
+    {
+      "params": {
+        "rule": "rhr_goal",
+        "W": 40,
+        "thr": 0.05,
+        "s": 0.15,
+        "H": 40
+      },
+      "success": 10,
+      "collision": 7,
+      "truncated_time": 15.65
+    },
+    {
+      "params": {
+        "rule": "rhr_goal",
+        "W": 40,
+        "thr": 0.05,
+        "s": 0.35,
+        "H": 40
+      },
+      "success": 9,
+      "collision": 7,
+      "truncated_time": 15.509090909090908
+    },
+    {
+      "params": {
+        "rule": "rhr_goal",
+        "W": 40,
+        "thr": 0.05,
+        "s": 0.5,
+        "H": 1
+      },
+      "success": 9,
+      "collision": 7,
+      "truncated_time": 15.565909090909088
+    },
+    {
+      "params": {
+        "rule": "rhr_goal",
+        "W": 40,
+        "thr": 0.05,
+        "s": 0.35,
+        "H": 1
+      },
+      "success": 9,
+      "collision": 7,
+      "truncated_time": 15.59772727272727
+    },
+    {
+      "params": {
+        "rule": "rhr_always",
+        "s": 0.1
+      },
+      "success": 8,
+      "collision": 8,
+      "truncated_time": 14.81590909090909
+    }
+  ],
+  "no_heldout_selection": true
+}
