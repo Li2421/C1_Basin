@@ -11,7 +11,7 @@ from matplotlib import font_manager
 
 def main():
     fonts=[p for p in font_manager.findSystemFonts()if any(k in p.lower()for k in('notosanscjk','wqy','droidsansfallback'))]
-    if fonts:plt.rcParams['font.family']=font_manager.FontProperties(fname=fonts[0]).get_name()
+    if fonts:plt.rcParams['font.family']=['DejaVu Sans',font_manager.FontProperties(fname=fonts[0]).get_name()]
     plt.rcParams['svg.fonttype']='none'
     frozen=json.loads((HERE/'SCENES_FROZEN.json').read_text());fig,axes=plt.subplots(5,4,figsize=(15,18),constrained_layout=True)
     for ax,e in zip(axes.flat,frozen['entries']):
