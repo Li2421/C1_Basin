@@ -66,6 +66,9 @@ def summarize_supports(rows,cohort):
     bytype={}
     for t in sorted({c['type_id']for c in cases}):
         bits=sum(1<<j for j,c in enumerate(cases)if c['type_id']==t)&maximum
+        if not bits:
+            bytype[str(t)]=dict(covered_cases=0,dimension=None,minimal_supports=[],required_columns=None,not_possible_proof=False,box_compatible_single_family_cover_found=False,no_success_witness=True)
+            continue
         ms=[m for m,b in enumerate(dp)if b&bits==bits];d=min((m.bit_count()for m in ms),default=None)
         mini=[m for m in ms if m.bit_count()==d];required=(1<<len(ALL))-1
         for m in mini:required&=m

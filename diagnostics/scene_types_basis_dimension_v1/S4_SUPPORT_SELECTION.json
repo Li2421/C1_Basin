@@ -1,0 +1,43 @@
+{
+  "supports": [
+    [
+      "T1"
+    ],
+    [
+      "T5"
+    ],
+    [
+      "C2"
+    ],
+    [
+      "P",
+      "R"
+    ],
+    [
+      "R",
+      "T1"
+    ],
+    [
+      "G",
+      "C2"
+    ]
+  ],
+  "attributable_single_column_cases": {
+    "T1": 14,
+    "T2": 3,
+    "T3": 3,
+    "T4": 0,
+    "T5": 8,
+    "P2": 1,
+    "R2": 0,
+    "R3": 2,
+    "Y1": 3,
+    "Y2": 1,
+    "Y3": 3,
+    "Y4": 0,
+    "S1": 3,
+    "C1": 3,
+    "C2": 7
+  },
+  "rule": "Three pure-direction deletion hypotheses from S1 incremental successes beyond original-three-column configurations; P/R deletion as the G=0 parameter-range control; one deletion of the strongest G/R/new-column parent; prior frozen best. Fill any duplicate slots by observed subset coverage. Parent potential is a screening heuristic, never credited as observed child success. At most6 families and2000 rollouts remain unchanged."
+}

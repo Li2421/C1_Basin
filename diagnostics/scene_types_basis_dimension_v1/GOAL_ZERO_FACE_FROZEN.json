@@ -1,0 +1,54 @@
+{
+  "pool": [
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.4151800172403455,
+        0.7487828868906945
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.2188286343589425,
+        0.030648422660306096
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.4536060802638531,
+        0.3783855198416859
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        -0.1268563224002719,
+        0.23910425836220384
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        -0.4907653955742717,
+        0.5980624035000801
+      ],
+      "coefficients": {}
+    }
+  ],
+  "K": 6,
+  "scope": "Original B3 with G=0 boundary only; separate parameter-range ablation, not a new primary basis family and not the continuous optimum over G in[0,1.25]. Uses search states only; frozen before any heldout outcome."
+}

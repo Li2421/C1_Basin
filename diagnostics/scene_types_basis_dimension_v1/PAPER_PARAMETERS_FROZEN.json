@@ -1,0 +1,362 @@
+{
+  "historical": {
+    "dac_author_si": {
+      "threshold_profile": "author_narrow"
+    },
+    "mgr_author_unicycle_tracking": {
+      "tau": 0.5
+    },
+    "chen_impc_ob_si_tracking": {
+      "K": 8,
+      "scale_lengths": false
+    },
+    "wang2017_full_di_tracking": {
+      "alpha": 5.0,
+      "gamma": 1.0
+    },
+    "wang2017_consistent_perturbation_di_tracking": {
+      "alpha": 5.0,
+      "gamma": 1.0
+    },
+    "zhang2025_risk_si": {
+      "gamma": 1.0,
+      "q": 1.0
+    }
+  },
+  "selected_development": {
+    "dac_author_si": {},
+    "mgr_author_unicycle_tracking": {
+      "tau": 1.0
+    },
+    "chen_impc_ob_si_tracking": {
+      "K": 8,
+      "scale_lengths": false
+    },
+    "wang2017_full_di_tracking": {
+      "alpha": 5.0,
+      "gamma": 1.0
+    },
+    "wang2017_consistent_perturbation_di_tracking": {
+      "alpha": 5.0,
+      "gamma": 1.0
+    },
+    "zhang2025_risk_si": {
+      "gamma": 1.0,
+      "q": 0.01
+    }
+  },
+  "rankings": {
+    "dac_author_si": [
+      {
+        "options": {},
+        "n": 60,
+        "success": 7,
+        "collision": 0,
+        "unknown": 8,
+        "truncated_mean": 26.17166666666667
+      },
+      {
+        "options": {
+          "threshold_profile": "author_narrow"
+        },
+        "n": 60,
+        "success": 6,
+        "collision": 0,
+        "unknown": 35,
+        "truncated_mean": 26.571666666666673
+      }
+    ],
+    "mgr_author_unicycle_tracking": [
+      {
+        "options": {
+          "tau": 1.0
+        },
+        "n": 60,
+        "success": 11,
+        "collision": 2,
+        "unknown": 0,
+        "truncated_mean": 26.155000000000005
+      },
+      {
+        "options": {
+          "tau": 0.5
+        },
+        "n": 60,
+        "success": 10,
+        "collision": 2,
+        "unknown": 0,
+        "truncated_mean": 25.972500000000007
+      }
+    ],
+    "chen_impc_ob_si_tracking": [
+      {
+        "options": {
+          "K": 8,
+          "scale_lengths": false
+        },
+        "n": 60,
+        "success": 13,
+        "collision": 1,
+        "unknown": 1,
+        "truncated_mean": 24.065
+      },
+      {
+        "options": {
+          "K": 8,
+          "scale_lengths": true
+        },
+        "n": 60,
+        "success": 8,
+        "collision": 15,
+        "unknown": 0,
+        "truncated_mean": 25.750833333333333
+      },
+      {
+        "options": {
+          "K": 24,
+          "scale_lengths": false
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 36,
+        "unknown": 0,
+        "truncated_mean": 27.066666666666674
+      },
+      {
+        "options": {
+          "K": 24,
+          "scale_lengths": true
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 43,
+        "unknown": 0,
+        "truncated_mean": 27.066666666666674
+      }
+    ],
+    "wang2017_full_di_tracking": [
+      {
+        "options": {
+          "alpha": 5.0,
+          "gamma": 1.0
+        },
+        "n": 60,
+        "success": 4,
+        "collision": 10,
+        "unknown": 37,
+        "truncated_mean": 26.59583333333334
+      },
+      {
+        "options": {
+          "alpha": 5.0,
+          "gamma": 10.0
+        },
+        "n": 60,
+        "success": 4,
+        "collision": 16,
+        "unknown": 35,
+        "truncated_mean": 26.70166666666667
+      },
+      {
+        "options": {
+          "alpha": 1.0,
+          "gamma": 10.0
+        },
+        "n": 60,
+        "success": 3,
+        "collision": 11,
+        "unknown": 40,
+        "truncated_mean": 26.86333333333334
+      },
+      {
+        "options": {
+          "alpha": 1.0,
+          "gamma": 0.1
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 0,
+        "unknown": 47,
+        "truncated_mean": 27.066666666666674
+      },
+      {
+        "options": {
+          "alpha": 5.0,
+          "gamma": 0.1
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 0,
+        "unknown": 50,
+        "truncated_mean": 27.066666666666674
+      },
+      {
+        "options": {
+          "alpha": 1.0,
+          "gamma": 1.0
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 5,
+        "unknown": 44,
+        "truncated_mean": 27.066666666666674
+      }
+    ],
+    "wang2017_consistent_perturbation_di_tracking": [
+      {
+        "options": {
+          "alpha": 5.0,
+          "gamma": 1.0
+        },
+        "n": 60,
+        "success": 4,
+        "collision": 10,
+        "unknown": 37,
+        "truncated_mean": 26.59583333333334
+      },
+      {
+        "options": {
+          "alpha": 5.0,
+          "gamma": 10.0
+        },
+        "n": 60,
+        "success": 4,
+        "collision": 16,
+        "unknown": 35,
+        "truncated_mean": 26.70166666666667
+      },
+      {
+        "options": {
+          "alpha": 1.0,
+          "gamma": 10.0
+        },
+        "n": 60,
+        "success": 3,
+        "collision": 11,
+        "unknown": 40,
+        "truncated_mean": 26.86333333333334
+      },
+      {
+        "options": {
+          "alpha": 1.0,
+          "gamma": 0.1
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 0,
+        "unknown": 47,
+        "truncated_mean": 27.066666666666674
+      },
+      {
+        "options": {
+          "alpha": 5.0,
+          "gamma": 0.1
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 0,
+        "unknown": 50,
+        "truncated_mean": 27.066666666666674
+      },
+      {
+        "options": {
+          "alpha": 1.0,
+          "gamma": 1.0
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 5,
+        "unknown": 44,
+        "truncated_mean": 27.066666666666674
+      }
+    ],
+    "zhang2025_risk_si": [
+      {
+        "options": {
+          "gamma": 1.0,
+          "q": 0.01
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 13,
+        "unknown": 31,
+        "truncated_mean": 27.066666666666674
+      },
+      {
+        "options": {
+          "gamma": 1.0,
+          "q": 1.0
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 13,
+        "unknown": 34,
+        "truncated_mean": 27.066666666666674
+      },
+      {
+        "options": {
+          "gamma": 2.0,
+          "q": 0.01
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 15,
+        "unknown": 34,
+        "truncated_mean": 27.066666666666674
+      },
+      {
+        "options": {
+          "gamma": 2.0,
+          "q": 1.0
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 16,
+        "unknown": 35,
+        "truncated_mean": 27.066666666666674
+      },
+      {
+        "options": {
+          "gamma": 5.0,
+          "q": 1.0
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 21,
+        "unknown": 33,
+        "truncated_mean": 27.066666666666674
+      },
+      {
+        "options": {
+          "gamma": 5.0,
+          "q": 0.01
+        },
+        "n": 60,
+        "success": 0,
+        "collision": 23,
+        "unknown": 29,
+        "truncated_mean": 27.066666666666674
+      }
+    ]
+  },
+  "case_requests": 1560,
+  "included_types": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "historical_primary_retained": true,
+  "criterion": "Max success, then fewer collisions, fewer numerical unknowns, smaller whole-cohort truncated mean. No heldout data. Historical frozen profile retained; any retuned profile separately labelled."
+}

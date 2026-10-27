@@ -37,7 +37,7 @@ def main():
         r=read(p)
         if r['type_id']==2 and(HERE/'SCENE2_GEOMETRY_BLOCKER.json').exists()and not(HERE/'SCENE2_RESOLVED').exists():continue
         if r['solo']is not None or r['success']or r['numerical_failure']or r['purpose']not in('search','acceleration_certificate'):continue
-        if r['spec'].get('coefficients')or not any(r['spec']['eta']):continue
+        if r['spec'].get('coefficients')or r['spec']['eta'][0]<.5:continue
         k=(r['type_id'],r['controller']);old=chosen.get(k)
         priority=lambda q:(b3_success.get((q['type_id'],q['controller'],q['state_index']),0)>0,-q['episode_length'],q['rollout_uid'])
         if old is None or priority(r)<priority(old):chosen[k]=r

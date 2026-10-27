@@ -7,12 +7,14 @@ from single_integrator.environment import point_segment_distance
 def main():
     frozen=read(HERE/'SCENES_FROZEN.json')
     scenes={e['scene']['name']:e['scene']for e in frozen['entries']if 'scene'in e}
-    output=[]
+    output=[];geometry_cache={}
     for p in sorted((HERE/'raw').glob('*.json')):
         r=read(p)
         if r['scene']not in scenes or not r['numerical_failure']:continue
         if 'route'not in (r.get('error')or{}).get('message','').lower():continue
-        s=scenes[r['scene']];geom=route_geometry(geometry(s))
+        s=scenes[r['scene']]
+        if r['scene']not in geometry_cache:geometry_cache[r['scene']]=route_geometry(geometry(s))
+        geom=geometry_cache[r['scene']]
         with np.load(r['trace'])as a:
             positions=a['positions'][-1];goals=a['goals'];points=[]
             certificates=json.loads(str(a['safety_certificates_json']))if 'safety_certificates_json'in a else []

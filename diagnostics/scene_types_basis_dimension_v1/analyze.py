@@ -5,6 +5,7 @@ from scenes import TITLES,geometry
 import csv,collections,subprocess,datetime
 
 def mean(values):return float(np.mean(values))if values else None
+def display_time(value):return '—'if value is None else f'{value:.3f}'
 def wilson(k,n):
     if not n:return None
     z=1.959963984540054;p=k/n;den=1+z*z/n;mid=(p+z*z/(2*n))/den;half=z*np.sqrt(p*(1-p)/n+z*z/(4*n*n))/den
@@ -18,7 +19,7 @@ def stats(rows):
         unknown_exception_types=dict(collections.Counter((r.get('error')or{}).get('type','unspecified')for r in rows if r['numerical_failure'])),
         case_wilson95=wilson(len(success),len(rows)),compute_seconds_total=sum(r.get('wall_seconds',0.)for r in rows),compute_seconds_mean=mean([r.get('wall_seconds',0.)for r in rows]),
         solver_internal_failure_events=sum(r.get('solver_failure_count',0)for r in rows),
-        restoration_steps=sum(r.get('restoration_steps',0)for r in rows),sampled_speed_violation_steps=sum(r.get('sampled_speed_violation_steps',0)for r in rows),constraint_violation_steps=sum(r.get('constraint_violation_steps',0)for r in rows),
+        restoration_steps=sum(r.get('restoration_steps',0)for r in rows),sampled_speed_violation_steps=sum(r.get('sampled_speed_violation_steps',0)for r in rows),paper_action_speed_clipped_steps=sum(r.get('speed_clipped_steps',0)for r in rows),constraint_violation_steps=sum(r.get('constraint_violation_steps',0)for r in rows),
         static_collision_without_reported_constraint_violation=sum(bool(r.get('collision_types',{}).get('static'))and 'constraint_violation_steps'in r and r['constraint_violation_steps']==0 for r in rows))
 
 def csv_write(path,rows):
@@ -130,6 +131,17 @@ def final_integrity():
     for record in read(HERE/'PAPER_PORT_INPUTS.json')['files']:
         if sha(record['source'])!=record['source_sha256']:changed.append(record['source'])
         if sha(record['target'])!=record['target_sha256']:changed.append(record['target'])
+    accel=read(HERE/'ACCELERATION_INPUTS.json')
+    for record in accel['files']:
+        for field in('source','target'):
+            if sha(record[field])!=record['sha256']:changed.append(record[field])
+    if sha(HERE/'acceleration.py')!=accel['loader_sha256']:changed.append(str(HERE/'acceleration.py'))
+    if(HERE/'IMPC_ADAPTER_V2.json').exists():
+        revised=read(HERE/'IMPC_ADAPTER_V2.json')
+        if sha(revised['source'])!=revised['original_sha256']:changed.append(revised['source'])
+        if sha(revised['target'])!=revised['target_sha256']:changed.append(revised['target'])
+    for filename,h in read(HERE/'PAPER_PORT_INPUTS.json')['vendor_sources_sha256'].items():
+        if sha(filename)!=h:changed.append(filename)
     dump(HERE/'IMPORTED_INPUTS_END.json',dict(readonly_imported_files={p:sorted(h)for p,h in sorted(imported.items())},changed=imported_changes,manifest_count=len(manifest_paths),scope='Every imported file outside this experiment, including dependencies. Private mutable analysis and versioned experiment files remain separately tracked by execution manifests.'))
     changed+=imported_changes
     result=dict(time=datetime.datetime.now().astimezone().isoformat(),git_status=subprocess.check_output(['git','status','--porcelain','--untracked-files=normal'],cwd=ROOT,text=True),git_diff_sha256=hashlib.sha256(subprocess.check_output(['git','diff','--binary'],cwd=ROOT)).hexdigest(),changed_frozen_execution_inputs=sorted(set(changed)),python_protection_events=(HERE/'PROTECTION_VIOLATION.jsonl').exists(),parallel_directories_stat={str(p):dict(mtime_ns=p.stat().st_mtime_ns,inode=p.stat().st_ino)for p in(ROOT/'diagnostics').iterdir()if p.is_dir()and p!=HERE},import_manifests=len(manifest_paths),readonly_imported_file_count=len(imported))
@@ -146,10 +158,19 @@ def main():
         audit_mechanisms()
     except Exception as exc:
         with(HERE/'GAPS.md').open('a')as f:f.write('\n静态机制诊断未完成：'+repr(exc)+'\n')
+    if(HERE/'STATIC_MECHANISMS.json').exists():
+        mechanisms=read(HERE/'STATIC_MECHANISMS.json')['states'];summary={}
+        for name in NAMES:
+            if name in('G','P','R'):continue
+            retained=[x['retained_ratio']for r in mechanisms for x in r['projection_retention'].get(name,[])if'retained_ratio'in x]
+            summary[name]=dict(states=len(mechanisms),zero_column_states=sum(r['column_norms'][name]<1e-10 for r in mechanisms),rank_gain_states=sum(r['rank_with_added_column'][name]>r['B3_rank']for r in mechanisms),projection_retained_ratio_median=mean([float(np.median(retained))])if retained else None,projection_probe_unknowns=sum('numerical_unknown'in x for r in mechanisms for x in r['projection_retention'].get(name,[])))
+        dump(HERE/'STATIC_MECHANISM_SUMMARY.json',dict(n_states=len(mechanisms),B3_all16_failed_cases=sum(r['B3_Oracle16_success_count_for_case']==0 for r in mechanisms),B3_rank_counts=dict(collections.Counter(str(r['B3_rank'])for r in mechanisms)),unfinished_B3_rank_counts=dict(collections.Counter(str(r.get('unfinished_only_B3_rank'))for r in mechanisms)),columns=summary,meaning='Selected actual failed-trajectory states, one per type/controller; not a prevalence estimate of certified deadlocks. Rank and per-column projection retention are local numerical diagnostics only. Retention is relative to the original safe action, and other active constraints can couple the projected change.'))
     frozen=read(HERE/'SCENES_FROZEN.json');families=read(HERE/'FAMILIES_FROZEN.json');labels=read(HERE/'HOLDOUT_LABELS.json')
     applicable_types={e['type_id']for e in frozen['entries']if e['status']=='applicable'}
     unavailable_titles=[e['title']for e in frozen['entries']if e['status']!='applicable']
     rows={r['rollout_uid']:r for r in(read(p)for p in(HERE/'raw').glob('*.json'))};desc=descriptors(frozen)
+    from delivery_audit import main as audit_saved_evidence
+    audit_saved_evidence(rows,frozen,labels)
     fs,case_rows,fixed_rows=family_stats(families,labels,rows);M=max(f['enough_types']for f in fs);best_by_dimension={}
     dump(HERE/'PER_CONTROLLER_RESULTS.json',{str(j):{c['type_code']:{mode:stats([r for r in rr if r['controller']==c['type_code']])for mode,rr in [('oracle',case_rows[j]),('fixed',fixed_rows[j])]}for c in controllers()}for j in case_rows})
     stage_summaries=[];previous=set()
@@ -163,10 +184,20 @@ def main():
     dump(HERE/'SEARCH_STAGE_RESULTS.json',dict(stages=stage_summaries,note='Coverage of the current valid-scope S1-S4 manifests only. Calibration safety and matched-midpoint controls are separately reused by support closure. New coverage counts are relative to earlier listed search stages, not a continuous-family optimum.'))
     from discovery import all_rows
     development=all_rows([]);fit_coverage=[]
+    # The empty target set is vacuously covered by zero columns, but that is
+    # not a scientific success witness for an entirely uncovered scenario.
+    # This reporting-only repair changes no frozen pools or execution choices.
+    minimum=read(HERE/'MINIMAL_SUPPORTS.json')
+    for item in minimum['per_type'].values():
+        if not item['covered_cases']:
+            item.update(dimension=None,minimal_supports=[],required_columns=None,box_compatible_single_family_cover_found=False,no_success_witness=True)
+    dump(HERE/'MINIMAL_SUPPORTS.json',minimum)
+    development_by_spec={}
+    for r in development:development_by_spec.setdefault(digest(r['spec']),[]).append(r)
     for j,family in enumerate(families['families']):
         candidates=[]
         for k,sp in enumerate(family['candidate_pool']):
-            rr=[r for r in development if digest(r['spec'])==digest(sp)]
+            rr=development_by_spec.get(digest(sp),[])
             unique={(r['type_id'],r['controller'],r['state_index']):r for r in rr}
             candidates.append(dict(index=k,observed_cases=len(unique),observed_success=sum(r['success']for r in unique.values()),total_search_cases=families['search_cases'],fully_evaluated=len(unique)==families['search_cases'],fixed=k==0))
         fit_coverage.append(dict(family=j,columns=family['columns'],candidates=candidates))
@@ -187,7 +218,7 @@ def main():
             if x['uid']not in rows:continue
             r=rows[x['uid']];k=(r['type_id'],r['controller'],r['state_index'])
             if r['success']and k not in linear_success:timing_witnesses.append(dict(type_id=k[0],controller=k[1],state_index=k[2],reference=name,uid=r['rollout_uid'],original_constraint_violation_steps=r.get('constraint_violation_steps'),speed_excess_steps=r.get('sampled_speed_violation_steps')))
-    dump(HERE/'TIMING_REFERENCE_WITNESSES.json',dict(cases=timing_witnesses,meaning='Same C1 safety pipeline succeeds with a stuck-triggered reference where none of the tested fixed linear-correction candidate points succeeded. This is finite timing-policy evidence, not proof that the basis cannot represent a successful untested fixed coefficient. Native-paper safety successes are never used as witnesses for the C1 feasible domain.'))
+    dump(HERE/'TIMING_REFERENCE_WITNESSES.json',dict(cases=timing_witnesses,meaning='Same C1 safety pipeline succeeds with a stuck-triggered reference where none of the tested fixed linear-correction candidate points succeeded. References also differ in normalization, magnitude and G=0 policy, so this is not a timing-only ablation. It is not proof that the basis cannot represent a successful untested fixed coefficient. Native-paper safety successes are never used as witnesses for the C1 feasible domain.'))
     for d in range(1,6):
         options=[f for f in fs if f['dimension']==d]
         if options:best_by_dimension[str(d)]=min(options,key=lambda f:(-f['enough_types'],-f['oracle']['success'],f['all_candidate_failures']['collision'],f['oracle']['all_cohort_truncated_mean']or float('inf'),f['index']))
@@ -205,7 +236,18 @@ def main():
             b=f['by_type'][str(t)];comparison.append(dict(method='family_'+str(a),columns='+'.join(f['columns']),type_id=t,title=TITLES[t],dimension=f['dimension'],oracle_success=b['oracle']['success'],oracle_n=b['oracle']['n'],fixed_success=b['fixed']['success'],fixed_n=b['fixed']['n'],oracle_success_mean_time=b['oracle']['success_mean_time'],fixed_success_mean_time=b['fixed']['success_mean_time'],oracle_truncated_mean=b['oracle']['all_cohort_truncated_mean'],fixed_truncated_mean=b['fixed']['all_cohort_truncated_mean'],fixed_collisions=b['fixed']['collision'],fixed_timeouts=b['fixed']['timeout'],fixed_unknown=b['fixed']['numerical_unknown']))
         f['fixed_paired_success_against_B3']=pair
     dump(HERE/'PAIRED_SUCCESS_TIMES.json',{str(f['index']):f['fixed_paired_success_against_B3']for f in fs})
-    dump(HERE/'COMPUTE_COSTS.json',dict(families=[dict(index=f['index'],columns=f['columns'],all_candidate_compute_seconds=f['all_candidate_compute_seconds'],unique_executed_candidates=f['unique_executed_candidates'])for f in fs],all_unique_rollout_compute_seconds=sum(r.get('wall_seconds',0.)for r in rows.values()),attempts=len(list((HERE/'attempts').glob('*.json'))),complete_unique_records=len(rows),svd_seconds=sum(r.get('dictionary',{}).get('svd_seconds',0.)for r in rows.values()),note='Pool sums may overlap across families. Unique sum is completed work across the study; cancelled/incomplete work appears separately in Slurm accounting.'))
+    jobids=set()
+    for p in HERE.glob('*_jobs.json'):
+        for record in read(p):
+            if isinstance(record,dict)and'jobid'in record:jobids.add(str(record['jobid']))
+    try:
+        if jobids:
+            accounting=subprocess.check_output(['sacct','-j',','.join(sorted(jobids,key=int)),'--noheader','--parsable2','--format=JobIDRaw,JobName,State,AllocCPUS,ElapsedRaw,TotalCPU,CPUTimeRAW,MaxRSS,Start,End,AllocTRES'],text=True)
+            if not accounting.strip():raise RuntimeError('sacct returned no rows; this server reports Slurm accounting storage is disabled. Cancelled/incomplete CPU consumption cannot be reconstructed from sacct.')
+            (HERE/'slurm_accounting.psv').write_text('JobIDRaw|JobName|State|AllocCPUS|ElapsedRaw|TotalCPU|CPUTimeRAW|MaxRSS|Start|End|AllocTRES|\n'+accounting)
+    except Exception as exc:
+        with(HERE/'GAPS.md').open('a')as f:f.write('\nSlurm成本附表不可用：'+repr(exc)+'\n')
+    dump(HERE/'COMPUTE_COSTS.json',dict(families=[dict(index=f['index'],columns=f['columns'],all_candidate_compute_seconds=f['all_candidate_compute_seconds'],unique_executed_candidates=f['unique_executed_candidates'])for f in fs],all_unique_rollout_compute_seconds=sum(r.get('wall_seconds',0.)for r in rows.values()),attempts=len(list((HERE/'attempts').glob('*.json'))),complete_unique_records=len(rows),worker_affinity_counts=dict(collections.Counter(str(len(r.get('worker_cpu',[])))for r in rows.values())),svd_seconds=sum(r.get('dictionary',{}).get('svd_seconds',0.)for r in rows.values()),slurm_accounting=str(HERE/'slurm_accounting.psv'),note='Pool sums may overlap across families. Unique sum is completed work across the study; cancelled/incomplete work appears separately in Slurm accounting. Slurm parent and batch/extern step rows overlap; do not sum every row as independent allocation.'))
     reference={}
     for name in ('safety','right_goal_reference','centre_rotation_reference','historical_GC2_fixed'):
         rr=[rows[x['uid']]for x in labels[name]if x['uid']in rows]
@@ -222,6 +264,10 @@ def main():
     for r in rows.values():
         if r['purpose']=='paper_holdout':papers.setdefault(r['controller'],[]).append(r)
     paper_stats={method:dict(overall=stats(rr),by_type={str(t):stats([r for r in rr if r['type_id']==t])for t in range(1,18)})for method,rr in papers.items()}
+    baseline_table=[]
+    for method,record in {**reference,**paper_stats}.items():
+        for t,value in record['by_type'].items():baseline_table.append(dict(method=method,type_id=int(t),title=TITLES[int(t)],**value))
+    csv_write(HERE/'baseline_per_type_results.csv',baseline_table)
     from uncertainty import main as uncertainty
     uncertainty(case_rows,fixed_rows,papers)
     dump(HERE/'PAPER_RESULTS.json',paper_stats);dump(HERE/'REFERENCE_RESULTS.json',reference);csv_write(HERE/'per_type_results.csv',comparison)
@@ -252,6 +298,10 @@ def main():
         layers[str(t)]['pipeline_success_with_reported_original_constraint_or_speed_violation']=restored
         layers[str(t)]['unwitnessed_search_states']=[i for i in range(4)if str(i)not in witnesses]
     dump(HERE/'FIVE_LAYER_FINAL.json',layers)
+    route_diagnostics=read(HERE/'ROUTE_UNKNOWN_DIAGNOSTICS.json')if(HERE/'ROUTE_UNKNOWN_DIAGNOSTICS.json').exists()else{}
+    verdict['coverage_gap_diagnostics']={str(t):dict(classification=verdict['gap_classification'][str(t)],unwitnessed_search_states=layers[str(t)].get('unwitnessed_search_states'),heldout_family_candidate_unknowns=sum(rows[u]['numerical_failure']for u in {x['uid']for name,ll in labels.items()if name.isdigit()for x in ll if x['type_id']==t}if u in rows),saved_route_interface_unknown_records=sum(r['type_id']==t for r in route_diagnostics.get('cases',[])),interpretation='Below6/8 in these pools is not evidence of continuous-basis impossibility. Geometry gaps, route/solver unknowns and lack of original-safety joint witnesses limit causal attribution.')for t in gaps}
+    verdict['global_search_support_cover']=dict(found=minimum['box_compatible_global_cover_found'],observed_union_cases=minimum['observed_covered_cases'],best_legal_cases=minimum['best_legal_coverage'],minimum_legal_dimension_for_best_coverage=minimum['best_legal_coverage_dimension'])
+    dump(HERE/'VERDICT.json',verdict)
     failures=collections.Counter((r['type_id'],r['controller'],r['outcome'])for r in rows.values())
     active_failures=collections.Counter((r['type_id'],r['controller'],r['purpose'],r['outcome'])for r in rows.values()if r['scenario_uid']in active_scenarios)
     dump(HERE/'FAILURE_TYPES.json',dict(all_archived_counts=[dict(type_id=t,controller=c,outcome=o,n=n)for(t,c,o),n in failures.items()],active_primary_scenario_counts=[dict(type_id=t,controller=c,purpose=p,outcome=o,n=n)for(t,c,p,o),n in active_failures.items()],interpretation='All-archive counts include superseded prototypes, calibration ladders and obsolete IMPC adapter identities; they are not formal performance denominators. Formal heldout performance uses frozen family/profile labels. Timeout is not deadlock. Unwitnessed cases remain jointly uncertified. Solver exceptions and internal nonoptimal status counts are separate. Geometry-rejected forest has zero rollouts.'))
@@ -268,7 +318,7 @@ def main():
     dimension_text='；'.join(f"{d}维：{f['enough_types']}类"for d,f in best_by_dimension.items())
     pertype='；'.join((f"{TITLES[t]} {recommended['by_type'][str(t)]['oracle']['success']}/8 对 {recommended['by_type'][str(t)]['fixed']['success']}/8"if t in applicable_types else f"{TITLES[t]} N/A（几何或实现缺口）")for t in range(1,18))
     text=[f"# 十七类场景上的修正基维度研究\n\n按预登记规则推荐：{('未找到满足 M−1 条件的五维以内族，以下另列有限池中实用最佳'if recommendation is None else str(recommended['dimension'])+'维')}，列为 {'、'.join(recommended['column_names'])}。逐类留出 Oracle@16 对固定参数成功数：{pertype}。覆盖缺口：{'、'.join(TITLES[t]for t in gaps)}。各维度最好族达到 6/8 的类型数：{dimension_text}。\n\n",
-        f"所有结论限于已冻结、已执行的有限候选池。本轮可评估 {len(applicable_types)}/17 类；{'、'.join(unavailable_titles)}为明确缺口，不算控制失败。各可评估类型采用两个冻结名义控制器；每类仅4个独立物理初态，各控制器共享初态与随机流。交叉流旧横列原型被排除，未获确认的尺寸或半径提案没有执行。\n\n",
+        f"所有结论限于已冻结、已执行的有限候选池。本轮可评估 {len(applicable_types)}/17 类；{'、'.join(unavailable_titles)}为明确缺口，不算控制失败。各可评估类型采用两个冻结名义控制器；每类仅4个独立物理初态，各控制器共享初态与随机流。推荐族固定点实际非零列为 {'、'.join(NAMES[k]for k in support(fixed))or'无（零附加修正）'}；声明族维度不等于每个成功候选都用了全部列。交叉流旧横列原型被排除，未获确认的尺寸或半径提案没有执行。\n\n",
         '## 场景、标定与五层证据\n\n[完整标定](CALIBRATION.json)、[冻结场景与状态](SCENES_FROZEN.json)、[最终五层证据](FIVE_LAYER_FINAL.json)、[几何与安全边距](GEOMETRY_CONSISTENCY.json)。单机能力门均按 ≥95% 判断；未满足难度与 A* 见证条件的类型按最近档保留，仍明确记录未认证。成功 rollout 可补充构造性联合可解见证；超时不能推出死锁或不可解。\n\n',
         '场景类型来源是几何与交通分类的移植，具体尺寸按本轮 prompt 新建，不是论文原地图复现。圆周、交叉流、同向流、门、盲角与集结对应 [Francis 等场景清单](https://arxiv.org/abs/2306.16740)；森林的动机对应 [BARN](https://www.cs.utexas.edu/~xiao/BARN/BARN.html)，本轮森林几何被拒绝，没有运行 BARN 官方地图。\n\n',
         '| 场景 | 冻结数量/半径 | 路线引导 | 安全基线成功 | A* 见证 |\n|---|---|---|---|---|\n']
@@ -295,20 +345,26 @@ def main():
         required=item['required_columns']
         required_text='未找到合法单一家族'if required is None else('、'.join(NAMES[k]for k in required)or'无共同列')
         text.append(f"|{TITLES[t]}|{item['covered_cases']}/8|{item['dimension']if item['dimension']is not None else'未找到'}|{'；'.join(sets)or'未找到'}|{required_text}|\n")
+    text.append(f"\n搜索集中已成功案例并集为 {minimal['observed_covered_cases']}/{minimal['search_cases']}；单一合法家族的最大已观测覆盖为 {minimal['best_legal_coverage']}，达到该覆盖的最小见证支持为 {minimal['best_legal_coverage_dimension']} 列。覆盖全部并集的合法单一家族{'已找到'if minimal['box_compatible_global_cover_found']else'未找到'}；朝目标正下界域与删除该列的零系数域不互相嵌套，不能把它们强行并成一个合法固定族。该全局覆盖缺口与留出推荐维度是两个不同问题。\n\n")
     text+=['\n## 留出结果与部署差距\n\n| 修正族 | 维度 | 达到6/8的类型 | Oracle覆盖 | 固定参数成功 | 固定成功平均完成时间(s) | 固定全队列截断均时(s) |\n|---|---|---|---|---|---|---|\n']
-    for f in fs:text.append(f"|{' + '.join(f['column_names'])}|{f['dimension']}|{f['enough_types']}/17|{f['oracle']['success']}/{f['oracle']['n']}|{f['fixed']['success']}/{f['fixed']['n']}|{f['fixed']['success_mean_time']}|{f['fixed']['all_cohort_truncated_mean']}|\n")
-    text += [f'\n推荐族固定参数：`{json.dumps(fixed,ensure_ascii=False)}`。完整逐场景结果见 [per_type_results.csv](per_type_results.csv)，预算曲线见 [budget_curves.csv](budget_curves.csv)。参数与族在读取留出结果前冻结。[固定参数选取覆盖](FIXED_SELECTION_COVERAGE.json)逐配置列出搜索案例观测量；S3/S4仅补未覆盖案例，所以“最好已观测配置”不等于对所有配置做过统一全队列调参，部署差距不能单独证明需要学习型Generator。维度推荐使用预登记的留出决策规则，是本测试集上的描述性选择，不是另一次独立泛化确认。\n\n',
+    for f in fs:text.append(f"|{' + '.join(f['column_names'])}|{f['dimension']}|{f['enough_types']}/17|{f['oracle']['success']}/{f['oracle']['n']}|{f['fixed']['success']}/{f['fixed']['n']}|{display_time(f['fixed']['success_mean_time'])}|{display_time(f['fixed']['all_cohort_truncated_mean'])}|\n")
+    text+=['\n逐类留出 Oracle@16 成功数；参照规则为单一冻结策略，每格分母8（N/A为未实例化）。\n\n|场景|'+ '|'.join(' + '.join(f['column_names'])for f in fs)+'|只加安全投影|目标右偏参照|群中心旋转参照|\n|---|'+ '|'.join(['---']*(len(fs)+3))+'|\n']
+    for t in range(1,18):
+        counts=[str(f['by_type'][str(t)]['oracle']['success'])+'/8'if t in applicable_types else'N/A'for f in fs]
+        counts += [str(reference[k]['by_type'][str(t)]['success'])+'/8'if t in applicable_types else'N/A'for k in('safety','right_goal_reference','centre_rotation_reference')]
+        text.append('|'+TITLES[t]+'|'+'|'.join(counts)+'|\n')
+    text += [f'\n推荐族固定参数：`{json.dumps(fixed,ensure_ascii=False)}`。完整逐场景结果见 [per_type_results.csv](per_type_results.csv)，逐名义控制器分解见 [PER_CONTROLLER_RESULTS.json](PER_CONTROLLER_RESULTS.json)，论文端口与参照规则的逐场景成功和时间见 [baseline_per_type_results.csv](baseline_per_type_results.csv)，预算曲线见 [budget_curves.csv](budget_curves.csv)。参数与族在读取留出结果前冻结。[固定参数选取覆盖](FIXED_SELECTION_COVERAGE.json)逐配置列出搜索案例观测量；S3/S4仅补未覆盖案例，所以“最好已观测配置”不等于对所有配置做过统一全队列调参，部署差距不能单独证明需要学习型Generator。维度推荐使用预登记的留出决策规则，是本测试集上的描述性选择，不是另一次独立泛化确认。\n\n',
         '## 论文对应 baseline\n\n五篇论文的六个机制版本使用上一轮冻结参数和同一实际 SI 物理环境，另以预先冻结的26项开发菜单选择参数，保留两个 profile 分别报告。它们保留论文自身 controller、安全 solver、优先级/临时目标机制，区别于两个冻结 nominal 下的修正列消融。论文端口接收真实目标，不附加 C1 的可见图路线引导；有墙地图上的差异因此还包含全局路径信息差异。Oracle@16 是逐案例选择的有限池上限，而论文 profile 是一套固定参数，两者不构成同等部署能力的直接比较；应同时查看修正族固定参数结果。每个论文 profile 有15类×4初态=60局，C1每个族有两个 nominal、共120案例，不能把分母直接混为同一实验。论文原生 benchmark 与原理论假设未复现，原端口适配限制沿用 [上轮报告](../paper_baselines_20261028/report.md)。原始代码 commit 和依赖见 [端口来源](PAPER_PORT_INPUTS.json)。\n\n',
         '| 论文机制端口 | 成功 | 碰撞/超时/unknown（数值或实现异常） | success条件平均时间(s) | 全队列截断均时(s) | 内部solver失败事件 |\n|---|---|---|---|---|---|\n']
     registry={x['id']:x for x in read(ROOT/'diagnostics/paper_baselines_20261028/PAPER_REGISTRY.json')['allowed']}
     for method,v in paper_stats.items():
-        s=v['overall'];entry=registry[method.split('__')[0]];title='['+entry['name']+']('+entry['source']+')'+('（本轮开发集选参）'if'__development_selected'in method else'（上轮冻结参数）');text.append(f"|{title}|{s['success']}/{s['n']}|{s['collision']}/{s['timeout']}/{s['numerical_unknown']}|{s['success_mean_time']}|{s['all_cohort_truncated_mean']}|{s['solver_internal_failure_events']}|\n")
+        s=v['overall'];entry=registry[method.split('__')[0]];title='['+entry['name']+']('+entry['source']+')'+('（本轮开发集选参）'if'__development_selected'in method else'（上轮冻结参数）');text.append(f"|{title}|{s['success']}/{s['n']}|{s['collision']}/{s['timeout']}/{s['numerical_unknown']}|{display_time(s['success_mean_time'])}|{display_time(s['all_cohort_truncated_mean'])}|{s['solver_internal_failure_events']}|\n")
     face_result=reference.get('B3_goal_zero_face',{}).get('overall',{})
     effective=read(HERE/'EFFECTIVE_DIMENSION_WITNESSES.json')
     text += [f"\n原三列朝目标系数固定为0的边界消融（另冻结6点）：覆盖 {face_result.get('success')}/{face_result.get('n')}，不参与维度判定。这只比较边界有限池，不是整个放宽参数盒的最优。实际成功候选的最小非零支持见 [EFFECTIVE_DIMENSION_WITNESSES.json](EFFECTIVE_DIMENSION_WITNESSES.json)；只有五个非零系数点成功、而所有已测低维点均未成功的留出案例数为 {len(effective['five_only_among_tested'])}，仍不能据此证明连续参数空间中五维不可替代。\n\n",
-        '经典右手目标偏转与群中心旋转启发式是本轮 prompt 指定的附加参照，结果见 [REFERENCE_RESULTS.json](REFERENCE_RESULTS.json)；它们不冒充 Wang、Chen 或 Merry-Go-Round 的完整论文方法，也不参与维度判定。[TIMING_REFERENCE_WITNESSES.json](TIMING_REFERENCE_WITNESSES.json) 列出触发式规则成功而当前固定线性候选池未覆盖的案例，作为时序机制的有限证据。\n\n',
+        '经典右手目标偏转与群中心旋转启发式是本轮 prompt 指定的附加参照，结果见 [REFERENCE_RESULTS.json](REFERENCE_RESULTS.json)；它们不冒充 Wang、Chen 或 Merry-Go-Round 的完整论文方法，也不参与维度判定。[TIMING_REFERENCE_WITNESSES.json](TIMING_REFERENCE_WITNESSES.json) 列出触发式规则成功而当前固定线性候选池未覆盖的案例。规则同时在归一化、强度与朝目标系数策略上有差别，因此这不是仅改变阶段时序的因果消融。\n\n',
         '## 时间、置信区间与计算成本\n\n[物理初态分块置信区间](CONFIDENCE_INTERVALS.json) 对每个冻结地图内的4个初态分层重采样，把同一初态的两个 nominal 作为同一块；不把8个案例视为独立样本。成功条件均值只包含成功局；[配对成功时间](PAIRED_SUCCESS_TIMES.json)只在两方法均成功的同一 controller×state 上比较；失败局的截断时间使用完整任务时限。Oracle 完成时间取冻结顺序中第一个成功候选的时间，不把最短成功候选时间充作部署速度。Oracle 的计算成本应累加全部 16 候选，不能只算被选成功局。[计算成本](COMPUTE_COSTS.json)和[局部进展代理时间](LOCAL_PROGRESS_TIMES.json)另存，逐候选 wall_seconds 与完整轨迹均保留。Wilson 95% 区间是案例层描述区间，两个 nominal 的成败相关、每类仅四个独立物理初态，不能解释为八个独立样本的严格总体置信区间。\n\n',
-        '## 正确性与限制\n\n[真实安全域与机制解释](MECHANISM_NOTES.md)说明原逐机器人责任分摊域严格强于单一相对速度约束；协调刚性旋转并不自动可行。静态数值检查见 STATIC_MECHANISMS.json。整局成功可能来自提前预防，不能自动解释为同一死锁态恢复。\n\n[路线引导等价](ROUTE_EQUIVALENCE.json) 为 50 对完整局；[原三列集成回归](B3_EQUIVALENCE.json) 为两组非零历史参数、4 个初态×2个 nominal；[工程加速认证](ACCELERATION_CERTIFICATE.json) 明确列出启用项、200 对逐字节比较、随机键与稀疏数组检查。原安全 solver、重试、恢复、速度上限、物理 step 与成功判据沿用生产实现。T1 使用 prompt 的名称“目标右侧旋转”，但原代码正系数是逆时针 J，负系数才是顺时针；本轮保持该原定义。\n\n',
+        '## 正确性与限制\n\n[真实流水线审计](PIPELINE_AUDIT.md)记录名义控制器、三列真实尺度、原阶段接口、solver与恢复分支；[真实安全域与机制解释](MECHANISM_NOTES.md)说明原逐机器人责任分摊域严格强于单一相对速度约束，协调刚性旋转并不自动可行。静态数值检查见 [STATIC_MECHANISMS.json](STATIC_MECHANISMS.json) 与 [逐列静态摘要](STATIC_MECHANISM_SUMMARY.json)。整局成功可能来自提前预防，不能自动解释为同一死锁态恢复。\n\n[路线引导等价](ROUTE_EQUIVALENCE.json) 为 50 对完整局；[原三列集成回归](B3_EQUIVALENCE.json) 为两组非零历史参数、4 个初态×2个 nominal；[工程加速认证](ACCELERATION_CERTIFICATE.json) 明确列出启用项、200 对逐字节比较、随机键与稀疏数组检查。原安全 solver、重试、恢复、速度上限、物理 step 与成功判据沿用生产实现。T1 使用 prompt 的名称“目标右侧旋转”，但原代码正系数是逆时针 J，负系数才是顺时针；本轮保持该原定义。\n\n',
         '超时、碰撞、solver unknown 与内部非最优事件分别统计。某状态没有成功见证，只能说有限搜索未解决；尚不能区分搜索不足、时序不足、Basis 不足或联合不可解。原冻结 16 候选本轮不做阶段切换，不能据此排除时序收益。\n\n',
         '## 本轮未包括\n\n学习型规划器、Generator/Critic 训练、人机互动、非完整约束原生动力学、大地图、50 台以上、可选移动障碍与视频均未纳入。森林需用户修改几何规格后另开实验，不能在本轮偷偷缩小间距或方块。原始数据与 SQLite 保留本地，Git 提交小型代码和报告不等于大型轨迹已异地备份。\n']
     (HERE/'REPORT.md').write_text(''.join(text))

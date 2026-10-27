@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "source_sha256": "f57b003759bd26184fad493ec1bad953fcd002cebd0ead01d08998f39b317dcc",
+  "checks": [
+    "G-positive and G-absent boxes are separate",
+    "uncovered type has no inferred zero-dimensional success",
+    "genuine no-correction success is a valid zero-dimensional witness",
+    "declared zero coefficients do not increase effective dimension"
+  ],
+  "synthetic_summary": {
+    "observed_covered_cases": 3,
+    "search_cases": 4,
+    "global_dimension": null,
+    "global_minimal_supports": [],
+    "best_legal_coverage": 2,
+    "best_legal_coverage_dimension": 1,
+    "best_legal_coverage_supports": [
+      [
+        "T1"
+      ]
+    ],
+    "box_compatible_global_cover_found": false,
+    "per_type": {
+      "1": {
+        "covered_cases": 1,
+        "dimension": 1,
+        "minimal_supports": [
+          [
+            "G"
+          ]
+        ],
+        "required_columns": [
+          "G"
+        ],
+        "not_possible_proof": false,
+        "box_compatible_single_family_cover_found": true
+      },
+      "2": {
+        "covered_cases": 1,
+        "dimension": 1,
+        "minimal_supports": [
+          [
+            "T1"
+          ]
+        ],
+        "required_columns": [
+          "T1"
+        ],
+        "not_possible_proof": false,
+        "box_compatible_single_family_cover_found": true
+      },
+      "3": {
+        "covered_cases": 0,
+        "dimension": null,
+        "minimal_supports": [],
+        "required_columns": null,
+        "not_possible_proof": false,
+        "box_compatible_single_family_cover_found": false,
+        "no_success_witness": true
+      },
+      "4": {
+        "covered_cases": 1,
+        "dimension": 0,
+        "minimal_supports": [
+          []
+        ],
+        "required_columns": [],
+        "not_possible_proof": false,
+        "box_compatible_single_family_cover_found": true
+      }
+    },
+    "meaning": "Finite witness closure with separate G-present [0.5,1.25] and G-absent {0} strata. Other columns can be zero. If no legal single family covers the observed union, record a finite pool/range gap rather than pretending G=0 is legal in a G-present family. No continuous impossibility theorem."
+  },
+  "no_rollouts": true
+}

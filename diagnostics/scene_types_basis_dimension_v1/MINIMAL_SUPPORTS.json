@@ -1,0 +1,247 @@
+{
+  "observed_covered_cases": 87,
+  "search_cases": 120,
+  "global_dimension": null,
+  "global_minimal_supports": [],
+  "best_legal_coverage": 85,
+  "best_legal_coverage_dimension": 9,
+  "best_legal_coverage_supports": [
+    [
+      "G",
+      "P",
+      "R",
+      "T1",
+      "T3",
+      "P2",
+      "R3",
+      "Y1",
+      "C2"
+    ],
+    [
+      "G",
+      "R",
+      "T1",
+      "T3",
+      "P2",
+      "R3",
+      "Y1",
+      "Y2",
+      "C2"
+    ]
+  ],
+  "box_compatible_global_cover_found": false,
+  "per_type": {
+    "1": {
+      "covered_cases": 8,
+      "dimension": 1,
+      "minimal_supports": [
+        [
+          "T1"
+        ],
+        [
+          "T5"
+        ]
+      ],
+      "required_columns": [],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "3": {
+      "covered_cases": 8,
+      "dimension": 2,
+      "minimal_supports": [
+        [
+          "G",
+          "C2"
+        ]
+      ],
+      "required_columns": [
+        "G",
+        "C2"
+      ],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "4": {
+      "covered_cases": 8,
+      "dimension": 1,
+      "minimal_supports": [
+        [
+          "T1"
+        ],
+        [
+          "T5"
+        ]
+      ],
+      "required_columns": [],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "5": {
+      "covered_cases": 4,
+      "dimension": 3,
+      "minimal_supports": [
+        [
+          "G",
+          "R",
+          "T1"
+        ]
+      ],
+      "required_columns": [
+        "G",
+        "R",
+        "T1"
+      ],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "6": {
+      "covered_cases": 8,
+      "dimension": 1,
+      "minimal_supports": [
+        [
+          "T1"
+        ]
+      ],
+      "required_columns": [
+        "T1"
+      ],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "8": {
+      "covered_cases": 0,
+      "dimension": 0,
+      "minimal_supports": [
+        []
+      ],
+      "required_columns": [],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "9": {
+      "covered_cases": 8,
+      "dimension": null,
+      "minimal_supports": [],
+      "required_columns": null,
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": false
+    },
+    "10": {
+      "covered_cases": 0,
+      "dimension": 0,
+      "minimal_supports": [
+        []
+      ],
+      "required_columns": [],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "11": {
+      "covered_cases": 8,
+      "dimension": 1,
+      "minimal_supports": [
+        [
+          "T1"
+        ]
+      ],
+      "required_columns": [
+        "T1"
+      ],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "12": {
+      "covered_cases": 8,
+      "dimension": 1,
+      "minimal_supports": [
+        [
+          "T1"
+        ],
+        [
+          "T5"
+        ]
+      ],
+      "required_columns": [],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "13": {
+      "covered_cases": 8,
+      "dimension": 1,
+      "minimal_supports": [
+        [
+          "T5"
+        ]
+      ],
+      "required_columns": [
+        "T5"
+      ],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "14": {
+      "covered_cases": 8,
+      "dimension": 4,
+      "minimal_supports": [
+        [
+          "G",
+          "R",
+          "Y1",
+          "C2"
+        ]
+      ],
+      "required_columns": [
+        "G",
+        "R",
+        "Y1",
+        "C2"
+      ],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "15": {
+      "covered_cases": 0,
+      "dimension": 0,
+      "minimal_supports": [
+        []
+      ],
+      "required_columns": [],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "16": {
+      "covered_cases": 3,
+      "dimension": 5,
+      "minimal_supports": [
+        [
+          "R",
+          "T2",
+          "T5",
+          "P2",
+          "Y2"
+        ]
+      ],
+      "required_columns": [
+        "R",
+        "T2",
+        "T5",
+        "P2",
+        "Y2"
+      ],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    },
+    "17": {
+      "covered_cases": 8,
+      "dimension": 0,
+      "minimal_supports": [
+        []
+      ],
+      "required_columns": [],
+      "not_possible_proof": false,
+      "box_compatible_single_family_cover_found": true
+    }
+  },
+  "meaning": "Finite witness closure with separate G-present [0.5,1.25] and G-absent {0} strata. Other columns can be zero. If no legal single family covers the observed union, record a finite pool/range gap rather than pretending G=0 is legal in a G-present family. No continuous impossibility theorem."
+}
