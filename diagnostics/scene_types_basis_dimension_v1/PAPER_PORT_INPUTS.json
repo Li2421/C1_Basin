@@ -1,0 +1,164 @@
+{
+  "files": [
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/paper_adapters.py",
+      "source_sha256": "feef14fe94038d768658c3f349be6d58ace14d0c0a7026542ac7ead583ad9e2a",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/ports/paper_adapters.py",
+      "target_sha256": "906507f9b81cf116e637fe650b12008463ff30f6efa42f5b7f246e655b4b43fe",
+      "change": "Only HERE redirected to the sealed read-only vendor/dependency root. Mechanism code unchanged."
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/mgr_geometry.py",
+      "source_sha256": "8b68137a1bfef66aabe0bdabf1aaeea69113bf2bf6c9066ad79651a3a7616132",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/ports/mgr_geometry.py",
+      "target_sha256": "8b68137a1bfef66aabe0bdabf1aaeea69113bf2bf6c9066ad79651a3a7616132",
+      "change": "Only HERE redirected to the sealed read-only vendor/dependency root. Mechanism code unchanged."
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/impc_adapter.py",
+      "source_sha256": "d20dbb5e616d0079273f08d2ba61d028a1ccfe97c300c5fe4b27dd10d818e572",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/ports/impc_adapter.py",
+      "target_sha256": "8e0786084df4ed167c27b920f3267c7a3288d44663fae2601fa751ee2a4c7386",
+      "change": "Only HERE redirected to the sealed read-only vendor/dependency root. Mechanism code unchanged."
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/formula_baselines.py",
+      "source_sha256": "c1a11061cb2798c9a30206f2126e9dc479bea947866d25dee88e6bc4c53c3e54",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/ports/formula_baselines.py",
+      "target_sha256": "c1a11061cb2798c9a30206f2126e9dc479bea947866d25dee88e6bc4c53c3e54",
+      "change": "Only HERE redirected to the sealed read-only vendor/dependency root. Mechanism code unchanged."
+    }
+  ],
+  "pins": {
+    "vendor": {
+      "dac": {
+        "url": "https://github.com/Parker-Zhang/Shaping-CLF-MCBF.git",
+        "commit": "b6cf71fdce404d98ce5c7ea687cf984b963d7b6e"
+      },
+      "mgr": {
+        "url": "https://github.com/Aiden-wjLee/merry-go-round.git",
+        "commit": "84aaefd705ab61748010ad3dd6a8e018a46e7713"
+      },
+      "impc_ob": {
+        "url": "https://github.com/PKU-MACDLab/IMPC-OB.git",
+        "commit": "952335e501389609df57d7e927d3fd82eea6e37d"
+      },
+      "qpswift": {
+        "url": "https://github.com/qpSWIFT/qpSWIFT.git",
+        "commit": "24608b671d0e7ecde4d14ee8530d1656d6940fd1"
+      }
+    },
+    "dependencies": {
+      "cvxopt": "1.3.3",
+      "cycler": "0.12.1",
+      "kiwisolver": "1.5.1",
+      "contourpy": "1.3.3",
+      "rtree": "1.4.1",
+      "PyQt5-Qt5": "5.15.19",
+      "PyQt5": "5.15.11",
+      "PyQt5_sip": "12.20.0",
+      "fonttools": "4.67.0",
+      "ompl": "1.7.0",
+      "python-dateutil": "3.0.0",
+      "matplotlib": "3.11.2",
+      "shapely": "2.2.0",
+      "pyparsing": "3.3.3",
+      "pillow": "13.0.0",
+      "qpsolvers": "4.13.0",
+      "six": "1.17.0"
+    },
+    "python": "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python"
+  },
+  "vendor_sources_sha256": {
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/dac/sim-narrow_passage.py": "32df2ab6346302a8ad422c069e77296ef109c6caa2e8e1cd2391d26a144027a8",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/dac/sim-random_obs_navigation.py": "c53314093f087fd7b649045bd15403bafc62e72b8583fe36b112ec9f8ab06466",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/dac/method/CBF_DeadlockSolver.py": "043438c0c8f5185e65c4a308d0ac8b9a56ef7c75d98ad95c71177ac960078100",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/dac/utils/CommonApi.py": "a5ace722251970124403ee3c2465f1cbb99cb07395903175d7d75d4b068a2c28",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/dac/utils/geometryLib.py": "7b318e2d5e05b71241f5754472842f466c8f474250a2a5ea8a6c7ba18625feb7",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/dac/agents/circle2DAgent.py": "254ecd52ce929d99287a2fc72b2e187f44316952df29dd46ed75b35d479c923a",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/dac/workspace/workspace.py": "2bc8aaa749870967122fcfb0a6dc7cce8ed9eec6047066910a9a2642f61e7706",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/mgr/params.py": "da11e3c20641a2a9a3aa55b58d3f5f4e64ec4807c1b1e7693d599d92edabe12f",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/mgr/simulator.py": "2d7f2808d7770193189a940a3ee11f6e553bc108c2a9a6f0b49e886f860365d8",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/mgr/obstacles.py": "a2427c7248c529d9c9273333c1daf4df0e0322443aac624a698003c3b1431cc5",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/mgr/visualization.py": "7eada10a36c4d41012f8cb98d2c9b19bfd4944fef96657adae3c5da05ddf1e7c",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/mgr/config.py": "127ce3ae7900d991574387fe2be19ebc5d436fac67f0985cf2ae58a8bb06b01b",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/mgr/utils.py": "088b694ae9d89bddbfa3f6c0a6da46a50ca927f1cfa6586dcb5b68a427fc322b",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/mgr/collision.py": "c4ae9dcd4f40cd03f6070f20f3f4e1a00a52bce3bc27c5636caaf43509be82cb",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/mgr/cbf.py": "a55af14b0dc1255208e5b88c02527f3ade0a8dfb3a2c3faaf13cd256824bf22c",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/mgr/agent.py": "794eaf806ef016796e49c9376b41f0dce419138a573f302ed2e02b04ca3f453d",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/mgr/main.py": "08818f1be3282cb8e3f79297be4659fc0a49e0dcf42bebb620d6135055d36830",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/inter_avoid.py": "99bc795c0e63a8743f359aea3f9af684801ca181ff17c6d4133435cd15a09fc7",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/test.py": "bf7c6960004c5ec2a132b856be29dab091a8a8c2f1a41a80905411121b201a28",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/thread.py": "6304a7041cdb90265dde25873a7977a32505b3b83ba909f6c3280213dce39850",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/connection.py": "6e68c437240258f05e7dc7fff4cb1e3dd0615211fd81a46572f568126b242abe",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/geometry.py": "6129268069fd775f15eb76554a57ec0fc7593f72b533a61b37723bf6ed5fa0bd",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/uav.py": "56fb72b9dd79269f3594362e7503f2789c70c2b132e4ded7bdf2ebb7480d3006",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/group_corridor.py": "d52b1406a4880a953030b64c3f62a061f3a909953bed2624eade73cbb3133ac2",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/forest-SET.py": "68ed8adb5ac833718bbd8adb31fb40b3bd2b0c227beff016d41726462ca4ea17",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/obstacle_corridor.py": "3f50a1794ae7de8c163bcd45c1b7ea974f9cd57567110171753411ca4ee29e67",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/SET.py": "f2969706d5822ac28c45715f19554f7f700235fda74590dd8f178554a77cd04d",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/path_planning.py": "5149a74307de175d43d051b3562d9723f0017761422920376ba7a9c50c559d34",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/plot.py": "ed11e05abb14db0143a3734c95a81ad5c7555ed0568cb86e8e7fa250d43f4f9e",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/others.py": "79b106c71e603efa0c5a9f700eff88f890cad689537e845a732b0a06cd68ddd1",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/trajectory.py": "bdc9a59f35915d48b1f18fc949332a26cd4589141c33de06394f75c2bc3ede40",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/run.py": "1fdbd581e5249590f54df1110af8c35365651a4452e37b25d898362d5230f741",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/H-SET.py": "3d5ca33d2ae3baf73d8f5dc88f8a7bae267395e991749552562cb5d6825f72b4",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/__init__.py": "fcf1a0f46004ff945a7dacb06363122ef4a71e3388ca47484e4373cc23115e99",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/bindings_generator.py": "05f52cbe43b0d9db00f8b02395d4747200961b893b58e8d9c393bceb852deb82",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/tools/_tools.so": "83b522b76fed2bb65ba5a67b1606a68ac9e5aa89ecd5b7f779f56c0e32a76768",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/tools/__init__.py": "2210503fb9cdd1437ca34ddf844ebefc2958f9e20f3c304c804aacee2c5130a4",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/control/__init__.py": "da5effdb0aa00dd6c2d598bd2f9162f69f4c82e5b7ab146ffc8867966f2c33e7",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/control/_control.so": "e9e8844377e8ec6223915fd0737ebab45dd2f6a813d00757ae06ecadacf116ca",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/geometric/__init__.py": "62376a4722773098891d40d6bc69b9f64eaeb572a245615cfa752dcce616909b",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/geometric/_geometric.so": "8a6577c3a74685cf08c8348d30b0305679f2e0f7b4b68f96c97680fcf570c009",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/base/_base.so": "6a9b4352af961f49446c7c1da28fa37f28f9558e4f495f98a39e63ced0d8c891",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/base/__init__.py": "0f829bc1f161ac2fb971c840bfc5858841d264024ca6cadeabddd45daf44f73b",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/app/libompl_app.so": "a73a87320aaab991f4cfd72195fefe0a4083c7b969680463e60bcb51dc503596",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/app/__init__.py": "149e1c740e861d5e7275c90a93a00dcea352f381da9a017c083dcf9b1bcec147",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/app/libompl_app_base.so": "2eb536488a3ce9f3a01b69282b03ce8079d351c3f832d1a97d9d9d3abf94ed91",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/app/_app.so": "1be311b9fb06ba698b06f0ea43f087d336ef1e7378d0719f6a4784664fbf59e2",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/util/_util.so": "662625d9c0799db0ee887b3b03e6428a2a4739d58bb2bcd66322fe4e8259c89c",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/util/libompl.so": "e9f55d15c85db5261d643b060ee108d05d4150884a499957c43a912f744c31eb",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/util/__init__.py": "5a054001ae357d350d9cfefd9abe61208d7490072af580547405fe8eef632c8e",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/morse/builder.py": "d49785e4a2e434a53534ebc49b3fc4757e10116e5306a77b1b75b04782b6d287",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/morse/__init__.py": "b43aa25bf4bab9d69386abd458e69ad3bcad539ea66cc42c1661332399c3eea0",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/morse/environment.py": "505c3946907676361fad97ba6a2759212f0dd82f98cc8434e8b04a76b006e81b",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/morse/player.py": "3543f75ddb76e519c29c4e4510468f123b89dce8564e55861af0cd59dad11d29",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/morse/communicator.py": "b662ccb5566013f309ec943464879c24e776acd212fee71f37a2d02d444d7cf4",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/morse/planner.py": "18d6054eaa967be46767724115de475ccd45543c7bb969d3c4e653b10adca926",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/ompl/morse/addons/ompl_addon.py": "ecbdc6caa411d66ed8a4a4ee15637297e72c1db94e429d4ae57879b1bb052338",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/impc_ob/src/opengjk/opengjkc.so": "bca93e1f900b6e762ccba9044aefd67d22bd1c7ff849c20172f56732448b5916",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/qpswift/python/test.py": "b20dcfcf4959262d7d3487c08427ea30530cd11afeb256fef8936dcc13e64059",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/qpswift/python/basic_test.py": "ef9efe8e13a445c9723018b5f57e37cee9b81db9cfefed61e3525a8ed63ad52c",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/qpswift/python/syntax.py": "607f89a152fb3e555eed8ee74bd2fb327bda1b151db4e82818324630b007c271",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/qpswift/python/qpSWIFT.cpython-311-x86_64-linux-gnu.so": "de51f640221987e3c007f0b307322377421cbc131d3e1aa5ce1f746691c6b20d",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/qpswift/python/demoqp.py": "81d8608675a2bc46abfa252c70c89a1c8e3a6d02ef5ccdbb201503377baea3e5",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/qpswift/python/setup.py": "1d9c429d9be296e1c9c22cc175f4b014eca03768f0ce964d1744023e5ea54bb4",
+    "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/vendor/qpswift/python/build/lib.linux-x86_64-cpython-311/qpSWIFT.cpython-311-x86_64-linux-gnu.so": "de51f640221987e3c007f0b307322377421cbc131d3e1aa5ce1f746691c6b20d"
+  },
+  "options": {
+    "dac_author_si": {
+      "threshold_profile": "author_narrow"
+    },
+    "mgr_author_unicycle_tracking": {
+      "tau": 0.5
+    },
+    "chen_impc_ob_si_tracking": {
+      "K": 8,
+      "scale_lengths": false
+    },
+    "wang2017_full_di_tracking": {
+      "alpha": 5.0,
+      "gamma": 1.0
+    },
+    "wang2017_consistent_perturbation_di_tracking": {
+      "alpha": 5.0,
+      "gamma": 1.0
+    },
+    "zhang2025_risk_si": {
+      "gamma": 1.0,
+      "q": 1.0
+    }
+  },
+  "scope": "Same physical scenes, radius, wall margin, dt, speed, arrival and horizon. Full published mechanisms use their own controller and safety solver as in the sealed previous round. These are explicitly labelled full-mechanism common-plant ports, not nominal-controlled ablations or exact native paper benchmark reproductions. Their internal planning/temporary-goal logic sees true terminal goals; external route guidance belongs to the frozen C1 nominal pipeline."
+}

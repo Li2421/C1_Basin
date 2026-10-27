@@ -4,6 +4,9 @@ import traceback
 
 def main():
     if(HERE/'PROTECTION_VIOLATION.jsonl').exists():raise RuntimeError('HARD_STOP repository protection')
+    if(HERE/'SCENE2_GEOMETRY_BLOCKER.json').exists()and not(HERE/'SCENE2_RESOLVED').exists():
+        partial=read(HERE/'SCENES_FROZEN.json')
+        assert partial.get('valid_subset_revision')==2,'Invalid type2 must first be explicitly removed from the frozen valid subset'
     while not(HERE/'SCENES_FROZEN.json').exists():
         pid=HERE/'calibration.pid'
         if pid.exists():
@@ -32,6 +35,9 @@ def main():
     frozen=read(HERE/'SCENES_FROZEN.json')
     cohort,rows,minimum,dp=discovery.search(frozen)
     families=discovery.freeze_families(cohort,rows,minimum,dp)
+    if(HERE/'PAPER_PARAM_DEVELOPMENT_PROTOCOL.json').exists():
+        from paper_development import freeze_profiles
+        freeze_profiles()
     discovery.holdout(frozen,families)
     from papers import main as papers
     papers()

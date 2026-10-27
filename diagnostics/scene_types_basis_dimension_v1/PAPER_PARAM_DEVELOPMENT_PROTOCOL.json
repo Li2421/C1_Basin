@@ -1,0 +1,127 @@
+{
+  "variants": {
+    "dac_author_si": [
+      {},
+      {
+        "threshold_profile": "author_narrow"
+      }
+    ],
+    "mgr_author_unicycle_tracking": [
+      {
+        "tau": 0.5
+      },
+      {
+        "tau": 1.0
+      }
+    ],
+    "chen_impc_ob_si_tracking": [
+      {
+        "K": 8,
+        "scale_lengths": false
+      },
+      {
+        "K": 8,
+        "scale_lengths": true
+      },
+      {
+        "K": 24,
+        "scale_lengths": false
+      },
+      {
+        "K": 24,
+        "scale_lengths": true
+      }
+    ],
+    "wang2017_full_di_tracking": [
+      {
+        "alpha": 1.0,
+        "gamma": 0.1
+      },
+      {
+        "alpha": 1.0,
+        "gamma": 1.0
+      },
+      {
+        "alpha": 1.0,
+        "gamma": 10.0
+      },
+      {
+        "alpha": 5.0,
+        "gamma": 0.1
+      },
+      {
+        "alpha": 5.0,
+        "gamma": 1.0
+      },
+      {
+        "alpha": 5.0,
+        "gamma": 10.0
+      }
+    ],
+    "wang2017_consistent_perturbation_di_tracking": [
+      {
+        "alpha": 1.0,
+        "gamma": 0.1
+      },
+      {
+        "alpha": 1.0,
+        "gamma": 1.0
+      },
+      {
+        "alpha": 1.0,
+        "gamma": 10.0
+      },
+      {
+        "alpha": 5.0,
+        "gamma": 0.1
+      },
+      {
+        "alpha": 5.0,
+        "gamma": 1.0
+      },
+      {
+        "alpha": 5.0,
+        "gamma": 10.0
+      }
+    ],
+    "zhang2025_risk_si": [
+      {
+        "gamma": 1.0,
+        "q": 0.01
+      },
+      {
+        "gamma": 1.0,
+        "q": 1.0
+      },
+      {
+        "gamma": 2.0,
+        "q": 0.01
+      },
+      {
+        "gamma": 2.0,
+        "q": 1.0
+      },
+      {
+        "gamma": 5.0,
+        "q": 0.01
+      },
+      {
+        "gamma": 5.0,
+        "q": 1.0
+      }
+    ]
+  },
+  "source": "/home/zhihan/research/Basin_C1/diagnostics/paper_baselines_20261028/paper/DEVELOPMENT_FROZEN.json",
+  "source_sha256": "08527db355b8c37239a9a88b872e28b93ff9114fc989865486519e124e910ca4",
+  "states": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "excluded_pending_geometry_type": 2,
+  "cases": 1560,
+  "criterion": "Max success, then fewer collisions, fewer numerical unknowns, smaller whole-cohort truncated mean. No heldout data. Historical frozen profile retained; any retuned profile separately labelled.",
+  "necessity": "Original parameter menu has old-map evidence, not these narrow-door/corridor geometries. In particular the author IMPC obstacle-map extra clearance can make a physically open corridor unavailable to its planner; inspect the old predeclared physical-scaling variant before making a blanket method claim.",
+  "budget": "At most1664 development requests over16 valid types; no training; within45000 total hard cap. Existing smoke/compatible exact requests reused."
+}

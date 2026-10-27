@@ -50,12 +50,20 @@ def sample(rng,geom,n,r,region,avoid=None,mintrip=0.,goal_groups=None):
         else:raise ValueError(f'Placement exhausted for agent {j}/{n}; geometry/capacity gap, no radius relaxation')
     return np.asarray(out)
 
-def build(type_id,level=0,widen=0.):
+def build(type_id,level=0,widen=0.,crossing=None):
     v=LADDERS[type_id][level];rng=np.random.default_rng(np.random.SeedSequence([SEED,type_id,level,round(widen*1000)]))
     name=f'xsc_stb_t{type_id:02d}_l{level}_w{round(widen*1000):03d}';r=.1;bc=None;notes=[]
     n=10;hx=hy=1.5;rects=[];barrier=None;free=None
     if type_id==1:n=int(v);r=.05
-    elif type_id==2:n=2*int(v)
+    elif type_id==2:
+        n=2*int(v)
+        if crossing is None:
+            decision=HERE/'SCENE2_RESOLUTION.json'
+            if not decision.exists():raise ValueError('Type2 longitudinal-queue geometry needs the explicit radius/extent resolution; old transverse formation is invalid.')
+            crossing=read(decision)
+        r=float(crossing['radius']);hx=hy=float(crossing['half_extent'])
+        name=f'xsc_stb_t02_v2_l{level}_w{round(widen*1000):03d}'
+        notes.append('Corrected longitudinal queues; radius/extent from explicit geometry resolution. Earlier transverse formation is archived and excluded from formal selection.')
     elif type_id==3:n=int(v);hx=2.;hy=(.9+widen)/2
     elif type_id==4:n=int(v);r=.13;hx=hy=1.2
     elif type_id==5:
@@ -117,9 +125,10 @@ def build(type_id,level=0,widen=0.):
                 goals=-R*np.stack([np.cos(angle),np.sin(angle)],axis=1)
                 p=-goals+rng.uniform(-.045,.045,(n,2))
             elif type_id==2:
-                k=n//2;s=(np.arange(k)-(k-1)/2)*.5
-                p=np.vstack([np.c_[np.full(k,-1.45),s],np.c_[s,np.full(k,-1.45)]])+rng.uniform(-.05,.05,(n,2))
-                goals=np.vstack([np.c_[np.full(k,1.45),s],np.c_[s,np.full(k,1.45)]])
+                k=n//2;spacing=2.5*(2*r);longitudinal=-3*r-spacing*np.arange(k)
+                p=np.vstack([np.c_[longitudinal,np.zeros(k)],np.c_[np.zeros(k),longitudinal]])+rng.uniform(-.05,.05,(n,2))
+                goals=-p
+                if np.any(np.abs(p)>np.array([hx,hy])-r+1e-12):continue
             elif type_id==3:
                 x=np.linspace(-1.7,-.35,n//2);p=np.vstack([np.c_[x,np.full(n//2,-.22)],np.c_[x,np.full(n//2,.22)]])+rng.uniform(-.02,.02,(n,2))
                 goals=np.c_[-p[:,0],-p[:,1]]
@@ -175,7 +184,7 @@ def build(type_id,level=0,widen=0.):
     longest=max(float(np.linalg.norm(np.diff(path,axis=0),axis=1).sum())for paths in routes for path in paths)
     cfg=RN.LiteratureConfig(name,n,r,.05,.5,int(math.ceil(4*longest/.5/.05)),wall_radius=4/600).to_dict()
     enabled=any(not geom.visible(a,b)for s in states for a,b in zip(np.asarray(s['positions']),np.asarray(s['goals'])))
-    alias=f'xsc_stb_t{type_id:02d}_l{level}_w{round(widen*1000):03d}'
+    alias=name if type_id==2 else f'xsc_stb_t{type_id:02d}_l{level}_w{round(widen*1000):03d}'
     result=dict(name=alias,title=TITLES[type_id],type_id=type_id,level=level,knob=v,widen=widen,
         config=cfg,bottleneck_config=bc,walls=geom.walls.tolist(),states=states,route_guidance=enabled,
         factor=type_id,notes=notes,bounds=[-hx,-hy,hx,hy],longest_initial_route=longest,

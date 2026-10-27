@@ -1,0 +1,19 @@
+{
+  "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/ports/impc_adapter.py",
+  "original_sha256": "8e0786084df4ed167c27b920f3267c7a3288d44663fae2601fa751ee2a4c7386",
+  "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/ports/impc_adapter_v2.py",
+  "target_sha256": "b106450cf6c0b81543828773a02330b9161c85c3e091eec19a265222c42d4f2c",
+  "changes": [
+    "Restore all four corner rows of the original geometry.grid_width occupancy rule.",
+    "Reject query indices outside the original allocated occupancy grid, including non-grid-aligned upper-bound slivers."
+  ],
+  "unchanged": [
+    "Author ABITstar planner",
+    "Dynamic priority",
+    "Right-hand penalty",
+    "Safe-corridor construction and constraints",
+    "Physical walls/radius/dynamics/success",
+    "Frozen parameter options"
+  ],
+  "reason": "Original author ValidityChecker checks continuous bounds but then indexes a floor-sized grid. New metric map extents need the missing grid-domain guard. Old index exceptions remain archived under their original exact controller IDs."
+}

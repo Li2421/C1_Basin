@@ -28,32 +28,12 @@
     "all_calibration_conditions": false
   },
   "2": {
-    "geometry_valid": true,
-    "single_agent_paths": true,
-    "controller_gate": {
-      "centralized_sampling": {
-        "n": 32,
-        "success": 32,
-        "rate": 1.0,
-        "passed": true,
-        "numerical_unknown": 0
-      },
-      "gradient_mpc": {
-        "n": 32,
-        "success": 32,
-        "rate": 1.0,
-        "passed": true,
-        "numerical_unknown": 0
-      }
-    },
-    "joint_feasible": {
-      "0": "constructive_success",
-      "1": "constructive_success",
-      "2": "constructive_success",
-      "3": "constructive_success"
-    },
+    "geometry_valid": false,
+    "single_agent_paths": "requested longitudinal prototype not instantiated",
+    "joint_feasible": "not_certified",
+    "controller_gate": "not_assessed_on_requested_geometry",
     "deadlock_resolution": "not_evaluated",
-    "all_calibration_conditions": false
+    "gap": "The prototype used transverse lines instead of longitudinal queues. With its adopted radius0.1m, the requested3m field cannot contain one-sided4–6-agent queues at2.5diameter spacing. Radius/extent clarification is pending; neither proposed relaxation has been executed. Invalid prototype data are retained but excluded."
   },
   "3": {
     "geometry_valid": true,

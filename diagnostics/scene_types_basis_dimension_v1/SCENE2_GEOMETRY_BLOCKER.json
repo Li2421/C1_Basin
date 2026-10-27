@@ -1,0 +1,14 @@
+{
+  "status": "awaiting_geometry_clarification",
+  "time": "2026-10-28T02:15:53.750314+08:00",
+  "implementation_error": "Transverse line formation was used instead of the requested longitudinal queues.",
+  "adopted_radius": 0.1,
+  "spacing": 0.5,
+  "queue_length_for_six": 2.5,
+  "incoming_arm_half_extent": 1.5,
+  "requested_decision": [
+    "radius0.1_world6x6",
+    "radius0.05_world3x3"
+  ],
+  "policy": "Existing data retained. Do not select S3 supports or freeze families using the incorrect type2. Other types S1/S2 remain reusable."
+}

@@ -1,6 +1,8 @@
 """Full frozen paper port on the literal original physical environment step."""
 from core import *
 import sys,os,time,traceback
+qt_runtime=HERE/'tmp/qt_runtime';qt_runtime.mkdir(parents=True,exist_ok=True)
+os.chmod(qt_runtime,0o700);os.environ['XDG_RUNTIME_DIR']=str(qt_runtime)
 sys.path.insert(0,str(HERE/'ports'))
 from paper_adapters import METHODS
 import runner,runtime

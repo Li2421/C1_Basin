@@ -9,13 +9,9 @@
     "identical": true
   },
   "2": {
-    "agent_radius": 0.1,
-    "physical_wall_radius": 0.006666666666666667,
-    "safety_wall_radius": 0.006666666666666667,
-    "physical_margin": 0.11166666666666668,
-    "safety_margin": 0.11166666666666668,
-    "cbf_additional_separation_buffer": 0.0001,
-    "identical": true
+    "applicable": false,
+    "reason": "The prototype used transverse lines instead of longitudinal queues. With its adopted radius0.1m, the requested3m field cannot contain one-sided4–6-agent queues at2.5diameter spacing. Radius/extent clarification is pending; neither proposed relaxation has been executed. Invalid prototype data are retained but excluded.",
+    "previous_prototype_margins": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/scene_revisions/v1_before_invalidating_type2/GEOMETRY_CONSISTENCY.json"
   },
   "3": {
     "agent_radius": 0.1,
