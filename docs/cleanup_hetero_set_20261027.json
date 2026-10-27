@@ -586,7 +586,6 @@
   "database": "unchanged",
   "archive_strategy": "same-filesystem atomic rename, no compatibility symlinks; no permanent deletion of research evidence",
   "extra_evidence_reference_count": 18847,
-  "full_audit_path": "/home/zhihan/research/Basin_C1_retired_20261027/cleanup_audit/plan.json",
   "result": {
     "status": "COMPLETE",
     "snapshot_commit": "db959cb7f3c9fa60cdf9a22488fd5b8f70f016c1",
@@ -595,12 +594,28 @@
     "remaining_diagnostic_directories": 17,
     "archive_root": "/home/zhihan/research/Basin_C1_retired_20261027",
     "inode_checks_passed": true,
-    "permanent_data_deletion": false,
+    "permanent_data_deletion": true,
     "diagnostics_du": "351G",
     "archive_du": "311G",
     "protected_hash_verification": "passed: 7193 entries, 686701022 file bytes",
     "isolated_import_verification": "passed before and after: 18 repository modules, frozen files identical",
     "terminated_orphan_processes": 17
   },
-  "unplanned_new_directory_preserved": "diagnostics/baseline_comparison_v1"
+  "unplanned_new_directory_preserved": "diagnostics/baseline_comparison_v1",
+  "archive_status": "permanently_deleted_after_explicit_user_request",
+  "full_audit_path_deleted": "/home/zhihan/research/Basin_C1_retired_20261027/cleanup_audit/plan.json",
+  "permanent_deletion_receipt": {
+    "target": "/home/zhihan/research/Basin_C1_retired_20261027",
+    "device": 66307,
+    "inode": 53088723,
+    "available_bytes_before": 731090632704,
+    "frozen_before": {
+      "FINAL_FROZEN.json": "b2f848f7f748d2a27cf1bfcc42da5630d653cb20ce0335a09528cad3ce4f55d7",
+      "FROZEN_T2.json": "447ed4fc02d0fa75600ca31346be7bc7648089d35a38e6783dc1cdb791d17492"
+    },
+    "status": "permanently_deleted",
+    "available_bytes_after": 1064684290048,
+    "frozen_files_unchanged": true,
+    "net_available_bytes_increase": 333593657344
+  }
 }

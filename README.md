@@ -23,8 +23,8 @@
 ## 历史资料与验证
 
 2026-10-27 清理前的源码、文档和选定小型配置快照已推送：`db959cb`。
-336 个旧实验目录及其他过时内容已移出工作区，保留于 `/home/zhihan/research/Basin_C1_retired_20261027/`，原位置不留链接。
-这是同磁盘归档，不是独立灾备；大型数据和 checkpoint 没有通过 Git 备份。恢复旧实验时，按清单恢复其原相对路径。
+336 个旧实验目录及其他过时内容已移出工作区。随后按用户明确要求，`/home/zhihan/research/Basin_C1_retired_20261027/` 已永久删除。
+Git 快照仍可恢复已提交的代码、文档和选定小型配置；被删除的未版本化数据、checkpoint 和轨迹不能通过 Git 恢复。当前 hetero set 的三个结果目录和运行依赖继续保留。
 
 共享实现的回归检查入口为 `bash scripts/test.sh`；可用 `C1_PYTHON` 指定现有环境。
 实验、证据复用与视频要求以 [AGENTS.md](AGENTS.md) 为准；[视频默认可选](docs/video_delivery_optional.md)。
