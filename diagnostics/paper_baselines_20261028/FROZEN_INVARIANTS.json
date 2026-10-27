@@ -1,0 +1,12 @@
+{
+  "base": "daacc10",
+  "exact_source_sha256": {
+    "shared_control/basis_dictionary.py": "79024cc6f529c60fbbeec5471e91348ed35dfddbc504024d03a5f98f8a511fe3",
+    "shared_control/correction_b5.py": "3c369a6fd1f474880304d319c2b817c20c10c55c5acf2608eb2180372b04b078",
+    "shared_control/hard_projection.py": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+    "diagnostics/basis_discovery_20261027/runner.py": "a984d7215d7e5311afa3b26d3f9d4884577aca45e78b350fa111483f63d3dae2",
+    "diagnostics/b5_oracle_20261027/runtime.py": "5ccbe107bd3d695e2d5ef33928e8de5454c35e1e9116515a3b1e04788b49b894"
+  },
+  "b3_equivalence_evidence": "../basis_discovery_20261027/checks.json",
+  "no_new_production_code": true
+}

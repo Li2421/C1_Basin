@@ -1,0 +1,11 @@
+{
+  "risk_gradient_relative_error": 6.154170464738326e-10,
+  "wang_types": [
+    1,
+    2,
+    3
+  ],
+  "mgr_rigid_geometry_error": 6.280369834735101e-16,
+  "passed": true,
+  "limitations": "Checks validate specific derivatives/branch geometry; not full paper fidelity or closed-loop guarantees."
+}

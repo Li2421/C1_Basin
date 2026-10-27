@@ -1,0 +1,321 @@
+{
+  "selected": {
+    "dac_author_si": {
+      "threshold_profile": "author_narrow"
+    },
+    "mgr_author_unicycle_tracking": {
+      "tau": 0.5
+    },
+    "chen_impc_ob_si_tracking": {
+      "K": 8,
+      "scale_lengths": false
+    },
+    "wang2017_full_di_tracking": {
+      "alpha": 5.0,
+      "gamma": 1.0
+    },
+    "wang2017_consistent_perturbation_di_tracking": {
+      "alpha": 5.0,
+      "gamma": 1.0
+    },
+    "zhang2025_risk_si": {
+      "gamma": 1.0,
+      "q": 1.0
+    }
+  },
+  "rankings": {
+    "dac_author_si": [
+      {
+        "options": {
+          "threshold_profile": "author_narrow"
+        },
+        "n": 18,
+        "success": 15,
+        "collision": 0,
+        "unknown": 0,
+        "truncated_mean": 13.32777777777778
+      },
+      {
+        "options": {},
+        "n": 18,
+        "success": 9,
+        "collision": 0,
+        "unknown": 0,
+        "truncated_mean": 12.869444444444445
+      }
+    ],
+    "mgr_author_unicycle_tracking": [
+      {
+        "options": {
+          "tau": 0.5
+        },
+        "n": 18,
+        "success": 11,
+        "collision": 3,
+        "unknown": 0,
+        "truncated_mean": 13.77222222222222
+      },
+      {
+        "options": {
+          "tau": 1.0
+        },
+        "n": 18,
+        "success": 7,
+        "collision": 6,
+        "unknown": 0,
+        "truncated_mean": 15.10277777777778
+      }
+    ],
+    "chen_impc_ob_si_tracking": [
+      {
+        "options": {
+          "K": 8,
+          "scale_lengths": false
+        },
+        "n": 18,
+        "success": 10,
+        "collision": 0,
+        "unknown": 0,
+        "truncated_mean": 11.269444444444446
+      },
+      {
+        "options": {
+          "K": 24,
+          "scale_lengths": false
+        },
+        "n": 18,
+        "success": 4,
+        "collision": 13,
+        "unknown": 0,
+        "truncated_mean": 13.958333333333336
+      },
+      {
+        "options": {
+          "K": 8,
+          "scale_lengths": true
+        },
+        "n": 18,
+        "success": 1,
+        "collision": 10,
+        "unknown": 0,
+        "truncated_mean": 16.449999999999996
+      },
+      {
+        "options": {
+          "K": 24,
+          "scale_lengths": true
+        },
+        "n": 18,
+        "success": 1,
+        "collision": 17,
+        "unknown": 0,
+        "truncated_mean": 16.163888888888884
+      }
+    ],
+    "wang2017_full_di_tracking": [
+      {
+        "options": {
+          "alpha": 5.0,
+          "gamma": 1.0
+        },
+        "n": 18,
+        "success": 8,
+        "collision": 1,
+        "unknown": 9,
+        "truncated_mean": 13.983333333333333
+      },
+      {
+        "options": {
+          "alpha": 1.0,
+          "gamma": 1.0
+        },
+        "n": 18,
+        "success": 7,
+        "collision": 0,
+        "unknown": 9,
+        "truncated_mean": 15.702777777777776
+      },
+      {
+        "options": {
+          "alpha": 1.0,
+          "gamma": 10.0
+        },
+        "n": 18,
+        "success": 6,
+        "collision": 0,
+        "unknown": 12,
+        "truncated_mean": 14.119444444444447
+      },
+      {
+        "options": {
+          "alpha": 5.0,
+          "gamma": 10.0
+        },
+        "n": 18,
+        "success": 6,
+        "collision": 1,
+        "unknown": 11,
+        "truncated_mean": 13.811111111111112
+      },
+      {
+        "options": {
+          "alpha": 5.0,
+          "gamma": 0.1
+        },
+        "n": 18,
+        "success": 2,
+        "collision": 0,
+        "unknown": 9,
+        "truncated_mean": 16.18611111111111
+      },
+      {
+        "options": {
+          "alpha": 1.0,
+          "gamma": 0.1
+        },
+        "n": 18,
+        "success": 0,
+        "collision": 0,
+        "unknown": 11,
+        "truncated_mean": 16.736111111111107
+      }
+    ],
+    "wang2017_consistent_perturbation_di_tracking": [
+      {
+        "options": {
+          "alpha": 5.0,
+          "gamma": 1.0
+        },
+        "n": 18,
+        "success": 8,
+        "collision": 1,
+        "unknown": 9,
+        "truncated_mean": 13.983333333333333
+      },
+      {
+        "options": {
+          "alpha": 1.0,
+          "gamma": 1.0
+        },
+        "n": 18,
+        "success": 7,
+        "collision": 0,
+        "unknown": 9,
+        "truncated_mean": 15.702777777777776
+      },
+      {
+        "options": {
+          "alpha": 1.0,
+          "gamma": 10.0
+        },
+        "n": 18,
+        "success": 6,
+        "collision": 0,
+        "unknown": 12,
+        "truncated_mean": 14.119444444444447
+      },
+      {
+        "options": {
+          "alpha": 5.0,
+          "gamma": 10.0
+        },
+        "n": 18,
+        "success": 6,
+        "collision": 1,
+        "unknown": 11,
+        "truncated_mean": 13.811111111111112
+      },
+      {
+        "options": {
+          "alpha": 5.0,
+          "gamma": 0.1
+        },
+        "n": 18,
+        "success": 2,
+        "collision": 0,
+        "unknown": 9,
+        "truncated_mean": 16.18611111111111
+      },
+      {
+        "options": {
+          "alpha": 1.0,
+          "gamma": 0.1
+        },
+        "n": 18,
+        "success": 0,
+        "collision": 0,
+        "unknown": 11,
+        "truncated_mean": 16.736111111111107
+      }
+    ],
+    "zhang2025_risk_si": [
+      {
+        "options": {
+          "gamma": 1.0,
+          "q": 1.0
+        },
+        "n": 18,
+        "success": 0,
+        "collision": 0,
+        "unknown": 5,
+        "truncated_mean": 16.736111111111107
+      },
+      {
+        "options": {
+          "gamma": 2.0,
+          "q": 1.0
+        },
+        "n": 18,
+        "success": 0,
+        "collision": 0,
+        "unknown": 5,
+        "truncated_mean": 16.736111111111107
+      },
+      {
+        "options": {
+          "gamma": 2.0,
+          "q": 0.01
+        },
+        "n": 18,
+        "success": 0,
+        "collision": 0,
+        "unknown": 10,
+        "truncated_mean": 16.736111111111107
+      },
+      {
+        "options": {
+          "gamma": 1.0,
+          "q": 0.01
+        },
+        "n": 18,
+        "success": 0,
+        "collision": 1,
+        "unknown": 5,
+        "truncated_mean": 16.736111111111107
+      },
+      {
+        "options": {
+          "gamma": 5.0,
+          "q": 1.0
+        },
+        "n": 18,
+        "success": 0,
+        "collision": 1,
+        "unknown": 6,
+        "truncated_mean": 16.736111111111107
+      },
+      {
+        "options": {
+          "gamma": 5.0,
+          "q": 0.01
+        },
+        "n": 18,
+        "success": 0,
+        "collision": 1,
+        "unknown": 7,
+        "truncated_mean": 16.736111111111107
+      }
+    ]
+  },
+  "selection": "Maximum success on entire unique physical development cohort; then fewer collisions, fewer numerical unknown, then lower all-cohort capped time. No heldout paper result observed. Default and published parameter profiles plus predeclared modest physical scaling/gain sensitivity; no success-label recipe choice."
+}

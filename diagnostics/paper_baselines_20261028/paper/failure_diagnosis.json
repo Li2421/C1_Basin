@@ -1,0 +1,41 @@
+[
+  {
+    "scene": "xsc_hs_box_n09_r014_f25",
+    "step": 15,
+    "agent": 4,
+    "tests": {
+      "original_acceleration_rows": {
+        "status": "PrimalInfeasible"
+      },
+      "plus_common_speed": {
+        "status": "PrimalInfeasible"
+      }
+    }
+  },
+  {
+    "scene": "xsc_hs_swap_n07",
+    "step": 53,
+    "agent": 2,
+    "tests": {
+      "original_acceleration_rows": {
+        "status": "PrimalInfeasible"
+      },
+      "plus_common_speed": {
+        "status": "PrimalInfeasible"
+      }
+    }
+  },
+  {
+    "scene": "hs_obst_n08_R140_r045",
+    "step": 42,
+    "agent": 7,
+    "tests": {
+      "original_acceleration_rows": {
+        "status": "PrimalInfeasible"
+      },
+      "plus_common_speed": {
+        "status": "PrimalInfeasible"
+      }
+    }
+  }
+]

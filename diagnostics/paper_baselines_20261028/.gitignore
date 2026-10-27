@@ -1,0 +1,16 @@
+deps/
+deps_ompl17/
+vendor/
+*.log
+__pycache__/
+basis/traces/
+basis/candidates.jsonl
+paper/traces/
+paper/candidates.jsonl
+legacy/legacy_traces/
+legacy/candidates.jsonl
+*/*_planned.json
+*/*_preflight.json
+legacy/legacy_planned_rollouts.json
+risk_icra2025.pdf
+risk_icra2025.txt

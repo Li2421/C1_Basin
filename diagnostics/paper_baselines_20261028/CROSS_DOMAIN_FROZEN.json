@@ -1,0 +1,1304 @@
+{
+  "selected": {
+    "names": [
+      "G",
+      "P",
+      "R",
+      "C2"
+    ],
+    "dimension": 4,
+    "mask": 131079
+  },
+  "minimal_families": [
+    {
+      "names": [
+        "G",
+        "P",
+        "R",
+        "C2"
+      ],
+      "dimension": 4,
+      "mask": 131079
+    }
+  ],
+  "known_solved_cases": 43,
+  "cohort_success_keys": [
+    [
+      "external_dev",
+      "hs_obst_n08_R140_r045",
+      "centralized_sampling",
+      8
+    ],
+    [
+      "external_dev",
+      "hs_obst_n08_R140_r045",
+      "centralized_sampling",
+      9
+    ],
+    [
+      "external_dev",
+      "hs_obst_n08_R140_r045",
+      "centralized_sampling",
+      12
+    ],
+    [
+      "external_dev",
+      "hs_obst_n08_R140_r045",
+      "gradient_mpc",
+      8
+    ],
+    [
+      "external_dev",
+      "xsc_hs_box_n09_r014_f25",
+      "centralized_sampling",
+      8
+    ],
+    [
+      "external_dev",
+      "xsc_hs_box_n09_r014_f25",
+      "gradient_mpc",
+      8
+    ],
+    [
+      "external_dev",
+      "xsc_hs_plus_w025",
+      "centralized_sampling",
+      8
+    ],
+    [
+      "external_dev",
+      "xsc_hs_plus_w025",
+      "centralized_sampling",
+      10
+    ],
+    [
+      "external_dev",
+      "xsc_hs_plus_w025",
+      "centralized_sampling",
+      11
+    ],
+    [
+      "external_dev",
+      "xsc_hs_plus_w025",
+      "centralized_sampling",
+      12
+    ],
+    [
+      "external_dev",
+      "xsc_hs_plus_w025",
+      "centralized_sampling",
+      13
+    ],
+    [
+      "external_dev",
+      "xsc_hs_plus_w025",
+      "centralized_sampling",
+      14
+    ],
+    [
+      "external_dev",
+      "xsc_hs_plus_w025",
+      "centralized_sampling",
+      15
+    ],
+    [
+      "external_dev",
+      "xsc_hs_plus_w025",
+      "gradient_mpc",
+      8
+    ],
+    [
+      "external_dev",
+      "xsc_hs_swap_n07",
+      "centralized_sampling",
+      8
+    ],
+    [
+      "external_dev",
+      "xsc_hs_swap_n07",
+      "centralized_sampling",
+      9
+    ],
+    [
+      "external_dev",
+      "xsc_hs_swap_n07",
+      "centralized_sampling",
+      10
+    ],
+    [
+      "external_dev",
+      "xsc_hs_swap_n07",
+      "centralized_sampling",
+      11
+    ],
+    [
+      "external_dev",
+      "xsc_hs_swap_n07",
+      "centralized_sampling",
+      12
+    ],
+    [
+      "external_dev",
+      "xsc_hs_swap_n07",
+      "centralized_sampling",
+      13
+    ],
+    [
+      "external_dev",
+      "xsc_hs_swap_n07",
+      "centralized_sampling",
+      14
+    ],
+    [
+      "external_dev",
+      "xsc_hs_swap_n07",
+      "gradient_mpc",
+      8
+    ],
+    [
+      "legacy_FF",
+      "double_bottleneck",
+      "state_92e262fa2b8a2948540d68e26a495221a95c978bb2f6c7b23ac65179b33b3b46",
+      16
+    ],
+    [
+      "legacy_FF",
+      "toy_give_way",
+      "toy_hard_0",
+      16
+    ],
+    [
+      "legacy_FF",
+      "toy_give_way",
+      "toy_hard_0",
+      17
+    ],
+    [
+      "legacy_FF",
+      "toy_give_way",
+      "toy_hard_1",
+      16
+    ],
+    [
+      "legacy_FF",
+      "toy_give_way",
+      "toy_hard_1",
+      17
+    ],
+    [
+      "legacy_TT",
+      "double_bottleneck",
+      "state_424c53504e8790d69423173dda71cbad94b47c4d0fa3b60ca381989ca9dbec6f",
+      16
+    ],
+    [
+      "legacy_TT",
+      "double_bottleneck",
+      "state_424c53504e8790d69423173dda71cbad94b47c4d0fa3b60ca381989ca9dbec6f",
+      17
+    ],
+    [
+      "legacy_TT",
+      "double_bottleneck",
+      "state_92e262fa2b8a2948540d68e26a495221a95c978bb2f6c7b23ac65179b33b3b46",
+      16
+    ],
+    [
+      "legacy_TT",
+      "double_bottleneck",
+      "state_92e262fa2b8a2948540d68e26a495221a95c978bb2f6c7b23ac65179b33b3b46",
+      17
+    ],
+    [
+      "legacy_TT",
+      "four_way_intersection",
+      "state_a1c55709e8c19194081d48a21b33b0caaa52fbbb6f4e203ddad6583dfae54b14",
+      16
+    ],
+    [
+      "legacy_TT",
+      "four_way_intersection",
+      "state_a1c55709e8c19194081d48a21b33b0caaa52fbbb6f4e203ddad6583dfae54b14",
+      17
+    ],
+    [
+      "legacy_TT",
+      "four_way_intersection",
+      "state_d313c3403519d1d323d6b538771d33032bd3cbab96f464c2184038f7e867ee79",
+      16
+    ],
+    [
+      "legacy_TT",
+      "four_way_intersection",
+      "state_d313c3403519d1d323d6b538771d33032bd3cbab96f464c2184038f7e867ee79",
+      17
+    ],
+    [
+      "legacy_TT",
+      "ring_exchange",
+      "state_020ddc1f41256f27289d6d495286432aac7146c8251a789f3adc1b910d8215f6",
+      16
+    ],
+    [
+      "legacy_TT",
+      "ring_exchange",
+      "state_020ddc1f41256f27289d6d495286432aac7146c8251a789f3adc1b910d8215f6",
+      17
+    ],
+    [
+      "legacy_TT",
+      "ring_exchange",
+      "state_f5685da672aebc102432148b1c2dbccbf2cbd9a9cb0263cffa140332af715e74",
+      16
+    ],
+    [
+      "legacy_TT",
+      "ring_exchange",
+      "state_f5685da672aebc102432148b1c2dbccbf2cbd9a9cb0263cffa140332af715e74",
+      17
+    ],
+    [
+      "legacy_TT",
+      "toy_give_way",
+      "toy_hard_0",
+      16
+    ],
+    [
+      "legacy_TT",
+      "toy_give_way",
+      "toy_hard_0",
+      17
+    ],
+    [
+      "legacy_TT",
+      "toy_give_way",
+      "toy_hard_1",
+      16
+    ],
+    [
+      "legacy_TT",
+      "toy_give_way",
+      "toy_hard_1",
+      17
+    ]
+  ],
+  "eligible_witnesses": 2478,
+  "candidate_pool": [
+    {
+      "eta": [
+        1.2259909729473293,
+        0.40439489763230085,
+        0.05669324495829642
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.25,
+        0.5,
+        0.75
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.0026288856752217,
+        0.056379557587206364,
+        0.7455985327251256
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.562171065248549,
+        -0.3615773478522897,
+        0.6961268512532115
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.2463931469246745,
+        -0.2889987491071224,
+        0.18647276004776359
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.6005927280057222,
+        0.45831789541989565,
+        0.7155816543381661
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.5078851231373847,
+        -0.06736976280808449,
+        0.6471800354775041
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        0.515423393342644,
+        -0.2982649700716138,
+        0.5946861673146486
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        0.515423393342644,
+        -0.2982649700716138,
+        0.5946861673146486
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.5869771582074463,
+        -0.4283745754510164,
+        0.6948941890150309
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.5869771582074463,
+        -0.4283745754510164,
+        0.6948941890150309
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        -0.5,
+        0.75
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        -0.5,
+        0.75
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        0.6264321873895824,
+        -0.36308222729712725,
+        0.655959902331233
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        1.2259909729473293,
+        0.40439489763230085,
+        0.05669324495829642
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        1.2259909729473293,
+        0.40439489763230085,
+        0.05669324495829642
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.562171065248549,
+        -0.3615773478522897,
+        0.6961268512532115
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.562171065248549,
+        -0.3615773478522897,
+        0.6961268512532115
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        1.25,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        1.25,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        1.2463931469246745,
+        -0.2889987491071224,
+        0.18647276004776359
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        1.2463931469246745,
+        -0.2889987491071224,
+        0.18647276004776359
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.875,
+        0.5,
+        0.375
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.75
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.875,
+        -0.5,
+        0.375
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.25,
+        0.5,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.40439489763230085,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.2259909729473293,
+        0.40439489763230085,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.2259909729473293,
+        0.0,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.40439489763230085,
+        0.05669324495829642
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.2259909729473293,
+        0.0,
+        0.05669324495829642
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.05669324495829642
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.5,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.875,
+        0.5,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.375
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.5,
+        0.375
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.25,
+        0.0,
+        0.75
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.0026288856752217,
+        0.0,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.0026288856752217,
+        0.0,
+        0.7455985327251256
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.056379557587206364,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.0026288856752217,
+        0.056379557587206364,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.875,
+        -0.5,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.75
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.5,
+        0.75
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.25,
+        0.0,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.2463931469246745,
+        0.0,
+        0.18647276004776359
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.2463931469246745,
+        0.0,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.2463931469246745,
+        -0.2889987491071224,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.9904570817016065
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.39559295191429555
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.9429877446964383
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.4682126580737531
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.5273364440072328
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.3595390245318413
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.9085410751868039
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.3762349640019238
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.79335100017488
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.6079613384790719
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.2555681827943772
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.9349545734003186
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.44938506092876196
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.43684938200749457
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.9225262471009046
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.5328484603669494
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.3298569298349321
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.8842298686504364
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.9904570817016065
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.39559295191429555
+      }
+    },
+    {
+      "eta": [
+        0.9549061399884522,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.09137600753456354
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.4682126580737531
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.9085410751868039
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.3762349640019238
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.79335100017488
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.6079613384790719
+      }
+    },
+    {
+      "eta": [
+        1.0996018692385405,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.2095240168273449
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.2555681827943772
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.9349545734003186
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.44938506092876196
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.43684938200749457
+      }
+    },
+    {
+      "eta": [
+        0.693402840057388,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.049653058871626854
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.8842298686504364
+      }
+    },
+    {
+      "eta": [
+        0.9525975319556892,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.963642930611968
+      }
+    },
+    {
+      "eta": [
+        0.615450122160837,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.7311900537461042
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.8842298686504364
+      }
+    },
+    {
+      "eta": [
+        0.9549061399884522,
+        0.0,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.9105262886732817
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.5461761457845569
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.8591707246378064
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.6068914495408535
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.6629619663581252
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.7235250324010849
+      }
+    },
+    {
+      "eta": [
+        1.2000008821487427,
+        -0.07527729868888855,
+        0.021406829357147217
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.1686832904815674,
+        -0.2579040825366974,
+        0.04294651746749878
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.5502068400382996,
+        0.42717960476875305,
+        0.011970430612564087
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.5258989334106445,
+        0.34408292174339294,
+        0.006119906902313232
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.115109920501709,
+        -0.13864848017692566,
+        0.16117872297763824
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.83173668384552,
+        -0.14164282381534576,
+        0.02204817533493042
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.7968224287033081,
+        -0.14258211851119995,
+        0.04050576686859131
+      ],
+      "coefficients": {}
+    }
+  ],
+  "criterion": "Smallest support covering every already-solved development+legacy case; tie by canonical dictionary mask. Uses legacy16/17 for discovery only; fresh-seed confirmation required. Finite observed witness cover, not continuous minimality.",
+  "warning": "Original four checkpoint transfer falsified fixed GC2 generalization. Family identity now derived automatically from combined-domain evidence; no external holdout22/23 labels used here."
+}

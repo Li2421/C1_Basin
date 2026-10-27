@@ -1,0 +1,1490 @@
+{
+  "best": {
+    "spec": {
+      "eta": [
+        0.9525975319556892,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.963642930611968
+      }
+    },
+    "names": [
+      "G",
+      "C2"
+    ],
+    "dimension": 2,
+    "success": 20,
+    "collision": 0,
+    "success_mean_time": 10.254999999999999,
+    "truncated_mean": 10.395454545454546
+  },
+  "best_by_dimension": [
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "T5": 0.75
+        },
+        "t5_seed": "tangent"
+      },
+      "names": [
+        "T5"
+      ],
+      "dimension": 1,
+      "success": 15,
+      "collision": 1,
+      "success_mean_time": 10.79,
+      "truncated_mean": 13.493181818181817
+    },
+    {
+      "spec": {
+        "eta": [
+          0.9525975319556892,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "C2": 0.963642930611968
+        }
+      },
+      "names": [
+        "G",
+        "C2"
+      ],
+      "dimension": 2,
+      "success": 20,
+      "collision": 0,
+      "success_mean_time": 10.254999999999999,
+      "truncated_mean": 10.395454545454546
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "T5": -0.75
+        },
+        "t5_seed": "tangent"
+      },
+      "names": [
+        "G",
+        "R",
+        "T5"
+      ],
+      "dimension": 3,
+      "success": 14,
+      "collision": 0,
+      "success_mean_time": 9.717857142857143,
+      "truncated_mean": 12.688636363636363
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "Y3": 0.8068427238613367,
+          "C2": 0.3298569298349321
+        },
+        "clearance_side": 1
+      },
+      "names": [
+        "G",
+        "R",
+        "Y3",
+        "C2"
+      ],
+      "dimension": 4,
+      "success": 19,
+      "collision": 0,
+      "success_mean_time": 10.505263157894737,
+      "truncated_mean": 11.306818181818182
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "Y2": 0.7968620220199227,
+          "C2": 0.6926687890663743
+        }
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "Y2",
+        "C2"
+      ],
+      "dimension": 5,
+      "success": 19,
+      "collision": 0,
+      "success_mean_time": 12.026315789473685,
+      "truncated_mean": 12.47727272727273
+    }
+  ],
+  "ranking": [
+    {
+      "spec": {
+        "eta": [
+          0.9525975319556892,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "C2": 0.963642930611968
+        }
+      },
+      "names": [
+        "G",
+        "C2"
+      ],
+      "dimension": 2,
+      "success": 20,
+      "collision": 0,
+      "success_mean_time": 10.254999999999999,
+      "truncated_mean": 10.395454545454546
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "C2": 0.9085410751868039
+        }
+      },
+      "names": [
+        "G",
+        "C2"
+      ],
+      "dimension": 2,
+      "success": 19,
+      "collision": 0,
+      "success_mean_time": 10.221052631578948,
+      "truncated_mean": 10.918181818181822
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "Y3": 0.8068427238613367,
+          "C2": 0.3298569298349321
+        },
+        "clearance_side": 1
+      },
+      "names": [
+        "G",
+        "R",
+        "Y3",
+        "C2"
+      ],
+      "dimension": 4,
+      "success": 19,
+      "collision": 0,
+      "success_mean_time": 10.505263157894737,
+      "truncated_mean": 11.306818181818182
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "S1": 0.984880797797814,
+          "C2": 0.9904570817016065
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "S1",
+        "C2"
+      ],
+      "dimension": 4,
+      "success": 19,
+      "collision": 0,
+      "success_mean_time": 10.84736842105263,
+      "truncated_mean": 11.45909090909091
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "Y3": 0.35874600848183036,
+          "C2": 0.5328484603669494
+        },
+        "clearance_side": 1
+      },
+      "names": [
+        "G",
+        "R",
+        "Y3",
+        "C2"
+      ],
+      "dimension": 4,
+      "success": 19,
+      "collision": 0,
+      "success_mean_time": 11.528947368421054,
+      "truncated_mean": 12.047727272727276
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "Y2": 0.7968620220199227,
+          "C2": 0.6926687890663743
+        }
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "Y2",
+        "C2"
+      ],
+      "dimension": 5,
+      "success": 19,
+      "collision": 0,
+      "success_mean_time": 12.026315789473685,
+      "truncated_mean": 12.47727272727273
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "T3": -0.7983648478984833,
+          "C2": 0.9765725680626929
+        }
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "T3",
+        "C2"
+      ],
+      "dimension": 5,
+      "success": 19,
+      "collision": 0,
+      "success_mean_time": 14.476315789473684,
+      "truncated_mean": 14.593181818181819
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "S1": 0.8175489134155214,
+          "C2": 0.4682126580737531
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "S1",
+        "C2"
+      ],
+      "dimension": 4,
+      "success": 18,
+      "collision": 0,
+      "success_mean_time": 10.775000000000002,
+      "truncated_mean": 11.58636363636364
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "T3": 0.9697433346882463,
+          "C2": 0.3762349640019238
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "T3",
+        "C2"
+      ],
+      "dimension": 4,
+      "success": 18,
+      "collision": 0,
+      "success_mean_time": 10.43611111111111,
+      "truncated_mean": 11.875
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "Y1": 0.6481814293656498,
+          "C2": 0.6079613384790719
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "Y1",
+        "C2"
+      ],
+      "dimension": 4,
+      "success": 18,
+      "collision": 0,
+      "success_mean_time": 10.766666666666667,
+      "truncated_mean": 11.91818181818182
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "T2": 0.6361028784886003,
+          "C2": 0.5273364440072328
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "T2",
+        "C2"
+      ],
+      "dimension": 4,
+      "success": 18,
+      "collision": 0,
+      "success_mean_time": 11.944444444444446,
+      "truncated_mean": 12.627272727272727
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "S1": 0.2804689856711775,
+          "C2": 0.6994983511976898
+        }
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "S1",
+        "C2"
+      ],
+      "dimension": 5,
+      "success": 18,
+      "collision": 0,
+      "success_mean_time": 12.055555555555555,
+      "truncated_mean": 12.634090909090908
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "Y3": 0.9494755382183939,
+          "C2": 0.776220511412248
+        },
+        "clearance_side": 1
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "Y3",
+        "C2"
+      ],
+      "dimension": 5,
+      "success": 18,
+      "collision": 0,
+      "success_mean_time": 12.405555555555557,
+      "truncated_mean": 13.259090909090908
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "Y2": -0.6838253932073712,
+          "C2": 0.943801665911451
+        }
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "Y2",
+        "C2"
+      ],
+      "dimension": 5,
+      "success": 18,
+      "collision": 0,
+      "success_mean_time": 13.280555555555557,
+      "truncated_mean": 13.636363636363637
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "T3": 0.658472741022706,
+          "C2": 0.6360927454661578
+        }
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "T3",
+        "C2"
+      ],
+      "dimension": 5,
+      "success": 17,
+      "collision": 0,
+      "success_mean_time": 10.891176470588235,
+      "truncated_mean": 12.543181818181818
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "Y2": 0.6061947513371706,
+          "C2": 0.43684938200749457
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "Y2",
+        "C2"
+      ],
+      "dimension": 4,
+      "success": 16,
+      "collision": 0,
+      "success_mean_time": 11.053125000000001,
+      "truncated_mean": 12.336363636363638
+    },
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "T5": 0.75
+        },
+        "t5_seed": "tangent"
+      },
+      "names": [
+        "T5"
+      ],
+      "dimension": 1,
+      "success": 15,
+      "collision": 1,
+      "success_mean_time": 10.79,
+      "truncated_mean": 13.493181818181817
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "Y2": -0.9995057806372643,
+          "C2": 0.44938506092876196
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "Y2",
+        "C2"
+      ],
+      "dimension": 4,
+      "success": 15,
+      "collision": 0,
+      "success_mean_time": 10.073333333333334,
+      "truncated_mean": 12.156818181818183
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "T3": -0.6120768459513783,
+          "C2": 0.48692962038330734
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "T3",
+        "C2"
+      ],
+      "dimension": 4,
+      "success": 15,
+      "collision": 0,
+      "success_mean_time": 11.413333333333334,
+      "truncated_mean": 12.843181818181817
+    },
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "T5": -0.75
+        },
+        "t5_seed": "tangent"
+      },
+      "names": [
+        "T5"
+      ],
+      "dimension": 1,
+      "success": 14,
+      "collision": 0,
+      "success_mean_time": 10.757142857142856,
+      "truncated_mean": 13.51818181818182
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "T5": -0.75
+        },
+        "t5_seed": "tangent"
+      },
+      "names": [
+        "G",
+        "T5"
+      ],
+      "dimension": 2,
+      "success": 14,
+      "collision": 0,
+      "success_mean_time": 9.989285714285716,
+      "truncated_mean": 12.861363636363636
+    },
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "T5": -0.75
+        },
+        "t5_seed": "tangent"
+      },
+      "names": [
+        "R",
+        "T5"
+      ],
+      "dimension": 2,
+      "success": 14,
+      "collision": 0,
+      "success_mean_time": 10.739285714285714,
+      "truncated_mean": 13.506818181818183
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "T5": -0.75
+        },
+        "t5_seed": "tangent"
+      },
+      "names": [
+        "G",
+        "R",
+        "T5"
+      ],
+      "dimension": 3,
+      "success": 14,
+      "collision": 0,
+      "success_mean_time": 9.717857142857143,
+      "truncated_mean": 12.688636363636363
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "Y3": 1.0
+        },
+        "clearance_side": 1
+      },
+      "names": [
+        "G",
+        "R",
+        "Y3"
+      ],
+      "dimension": 3,
+      "success": 14,
+      "collision": 0,
+      "success_mean_time": 10.557142857142859,
+      "truncated_mean": 12.831818181818182
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "T5": 0.75
+        },
+        "t5_seed": "tangent"
+      },
+      "names": [
+        "G",
+        "R",
+        "T5"
+      ],
+      "dimension": 3,
+      "success": 14,
+      "collision": 0,
+      "success_mean_time": 10.839285714285717,
+      "truncated_mean": 13.602272727272727
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "T5": -0.8316404670476913,
+          "Y4": 0.339425562415272
+        },
+        "t5_seed": "tangent"
+      },
+      "names": [
+        "G",
+        "R",
+        "T5",
+        "Y4"
+      ],
+      "dimension": 4,
+      "success": 14,
+      "collision": 0,
+      "success_mean_time": 9.85,
+      "truncated_mean": 12.772727272727273
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "C2": 1.0
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "C2"
+      ],
+      "dimension": 3,
+      "success": 13,
+      "collision": 0,
+      "success_mean_time": 11.11923076923077,
+      "truncated_mean": 13.243181818181819
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "Y4": 0.4563692572992295,
+          "C2": 0.5908750258386135
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "Y4",
+        "C2"
+      ],
+      "dimension": 4,
+      "success": 13,
+      "collision": 0,
+      "success_mean_time": 11.25,
+      "truncated_mean": 13.320454545454545
+    },
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "T1": -0.75
+        }
+      },
+      "names": [
+        "T1"
+      ],
+      "dimension": 1,
+      "success": 12,
+      "collision": 8,
+      "success_mean_time": 9.85,
+      "truncated_mean": 12.554545454545456
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "Y1": 1.0
+        }
+      },
+      "names": [
+        "G",
+        "Y1"
+      ],
+      "dimension": 2,
+      "success": 12,
+      "collision": 0,
+      "success_mean_time": 10.925000000000002,
+      "truncated_mean": 13.627272727272725
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "Y1": 1.0
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "Y1"
+      ],
+      "dimension": 3,
+      "success": 12,
+      "collision": 0,
+      "success_mean_time": 10.866666666666667,
+      "truncated_mean": 13.595454545454546
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "C2": 0.5
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "C2"
+      ],
+      "dimension": 3,
+      "success": 12,
+      "collision": 0,
+      "success_mean_time": 11.779166666666667,
+      "truncated_mean": 13.777272727272726
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "P2": 0.6507325246930122,
+          "Y2": 0.9912872035056353
+        }
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "P2",
+        "Y2"
+      ],
+      "dimension": 5,
+      "success": 12,
+      "collision": 0,
+      "success_mean_time": 11.479166666666666,
+      "truncated_mean": 13.843181818181819
+    },
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "T1": 0.75
+        }
+      },
+      "names": [
+        "T1"
+      ],
+      "dimension": 1,
+      "success": 11,
+      "collision": 8,
+      "success_mean_time": 9.1,
+      "truncated_mean": 12.75
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "S1": 1.0
+        }
+      },
+      "names": [
+        "G",
+        "S1"
+      ],
+      "dimension": 2,
+      "success": 11,
+      "collision": 0,
+      "success_mean_time": 11.063636363636364,
+      "truncated_mean": 13.736363636363636
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "S1": 1.0
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "S1"
+      ],
+      "dimension": 3,
+      "success": 11,
+      "collision": 0,
+      "success_mean_time": 11.00909090909091,
+      "truncated_mean": 13.709090909090907
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "Y4": 0.6650954373180866,
+          "C2": 0.7401322182267904
+        }
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "Y4",
+        "C2"
+      ],
+      "dimension": 5,
+      "success": 11,
+      "collision": 0,
+      "success_mean_time": 12.568181818181818,
+      "truncated_mean": 14.145454545454548
+    },
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "Y3": 1.0
+        },
+        "clearance_side": 1
+      },
+      "names": [
+        "Y3"
+      ],
+      "dimension": 1,
+      "success": 10,
+      "collision": 0,
+      "success_mean_time": 10.895,
+      "truncated_mean": 13.836363636363638
+    },
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.0,
+          0.375
+        ],
+        "coefficients": {}
+      },
+      "names": [
+        "R"
+      ],
+      "dimension": 1,
+      "success": 10,
+      "collision": 0,
+      "success_mean_time": 14.5,
+      "truncated_mean": 15.475
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "T2": -0.5897079408168793,
+          "C2": 0.6652425390202552
+        }
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "T2",
+        "C2"
+      ],
+      "dimension": 5,
+      "success": 10,
+      "collision": 0,
+      "success_mean_time": 11.965,
+      "truncated_mean": 14.318181818181818
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "P2": -0.815058290027082,
+          "C2": 0.806376306572929
+        }
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "P2",
+        "C2"
+      ],
+      "dimension": 5,
+      "success": 10,
+      "collision": 0,
+      "success_mean_time": 11.81,
+      "truncated_mean": 14.586363636363636
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "P2": 0.7044621063396335,
+          "C2": 0.8304591299965978
+        }
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "P2",
+        "C2"
+      ],
+      "dimension": 5,
+      "success": 10,
+      "collision": 0,
+      "success_mean_time": 12.025,
+      "truncated_mean": 14.68409090909091
+    },
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "Y1": 1.0
+        }
+      },
+      "names": [
+        "Y1"
+      ],
+      "dimension": 1,
+      "success": 9,
+      "collision": 0,
+      "success_mean_time": 10.444444444444445,
+      "truncated_mean": 14.174999999999999
+    },
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "Y1": 1.0
+        }
+      },
+      "names": [
+        "R",
+        "Y1"
+      ],
+      "dimension": 2,
+      "success": 9,
+      "collision": 0,
+      "success_mean_time": 10.450000000000001,
+      "truncated_mean": 14.177272727272726
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "T1": 0.75
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "T1"
+      ],
+      "dimension": 3,
+      "success": 9,
+      "collision": 8,
+      "success_mean_time": 7.0,
+      "truncated_mean": 13.1
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "T1": -0.75
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "T1"
+      ],
+      "dimension": 3,
+      "success": 9,
+      "collision": 8,
+      "success_mean_time": 7.122222222222224,
+      "truncated_mean": 13.631818181818181
+    },
+    {
+      "spec": {
+        "eta": [
+          0.5,
+          0.5,
+          0.75
+        ],
+        "coefficients": {
+          "T2": 0.9454203490167856,
+          "C2": 0.9720520917326212
+        }
+      },
+      "names": [
+        "G",
+        "P",
+        "R",
+        "T2",
+        "C2"
+      ],
+      "dimension": 5,
+      "success": 9,
+      "collision": 0,
+      "success_mean_time": 12.994444444444444,
+      "truncated_mean": 14.875
+    },
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "S1": 1.0
+        }
+      },
+      "names": [
+        "S1"
+      ],
+      "dimension": 1,
+      "success": 8,
+      "collision": 1,
+      "success_mean_time": 10.40625,
+      "truncated_mean": 14.45
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "Y2": -0.75
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "Y2"
+      ],
+      "dimension": 3,
+      "success": 8,
+      "collision": 0,
+      "success_mean_time": 10.525000000000002,
+      "truncated_mean": 15.03181818181818
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "R3": 1.0
+        }
+      },
+      "names": [
+        "G",
+        "R",
+        "R3"
+      ],
+      "dimension": 3,
+      "success": 8,
+      "collision": 1,
+      "success_mean_time": 12.65,
+      "truncated_mean": 15.095454545454546
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "Y3": 0.5
+        },
+        "clearance_side": 1
+      },
+      "names": [
+        "G",
+        "R",
+        "Y3"
+      ],
+      "dimension": 3,
+      "success": 7,
+      "collision": 0,
+      "success_mean_time": 10.828571428571431,
+      "truncated_mean": 14.820454545454544
+    },
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.5,
+          0.0
+        ],
+        "coefficients": {}
+      },
+      "names": [
+        "P"
+      ],
+      "dimension": 1,
+      "success": 6,
+      "collision": 0,
+      "success_mean_time": 11.583333333333334,
+      "truncated_mean": 15.409090909090908
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.75
+        ],
+        "coefficients": {}
+      },
+      "names": [
+        "G",
+        "R"
+      ],
+      "dimension": 2,
+      "success": 6,
+      "collision": 0,
+      "success_mean_time": 11.616666666666667,
+      "truncated_mean": 15.079545454545455
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "R2": 0.75
+        }
+      },
+      "names": [
+        "G",
+        "R2"
+      ],
+      "dimension": 2,
+      "success": 6,
+      "collision": 0,
+      "success_mean_time": 12.683333333333335,
+      "truncated_mean": 15.649999999999999
+    },
+    {
+      "spec": {
+        "eta": [
+          1.2259909729473293,
+          0.0,
+          0.0
+        ],
+        "coefficients": {}
+      },
+      "names": [
+        "G"
+      ],
+      "dimension": 1,
+      "success": 5,
+      "collision": 0,
+      "success_mean_time": 11.72,
+      "truncated_mean": 15.254545454545452
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.0
+        ],
+        "coefficients": {}
+      },
+      "names": [
+        "G"
+      ],
+      "dimension": 1,
+      "success": 5,
+      "collision": 0,
+      "success_mean_time": 11.75,
+      "truncated_mean": 15.261363636363637
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "R2": 0.375
+        }
+      },
+      "names": [
+        "G",
+        "R2"
+      ],
+      "dimension": 2,
+      "success": 5,
+      "collision": 0,
+      "success_mean_time": 12.17,
+      "truncated_mean": 15.356818181818182
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "R3": 0.375
+        }
+      },
+      "names": [
+        "G",
+        "R3"
+      ],
+      "dimension": 2,
+      "success": 5,
+      "collision": 0,
+      "success_mean_time": 11.570000000000002,
+      "truncated_mean": 15.55909090909091
+    },
+    {
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "R3": 0.75
+        }
+      },
+      "names": [
+        "G",
+        "R3"
+      ],
+      "dimension": 2,
+      "success": 4,
+      "collision": 0,
+      "success_mean_time": 12.6125,
+      "truncated_mean": 15.420454545454545
+    },
+    {
+      "spec": {
+        "eta": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "coefficients": {
+          "C2": 1.0
+        }
+      },
+      "names": [
+        "C2"
+      ],
+      "dimension": 1,
+      "success": 2,
+      "collision": 0,
+      "success_mean_time": 13.950000000000001,
+      "truncated_mean": 16.599999999999998
+    }
+  ],
+  "criterion": "Maximum full-dev success, then minimum dimension, then collisions and capped time; frozen before states22..25."
+}

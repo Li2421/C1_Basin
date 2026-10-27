@@ -1,0 +1,955 @@
+{
+  "pool": [
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "T5": -0.75
+      },
+      "t5_seed": "tangent"
+    },
+    {
+      "eta": [
+        0.0,
+        0.5,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "Y1": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "T1": 0.75
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "T5": 0.75
+      },
+      "t5_seed": "tangent"
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "S1": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "T1": -0.75
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.375
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        1.2259909729473293,
+        0.0,
+        0.0
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "Y3": 1.0
+      },
+      "clearance_side": 1
+    },
+    {
+      "eta": [
+        0.9525975319556892,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.963642930611968
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "C2": 0.9085410751868039
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "T5": -0.75
+      },
+      "t5_seed": "tangent"
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.75
+      ],
+      "coefficients": {}
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "R2": 0.75
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "R2": 0.375
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "R3": 0.375
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "T5": -0.75
+      },
+      "t5_seed": "tangent"
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "S1": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "Y1": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.0,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "Y1": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.0
+      ],
+      "coefficients": {
+        "R3": 0.75
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "T5": -0.75
+      },
+      "t5_seed": "tangent"
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "Y3": 1.0
+      },
+      "clearance_side": 1
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "T5": 0.75
+      },
+      "t5_seed": "tangent"
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "Y1": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "C2": 0.5
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "S1": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "T1": 0.75
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "T1": -0.75
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "Y2": -0.75
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "R3": 1.0
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "Y3": 0.5
+      },
+      "clearance_side": 1
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "Y3": 0.8068427238613367,
+        "C2": 0.3298569298349321
+      },
+      "clearance_side": 1
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "S1": 0.984880797797814,
+        "C2": 0.9904570817016065
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "Y3": 0.35874600848183036,
+        "C2": 0.5328484603669494
+      },
+      "clearance_side": 1
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "S1": 0.8175489134155214,
+        "C2": 0.4682126580737531
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "T3": 0.9697433346882463,
+        "C2": 0.3762349640019238
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "Y1": 0.6481814293656498,
+        "C2": 0.6079613384790719
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "T2": 0.6361028784886003,
+        "C2": 0.5273364440072328
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "Y2": 0.6061947513371706,
+        "C2": 0.43684938200749457
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "Y2": -0.9995057806372643,
+        "C2": 0.44938506092876196
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "T3": -0.6120768459513783,
+        "C2": 0.48692962038330734
+      }
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "T5": -0.8316404670476913,
+        "Y4": 0.339425562415272
+      },
+      "t5_seed": "tangent"
+    },
+    {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "Y4": 0.4563692572992295,
+        "C2": 0.5908750258386135
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "P2": -0.815058290027082,
+        "C2": 0.806376306572929
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "P2": 0.7044621063396335,
+        "C2": 0.8304591299965978
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "T3": -0.7983648478984833,
+        "C2": 0.9765725680626929
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "Y2": 0.7968620220199227,
+        "C2": 0.6926687890663743
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "Y3": 0.9494755382183939,
+        "C2": 0.776220511412248
+      },
+      "clearance_side": 1
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "Y2": -0.6838253932073712,
+        "C2": 0.943801665911451
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "Y4": 0.6650954373180866,
+        "C2": 0.7401322182267904
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "S1": 0.2804689856711775,
+        "C2": 0.6994983511976898
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "T2": -0.5897079408168793,
+        "C2": 0.6652425390202552
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "T3": 0.658472741022706,
+        "C2": 0.6360927454661578
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "P2": 0.6507325246930122,
+        "Y2": 0.9912872035056353
+      }
+    },
+    {
+      "eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "coefficients": {
+        "T2": 0.9454203490167856,
+        "C2": 0.9720520917326212
+      }
+    }
+  ],
+  "dev_cases": [
+    {
+      "scene": "xsc_hs_plus_w025",
+      "controller": "centralized_sampling",
+      "state_index": 10,
+      "hard": true,
+      "baseline_eta": [
+        1.25,
+        0.5,
+        0.0
+      ],
+      "baseline_rollout_uid": "roll_a3fedf3d85ed787ec679800924e6f3ec418aa3a19cbc7bd0749c4fa6b17659ba",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_a3fedf3d85ed787ec679800924e6f3ec418aa3a19cbc7bd0749c4fa6b17659ba.npz"
+    },
+    {
+      "scene": "xsc_hs_plus_w025",
+      "controller": "centralized_sampling",
+      "state_index": 11,
+      "hard": true,
+      "baseline_eta": [
+        0.6005927280057222,
+        0.45831789541989565,
+        0.7155816543381661
+      ],
+      "baseline_rollout_uid": "roll_96e8a528af1e596e7a6bb556253fb4ce2e80bf4aeb0a7234238bad00391ab10d",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_96e8a528af1e596e7a6bb556253fb4ce2e80bf4aeb0a7234238bad00391ab10d.npz"
+    },
+    {
+      "scene": "xsc_hs_plus_w025",
+      "controller": "centralized_sampling",
+      "state_index": 12,
+      "hard": true,
+      "baseline_eta": [
+        1.25,
+        0.5,
+        0.0
+      ],
+      "baseline_rollout_uid": "roll_4139b4308dd4b19591e1335d4a41c0a559c9a6d7207e614f03eaf0c9afc08a99",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_4139b4308dd4b19591e1335d4a41c0a559c9a6d7207e614f03eaf0c9afc08a99.npz"
+    },
+    {
+      "scene": "xsc_hs_plus_w025",
+      "controller": "centralized_sampling",
+      "state_index": 13,
+      "hard": true,
+      "baseline_eta": [
+        0.5078851231373847,
+        -0.06736976280808449,
+        0.6471800354775041
+      ],
+      "baseline_rollout_uid": "roll_1a407f4bb0c0c74dd2f65a9fee4637275d5e2f88525f6a0a9577ad0b36a0fb0b",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_1a407f4bb0c0c74dd2f65a9fee4637275d5e2f88525f6a0a9577ad0b36a0fb0b.npz"
+    },
+    {
+      "scene": "xsc_hs_plus_w025",
+      "controller": "centralized_sampling",
+      "state_index": 14,
+      "hard": true,
+      "baseline_eta": [
+        1.25,
+        0.5,
+        0.0
+      ],
+      "baseline_rollout_uid": "roll_abecc6ba0e687316d732927d5ca33631d26113e09e15b5e13f2cac227d57bdde",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_abecc6ba0e687316d732927d5ca33631d26113e09e15b5e13f2cac227d57bdde.npz"
+    },
+    {
+      "scene": "xsc_hs_plus_w025",
+      "controller": "centralized_sampling",
+      "state_index": 15,
+      "hard": true,
+      "baseline_eta": [
+        1.1816712743602693,
+        0.3942391136661172,
+        0.5486148172058165
+      ],
+      "baseline_rollout_uid": "roll_687b449eb73b5a3851e185ab66406227a7fc726fd66b8e9110141a31c15f2141",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_687b449eb73b5a3851e185ab66406227a7fc726fd66b8e9110141a31c15f2141.npz"
+    },
+    {
+      "scene": "xsc_hs_swap_n07",
+      "controller": "centralized_sampling",
+      "state_index": 8,
+      "hard": true,
+      "baseline_eta": [
+        0.515423393342644,
+        -0.2982649700716138,
+        0.5946861673146486
+      ],
+      "baseline_rollout_uid": "roll_6c0479f3af9632b92600ab645edf5f142bc78a336e59e19263b81d05d8ec155e",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_6c0479f3af9632b92600ab645edf5f142bc78a336e59e19263b81d05d8ec155e.npz"
+    },
+    {
+      "scene": "xsc_hs_swap_n07",
+      "controller": "centralized_sampling",
+      "state_index": 9,
+      "hard": true,
+      "baseline_eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "baseline_rollout_uid": "roll_2ff450f679211dac8de968c777afc9ee235d54e1a8dfb90eb2d5de2b2a229a2b",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_2ff450f679211dac8de968c777afc9ee235d54e1a8dfb90eb2d5de2b2a229a2b.npz"
+    },
+    {
+      "scene": "xsc_hs_swap_n07",
+      "controller": "centralized_sampling",
+      "state_index": 10,
+      "hard": true,
+      "baseline_eta": [
+        0.5869771582074463,
+        -0.4283745754510164,
+        0.6948941890150309
+      ],
+      "baseline_rollout_uid": "roll_29f6eb81cb3623fb27ef62dc9984d9ca4f37c36e18c9012dec3aac0183f9a87e",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_29f6eb81cb3623fb27ef62dc9984d9ca4f37c36e18c9012dec3aac0183f9a87e.npz"
+    },
+    {
+      "scene": "xsc_hs_swap_n07",
+      "controller": "centralized_sampling",
+      "state_index": 12,
+      "hard": true,
+      "baseline_eta": [
+        0.5,
+        -0.5,
+        0.75
+      ],
+      "baseline_rollout_uid": "roll_77291b89fdfb25b72192737d35e17715590eb387516dbc7b51ada60f5c846630",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_77291b89fdfb25b72192737d35e17715590eb387516dbc7b51ada60f5c846630.npz"
+    },
+    {
+      "scene": "xsc_hs_swap_n07",
+      "controller": "centralized_sampling",
+      "state_index": 13,
+      "hard": true,
+      "baseline_eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "baseline_rollout_uid": "roll_df8297b0e9e3546aece1f08f3a76aa2005f843e02546c1d230463573cea12210",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_df8297b0e9e3546aece1f08f3a76aa2005f843e02546c1d230463573cea12210.npz"
+    },
+    {
+      "scene": "xsc_hs_swap_n07",
+      "controller": "centralized_sampling",
+      "state_index": 14,
+      "hard": true,
+      "baseline_eta": [
+        0.5,
+        -0.5,
+        0.75
+      ],
+      "baseline_rollout_uid": "roll_ba12f855aecd6d21e748b4ab32bd941601ce698ad331cabcf11e4813b5a96b8f",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_ba12f855aecd6d21e748b4ab32bd941601ce698ad331cabcf11e4813b5a96b8f.npz"
+    },
+    {
+      "scene": "hs_obst_n08_R140_r045",
+      "controller": "centralized_sampling",
+      "state_index": 9,
+      "hard": true,
+      "baseline_eta": [
+        0.6264321873895824,
+        -0.36308222729712725,
+        0.655959902331233
+      ],
+      "baseline_rollout_uid": "roll_882727acb80e1ce85a49d7b27c227208f4de0942a452f325190125589306ff15",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_882727acb80e1ce85a49d7b27c227208f4de0942a452f325190125589306ff15.npz"
+    },
+    {
+      "scene": "hs_obst_n08_R140_r045",
+      "controller": "centralized_sampling",
+      "state_index": 12,
+      "hard": true,
+      "baseline_eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "baseline_rollout_uid": "roll_c27d42d3a83690639901e6a2bd5a06d7fc956168083382db40fbbf293774f219",
+      "baseline_success": 0,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_c27d42d3a83690639901e6a2bd5a06d7fc956168083382db40fbbf293774f219.npz"
+    },
+    {
+      "scene": "xsc_hs_plus_w025",
+      "controller": "centralized_sampling",
+      "state_index": 8,
+      "hard": false,
+      "baseline_eta": [
+        1.2259909729473293,
+        0.40439489763230085,
+        0.05669324495829642
+      ],
+      "baseline_rollout_uid": "roll_068ebe624896c88072eaed1450a20b0f6574d7cc2cc25d44fbc98e97a37e0b46",
+      "baseline_success": 1,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_71f2379bff28cdbf3ed118e365d9b1a930fca91de2d20bbb9be8ed49896e916a.npz"
+    },
+    {
+      "scene": "xsc_hs_plus_w025",
+      "controller": "gradient_mpc",
+      "state_index": 8,
+      "hard": false,
+      "baseline_eta": [
+        1.2259909729473293,
+        0.40439489763230085,
+        0.05669324495829642
+      ],
+      "baseline_rollout_uid": "roll_283da60cc1f3ba302a0e53328d4069a06c24b381d0d0fd038a12250dc2dd3419",
+      "baseline_success": 1,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_283da60cc1f3ba302a0e53328d4069a06c24b381d0d0fd038a12250dc2dd3419.npz"
+    },
+    {
+      "scene": "xsc_hs_box_n09_r014_f25",
+      "controller": "centralized_sampling",
+      "state_index": 8,
+      "hard": false,
+      "baseline_eta": [
+        1.25,
+        0.5,
+        0.75
+      ],
+      "baseline_rollout_uid": "roll_35133d4dbac0041355d846a87d0a71211d19c10570a970589eedc02123da6160",
+      "baseline_success": 1,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_d740410500ced70e38248623a5f03e7f92b38d7eca2d26a150c4654b4ae85d4b.npz"
+    },
+    {
+      "scene": "xsc_hs_box_n09_r014_f25",
+      "controller": "gradient_mpc",
+      "state_index": 8,
+      "hard": false,
+      "baseline_eta": [
+        1.0026288856752217,
+        0.056379557587206364,
+        0.7455985327251256
+      ],
+      "baseline_rollout_uid": "roll_d6b50b40835484d3d8becedce46e1228c8b88ed0aa0ecc0dd49a088563279bd4",
+      "baseline_success": 1,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_66e94d302af2824886d0acc8e18bfe06211c0a9d487afd2bb4ed9d8313c63365.npz"
+    },
+    {
+      "scene": "xsc_hs_swap_n07",
+      "controller": "centralized_sampling",
+      "state_index": 11,
+      "hard": false,
+      "baseline_eta": [
+        0.562171065248549,
+        -0.3615773478522897,
+        0.6961268512532115
+      ],
+      "baseline_rollout_uid": "roll_5028b9c3d9b9c4f3761f083ed8636cec5a53e737c1bbcd231d800055db401398",
+      "baseline_success": 1,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_66837ad430a1659761ae102e518379e73bdf2f1d838fe5458350487e3fe7724f.npz"
+    },
+    {
+      "scene": "xsc_hs_swap_n07",
+      "controller": "gradient_mpc",
+      "state_index": 8,
+      "hard": false,
+      "baseline_eta": [
+        0.5,
+        0.5,
+        0.75
+      ],
+      "baseline_rollout_uid": "roll_43099a3af581d18ef32cb691a1912b4deb96e127998549d451b8f63c4105cd65",
+      "baseline_success": 1,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_b6dcb63e11b7879efbe26bae0bc854adf93bccbe3e9a7d6cd0adfb08845dfc9a.npz"
+    },
+    {
+      "scene": "hs_obst_n08_R140_r045",
+      "controller": "centralized_sampling",
+      "state_index": 8,
+      "hard": false,
+      "baseline_eta": [
+        1.25,
+        0.5,
+        0.75
+      ],
+      "baseline_rollout_uid": "roll_aed7f1eaddca1838fd3d05fc7b02e3b641d528a9d84fe553dfbaeccaf77ee7ee",
+      "baseline_success": 1,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_ab6ac52b3dec88ff3fe4250b5c30b7aa78aed17ca9f51c3f0b806e72a40adcc5.npz"
+    },
+    {
+      "scene": "hs_obst_n08_R140_r045",
+      "controller": "gradient_mpc",
+      "state_index": 8,
+      "hard": false,
+      "baseline_eta": [
+        1.2463931469246745,
+        -0.2889987491071224,
+        0.18647276004776359
+      ],
+      "baseline_rollout_uid": "roll_ed8ce13c8a39356a79a194dae23726c3aba398ebeacf46ad5c2a093711bf67f6",
+      "baseline_success": 1,
+      "diagnostic_trace": "/home/zhihan/research/Basin_C1/diagnostics/b5_oracle_20261027/traces/roll_72a2df966b53afdcd8910edbc20304bcc41b4b15f294617b7ad5597cbe914e61.npz"
+    }
+  ],
+  "selection": "Top <=12 existing configurations per exact dimension1..5, <=2 per support; shared full22 development evaluation. No test labels.",
+  "test_scenes": [
+    "xsc_hs_plus_w030_te",
+    "xsc_hs_box_n09_r013_f25_te",
+    "xsc_hs_swap_n06_te",
+    "hs_obst_n08_R142_r050_te"
+  ],
+  "test_states": [
+    22,
+    23,
+    24,
+    25
+  ],
+  "test_seed": 5
+}

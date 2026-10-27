@@ -1,0 +1,83 @@
+{
+  "allowed": [
+    {
+      "id": "chen_impc_ob_si_tracking",
+      "name": "Chen RA-L 2023：IMPC-OB 作者核心",
+      "source": "https://github.com/PKU-MACDLab/IMPC-OB",
+      "status": "tested_full_mechanism_port_not_native_paper_reproduction",
+      "selected_options": {
+        "K": 8,
+        "scale_lengths": false
+      },
+      "formal_inclusion": "Common-environment adapted comparison only; solver unknown remains separate.",
+      "details": "Full author dynamic priority + right-hand penalty + safe corridors + ABITstar. Planned first-step displacement tracked by original SI plant. Author internal double-integrator prediction retained; fixed timestep/radius/speed mapped to benchmark. Python3.9 GJK binary replaced by GEOS convex-hull distance; OMPL1.7 author API; occupancy vectorized. Optional uniform physical-length scaling and original-duration prediction horizon explicit. Original wall-clock planner stopping retained: fixed OMPL seed is not bitwise replay guarantee; paths saved."
+    },
+    {
+      "id": "dac_author_si",
+      "name": "Zhang T-RO 2025：DAC 作者核心",
+      "source": "https://github.com/Parker-Zhang/Shaping-CLF-MCBF",
+      "status": "tested_full_mechanism_port_not_native_paper_reproduction",
+      "selected_options": {
+        "threshold_profile": "author_narrow"
+      },
+      "formal_inclusion": "Common-environment adapted comparison only; solver unknown remains separate.",
+      "details": "Original SI controller; common speed/radius, exact line-wall geometry with physical margin; author parameters unchanged."
+    },
+    {
+      "id": "mgr_author_unicycle_tracking",
+      "name": "Lee IROS 2025：MGR 完整执行链适配",
+      "source": "https://github.com/Aiden-wjLee/merry-go-round",
+      "status": "tested_full_mechanism_port_not_native_paper_reproduction",
+      "selected_options": {
+        "tau": 0.5
+      },
+      "formal_inclusion": "Common-environment adapted comparison only; solver unknown remains separate.",
+      "details": "Full author decision and final unicycle actuation stack; original heading-first Euler endpoint represented as velocity input to common SI plant. Simultaneous physical state updates, actual wall capsules/rotated rectangles, common physical speed/radius and success tolerance; no artificial map-boundary clamping. These are explicit benchmark adaptations."
+    },
+    {
+      "id": "wang2017_consistent_perturbation_di_tracking",
+      "name": "Wang 2017：Consistent Perturbation 适配",
+      "source": "https://liwanggt.github.io/files/A2_Safe_Swarm.pdf",
+      "status": "tested_full_mechanism_port_not_native_paper_reproduction",
+      "selected_options": {
+        "alpha": 5.0,
+        "gamma": 1.0
+      },
+      "formal_inclusion": "Common-environment adapted comparison only; solver unknown remains separate.",
+      "details": "Independent full Algorithm1 mechanism implementation with original DI barrier equations7/12; closest-wall adaptation; internal acceleration integrated to SI velocity, common radial next-velocity bound added. Finite-step port, not native continuous-time guarantee. Width sign follows prose, not conflicting Algorithm1 print."
+    },
+    {
+      "id": "wang2017_full_di_tracking",
+      "name": "Wang 2017：完整消解的双积分器适配",
+      "source": "https://liwanggt.github.io/files/A2_Safe_Swarm.pdf",
+      "status": "tested_full_mechanism_port_not_native_paper_reproduction",
+      "selected_options": {
+        "alpha": 5.0,
+        "gamma": 1.0
+      },
+      "formal_inclusion": "Common-environment adapted comparison only; solver unknown remains separate.",
+      "details": "Independent full Algorithm1 mechanism implementation with original DI barrier equations7/12; closest-wall adaptation; internal acceleration integrated to SI velocity, common radial next-velocity bound added. Finite-step port, not native continuous-time guarantee. Width sign follows prose, not conflicting Algorithm1 print."
+    },
+    {
+      "id": "zhang2025_risk_si",
+      "name": "Zhang ICRA 2025：风险自适应逐公式实现",
+      "source": "https://arxiv.org/abs/2503.09621",
+      "status": "tested_full_mechanism_port_not_native_paper_reproduction",
+      "selected_options": {
+        "gamma": 1.0,
+        "q": 1.0
+      },
+      "formal_inclusion": "Common-environment adapted comparison only; solver unknown remains separate.",
+      "details": "Independent equation-level implementation; original global V(Qx) rotation retained. Parameter defaults explicit, not claimed as author settings. Rational psi satisfies stated properties for h>=0. Walls generalized by nearest-segment h and exact local Hessian; original plant radial speed bound added. Mathematical guarantees not transferred."
+    }
+  ],
+  "retired": [
+    "RHR_A",
+    "RHR_B",
+    "persistent_RHR",
+    "tuned_RHR",
+    "Merry_heuristic",
+    "partial_MGR"
+  ],
+  "historical_evidence_retained": true
+}
