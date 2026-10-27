@@ -1,0 +1,907 @@
+{
+  "inputs": {
+    "source_sha256": "90fbc596f522a66d8f703739a73c3ab7831c337ac4ceeec0fb134c958de7eba3",
+    "scenes_sha256": "f74192515896cd36496ee71d409b7c569fd92f58f4d675c9ed406049d31308e0",
+    "families_sha256": "ec3ba06e1eee654c75ca5cb690c642312a01236f213f476869d6c12936a251cf",
+    "backend_sha256": "79ea718fa9fe5cbaf4a9f9f4e49f4a33c13779e446b5f40535fe128e35b05c91",
+    "runtime_sha256": "55461c425fde2875e773415990f715941293f94cf305333d14c7d8731677efbb",
+    "dictionary_sha256": "79024cc6f529c60fbbeec5471e91348ed35dfddbc504024d03a5f98f8a511fe3",
+    "projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+    "chosen": [
+      {
+        "uid": "roll_00e9e30b59e38e1b8bc65a1cc826fe478fe3954fafd930a46a77cdb1fbb0ffd5",
+        "trace_sha256": "e9651e3d7503bfdbe7fb753f0c2ade012fe0be04510e21bab8e8a0c0bc476816"
+      },
+      {
+        "uid": "roll_116c8e2fe6f316d823e6b46971945d44b7a0a0bfa004a02ed99d36bb5bdcd5a5",
+        "trace_sha256": "23b4edcda4d8b35a5d4b9d8ff58b9477e999f95027a8b2ada6215adbad92f5ab"
+      },
+      {
+        "uid": "roll_0196591e0332d2e5bf320fef1d948b73f915f54e0ad8a3f5a7c960522e2da648",
+        "trace_sha256": "5771d18b504f7e0a7f25edc693451c9ea19649ffe856dcd93596619d97f2ca03"
+      },
+      {
+        "uid": "roll_06124a1c0e184a53df9e243a30406a3f4212a1d2dae8b507a33b8234c5638e73",
+        "trace_sha256": "a27c88b2bba3a2ed846fdcff508c3489d220e785c198b86f7e49698919858e2f"
+      },
+      {
+        "uid": "roll_03c77a600587ae50f8367c814977def80485d3e3a3f2930716c60d1a53da8b9f",
+        "trace_sha256": "094a61989b7f45d6f50c641e5d38c949d784666cefbe6004fe8cbc70d390f27b"
+      },
+      {
+        "uid": "roll_1bc4ae3cadde20ae0c4a5769ee6ea8b786ccaf301bee2da22d3c67758c8532ee",
+        "trace_sha256": "088197bbbaa3d7c33a89c3035052ff5c714f489bdd1a297367344c5d020bb46a"
+      },
+      {
+        "uid": "roll_048fecc9f6c939997d6a39c16c3645496efc64d178a92abf25240f464d43735c",
+        "trace_sha256": "4184ecaa660e07849636368e9c86aaed77d86c4e5df81240340f8d17988562dd"
+      },
+      {
+        "uid": "roll_015bfdbef443d69e03750b83b6840ff32022fa6ec04709d5f382fd3b8c6fda6f",
+        "trace_sha256": "b74ed9e695e738b63f0085e74583f467f932208f161ef90858651fd7dc390848"
+      },
+      {
+        "uid": "roll_03ba0504b9c61080edaac05a23912df18b9eb6a7d407cb2595bfaee031cce769",
+        "trace_sha256": "1d651f313ce9501a8f2849d5f82e2a0611a83a60f5d4bd1c485d340f07ce835e"
+      },
+      {
+        "uid": "roll_1c7fe3c11ff1fa9c48294de772a9a6810f552b7183c6d705853ad688a101f536",
+        "trace_sha256": "7e4d4079a19c3c1d48ecf6c5b43425e828916ca5b4e9f3898f14035f63c06c17"
+      },
+      {
+        "uid": "roll_016daa7e784a2f21e4dcf467853cee322dfb23f2f85bb9d43ce63ea2a34036b2",
+        "trace_sha256": "ca41eb79a45178f9a65baea645abf205d8943027d9a9e3eae6a33aa8972c5450"
+      },
+      {
+        "uid": "roll_0f7e15d6def6c6320684455bc3492249ce1d35bdc93a57af5498b3cd354fed06",
+        "trace_sha256": "8204de9fe8ceabb3f0b16318d6614e1f09c6cc0d5cbfcdf45f0dd93655eb5abe"
+      },
+      {
+        "uid": "roll_065ff991782b65a3cdac12522f2979a446b1c33334658867f01cd72f744a0ba0",
+        "trace_sha256": "a71ee5f5b44444762e6802e7e5f6283a3bb005aa24a7ef885fc262d248d044f4"
+      },
+      {
+        "uid": "roll_034fd0f7d75380e1b2a763445d2d5d470fb30248ced994779311630d73cb6279",
+        "trace_sha256": "2f1ebdedce75a358571d4205afce495b3b979b8292f8851eeee3f23f16b39e51"
+      },
+      {
+        "uid": "roll_001612c2b9287bfd9fbc1517c95c33cb65d5b2ee4cc248de40b0af8a124b1497",
+        "trace_sha256": "5791a8c26797cbb18e52fb770e515ff9f3d83f71274fc46ef7f7969664c6f1ff"
+      },
+      {
+        "uid": "roll_091bb636e0e82d085a8349185a4233a76982f35d605936b5232e401b79a9ae67",
+        "trace_sha256": "cac911c674a2b198d1291179228a343e3d3310f2d343998682166b852575370a"
+      },
+      {
+        "uid": "roll_07d0eff15f3f9e2f7dc059a5c73e073a3a8f55eb0040e22a75e8c6439a843952",
+        "trace_sha256": "7f4f062a00940950a4d98b817701e5e997a5b3fcc101b4cf402e50d8f1444d10"
+      },
+      {
+        "uid": "roll_037328de4048196f5a490469168837fbe7844efdbcb7c2e4e126bcbbb89db15b",
+        "trace_sha256": "4ac74f113f35eb1eabc0c4c2afc4ff53765bab09fbb825ea9bc2339bd3a01c06"
+      },
+      {
+        "uid": "roll_1171f1e1d12cd5f9f12cf9881b2a161b4df33716d4090188f2f7f1486cfffa2e",
+        "trace_sha256": "e34512595e17d0f7654facf019e51b5a1b4316787109b70f48a55f2392c32d2a"
+      },
+      {
+        "uid": "roll_01f62fc51f15ef660b34221ffa29a1534c33c8433f104fe83013d141cdc20580",
+        "trace_sha256": "9f36e83bf33507aab9f32912ba11c1298fc1c92295009734bf67c57301928e5e"
+      },
+      {
+        "uid": "roll_03bb20ddb2e3c3911921914f01548899864d98086db9ee7c3f82a9261e60fc58",
+        "trace_sha256": "a9c2f4c45ae5091ff871143c13e5958485d5ea5c3588e9b144a9085adc99e941"
+      },
+      {
+        "uid": "roll_04adcc41ac45a6a4c603a8c08bd91e4678efab99aa5fb6cfd4813ad0f288e654",
+        "trace_sha256": "3455d5d3738fa88b295c2191561b483bbf897022a3722f66684fbdcd8967a0a7"
+      },
+      {
+        "uid": "roll_0051f1d8e8556c2204f05546fe80628a4c99851bf280fcb02726e9dffd6fa763",
+        "trace_sha256": "7b4e75aa21cc2d76ca3debde782f6fcb9de0448741b28e3c3da31fd00729b029"
+      },
+      {
+        "uid": "roll_2a557248897d5a05ca55a15914c46cafd359c83794319b17a58b4c5b0d79614c",
+        "trace_sha256": "5ee71bc68d4cbfc117ce0e7f5024e8fd2cce222d7f37dd234d607869a7c7dee1"
+      },
+      {
+        "uid": "roll_03ee67e8d06e7c44bedb1a113ae2e3d2b1ea4621ea856d26c081b25221a23769",
+        "trace_sha256": "299f5d6f6732bb628cc191ff333527f7ef9de4fb80a04ebedcf1e002a8b14471"
+      },
+      {
+        "uid": "roll_0779ef2167ada22e70a4ab1d6542b1c9611af46f42c5dd8e16e87f3fba30108f",
+        "trace_sha256": "0f95deac2890e7ba5e05575fe3c471ebf73c45ebba5e0afcdd94ec32b92052c1"
+      },
+      {
+        "uid": "roll_07143020dbdb968ae167919845a0661fdcf0d5fca7f4aad05343f411705309d8",
+        "trace_sha256": "d5dd17868f898bfa03b0cfeace819461d1a3d67c93fac04d8cb23e4c0669310a"
+      },
+      {
+        "uid": "roll_064f85742030b5a46f94387d0bc8dc7c01be81b43b034c28173f42acba113742",
+        "trace_sha256": "83ac5cb5db90ac28ffed20032955cae29b462576e98f5af70fae47b34fc05b68"
+      },
+      {
+        "uid": "roll_019d0917d885b6884bba7a97727659f938920bb80c447e6c87001090a0e8f3dc",
+        "trace_sha256": "7f4ffdd65b64edcd576c6f576e87118dc5644f080430dd516ac152f877124f22"
+      },
+      {
+        "uid": "roll_001b335622b28bab4dae6b265fb8f43fe50ec46cb907694f5d8e3ddebd7c6480",
+        "trace_sha256": "294aa2db7eea1af04ef8a709c59c9a12f35b125677c09bdff0dd6c32934e35e2"
+      }
+    ],
+    "B3_counts": [
+      {
+        "type_id": 1,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 1,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 1,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 1,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 1,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 1
+      },
+      {
+        "type_id": 1,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 5
+      },
+      {
+        "type_id": 1,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 1,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 2
+      },
+      {
+        "type_id": 2,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 16
+      },
+      {
+        "type_id": 2,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 16
+      },
+      {
+        "type_id": 2,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 16
+      },
+      {
+        "type_id": 2,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 16
+      },
+      {
+        "type_id": 2,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 16
+      },
+      {
+        "type_id": 2,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 16
+      },
+      {
+        "type_id": 2,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 16
+      },
+      {
+        "type_id": 2,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 16
+      },
+      {
+        "type_id": 3,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 8
+      },
+      {
+        "type_id": 3,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 8
+      },
+      {
+        "type_id": 3,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 10
+      },
+      {
+        "type_id": 3,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 7
+      },
+      {
+        "type_id": 3,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 2
+      },
+      {
+        "type_id": 3,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 1
+      },
+      {
+        "type_id": 3,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 1
+      },
+      {
+        "type_id": 3,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 3
+      },
+      {
+        "type_id": 4,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 7
+      },
+      {
+        "type_id": 4,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 14
+      },
+      {
+        "type_id": 4,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 4
+      },
+      {
+        "type_id": 4,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 16
+      },
+      {
+        "type_id": 4,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 11
+      },
+      {
+        "type_id": 4,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 16
+      },
+      {
+        "type_id": 4,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 10
+      },
+      {
+        "type_id": 4,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 16
+      },
+      {
+        "type_id": 5,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 5,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 5,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 5,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 5,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 5,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 1
+      },
+      {
+        "type_id": 5,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 5,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 6,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 6,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 16
+      },
+      {
+        "type_id": 6,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 6,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 1
+      },
+      {
+        "type_id": 6,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 1
+      },
+      {
+        "type_id": 6,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 9
+      },
+      {
+        "type_id": 6,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 6,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 7
+      },
+      {
+        "type_id": 8,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 8,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 8,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 8,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 8,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 8,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 8,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 8,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 9,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 2
+      },
+      {
+        "type_id": 9,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 9,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 9,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 1
+      },
+      {
+        "type_id": 9,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 2
+      },
+      {
+        "type_id": 9,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 9,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 9,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 2
+      },
+      {
+        "type_id": 10,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 10,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 10,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 10,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 10,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 10,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 10,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 10,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 11,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 12
+      },
+      {
+        "type_id": 11,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 6
+      },
+      {
+        "type_id": 11,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 7
+      },
+      {
+        "type_id": 11,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 10
+      },
+      {
+        "type_id": 11,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 16
+      },
+      {
+        "type_id": 11,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 7
+      },
+      {
+        "type_id": 11,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 7
+      },
+      {
+        "type_id": 11,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 7
+      },
+      {
+        "type_id": 12,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 1
+      },
+      {
+        "type_id": 12,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 12,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 1
+      },
+      {
+        "type_id": 12,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 1
+      },
+      {
+        "type_id": 12,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 12
+      },
+      {
+        "type_id": 12,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 11
+      },
+      {
+        "type_id": 12,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 2
+      },
+      {
+        "type_id": 12,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 13
+      },
+      {
+        "type_id": 13,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 13,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 1
+      },
+      {
+        "type_id": 13,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 13,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 13,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 5
+      },
+      {
+        "type_id": 13,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 7
+      },
+      {
+        "type_id": 13,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 6
+      },
+      {
+        "type_id": 13,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 5
+      },
+      {
+        "type_id": 14,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 14,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 14,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 14,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 14,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 2
+      },
+      {
+        "type_id": 14,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 14,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 8
+      },
+      {
+        "type_id": 14,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 6
+      },
+      {
+        "type_id": 15,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 15,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 15,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 15,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 15,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 15,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 15,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 15,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 16,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 16,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 16,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 16,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 16,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 0
+      },
+      {
+        "type_id": 16,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 0
+      },
+      {
+        "type_id": 16,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 0
+      },
+      {
+        "type_id": 16,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 0
+      },
+      {
+        "type_id": 17,
+        "controller": "centralized_sampling",
+        "state_index": 0,
+        "success": 7
+      },
+      {
+        "type_id": 17,
+        "controller": "centralized_sampling",
+        "state_index": 1,
+        "success": 14
+      },
+      {
+        "type_id": 17,
+        "controller": "centralized_sampling",
+        "state_index": 2,
+        "success": 6
+      },
+      {
+        "type_id": 17,
+        "controller": "centralized_sampling",
+        "state_index": 3,
+        "success": 16
+      },
+      {
+        "type_id": 17,
+        "controller": "gradient_mpc",
+        "state_index": 0,
+        "success": 14
+      },
+      {
+        "type_id": 17,
+        "controller": "gradient_mpc",
+        "state_index": 1,
+        "success": 15
+      },
+      {
+        "type_id": 17,
+        "controller": "gradient_mpc",
+        "state_index": 2,
+        "success": 14
+      },
+      {
+        "type_id": 17,
+        "controller": "gradient_mpc",
+        "state_index": 3,
+        "success": 16
+      }
+    ]
+  },
+  "input_digest": "1cac894a2b26de07bcd92748deb10bc6935001fbc7dac9af9485a742286f6eda",
+  "result_sha256": "5b10dfd93b1e881c74567a7679fe54cea9843e3582aa1362fa029c9fdb8b897a",
+  "states": 30,
+  "no_rollouts": true
+}

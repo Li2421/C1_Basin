@@ -1,7 +1,7 @@
 """Mechanism diagnostics on saved failed B3 states; no environment step."""
 from core import *
 from runtime import fields_for,ROUTE_EVALUATE
-from shared_control.basis_dictionary import NEW,ALL,RoleState,SIGNED
+from shared_control.basis_dictionary import NEW,ALL,RoleState,SIGNED,add_target
 from types import SimpleNamespace
 import itertools
 from scipy.optimize import nnls
@@ -41,6 +41,13 @@ def main():
         k=(r['type_id'],r['controller']);old=chosen.get(k)
         priority=lambda q:(b3_success.get((q['type_id'],q['controller'],q['state_index']),0)>0,-q['episode_length'],q['rollout_uid'])
         if old is None or priority(r)<priority(old):chosen[k]=r
+    for r in chosen.values():assert sha(r['trace'])==r['trace_sha256']
+    inputs=dict(source_sha256=sha(__file__),scenes_sha256=sha(HERE/'SCENES_FROZEN.json'),families_sha256=sha(HERE/'FAMILIES_FROZEN.json')if(HERE/'FAMILIES_FROZEN.json').exists()else None,backend_sha256=sha(HERE/'BACKEND_BUILD.json'),runtime_sha256=sha(HERE/'runtime.py'),dictionary_sha256=sha(ROOT/'shared_control/basis_dictionary.py'),projection_sha256=sha(ROOT/'shared_control/hard_projection.py'),chosen=[dict(uid=r['rollout_uid'],trace_sha256=r['trace_sha256'])for k,r in sorted(chosen.items())],B3_counts=[dict(type_id=k[0],controller=k[1],state_index=k[2],success=v)for k,v in sorted(b3_success.items())])
+    cache=HERE/'STATIC_MECHANISMS_INPUTS.json';result_path=HERE/'STATIC_MECHANISMS.json'
+    if cache.exists()and result_path.exists():
+        previous=read(cache)
+        if previous['input_digest']==digest(inputs)and previous['result_sha256']==sha(result_path):
+            print('STATIC MECHANISMS exact saved-state reuse',len(chosen),flush=True);return
     results=[]
     for key,r in sorted(chosen.items()):
         s=scenes[r['scene']]
@@ -70,13 +77,23 @@ def main():
             retained[k]=trials
         vertices=[]
         for eta in itertools.product((.5,1.25),(-.5,.5),(0.,.75),(-1.,1.),(0.,1.)):
-            target=safe.copy()
-            for k,value in zip(('G','P','R','T1','Y3'),eta):target+=value*columns[k]
+            target=add_target(safe,ff,columns,eta[:3],dict(T1=eta[3],Y3=eta[4]))
             try:
                 projected=np.concatenate([f.project(target[i:i+1])[0]for i,f in enumerate(filters)])
                 vertices.append(dict(eta=eta,projected_norm=float(np.linalg.norm(projected)),change_from_safe=float(np.linalg.norm(projected-safe)),minimum_original_linear_residual=min(float(np.min(f.A@projected[i]-f.lower))for i,f in enumerate(filters)),zero_normal_cone_residual_estimate=zero_normal_fit(filters,target)))
             except Exception as exc:vertices.append(dict(eta=eta,numerical_unknown=repr(exc)))
         box_check=dict(columns=['G','P','R','T1','Y3'],vertices=vertices,n=32,zero_feasible_up_to_float_tolerance=all(float(np.max(f.lower))<=1e-9 for f in filters),max_projected_norm=max((v['projected_norm']for v in vertices if 'projected_norm'in v),default=None),certificate=False,interpretation='32 production-projection probes at a fixed state, fresh fixed role and the stated five-column box. Numerical finite vertex evidence only; no exact normal-cone membership or continuous-rollout impossibility certificate is asserted.')
+        frozen_boxes=[]
+        if(HERE/'FAMILIES_FROZEN.json').exists():
+            for family_index,family in enumerate(read(HERE/'FAMILIES_FROZEN.json')['families']):
+                cols=family['columns'];bounds=[(.5,1.25)if k=='G'else(-.5,.5)if k=='P'else(0.,.75)if k=='R'else(-1.,1.)if k in SIGNED else(0.,1.)for k in cols];probes=[]
+                for values in itertools.product(*bounds):
+                    setting=dict(zip(cols,values));eta=[setting.get(k,0.)for k in ALL[:3]];co={k:setting[k]for k in NEW if k in setting};target=add_target(safe,ff,columns,eta,co)
+                    try:
+                        projected=np.concatenate([f.project(target[i:i+1])[0]for i,f in enumerate(filters)])
+                        probes.append(dict(coefficients=setting,projected_norm=float(np.linalg.norm(projected)),change_from_safe=float(np.linalg.norm(projected-safe)),minimum_original_linear_residual=min(float(np.min(f.A@projected[i]-f.lower))for i,f in enumerate(filters)),speed_excess=max(0.,float(np.linalg.norm(projected,axis=1).max()-env.config.max_speed)),zero_normal_cone_residual_estimate=zero_normal_fit(filters,target)))
+                    except Exception as exc:probes.append(dict(coefficients=setting,numerical_unknown=repr(exc)))
+                frozen_boxes.append(dict(family_index=family_index,columns=cols,parameter_bounds=dict(zip(cols,bounds)),n_vertices=2**len(cols),vertices=probes,certificate=False,scope='Actual frozen primary family box at the same saved state and the same freshly selected role. Original accumulation order and original production projection. Numerical residual estimates only.'))
         feasible_probes=[]
         for i in range(env.num_agents):
             for axis in range(2):
@@ -91,7 +108,8 @@ def main():
         unfinished=rem>env.config.goal_tolerance
         selected_rows=np.repeat(unfinished,2)
         unfinished_B=B[selected_rows]
-        results.append(dict(type_id=r['type_id'],controller=r['controller'],source_rollout_uid=r['rollout_uid'],B3_Oracle16_success_count_for_case=b3_success.get((r['type_id'],r['controller'],r['state_index'])),step=index,position=env.positions,nominal=nominal,safe=safe,B3_rank=rank(B[:,:3]),full_rank=rank(B),unfinished_agents=np.flatnonzero(unfinished),unfinished_only_B3_rank=rank(unfinished_B[:,:3]),unfinished_only_full_rank=rank(unfinished_B),unfinished_safe_speed_norm=float(np.linalg.norm(safe[unfinished])),column_norms=dict(zip(ALL,norms)),column_angles_degrees=angles,rank_with_added_column={k:rank(np.c_[B[:,:3],columns[k].reshape(-1)])for k in NEW},projection_retention=retained,five_column_vertex_check=box_check,unrestricted_axis_action_probes=feasible_probes,role=meta['role'],svd_ranks=meta['svd_ranks'],note='Saved real failed B3 state; prefer cases where all16 B3 candidates failed. Rank of the whole system can include already-arrived robots, so unfinished-only ranks are separate. New roles freshly activated for this static counterfactual. Axis targets are generic diagnostic motions projected through the same production constraints; guide alignment is an instantaneous proxy, not a whole-task or deadlock-escape certificate.'))
+        results.append(dict(type_id=r['type_id'],controller=r['controller'],source_rollout_uid=r['rollout_uid'],B3_Oracle16_success_count_for_case=b3_success.get((r['type_id'],r['controller'],r['state_index'])),step=index,position=env.positions,nominal=nominal,safe=safe,B3_rank=rank(B[:,:3]),full_rank=rank(B),unfinished_agents=np.flatnonzero(unfinished),unfinished_only_B3_rank=rank(unfinished_B[:,:3]),unfinished_only_full_rank=rank(unfinished_B),unfinished_safe_speed_norm=float(np.linalg.norm(safe[unfinished])),column_norms=dict(zip(ALL,norms)),column_angles_degrees=angles,rank_with_added_column={k:rank(np.c_[B[:,:3],columns[k].reshape(-1)])for k in NEW},projection_retention=retained,five_column_vertex_check=box_check,frozen_family_vertex_checks=frozen_boxes,unrestricted_axis_action_probes=feasible_probes,role=meta['role'],svd_ranks=meta['svd_ranks'],note='Saved real failed B3 state; prefer cases where all16 B3 candidates failed. Rank of the whole system can include already-arrived robots, so unfinished-only ranks are separate. New roles freshly activated for this static counterfactual. Axis targets are generic diagnostic motions projected through the same production constraints; guide alignment is an instantaneous proxy, not a whole-task or deadlock-escape certificate.'))
     dump(HERE/'STATIC_MECHANISMS.json',dict(states=results,scope='No new rollout or plant step. Original distributed per-agent constraints and original production projection. Rank/angle and finite projection probes do not prove a family can or cannot solve the full task.',persistent_role_rule='The frozen dictionary selects a pair only when role.pair is None. It does not reassign after the pair becomes inactive; T3/Y/S1 can therefore lose activity on later conflicts. T2/C2 cover multiple agents.'))
+    dump(cache,dict(inputs=inputs,input_digest=digest(inputs),result_sha256=sha(result_path),states=len(results),no_rollouts=True))
 
 if __name__=='__main__':main()
