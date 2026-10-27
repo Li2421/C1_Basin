@@ -1,0 +1,35 @@
+--- astar_kernel_tiled.cpp
++++ astar_kernel_stationary_edge_candidate_20261022.cpp
+@@ -43,12 +43,31 @@
+  memo.emplace(key,valid);return valid;
+ }
+ 
++#include <new>
++static uint64_t tail_stats[8]={};
++extern "C" void pa_stationary_edge_stats(uint64_t* out){std::copy(tail_stats,tail_stats+8,out);}
++
+ extern "C" int astar(double res,double inner,double outer,double sep,int max_time,const double* start,const double* goal,int nr,const int* lens,const double* reserved,int nw,const double* walls,double margin,double* output) {
+  prepare_memo(nw,walls,margin);
+  std::vector<int> offset(nr);int total=0;for(int i=0;i<nr;++i){offset[i]=total;total+=lens[i];}
++ ++tail_stats[0];
++ int stationary_after=0;for(int i=0;i<nr;++i)stationary_after=std::max(stationary_after,lens[i]-1);
++ std::unordered_map<EdgeKey,bool,EdgeHash> stationary_edges;
+  auto edge=[&](double ax,double ay,double bx,double by,int t){
+   if(!memo_geometry(ax,ay,bx,by,nw,walls,margin))return false;
+-  for(int i=0;i<nr;++i){int c=offset[i]+std::min(t,lens[i]-1),d=offset[i]+std::min(t+1,lens[i]-1);if(segment(ax-reserved[2*c],ay-reserved[2*c+1],bx-reserved[2*d],by-reserved[2*d+1])<sep-1e-12)return false;}return true;
++  const bool cacheable=nr>0&&t>=stationary_after;
++  EdgeKey key;
++  if(cacheable){
++   ++tail_stats[1];double values[4]={ax,ay,bx,by};std::memcpy(key.b.data(),values,sizeof(values));
++   auto found=stationary_edges.find(key);if(found!=stationary_edges.end()){++tail_stats[2];return found->second;}
++  }
++  bool valid=true;
++  for(int i=0;i<nr;++i){int c=offset[i]+std::min(t,lens[i]-1),d=offset[i]+std::min(t+1,lens[i]-1);++tail_stats[3];if(segment(ax-reserved[2*c],ay-reserved[2*c+1],bx-reserved[2*d],by-reserved[2*d+1])<sep-1e-12){valid=false;break;}}
++  if(cacheable){
++   if(stationary_edges.size()<65536){try{stationary_edges.emplace(key,valid);++tail_stats[4];tail_stats[7]=std::max(tail_stats[7],uint64_t(stationary_edges.size()));}catch(const std::bad_alloc&){++tail_stats[6];}}
++   else ++tail_stats[5];
++  }
++  return valid;
+  };
+  int sx=std::nearbyint(start[0]/res),sy=std::nearbyint(start[1]/res),gx=std::nearbyint(goal[0]/res),gy=std::nearbyint(goal[1]/res);
+ 

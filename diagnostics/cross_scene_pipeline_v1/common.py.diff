@@ -1,0 +1,31 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/common.py
++++ /home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v1/common.py
+@@ -7,7 +7,7 @@
+ from functools import lru_cache
+ from shared_rollout_db.src import rollout_db as dbm, planner, cache_writer
+ 
+-EXP = 'exp_cross_scene_correction_v1'
++EXP = 'exp_cross_scene_pipeline_v1'
+ SOURCE = ROOT / 'diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1'
+ SEARCH = SOURCE / 'best_correction_search_v1'
+ V2 = ROOT / 'diagnostics/baseline_literature_scenes_distributed_v2'
+@@ -64,7 +64,7 @@
+ 
+ 
+ def verify_inputs():
+-    baselines = read(HERE / 'EVIDENCE_SHA256_START.json')['files']
++    baselines = read(HERE / 'REUSED_EVIDENCE_SHA256_START.json')['files']
+     for p, h in baselines.items():
+         assert sha(p) == h, ('AUDIT_INPUT_CHANGED', p)
+     if (HERE / 'BACKEND_BUILD.json').exists():
+@@ -103,8 +103,8 @@
+                 else:
+                     db.execute('INSERT INTO ' + table + '(' + ','.join(values) + ') VALUES(' + ','.join('?' for _ in values) + ')', list(values.values()))
+                     inserted.append(dict(table=table, row=values)); added[table].add(key)
+-            ins('experiment', dict(experiment_uid=EXP, name='Cross scene correction v1', path=str(HERE),
+-                protocol_hash=sha(HERE / 'PROTOCOL_AMENDMENT.md'), code_hash=sha(HERE / 'common.py'), metadata_json=canonical(dict(evidence='DEVELOPMENT'))))
++            ins('experiment', dict(experiment_uid=EXP, name='Cross scene pipeline v1', path=str(HERE),
++                protocol_hash=sha(HERE / 'PROTOCOL.md'), code_hash=sha(HERE / 'common.py'), metadata_json=canonical(dict(evidence='DEVELOPMENT'))))
+             for c in cases:
+                 s = c['state']; physical = {k: s[k] for k in ('positions', 'velocities', 'goals')}
+                 ins('scenario', dict(scenario_uid=c['scenario_uid'], name=s['scene'] + '_' + c['version'],

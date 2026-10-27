@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-20T04:38:13.645921+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "type": "Flow",
+      "branch": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "Flow",
+      "branch": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "transformer_bc",
+      "branch": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "transformer_bc",
+      "branch": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "centralized_mppi",
+      "branch": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "centralized_mppi",
+      "branch": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    }
+  ],
+  "original_action_dimension": 14,
+  "original_probe_dimension": 24,
+  "no_retraining": true
+}

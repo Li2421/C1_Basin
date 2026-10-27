@@ -1,0 +1,103 @@
+{
+  "utc": "2026-10-19T15:15:28.082236+00:00",
+  "types": 19,
+  "training_controllers": 122,
+  "training_states": 48,
+  "old34_slots_reused": 199104,
+  "new_exploration_seed": 202610195101,
+  "new_requery_seed": 202610195102,
+  "early_equivalence_seed": 202610195103,
+  "coverage_equal_count_seed": 202610195104,
+  "coverage_bootstrap_seed": 202610195105,
+  "new_eval_bootstrap_seed": 202610195106,
+  "new_state_seed_start": 202610195301,
+  "new_state_count": 24,
+  "new_state_namespace": "crosstype5_repair_gate_late_eta_new_evaluation",
+  "critic_gate_grid": {
+    "k": [
+      0,
+      1,
+      2
+    ],
+    "delta": [
+      0,
+      0.02,
+      0.05
+    ]
+  },
+  "probe_gate_grid": {
+    "tau": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      0.9,
+      0.95,
+      1,
+      1.01
+    ],
+    "rho": [
+      0,
+      0.05,
+      0.1,
+      0.2,
+      0.4,
+      1
+    ]
+  },
+  "schedule_generator_seed": 41,
+  "schedule_source_sets": 191,
+  "critic_three_seed_fits": 382,
+  "controller_features_reused": 24,
+  "missing_feature_vectors": 10,
+  "training_budget": {
+    "utc": "2026-10-19T15:15:27.909651+00:00",
+    "requests": 64416,
+    "exploration": 35136,
+    "requery": 23424,
+    "safety_seed1_requests": 5856,
+    "old34_reused_directly_from_frozen_bundle": 199104,
+    "exact_DB_reuse": 2373,
+    "DB_missing": 62043,
+    "early_equivalence": 5509,
+    "actual_execution_cap": 56534,
+    "input_dimension": 14
+  },
+  "training_execution_counts_by_type": {
+    "Flow": 6601,
+    "gaussian": 2803,
+    "deterministic": 2833,
+    "mixture": 2848,
+    "diffusion": 2732,
+    "chunking": 2681,
+    "recurrent": 2742,
+    "cvae": 2801,
+    "ring_ippo": 2444,
+    "distributed_shooting": 2960,
+    "centralized_sampling": 2702,
+    "cross_entropy": 2548,
+    "prioritized_astar": 2628,
+    "distributed_cross_entropy": 2919,
+    "centralized_mppi": 3154,
+    "ring_ippo_conservative": 2624,
+    "transformer_bc": 3118,
+    "gradient_mpc": 2642,
+    "conflict_based_search": 2754
+  },
+  "estimated_training_wall_hours_at24": [
+    2.370466581033369,
+    3.840673121757046
+  ],
+  "estimated_full_round_hours_initial": [
+    5,
+    8
+  ],
+  "coverage_requests": 4080,
+  "coverage_mean_diagonal_reference": "Existing full frozen-mean UID first; any missing reference separately preflighted and capped before coverage submission",
+  "fresh_evaluation_request_cap": 31968,
+  "CPU_limit": 24,
+  "GPU_limit": 5,
+  "implementation_error_rollouts": 48,
+  "implementation_error_cap": 8000,
+  "all_development": true
+}

@@ -1,0 +1,22 @@
+--- tiled_planning_start_signature_v2_20261022.py
++++ tiled_planning_query_disk_candidate_20261022.py
+@@ -7,7 +7,7 @@
+ import numpy as np
+ 
+ PTR=ctypes.POINTER(ctypes.c_double);IPTR=ctypes.POINTER(ctypes.c_int)
+-ASTAR=ctypes.CDLL(str(HERE/'astar_kernel_tiled.so'));CBS=ctypes.CDLL(str(HERE/'cbs_kernel_start_signature_v2_candidate_20261022.so'))
++ASTAR=ctypes.CDLL(str(HERE/'astar_kernel_tiled.so'));CBS=ctypes.CDLL(str(HERE/'cbs_kernel_query_disk_candidate_20261022.so'))
+ ASTAR.astar.argtypes=[ctypes.c_double]*4+[ctypes.c_int,PTR,PTR,ctypes.c_int,IPTR,PTR,ctypes.c_int,PTR,ctypes.c_double,PTR]
+ CBS.astar_constrained.argtypes=[ctypes.c_double]*4+[ctypes.c_int,PTR,PTR,ctypes.c_int,IPTR,PTR,ctypes.c_int,PTR,PTR,ctypes.c_int,PTR,ctypes.c_double,PTR]
+ ASTAR.astar.restype=CBS.astar_constrained.restype=ctypes.c_int
+@@ -102,3 +102,10 @@
+             if not hasattr(self,'planner'):self.planner=Planner(self.row)
+             return self.planner.action(env)
+         return super().action(env,key)
++
++# Separate namespace for each exact candidate implementation; source hashes
++# cannot accidentally reuse artifacts from another prototype.
++QUERY_CACHE_NAMESPACE=hashlib.sha256(b"CBS_QUERY_DISK01"+b"".join((HERE/n).read_bytes() for n in ['cbs_kernel_query_disk_candidate_20261022.cpp', 'cbs_query_disk_memo_candidate_20261022.hpp', 'cbs_start_signature_cache_v2_20261022.hpp', 'cbs_kernel_query_disk_candidate_20261022.so'])).hexdigest()
++CBS.query_disk_cache_configure.argtypes=[ctypes.c_char_p]
++CBS.query_disk_cache_configure.restype=ctypes.c_int
++QUERY_CACHE_CONFIGURED=bool(CBS.query_disk_cache_configure(QUERY_CACHE_NAMESPACE.encode()))

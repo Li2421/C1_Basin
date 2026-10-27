@@ -1,0 +1,357 @@
+{
+  "utc": "2026-10-17T19:29:25.035624+00:00",
+  "dimensions": 33,
+  "feature_names": [
+    "N",
+    "goal_distance_mean",
+    "goal_distance_std",
+    "goal_distance_min",
+    "goal_distance_max",
+    "pair_min",
+    "pair_mean",
+    "wall_min",
+    "wall_mean",
+    "speed_mean",
+    "speed_max",
+    "L_over_radius",
+    "narrowest_effective_width_over_diameter",
+    "free_fraction",
+    "bottleneck_count_mean",
+    "bottleneck_count_max",
+    "crossing_or_shared_bottleneck_pairs",
+    "path_length_mean_over_budget",
+    "path_length_max_over_budget",
+    "probe_positive_progress",
+    "probe_stall40",
+    "probe_min_pair_over_radius",
+    "probe_mean_speed",
+    "probe_projection_fraction",
+    "early_eta1",
+    "early_eta2",
+    "early_eta3",
+    "late_eta1",
+    "late_eta2",
+    "late_eta3",
+    "switch_fraction",
+    "progress_switch",
+    "continuing_right_hand"
+  ],
+  "fit_seeds": [
+    17,
+    23,
+    41
+  ],
+  "steps": [
+    500,
+    1000,
+    1500,
+    2000,
+    2500,
+    3000,
+    3500,
+    4000,
+    4500,
+    5000,
+    5500,
+    6000,
+    6500,
+    7000,
+    7500,
+    8000,
+    8500,
+    9000,
+    9500,
+    10000,
+    10500,
+    11000,
+    11500,
+    12000
+  ],
+  "lr": 0.0008,
+  "wd": 0.0001,
+  "clip": 5,
+  "batch": 256,
+  "bootstrap": 5000,
+  "bootstrap_seed": 202610174041,
+  "fewshot_seed": 202610174042,
+  "fewshot_repeats": 1000,
+  "ks": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "combination_seed": 202610174039,
+  "combinations": {
+    "A": {
+      "0": [
+        []
+      ],
+      "1": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "F"
+        ]
+      ],
+      "3": [
+        [
+          "B",
+          "C",
+          "F"
+        ],
+        [
+          "D",
+          "E",
+          "F"
+        ],
+        [
+          "B",
+          "E",
+          "F"
+        ]
+      ],
+      "5": [
+        [
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      ]
+    },
+    "B": {
+      "0": [
+        []
+      ],
+      "1": [
+        [
+          "A"
+        ],
+        [
+          "E"
+        ],
+        [
+          "F"
+        ]
+      ],
+      "3": [
+        [
+          "A",
+          "E",
+          "F"
+        ],
+        [
+          "A",
+          "C",
+          "E"
+        ],
+        [
+          "D",
+          "E",
+          "F"
+        ]
+      ],
+      "5": [
+        [
+          "A",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      ]
+    },
+    "C": {
+      "0": [
+        []
+      ],
+      "1": [
+        [
+          "F"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A"
+        ]
+      ],
+      "3": [
+        [
+          "D",
+          "E",
+          "F"
+        ],
+        [
+          "B",
+          "D",
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "F"
+        ]
+      ],
+      "5": [
+        [
+          "A",
+          "B",
+          "D",
+          "E",
+          "F"
+        ]
+      ]
+    },
+    "D": {
+      "0": [
+        []
+      ],
+      "1": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "E"
+        ]
+      ],
+      "3": [
+        [
+          "A",
+          "B",
+          "E"
+        ],
+        [
+          "A",
+          "C",
+          "F"
+        ],
+        [
+          "B",
+          "E",
+          "F"
+        ]
+      ],
+      "5": [
+        [
+          "A",
+          "B",
+          "C",
+          "E",
+          "F"
+        ]
+      ]
+    },
+    "E": {
+      "0": [
+        []
+      ],
+      "1": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "3": [
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "C",
+          "D",
+          "F"
+        ],
+        [
+          "A",
+          "B",
+          "F"
+        ]
+      ],
+      "5": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "F"
+        ]
+      ]
+    },
+    "F": {
+      "0": [
+        []
+      ],
+      "1": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "3": [
+        [
+          "A",
+          "C",
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "5": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ]
+    }
+  },
+  "m0": "Three requested empty combinations are identical; train once and reuse, not three independent fits",
+  "m5": "One five-family combination",
+  "fewshot_baseline": "S13",
+  "fewshot_tie": "S13",
+  "fewshot_bayesian_threshold": 0.9,
+  "simplified_pilot_states": 4,
+  "simplified_methods": [
+    "S13",
+    "right_hand"
+  ],
+  "simplified_tie": "S13",
+  "source_mean": "scene equal then nominal controller equal then state/seed equal observed-success lowerbound; missing arm/scenes disclosed, never silently zero",
+  "source_exclusion": "Each fitting process opens only its enumerated source family label files; target task-label file is never opened before choice receipt",
+  "locked_G": "No corrective labels until allAF analysis and finalmodel frozen; G never a source",
+  "geometry": "Uniform-cost swept-valid8-neighbor 0.05m occupancy graph, virtual endpoint links<=0.1m. At each path node trace quantized transverse valid-center span and add robot diameter; narrow span<4diameters. Count contiguous narrow runs, aggregate robot counts by mean/max. Path pairs counted once if geometric segments cross or narrow samples lie within one diameter. Width feature minimum span on all task shortest paths. Same definitions for generated and historical maps.",
+  "missing_descriptor": "Source-fold mean imputation; all-missing column\u21920, scale<1e-6\u21921",
+  "missing_source": "Blocked fixed-combination family: combination N/A, no adaptive replacement. Leave-one-family model may use available sources with explicit partial-coverage flag. Fewer than two source scenes prevents the original leave-one-source-scene CV, model N/A."
+}

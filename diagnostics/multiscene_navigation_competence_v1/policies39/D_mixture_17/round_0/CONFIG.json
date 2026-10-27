@@ -1,0 +1,20 @@
+{
+  "scene_family": "D",
+  "family": "mixture",
+  "seed": 17,
+  "round": 0,
+  "steps": 60000,
+  "batch": 256,
+  "lr": 0.0003,
+  "hidden": [
+    256,
+    256,
+    256
+  ],
+  "observation_dimensions": 39,
+  "selection": "earliest minimum fixed dev loss",
+  "initialization": "fresh same policy seed each round",
+  "dataset": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/datasets39/D_mixture_17_round_0.npz",
+  "source_dataset_sha256": "62eeabd6a6798d069c1ba93bfa4158b8b46f615253a41094ce00e7d93978e9fc",
+  "final_round": 3
+}

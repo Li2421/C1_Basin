@@ -1,0 +1,41 @@
+--- optional_worker.py
++++ optional_worker_fine.py
+@@ -2,18 +2,28 @@
+ from experiment import *
+ from registry import verify_receipt,save,save_alias,repair_journal
+ import time
++import signal
++STOP=False
++
++def stop(*args):
++    global STOP
++    STOP=True
+ 
+ def main(stage):
++    signal.signal(signal.SIGUSR1,stop);signal.signal(signal.SIGTERM,stop)
++    verify_receipt('OPTIONAL_FINE_SCHEDULING.receipt.json');verify_receipt(f'{stage}/FINE_QUEUE.receipt.json')
+     prereg();verify_receipt('IMPLEMENTATION_FROZEN.receipt.json');verify_receipt('OPTIONAL_CERTIFIED_BACKENDS_V2.receipt.json');verify_receipt(f'{stage}/WORK_QUEUE.receipt.json');verify_receipt('OPTIONAL_DELIVERY_READY.receipt.json')
+-    index=read(HERE/stage/'GROUP_INDEX.json');claims=HERE/stage/'claims';claims.mkdir(parents=True,exist_ok=True);groups=0
++    index=read(HERE/stage/'FINE_GROUP_INDEX.json');claims=HERE/stage/'fine_claims';claims.mkdir(parents=True,exist_ok=True);groups=0
+     for entry in index:
++        if STOP:return
+         claim=claims/entry['group']
+         if (claim/'COMPLETE.json').exists():continue
+         try:claim.mkdir()
+         except FileExistsError:continue
+         write(claim/'OWNER.json',dict(utc=utc(),job=os.environ['SLURM_JOB_ID'],pid=os.getpid()))
+         assert sha(entry['file'])==entry['sha256']
+-        for c in read(entry['file']):
++        for c in read(entry['file'])[entry['start']:entry['end']]:
++            if STOP:return
+             raw=HERE/stage/'raw'/f"{c['rollout_uid']}.json"
+             if raw.exists():repair_journal(stage,c);continue
+             engine=c['execution_engine']
+@@ -42,6 +52,6 @@
+                 save(stage,c,result,arrays)
+             print(c['state']['scene'],c['controller_payload']['nominal']['controller'],c['method'],c['seed'],result['outcome'],round(result['elapsed_seconds'],3),flush=True)
+         write(claim/'COMPLETE.json',dict(utc=utc()));groups+=1
+-        if groups>=128:os.execv(sys.executable,[sys.executable,'-B',str(HERE/'optional_worker.py'),stage])
++        if groups>=512:os.execv(sys.executable,[sys.executable,'-B',str(HERE/'optional_worker_fine.py'),stage])
+ 
+ if __name__=='__main__':main(sys.argv[1])

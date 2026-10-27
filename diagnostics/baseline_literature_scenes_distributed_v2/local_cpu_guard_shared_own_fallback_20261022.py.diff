@@ -1,0 +1,54 @@
+--- local_cpu_guard_idle_cpu.py
++++ local_cpu_guard_shared_own_fallback_20261022.py
+@@ -1,4 +1,4 @@
+-"""Keep the one local CPU share off every Slurm-allocated physical CPU."""
++"""Prefer a free management core;when full,share only a verified own Slurm allocation."""
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+@@ -40,10 +40,26 @@
+ def tick():
+     occupied,jobs=allocated_cpus();free=set(range(os.cpu_count()))-occupied
+     current=os.sched_getaffinity(0)
++    shared=False
+     if not free:
+-        write(HERE/'LOCAL_CPU_GUARD_STATUS.json',dict(utc=utc(),free_physical_cpus=[],occupied=sorted(occupied),error='No unallocated physical CPU; inspect before running heavy local work'))
+-        return
+-    chosen=next(iter(current)) if len(current)==1 and next(iter(current)) in free else max(free)
++        own=set()
++        rows=subprocess.check_output(['squeue','-u',os.environ['USER'],'-h','-t','RUNNING,CONFIGURING,COMPLETING','-o','%i|%j'],text=True).splitlines()
++        for row in rows:
++            job,name=row.split('|',1)
++            if not name.startswith('blv2_'):continue
++            result=subprocess.run(['scontrol','show','job','-dd',job],capture_output=True,text=True)
++            if result.returncode or ('Command='+str(HERE)+'/') not in result.stdout:continue
++            for value in re.findall(r'Nodes=desktop\s+CPU_IDs=(\S+)',result.stdout):
++                for part in value.split(','):
++                    if '-' in part:
++                        left,right=map(int,part.split('-'));own.update(range(left,right+1))
++                    elif part.isdigit():own.add(int(part))
++        if not own:
++            write(HERE/'LOCAL_CPU_GUARD_STATUS.json',dict(utc=utc(),free_physical_cpus=[],occupied=sorted(occupied),error='No idle CPU and no verified own allocation available for management sharing'))
++            return
++        chosen=next(iter(current)) if len(current)==1 and next(iter(current)) in own else max(own)
++        shared=True
++    else:chosen=next(iter(current)) if len(current)==1 and next(iter(current)) in free else max(free)
+     processes=[];changes=[]
+     for proc,script in local_processes():
+         try:
+@@ -56,13 +72,13 @@
+             processes.append(dict(pid=int(proc.name),script=script.name))
+             if count:changes.append(dict(pid=int(proc.name),threads_rebound=count))
+         except (FileNotFoundError,ProcessLookupError):continue
+-    write(HERE/'LOCAL_CPU_GUARD_STATUS.json',dict(utc=utc(),local_cpu=chosen,slurm_allocated_cpus=sorted(occupied),free_physical_cpus=sorted(free),local_processes=processes,rebound=changes,poll_seconds=5,local_cpu_shares=1,total_user_cpu_cap=read(HERE/'RESOURCE_RELEASE_STATUS.json')['snapshot']['cpu_limit'],no_worker_signals=True))
++    write(HERE/'LOCAL_CPU_GUARD_STATUS.json',dict(utc=utc(),local_cpu=chosen,slurm_allocated_cpus=sorted(occupied),free_physical_cpus=sorted(free),local_processes=processes,rebound=changes,poll_seconds=5,local_cpu_shares=1,shared_with_verified_own_slurm_worker=shared,never_share_other_users_allocation=True,total_user_cpu_cap=read(HERE/'RESOURCE_RELEASE_STATUS.json')['snapshot']['cpu_limit'],no_worker_signals=True))
+ 
+ 
+ def main():
+     with (HERE/'LOCAL_CPU_GUARD.lock').open('a') as lock:
+         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+-        verify_receipt('IDLE_CPU_DELIVERY_METADATA_CODE.receipt.json')
++        verify_receipt('IDLE_CPU_DELIVERY_METADATA_CODE.receipt.json');verify_receipt('LOCAL_CPU_SHARED_OWN_FALLBACK_20261022.receipt.json')
+         write(HERE/'LOCAL_CPU_GUARD_PID.json',dict(utc=utc(),pid=os.getpid()))
+         while not (HERE/'V2_COMPLETE.json').exists():
+             try:tick()

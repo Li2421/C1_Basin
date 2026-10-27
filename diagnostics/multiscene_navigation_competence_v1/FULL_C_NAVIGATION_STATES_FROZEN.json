@@ -1,0 +1,2008 @@
+{
+  "C": [
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 0,
+      "geometry_seed": 202920000000,
+      "task_seed": 217500000000,
+      "alias": "round40_full_C_navigation_holdout_0_202920000000_217500000000_navigation_agent0",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1300,
+        "goal_tolerance": 0.08,
+        "seed": 202920000000,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.6547759446526955
+        ],
+        [
+          -0.3,
+          -1.8720431475822146,
+          0.3,
+          -0.3534706806478487
+        ],
+        [
+          -0.3,
+          0.2641339838509532,
+          0.3,
+          2.062599076676537
+        ],
+        [
+          -0.3,
+          2.759752333060193,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          -6.855263045025641,
+          -0.9827670730771974
+        ]
+      ],
+      "goals": [
+        [
+          5.9556079519950105,
+          -2.0082451720136656
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            -6.855263045025641,
+            -0.9827670730771974
+          ],
+          [
+            -0.4816666666666667,
+            -2.053709814248881
+          ],
+          [
+            5.9556079519950105,
+            -2.0082451720136656
+          ]
+        ]
+      ],
+      "H": 1300,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            0
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            1,
+            2
+          ]
+        },
+        {
+          "resource": 2,
+          "robots": [
+            3
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920000000,
+      "task_seed_block": 217500000000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_fe764de46ca656a6ae44165a24ecc2e044f25045ca2df9505ab5db15a4086119.json",
+        "trace_sha256": "f7fc1aaf3ff30a0b81bdcb36806798885b5a53be6c18288e9911654e540d1b37",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 0,
+      "geometry_seed": 202920000000,
+      "task_seed": 217500000000,
+      "alias": "round40_full_C_navigation_holdout_0_202920000000_217500000000_navigation_agent1",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1400,
+        "goal_tolerance": 0.08,
+        "seed": 202920000000,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.6547759446526955
+        ],
+        [
+          -0.3,
+          -1.8720431475822146,
+          0.3,
+          -0.3534706806478487
+        ],
+        [
+          -0.3,
+          0.2641339838509532,
+          0.3,
+          2.062599076676537
+        ],
+        [
+          -0.3,
+          2.759752333060193,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          6.1744618996673415,
+          -2.5911325292191667
+        ]
+      ],
+      "goals": [
+        [
+          -6.281619557408187,
+          1.103114163621243
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            6.1744618996673415,
+            -2.5911325292191667
+          ],
+          [
+            0.4816666666666667,
+            -0.17180401398118203
+          ],
+          [
+            -6.281619557408187,
+            1.103114163621243
+          ]
+        ]
+      ],
+      "H": 1400,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            0
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            1,
+            2
+          ]
+        },
+        {
+          "resource": 2,
+          "robots": [
+            3
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920000000,
+      "task_seed_block": 217500000000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_fe764de46ca656a6ae44165a24ecc2e044f25045ca2df9505ab5db15a4086119.json",
+        "trace_sha256": "f7fc1aaf3ff30a0b81bdcb36806798885b5a53be6c18288e9911654e540d1b37",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 1,
+      "geometry_seed": 202920010000,
+      "task_seed": 217500010000,
+      "alias": "round40_full_C_navigation_holdout_1_202920010000_217500010000_navigation_agent2",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1300,
+        "goal_tolerance": 0.08,
+        "seed": 202920010000,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.5926278779415317
+        ],
+        [
+          -0.3,
+          -2.097517955471242,
+          0.3,
+          2.0393768337721503
+        ],
+        [
+          -0.3,
+          2.7237962170114423,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          -6.527397045387029,
+          -1.776351520720549
+        ]
+      ],
+      "goals": [
+        [
+          5.59870018298577,
+          -1.9201788488991431
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            -6.527397045387029,
+            -1.776351520720549
+          ],
+          [
+            -0.4816666666666667,
+            -2.2791846221379086
+          ],
+          [
+            0.4816666666666667,
+            -2.2791846221379086
+          ],
+          [
+            5.59870018298577,
+            -1.9201788488991431
+          ]
+        ]
+      ],
+      "H": 1300,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            2,
+            3
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            0,
+            1
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920010000,
+      "task_seed_block": 217500010000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_5feefbbdeb1274f3cc8cce572cd4f2cd60d522366793d76e09014077f079672a.json",
+        "trace_sha256": "c2d25814bfe30b92b5922f6d301f1dc78b9df9f96984185ee538ec61f1f9abcd",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 1,
+      "geometry_seed": 202920010000,
+      "task_seed": 217500010000,
+      "alias": "round40_full_C_navigation_holdout_1_202920010000_217500010000_navigation_agent3",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1500,
+        "goal_tolerance": 0.08,
+        "seed": 202920010000,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.5926278779415317
+        ],
+        [
+          -0.3,
+          -2.097517955471242,
+          0.3,
+          2.0393768337721503
+        ],
+        [
+          -0.3,
+          2.7237962170114423,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          6.254005938501369,
+          -1.9352465760087725
+        ]
+      ],
+      "goals": [
+        [
+          -6.761722482010706,
+          1.8652836263364003
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            6.254005938501369,
+            -1.9352465760087725
+          ],
+          [
+            0.4816666666666667,
+            -2.2791846221379086
+          ],
+          [
+            -0.4816666666666667,
+            -2.2791846221379086
+          ],
+          [
+            -6.761722482010706,
+            1.8652836263364003
+          ]
+        ]
+      ],
+      "H": 1500,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            2,
+            3
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            0,
+            1
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920010000,
+      "task_seed_block": 217500010000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_5feefbbdeb1274f3cc8cce572cd4f2cd60d522366793d76e09014077f079672a.json",
+        "trace_sha256": "c2d25814bfe30b92b5922f6d301f1dc78b9df9f96984185ee538ec61f1f9abcd",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 2,
+      "geometry_seed": 202920020000,
+      "task_seed": 217500020000,
+      "alias": "round40_full_C_navigation_holdout_2_202920020000_217500020000_navigation_agent0",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1500,
+        "goal_tolerance": 0.08,
+        "seed": 202920020000,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.7032981399903977
+        ],
+        [
+          -0.3,
+          -2.1570848120949777,
+          0.3,
+          2.0400902717298313
+        ],
+        [
+          -0.3,
+          2.649231560740343,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          -6.839612545590565,
+          -1.4341207474172721
+        ]
+      ],
+      "goals": [
+        [
+          6.388435271594215,
+          1.95707491915093
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            -6.839612545590565,
+            -1.4341207474172721
+          ],
+          [
+            -0.4816666666666667,
+            2.221756938396498
+          ],
+          [
+            0.4816666666666667,
+            2.221756938396498
+          ],
+          [
+            6.388435271594215,
+            1.95707491915093
+          ]
+        ]
+      ],
+      "H": 1500,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            2
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            0,
+            1,
+            3
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920020000,
+      "task_seed_block": 217500020000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_548716b30db11b2a45a8025e464932ed1814f385c2a80ab16c30d476bfd6e1a6.json",
+        "trace_sha256": "bef345923956f4c419312a222bafbf794aa6b2b25a8ad0ed4c24f58cc96d2c6e",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 2,
+      "geometry_seed": 202920020000,
+      "task_seed": 217500020000,
+      "alias": "round40_full_C_navigation_holdout_2_202920020000_217500020000_navigation_agent1",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1300,
+        "goal_tolerance": 0.08,
+        "seed": 202920020000,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.7032981399903977
+        ],
+        [
+          -0.3,
+          -2.1570848120949777,
+          0.3,
+          2.0400902717298313
+        ],
+        [
+          -0.3,
+          2.649231560740343,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          5.3261738071791385,
+          1.202754917518269
+        ]
+      ],
+      "goals": [
+        [
+          -6.4914732247919575,
+          -1.1998447448967715
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            5.3261738071791385,
+            1.202754917518269
+          ],
+          [
+            0.4816666666666667,
+            2.221756938396498
+          ],
+          [
+            -0.4816666666666667,
+            2.221756938396498
+          ],
+          [
+            -6.4914732247919575,
+            -1.1998447448967715
+          ]
+        ]
+      ],
+      "H": 1300,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            2
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            0,
+            1,
+            3
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920020000,
+      "task_seed_block": 217500020000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_548716b30db11b2a45a8025e464932ed1814f385c2a80ab16c30d476bfd6e1a6.json",
+        "trace_sha256": "bef345923956f4c419312a222bafbf794aa6b2b25a8ad0ed4c24f58cc96d2c6e",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 3,
+      "geometry_seed": 202920030000,
+      "task_seed": 217500030000,
+      "alias": "round40_full_C_navigation_holdout_3_202920030000_217500030000_navigation_agent2",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1200,
+        "goal_tolerance": 0.08,
+        "seed": 202920030000,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.5364996347392985
+        ],
+        [
+          -0.3,
+          -2.0179075070990633,
+          0.3,
+          2.254917341096735
+        ],
+        [
+          -0.3,
+          2.7855800535226343,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          -5.689717517337771,
+          -1.1344917697090628
+        ]
+      ],
+      "goals": [
+        [
+          5.3914742950878445,
+          -0.7716999239652291
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            -5.689717517337771,
+            -1.1344917697090628
+          ],
+          [
+            -0.4816666666666667,
+            -2.19957417376573
+          ],
+          [
+            0.4816666666666667,
+            -2.19957417376573
+          ],
+          [
+            5.3914742950878445,
+            -0.7716999239652291
+          ]
+        ]
+      ],
+      "H": 1200,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            1,
+            2
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            0,
+            3
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920030000,
+      "task_seed_block": 217500030000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_06e4ce5881576bff0a0341cdfedd939e25997c65a226e2030a198bf1b8c955e9.json",
+        "trace_sha256": "0d64d0618fd4ffc0eb661323b8e9ffb8d5498b5cbe3a07e58f515436a70c7ecc",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 3,
+      "geometry_seed": 202920030000,
+      "task_seed": 217500030000,
+      "alias": "round40_full_C_navigation_holdout_3_202920030000_217500030000_navigation_agent3",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1400,
+        "goal_tolerance": 0.08,
+        "seed": 202920030000,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.5364996347392985
+        ],
+        [
+          -0.3,
+          -2.0179075070990633,
+          0.3,
+          2.254917341096735
+        ],
+        [
+          -0.3,
+          2.7855800535226343,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          5.300397994934354,
+          -0.9286282394260355
+        ]
+      ],
+      "goals": [
+        [
+          -6.882291954643543,
+          1.736262745129034
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            5.300397994934354,
+            -0.9286282394260355
+          ],
+          [
+            0.4816666666666667,
+            2.436584007763402
+          ],
+          [
+            -0.4816666666666667,
+            2.436584007763402
+          ],
+          [
+            -6.882291954643543,
+            1.736262745129034
+          ]
+        ]
+      ],
+      "H": 1400,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            1,
+            2
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            0,
+            3
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920030000,
+      "task_seed_block": 217500030000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_06e4ce5881576bff0a0341cdfedd939e25997c65a226e2030a198bf1b8c955e9.json",
+        "trace_sha256": "0d64d0618fd4ffc0eb661323b8e9ffb8d5498b5cbe3a07e58f515436a70c7ecc",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 4,
+      "geometry_seed": 202920040002,
+      "task_seed": 217500040002,
+      "alias": "round40_full_C_navigation_holdout_4_202920040002_217500040002_navigation_agent0",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1400,
+        "goal_tolerance": 0.08,
+        "seed": 202920040002,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.875964121908684
+        ],
+        [
+          -0.3,
+          -2.144270462971539,
+          0.3,
+          2.118575721874897
+        ],
+        [
+          -0.3,
+          2.825145171071537,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          -6.0239596095040655,
+          0.08685289640515448
+        ]
+      ],
+      "goals": [
+        [
+          7.039770044411408,
+          -0.39966652773565814
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            -6.0239596095040655,
+            0.08685289640515448
+          ],
+          [
+            -0.4816666666666667,
+            -2.3259371296382056
+          ],
+          [
+            0.4816666666666667,
+            -2.3259371296382056
+          ],
+          [
+            7.039770044411408,
+            -0.39966652773565814
+          ]
+        ]
+      ],
+      "H": 1400,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            0,
+            1,
+            3
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            2
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920040000,
+      "task_seed_block": 217500040000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_02e8f7da6de0475ebb49ab04fed74ead6e05ec6fa954740aa181d969a74a8900.json",
+        "trace_sha256": "15658f3ea1f4bf5d11f0f7c5a5431c584ea9625110be74f2c76ada18626063d9",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 4,
+      "geometry_seed": 202920040002,
+      "task_seed": 217500040002,
+      "alias": "round40_full_C_navigation_holdout_4_202920040002_217500040002_navigation_agent1",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1600,
+        "goal_tolerance": 0.08,
+        "seed": 202920040002,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.875964121908684
+        ],
+        [
+          -0.3,
+          -2.144270462971539,
+          0.3,
+          2.118575721874897
+        ],
+        [
+          -0.3,
+          2.825145171071537,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          6.753626573913213,
+          2.434097487446568
+        ]
+      ],
+      "goals": [
+        [
+          -7.041877827805268,
+          -2.5751828566303177
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            6.753626573913213,
+            2.434097487446568
+          ],
+          [
+            0.4816666666666667,
+            -2.3259371296382056
+          ],
+          [
+            -7.041877827805268,
+            -2.5751828566303177
+          ]
+        ]
+      ],
+      "H": 1600,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            0,
+            1,
+            3
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            2
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920040000,
+      "task_seed_block": 217500040000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_02e8f7da6de0475ebb49ab04fed74ead6e05ec6fa954740aa181d969a74a8900.json",
+        "trace_sha256": "15658f3ea1f4bf5d11f0f7c5a5431c584ea9625110be74f2c76ada18626063d9",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 5,
+      "geometry_seed": 202920050000,
+      "task_seed": 217500050000,
+      "alias": "round40_full_C_navigation_holdout_5_202920050000_217500050000_navigation_agent2",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1300,
+        "goal_tolerance": 0.08,
+        "seed": 202920050000,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.761002555343065
+        ],
+        [
+          -0.3,
+          -1.8977714091994566,
+          0.3,
+          -0.2582749806147584
+        ],
+        [
+          -0.3,
+          0.4474682824028702,
+          0.3,
+          2.1794936220713437
+        ],
+        [
+          -0.3,
+          2.7406533736094962,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          -5.593198416847091,
+          0.4775757074727993
+        ]
+      ],
+      "goals": [
+        [
+          6.76440842589672,
+          -2.6234539751373096
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            -5.593198416847091,
+            0.4775757074727993
+          ],
+          [
+            0.4816666666666667,
+            -0.07660831394809173
+          ],
+          [
+            6.76440842589672,
+            -2.6234539751373096
+          ]
+        ]
+      ],
+      "H": 1300,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            3
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            0,
+            2
+          ]
+        },
+        {
+          "resource": 2,
+          "robots": [
+            1
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920050000,
+      "task_seed_block": 217500050000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_cb836277bcda469fe26743e2d8e2a572da784fdfad9f6fd2d9f1e0870c1380d5.json",
+        "trace_sha256": "dc2e4e679e24f4db7daf03c7921e3fad465b10d5dc14f06d964b0b8d68ca8bed",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 5,
+      "geometry_seed": 202920050000,
+      "task_seed": 217500050000,
+      "alias": "round40_full_C_navigation_holdout_5_202920050000_217500050000_navigation_agent3",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1400,
+        "goal_tolerance": 0.08,
+        "seed": 202920050000,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.761002555343065
+        ],
+        [
+          -0.3,
+          -1.8977714091994566,
+          0.3,
+          -0.2582749806147584
+        ],
+        [
+          -0.3,
+          0.4474682824028702,
+          0.3,
+          2.1794936220713437
+        ],
+        [
+          -0.3,
+          2.7406533736094962,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          7.064690333139135,
+          -2.5963005703571005
+        ]
+      ],
+      "goals": [
+        [
+          -6.322284549615275,
+          -2.453303401124452
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            7.064690333139135,
+            -2.5963005703571005
+          ],
+          [
+            -6.322284549615275,
+            -2.453303401124452
+          ]
+        ]
+      ],
+      "H": 1400,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            3
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            0,
+            2
+          ]
+        },
+        {
+          "resource": 2,
+          "robots": [
+            1
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920050000,
+      "task_seed_block": 217500050000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_cb836277bcda469fe26743e2d8e2a572da784fdfad9f6fd2d9f1e0870c1380d5.json",
+        "trace_sha256": "dc2e4e679e24f4db7daf03c7921e3fad465b10d5dc14f06d964b0b8d68ca8bed",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 6,
+      "geometry_seed": 202920060000,
+      "task_seed": 217500060000,
+      "alias": "round40_full_C_navigation_holdout_6_202920060000_217500060000_navigation_agent0",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1200,
+        "goal_tolerance": 0.08,
+        "seed": 202920060000,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.6761773320450652
+        ],
+        [
+          -0.3,
+          -2.196253472741126,
+          0.3,
+          -0.2051388665473817
+        ],
+        [
+          -0.3,
+          0.48950314638420056,
+          0.3,
+          1.958025113196173
+        ],
+        [
+          -0.3,
+          2.6473960083314583,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          -6.123560705523957,
+          -1.5477601982166322
+        ]
+      ],
+      "goals": [
+        [
+          5.702807917868276,
+          -1.905897831318057
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            -6.123560705523957,
+            -1.5477601982166322
+          ],
+          [
+            -0.4816666666666667,
+            -2.3779201394077925
+          ],
+          [
+            0.4816666666666667,
+            -2.3779201394077925
+          ],
+          [
+            5.702807917868276,
+            -1.905897831318057
+          ]
+        ]
+      ],
+      "H": 1200,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            0
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "resource": 2,
+          "robots": []
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920060000,
+      "task_seed_block": 217500060000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_474323bb1505e26202180b277e1743ac9975da188ede7ab468af037572883926.json",
+        "trace_sha256": "33693ca08672804dfcc45f4de24bc2500d70dd45221bea7d1a15a9a7e5b5a816",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 6,
+      "geometry_seed": 202920060000,
+      "task_seed": 217500060000,
+      "alias": "round40_full_C_navigation_holdout_6_202920060000_217500060000_navigation_agent1",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1300,
+        "goal_tolerance": 0.08,
+        "seed": 202920060000,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.6761773320450652
+        ],
+        [
+          -0.3,
+          -2.196253472741126,
+          0.3,
+          -0.2051388665473817
+        ],
+        [
+          -0.3,
+          0.48950314638420056,
+          0.3,
+          1.958025113196173
+        ],
+        [
+          -0.3,
+          2.6473960083314583,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          5.790829543021336,
+          -0.3633712484603575
+        ]
+      ],
+      "goals": [
+        [
+          -6.960340268747308,
+          -0.7668910977583852
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            5.790829543021336,
+            -0.3633712484603575
+          ],
+          [
+            0.4816666666666667,
+            -0.023472199880715028
+          ],
+          [
+            -0.4816666666666667,
+            -0.023472199880715028
+          ],
+          [
+            -6.960340268747308,
+            -0.7668910977583852
+          ]
+        ]
+      ],
+      "H": 1300,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            0
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "resource": 2,
+          "robots": []
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920060000,
+      "task_seed_block": 217500060000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_474323bb1505e26202180b277e1743ac9975da188ede7ab468af037572883926.json",
+        "trace_sha256": "33693ca08672804dfcc45f4de24bc2500d70dd45221bea7d1a15a9a7e5b5a816",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 7,
+      "geometry_seed": 202920070001,
+      "task_seed": 217500070001,
+      "alias": "round40_full_C_navigation_holdout_7_202920070001_217500070001_navigation_agent2",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1300,
+        "goal_tolerance": 0.08,
+        "seed": 202920070001,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.7149569869377688
+        ],
+        [
+          -0.3,
+          -1.9975851945985117,
+          0.3,
+          2.0604706064003837
+        ],
+        [
+          -0.3,
+          2.9029745664629427,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          -6.130670016666062,
+          0.669253477132274
+        ]
+      ],
+      "goals": [
+        [
+          6.000014070406687,
+          -0.9595876213285826
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            -6.130670016666062,
+            0.669253477132274
+          ],
+          [
+            -0.4816666666666667,
+            -2.1792518612651786
+          ],
+          [
+            0.4816666666666667,
+            -2.1792518612651786
+          ],
+          [
+            6.000014070406687,
+            -0.9595876213285826
+          ]
+        ]
+      ],
+      "H": 1300,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            0
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920070000,
+      "task_seed_block": 217500070000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_018bb51d27de1fde7377fb5413045ce6ffc654baf869f784072cac102c16650c.json",
+        "trace_sha256": "ec1fa0cbd1b74ef077de7488518ee5ab048b5f83e7e113da8cc9bc459cac360b",
+        "success": true,
+        "outcome": "success"
+      }
+    },
+    {
+      "family": "C",
+      "role": "navigation_capability",
+      "index": 7,
+      "geometry_seed": 202920070001,
+      "task_seed": 217500070001,
+      "alias": "round40_full_C_navigation_holdout_7_202920070001_217500070001_navigation_agent3",
+      "config": {
+        "num_agents": 1,
+        "half_length": 8.0,
+        "half_height": 4.0,
+        "barrier_x": [
+          0.0
+        ],
+        "openings": [
+          [
+            [
+              0.0,
+              0.5
+            ]
+          ]
+        ],
+        "barrier_thickness": 0.6,
+        "extra_rectangles": [],
+        "agent_radius": 0.16,
+        "wall_radius": 0.006666666666666667,
+        "wall_collision_margin": 0.005,
+        "agent_collision_margin": 0.0,
+        "dt": 0.05,
+        "max_speed": 0.5,
+        "max_steps": 1500,
+        "goal_tolerance": 0.08,
+        "seed": 202920070001,
+        "split": "dev"
+      },
+      "rectangles": [
+        [
+          -0.3,
+          -4.0,
+          0.3,
+          -2.7149569869377688
+        ],
+        [
+          -0.3,
+          -1.9975851945985117,
+          0.3,
+          2.0604706064003837
+        ],
+        [
+          -0.3,
+          2.9029745664629427,
+          0.3,
+          4.0
+        ]
+      ],
+      "positions": [
+        [
+          7.180989885191131,
+          -2.606309913281042
+        ]
+      ],
+      "goals": [
+        [
+          -6.37742997903215,
+          0.46323612106363665
+        ]
+      ],
+      "velocities": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "paths": [
+        [
+          [
+            7.180989885191131,
+            -2.606309913281042
+          ],
+          [
+            -0.4816666666666667,
+            -2.1792518612651786
+          ],
+          [
+            -6.37742997903215,
+            0.46323612106363665
+          ]
+        ]
+      ],
+      "H": 1500,
+      "resource_witness": [
+        {
+          "resource": 0,
+          "robots": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "resource": 1,
+          "robots": [
+            0
+          ]
+        }
+      ],
+      "geometry_valid": true,
+      "single_robot_paths_exist": true,
+      "joint_feasibility": "certified",
+      "origin": "round40 full new",
+      "seed_block": 202920070000,
+      "task_seed_block": 217500070000,
+      "joint_proof": {
+        "raw_path": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/full_joint_C_0/raw/roll_018bb51d27de1fde7377fb5413045ce6ffc654baf869f784072cac102c16650c.json",
+        "trace_sha256": "ec1fa0cbd1b74ef077de7488518ee5ab048b5f83e7e113da8cc9bc459cac360b",
+        "success": true,
+        "outcome": "success"
+      }
+    }
+  ]
+}

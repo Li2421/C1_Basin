@@ -1,0 +1,28 @@
+--- coordinator_supplement_20261022.py
++++ coordinator_spatial_mask_20261022.py
+@@ -3,7 +3,7 @@
+ from atomic_write import write
+ from registry import verify_receipt
+ from resources_corrections_release_20261023_quota18_now_20261022 import snapshot
+-import fine_dispatch_pa_memo_20261022_quota18_now_20261022 as fine
++import fine_dispatch_spatial_mask_20261022 as fine
+ from coordinator_flat_static import stage_ready,stage_done,jobs_by_stage
+ import time,subprocess,fcntl
+ 
+@@ -59,6 +59,7 @@
+   time.sleep(10)
+ 
+ def main():
++ verify_receipt('PA_SPATIAL_MASK_EQUIVALENCE_20261022.receipt.json');verify_receipt('PA_SPATIAL_MASK_PIPELINE_CODE_20261022.receipt.json')
+  verify_receipt('PA_QUERY_MEMO_EQUIVALENCE_20261022.receipt.json');verify_receipt('PA_QUERY_MEMO_PIPELINE_CODE_20261022.receipt.json')
+  verify_receipt('CBS_QUERY_DISK_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_QUERY_DISK_PIPELINE_CODE_20261022.receipt.json')
+  verify_receipt('CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_START_SIGNATURE_PIPELINE_CODE_20261022.receipt.json')
+@@ -68,7 +69,7 @@
+  with (HERE/'CORRECTION_COORDINATOR.lock').open('a') as lock:
+   fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+   verify_receipt('CORRECTION_FIXED_PIPELINE_IMPLEMENTATION_20261021.receipt.json');verify_receipt('CORRECTION_REVISION.receipt.json');verify_receipt('PREREGISTRATION_ADDENDUM_20261021.receipt.json')
+-  write(HERE/'COORDINATOR_PID.json',dict(pid=os.getpid(),utc=utc(),entrypoint='coordinator_supplement_20261022.py'))
++  write(HERE/'COORDINATOR_PID.json',dict(pid=os.getpid(),utc=utc(),entrypoint='coordinator_spatial_mask_20261022.py'))
+   status('revised_distributed_fixed_preflight')
+   action('merge_landed_old_semantics','db_merge.py')
+   stages=[prepare_fixed('distributed',scene) for scene in NAMES]

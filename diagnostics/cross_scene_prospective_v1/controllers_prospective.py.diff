@@ -1,0 +1,11 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/controllers_new.py
++++ /home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/controllers_prospective.py
+@@ -18,7 +18,7 @@
+ def wall_penalties(p,env,xp=np):
+     c=env.config;scene=c.scene;margin=c.agent_radius+c.wall_collision_margin+c.wall_radius
+     zero=xp.zeros(p.shape[:-1])
+-    if scene.startswith('xsc_'):
++    if scene.startswith(('xsc_','xsp_')):
+         walls=xp.asarray(env.walls)
+         if not len(walls):return zero,zero
+         a=walls[:,0];ab=walls[:,1]-walls[:,0];d=p[...,None,:]-a

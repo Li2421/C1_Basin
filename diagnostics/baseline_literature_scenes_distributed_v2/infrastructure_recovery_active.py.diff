@@ -1,0 +1,11 @@
+--- infrastructure_recovery_current.py
++++ infrastructure_recovery_active.py
+@@ -32,7 +32,7 @@
+             if not log.exists():write(log,review)
+             if review['unhandled_implementation_error']:
+                 write(HERE/stage/'NEEDS_IMPLEMENTATION_REVIEW.json',dict(utc=utc(),claim=str(path),review=str(log)));continue
+-            if review['slurm']['state']=='OUT_OF_MEMORY' and ('worker_reservation' in review['slurm']['details'] or stage.startswith('optional_')):
++            if review['slurm']['state']=='OUT_OF_MEMORY' and (('worker_reservation' in review['slurm']['details'] or 'worker_active' in review['slurm']['details']) or stage.startswith('optional_')):
+                 memory=re.search(r'MinMemoryNode=(\d+)G',review['slurm']['details'])
+                 old=int(memory.group(1)) if memory else 4
+                 write(HERE/stage/'MEMORY_OVERRIDE_GB.json',dict(utc=utc(),memory_gb=min(96,old*2),reason='Observed certified-backend OOM; increase allocation only',job=job))

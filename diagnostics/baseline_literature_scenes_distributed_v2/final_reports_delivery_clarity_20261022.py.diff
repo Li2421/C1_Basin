@@ -1,0 +1,33 @@
+--- final_reports_spatial_mask_20261022.py
++++ final_reports_delivery_clarity_20261022.py
+@@ -81,13 +81,14 @@
+ 
+ 后续评估和第二阶段/变体另使用进程间低层A*精确查询缓存，完整键和SHA256校验通过才复用；未命中、碰撞或I/O失败执行原搜索。可替换的缓存槽只保存纯函数计算结果，最多65536槽、每槽16KiB，不是研究raw、轨迹或数据库。当前标签worker保留内存缓存版本，不为此中断正在跑的局；两版共享同一科学执行身份和预注册请求。证据见CBS_QUERY_DISK_EQUIVALENCE_20261022.receipt.json。这不是全流程提速倍数保证。PA低层原生查询另缓存同一查询内同一网格单元/移动的静态墙谓词和已静止预约的碰撞谓词；连续起点首步与目标/保持边仍走原运算，最多65536单元，超过容量走原运算，搜索顺序、预算和轨迹不变。658项原生路径、含实际容量回退、四场景20查询及两条完整2000步轨迹逐位验证见PA_SPATIAL_MASK_EQUIVALENCE_20261022.receipt.json。单例计时不代表全流程倍率。PA另启用有界精确查询内存缓存：保留全部预约后缀与十个初始判定位，恢复真实连续起点，未命中仍执行原始A*。每进程最多8192项和32MiB估计内容；完整两个2000步保存episode回放与有限网格、四场景查询均须逐位通过。证据见PA_QUERY_MEMO_EQUIVALENCE_20261022.receipt.json；单例计时不代表全流程倍数。当前资源按用户最新指令固定为18CPU（含1管理核）和2GPU份额。性能加速另含低层A*起点网格/完整初始边判定签名的精确缓存，证明及完整2000步逐位回放见CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json与CBS_START_SIGNATURE_THEORY_20261022.md。该优化只复用数学上相同的查询输出；路径第一点保留本次真实坐标，原700时域、CBS节点预算、物理与统计定义不变，不构成第三套修正语义。性能加速为已验证静态必要条件证书和原生精确bit-key几何缓存，科学语义/RNG/事件不变；CBS_FLAT_CACHE_EQUIVALENCE等收据含完整轨迹逐位回放。未采用的候选也保留证据，不能随意启用。实例类以INSTANCE_CLASSES_SUPPLEMENT_20261022为主：失败上界<=5%后用未到达机器人·局的（4a′+已到达者阻挡）/4a″多数判断，只去掉controller级失败，安全层全局失败保留，墙前陷阱单列。旧CONTROLLER_LEVEL_FAILURES.json保留作历史核对，不能替代新归类。timeout本身不是死锁。目标附近徘徊为超时且所有未到达机器人距目标<=3倍原容差，至少一台未到达；两种语义、两层和实际第二阶段分别报告。图只读封存仿真证据。
+ 
+-资源最新用户授权：立即释放六核后固定18CPU总额度（17调度+1本地管理核），GPU保持2份额。RESOURCE_LIMIT_IMMEDIATE_18CPU_20261022.json为准；旧24→18日期安排已被立即释放决定替代。独立资源guard和watchdog持续校验，不能再次释放六核或恢复24核。
++资源最新用户授权：立即释放六核后固定18CPU总额度（17调度+1本地管理核），GPU保持2份额。RESOURCE_LIMIT_IMMEDIATE_18CPU_20261022.json为准；旧24→18日期安排已被立即释放决定替代。独立资源guard和watchdog持续校验，不能再次释放六核或恢复24核。本地管理优先绑定未分配核；若全机已分配满，仅与经用户/命令路径核验的本轮自有Slurm worker共享一核，绝不占其他用户核，有空核即迁回。当前guard以ACTIVE_ENTRYPOINT.local_cpu_guard为准，策略及核验见LOCAL_CPU_SHARED_OWN_FALLBACK_20261022与LOCAL_CPU_SHARED_OWN_FALLBACK_VERIFIED_20261022；18份额上限不变。
+ 
+ 补充分析以ANALYSIS_SUPPLEMENT_READY_20261022.receipt.json和INSTANCE_CLASSES_SUPPLEMENT_20261022为准，原INSTANCE_CLASSES_REVISED完全保留。安全层全局失败的多数计数合并滤波器平衡点死锁与已到达者阻挡；死锁证据仍只计滤波器平衡点死锁。分布式每场景按32个训练state、8类型等权在15菜单中选一个最佳固定动作，精确平局按菜单顺序。TRAIN_SELECTED_FIXED_20261022_<scene>先于对应评估preflight封存；评估严格复用相同执行身份，无结果才按官方preflight补跑。圆形训练标签齐全后才选。主比较在相同独立评估state、controller和seed上计算学习−训练选定固定动作，bootstrap不重选。三种旧固定修正只作附表参照，集中式保留三种固定修正。全部15动作训练排序见MENU_TRAINING_ACTION_RANKING_20261022.md。
+ 
+ 主数值认MIGRATION_NUMBERS、后验指标认原/新MAIN_ADDITIONAL_METRICS、可选数值认OPTIONAL_NUMBERS、数据库认DB_POSTFLIGHT、源码只认INTEGRITY_END、交付认FINAL_REPORTS。全部实际作业结束后才做最终审计和完成标志；可选缺口独立披露，不混入主线或算unknown。v1原两个非Python配置缺开工全文件哈希的限制仍保留，不能倒补为严格覆盖。"""
+ 
+ def main():
++ verify_receipt('FINAL_DELIVERY_CLARITY_20261022.receipt.json')
+  verify_receipt('PA_SPATIAL_MASK_EQUIVALENCE_20261022.receipt.json');verify_receipt('PA_SPATIAL_MASK_PIPELINE_CODE_20261022.receipt.json')
+  verify_receipt('PA_QUERY_MEMO_EQUIVALENCE_20261022.receipt.json');verify_receipt('PA_QUERY_MEMO_PIPELINE_CODE_20261022.receipt.json')
+  verify_receipt('CBS_QUERY_DISK_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_QUERY_DISK_PIPELINE_CODE_20261022.receipt.json')
+@@ -99,6 +100,7 @@
+  data=read(HERE/'MIGRATION_RESULTS.json');results=data['results'];additional={'original':read(HERE/'MAIN_ADDITIONAL_METRICS.json'),'revised':read(HERE/'MAIN_ADDITIONAL_METRICS_REVISED_20261021.json')};classes=read(HERE/'INSTANCE_CLASSES_SUPPLEMENT_20261022.json');optional=read(HERE/'OPTIONAL_RESULTS.json')
+  axis_reference(results,additional);primary_tables(results,save,cell,delta,table);decomposition(data,additional);class_gain_tables(results)
+  geometry();dynamics(optional)
++ with (HERE/'DYNAMICS_STAGE.md').open('a') as stream:stream.write('\n第二阶段低成功率类别若含碰撞、数值失败、约束/速度/加速度违反，不能直接称为controller自身停住，也不计死锁解决；具体逻辑局计数见INSTANCE_CLASSES_DYNAMICS_SUPPLEMENT_20261022.controller_failure_baseline_failure_modes及各类别gain_interpretation。分类与成功标准未改。\n')
+  revised_geometry=read(HERE/'GEOMETRY_CENSUS_REVISED_20261021.json');geometry_groups=collections.defaultdict(list)
+  for item in revised_geometry:geometry_groups[(item['scene'],item['layer'])].append(item)
+  save('GEOMETRY_CENSUS_REVISED_20261021.md','修订语义，仅读保存仿真证据；候选几何不证明物理可解或无限时域死锁。完整约束法向、条件下界和逃逸量见JSON。\n\n'+table(['场景','层','候选轨迹','候选agent-step','最大安全速度'],[[NAMES[scene],LAYERS[layer],len(rr),sum(r['candidate_agent_steps'] for r in rr),max(r['maximum_safe_speed'] for r in rr)] for (scene,layer),rr in sorted(geometry_groups.items())]))
+@@ -169,5 +171,5 @@
+  save('GAPS.md','\n\n'.join(notes));save('REPORT.md','\n\n'.join(paragraphs)+'\n\n'+'\n\n'.join(notes))
+  save('HANDOFF.md',handoff_text())
+  outputs=['AXIS_TABLE.md','AXIS_TABLE.csv','MENU_TRAINING_ACTION_RANKING_20261022.md','PRIMARY_CLASS_GAINS_20261022.md','REPORT.md','APPENDIX_REFERENCE_AXIS.md','APPENDIX_REFERENCE_AXIS.csv','FAILURE_DECOMPOSITION.md','CONTROLLER_LEVEL_FAILURES.md','GEOMETRY_CENSUS.md','GEOMETRY_CENSUS_REVISED_20261021.md','DYNAMICS_STAGE.md','GAPS.md','HANDOFF.md','CORRECTION_GAIN_SPLITS_20261021.md','VARIANT_RESULTS_20261023.md']
+- seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_spatial_mask_20261022.py','training_selected_report_tables_20261022.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),posthoc_revision_explicit=True)
++ seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_delivery_clarity_20261022.py','training_selected_report_tables_20261022.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),posthoc_revision_explicit=True)
+ if __name__=='__main__':main()

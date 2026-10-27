@@ -1,0 +1,17 @@
+# 请求构造修正记录
+
+原因：原适配器把文献场景版本统一写成flow，未继承静态八机的scene_revision分派标记。首次登记在UID内容冲突时停止并回滚，旧日志及STOP.receipt.json完整保留，副本另存request_fix_resume_20261025/。用户确认停止正确，并明确授权只修正请求构造后继续；模型、提案、选择继续有效，不重新训练。
+
+本次仅新增适配器，不修改原冻结代码、模型、提案或选择。每个场景、状态和控制器逐字段取其旧请求，重新计算身份，仅替换η相关字段。静态八机保留swap8_si_user_fix_20261023及全部载荷/分派字段；圆形五机以最佳修正搜索circle_global中的sE05原请求为新提案构造基底，并使用该轮同一个old_run数值入口；窄通道与拥挤随机保留各自flow格式；对穿和瓶颈独立核对scenes.make_new场景契约并保留原科学执行指纹。原η的菜单位置、旧结果路径属于η相关元数据，新η不沿用旧结果引用。
+
+10例规范化JSON的dtype无关UTF-8字节及rollout UID全部与main_CASES.json原记录一致：四文献场景各eta13/sE05两例，另含对穿12机与双瓶颈各一例。每例两个JSON和哈希见request_reconstruction/与REQUEST_RECONSTRUCTION_CHECK.json。核对未运行任何rollout。新构造代码SHA256、逐例结果及所有新执行适配器SHA256见REQUEST_FIX_RESUME.receipt.json及REQUEST_FIX_ADAPTER_BUILD.json。
+
+原TRAINING_FROZEN、STATISTICS_FROZEN、31个FOLD_FROZEN及ALL_FOLDS_FROZEN全部逐文件核验未变；原停止文件不删除，只由明确引用其SHA256的本次恢复收据授权后续执行。后续发生新的身份冲突仍停止，不忽略字段或覆盖旧行。
+
+## 实际入口与固定哈希
+
+恢复入口：`evaluate_resume.py`；逐字段请求构造：`requests_corrected.py`；执行入口：`worker_resume.sbatch` / `worker_resume.py`；统计仍调用未修改的`statistics_new.py`。
+
+新构造代码SHA256：`ed006090fcae0b7d33b8d30067f89393a42531ce5b59786df36595976e73eadb`。
+
+10例核对：四个文献场景各含η13与扩展范围候选sE05，另含对穿12机与双瓶颈各一例。规范化UTF-8 JSON全部字节和rollout UID均相同，无缺失字段；每例原始/重建请求和独立重算的身份保存于`request_reconstruction/`。

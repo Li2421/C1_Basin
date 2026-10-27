@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-17T19:10:00.337017+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/PREREGISTRATION_CORRECTIVE_RUNTIME39.md": "5b0153b311f1206e8d03dc41562782900ac4c28159e2959f8f5edfd498ba21ab",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/generated_runtime.py": "6f6d2d487771be974dce6582ae18f1af07fc3ce79c78a6336df8c7ca2aba0175",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/generated_runtime.py.source.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/multiagent_worker40.py": "94afe0b4f604992bc6ffb9fe22d4953c8fa0d821b82d8842c75e6d74aca27f79",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/multiagent_worker40.py.source.diff": "d1dd32d7b2e889f9dcbcc7c497d8f54f85e5eeb87e748346f366b3198654e2ab",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/GENERATED_RUNTIME39_COPY_PROVENANCE.json": "836191bc1320cdb824671759c1f2b2c07cc199bd821577f3e03408c2151488e9",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/nominal39_callback.py": "44782119d77fba329c9d5c51df1738835b55a7a98ff0c3527cd31e0940544a60",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/nominal39_callback.scalar_before_batch.py": "4f8835f3eeda659cfa7d3f493475cb5854210566a43df3bccc99b97a7a3c8d00",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/NOMINAL39_CALLBACK_BATCH.diff": "2a06e3d0b586c18702a6b15da814a96a520003dd49cf0273a184a8da4bbb03f7",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/NOMINAL39_CALLBACK_VERSION_AUDIT.json": "51433178a220e858353896a02818dedc50d1db634e6083f3f307ce7ebb93d020",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/NOMINAL39_CALLBACK_UNIT_TEST.json": "8e8f6f5415c508c4f2e76c29df9c76dca4684eee958cb109a11186ea4227f521",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/NOMINAL39_CALLBACK_UNIT_V2_SUBMISSION_PREFLIGHT.receipt.json": "f222e68faa302bc482d3f45fb5bbb095786021670b9ffd5fdc6a3073e38e0548",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/NOMINAL39_CALLBACK_UNIT_V2_COMPLETE.json": "7dadbddaf33bbfbe3d8824fcfbded63a29b43b74ad1db6067e29c0dac0f9f41f",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/controllers.py": "2df0a3f6c475cf759b2cfd664fe3dfda7f4d838fcbf2ca6bbd44a8a75ad96a55",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/trigger.py": "84279cf183dc0d1c06d9f27035ed0667298c9e51e36ece7615077e250b12cfd0",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/geometry.py": "53c58944c4627ba7798cce1bc48df157152da08680b5e57ebd7cd27cacb5b88b",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/policies.py": "eb463fdb9a43235f76302c399b7a61964dbb9f5f9571801dc4512d27726dce0d",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/policies39.py": "edbae2bb1fac07d1daf6d7768ffbfdc867fe339a1af91158bce261933b99eb80",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/observation.py": "aacb1d78c53fe1664cd47d94a65f37784f073815a851c5a7c3f52876d9fa4197",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/observation39.py": "4e0f42b582674561608b99deac4743f3f82f6cf08d9ef429e8c8343e80f7f8ad",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/navigation_field.py": "37b700a557f5cd019b1b3cd084b184e719e19fabea17716128a791f7155d7273",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/batch_fields39.py": "d059d1eb0c5607765b68fc730301ad7e94b292216207991f7557f1327597f76a",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/ETA_EXACT.json": "8809faaee08c3dd3a20562b1fc6e2e7344520c6dc4c012d2cc7d5bc0b40ffe6e",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/REPRODUCTION_GATE.json": "4f1a7022a2b9c8b2e890e1a92557aa2a4633f7eab391808f96cc5b69b346a038"
+  },
+  "before_any_multiagent_corrective_labels": true,
+  "nominal_source_only_changed": true,
+  "physical_step_unmodified": true,
+  "not_a_selector_choice_freeze": true
+}

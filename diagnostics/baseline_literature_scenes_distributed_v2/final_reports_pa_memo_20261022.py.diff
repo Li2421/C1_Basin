@@ -1,0 +1,34 @@
+--- final_reports_query_disk_20261022.py
++++ final_reports_pa_memo_20261022.py
+@@ -67,7 +67,7 @@
+ 
+ 流程Python为/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python -B；最后画图才用.venv-c1-plots。禁止安装包、写v1/外部源码或做git commit。experiment.py将TMP/MPL/XDG/CUDA缓存限制于本轮且禁用bytecode。所有已封存raw、trace、checkpoint、配置和源文件不修改，修订用新文件并记录来源SHA。
+ 
+-分布式安全层在distributed_safety.LocalSafety：各机器人独立解二维投影，不输入其他机器人的名义或安全速度。配对行2(pi-pj)·ui>=-c*gamma*h，窄通道/拥挤随机/圆形主线c=1/2，门口c=1；墙全责，速度球和同问题数值重试不变。集中式保持原联合投影及原OrthoFlow3。构造snapshot和实际约束由projection_adapter.constraints/LocalSafety完成；runtime_correction_query_disk_candidate_20261022.run执行分布式与拥挤集中式，central_correction_revised_20261021.run执行其他集中式。
++分布式安全层在distributed_safety.LocalSafety：各机器人独立解二维投影，不输入其他机器人的名义或安全速度。配对行2(pi-pj)·ui>=-c*gamma*h，窄通道/拥挤随机/圆形主线c=1/2，门口c=1；墙全责，速度球和同问题数值重试不变。集中式保持原联合投影及原OrthoFlow3。构造snapshot和实际约束由projection_adapter.constraints/LocalSafety完成；runtime_correction_pa_memo_query_disk_candidate_20261022.run执行分布式与拥挤集中式，central_correction_revised_20261021.run执行其他集中式。
+ 
+ 调用顺序仍为冻结名义控制器→原速度界和到达停止→第一次安全投影→三个原修正基→第二次同问题安全投影→原物理。correction_revision_20261021只把Brel在无接触冲突的机器人行置零；Brel启用时仍对全部其他机器人先bound再平均，不能改成仅近邻平均。接触为距离<=Rc且两者不同时在原到达容差内，Rc=1.25*d_safe，d_safe含分离buffer，第二阶段门口含前视膨胀半径；具体数值CORRECTION_REVISION.md在首条研究运行前固定，不据结果调整。到达位每步广播1bit，其他通信假设保持原样。双η主线使用平均进度及原6/7时限回退；逐机器人进度只作为非主线变体。
+ 
+@@ -77,13 +77,14 @@
+ 
+ 每项新研究前先查HISTORY_CHECK及现存配置/数据/checkpoint/预测，遵守共享数据库README的官方preflight，只跑genuinely_missing。registry/revised_case_factory负责身份与注册；worker只通过官方cache_writer.append_journal写默认实验exp_baseline_literature_scenes_distributed_v2，不能写SQLite。唯一merger由db_merge.py包装官方程序并持锁。原圆形学习2044条保留且已合并，4100条停止不恢复，旧评估1536不运行；这项用户停止不产生unknown。数值求解失败的unknown独立保留，不能改成timeout/deadlock或默默重跑覆盖。
+ 
+-后续评估和第二阶段/变体另使用进程间低层A*精确查询缓存，完整键和SHA256校验通过才复用；未命中、碰撞或I/O失败执行原搜索。可替换的缓存槽只保存纯函数计算结果，最多65536槽、每槽16KiB，不是研究raw、轨迹或数据库。当前标签worker保留内存缓存版本，不为此中断正在跑的局；两版共享同一科学执行身份和预注册请求。证据见CBS_QUERY_DISK_EQUIVALENCE_20261022.receipt.json。这不是全流程提速倍数保证。性能加速另含低层A*起点网格/完整初始边判定签名的精确缓存，证明及完整2000步逐位回放见CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json与CBS_START_SIGNATURE_THEORY_20261022.md。该优化只复用数学上相同的查询输出；路径第一点保留本次真实坐标，原700时域、CBS节点预算、物理与统计定义不变，不构成第三套修正语义。性能加速为已验证静态必要条件证书和原生精确bit-key几何缓存，科学语义/RNG/事件不变；CBS_FLAT_CACHE_EQUIVALENCE等收据含完整轨迹逐位回放。未采用的候选也保留证据，不能随意启用。实例类以INSTANCE_CLASSES_REVISED为主：失败上界<=5%后用未到达机器人·局的4a′/4a″多数判断，只去掉controller级失败，安全层全局失败保留，墙前陷阱单列。旧CONTROLLER_LEVEL_FAILURES.json保留作历史核对，不能替代新归类。timeout本身不是死锁。目标附近徘徊为超时且所有未到达机器人距目标<=3倍原容差，至少一台未到达；两种语义、两层和实际第二阶段分别报告。图只读封存仿真证据。
++后续评估和第二阶段/变体另使用进程间低层A*精确查询缓存，完整键和SHA256校验通过才复用；未命中、碰撞或I/O失败执行原搜索。可替换的缓存槽只保存纯函数计算结果，最多65536槽、每槽16KiB，不是研究raw、轨迹或数据库。当前标签worker保留内存缓存版本，不为此中断正在跑的局；两版共享同一科学执行身份和预注册请求。证据见CBS_QUERY_DISK_EQUIVALENCE_20261022.receipt.json。这不是全流程提速倍数保证。PA另启用有界精确查询内存缓存：保留全部预约后缀与十个初始判定位，恢复真实连续起点，未命中仍执行原始A*。每进程最多8192项和32MiB估计内容；完整两个2000步保存episode回放与有限网格、四场景查询均须逐位通过。证据见PA_QUERY_MEMO_EQUIVALENCE_20261022.receipt.json；单例计时不代表全流程倍数。当前资源按用户最新指令固定为18CPU（含1管理核）和2GPU份额。性能加速另含低层A*起点网格/完整初始边判定签名的精确缓存，证明及完整2000步逐位回放见CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json与CBS_START_SIGNATURE_THEORY_20261022.md。该优化只复用数学上相同的查询输出；路径第一点保留本次真实坐标，原700时域、CBS节点预算、物理与统计定义不变，不构成第三套修正语义。性能加速为已验证静态必要条件证书和原生精确bit-key几何缓存，科学语义/RNG/事件不变；CBS_FLAT_CACHE_EQUIVALENCE等收据含完整轨迹逐位回放。未采用的候选也保留证据，不能随意启用。实例类以INSTANCE_CLASSES_REVISED为主：失败上界<=5%后用未到达机器人·局的4a′/4a″多数判断，只去掉controller级失败，安全层全局失败保留，墙前陷阱单列。旧CONTROLLER_LEVEL_FAILURES.json保留作历史核对，不能替代新归类。timeout本身不是死锁。目标附近徘徊为超时且所有未到达机器人距目标<=3倍原容差，至少一台未到达；两种语义、两层和实际第二阶段分别报告。图只读封存仿真证据。
+ 
+ 资源最新用户授权：当前总24CPU（23调度+1本地），{policy['release_at_local']}降为18CPU（17调度+1本地），GPU保持2份额。实际限额读resources_corrections_release_20261023.limits与RESOURCE_RELEASE_STATUS，ACTIVE里的部署初值不能覆盖日期政策。07:30开始超额CPU worker逐局收尾，09:00准时释放；优先纯CPU任务，不打断GPU critic fits。独立CPU释放guard及watchdog持久运行。每次提交先squeue计全用户含pending；本地进程由local_cpu_guard_idle_cpu绑定未被Slurm分配的单核，不与worker抢同一物理CPU。
+ 
+ 主数值认MIGRATION_NUMBERS、后验指标认原/新MAIN_ADDITIONAL_METRICS、可选数值认OPTIONAL_NUMBERS、数据库认DB_POSTFLIGHT、源码只认INTEGRITY_END、交付认FINAL_REPORTS。全部实际作业结束后才做最终审计和完成标志；可选缺口独立披露，不混入主线或算unknown。v1原两个非Python配置缺开工全文件哈希的限制仍保留，不能倒补为严格覆盖。"""
+ 
+ def main():
++ verify_receipt('PA_QUERY_MEMO_EQUIVALENCE_20261022.receipt.json');verify_receipt('PA_QUERY_MEMO_PIPELINE_CODE_20261022.receipt.json')
+  verify_receipt('CBS_QUERY_DISK_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_QUERY_DISK_PIPELINE_CODE_20261022.receipt.json')
+  verify_receipt('CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_START_SIGNATURE_PIPELINE_CODE_20261022.receipt.json')
+  verify_receipt('CORRECTION_CLOSED_SCOPE_DELIVERY_READY_20261023.receipt.json')
+@@ -161,5 +162,5 @@
+  save('GAPS.md','\n\n'.join(notes));save('REPORT.md','\n\n'.join(paragraphs)+'\n\n'+'\n\n'.join(notes))
+  save('HANDOFF.md',handoff_text())
+  outputs=['REPORT.md','AXIS_TABLE.md','AXIS_TABLE.csv','FAILURE_DECOMPOSITION.md','CONTROLLER_LEVEL_FAILURES.md','GEOMETRY_CENSUS.md','GEOMETRY_CENSUS_REVISED_20261021.md','DYNAMICS_STAGE.md','GAPS.md','HANDOFF.md','CORRECTION_GAIN_SPLITS_20261021.md','VARIANT_RESULTS_20261023.md']
+- seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_query_disk_20261022.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),posthoc_revision_explicit=True)
++ seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_pa_memo_20261022.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),posthoc_revision_explicit=True)
+ if __name__=='__main__':main()

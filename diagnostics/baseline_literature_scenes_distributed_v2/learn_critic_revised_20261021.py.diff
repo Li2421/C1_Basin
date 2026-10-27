@@ -1,0 +1,47 @@
+--- learn_critic.py
++++ learn_critic_revised_20261021.py
+@@ -61,7 +61,7 @@
+     return w.reshape(-1)/w.sum()
+ 
+ def fit(scene,source,data,tr):
+-    folder=HERE/'critic_fits'/scene/source_key(source);folder.mkdir(parents=True,exist_ok=True)
++    folder=HERE/'critic_fits_revised_20261021'/scene/source_key(source);folder.mkdir(parents=True,exist_ok=True)
+     if (folder/'COMPLETE.receipt.json').exists():return
+     X=jnp.asarray(apply(data['physical12'],tr));actions=jnp.asarray(data['action']);labels=data['labels'];w=weights(labels,data['types'],source)
+     Y=jnp.asarray(np.maximum(labels,0).reshape(-1),jnp.float32);N=jnp.asarray((labels>=0).astype(np.float32).reshape(-1))
+@@ -82,14 +82,14 @@
+     return float(np.mean(loss.sum((-1,-2))/np.maximum(1,valid.sum((-1,-2)))))
+ 
+ def main(scene):
+-    prereg();assert jax.default_backend()=='gpu';path=HERE/f'LEARNING_BUNDLE_{scene}.npz';receipt=read(HERE/f'LEARNING_BUNDLE_{scene}.receipt.json');assert receipt['files'][str(path)]==sha(path)
++    prereg();assert jax.default_backend()=='gpu';path=HERE/f'LEARNING_BUNDLE_REVISED_20261021_{scene}.npz';receipt=read(HERE/f'LEARNING_BUNDLE_REVISED_20261021_{scene}.receipt.json');assert receipt['files'][str(path)]==sha(path)
+     with np.load(path) as z:data={k:z[k] for k in z.files}
+     types=sorted(set(data['types'].tolist()));assert len(types)==8;tr=transform(data['physical12'])
+     tasks=list(itertools.combinations(types,6))+list(itertools.combinations(types,7))
+-    plan=HERE/f'CRITIC_TRAINING_PLAN_{scene}.json'
++    plan=HERE/f'CRITIC_TRAINING_PLAN_REVISED_20261021_{scene}.json'
+     if not plan.exists():
+         write(plan,dict(utc=utc(),source_sets=tasks,steps=STEPS,seeds=SEEDS,initialization='scratch',source_only_preprocessing=True,fold_validation='For held-out t, select checkpoint by mean NLL on each u!=t using fit excluding t and u; then deploy fit excluding t',no_controller_input=True,unknown_masked=True,geometry_features='physical12[0:9]',context_features='physical12[9:12]',action_dimension=19))
+-        seal(f'CRITIC_TRAINING_PLAN_{scene}.receipt.json',[plan,HERE/'learn_critic.py',path,HERE/f'LEARNING_BUNDLE_{scene}.receipt.json'],before_training=True)
++        seal(f'CRITIC_TRAINING_PLAN_REVISED_20261021_{scene}.receipt.json',[plan,HERE/'learn_critic_revised_20261021.py',path,HERE/f'LEARNING_BUNDLE_REVISED_20261021_{scene}.receipt.json'],before_training=True)
+     with jax.default_matmul_precision('highest'):
+         for source in tasks:fit(scene,list(source),data,tr)
+     folds={}
+@@ -99,13 +99,13 @@
+             losses=[]
+             for validation in types:
+                 if validation==target:continue
+-                source=sorted(set(types)-{target,validation});folder=HERE/'critic_fits'/scene/source_key(source)
++                source=sorted(set(types)-{target,validation});folder=HERE/'critic_fits_revised_20261021'/scene/source_key(source)
+                 with np.load(folder/f'step{step}_predictions.npz') as z:prob=z['probabilities'].mean(0)
+                 mask=data['types']==validation;losses.append(nll(np.broadcast_to(prob,data['labels'][mask].shape),data['labels'][mask]))
+             scores.append(float(np.mean(losses)))
+-        step=STEPS[int(np.argmin(scores))];source=sorted(set(types)-{target});folder=HERE/'critic_fits'/scene/source_key(source);checkpoint=folder/f'step{step}.msgpack'
++        step=STEPS[int(np.argmin(scores))];source=sorted(set(types)-{target});folder=HERE/'critic_fits_revised_20261021'/scene/source_key(source);checkpoint=folder/f'step{step}.msgpack'
+         folds[target]=dict(source_types=source,step=step,checkpoint=str(checkpoint),checkpoint_sha256=sha(checkpoint),transform=tr,nested_nll_by_step=scores,held_out_type_labels_used=False)
+-    write(HERE/f'FROZEN_SCENE_CRITIC_{scene}.json',dict(utc=utc(),folds=folds,features=12,controller_input=False,seed_ensemble=SEEDS,evidence='DEVELOPMENT'))
+-    seal(f'FROZEN_SCENE_CRITIC_{scene}.receipt.json',[HERE/f'FROZEN_SCENE_CRITIC_{scene}.json',plan,HERE/'learn_critic.py'],before_evaluation_rollouts=True)
++    write(HERE/f'FROZEN_SCENE_CRITIC_REVISED_20261021_{scene}.json',dict(utc=utc(),folds=folds,features=12,controller_input=False,seed_ensemble=SEEDS,evidence='DEVELOPMENT'))
++    seal(f'FROZEN_SCENE_CRITIC_REVISED_20261021_{scene}.receipt.json',[HERE/f'FROZEN_SCENE_CRITIC_REVISED_20261021_{scene}.json',plan,HERE/'learn_critic_revised_20261021.py'],before_evaluation_rollouts=True)
+ 
+ if __name__=='__main__':main(sys.argv[1])

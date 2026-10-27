@@ -1,0 +1,35 @@
+--- coordinator_correction_tail_backfill_20261023.py
++++ coordinator_correction_configured_20261023.py
+@@ -59,21 +59,26 @@
+   time.sleep(10)
+ 
+ def main():
+- verify_receipt('CORRECTION_CONTINUATION_TAIL_BACKFILL_READY_20261023.receipt.json')
++ verify_receipt('CORRECTION_CONFIGURED_CONTINUATION_READY_20261023.receipt.json')
+  verify_receipt('CPU_RELEASE_CODE_20261023.receipt.json')
+  verify_receipt('CORRECTION_RECOVERY_ADAPTER_20261021.receipt.json')
+  with (HERE/'CORRECTION_COORDINATOR.lock').open('a') as lock:
+   fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+   verify_receipt('CORRECTION_FIXED_PIPELINE_IMPLEMENTATION_20261021.receipt.json');verify_receipt('CORRECTION_REVISION.receipt.json');verify_receipt('PREREGISTRATION_ADDENDUM_20261021.receipt.json')
+-  write(HERE/'COORDINATOR_PID.json',dict(pid=os.getpid(),utc=utc(),entrypoint='coordinator_correction_tail_backfill_20261023.py'))
++  write(HERE/'COORDINATOR_PID.json',dict(pid=os.getpid(),utc=utc(),entrypoint='coordinator_correction_configured_20261023.py'))
+   status('revised_distributed_fixed_preflight')
+   action('merge_landed_old_semantics','db_merge.py')
+   stages=[prepare_fixed('distributed',scene) for scene in NAMES]
+   run_stages(stages,'revised_distributed_fixed')
+   action('merge_revised_distributed_fixed','db_merge.py')
+   if not (HERE/'REVISED_DISTRIBUTED_FIXED_COMPLETE_20261021.receipt.json').exists():seal('REVISED_DISTRIBUTED_FIXED_COMPLETE_20261021.receipt.json',[HERE/(s+'/GROUP_INDEX.json') for s in stages],all_original_groups_complete=True,stages=stages,logical_requests=68064)
+-  while not (HERE/'CORRECTION_CONTINUATION_TAIL_BACKFILL_READY_20261023.receipt.json').exists():
+-   status('revised_Dfixed_complete_awaiting_continuation_implementation',required_next='D learning narrow/crowd/door; then Cfixed; circle learning last');time.sleep(10)
+-  verify_receipt('CORRECTION_CONTINUATION_TAIL_BACKFILL_READY_20261023.receipt.json')
+-  action('correction_after_Dfixed','correction_after_distributed_fixed_tail_backfill_20261023.py')
++  while True:
++   entry=read(HERE/'ACTIVE_ENTRYPOINT.json');proof=entry.get('downstream_receipt');target=entry['downstream']
++   assert Path(target).name==target and target.endswith('.py'),target
++   if proof and (HERE/proof).exists():
++    assert Path(proof).name==proof and proof.endswith('.receipt.json'),proof
++    ready=verify_receipt(proof);assert str(HERE/target) in ready['files'],target
++    break
++   status('revised_Dfixed_complete_awaiting_continuation_implementation',required_next='D learning3 -> Cfixed4 -> circle learning last',required_receipt=proof);time.sleep(10)
++  action('correction_after_Dfixed',target)
+ if __name__=='__main__':main()

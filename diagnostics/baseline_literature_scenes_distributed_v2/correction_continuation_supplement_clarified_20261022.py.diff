@@ -1,0 +1,9 @@
+--- correction_continuation_supplement_20261022.py
++++ correction_continuation_supplement_clarified_20261022.py
+@@ -77,5 +77,5 @@
+   wait_ready('CORRECTION_SCOPED_NUMERICS_READY_20261023.receipt.json','revised_main_complete_waiting_combined_statistics_implementation')
+   if not (HERE/'MIGRATION_NUMBERS.receipt.json').exists():action('combined_original_revised_numbers','statistics_supplement_20261022.py')
+   wait_ready('CORRECTION_CLOSED_SCOPE_DELIVERY_READY_20261023.receipt.json','combined_main_numbers_sealed_waiting_revised_optional_implementation')
+-  action('revised_optional_and_final_delivery','optional_delivery_supplement_20261022.py')
++  action('revised_optional_and_final_delivery','optional_delivery_supplement_clarified_20261022.py')
+ if __name__=='__main__':main()

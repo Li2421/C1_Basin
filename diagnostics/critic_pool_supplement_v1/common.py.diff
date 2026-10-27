@@ -1,0 +1,23 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/common.py
++++ /home/zhihan/research/Basin_C1/diagnostics/critic_pool_supplement_v1/common.py
+@@ -7,7 +7,7 @@
+ from functools import lru_cache
+ from shared_rollout_db.src import rollout_db as dbm, planner, cache_writer
+ 
+-EXP = 'exp_hetero_scene_pipeline_v1'
++EXP = 'exp_critic_pool_supplement_v1'
+ SOURCE = ROOT / 'diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1'
+ SEARCH = SOURCE / 'best_correction_search_v1'
+ V2 = ROOT / 'diagnostics/baseline_literature_scenes_distributed_v2'
+@@ -101,9 +101,9 @@
+                 if old:
+                     assert all(old[k] == v for k, v in values.items()), ('UID_CONTENT_CONFLICT', table, key)
+                 else:
+-                    db.execute('INSERT INTO ' + table + '(' + ','.join(values) + ') VALUES(' + ','.join('?' for _ in values) + ')', list(values.values()))
++                    db.execute('INSERT OR IGNORE INTO ' + table + '(' + ','.join(values) + ') VALUES(' + ','.join('?' for _ in values) + ')', list(values.values()))
+                     inserted.append(dict(table=table, row=values)); added[table].add(key)
+-            ins('experiment', dict(experiment_uid=EXP, name='Heterogeneous scene pipeline v1', path=str(HERE),
++            ins('experiment', dict(experiment_uid=EXP, name='Critic training pool supplement v1', path=str(HERE),
+                 protocol_hash=sha(HERE / 'PROTOCOL.md'), code_hash=sha(HERE / 'common.py'), metadata_json=canonical(dict(evidence='DEVELOPMENT'))))
+             for c in cases:
+                 s = c['state']; physical = {k: s[k] for k in ('positions', 'velocities', 'goals')}

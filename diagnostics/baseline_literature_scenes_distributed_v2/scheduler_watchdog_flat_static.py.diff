@@ -1,0 +1,28 @@
+--- scheduler_watchdog_complete.py
++++ scheduler_watchdog_flat_static.py
+@@ -22,7 +22,7 @@
+ def main():
+     with (HERE/'SCHEDULER_WATCHDOG.lock').open('a') as lock:
+         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+-        verify_receipt('PIPELINED_SCHEDULING.receipt.json');verify_receipt('WATCHDOG_OWNER_GUARD.receipt.json');verify_receipt('OPTIONAL_FINE_SCHEDULING.receipt.json')
++        verify_receipt('PIPELINED_SCHEDULING.receipt.json');verify_receipt('WATCHDOG_OWNER_GUARD.receipt.json');verify_receipt('OPTIONAL_FINE_SCHEDULING.receipt.json');verify_receipt('CBS_FLAT_CACHE_STATIC_DEPLOYMENT.receipt.json')
+         write(HERE/'SCHEDULER_WATCHDOG_PID.json',dict(utc=utc(),pid=os.getpid()))
+         last_restart=0
+         while not (HERE/'V2_COMPLETE.json').exists():
+@@ -32,13 +32,13 @@
+                 state=snapshot();status=read(HERE/'STATUS.json')
+                 action_error=(HERE/'COORDINATOR_ACTION_ERROR.json').exists()
+                 processes=subprocess.check_output(['ps','-eo','args='],text=True).splitlines()
+-                child_alive=any(line.startswith(sys.executable+' -B '+str(HERE/'downstream_complete.py')) for line in processes)
++                child_alive=any(line.startswith(sys.executable+' -B '+str(HERE/'downstream_flat_static.py')) for line in processes)
+                 # Scientific failures are surfaced, not blindly retried against
+                 # immutable receipts. Other running workers remain untouched.
+                 restarted=None
+                 if not running and not child_alive and not action_error and time.time()-last_restart>120:
+-                    assert entry['coordinator']=='coordinator_complete.py',entry
+-                    verify_receipt('PIPELINED_SCHEDULING.receipt.json');verify_receipt('WATCHDOG_OWNER_GUARD.receipt.json');verify_receipt('OPTIONAL_FINE_SCHEDULING.receipt.json')
++                    assert entry['coordinator']=='coordinator_flat_static.py',entry
++                    verify_receipt('PIPELINED_SCHEDULING.receipt.json');verify_receipt('WATCHDOG_OWNER_GUARD.receipt.json');verify_receipt('OPTIONAL_FINE_SCHEDULING.receipt.json');verify_receipt('CBS_FLAT_CACHE_STATIC_DEPLOYMENT.receipt.json')
+                     with (HERE/'coordinator.log').open('a') as out:
+                         proc=subprocess.Popen([sys.executable,'-B',str(HERE/entry['coordinator'])],
+                             cwd=ROOT,stdout=out,stderr=subprocess.STDOUT,start_new_session=True)

@@ -1,0 +1,33 @@
+{
+  "name": "G0",
+  "recipe": "base_u_v2_macflow",
+  "seed": 2026101701,
+  "steps": 12000,
+  "batch_size": 256,
+  "hidden_dims": [
+    256,
+    256,
+    256
+  ],
+  "activation": "relu",
+  "optimizer": "Adam",
+  "learning_rate": 0.0003,
+  "validation_batches": 8,
+  "validation_batch_size": 256,
+  "validation_interval": 250,
+  "validation_seed": 2026102701,
+  "log_std_bounds": [
+    -5,
+    1.5
+  ],
+  "training_sampling": "uniform transitions on exact Flow train split",
+  "checkpoint_selection": "minimum fixed dev Gaussian NLL, earliest tie",
+  "frame": "global",
+  "manifest": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_v2_dataset/manifest.json",
+  "manifest_sha256": "b49dcafe393b4f5f4103cad8e633c589d0dd8ee08200d52ce512a62941a57d1b",
+  "flow_checkpoint": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_v2_macflow/best.pkl",
+  "flow_checkpoint_sha256": "43e474204cb4294842c7fd7cf3d613ff1359b789ea62bcf2de07a2df4031f1a7",
+  "normalization": "exact obs_mean/obs_scale/act_mean/act_scale from corresponding Flow checkpoint config",
+  "action_decode": "normalized Gaussian sample; decode; clip raw[-1,1]; per-agent speed bound; original to_world; final float64 speed bound",
+  "test_split_never_opened": true
+}

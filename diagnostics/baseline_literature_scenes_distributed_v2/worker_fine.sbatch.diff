@@ -1,0 +1,8 @@
+--- worker_active.sbatch
++++ worker_fine.sbatch
+@@ -11,4 +11,4 @@
+ export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1
+ export JAX_PLATFORMS=cpu
+ unset XLA_FLAGS
+-exec /home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python -B diagnostics/baseline_literature_scenes_distributed_v2/worker_active.py "$BLV2_STAGE"
++exec /home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python -B diagnostics/baseline_literature_scenes_distributed_v2/worker_fine.py "$BLV2_STAGE"

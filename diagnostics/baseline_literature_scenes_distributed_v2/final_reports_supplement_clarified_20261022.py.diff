@@ -1,0 +1,27 @@
+--- final_reports_supplement_20261022.py
++++ final_reports_supplement_clarified_20261022.py
+@@ -83,6 +83,8 @@
+ 
+ 资源最新用户授权：立即释放六核后固定18CPU总额度（17调度+1本地管理核），GPU保持2份额。RESOURCE_LIMIT_IMMEDIATE_18CPU_20261022.json为准；旧24→18日期安排已被立即释放决定替代。独立资源guard和watchdog持续校验，不能再次释放六核或恢复24核。
+ 
++补充分析以ANALYSIS_SUPPLEMENT_READY_20261022.receipt.json和INSTANCE_CLASSES_SUPPLEMENT_20261022为准，原INSTANCE_CLASSES_REVISED完全保留。安全层全局失败的多数计数合并滤波器平衡点死锁与已到达者阻挡；死锁证据仍只计滤波器平衡点死锁。分布式每场景按32个训练state、8类型等权在15菜单中选一个最佳固定动作，精确平局按菜单顺序。TRAIN_SELECTED_FIXED_20261022_<scene>先于对应评估preflight封存；评估严格复用相同执行身份，无结果才按官方preflight补跑。圆形训练标签齐全后才选。主比较在相同独立评估state、controller和seed上计算学习−训练选定固定动作，bootstrap不重选。三种旧固定修正只作附表参照，集中式保留三种固定修正。全部15动作训练排序见MENU_TRAINING_ACTION_RANKING_20261022.md。
++
+ 主数值认MIGRATION_NUMBERS、后验指标认原/新MAIN_ADDITIONAL_METRICS、可选数值认OPTIONAL_NUMBERS、数据库认DB_POSTFLIGHT、源码只认INTEGRITY_END、交付认FINAL_REPORTS。全部实际作业结束后才做最终审计和完成标志；可选缺口独立披露，不混入主线或算unknown。v1原两个非Python配置缺开工全文件哈希的限制仍保留，不能倒补为严格覆盖。"""
+ 
+ def main():
+@@ -112,7 +114,7 @@
+  for scene in NAMES:
+   contrast=comparison(results[scene]['fixed_full'],'safety').get('distributed_minus_central')
+   classification.append(NAMES[scene]+'只加安全投影的分布式−集中式配对成功差：'+delta(contrast)+'。')
+- paragraphs.append(' '.join(classification)+' 窄通道分布式多数低成功实例归为安全层导致的全局失败，保留为死锁候选证据；门口两层各5个controller级失败另列。九格改变的实例与另一安全层旁证见INSTANCE_CLASSES_SUPPLEMENT_20261022。timeout不等于死锁，有限窗口候选不能证明永久死锁。')
++ paragraphs.append(' '.join(classification)+' 窄通道分布式低成功实例归为安全层导致的全局失败并保留在分类分析中；只有实际逐机器人滤波器平衡点死锁计死锁证据，被已到达者阻挡不计死锁证据；门口两层各5个controller级失败另列。九格改变的实例与另一安全层旁证见INSTANCE_CLASSES_SUPPLEMENT_20261022。timeout不等于死锁，有限窗口候选不能证明永久死锁。')
+  gains=[]
+  for scene in NAMES:
+   for sem in SEM:
+@@ -166,5 +168,5 @@
+  save('GAPS.md','\n\n'.join(notes));save('REPORT.md','\n\n'.join(paragraphs)+'\n\n'+'\n\n'.join(notes))
+  save('HANDOFF.md',handoff_text())
+  outputs=['AXIS_TABLE.md','AXIS_TABLE.csv','MENU_TRAINING_ACTION_RANKING_20261022.md','PRIMARY_CLASS_GAINS_20261022.md','REPORT.md','APPENDIX_REFERENCE_AXIS.md','APPENDIX_REFERENCE_AXIS.csv','FAILURE_DECOMPOSITION.md','CONTROLLER_LEVEL_FAILURES.md','GEOMETRY_CENSUS.md','GEOMETRY_CENSUS_REVISED_20261021.md','DYNAMICS_STAGE.md','GAPS.md','HANDOFF.md','CORRECTION_GAIN_SPLITS_20261021.md','VARIANT_RESULTS_20261023.md']
+- seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_supplement_20261022.py','training_selected_report_tables_20261022.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),posthoc_revision_explicit=True)
++ seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_supplement_clarified_20261022.py','training_selected_report_tables_20261022.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),posthoc_revision_explicit=True)
+ if __name__=='__main__':main()

@@ -1,0 +1,48 @@
+--- analysis_jobs_cached.py
++++ analysis_jobs_backfill.py
+@@ -8,6 +8,12 @@
+ import subprocess
+ import fcntl
+ import time
++import signal
++STOP=False
++
++def request_stop(*args):
++    global STOP
++    STOP=True
+ 
+ def prepare(original):
+     stage='analysis_'+original
+@@ -36,11 +42,14 @@
+         return job
+ 
+ def worker(stage):
++    signal.signal(signal.SIGUSR1,request_stop)
++    signal.signal(signal.SIGTERM,request_stop)
+     import numpy as np
+     from failure_analysis import summary
+-    verify_receipt(f'{stage}/WORK_QUEUE.receipt.json');verify_receipt('POSTHOC_CACHE_DEPLOYMENT.receipt.json');verify_receipt('DOWNSTREAM_READY.receipt.json');index=read(HERE/stage/'GROUP_INDEX.json')
++    verify_receipt(f'{stage}/WORK_QUEUE.receipt.json');verify_receipt('POSTHOC_CACHE_DEPLOYMENT.receipt.json');verify_receipt('DIAGNOSIS_BACKFILL_DEPLOYMENT.receipt.json');verify_receipt('DOWNSTREAM_READY.receipt.json');index=read(HERE/stage/'GROUP_INDEX.json')
+     claims=HERE/stage/'claims';claims.mkdir(parents=True,exist_ok=True);groups=0
+     for entry in index:
++        if STOP:return
+         claim=claims/entry['group']
+         if (claim/'COMPLETE.json').exists():continue
+         try:claim.mkdir()
+@@ -48,6 +57,7 @@
+         write(claim/'OWNER.json',dict(job=os.environ['SLURM_JOB_ID'],pid=os.getpid(),utc=utc()))
+         assert sha(entry['file'])==entry['sha256']
+         for row in read(entry['file']):
++            if STOP:return
+             dest=HERE/'DIAGNOSTICS'/f"{row['rollout_uid']}.json"
+             if dest.exists():continue
+             assert sha(row['path'])==row['sha256'];raw=read(row['path'])
+@@ -59,7 +69,7 @@
+             else:result=twin['result'];reuse_info=dict(alias_diagnosis_reuse=twin['provenance'])
+             write(dest,dict(utc=utc(),rollout_uid=row['rollout_uid'],source=row,trace_sha256=raw['trace_sha256'],**reuse_info,**result))
+         write(claim/'COMPLETE.json',dict(utc=utc()));groups+=1
+-        if groups>=128:os.execv(sys.executable,[sys.executable,'-B',str(HERE/'analysis_jobs_cached.py'),'worker',stage])
++        if groups>=128:os.execv(sys.executable,[sys.executable,'-B',str(HERE/'analysis_jobs_backfill.py'),'worker',stage])
+     print(stage,'posthoc worker complete',flush=True)
+ 
+ if __name__=='__main__':

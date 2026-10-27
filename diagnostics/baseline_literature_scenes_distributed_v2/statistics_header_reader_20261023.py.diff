@@ -1,0 +1,19 @@
+--- statistics.py
++++ statistics_header_reader_20261023.py
+@@ -1,6 +1,7 @@
+ """Paired type/controller/state inference, with exact unknown bounds."""
+ from experiment import *
+ from result_inventory import find_raw,qualification
++from reclassify_instances_20261021 import small_diagnosis
+ import numpy as np
+ import collections
+ import csv
+@@ -43,7 +44,7 @@
+     for stage in stages:
+         for c in read(HERE/f'{stage}_CASES.json'):
+             path=find_raw(c['rollout_uid'],stage,c['state']['scene']);raw=read(path)
+-            diag_path=HERE/'DIAGNOSTICS'/f"{c['rollout_uid']}.json";diag=read(diag_path)
++            diag_path=HERE/'DIAGNOSTICS'/f"{c['rollout_uid']}.json";diag=small_diagnosis(diag_path.read_bytes())
+             ctl=c['controller_payload']['nominal'];s=c['state'];cats=diag['local']
+             records.append(dict(layer=c.get('safety_layer','central'),scene=s['scene'],N=s['N'],state=s['index'],controller=ctl['controller'],type=ctl['type_code'],method=c['method'],seed=c['seed'],
+                 success=raw['success'],upper=min(1,raw['success']+raw['numerical_failure']),collision=raw['collision'],timeout=raw['timeout'],unknown=raw['numerical_failure'],

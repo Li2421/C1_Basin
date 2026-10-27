@@ -1,0 +1,11 @@
+--- worker_fix.py
++++ worker_corrected.py
+@@ -16,7 +16,7 @@
+     signal.signal(signal.SIGTERM,stop);signal.signal(signal.SIGUSR1,stop)
+     # All workers claim actor/state groups; seeds of a deterministic actor stay
+     # together, and the explicit alias carries its source identity and hash.
+-    cases=read(HERE/f'{stage}_'+('PILOT_CASES.json' if phase=='pilot' else 'MISSING_CASES.json'))
++    cases=read(HERE/(f'{stage}_'+('PILOT_CASES.json' if phase=='pilot' else 'MISSING_CASES.json')))
+     groups={}
+     for c in cases:groups.setdefault((c['controller_payload']['nominal']['controller'],c['state']['N'],c['state']['index']),[]).append(c)
+     for key,rows in groups.items():

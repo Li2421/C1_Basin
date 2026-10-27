@@ -1,0 +1,76 @@
+--- derived_metrics.py
++++ derived_metrics_correction_revised_20261021.py
+@@ -42,14 +42,14 @@
+     return out
+ 
+ def training_menu(scene):
+-    bundle=HERE/f'LEARNING_BUNDLE_{scene}.npz'
++    bundle=HERE/f'LEARNING_BUNDLE_REVISED_20261021_{scene}.npz'
+     if not bundle.exists():return dict(status='N/A',reason='Scene was not informative under the preregistered rule')
+-    from learn_critic import source_key
+-    frozen=read(HERE/f'FROZEN_SCENE_CRITIC_{scene}.json');rows=[];prediction_sources=[]
++    from learn_critic_revised_20261021 import source_key
++    frozen=read(HERE/f'FROZEN_SCENE_CRITIC_REVISED_20261021_{scene}.json');rows=[];prediction_sources=[]
+     with np.load(bundle) as z:labels=z['labels'];types=z['types'];controllers=z['controllers']
+     for ci,ctl in enumerate(controllers):
+         fold=frozen['folds'][str(types[ci])]
+-        path=HERE/'critic_fits'/scene/source_key(fold['source_types'])/f"step{fold['step']}_predictions.npz"
++        path=HERE/'critic_fits_revised_20261021'/scene/source_key(fold['source_types'])/f"step{fold['step']}_predictions.npz"
+         with np.load(path) as z:choices=np.argmax(z['probabilities'].mean(0),axis=-1)
+         lower=(labels[ci]==1).astype(float);upper=(labels[ci]!=0).astype(float)
+         best=int(np.argmax(lower.mean(0)));policy_lower=float(lower[np.arange(32),choices].mean());policy_upper=float(upper[np.arange(32),choices].mean())
+@@ -64,7 +64,7 @@
+     regret=[r['signed_regret_vs_best_constant_menu_action'] for r in rows]
+     type_means=[np.mean([r['signed_regret_vs_best_constant_menu_action'] for r in rows if r['type']==t]) for t in sorted(set(r['type'] for r in rows))]
+     return dict(status='descriptive_training_states_only',rows=rows,mean_signed_regret_type_equal=float(np.mean(type_means)),maximum_signed_regret=float(max(regret)),prediction_sources=prediction_sources,
+-        independent_evaluation_full_menu_regret='N/A: only chosen learned action and four reference arms are requested on independent evaluation states; do not generate a new twelve-action evaluation oracle',
++        independent_evaluation_full_menu_regret='N/A: only chosen learned action and four reference arms are requested on independent evaluation states; do not generate a new fifteen-action evaluation oracle',
+         caveat='A state-dependent learned policy can outperform the best constant action; this signed comparator difference may be negative. Training-state oracle is not independent-state performance.')
+ 
+ def diagnosis_details(rows):
+@@ -105,25 +105,25 @@
+     return dict(scenes=by_scene,qualified_scene_pool=pooled),census
+ 
+ def main():
+-    rows=read(HERE/'COMPACT_MAIN_RESULTS.json');eligible={s:{r['controller'] for r in qualification(s) if r['qualified']} for s in NAMES}
++    rows=read(HERE/'COMPACT_REVISED_MAIN_RESULTS_20261021.json');eligible={s:{r['controller'] for r in qualification(s) if r['qualified']} for s in NAMES}
+     qualified=[r for r in rows if r['controller'] in eligible[r['scene']]]
+     pooled=[dict(r,original_scene=r['scene'],scene='qualified_scene_pool',state=f"{r['scene']}:{r['state']}") for r in qualified]
+     drops=controller_drops(qualified)+controller_drops(pooled);menus={s:training_menu(s) for s in NAMES};restricted={};disclosures={}
+-    census=read(HERE/'CONTROLLER_LEVEL_FAILURES.json')
+-    failures={(r['scene'],r['layer'],r['controller']) for r in census if r['controller_failure_definite']}
++    census=read(HERE/'INSTANCE_CLASSES_REVISED.json')['instances']
++    failures={(r['scene'],r['layer'],r['controller']) for r in census if r['remove_in_revised_exclusion']}
+     rates={s:weighted_rates([r for r in qualified if r['scene']==s]) for s in NAMES}
+     rates['qualified_scene_pool']=weighted_rates(qualified)
+     removed_rates={s:weighted_rates([r for r in qualified if r['scene']==s and (r['scene'],r['layer'],r['controller']) not in failures]) for s in NAMES}
+     sensitivity,census_geometry=diagnosis_details(qualified)
+-    write(HERE/'GEOMETRY_CENSUS.json',census_geometry)
+-    write(HERE/'FAILURE_SENSITIVITY_SUMMARY.json',dict(baseline=sensitivity,all_methods_full_grid='DIAGNOSTICS/<rollout_uid>.json',source='Saved simulation arrays only; no new controller calls'))
++    write(HERE/'GEOMETRY_CENSUS_REVISED_20261021.json',census_geometry)
++    write(HERE/'FAILURE_SENSITIVITY_SUMMARY_REVISED_20261021.json',dict(baseline=sensitivity,all_methods_full_grid='DIAGNOSTICS/<rollout_uid>.json',source='Saved simulation arrays only; no new controller calls'))
+     for scene in NAMES:
+-        choices=HERE/f'LEARNED_EVAL_CHOICES_{scene}.json'
++        choices=HERE/f'LEARNED_EVAL_CHOICES_REVISED_20261021_{scene}.json'
+         if choices.exists():
+             keys={(r['N'],r['state']) for r in rows if r['scene']==scene and r['layer']=='distributed' and r['method']=='learned_scene'}
+             subset=[r for r in rows if r['scene']==scene and (r['N'],r['state']) in keys]
+             restricted[scene]=summarize(subset,[(l,m) for l in ('central','distributed') for m in FIXED],[scene])
+-            disclosures[scene]=dict(choices_sha256=sha(choices),choice_receipt_sha256=sha(HERE/f'LEARNED_EVAL_CHOICES_{scene}.receipt.json'),
++            disclosures[scene]=dict(choices_sha256=sha(choices),choice_receipt_sha256=sha(HERE/f'LEARNED_EVAL_CHOICES_REVISED_20261021_{scene}.receipt.json'),
+                 baseline_outcomes_already_known=True,reason='Required baseline stage precedes learning. No manual parameter tuning; models use only registered training labels and source-type nested validation.',
+                 copied_outcomes_opened_field_scope='The chooser does not open selected evaluation outcome files; it is not a claim that earlier baseline outcomes were globally blinded.')
+     pool_keys={(r['scene'],r['N'],r['state']) for r in rows if r['layer']=='distributed' and r['method']=='learned_scene'}
+@@ -131,9 +131,9 @@
+         subset=[r for r in rows if (r['scene'],r['N'],r['state']) in pool_keys]
+         pool_scenes=sorted({k[0] for k in pool_keys})
+         restricted['matched_evaluation_scene_pool']=summarize(subset,[(l,m) for l in ('central','distributed') for m in FIXED]+[('distributed','learned_scene')],pool_scenes)
+-    write(HERE/'MAIN_ADDITIONAL_METRICS.json',dict(utc=utc(),controller_drops=drops,weighted_outcome_and_diagnosis_rates=rates,per_layer_excluding_definite_controller_failure_rates=removed_rates,training_full_menu_oracles=menus,evaluation_fixed_reference_tables=restricted,choice_disclosures=disclosures,
+-        independent_full_menu_regret='N/A; requested evaluation does not exhaust twelve actions',
++    write(HERE/'MAIN_ADDITIONAL_METRICS_REVISED_20261021.json',dict(utc=utc(),controller_drops=drops,weighted_outcome_and_diagnosis_rates=rates,per_layer_excluding_definite_controller_failure_rates=removed_rates,training_full_menu_oracles=menus,evaluation_fixed_reference_tables=restricted,choice_disclosures=disclosures,
++        independent_full_menu_regret='N/A; requested evaluation does not exhaust fifteen actions',
+         standard_method_NA=dict(A3='Frozen old controller representation does not apply',A0_frozen='Frozen old physical input interface does not apply; L3 is separately retrained',G_E='No compatible frozen probe/selection interface',expert='No privileged expert benchmark requested',nominal_only_other_scenes='Only the new crowded scene background is requested')))
+-    seal('MAIN_ADDITIONAL_METRICS.receipt.json',[HERE/n for n in ('MAIN_ADDITIONAL_METRICS.json','GEOMETRY_CENSUS.json','FAILURE_SENSITIVITY_SUMMARY.json','derived_metrics.py')],new_rollouts=0,uses_saved_predictions_not_new_training=True)
++    seal('MAIN_ADDITIONAL_METRICS_REVISED_20261021.receipt.json',[HERE/n for n in ('MAIN_ADDITIONAL_METRICS_REVISED_20261021.json','GEOMETRY_CENSUS_REVISED_20261021.json','FAILURE_SENSITIVITY_SUMMARY_REVISED_20261021.json','derived_metrics_correction_revised_20261021.py')],new_rollouts=0,uses_saved_predictions_not_new_training=True)
+ 
+ if __name__=='__main__':main()

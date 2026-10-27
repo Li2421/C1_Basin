@@ -1,0 +1,11 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/diagnosis_backfill.py
++++ /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/diagnosis_backfill_release_20261023.py
+@@ -9,7 +9,7 @@
+ from analysis_jobs_current import prepare
+ from coordinator_fast import stage_done, jobs_by_stage
+ from infrastructure_recovery_active import recover
+-from resources_released import snapshot, require_capacity
++from resources_corrections_release_20261023 import snapshot, require_capacity
+ import subprocess
+ import fcntl
+ import time

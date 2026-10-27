@@ -1,0 +1,24 @@
+--- sealed_plots.py
++++ plots_render_cpu.py
+@@ -10,14 +10,10 @@
+  p=HERE/folder;p.mkdir(exist_ok=True);os.environ[key]=str(p)
+ os.environ['JAX_PLATFORMS']='cpu'
+ def main():
+- if 'venv-c1-plots' not in sys.executable:
+-  subprocess.run(['/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1-plots/bin/python','-B',str(Path(__file__).resolve()),'--render'],check=True);return
+  import numpy as np
+  import matplotlib
+  matplotlib.use('Agg')
+  import matplotlib.pyplot as plt
+- import jax
+- jax.config.update('jax_enable_x64',False);assert not jax.config.x64_enabled
+  assert Path(shared_rollout_db.__file__).resolve().is_relative_to(ROOT/'shared_rollout_db') and (cache_writer.ROOT/'journals').resolve()==ROOT/'shared_rollout_db/journals'
+  r=json.loads((HERE/'results.json').read_text());new=np.load(HERE/'DIAGNOSTIC_FEATURES.npz');old=np.load(ROOT/'diagnostics/decentralized_fix_selection_v1/DIAGNOSTIC_FEATURES.npz');out=HERE/'figures';out.mkdir(exist_ok=True);groups=['ST','TD','G','DM','AS'];titles=['Distributed\nstudents','Joint MACFlow\nteachers','Gaussian\nbehavior cloning','Distributed model\npredictive control','A*\npath planning'];ftext=['Unfinished freeze proportion','Moving without progress (robot s)','Team progress at step 100 (m)','Team progress at step 200 (m)','Team progress at step 300 (m)','Safety intervention (m/s)','Mixed circulation proportion'];fig,axes=plt.subplots(2,4,figsize=(19,10));rng=np.random.default_rng(1)
+  for j,ax in enumerate(axes.flat):
+@@ -43,5 +39,5 @@
+  for m in list(sys.modules.values()):
+   p=getattr(m,'__file__',None)
+   if p and Path(p).suffix=='.py' and Path(p).is_file():sources[str(Path(p).resolve())]=hashlib.sha256(Path(p).read_bytes()).hexdigest()
+- (HERE/'imports_plots.json').write_text(json.dumps(dict(imported_sources=sources,jax_enable_x64=False),indent=2)+'\n')
++ (HERE/'imports_plots.json').write_text(json.dumps(dict(imported_sources=sources,jax_imported=False,jax_enable_x64=None,precision_context='Pure NumPy/matplotlib rendering; parent finalization process restores JAX x64=False; no controller, inference, or statistics executed here.'),indent=2)+'\n')
+ if __name__=='__main__':main()

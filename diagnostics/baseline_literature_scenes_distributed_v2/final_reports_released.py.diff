@@ -1,0 +1,32 @@
+--- final_reports.py
++++ final_reports_released.py
+@@ -103,7 +103,7 @@
+ def handoff():
+     save('HANDOFF.md',f'''本轮是四文献场景分布式安全层迁移 v2，全部为开发证据。工作目录为 {HERE}。v1 在 {V1}，已经按用户要求完成三场景收尾并冻结；禁止写入、恢复圆形围场被丢弃的局或调用旧协调器。圆形围场 v1 流程版的缺口保持为缺口。
+ 
+-当前入口为 coordinator_current.py；其 detached PID/日志分别见 COORDINATOR_PID.json、coordinator.log。重启前先读 PID 与 ps，确认没有现存协调器，再使用同一流程 Python 运行此入口；禁止并发启动第二个协调器。下游入口为 downstream_current.py，实际 rollout 使用 submit_reservation_v2.py、worker_reservation_v2.py。deploy_current.py 是旧部署快照生成器，不要重新运行覆盖 current 文件。当前进度与每场景完整/部分成功率见 STATUS.md、STATUS.json、LIVE_SAFETY_SUCCESS.json、LIVE_CONTROLLER_SAFETY_SUCCESS.csv；LIVE 为已完成局池化，不能替代最终类型等权率。
++当前入口为 coordinator_released.py；其 detached PID/日志分别见 COORDINATOR_PID.json、coordinator.log。重启前先读 PID 与 ps，确认没有现存协调器，再使用同一流程 Python 运行此入口；禁止并发启动第二个协调器。下游入口为 downstream_released.py，实际 rollout 使用 submit_reservation_released.py、worker_reservation_v2.py。deploy_current.py 是旧部署快照生成器，不要重新运行覆盖 current 文件。当前进度与每场景完整/部分成功率见 STATUS.md、STATUS.json、LIVE_SAFETY_SUCCESS.json、LIVE_CONTROLLER_SAFETY_SUCCESS.csv；LIVE 为已完成局池化，不能替代最终类型等权率。
+ 
+ 流程 Python：/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python -B；图仅最后用 .venv-c1-plots/bin/python -B。禁止安装包。experiment.py 把 TMP/MPL/XDG/CUDA 缓存限定在本轮并禁用 bytecode。新代码与输出只在本轮；共享 journal 只能通过官方 cache_writer 写默认实验目录，数据库合并只调用 db_merge.py 包装的官方单进程 merger。实验 ID 为 exp_baseline_literature_scenes_distributed_v2。
+ 
+@@ -115,9 +115,9 @@
+ 
+ first-stage 主数值在 MIGRATION_NUMBERS.receipt.json 封存后才进入 optional_delivery.py。固定修正主 state 与 learned 独立评估子集必须分表；类型→实例→可用场景/state→两个配对 seed 聚合，5000次bootstrap，unknown 下界0/上界1。统计程序 statistics.py；补充指标 derived_metrics.py；原轨迹后验诊断 analysis_jobs_current.py 用 atomic_write.py 的唯一临时文件保护共享缓存，不能改已密封规范 experiment.write。DIAGNOSTICS 只读仿真轨迹，不改控制器或物理。
+ 
+-非主线第二阶段使用 dynamics_runtime_reservation_v2.py 与 dynamics_safety.py；另有圆形全责、个人进度、拥挤随机无安全层背景。各部分独立 preflight，新身份且使用对应第一阶段物理 state UID 作随机数配对。无解违反、速度事件、非线性求解限制必须披露。optional_delivery.py 负责可恢复队列、可选缺口、最终官方合并、DB postflight、最后画图、结束源审计和 final_reports.py。任何 optional 缺口不得改变已封存主数值。
++非主线第二阶段使用 dynamics_runtime_reservation_v2.py 与 dynamics_safety.py；另有圆形全责、个人进度、拥挤随机无安全层背景。各部分独立 preflight，新身份且使用对应第一阶段物理 state UID 作随机数配对。无解违反、速度事件、非线性求解限制必须披露。optional_delivery.py 负责可恢复队列、可选缺口、最终官方合并、DB postflight、最后画图、结束源审计和 final_reports_released.py。任何 optional 缺口不得改变已封存主数值。
+ 
+-用户最新资源覆盖 prompt 的旧限额：2026-10-22 09:00 Asia/Singapore 前总计24 CPU份额/5 GPU份额，之后18/2。GPU份额为单卡 shard；所有用户作业（含pending）计入，CPU预留1给本地协调/分析。resources.py 每次提交前检查；resource_guard_v2.py 独立守护，只取消本轮 blv2_ 作业至限额，完整raw/journal保留，未完成基础设施重试。
++用户最新资源覆盖 prompt 的旧限额：已纠正释放日期：2026-10-21起已释放6 CPU和3 GPU份额，总计18 CPU份额/2 GPU份额；RESOURCE_SCHEDULE_CORRECTED.json覆盖旧日程。GPU份额为单卡 shard；所有用户作业（含pending）计入，CPU预留1给本地协调/分析。resources_released.py 每次提交前检查；resource_guard_released.py 独立守护，只取消本轮 blv2_ 作业至限额，完整raw/journal保留，未完成基础设施重试。
+ 
+ 历史来源、完整性与缓存：HISTORY_CHECK.md/收据、SOURCE_COPIES*.receipt、INTEGRITY_START.json 和 PROTECTED_INPUTS_START.jsonl。旧文件/受保护目录规则见该审计与 prompt；并行受限目录只 stat，唯独指定 round28 只读例外。不要导入 v1 experiment（会创建旧目录缓存）。所有已密封 receipt 所列文件不可修改，current operational 部署快照与代码演进另记，不变的是科学语义和预注册身份。最终完整性结论只认 INTEGRITY_END.json，数据库只认 DB_POSTFLIGHT.json，尚未产生这些文件时不能声称最终审计通过。v1 旧两个非Python配置缺开工全文件哈希，不能由本轮审计倒补。
+ 
+@@ -159,7 +159,7 @@
+     notes.extend('非主线运行缺口：'+canonical(r) for r in gaps)
+     save('GAPS.md','\n\n'.join(notes));save('REPORT.md','\n\n'.join(paras)+'\n\n缺口摘要：\n\n'+'\n\n'.join(notes))
+     outputs=['REPORT.md','AXIS_TABLE.md','AXIS_TABLE.csv','FAILURE_DECOMPOSITION.md','CONTROLLER_LEVEL_FAILURES.md','GEOMETRY_CENSUS.md','DYNAMICS_STAGE.md','GAPS.md','HANDOFF.md']
+-    seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),optional_numbers_receipt_sha256=sha(HERE/'OPTIONAL_NUMBERS.receipt.json'))
++    seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_released.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),optional_numbers_receipt_sha256=sha(HERE/'OPTIONAL_NUMBERS.receipt.json'))
+ 
+ if __name__=='__main__':
+     if sys.argv[1:]==['handoff']:handoff()

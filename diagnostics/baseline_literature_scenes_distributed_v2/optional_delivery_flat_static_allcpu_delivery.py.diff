@@ -1,0 +1,11 @@
+--- optional_delivery_flat_static_allcpu.py
++++ optional_delivery_flat_static_allcpu_delivery.py
+@@ -95,7 +95,7 @@
+     # Every experiment worker has ended before the final source audit.
+     state=snapshot();assert not any(j['name'].startswith('blv2_') for j in state['jobs']),state
+     if not (HERE/'INTEGRITY_END.receipt.json').exists():action('integrity_end','integrity.py','end')
+-    if not (HERE/'FINAL_REPORTS.receipt.json').exists():action('final_report','final_reports_flat_static.py')
++    if not (HERE/'FINAL_REPORTS.receipt.json').exists():action('final_report','final_reports_flat_static_allcpu_delivery.py')
+     from status_released_allcpu import main as status
+     status('complete_with_explicit_optional_gaps' if (HERE/'OPTIONAL_GAPS.json').exists() else 'complete')
+     write(HERE/'V2_COMPLETE.json',dict(utc=utc(),main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),source_audit=sha(HERE/'INTEGRITY_END.json'),v1_readonly=True))

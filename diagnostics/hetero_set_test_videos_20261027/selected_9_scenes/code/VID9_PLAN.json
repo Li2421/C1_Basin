@@ -1,0 +1,164 @@
+[
+ {
+  "order": 1,
+  "scene": "xsc_hs_box_n09_r013_f25_te",
+  "plain": "9 台机器人，半径 0.13 m（测试）",
+  "family": "拥挤方形场地",
+  "controller": 6,
+  "controller_name": "冲突搜索多机规划",
+  "state": 8,
+  "pipeline_key": "p12",
+  "pipeline_eta": [
+   1.1358482837677002,
+   -0.10255418717861176,
+   1.3841955661773682
+  ],
+  "gain": 50.0,
+  "safety_rate": 50.0,
+  "pipeline_rate": 100.0
+ },
+ {
+  "order": 2,
+  "scene": "xsc_hs_box_n10_r013_f26_te",
+  "plain": "10 台机器人，半径 0.13 m（测试）",
+  "family": "拥挤方形场地",
+  "controller": 12,
+  "controller_name": "Transformer 规划器·种子 0",
+  "state": 8,
+  "pipeline_key": "p0",
+  "pipeline_eta": [
+   1.2220224142074585,
+   -0.060619376599788666,
+   1.4221155643463135
+  ],
+  "gain": 56.2,
+  "safety_rate": 25.0,
+  "pipeline_rate": 81.2
+ },
+ {
+  "order": 3,
+  "scene": "xsc_hs_box_n11_r014_f27_te",
+  "plain": "11 台机器人，半径 0.14 m（测试）",
+  "family": "拥挤方形场地",
+  "controller": 9,
+  "controller_name": "多层感知机行为克隆·种子 1",
+  "state": 8,
+  "pipeline_key": "p7",
+  "pipeline_eta": [
+   1.0438030824004207,
+   0.9796497115468961,
+   1.4131977847373693
+  ],
+  "gain": 68.8,
+  "safety_rate": 18.8,
+  "pipeline_rate": 87.5
+ },
+ {
+  "order": 4,
+  "scene": "xsc_hs_plus_w020_te",
+  "plain": "路宽 0.40 m，窄（测试）",
+  "family": "十字路口",
+  "controller": 6,
+  "controller_name": "冲突搜索多机规划",
+  "state": 8,
+  "pipeline_key": "p3",
+  "pipeline_eta": [
+   0.11573196241303585,
+   0.338553535721951,
+   0.5483452839930184
+  ],
+  "gain": 87.5,
+  "safety_rate": 0.0,
+  "pipeline_rate": 87.5
+ },
+ {
+  "order": 5,
+  "scene": "xsc_hs_plus_w030_te",
+  "plain": "路宽 0.60 m（测试）",
+  "family": "十字路口",
+  "controller": 6,
+  "controller_name": "冲突搜索多机规划",
+  "state": 8,
+  "pipeline_key": "p5",
+  "pipeline_eta": [
+   0.10984647574833895,
+   0.37207912576767516,
+   0.5662130316435315
+  ],
+  "gain": 81.2,
+  "safety_rate": 18.8,
+  "pipeline_rate": 100.0
+ },
+ {
+  "order": 6,
+  "scene": "hs_obst_n08_R140_r005",
+  "plain": "起点圆半径 1.40 m，机器人半径 0.05 m（验证，论文原设置）",
+  "family": "带障碍的圆圈对穿",
+  "controller": 6,
+  "controller_name": "冲突搜索多机规划",
+  "state": 8,
+  "pipeline_key": "p10",
+  "pipeline_eta": [
+   0.5199522376060486,
+   -0.09152577817440033,
+   1.41259765625
+  ],
+  "gain": 81.2,
+  "safety_rate": 6.2,
+  "pipeline_rate": 87.5
+ },
+ {
+  "order": 7,
+  "scene": "hs_obst_n08_R138_r048_te",
+  "plain": "起点圆半径 1.38 m，机器人半径 0.048 m（测试）",
+  "family": "带障碍的圆圈对穿",
+  "controller": 0,
+  "controller_name": "集中式随机采样模型预测控制",
+  "state": 9,
+  "pipeline_key": "p4",
+  "pipeline_eta": [
+   0.5221731662750244,
+   -0.12014469504356384,
+   1.4139835834503174
+  ],
+  "gain": 62.5,
+  "safety_rate": 25.0,
+  "pipeline_rate": 87.5
+ },
+ {
+  "order": 8,
+  "scene": "xsc_hs_swap_n08_te",
+  "plain": "8 台机器人，圆半径 1 m（测试，论文原设置）",
+  "family": "无障碍圆圈对穿",
+  "controller": 9,
+  "controller_name": "多层感知机行为克隆·种子 1",
+  "state": 10,
+  "pipeline_key": "p6",
+  "pipeline_eta": [
+   0.40803974866867065,
+   1.2461837530136108,
+   1.0300698280334473
+  ],
+  "gain": 56.2,
+  "safety_rate": 43.8,
+  "pipeline_rate": 100.0
+ },
+ {
+  "order": 9,
+  "scene": "xsc_hs_swap_n10_te",
+  "plain": "10 台机器人，圆半径 1.25 m（测试）",
+  "family": "无障碍圆圈对穿",
+  "controller": 5,
+  "controller_name": "分布式交叉熵方法模型预测控制",
+  "state": 10,
+  "pipeline_key": "p8",
+  "pipeline_eta": [
+   0.4495096802711487,
+   1.2743557691574097,
+   1.1389261484146118
+  ],
+  "gain": 37.5,
+  "safety_rate": 12.5,
+  "pipeline_rate": 50.0
+ }
+]

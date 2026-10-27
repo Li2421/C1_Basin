@@ -1,0 +1,35 @@
+{
+  "utc": "2026-10-11T13:18:35.720103+00:00",
+  "status": "POST-FREEZE READ-ONLY MANIFEST EQUIVALENCE; NO EXECUTION CHANGE",
+  "rows": [
+    {
+      "controller": "base_u_plus_w_v4_wide_macflow",
+      "selected_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+      "actual_training_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_plus_w_v4_dataset/manifest.json",
+      "selected_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+      "actual_sha256": "bce651f6aeb32710e26001c641c3554e00a11b0d7866c1a977b6f241d07400cf",
+      "exact_scenario_config": true,
+      "exact_environment_fingerprint": true,
+      "differing_top_level_fields": [
+        "counts",
+        "extra_report",
+        "files"
+      ]
+    },
+    {
+      "controller": "base_u_v9_local_macflow",
+      "selected_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_v10_local_dataset/manifest.json",
+      "actual_training_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_v8_local_dataset/manifest.json",
+      "selected_sha256": "dd72095a957acfb9fe47ff9b6478329bb06424c91bd9dd401d6e1b3c74431732",
+      "actual_sha256": "4dc96b770ddb0e1a7981b50df5b7d64c03b700ba09ce6146d381b0dd36769f0c",
+      "exact_scenario_config": true,
+      "exact_environment_fingerprint": true,
+      "differing_top_level_fields": [
+        "counts",
+        "extra_report",
+        "files"
+      ]
+    }
+  ],
+  "conclusion": "Exact training manifests are archived; selected fallback differs only in dataset counts/files/report, not the two fields consumed by RingFlowAdapter. Keep original immutable P1 execution profile, report prior selected-manifest mismatch separately."
+}

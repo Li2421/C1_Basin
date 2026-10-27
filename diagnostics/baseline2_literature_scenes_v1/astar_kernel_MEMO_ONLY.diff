@@ -1,0 +1,39 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/baseline2_literature_scenes_v1/astar_kernel.cpp
++++ /home/zhihan/research/Basin_C1/diagnostics/baseline2_literature_scenes_v1/astar_kernel_memo.cpp
+@@ -18,10 +18,35 @@
+  return std::min(std::min(segment(ax-cx,ay-cy,bx-cx,by-cy),segment(ax-dx,ay-dy,bx-dx,by-dy)),std::min(segment(cx-ax,cy-ay,dx-ax,dy-ay),segment(cx-bx,cy-by,dx-bx,dy-by)));
+ }
+ 
++
++#include <array>
++#include <cstring>
++struct EdgeKey { std::array<uint64_t,4> b; bool operator==(const EdgeKey&o)const{return b==o.b;} };
++struct EdgeHash {size_t operator()(const EdgeKey&k)const{size_t h=0;for(auto b:k.b)h^=std::hash<uint64_t>{}(b)+0x9e3779b9+(h<<6)+(h>>2);return h;}};
++static std::vector<double> memo_walls;
++static double memo_margin=0;
++static std::unordered_map<EdgeKey,bool,EdgeHash> memo;
++static bool ready=false;
++static void prepare_memo(int nw,const double* walls,double margin){
++ if(!ready||memo_walls.size()!=size_t(4*nw)||std::memcmp(&margin,&memo_margin,sizeof(double))!=0||(nw&&std::memcmp(memo_walls.data(),walls,4*nw*sizeof(double))!=0)){
++  memo_walls.assign(walls,walls+4*nw);memo_margin=margin;memo.clear();ready=true;
++ }
++}
++static bool memo_geometry(double ax,double ay,double bx,double by,int nw,const double* walls,double margin){
++ if(nw==0)return true;
++ EdgeKey key;double values[4]={ax,ay,bx,by};std::memcpy(key.b.data(),values,sizeof(values));
++ auto found=memo.find(key);if(found!=memo.end())return found->second;
++ bool valid=true;
++ for(int w=0;w<nw;++w){const double* z=walls+4*w;if(segseg(ax,ay,bx,by,z[0],z[1],z[2],z[3])<margin-1e-12){valid=false;break;}}
++ if(memo.size()>1000000)memo.clear();
++ memo.emplace(key,valid);return valid;
++}
++
+ extern "C" int astar(double res,double inner,double outer,double sep,int max_time,const double* start,const double* goal,int nr,const int* lens,const double* reserved,int nw,const double* walls,double margin,double* output) {
++ prepare_memo(nw,walls,margin);
+  std::vector<int> offset(nr);int total=0;for(int i=0;i<nr;++i){offset[i]=total;total+=lens[i];}
+  auto edge=[&](double ax,double ay,double bx,double by,int t){
+-  for(int w=0;w<nw;++w){const double* z=walls+4*w;if(segseg(ax,ay,bx,by,z[0],z[1],z[2],z[3])<margin-1e-12)return false;}
++  if(!memo_geometry(ax,ay,bx,by,nw,walls,margin))return false;
+   for(int i=0;i<nr;++i){int c=offset[i]+std::min(t,lens[i]-1),d=offset[i]+std::min(t+1,lens[i]-1);if(segment(ax-reserved[2*c],ay-reserved[2*c+1],bx-reserved[2*d],by-reserved[2*d+1])<sep-1e-12)return false;}return true;
+  };
+  int sx=std::nearbyint(start[0]/res),sy=std::nearbyint(start[1]/res),gx=std::nearbyint(goal[0]/res),gy=std::nearbyint(goal[1]/res);

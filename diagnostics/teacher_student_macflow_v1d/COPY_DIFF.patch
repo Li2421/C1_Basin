@@ -1,0 +1,53 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/integrity.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1d/integrity.py
+@@ -1,4 +1,4 @@
+-"""Read-only protected-tree audit; outputs only in round30c."""
++"""Read-only protected-tree audit; outputs only in round30d."""
+ import sys, os, json, hashlib, subprocess
+ from pathlib import Path
+ from datetime import datetime, timezone
+@@ -23,16 +23,16 @@
+ def tree(p):return {str(f.relative_to(p)):sha(f) for f in sorted(p.rglob('*')) if f.is_file()}
+ def write(name,x):(HERE/name).write_text(json.dumps(x,indent=2,ensure_ascii=False)+'\n')
+ def main(phase):
+- data=dict(utc=datetime.now(timezone.utc).isoformat(),basin=git(ROOT),official=git(OFF),poc=tree(POC),round30=tree(ROOT/'diagnostics/teacher_student_macflow_v1'),round30b=tree(ROOT/'diagnostics/teacher_student_macflow_v1b'))
++ data=dict(utc=datetime.now(timezone.utc).isoformat(),basin=git(ROOT),official=git(OFF),poc=tree(POC),round30=tree(ROOT/'diagnostics/teacher_student_macflow_v1'),round30b=tree(ROOT/'diagnostics/teacher_student_macflow_v1b'),round30c=tree(ROOT/'diagnostics/teacher_student_macflow_v1c'))
+  write('INTEGRITY_'+phase.upper()+'.json',data)
+  if phase=='end':
+   start=json.loads((HERE/'INTEGRITY_START.json').read_text());delta={}
+-  for k in ('official','poc','round30','round30b'):
++  for k in ('official','poc','round30','round30b','round30c'):
+    if data[k]!=start[k]:delta[k]=dict(changed=True)
+   for k in ('head','diff_sha256'):
+    if data['basin'][k]!=start['basin'][k]:delta['basin_'+k]=dict(before=start['basin'][k],after=data['basin'][k])
+   before=set(start['basin']['status'].splitlines());after=set(data['basin']['status'].splitlines())
+   external=[s for s in after-before if 'diagnostics/teacher_student_macflow_v1c/' not in s]
+   removed=sorted(before-after)
+-  write('INTEGRITY_COMPARISON.json',dict(protected_content_pass=not delta,changes=delta,concurrent_new_status_entries=external,removed_status_entries=removed,round30c_entries=[s for s in after-before if 'diagnostics/teacher_student_macflow_v1c/' in s]))
++  write('INTEGRITY_COMPARISON.json',dict(protected_content_pass=not delta,changes=delta,concurrent_new_status_entries=external,removed_status_entries=removed,round30d_entries=[s for s in after-before if 'diagnostics/teacher_student_macflow_v1c/' in s]))
+ if __name__=='__main__':main(sys.argv[1])
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/registration.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1d/registration.py
+@@ -1,6 +1,7 @@
+ """Append-only design metadata, with complete preservation checks."""
+ from core import *
+ from shared_rollout_db.src.rollout_db import connect,transaction,canonical,uid,eta_identity
++class IdentityConflict(Exception):pass
+ TABLES={'scenario':'scenario_uid','experiment':'experiment_uid','state':'state_uid','controller_config':'controller_uid','eta':'eta_uid'}
+ def snapshot(db):
+     return {t:{r[k]:hashlib.sha256(canonical(dict(r)).encode()).hexdigest() for r in db.execute('SELECT * FROM '+t)} for t,k in TABLES.items()}
+@@ -13,7 +14,7 @@
+         for table,payload in rows:
+             assert table in TABLES;key=TABLES[table];old=db.execute(f'SELECT * FROM {table} WHERE {key}=?',(payload[key],)).fetchone()
+             if old:
+-                assert all(old[k]==v for k,v in payload.items()),f'Identity collision {table} {payload[key]}'
++                if not all(old[k]==v for k,v in payload.items()):raise IdentityConflict(f'Identity collision {table} {payload[key]}')
+                 existing.append(dict(table=table,uid=payload[key]));continue
+             keys=list(payload);sql=f"INSERT OR IGNORE INTO {table} ({','.join(keys)}) VALUES ({','.join('?' for k in keys)})";db.execute(sql,[payload[k] for k in keys]);found=db.execute(f'SELECT * FROM {table} WHERE {key}=?',(payload[key],)).fetchone();assert found is not None
+             assert all(found[k]==v for k,v in payload.items());inserted.append(dict(table=table,row=dict(found)))
+@@ -31,4 +32,4 @@
+     return dict(s,original_state_uid=s['state_uid'],physical=physical,content_hash=content,state_uid=uid('state',dict(scenario=s['scenario_uid'],content=content)))
+ def state_row(s):return ('state',dict(state_uid=s['state_uid'],scenario_uid=s['scenario_uid'],source_group=s['family'],content_hash=s['content_hash'],physical_state_json=canonical(s['physical']),provenance_json=canonical(dict(**s['metadata'],original_state_uid=s['original_state_uid'],reset='empty monitor true-t0',representation='physical3_without_redundant_timestep0')),identity_quality='CONTENT_EXACT'))
+ def exp_row(phase):
+-    return ('experiment',dict(experiment_uid='exp_teacher_student_macflow_v1c_'+phase,name='Round30 '+phase,path=str(HERE/phase),protocol_hash=sha(HERE/'PREREGISTRATION.md'),code_hash=sha(__file__),metadata_json=canonical(dict(preregistered=True,phase=phase))))
++    return ('experiment',dict(experiment_uid='exp_teacher_student_macflow_v1d_'+phase,name='Round30 '+phase,path=str(HERE/phase),protocol_hash=sha(HERE/'PREREGISTRATION.md'),code_hash=sha(__file__),metadata_json=canonical(dict(preregistered=True,phase=phase))))

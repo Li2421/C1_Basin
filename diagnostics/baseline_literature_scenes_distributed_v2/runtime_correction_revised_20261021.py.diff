@@ -1,0 +1,28 @@
+--- runtime_flat_static.py
++++ runtime_correction_revised_20261021.py
+@@ -12,6 +12,7 @@
+ from projection_adapter import constraints
+ from shared_control.basis_families import get_basis_family
+ from central_reference import progress
++from correction_revision_20261021 import distributed_fields,central_fields,contact_radius
+ jax.config.update('jax_enable_x64',False)
+ 
+ def run(c):
+@@ -41,7 +42,7 @@
+                 v=ref.copy();a=ref.copy();global_labels=[];local_labels=[[] for _ in ref]
+             elif layer=='central':
+                 first=projector(snap,ref);v=np.asarray(first.velocity,np.float64)
+-                correction=np.zeros_like(v) if len(v)==1 else basis.compute(env.positions,env.goals,v,cfg.max_speed).correction(eta)
++                correction=np.zeros_like(v) if len(v)==1 else central_fields(env.positions,env.goals,v,cfg.max_speed,cfg.goal_tolerance,contact_radius(cfg),basis).correction(eta)
+                 a=np.asarray(projector(snap,v+correction).velocity,np.float64)
+                 A,lower,kinds=projector.linear_problem(snap)
+                 ids=np.flatnonzero(A@v.ravel()-lower<=1e-7)
+@@ -57,7 +58,7 @@
+                     assert not np.any(eta),'Capability episodes are safety-only'
+                 else:
+                     for i in range(len(v)):
+-                        fields=local_basis(env.positions,env.goals,v,i,np.inf,cfg.max_speed)
++                        fields=distributed_fields(env.positions,env.goals,v,i,cfg.max_speed,cfg.goal_tolerance,contact_radius(cfg))
+                         target[i]+=sum(float(value)*field for value,field in zip(eta,fields))
+                 a=np.concatenate([f.project(target[i:i+1])[0] for i,f in enumerate(filters)])
+                 local_labels=[[f.kinds[k] for k in np.flatnonzero(f.A@v[i]-f.lower<=1e-7)] for i,f in enumerate(filters)]

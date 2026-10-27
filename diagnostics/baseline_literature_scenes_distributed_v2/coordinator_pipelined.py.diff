@@ -1,0 +1,56 @@
+--- coordinator_fast.py
++++ coordinator_pipelined.py
+@@ -5,6 +5,7 @@
+ import fcntl
+ from resources_released import snapshot
+ from infrastructure_recovery_active import recover
++import fine_dispatch
+ 
+ def action(label,*arguments):
+     path=HERE/'coordinator_actions'/f'{label}_{time.time_ns()}.log';path.parent.mkdir(exist_ok=True)
+@@ -29,9 +30,14 @@
+ 
+ def run_stages(stages,phase):
+     from status_released import main as status
++    for stage in stages:
++        if fine_dispatch.eligible(stage):fine_dispatch.prepare(stage)
+     while True:
+         state=snapshot();mapping=jobs_by_stage(state);live=set(mapping)
+-        for stage in stages:recover(stage,live)
++        for stage in stages:
++            if fine_dispatch.eligible(stage):
++                fine_dispatch.recover(stage,live);fine_dispatch.sync_original(stage)
++            else:recover(stage,live)
+         pending=[s for s in stages if not stage_done(s)]
+         status(phase)
+         if not pending:
+@@ -42,10 +48,10 @@
+             from submit_active import submit
+             from analysis_submit_cached import submit as submit_analysis
+             counts={s:sum(v==s for v in mapping.values()) for s in pending}
+-            available={s:sum(not (HERE/s/'claims'/r['group']).exists() for r in read(HERE/s/'GROUP_INDEX.json')) for s in pending}
++            available={s:(fine_dispatch.available(s) if fine_dispatch.eligible(s) else sum(not (HERE/s/'claims'/r['group']).exists() for r in read(HERE/s/'GROUP_INDEX.json'))) for s in pending}
+             for _ in range(min(free,sum(available.values()))):
+                 targets=[s for s in pending if available[s]>0]
+-                target=min(targets,key=lambda s:counts[s]);(submit_analysis if target.startswith('analysis_') else submit)(target);counts[target]+=1;available[target]-=1
++                target=min(targets,key=lambda s:counts[s]);(fine_dispatch.submit if fine_dispatch.eligible(target) else submit_analysis if target.startswith('analysis_') else submit)(target);counts[target]+=1;available[target]-=1
+         time.sleep(20)
+ 
+ def prepare(layer,kind,scene):
+@@ -57,7 +63,7 @@
+ def main():
+     with (HERE/'COORDINATOR.lock').open('a') as lock:
+         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+-        write(HERE/'COORDINATOR_PID.json',dict(pid=os.getpid(),utc=utc()))
++        write(HERE/'COORDINATOR_PID.json',dict(pid=os.getpid(),utc=utc()));write(HERE/'PIPELINED_COORDINATOR_PID.json',dict(pid=os.getpid(),utc=utc()))
+         cap='capability_lit_crowded_random'
+         run_stages([cap],'crowded_single_agent_capability')
+         if not (HERE/f'{cap}_QUALIFICATION.receipt.json').exists():action('qualify_crowded','stage_results.py','capability')
+@@ -74,6 +80,6 @@
+             status('central_complete_awaiting_downstream_implementation');time.sleep(30)
+         from registry import verify_receipt
+         verify_receipt('DOWNSTREAM_READY.receipt.json')
+-        action('downstream','downstream_fast.py')
++        action('downstream','downstream_pipelined.py')
+ 
+ if __name__=='__main__':main()

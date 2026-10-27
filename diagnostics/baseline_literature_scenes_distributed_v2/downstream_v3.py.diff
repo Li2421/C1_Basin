@@ -1,0 +1,29 @@
+--- downstream.py
++++ downstream_v3.py
+@@ -1,6 +1,6 @@
+ """Follow the prescribed order after baseline comparisons; resumable receipts."""
+ from experiment import *
+-from coordinator import action,prepare,run_stages,stage_ready,jobs_by_stage
++from coordinator_v3 import action,prepare,run_stages,stage_ready,jobs_by_stage
+ from resources import snapshot
+ import time
+ 
+@@ -54,7 +54,8 @@
+     action('official_merge_before_models','db_merge.py')
+     for scene in learning:
+         if not (HERE/f'LEARNING_BUNDLE_{scene}.receipt.json').exists():action('bundle_'+scene,'learning_design.py','assemble',scene)
+-    train(learning)
++    from critic_supervisor import train as robust_train
++    learning=robust_train(learning)
+     evaluations=[]
+     for scene in learning:
+         stage='learning_eval_'+scene
+@@ -67,7 +68,7 @@
+                  *['central_learning_eval_'+s for s in ('lit_narrow_passage','lit_doorway')]]
+     analyze(diagnostics,'all_main_saved_trace_diagnosis')
+     action('official_merge_main','db_merge.py')
+-    action('numeric_results','statistics.py')
++    if not (HERE/"MIGRATION_NUMBERS.receipt.json").exists():action('numeric_results','statistics.py')
+     # Main numbers must be sealed before optional dynamics, variants or charts.
+     while not (HERE/'OPTIONAL_DELIVERY_READY.receipt.json').exists():
+         from status import main as status

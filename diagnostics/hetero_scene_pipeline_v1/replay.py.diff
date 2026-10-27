@@ -1,0 +1,37 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/replay.py
++++ /home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/replay.py
+@@ -1,13 +1,31 @@
+ """Exactly two fast-controller historical diametric episodes; no search replay."""
+ from common import *
+ from execution import execute
+-from design import OLD,CONTROL_IDS,CONTROL_TYPES
++from design import TEST1 as OLD,CONTROL_IDS,CONTROL_TYPES
+ import numpy as np
+ 
++def iter_array(path):
++    decoder=json.JSONDecoder(); buf='';pos=0;start=False
++    with Path(path).open() as f:
++        eof=False
++        while True:
++            if pos>len(buf)//2:buf=buf[pos:];pos=0
++            while pos<len(buf) and buf[pos].isspace():pos+=1
++            if not start and pos<len(buf):
++                assert buf[pos]=='[';pos+=1;start=True
++            while pos<len(buf) and (buf[pos].isspace() or buf[pos]==','):pos+=1
++            if pos<len(buf) and buf[pos]==']':return
++            try:
++                value,end=decoder.raw_decode(buf,pos)
++            except json.JSONDecodeError:
++                if eof:raise
++                block=f.read(1024*1024);buf+=block;eof=not block;continue
++            pos=end;yield value
++
+ def main():
+-    candidates=read_evidence(OLD/'pilot_CASES.json');chosen=[]
++    candidates=read_evidence(OLD/'main_CASES.json');chosen=[]
+     for ctl in CONTROL_IDS[:2]:
+-        c=next(c for c in candidates if c['state']['scene']in('xsc_swap_n6','xsc_swap_n12')and c['controller_payload']['nominal']['controller']==ctl and c['state']['index']==0 and c['requested_action']=='eta13')
++        c=next(c for c in candidates if c['state']['scene']=='xsc_div_size_r014'and c['controller_payload']['nominal']['controller']==ctl and c['state']['index']==0 and c['requested_action']=='eta13')
+         assert c['controller_payload']['nominal']['type_code']in CONTROL_TYPES
+         source=next((p for stage in('pilot','pilot_tail','main')if(p:=OLD/stage/'raw'/f"{c['rollout_uid']}.json").exists()),None)
+         assert source is not None;chosen.append((c,source))

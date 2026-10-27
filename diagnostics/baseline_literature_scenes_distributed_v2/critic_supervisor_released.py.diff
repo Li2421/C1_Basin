@@ -1,0 +1,20 @@
+--- critic_supervisor_current.py
++++ critic_supervisor_released.py
+@@ -1,13 +1,13 @@
+ """Read critic failures before retry; preserve completed fits and other scenes."""
+ from experiment import *
+-from coordinator import jobs_by_stage
+-from resources import snapshot
++from coordinator_released import jobs_by_stage
++from resources_released import snapshot
+ from infrastructure_recovery_current import classify
+-from critic_jobs import submit
++from critic_jobs_released import submit
+ import time
+ 
+ def train(scenes):
+-    from status import main as status
++    from status_released import main as status
+     blocked=set();reviewed=set()
+     while True:
+         state=snapshot();mapping=jobs_by_stage(state)

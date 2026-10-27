@@ -1,0 +1,113 @@
+{
+  "families": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+  ],
+  "summary": {
+    "A": {
+      "outcomes": {
+        "success": 539,
+        "collision": 101
+      },
+      "usable": true,
+      "transitions": {
+        "train_X": 226883,
+        "train_Y": 226883,
+        "dev_X": 54118,
+        "dev_Y": 54118
+      },
+      "source_geometry_count": 16
+    },
+    "B": {
+      "outcomes": {
+        "collision": 257,
+        "success": 383
+      },
+      "usable": true,
+      "transitions": {
+        "train_X": 166147,
+        "train_Y": 166147,
+        "dev_X": 39641,
+        "dev_Y": 39641
+      },
+      "source_geometry_count": 16
+    },
+    "C": {
+      "outcomes": {
+        "success": 531,
+        "collision": 109
+      },
+      "usable": true,
+      "transitions": {
+        "train_X": 222377,
+        "train_Y": 222377,
+        "dev_X": 55517,
+        "dev_Y": 55517
+      },
+      "source_geometry_count": 16
+    },
+    "D": {
+      "outcomes": {
+        "success": 640
+      },
+      "usable": true,
+      "transitions": {
+        "train_X": 168902,
+        "train_Y": 168902,
+        "dev_X": 42191,
+        "dev_Y": 42191
+      },
+      "source_geometry_count": 16
+    },
+    "E": {
+      "outcomes": {
+        "success": 636,
+        "collision": 4
+      },
+      "usable": true,
+      "transitions": {
+        "train_X": 249108,
+        "train_Y": 249108,
+        "dev_X": 62104,
+        "dev_Y": 62104
+      },
+      "source_geometry_count": 16
+    },
+    "F": {
+      "outcomes": {
+        "collision": 134,
+        "success": 506
+      },
+      "usable": true,
+      "transitions": {
+        "train_X": 207697,
+        "train_Y": 207697,
+        "dev_X": 57646,
+        "dev_Y": 57646
+      },
+      "source_geometry_count": 16
+    },
+    "G": {
+      "outcomes": {
+        "success": 612,
+        "collision": 28
+      },
+      "usable": true,
+      "transitions": {
+        "train_X": 113421,
+        "train_Y": 113421,
+        "dev_X": 32491,
+        "dev_Y": 32491
+      },
+      "source_geometry_count": 16
+    }
+  },
+  "selection": "All successful single-robot navigation episodes; failed or unknown episodes retained in DB and provenance, never replaced",
+  "G_correction_labels_used": false,
+  "G_evaluation_geometry_used": false
+}

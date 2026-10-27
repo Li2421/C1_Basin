@@ -1,0 +1,33 @@
+--- test_cbs_start_signature_v2_candidate_20261022.py
++++ test_query_disk_finite_grids_candidate_20261022.py
+@@ -2,7 +2,7 @@
+ from experiment import *
+ from atomic_write import write
+ import tiled_planning_flat_static as reference
+-import tiled_planning_start_signature_v2_20261022 as candidate
++import tiled_planning_query_disk_candidate_20261022 as candidate
+ from types import SimpleNamespace
+ import numpy as np
+ import ctypes,time
+@@ -11,6 +11,8 @@
+ def main():
+     os.sched_setaffinity(0,{read(HERE/'LOCAL_CPU_GUARD_STATUS.json')['local_cpu']})
+     candidate.CBS.start_signature_cache_reset()
++    candidate.CBS.query_disk_cache_min_seconds.argtypes=[ctypes.c_double]
++    candidate.CBS.query_disk_cache_min_seconds(0.)
+     candidate.CBS.start_signature_cache_stats.argtypes=[ctypes.POINTER(ctypes.c_uint64)]
+     rng=np.random.default_rng(2026102206);checks=0;examples=[];started=time.monotonic()
+     box=np.asarray([[[-1,-1],[1,-1]],[[1,-1],[1,1]],[[1,1],[-1,1]],[[-1,1],[-1,-1]]],float)
+@@ -52,8 +54,10 @@
+     result=dict(utc=utc(),passed=True,bitwise_checks=checks,cache_stats=stats.tolist(),seconds=time.monotonic()-started,
+         scope='Changing grid resolution,horizon,walls,goals,constraints,reservations,start cells,time-zero edge predicates,signed zero; exact raw path bytes',
+         no_runtime_patching=True,new_rollouts=0,environment_steps=0,
+-        source_hashes={str(HERE/n):sha(HERE/n) for n in ('cbs_kernel_flat_cache.cpp','cbs_kernel_flat_cache.so','cbs_kernel_start_signature_v2_candidate_20261022.cpp','cbs_kernel_start_signature_v2_candidate_20261022.so','cbs_start_signature_cache_v2_20261022.hpp','tiled_planning_start_signature_v2_20261022.py',Path(__file__).name)})
+-    write(HERE/'CBS_START_SIGNATURE_V2_FINITE_GRIDS_20261022.json',result);print(json.dumps(result),flush=True)
++        source_hashes={str(HERE/n):sha(HERE/n) for n in ('cbs_kernel_flat_cache.cpp','cbs_kernel_flat_cache.so','cbs_kernel_query_disk_candidate_20261022.cpp','cbs_kernel_query_disk_candidate_20261022.so','cbs_query_disk_memo_candidate_20261022.hpp','tiled_planning_query_disk_candidate_20261022.py',Path(__file__).name)})
++    disk=np.zeros(7,np.uint64);candidate.CBS.query_disk_cache_stats.argtypes=[ctypes.POINTER(ctypes.c_uint64)];candidate.CBS.query_disk_cache_stats(disk.ctypes.data_as(ctypes.POINTER(ctypes.c_uint64)))
++    result['disk_stats']=disk.tolist();result['query_cache_configured']=candidate.QUERY_CACHE_CONFIGURED
++    write(HERE/('CBS_QUERY_DISK_FINITE_GRIDS_'+sys.argv[1]+'_20261022.json'),result);print(json.dumps(result),flush=True)
+ 
+ 
+ if __name__=='__main__':main()

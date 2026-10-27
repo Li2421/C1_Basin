@@ -1,0 +1,18 @@
+{
+  "name": "C_deterministic_23",
+  "scene_family": "C",
+  "family": "deterministic",
+  "seed": 23,
+  "steps": 60000,
+  "batch": 256,
+  "lr": 0.0003,
+  "hidden": [
+    256,
+    256,
+    256
+  ],
+  "output_chart": "world velocity per robot",
+  "observation_dimensions": 35,
+  "selection": "earliest minimum fixed dev loss",
+  "source_dataset_sha256": "d38db1a2fa00f9ae632ad02d0699ac23b202368a35bcb38bce3f91230e91dd1d"
+}

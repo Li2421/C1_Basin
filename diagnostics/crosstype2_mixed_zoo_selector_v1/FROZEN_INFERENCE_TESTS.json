@@ -1,0 +1,267 @@
+{
+  "utc": "2026-10-18T14:39:51.388600+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "held_type": "Flow",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "Flow",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "Flow",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "centralized_sampling",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "centralized_sampling",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "centralized_sampling",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "chunking",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "chunking",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "chunking",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "cross_entropy",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "cross_entropy",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "cross_entropy",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "cvae",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "cvae",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "cvae",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "deterministic",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "deterministic",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "deterministic",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "diffusion",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "diffusion",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "diffusion",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "distributed_shooting",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "distributed_shooting",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "distributed_shooting",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "gaussian",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "gaussian",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "gaussian",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "mixture",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "mixture",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "mixture",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "prioritized_astar",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "prioritized_astar",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "prioritized_astar",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "recurrent",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "recurrent",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "recurrent",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "ring_ippo",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "ring_ippo",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "ring_ippo",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "ring_ippo_conservative",
+      "mode": "full",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "ring_ippo_conservative",
+      "mode": "no_controller",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "held_type": "ring_ippo_conservative",
+      "mode": "no_state",
+      "bitwise": true,
+      "max_error": 0.0
+    },
+    {
+      "kind": "immutable_old_nine_type_pipeline",
+      "bitwise": true,
+      "max_error": 0.0
+    }
+  ],
+  "dtype_restored": true,
+  "backend": "gpu",
+  "matmul_precision": "highest",
+  "new_rollouts": 0
+}

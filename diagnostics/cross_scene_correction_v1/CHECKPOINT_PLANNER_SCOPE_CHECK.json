@@ -1,0 +1,279 @@
+{
+  "utc": "2026-10-24T17:52:49.417301+00:00",
+  "passed": true,
+  "implementation_sources": {
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/runtime_new.py": "0210001b6d4cca172c8857e13ca932fca62e98cf702d66a415f3adfa2b3a64fa",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/runtime_checkpointed.py": "16c37e5d1690759e8a08d36dff395343e900cdefcd820542b6df31b6cd8916c0",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/checkpoint_store.py": "c03e752569ff2b284efcd0645ad29bbe5707ed0d93cd7aeacdccdfa2df1a8e4b",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/build_checkpoint_runtime.py": "bf3dd81d96cd2228f654c56b8fa57b2c51edc110bc5d63a267bf2f19af6a8021",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/test_checkpoint_runtime.py": "e643bf02b8dece75bd8e9ab0fa2043f62fdbf629ece12a91870e545f832c54e2",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/checkpoint_scope.py": "956059bfcf36ba07bb04dcff52fe247a706b2ad9713b811af3fa6762fb4c6925",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/test_checkpoint_planners.py": "abbc5cfeccd69505b0a7037ac840cfa904be979d72082def902bdbd3c5a2e5eb"
+  },
+  "base_prioritized_astar_proof_sha256": "5b7d366fdda2890ad672f3377b70d4f545588c8784bcaf5be95970a635b684bc",
+  "cbs_replay_rows": [
+    {
+      "scene": "xsc_gap_n2",
+      "controller": "conflict_based_search0",
+      "horizon": 160,
+      "verified_restart_next_steps": [
+        0,
+        37,
+        83
+      ],
+      "exact_result": true,
+      "exact_trace_fields": [
+        "positions",
+        "velocities",
+        "nominal",
+        "safe",
+        "actions",
+        "projection_rewrite",
+        "goals",
+        "swept_clearance",
+        "clearance_types",
+        "first_geometry_json",
+        "safety_certificates_json"
+      ],
+      "artifacts": "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/checkpoint_validation/planners_1792864273506200112/xsc_gap_n2"
+    },
+    {
+      "scene": "xsc_gap_n4",
+      "controller": "conflict_based_search0",
+      "horizon": 160,
+      "verified_restart_next_steps": [
+        0,
+        37,
+        83
+      ],
+      "exact_result": true,
+      "exact_trace_fields": [
+        "positions",
+        "velocities",
+        "nominal",
+        "safe",
+        "actions",
+        "projection_rewrite",
+        "goals",
+        "swept_clearance",
+        "clearance_types",
+        "first_geometry_json",
+        "safety_certificates_json"
+      ],
+      "artifacts": "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/checkpoint_validation/planners_1792864273506200112/xsc_gap_n4"
+    },
+    {
+      "scene": "xsc_gap_n6",
+      "controller": "conflict_based_search0",
+      "horizon": 160,
+      "verified_restart_next_steps": [
+        0,
+        37,
+        83
+      ],
+      "exact_result": true,
+      "exact_trace_fields": [
+        "positions",
+        "velocities",
+        "nominal",
+        "safe",
+        "actions",
+        "projection_rewrite",
+        "goals",
+        "swept_clearance",
+        "clearance_types",
+        "first_geometry_json",
+        "safety_certificates_json"
+      ],
+      "artifacts": "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/checkpoint_validation/planners_1792864273506200112/xsc_gap_n6"
+    }
+  ],
+  "initial_serialization_checks": [
+    {
+      "scene": "xsc_swap_n4",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_swap_n4",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_swap_n6",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_swap_n6",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_swap_n10",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_swap_n10",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_swap_n12",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_swap_n12",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_swap_n8_dense",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_swap_n8_dense",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_gap_n2",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_gap_n2",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_gap_n4",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_gap_n4",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_gap_n6",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_gap_n6",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_wide_n4",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_wide_n4",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_double_n4",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_double_n4",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_offset_n4",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_offset_n4",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_three_doors_n4",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_three_doors_n4",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": false
+    },
+    {
+      "scene": "xsc_gap_n10",
+      "controller": "prioritized_astar0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": true
+    },
+    {
+      "scene": "xsc_gap_n10",
+      "controller": "conflict_based_search0",
+      "physical_steps": 0,
+      "initial_geometry_and_actor_exact": true,
+      "extrapolation_initial_definition_only": true
+    }
+  ],
+  "scope": "New-scene prioritized_astar/conflict_based_search only; no legacy runtime change.",
+  "extrapolation_multiagent_actions_or_results_observed": false,
+  "official_journal_writes": 0,
+  "no_controller_physics_rng_or_success_criterion_changes": true
+}

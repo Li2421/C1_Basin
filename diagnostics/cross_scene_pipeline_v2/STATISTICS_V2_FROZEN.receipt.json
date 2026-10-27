@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-25T14:49:58.277002+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/statistics_v2.py": "1afd1a41356758375e2b225ca549c089417ee553edeaf6b6d85b5cac0ba508d6",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/statistics_new.py": "3a54adf21a1a45476026dd8521ebb871778d4737fdc3341a8cc47c5e39fc8abe",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/diagnose_v1.py": "177430c9a5ca583fa749f2acdf7efeb4cec6fb58d28dbfae44706d0cc23fe673",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/names_v2.py": "5388781e7990022b7e5185d4df695c9bfcfaa79b205fcfa026189715a11ef9ec",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/results.py": "fdfafd2033a06db90c3474f652b398be4da9042e50b89cd46cbe4e5e354cbf05"
+  },
+  "replicates": 5000,
+  "bootstrap_seed": 2026102517,
+  "development_goals": {
+    "G1": "estimate>=.03 and every scene difference>=-.10",
+    "G2": "both LOFO differences>=-.05",
+    "G3": "full18 v2_49-global>=0"
+  },
+  "all_choices_already_frozen": true,
+  "new_main_rollouts_before_freeze": 0
+}

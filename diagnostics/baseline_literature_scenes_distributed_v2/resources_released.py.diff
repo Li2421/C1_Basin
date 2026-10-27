@@ -1,0 +1,11 @@
+--- resources.py
++++ resources_released.py
+@@ -6,7 +6,7 @@
+ CPU_LIMIT = 24
+ GPU_SHARD_LIMIT = 5
+ LOCAL_CPU_RESERVE = 1
+-POLICY = HERE/'RESOURCE_SCHEDULE.json'
++POLICY = HERE/'RESOURCE_SCHEDULE_CORRECTED.json'
+ 
+ def limits(at=None):
+     at = at or datetime.now(timezone.utc)

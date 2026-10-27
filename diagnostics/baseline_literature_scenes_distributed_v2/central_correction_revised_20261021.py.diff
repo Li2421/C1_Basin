@@ -1,0 +1,19 @@
+--- central_reservation_flat_static.py
++++ central_correction_revised_20261021.py
+@@ -10,6 +10,7 @@
+ from reservation_certificate_v2_flat_static import ReservationNominal as Nominal
+ from projection_memo import MemoSafetyFilter as LiteratureSafetyFilter
+ from shared_control.basis_families import get_basis_family
++from correction_revision_20261021 import central_fields,contact_radius
+ jax.config.update('jax_enable_x64',False)
+ 
+ def progress(p,g,d0,tolerance):
+@@ -21,7 +22,7 @@
+     if len(env.positions)==1:
+         if np.any(eta):raise ValueError('N=1 capability supports safety-only; relative correction basis is undefined')
+         return np.zeros_like(safe)
+-    return basis.compute(env.positions,env.goals,safe,env.config.max_speed).correction(eta)
++    return central_fields(env.positions,env.goals,safe,env.config.max_speed,env.config.goal_tolerance,contact_radius(env.config),basis).correction(eta)
+ 
+ def run(c):
+     start=time.monotonic();env=LiteratureEnv(c['state'],LiteratureConfig(**c['scenario_payload']['config']));cfg=env.config;actor=Nominal(c['controller_payload']['nominal'])

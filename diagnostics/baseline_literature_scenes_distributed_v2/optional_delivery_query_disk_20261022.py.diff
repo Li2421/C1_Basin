@@ -1,0 +1,28 @@
+--- optional_delivery_start_signature_20261022.py
++++ optional_delivery_query_disk_20261022.py
+@@ -7,7 +7,7 @@
+ import time
+ import subprocess
+ import fcntl
+-import optional_fine_dispatch_start_signature_20261022 as fine
++import optional_fine_dispatch_query_disk_20261022 as fine
+ import optional_diagnosis_backfill_correction_revised_20261021 as backfill
+ 
+ def submit(stage):
+@@ -66,6 +66,7 @@
+         gap(stage,str(exc));return None
+ 
+ def main():
++    verify_receipt('CBS_QUERY_DISK_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_QUERY_DISK_PIPELINE_CODE_20261022.receipt.json')
+     verify_receipt('CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_START_SIGNATURE_PIPELINE_CODE_20261022.receipt.json')
+     verify_receipt('CORRECTION_CLOSED_SCOPE_DELIVERY_READY_20261023.receipt.json')
+     verify_receipt('CORRECTION_FINAL_DELIVERY_READY_20261023.receipt.json')
+@@ -105,7 +106,7 @@
+     # Every experiment worker has ended before the final source audit.
+     state=snapshot();assert not any(j['name'].startswith('blv2_') for j in state['jobs']),state
+     if not (HERE/'INTEGRITY_END.receipt.json').exists():action('integrity_end','integrity.py','end')
+-    if not (HERE/'FINAL_REPORTS.receipt.json').exists():action('final_report','final_reports_start_signature_20261022.py')
++    if not (HERE/'FINAL_REPORTS.receipt.json').exists():action('final_report','final_reports_query_disk_20261022.py')
+     from coordinator_correction_release_20261023 import status
+     status('complete_with_explicit_optional_gaps' if (HERE/'OPTIONAL_GAPS.json').exists() else 'complete')
+     write(HERE/'V2_COMPLETE.json',dict(utc=utc(),main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),source_audit=sha(HERE/'INTEGRITY_END.json'),v1_readonly=True))

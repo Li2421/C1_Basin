@@ -1,0 +1,331 @@
+{
+  "utc": "2026-10-22T03:29:41.708201+00:00",
+  "authority": "Latest user: release six CPUs immediately; total24 to18 now",
+  "before": {
+    "utc": "2026-10-22T03:29:41.672084+00:00",
+    "jobs": [
+      {
+        "job_id": "27746",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27745",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27744",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27742",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27743",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27741",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27739",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27740",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27738",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27737",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27736",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27735",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27734",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27733",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27732",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27730",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27731",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27729",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27728",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27727",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27726",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27725",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27724",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      }
+    ],
+    "scheduled_cpus": 23,
+    "gpu_shards": 0,
+    "local_cpu_reserve": 1,
+    "cpu_limit": 24,
+    "gpu_shard_limit": 2,
+    "release_at_utc": "2026-10-23T01:00:00+00:00",
+    "reduced": false,
+    "admission_cpu_limit": 24,
+    "graceful_drain_at_utc": "2026-10-22T23:30:00+00:00",
+    "deadline_fallback_at_utc": "2026-10-23T00:59:00+00:00",
+    "free_cpu_shares": 0,
+    "free_gpu_shards": 2
+  },
+  "stopped_local_managers": [
+    {
+      "pid": 1131530,
+      "script": "scheduler_watchdog_query_disk_20261022.py"
+    },
+    {
+      "pid": 436922,
+      "script": "cpu_release_guard_watchdog_20261023.py"
+    },
+    {
+      "pid": 1131519,
+      "script": "coordinator_query_disk_20261022.py"
+    },
+    {
+      "pid": 1131543,
+      "script": "correction_after_distributed_fixed_query_disk_20261022.py"
+    },
+    {
+      "pid": 433186,
+      "script": "resource_guard_corrections_release_cpu_only_20261023.py"
+    }
+  ],
+  "selected_jobs": [
+    {
+      "job_id": "27737",
+      "name": "blv2_revision",
+      "state": "RUNNING",
+      "cpus": 1,
+      "gpu_shards": 0,
+      "gres": "N/A"
+    },
+    {
+      "job_id": "27739",
+      "name": "blv2_revision",
+      "state": "RUNNING",
+      "cpus": 1,
+      "gpu_shards": 0,
+      "gres": "N/A"
+    },
+    {
+      "job_id": "27746",
+      "name": "blv2_revision",
+      "state": "RUNNING",
+      "cpus": 1,
+      "gpu_shards": 0,
+      "gres": "N/A"
+    },
+    {
+      "job_id": "27727",
+      "name": "blv2_revision",
+      "state": "RUNNING",
+      "cpus": 1,
+      "gpu_shards": 0,
+      "gres": "N/A"
+    },
+    {
+      "job_id": "27726",
+      "name": "blv2_revision",
+      "state": "RUNNING",
+      "cpus": 1,
+      "gpu_shards": 0,
+      "gres": "N/A"
+    },
+    {
+      "job_id": "27736",
+      "name": "blv2_revision",
+      "state": "RUNNING",
+      "cpus": 1,
+      "gpu_shards": 0,
+      "gres": "N/A"
+    }
+  ],
+  "selected_current_episode_owners": {
+    "27737": {
+      "utc": "2026-10-22T03:27:56.296424+00:00",
+      "job": "27737",
+      "pid": 903741,
+      "rollout_uids": [
+        "roll_7187370fcb412206b5ac57d506f2c1e45148a1f7a9017eefba65adbd033804cc"
+      ]
+    },
+    "27739": {
+      "utc": "2026-10-22T03:27:21.138514+00:00",
+      "job": "27739",
+      "pid": 908051,
+      "rollout_uids": [
+        "roll_b82ad5e9f2f65370b3d66fc74840a860846f135e4cbcb60ee8364b84a717ca7a"
+      ]
+    },
+    "27746": {
+      "utc": "2026-10-22T03:26:46.370776+00:00",
+      "job": "27746",
+      "pid": 952798,
+      "rollout_uids": [
+        "roll_198c02ebc60b6a63e3f7c75107ce2fce9105344e304f04d7cc86253a01360dcb"
+      ]
+    },
+    "27727": {
+      "utc": "2026-10-22T03:26:45.171561+00:00",
+      "job": "27727",
+      "pid": 896674,
+      "rollout_uids": [
+        "roll_0a17e4cff4f7b1457f7a4718bd2d6879bb88f8a36d1c469e7f09fc5009e5dc3d"
+      ]
+    },
+    "27726": {
+      "utc": "2026-10-22T03:26:29.937933+00:00",
+      "job": "27726",
+      "pid": 894801,
+      "rollout_uids": [
+        "roll_db5ae37e228849cc5df47da27dc8ad10a3e46fc33349c79ac11972c236183a8b"
+      ]
+    },
+    "27736": {
+      "utc": "2026-10-22T03:26:29.101686+00:00",
+      "job": "27736",
+      "pid": 903442,
+      "rollout_uids": [
+        "roll_249846f8434b52303bf2d7d2bd84035986b1ec6711288dbf8dfdb9708226cef3"
+      ]
+    }
+  },
+  "completed_evidence_preserved": true,
+  "unfinished_cases_remain_missing_not_unknown": true,
+  "after_total_cpu_limit": 18,
+  "gpu_limit_unchanged": 2
+}

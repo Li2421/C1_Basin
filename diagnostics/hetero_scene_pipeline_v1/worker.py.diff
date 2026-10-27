@@ -1,0 +1,11 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/worker.py
++++ /home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/worker.py
+@@ -11,7 +11,7 @@
+     STOP=True;PAUSE=True
+ 
+ def main(stage):
+-    assert stage in('capability','main')
++    assert stage in('capability','main','proposal')
+     signal.signal(signal.SIGTERM,stop);signal.signal(signal.SIGUSR1,stop)
+     verify_inputs();assert read(HERE/'REPLAY_CHECK.json')['passed']
+     for p,h in read(HERE/'EXECUTION_FROZEN.receipt.json')['files'].items():assert sha(p)==h,p

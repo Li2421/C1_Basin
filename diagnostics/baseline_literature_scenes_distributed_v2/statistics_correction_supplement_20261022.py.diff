@@ -1,0 +1,39 @@
+--- statistics_correction_header_20261023_quota18_now_20261022.py
++++ statistics_correction_supplement_20261022.py
+@@ -14,6 +14,7 @@
+  rows=[dict(r) for r in original if r['method']=='safety'];sources=[]
+  stages=[f'{l}_revised_fixed_{s}' for l in LAYERS for s in NAMES]
+  stages += ['learning_eval_revised_20261021_'+s for s in NAMES if (HERE/f'learning_eval_revised_20261021_{s}_CASES.json').exists()]
++ stages += ['learning_eval_revised_20261021_trainfixed_'+s for s in NAMES]
+  for stage in stages:
+   for c in read(HERE/f'{stage}_CASES.json'):
+    path=find_raw(c['rollout_uid'],stage,c['state']['scene']);raw=read(path);dpath=HERE/'DIAGNOSTICS'/f"{c['rollout_uid']}.json";diag=small_diagnosis(dpath.read_bytes());ctl=c['controller_payload']['nominal'];s=c['state'];cats=diag['local']
+@@ -93,9 +94,9 @@
+ 
+ def main():
+  prereg();verify_receipt('CORRECTION_MAIN_RESULTS_READY_20261021.receipt.json');assert not (HERE/'MIGRATION_NUMBERS.receipt.json').exists()
+- for proof in ('COMPLETED_SCENE_NUMBERS.receipt.json','COMPLETED_FIXED_CROSSFIT_NUMBERS.receipt.json','COMPLETED_DIAGNOSIS_NUMBERS.receipt.json','INSTANCE_CLASSES_REVISED.receipt.json'):verify_receipt(proof)
++ for proof in ('COMPLETED_SCENE_NUMBERS.receipt.json','COMPLETED_FIXED_CROSSFIT_NUMBERS.receipt.json','COMPLETED_DIAGNOSIS_NUMBERS.receipt.json','INSTANCE_CLASSES_SUPPLEMENT_20261022.receipt.json'):verify_receipt(proof)
+  complete_original_landed_label_diagnoses()
+- old,sources=collect();new,new_sources=revised_records(old);census=controller_census(old);classes=read(HERE/'INSTANCE_CLASSES_REVISED.json')['instances']
++ old,sources=collect();new,new_sources=revised_records(old);census=controller_census(old);classes=read(HERE/'INSTANCE_CLASSES_SUPPLEMENT_20261022.json')['instances']
+  assert census==read(HERE/'COMPLETED_DIAGNOSIS_RESULTS.json')['controller_census']
+  # Before reusing saved estimates, verify every previously sealed raw hash.
+  current={s['rollout_uid']:s['raw_sha256'] for s in sources}
+@@ -121,7 +122,7 @@
+  results['supported_scene_distributed_learned_evaluation']=summarize(oldsub,[('distributed',m) for m in (*FIXED,'learned_scene')],oldlearned)
+  results['four_scene_revised_distributed_learned_evaluation']=summarize([r for s in NAMES for r in matched(new,s)],[('distributed',m) for m in (*FIXED,'learned_scene')],list(NAMES))
+  hover={sem:wandering_rates(rows,sources+new_sources) for sem,rows in [('original',old),('revised',new)]}
+- write(HERE/'MIGRATION_RESULTS.json',dict(utc=utc(),evidence='DEVELOPMENT',results=results,semantics=SEMANTICS,near_goal_wandering=hover,instance_class_authority='INSTANCE_CLASSES_REVISED.json',old_circle_label_stop=read(HERE/'OLD_CIRCLE_LEARNING_STOPPED_20261021.json')))
++ write(HERE/'MIGRATION_RESULTS.json',dict(utc=utc(),evidence='DEVELOPMENT',results=results,semantics=SEMANTICS,near_goal_wandering=hover,instance_class_authority='INSTANCE_CLASSES_SUPPLEMENT_20261022.json',old_circle_label_stop=read(HERE/'OLD_CIRCLE_LEARNING_STOPPED_20261021.json')))
+  save_or_assert('CONTROLLER_LEVEL_FAILURES.json',census)
+  write(HERE/'MIGRATION_RESULT_SOURCES.json',sources);write(HERE/'REVISED_MIGRATION_RESULT_SOURCES_20261021.json',new_sources)
+  write(HERE/'COMPACT_MAIN_RESULTS.json',old);write(HERE/'COMPACT_REVISED_MAIN_RESULTS_20261021.json',new)
+@@ -136,6 +137,6 @@
+  fields=('scene','type','layer','method','success_rate','ci95','success_upper','upper_ci95','controllers','semantics')
+  with (HERE/'MIGRATION_RESULTS.csv').open('w') as f:
+   w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows({k:canonical(r[k]) if isinstance(r[k],(list,dict)) else r[k] for k in fields} for r in flat)
+- names=['MIGRATION_RESULTS.json','MIGRATION_RESULTS.csv','CONTROLLER_LEVEL_FAILURES.json','MIGRATION_RESULT_SOURCES.json','REVISED_MIGRATION_RESULT_SOURCES_20261021.json','COMPACT_MAIN_RESULTS.json','COMPACT_REVISED_MAIN_RESULTS_20261021.json','SAFETY_BASELINE.csv','statistics_correction_revised_20261021_quota18_now_20261022.py','statistics.py','INSTANCE_CLASSES_REVISED.receipt.json']
++ names=['MIGRATION_RESULTS.json','MIGRATION_RESULTS.csv','CONTROLLER_LEVEL_FAILURES.json','MIGRATION_RESULT_SOURCES.json','REVISED_MIGRATION_RESULT_SOURCES_20261021.json','COMPACT_MAIN_RESULTS.json','COMPACT_REVISED_MAIN_RESULTS_20261021.json','SAFETY_BASELINE.csv','statistics_correction_revised_20261021_quota18_now_20261022.py','statistics.py','INSTANCE_CLASSES_SUPPLEMENT_20261022.receipt.json']
+  seal('MIGRATION_NUMBERS.receipt.json',[HERE/n for n in names],bootstrap_iterations=5000,before_optional_dynamics_and_charts=True,original_outcome_estimates_exact_reuse=True,revised_semantics_posthoc=True,primary_exclusion='Only revised taxonomy controller failure,per layer')
+ if __name__=='__main__':raise RuntimeError('Import-only helper; use statistics_parallel_correction_20261023_quota18_now_20261022.py')

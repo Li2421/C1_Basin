@@ -1,0 +1,11 @@
+--- runtime_local_progress_certified.py
++++ runtime_local_progress_reservation_v2.py
+@@ -6,7 +6,7 @@
+ from states import LiteratureConfig
+ from flow_scene import LiteratureEnv
+ from controllers import bound
+-from reservation_certificate import ReservationNominal as Nominal
++from reservation_certificate_v2 import ReservationNominal as Nominal
+ from distributed_safety import LocalSafety,local_basis,responsibility
+ from projection_memo import MemoSafetyFilter
+ from projection_adapter import constraints

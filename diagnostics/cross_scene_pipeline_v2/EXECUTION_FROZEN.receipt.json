@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-25T14:43:09.228980+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/requests_corrected.py": "ed006090fcae0b7d33b8d30067f89393a42531ce5b59786df36595976e73eadb",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/requests_v2.py": "eeb809d0fe352140d132e49fa704a0ed0cfb6a1fa89653fda41f5d47c7bfd048",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/rollout_worker_resume.py": "a31889fa5132d2170a62cb1b3bc5bf96eae8f52699cbc691373d0c14bf3efe20",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/rollout_pool_v2.py": "90558c2ae37085948859ddc27f6a6417d2c73492f1ab8217b9872192782d0386",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/rollout_pool_v2.sbatch": "3b5fb4c9c365afc8456adc110cc6cf3d3acb9f0a8df595a91a3b60ded45edc52",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/runtime_new.py": "0210001b6d4cca172c8857e13ca932fca62e98cf702d66a415f3adfa2b3a64fa",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/runtime_checkpointed.py": "16c37e5d1690759e8a08d36dff395343e900cdefcd820542b6df31b6cd8916c0",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/checkpoint_store.py": "c03e752569ff2b284efcd0645ad29bbe5707ed0d93cd7aeacdccdfa2df1a8e4b",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/CHECKPOINT_COMPATIBILITY.json": "a7a03c50d75114e886752d6b238036c086c5832c84b283950384f57d97b9982f",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/REQUEST_RECONSTRUCTION_CHECK.json": "33bc8092ae32695d24136fb6ed6c5304b9a4050d41ab7958c6ed7440528d4e28"
+  },
+  "all_choices_already_frozen": true,
+  "hard_new_rollout_limit": 1300,
+  "seed": 0,
+  "new_rollouts_before_freeze": 0
+}

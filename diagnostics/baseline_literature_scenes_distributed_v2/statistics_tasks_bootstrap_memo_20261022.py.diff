@@ -1,0 +1,39 @@
+--- statistics_tasks_supplement_20261022.py
++++ statistics_tasks_bootstrap_memo_20261022.py
+@@ -2,10 +2,11 @@
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+-from statistics_correction_supplement_20261022 import FIXED,LAYERS,SEMANTICS,diagnostic_counts,matched,class_splits,wandering_rates
+-from statistics_header_reader_20261023 import summarize
++from statistics_correction_bootstrap_memo_20261022 import FIXED,LAYERS,SEMANTICS,diagnostic_counts,matched,class_splits,wandering_rates
++from statistics_bootstrap_memo_reader_20261022 import summarize
+ import signal,subprocess,re
+-from training_selected_primary_statistics_20261022 import primary_task,SCOPES
++from bootstrap_exact_memo_20261022 import snapshot as bootstrap_cache_snapshot
++from training_selected_primary_statistics_memo_20261022 import primary_task,SCOPES
+ 
+ def task_manifest():
+  tasks=[]
+@@ -58,8 +59,8 @@
+  for thread in Path('/proc/self/task').iterdir():os.sched_setaffinity(int(thread.name),{chosen})
+  # A resource signal never interrupts the current statistical call.
+  signal.signal(signal.SIGUSR1,lambda *args:None);signal.signal(signal.SIGTERM,lambda *args:None)
+- verify_receipt('ANALYSIS_SUPPLEMENT_READY_20261022.receipt.json');verify_receipt('PARALLEL_NUMERIC_INPUTS_SUPPLEMENT_20261022.receipt.json')
+- manifest=task_manifest();task=manifest[key];folder=HERE/'parallel_numeric_fragments_supplement_20261022';folder.mkdir(exist_ok=True);target=folder/(key+'.json');proof=folder/(key+'.receipt.json');input_hash=sha(HERE/'PARALLEL_NUMERIC_INPUTS_SUPPLEMENT_20261022.receipt.json')
++ verify_receipt('BOOTSTRAP_EXACT_MEMO_READY_20261022.receipt.json');verify_receipt('PARALLEL_NUMERIC_INPUTS_BOOTSTRAP_MEMO_20261022.receipt.json')
++ manifest=task_manifest();task=manifest[key];folder=HERE/'parallel_numeric_fragments_bootstrap_memo_20261022';folder.mkdir(exist_ok=True);target=folder/(key+'.json');proof=folder/(key+'.receipt.json');input_hash=sha(HERE/'PARALLEL_NUMERIC_INPUTS_BOOTSTRAP_MEMO_20261022.receipt.json')
+  if proof.exists():verify_receipt(str(proof.relative_to(HERE)));return
+  if target.exists():
+   result=read(target);assert result['task']==task and result['input_receipt_sha256']==input_hash
+@@ -67,8 +68,8 @@
+   old=read(HERE/'COMPACT_MAIN_RESULTS.json');new=read(HERE/'COMPACT_REVISED_MAIN_RESULTS_20261021.json');census=read(HERE/'CONTROLLER_LEVEL_FAILURES.json');classes=read(HERE/'INSTANCE_CLASSES_SUPPLEMENT_20261022.json')['instances']
+   # Source lists are only needed by the two saved-raw hover tasks.
+   ss=read(HERE/'MIGRATION_RESULT_SOURCES.json') if task['kind'].endswith('_hover') else [];ns=read(HERE/'REVISED_MIGRATION_RESULT_SOURCES_20261021.json') if task['kind'].endswith('_hover') else []
+-  result=dict(task=task,input_receipt_sha256=input_hash,result=calculate(task,old,new,census,classes,ss,ns))
++  result=dict(task=task,input_receipt_sha256=input_hash,result=calculate(task,old,new,census,classes,ss,ns),bootstrap_exact_cache=bootstrap_cache_snapshot())
+   write(target,result)
+- seal(str(proof.relative_to(HERE)),[target,HERE/'PARALLEL_NUMERIC_INPUTS_SUPPLEMENT_20261022.receipt.json',HERE/'ANALYSIS_SUPPLEMENT_READY_20261022.receipt.json'],bootstrap_iterations=5000,native_rng_unchanged=True,posthoc_only=True)
++ seal(str(proof.relative_to(HERE)),[target,HERE/'PARALLEL_NUMERIC_INPUTS_BOOTSTRAP_MEMO_20261022.receipt.json',HERE/'BOOTSTRAP_EXACT_MEMO_READY_20261022.receipt.json'],bootstrap_iterations=5000,native_rng_unchanged=True,posthoc_only=True)
+  print('Numeric task complete',key,task,flush=True)
+ if __name__=='__main__':worker(sys.argv[1])

@@ -1,0 +1,135 @@
+{
+  "numeric_1b37065d9d473a8a6d32d5f4227a284acbc62f15775132c11218fc92eacc351e": {
+    "kind": "scene",
+    "scene": "lit_narrow_passage"
+  },
+  "numeric_e31acc9c347140ad324755eaa78e616730ce98772c0fdcd2ce4382a39139a0e0": {
+    "kind": "split",
+    "scene": "lit_narrow_passage",
+    "semantics": "original",
+    "layer": "central"
+  },
+  "numeric_aaa6837b6dab4e8806a9538630d4df85e131119177b7b2d378bcaa71c30df04f": {
+    "kind": "split",
+    "scene": "lit_narrow_passage",
+    "semantics": "original",
+    "layer": "distributed"
+  },
+  "numeric_e9605c814141e5b39094c9e23ea60ba74155cb525c52cece3495663f8c5f7a4e": {
+    "kind": "split",
+    "scene": "lit_narrow_passage",
+    "semantics": "revised",
+    "layer": "central"
+  },
+  "numeric_70eb86322f3941022551b69be5a59b53b429f6b12f7bf4f46423bdae9e2b97f4": {
+    "kind": "split",
+    "scene": "lit_narrow_passage",
+    "semantics": "revised",
+    "layer": "distributed"
+  },
+  "numeric_190a2a756a9b051c0ed610dfe8b2e637854092917a23a194b24d609c417a16ee": {
+    "kind": "scene",
+    "scene": "lit_crowded_random"
+  },
+  "numeric_7930d2db908a8df1f3923c5430a116bd23a790919cc7e6c422db680065a4d7e2": {
+    "kind": "split",
+    "scene": "lit_crowded_random",
+    "semantics": "original",
+    "layer": "central"
+  },
+  "numeric_cc94a79b7671a592e5a07c6cb99077401de9f4664c2cb4d0dd0edbc12f986dc3": {
+    "kind": "split",
+    "scene": "lit_crowded_random",
+    "semantics": "original",
+    "layer": "distributed"
+  },
+  "numeric_8f42021007ce3d22f824e9ab39b698a4fcee1e70fcee84cad0d74399f2bbee5e": {
+    "kind": "split",
+    "scene": "lit_crowded_random",
+    "semantics": "revised",
+    "layer": "central"
+  },
+  "numeric_cd6ee7ec96f5ad40f4e5b396d3a6a5c98c6fd4a33492e7aed9a69390e728f670": {
+    "kind": "split",
+    "scene": "lit_crowded_random",
+    "semantics": "revised",
+    "layer": "distributed"
+  },
+  "numeric_165e03ca8054e9fa1f97ede1de380cce7eff8660bda0fa4aba85e1d8895ccb5b": {
+    "kind": "scene",
+    "scene": "lit_circle_five"
+  },
+  "numeric_ffc5436adc2851a18fb1c7166513dc94ebafb8b9abea9bc027e7e8e4e76363e3": {
+    "kind": "split",
+    "scene": "lit_circle_five",
+    "semantics": "original",
+    "layer": "central"
+  },
+  "numeric_1a6a5dc392cc04af3931f8f5ae8d892cfdb4c5c3db2e051097c1dfbef1ad2def": {
+    "kind": "split",
+    "scene": "lit_circle_five",
+    "semantics": "original",
+    "layer": "distributed"
+  },
+  "numeric_c638d9df61729d2b74221b7d21f5e3941570bcd52cbc4b66ae3f9923f524f5dd": {
+    "kind": "split",
+    "scene": "lit_circle_five",
+    "semantics": "revised",
+    "layer": "central"
+  },
+  "numeric_59c629c8794d2c1f2d7913397440683c7c1076e57b2ca903257f4d7c9877a0f1": {
+    "kind": "split",
+    "scene": "lit_circle_five",
+    "semantics": "revised",
+    "layer": "distributed"
+  },
+  "numeric_0c1c6a791c2dfcae06577c4ac94ec9ffe4913693c7099a9651cf282550dab4f4": {
+    "kind": "scene",
+    "scene": "lit_doorway"
+  },
+  "numeric_439a3c7a8032081710118988df89fb157053a7e983605ca541391f5c6b8add9e": {
+    "kind": "split",
+    "scene": "lit_doorway",
+    "semantics": "original",
+    "layer": "central"
+  },
+  "numeric_5faaf1d97e82e91677d1105c4ba4cb9e56039c455cbe8c378cac09deeed49020": {
+    "kind": "split",
+    "scene": "lit_doorway",
+    "semantics": "original",
+    "layer": "distributed"
+  },
+  "numeric_205db92a8e16722439e8f4cf31286cc51bf4d7dae0190bcbff59afd595c49107": {
+    "kind": "split",
+    "scene": "lit_doorway",
+    "semantics": "revised",
+    "layer": "central"
+  },
+  "numeric_c4409d791cb2359ed63b105efbe1525332748e6176ef9884fcec39e39c6291b7": {
+    "kind": "split",
+    "scene": "lit_doorway",
+    "semantics": "revised",
+    "layer": "distributed"
+  },
+  "numeric_88ecc90124adfc3189a0cbccc1c9172c8612f9caf19ec764a0ec441f6b11e103": {
+    "kind": "old_fixed_pool"
+  },
+  "numeric_89e49348d858cd5cb0e5a4b6b051c6d6a5493ebd1378eda280a7ae1b806a89a8": {
+    "kind": "old_excluded_pool"
+  },
+  "numeric_087902a99c2344f69bd5e51b40112fa6ec5dd39ae054c6d13584a71ff8f3a8e8": {
+    "kind": "new_fixed_pool"
+  },
+  "numeric_ffc4cf5994d0b831ca9a4b7b3558568068f5567ae05d27fdc0ecfd615e1b0646": {
+    "kind": "old_learned_pool"
+  },
+  "numeric_33389a31578652787ae8d37d4880d5d2c8af9d7066a3933280fdf24de553f1cc": {
+    "kind": "new_learned_pool"
+  },
+  "numeric_d690355f47ecdba8b57d87d4c0c5f78a01e33d8bcff974838da3dce4de656791": {
+    "kind": "old_hover"
+  },
+  "numeric_626a29908cf4f1dd7c0cd5b7ad2ee0f58752de9e236048741efc256950f274c2": {
+    "kind": "new_hover"
+  }
+}

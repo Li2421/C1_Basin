@@ -1,0 +1,52 @@
+--- cbs_kernel_start_signature_v2_candidate_20261022.cpp
++++ cbs_kernel_query_disk_candidate_20261022.cpp
+@@ -78,6 +78,7 @@
+ 
+ 
+ #include "cbs_start_signature_cache_v2_20261022.hpp"
++#include "cbs_query_disk_memo_candidate_20261022.hpp"
+ 
+ extern "C" int astar_constrained(double res,double inner,double outer,double sep,int max_time,const double* start,const double* goal,int nr,const int* lens,const double* reserved,int nc,const double* constraints,const double* bounds,int nw,const double* walls,double margin,double* output) {
+  prepare_memo(nw,walls,margin);
+@@ -102,14 +103,14 @@
+  const bool use_start_memo=(nr==0 && nc>=0 && nw>=0 && res>0 && std::isfinite(res) && std::isfinite(start[0]) && std::isfinite(start[1]) && std::isfinite(goal[0]) && std::isfinite(goal[1]));
+  std::string start_memo_key;
+  if(use_start_memo){
+-  start_signature_memo.prepare(res,inner,outer,sep,margin,bounds,nw,walls);
++  start_signature_disk_memo.prepare(res,inner,outer,sep,margin,bounds,nw,walls);
+   const int initial_moves[9][2]={{1,0},{0,1},{-1,0},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1},{0,0}};
+   uint16_t signature=0;
+   for(int m=0;m<9;++m)if(edge(start[0],start[1],(sx+initial_moves[m][0])*res,(sy+initial_moves[m][1])*res,0))signature|=uint16_t(1u<<m);
+   if(sx==gx && sy==gy && edge(start[0],start[1],goal[0],goal[1],0))signature|=uint16_t(1u<<9);
+-  start_memo_key=start_signature_memo.key(sx,sy,max_time,goal,nc,constraints,signature);
++  start_memo_key=start_signature_disk_memo.key(sx,sy,max_time,goal,nc,constraints,signature);
+   int cached_count=0;
+-  if(start_signature_memo.get(start_memo_key,start,output,cached_count))return cached_count;
++  if(start_signature_disk_memo.get(start_memo_key,start,output,cached_count))return cached_count;
+  }
+  // END EXACT START SIGNATURE CANDIDATE
+  auto heur=[&](int x,int y){return norm(double(x-gx),double(y-gy))/std::sqrt(2.);};
+@@ -119,14 +120,19 @@
+   Node u=q.top();q.pop();double ax=u.t==0?start[0]:u.x*res,ay=u.t==0?start[1]:u.y*res;
+   if(u.x==gx&&u.y==gy&&edge(ax,ay,goal[0],goal[1],u.t)){
+    bool held=true;for(int t=u.t+1;t<max_time;++t)if(!edge(goal[0],goal[1],goal[0],goal[1],t)){held=false;break;}
+-   if(held){std::vector<uint64_t> chain;uint64_t id=code(u.x,u.y,u.t);chain.push_back(id);while(id!=initial){id=parent.at(id);chain.push_back(id);}std::reverse(chain.begin(),chain.end());int k=0;output[k++]=start[0];output[k++]=start[1];for(size_t j=1;j<chain.size();++j){int x=int((chain[j]>>20)&((uint64_t(1)<<20)-1))-100000,y=int(chain[j]&((uint64_t(1)<<20)-1))-100000;output[k++]=x*res;output[k++]=y*res;}output[k++]=goal[0];output[k++]=goal[1];if(use_start_memo)start_signature_memo.put(start_memo_key,output,k/2);return k/2;}
++   if(held){std::vector<uint64_t> chain;uint64_t id=code(u.x,u.y,u.t);chain.push_back(id);while(id!=initial){id=parent.at(id);chain.push_back(id);}std::reverse(chain.begin(),chain.end());int k=0;output[k++]=start[0];output[k++]=start[1];for(size_t j=1;j<chain.size();++j){int x=int((chain[j]>>20)&((uint64_t(1)<<20)-1))-100000,y=int(chain[j]&((uint64_t(1)<<20)-1))-100000;output[k++]=x*res;output[k++]=y*res;}output[k++]=goal[0];output[k++]=goal[1];if(use_start_memo)start_signature_disk_memo.put(start_memo_key,output,k/2);return k/2;}
+   }
+   if(u.t>=max_time-1)continue;
+   for(auto&m:moves){int x=u.x+m[0],y=u.y+m[1],t=u.t+1;uint64_t id=code(x,y,t);if(parent.contains(id))continue;if(!edge(ax,ay,x*res,y*res,u.t))continue;parent.emplace(id,code(u.x,u.y,u.t));q.push({double(t)+heur(x,y),++serial,x,y,t});}
+  }
+- if(use_start_memo)start_signature_memo.put(start_memo_key,output,0);
++ if(use_start_memo)start_signature_disk_memo.put(start_memo_key,output,0);
+  return 0;
+ }
+ 
+-extern "C" void start_signature_cache_stats(uint64_t* out){out[0]=start_signature_memo.lookups;out[1]=start_signature_memo.hits;out[2]=start_signature_memo.negative_hits;out[3]=start_signature_memo.clears;out[4]=start_signature_memo.size();}
+-extern "C" void start_signature_cache_reset(){start_signature_memo.reset();}
++extern "C" void start_signature_cache_stats(uint64_t* out){out[0]=start_signature_disk_memo.lookups;out[1]=start_signature_disk_memo.hits;out[2]=start_signature_disk_memo.negative_hits;out[3]=start_signature_disk_memo.clears;out[4]=start_signature_disk_memo.size();}
++extern "C" void start_signature_cache_reset(){start_signature_disk_memo.reset();}
++
++extern "C" int query_disk_cache_configure(const char* name){return start_signature_disk_memo.disk.configure(name);}
++extern "C" void query_disk_cache_enable(int yes){start_signature_disk_memo.disk.enable(yes!=0);}
++extern "C" void query_disk_cache_stats(uint64_t* out){auto& d=start_signature_disk_memo.disk;out[0]=d.reads;out[1]=d.hits;out[2]=d.collisions;out[3]=d.invalid;out[4]=d.writes;out[5]=d.write_errors;out[6]=d.skipped;}
++extern "C" void query_disk_cache_min_seconds(double seconds){if(seconds>=0 && std::isfinite(seconds))start_signature_disk_memo.minimum_seconds=seconds;}

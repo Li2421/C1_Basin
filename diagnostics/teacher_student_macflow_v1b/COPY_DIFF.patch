@@ -1,0 +1,515 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/core.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/core.py
+@@ -3,6 +3,12 @@
+ from datetime import datetime,timezone
+ HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];D=ROOT/'diagnostics';FIELD=Path('/home/zhihan/research/Basin_C1_flow_field_poc_20261004')
+ sys.dont_write_bytecode=True
++sys.path.insert(0,str(ROOT))
++import shared_rollout_db
++import shared_rollout_db.src.cache_writer as _writer
++assert Path(shared_rollout_db.__file__).resolve().is_relative_to(ROOT/'shared_rollout_db')
++assert Path(_writer.__file__).resolve()==ROOT/'shared_rollout_db/src/cache_writer.py'
++assert (_writer.ROOT/'journals').resolve()==ROOT/'shared_rollout_db/journals'
+ for k in ('OMP_NUM_THREADS','MKL_NUM_THREADS','OPENBLAS_NUM_THREADS','NUMEXPR_NUM_THREADS'):os.environ[k]='1'
+ os.environ.setdefault('JAX_PLATFORMS','cpu');os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
+ for k,v in [('TMPDIR','tmp'),('MPLCONFIGDIR','mplconfig'),('XDG_CACHE_HOME','cache')]:
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/student.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/student.py
+@@ -8,7 +8,7 @@
+ import pickle
+ from new_benchmark_common.macflow import ActorVectorField
+ from poc.field_controller import Runtime
+-from ring_exchange.local_frame import local_observation
++from ring_exchange.local_frame import local_observation,local_actions_to_world
+ jax.config.update('jax_enable_x64',False)
+ 
+ def network():return ActorVectorField(hidden_dims=(512,512,512,512),action_dim=2,layer_norm=False,encoder=None)
+@@ -33,5 +33,5 @@
+             # Separate call: agent i has only row i and its own random stream.
+             out.append(np.asarray(self.forward(o[i],z)))
+         raw=np.clip(np.asarray(out),-1.,1.);raw=raw*np.minimum(1.,env.config.max_speed/np.maximum(np.linalg.norm(raw,axis=1,keepdims=True),1e-12))
+-        action=self._base.to_world(np.asarray(raw,dtype=np.float64),env).copy();action*=np.minimum(1.,env.config.max_speed/np.maximum(np.linalg.norm(action,axis=1,keepdims=True),1e-30))
++        action=local_actions_to_world(np.asarray(raw,dtype=np.float64),env.positions).copy();action*=np.minimum(1.,env.config.max_speed/np.maximum(np.linalg.norm(action,axis=1,keepdims=True),1e-30))
+         return obs,action,None
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/train.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/train.py
+@@ -2,6 +2,7 @@
+ from audit_utils import source_inventory
+ from data import teacher
+ from student import network,inputs
++from coordinates import to_local_jax
+ import jax
+ import jax.numpy as jnp
+ import optax,pickle,time
+@@ -9,9 +10,10 @@
+ 
+ def train(index):
+     assert read(HERE/'NOISE_GATE.json')['status']=='PASS'
++    assert (HERE/'EQUIVARIANCE.receipt.json').exists()
+     r=read(HERE/'TEACHERS.json')[index];cfg=read(HERE/'TRAINING_CONFIG.json');seed=r['student_seed'];out=HERE/'students'/r['name'];out.mkdir(parents=True,exist_ok=True)
+     assert not (out/'COMPLETE.json').exists(),'Do not retrain frozen student'
+-    data=HERE/'data'/r['name'];assert (data/'READY.json').exists();rt=teacher(index)
++    data=D/'teacher_student_macflow_v1/data'/r['name'];assert (data/'READY.json').exists();rt=teacher(index)
+     train_o=jnp.asarray(np.load(data/'train_teacher.npy'));train_x=jnp.asarray(np.load(data/'train_local.npy'))
+     dev_o=jnp.asarray(np.load(data/'dev_teacher.npy'));dev_x=jnp.asarray(np.load(data/'dev_local.npy'));norm=np.load(data/'normalization.npz');mean=jnp.asarray(norm['mean']);scale=jnp.asarray(norm['scale'])
+     model=network();params=model.init(jax.random.PRNGKey(seed),jnp.zeros((4,27),jnp.float32),jnp.zeros((4,2),jnp.float32))['params'];tx=optax.adam(3e-4);opt=tx.init(params)
+@@ -20,12 +22,12 @@
+     def loss(p,x,z,u):return jnp.mean((model.apply({'params':p},inputs(x,mean,scale),z)-u)**2)
+     @jax.jit
+     def step(carry,_):
+-        p,opt,key=carry;key,ixk,nk=jax.random.split(key,3);ix=jax.random.randint(ixk,(256,),0,len(train_x));keys=jax.random.split(nk,256);o=train_o[ix];x=train_x[ix];u=target(o,keys);z=noise(o,keys);value,grad=jax.value_and_grad(loss)(p,x,z,u);updates,opt=tx.update(grad,opt,p);p=optax.apply_updates(p,updates);return (p,opt,key),value
++        p,opt,key=carry;key,ixk,nk=jax.random.split(key,3);ix=jax.random.randint(ixk,(256,),0,len(train_x));keys=jax.random.split(nk,256);o=train_o[ix];x=train_x[ix];u=to_local_jax(target(o,keys),o[...,:2]);z=to_local_jax(noise(o,keys),o[...,:2]);value,grad=jax.value_and_grad(loss)(p,x,z,u);updates,opt=tx.update(grad,opt,p);p=optax.apply_updates(p,updates);return (p,opt,key),value
+     @jax.jit
+     def chunk(carry):return jax.lax.scan(step,carry,None,length=500)
+     # Fixed dev draws are identical at every validation checkpoint.
+     dk=jax.random.PRNGKey(cfg['dev_batch_seed']);dk,ik,nk=jax.random.split(dk,3);ix=jax.random.randint(ik,(8,256),0,len(dev_x));keys=jax.random.split(nk,8*256).reshape(8,256,2)
+-    dx=dev_x[ix];du=jax.vmap(target)(dev_o[ix],keys);dz=jax.vmap(noise)(dev_o[ix],keys)
++    dx=dev_x[ix];du=to_local_jax(jax.vmap(target)(dev_o[ix],keys),dev_o[ix,...,:2]);dz=to_local_jax(jax.vmap(noise)(dev_o[ix],keys),dev_o[ix,...,:2])
+     evaluate=jax.jit(lambda p:jnp.mean(jax.vmap(lambda x,z,u:loss(p,x,z,u))(dx,dz,du)))
+     best=float('inf');beststep=None;history=[];carry=(params,opt,jax.random.PRNGKey(seed));t0=time.time()
+     for t in range(0,80001,500):
+@@ -41,4 +43,5 @@
+     write(out/'COMPLETE.json',dict(utc=utc(),steps=80000,best_step=beststep,dev_mse=best,checkpoint_sha256=sha(out/'best.pkl'),teacher=r,config_sha256=sha(HERE/'TRAINING_CONFIG.json'),jax_enable_x64=bool(jax.config.x64_enabled),backend=jax.default_backend(),elapsed=time.time()-t0,closed_loop_results_read=False));source_inventory(f'imports_train_{index}.json')
+ if __name__=='__main__':
+     start=int(sys.argv[1]) if len(sys.argv)>1 else 0
+-    for i in range(start,14):train(i)
++    for i in read(HERE/'GLOBAL_INDICES.json'):
++        if i>=start:train(i)
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/episode_frozen.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/episode_frozen.py
+@@ -2,7 +2,7 @@
+ from pipeline import make_runtime,decentralized_action
+ import jax,time
+ from diagnostics.orthoflow3_tt_ff_matched_learnability_v1.execution import key_for
+-EXP='exp_teacher_student_macflow_v1'
++EXP='exp_teacher_student_macflow_v1b'
+ def episode(c,p,cache,phase):
+  rt=make_runtime(c['base_controller_name'],p,cache);s=next(x for x in p['states'] if x['state_uid']==c['state_uid']);env=rt.make_env(s);initial=clean(env.augmented_state());ih=hashlib.sha256(json.dumps(initial,sort_keys=True,separators=(',',':')).encode()).hexdigest();pos=[env.positions.copy()];vel=[env.velocities.copy()];actions=[];clearance=[];slow=[];active=[];residual=[];neighbor=[];counts=np.zeros(4,int);term='timeout';error=None;calls=0;steps=0;t0=time.time()
+  for t in range(rt.config.max_steps):
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/registration.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/registration.py
+@@ -31,4 +31,4 @@
+     return dict(s,original_state_uid=s['state_uid'],physical=physical,content_hash=content,state_uid=uid('state',dict(scenario=s['scenario_uid'],content=content)))
+ def state_row(s):return ('state',dict(state_uid=s['state_uid'],scenario_uid=s['scenario_uid'],source_group=s['family'],content_hash=s['content_hash'],physical_state_json=canonical(s['physical']),provenance_json=canonical(dict(**s['metadata'],original_state_uid=s['original_state_uid'],reset='empty monitor true-t0',representation='physical3_without_redundant_timestep0')),identity_quality='CONTENT_EXACT'))
+ def exp_row(phase):
+-    return ('experiment',dict(experiment_uid='exp_teacher_student_macflow_v1_'+phase,name='Round30 '+phase,path=str(HERE/phase),protocol_hash=sha(HERE/'PREREGISTRATION_SUPPLEMENT4.md'),code_hash=sha(__file__),metadata_json=canonical(dict(preregistered=True,phase=phase))))
++    return ('experiment',dict(experiment_uid='exp_teacher_student_macflow_v1b_'+phase,name='Round30 '+phase,path=str(HERE/phase),protocol_hash=sha(HERE/'PREREGISTRATION.md'),code_hash=sha(__file__),metadata_json=canonical(dict(preregistered=True,phase=phase))))
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/phase_design.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/phase_design.py
+@@ -6,7 +6,7 @@
+     assert read(HERE/'ROUND28_REPLAY_GATE.json')['completed']==16 and read(HERE/'ROUND28_REPLAY_GATE.json')['passed']
+     if phase!='teacher':assert (HERE/'TRAINING_FROZEN.receipt.json').exists()
+     if phase=='main':assert (HERE/'CHOICES_FROZEN.receipt.json').exists()
+-    source=read(D/'decentralized_pipeline_v1/main_protocol.json');ts=read(HERE/'TEACHERS.json');names=source['controller_order'] if phase in ['pilot','teacher'] else read(HERE/'CAPABILITY_GATE.json')['eligible'];states=read(HERE/('PILOT_STATES.json' if phase=='pilot' else 'EVAL_STATES.json'));p=dict(experiment_uid='exp_teacher_student_macflow_v1_'+phase,phase=phase,base_profiles={},controller_order=names,states=states,controllers={},eta=source['eta'],runner_sha256=sha(HERE/'episode_extended.py'),pipeline_sha256=sha(HERE/'pipeline.py'));rows=[];registrations=[]
++    source=read(D/'decentralized_pipeline_v1/main_protocol.json');ts=read(HERE/'TEACHERS.json');names=read(HERE/'DISTILLATION_REPORT.json')['valid_names'] if phase=='pilot' else source['controller_order'] if phase=='teacher' else read(HERE/'CAPABILITY_GATE.json')['eligible'];states=read(HERE/('PILOT_STATES.json' if phase=='pilot' else 'EVAL_STATES.json'));p=dict(experiment_uid='exp_teacher_student_macflow_v1b_'+phase,phase=phase,base_profiles={},controller_order=names,states=states,controllers={},eta=source['eta'],runner_sha256=sha(HERE/'episode_extended.py'),pipeline_sha256=sha(HERE/'pipeline.py'));rows=[];registrations=[]
+     for n in names:
+         idx=source['controller_order'].index(n);v=dict(source['base_profiles'][n]['payload'])
+         ck=Path(ts[idx]['checkpoint']) if phase=='teacher' else HERE/'students'/n/'best.pkl'
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/run.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/run.py
+@@ -21,7 +21,7 @@
+         n=c['base_controller_name']
+         if n not in cache:cache[n]=CountedRuntime(teacher(c['student_index']) if c['teacher'] else Student(c['student_index']))
+         r=episode(c,p,cache,phase);s=next(s for s in p['states'] if s['state_uid']==c['state_uid']);r.update(experiment_uid=p['experiment_uid'],cache_identity_schema='registered_exact_uid_v1',scenario_uid=p['base_profiles'][n]['payload']['scenario_uid'],flow_checkpoint_sha256=p['base_profiles'][n]['payload']['flow_checkpoint_sha256'],eta=c['eta_a'],future_index=c['seed'],initial_positions=s['physical']['positions'],initial_velocities=s['physical']['velocities'],goals=s['physical']['goals'],phase_protocol_sha256=sha(HERE/f'{phase}_protocol.json'))
+-        write(out,r);append_journal([r],p['experiment_uid'],f'{phase}_{index}');count+=1
++        write(out,r);journal=append_journal([r],p['experiment_uid'],f'{phase}_{index}');assert journal.resolve().is_relative_to(ROOT/'shared_rollout_db/journals');count+=1
+         if count%8==0:print(phase,index,count,c['base_controller_name'],c['arm'],flush=True)
+     write(HERE/phase/f'worker_{index}.json',dict(utc=utc(),complete=True,new=count));source_inventory(f'imports_{phase}_{index}.json')
+ if __name__=='__main__':worker(sys.argv[1],int(sys.argv[2]),int(sys.argv[3]))
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/probes.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/probes.py
+@@ -16,7 +16,7 @@
+         for si,s in enumerate(states):
+             for ei in [10,13]:
+                 eid,ev,hx=eta_identity(base['eta'][ei]);registered.append(('eta',dict(eta_uid=eid,eta1=ev[0],eta2=ev[1],eta3=ev[2],canonical_hex=hx)));sk=canonical(dict(future_index=0));rows.append(dict(probe_uid=uid('probe',dict(state=s['state_uid'],eta=eid,controller=ctl,seed=sk)),controller_name=n,student_index=i,state_index=si,state_uid=s['state_uid'],eta_index=ei,eta_uid=eid,eta=ev,controller_uid=ctl,seed_key=sk))
+-    register('probe_controllers',registered);write(HERE/'probe_protocol.json',dict(states=states,controller_order=names));write(HERE/'probe_CASES.json',rows);manifest=HERE/'probe_PLANNED_ROLLOUTS.json';write(manifest,dict(requests=[{k:c[k] for k in ['state_uid','eta_uid','controller_uid','seed_key']} for c in rows]));write(HERE/'probe_CACHE_PREFLIGHT.json',preflight(manifest));seal('probe_PREFLIGHT.receipt.json',[manifest,HERE/'probe_CACHE_PREFLIGHT.json',HERE/'probe_CASES.json',HERE/'probes.py'],before_submission=True,task_labels=False)
++    register('probe_controllers',registered);write(HERE/'probe_protocol.json',dict(states=states,controller_order=names));write(HERE/'probe_CASES.json',rows);manifest=HERE/'probe_PLANNED_ROLLOUTS.json';write(manifest,dict(requests=[{k:c[k] for k in ['state_uid','eta_uid','controller_uid','seed_key']} for c in rows]));pf=preflight(manifest);assert pf['summary']['genuinely_missing']==len(rows) and pf['summary']['ambiguous']==0;write(HERE/'probe_CACHE_PREFLIGHT.json',pf);seal('probe_PREFLIGHT.receipt.json',[manifest,HERE/'probe_CACHE_PREFLIGHT.json',HERE/'probe_CASES.json',HERE/'probes.py'],before_submission=True,task_labels=False)
+ def activity(rt,env,key,eta):
+     # Observe projection intervention by repeated deterministic queries only.
+     nominal=rt.nominal(env,key)[1];fs=[LocalSafety(env.positions,i,env.config,1.5) for i in range(4)];safe=np.stack([f.project(nominal[i:i+1])[0][0] for i,f in enumerate(fs)]);target=safe.copy()
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/benchmark.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/benchmark.py
+@@ -12,7 +12,8 @@
+     return dict(mean_ms=float(np.mean(samples)),median_ms=float(np.median(samples)),p95_ms=float(np.quantile(samples,.95)),n=n)
+ def main():
+     os.sched_setaffinity(0,{min(os.sched_getaffinity(0))});rows=[]
+-    for i,r in enumerate(read(HERE/'TEACHERS.json')):
++    for i in read(HERE/'GLOBAL_INDICES.json'):
++        r=read(HERE/'TEACHERS.json')[i]
+         s=Student(i);rt=s._base;env=s.make_env(read(HERE/'EVAL_STATES.json')[0]);obs=jnp.asarray(rt.observation(env));own=jnp.asarray(inputs(jnp.asarray(s.nominal(env,jax.random.PRNGKey(0))[0]),s.mean,s.scale))[0];z=jnp.zeros(2,jnp.float32);key=jax.random.PRNGKey(10)
+         a=timing(lambda:s.forward(own,z).block_until_ready(),1000);b=timing(lambda:rt.native_fn(obs,key).block_until_ready(),200);fs=[LocalSafety(env.positions,i,env.config,1.5) for i in range(4)];nominal=rt.nominal(env,key)[1]
+         def qp():
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/offline.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/offline.py
+@@ -1,23 +1,29 @@
+ from core import *
+ from audit_utils import source_inventory
+-from student import Student,inputs
+-from actions import nominal_only
++from student import Student,inputs,network
++from coordinates import to_local_jax
+ from data import teacher
++from ring_exchange.local_frame import world_actions_to_local,local_actions_to_world,local_observation
+ import jax,jax.numpy as jnp,pickle
+ jax.config.update('jax_enable_x64',False)
+ def main():
++    assert not (HERE/'TRAINING_FROZEN.receipt.json').exists()
++    rng=np.random.default_rng(2026101503);p=rng.normal(size=(4,2));v=rng.normal(size=(4,2));expected=world_actions_to_local(v,p);actual=np.asarray(to_local_jax(jnp.asarray(v),jnp.asarray(p)));assert np.max(abs(expected-actual))<1e-6
++    for i in range(4):
++        q=p.copy();q[np.arange(4)!=i]+=10;assert world_actions_to_local(v,q)[i].tobytes()==expected[i].tobytes();np.testing.assert_array_equal(np.asarray(to_local_jax(jnp.asarray(v),jnp.asarray(q)))[i],actual[i])
++    tests=dict(row_own_position_only=True,jax_numpy_max_abs_error=float(abs(actual-expected).max()))
+     results=[];files=[]
+-    for i,r in enumerate(read(HERE/'TEACHERS.json')):
+-        folder=HERE/'students'/r['name'];c=read(folder/'COMPLETE.json');assert sha(folder/'best.pkl')==c['checkpoint_sha256'];s=Student(i);base=s._base;env=s.make_env(read(HERE/'EVAL_STATES.json')[0]);o=s.nominal(env,jax.random.PRNGKey(11))[0];obs=jnp.asarray(inputs(jnp.asarray(o),s.mean,s.scale));noise=jax.random.normal(jax.random.PRNGKey(12),(4,2));first=np.asarray(s.forward(obs,noise));second=np.asarray(s.forward(obs,noise));assert first.tobytes()==second.tobytes()
+-        goals=env.goals.copy();obs_goals=[];own_noise=[]
++    for i in read(HERE/'GLOBAL_INDICES.json'):
++        r=read(HERE/'TEACHERS.json')[i];folder=HERE/'students'/r['name'];c=read(folder/'COMPLETE.json');assert sha(folder/'best.pkl')==c['checkpoint_sha256'];s=Student(i);base=s._base;env=s.make_env(read(HERE/'EVAL_STATES.json')[0]);obs=local_observation(env.positions,env.velocities,env.goals,env.config);o=inputs(jnp.asarray(obs),s.mean,s.scale);noise=jax.random.normal(jax.random.PRNGKey(12),(4,2));first=np.asarray(s.forward(o,noise));second=np.asarray(s.forward(o,noise));assert first.tobytes()==second.tobytes();goals=env.goals.copy()
+         for agent in range(4):
+-            env.goals[:]=goals;env.goals[np.arange(4)!=agent]+=.123
+-            from ring_exchange.local_frame import local_observation
+-            perturbed=local_observation(env.positions,env.velocities,env.goals,env.config);assert perturbed[agent].tobytes()==o[agent].tobytes()
+-            po=np.asarray(inputs(jnp.asarray(perturbed),s.mean,s.scale));a=np.asarray(s.forward(po[agent],noise[agent]));assert a.tobytes()==np.asarray(s.forward(obs[agent],noise[agent])).tobytes();obs_goals.append(True)
+-            other=np.array(noise);other[np.arange(4)!=agent]+=17.;b=np.asarray(s.forward(obs[agent],jnp.asarray(other[agent])));assert b.tobytes()==a.tobytes();own_noise.append(True)
+-        env.goals[:]=goals;key=jax.random.PRNGKey(31);a,_=nominal_only(s,env,key,np.zeros(3),np.zeros(4,int));assert a.tobytes()==s.nominal(env,key)[1].tobytes()
+-        data=HERE/'data'/r['name'];x=np.load(data/'dev_local.npy',mmap_mode='r');o_teacher=np.load(data/'dev_teacher.npy',mmap_mode='r');rng=np.random.default_rng(2026103033);indices=rng.integers(0,len(x),2048);keys=jax.random.split(jax.random.PRNGKey(2026103034),2048);target=np.asarray(jax.jit(jax.vmap(base.native_fn))(jnp.asarray(o_teacher[indices]),keys));z=jax.vmap(lambda obs,k:base.trace_fn(obs,k)[0].reshape(4,2))(jnp.asarray(o_teacher[indices]),keys);prediction=np.asarray(s.forward(inputs(jnp.asarray(x[indices]),s.mean,s.scale),z));diff=prediction-target;cos=(prediction*target).sum(-1)/(np.maximum(np.linalg.norm(prediction,axis=-1)*np.linalg.norm(target,axis=-1),1e-12));report=dict(teacher=r['name'],best_step=c['best_step'],selected_fixed_dev_mse=c['dev_mse'],independent_dev_mse=float(np.mean(diff**2)),action_rmse=float(np.sqrt(np.mean(diff**2))),mean_cosine=float(cos.mean()),within_05_mps=float((np.linalg.norm(diff,axis=-1)<=.05).mean()),other_goals_invariant=all(obs_goals),own_noise_only=all(own_noise),deterministic=True,nominal_only_matches_student_bitwise=True)
+-        results.append(report);files.extend([folder/'best.pkl',folder/'COMPLETE.json']);print('offline PASS',i,report['independent_dev_mse'],flush=True)
+-    write(HERE/'DISTILLATION_REPORT.json',dict(utc=utc(),controllers=results,closed_loop_labels_read=False,jax_enable_x64=bool(jax.config.x64_enabled)));seal('TRAINING_FROZEN.receipt.json',files+[HERE/'DISTILLATION_REPORT.json',HERE/'TRAINING_CONFIG.json',HERE/'student.py',HERE/'train.py'],before_student_rollouts=True);source_inventory('imports_offline.json')
++            env.goals[:]=goals;env.goals[np.arange(4)!=agent]+=.123;pert=local_observation(env.positions,env.velocities,env.goals,env.config);assert pert[agent].tobytes()==obs[agent].tobytes();po=inputs(jnp.asarray(pert),s.mean,s.scale);assert np.asarray(s.forward(po[agent],noise[agent])).tobytes()==np.asarray(s.forward(o[agent],noise[agent])).tobytes()
++        env.goals[:]=goals
++        data=D/'teacher_student_macflow_v1/data'/r['name'];x=np.load(data/'dev_local.npy',mmap_mode='r');ot=np.load(data/'dev_teacher.npy',mmap_mode='r');indices=np.random.default_rng(2026103033).integers(0,len(x),2048);keys=jax.random.split(jax.random.PRNGKey(2026103034),2048);jo=jnp.asarray(ot[indices]);target=to_local_jax(jax.jit(jax.vmap(base.native_fn))(jo,keys),jo[...,:2]);z=to_local_jax(jax.jit(jax.vmap(lambda obs,k:base.trace_fn(obs,k)[0].reshape(4,2)))(jo,keys),jo[...,:2]);prediction=np.asarray(s.forward(inputs(jnp.asarray(x[indices]),s.mean,s.scale),z));target=np.asarray(target);diff=prediction-target;cos=(prediction*target).sum(-1)/np.maximum(np.linalg.norm(prediction,axis=-1)*np.linalg.norm(target,axis=-1),1e-12);fraction=float((np.linalg.norm(diff,axis=-1)<=.05).mean());cosine=float(cos.mean());valid=c['best_step']!=0 and cosine>=.90 and fraction>=.80
++        report=dict(teacher=r['name'],best_step=c['best_step'],independent_dev_mse=float(np.mean(diff**2)),action_rmse=float(np.sqrt(np.mean(diff**2))),mean_cosine=cosine,within_05_mps=fraction,valid=bool(valid),other_goals_invariant=True,deterministic=True)
++        results.append(report);files.extend([folder/'best.pkl',folder/'COMPLETE.json']);print('distillation',i,valid,cosine,fraction,flush=True)
++    # Local teacher uses identity label/noise; original local student deployment chart is identical.
++    r=read(HERE/'TEACHERS.json')[10];base=teacher(10);env=base.make_env(read(HERE/'EVAL_STATES.json')[0]);key=jax.random.PRNGKey(19);obs=base.observation(env);u=np.asarray(base.native_fn(obs,key));xi=np.asarray(base.trace_fn(obs,key)[0]).reshape(4,2);np.testing.assert_array_equal(base.to_world(u,env),local_actions_to_world(u,env.positions))
++    ck=pickle.loads((D/'teacher_student_macflow_v1/students'/r['name']/'best.pkl').read_bytes());model=network();ox=inputs(jnp.asarray(local_observation(env.positions,env.velocities,env.goals,env.config)),ck['mean'],ck['scale']);raw=np.stack([np.asarray(model.apply({'params':ck['params']},ox[i],jax.random.normal(jax.random.fold_in(key,i),(2,),dtype=jnp.float32))) for i in range(4)]);raw=np.clip(raw,-1.,1.);raw*=np.minimum(1.,env.config.max_speed/np.maximum(np.linalg.norm(raw,axis=1,keepdims=True),1e-12));np.testing.assert_array_equal(base.to_world(np.asarray(raw,np.float64),env),local_actions_to_world(np.asarray(raw,np.float64),env.positions));tests.update(local_teacher_identity_labels_noise=True,local_teacher_deployment_matches_round30=True,local_teacher_checkpoint_sha256=sha(D/'teacher_student_macflow_v1/students'/r['name']/'best.pkl'))
++    write(HERE/'UNIT_TESTS.json',dict(status='PASS',tests=tests,all_students_other_goals_invariant=True,all_students_deterministic=True,jax_enable_x64=bool(jax.config.x64_enabled),simulation_steps=0));valid_names=[r['teacher'] for r in results if r['valid']];write(HERE/'DISTILLATION_REPORT.json',dict(utc=utc(),controllers=results,valid_names=valid_names,n_valid=len(valid_names),closed_loop_labels_read=False,jax_enable_x64=bool(jax.config.x64_enabled)));seal('TRAINING_FROZEN.receipt.json',files+[HERE/'DISTILLATION_REPORT.json',HERE/'UNIT_TESTS.json',HERE/'TRAINING_CONFIG.json',HERE/'student.py',HERE/'train.py',HERE/'coordinates.py'],before_student_rollouts=True);source_inventory('imports_offline.json')
++    lines=['# Distillation validity gate','', '| Teacher | Step | Cosine | <= .05m/s | Valid |','|---|---:|---:|---:|---|']+[f"| {r['teacher']} | {r['best_step']} | {r['mean_cosine']:.5f} | {r['within_05_mps']:.3%} | {r['valid']} |" for r in results];(HERE/'DISTILLATION_REPORT.md').write_text('\n'.join(lines)+'\n')
+ if __name__=='__main__':main()
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/analysis.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/analysis.py
+@@ -1,104 +1,114 @@
+-"""Paired controller-then-state clustered bootstrap; preserves unknowns."""
++"""Paired controller/state clustered analysis of immutable new and reused labels."""
+ from core import *
++from audit_utils import source_inventory
++import collections,csv
+ from scipy.stats import spearmanr
+-ARMS=['nominal only','safety baseline','F10','F13','S300','S500','B-RHR']
+-MENU=['F10','F13','S300','S500']
+-def ci(x):return np.quantile(x,[.025,.975]).tolist()
+-def summary(point,boot):return dict(mean=float(point),CI95=ci(boot))
+-def analyze():
+-    from teacher_choices import main as teacher_choice_predict
+-    teacher_choice_predict()
+-    teacherchoices=read(HERE/'DEVELOPMENT_TEACHER_CHOICES.json')['controllers']
+-    p=read(HERE/'main_protocol.json');names=p['controller_order'];C=len(names);S=32;A=len(ARMS);rows=read(HERE/'main_CASES.json');db={r['rollout_uid']:r for r in read(HERE/'main_DB_ROWS.json')};y=np.zeros((C,S,2,A));u=y.copy();collision=y.copy();timeout=y.copy();stall=y.copy();raw_index={}
+-    for c in rows:
+-        r=db[c['rollout_uid']];ix=(names.index(c['base_controller_name']),c['state_index'],c['seed'],ARMS.index(c['arm']));y[ix]=r['success'] if not r['numerical_failure'] else 0;u[ix]=r['numerical_failure'];collision[ix]=r['collision'];timeout[ix]=r['timeout'];path=HERE/'main/raw'/f"{c['rollout_uid']}.json"
+-        if path.exists():
+-            raw=read(path);raw_index[(c['base_controller_name'],c['state_index'],c['seed'],c['arm'])]=raw
+-            z=np.load(raw['trace_path']);slow=z['slow_mask'];counts=np.zeros(4,int);has=False
+-            for mask in slow:counts=np.where(mask,counts+1,0);has=has or bool((counts>=40).any())
+-            stall[ix]=has
+-    choices=read(HERE/'FROZEN_CHOICES.json')['controllers'];rng=np.random.default_rng(2026103032);controllers=rng.integers(0,C,(5000,C));states=rng.integers(0,S,(5000,C,S));means=y.mean((1,2));uppermeans=(y+u).mean((1,2));boot=y.mean(2)[controllers[:,:,None],states,:].mean(2);boot_upper=(y+u).mean(2)[controllers[:,:,None],states,:].mean(2);menu=[ARMS.index(a) for a in MENU];fixed=menu[:2];schedules=menu[2:];idx=np.arange(C)
+-    def selected(matrix,label):
+-        sel=np.array([ARMS.index(choices[n][label]) for n in names]);return matrix[idx,sel],sel
+-    table={}
+-    for ai,arm in enumerate(ARMS):
+-        table[arm]=dict(success=summary(means[:,ai].mean(),boot[:,:,ai].mean(1)),success_upper=float(uppermeans[:,ai].mean()),collision=summary(collision[:,:,:,ai].mean(),collision.mean(2)[controllers[:,:,None],states,ai].mean((1,2))),timeout=summary(timeout[:,:,:,ai].mean(),timeout.mean(2)[controllers[:,:,None],states,ai].mean((1,2))),unknown=float(u[:,:,:,ai].mean()),stall_diagnostic=float(stall[:,:,:,ai].mean()))
++ARMS=['nominal only','safety baseline','F10','F13','S300','S500','B-RHR'];MENU=[2,3,4,5]
++OLD=D/'teacher_student_macflow_v1'
++def interval(point,boot):return dict(mean=float(point),CI95=np.quantile(boot,[.025,.975]).tolist())
++def collect(path,names):
++    cases=read(path/'main_CASES.json');by={r['rollout_uid']:r for r in read(path/'main_DB_ROWS.json')};arrays={k:np.full((len(names),32,2,7),np.nan) for k in ['success','unknown','collision','timeout']}
++    for c in cases:
++        n=c['base_controller_name']
++        if n not in names:continue
++        r=by[c['rollout_uid']];ix=(names.index(n),c['state_index'],c['seed'],ARMS.index(c['arm']))
++        arrays['success'][ix]=r['success'] if not r['numerical_failure'] else 0;arrays['unknown'][ix]=r['numerical_failure'];arrays['collision'][ix]=r['collision'];arrays['timeout'][ix]=r['timeout']
++    assert all(np.isfinite(x).all() for x in arrays.values())
++    return arrays
++
++def analyze_set(label,names,a,choices,confirmatory_allowed):
++    C=len(names)
++    if C==0:return dict(status='INCONCLUSIVE',reason='No eligible frame-consistent student',n_controllers=0,controllers=[])
++    y=a['success'];u=a['unknown'];means=y.mean((1,2));upper=(y+u).mean((1,2));rng=np.random.default_rng(2026103032);controllers=rng.integers(0,C,(5000,C));states=rng.integers(0,32,(5000,C,32));br=np.arange(5000)[:,None];cr=np.arange(C)[None,:];idx=np.arange(C)
++    def draw(x):return x.mean(2)[controllers[:,:,None],states,:].mean(2)
++    boot=draw(y);bu=draw(y+u);bc=draw(a['collision']);bt=draw(a['timeout']);table={}
++    for j,arm in enumerate(ARMS):table[arm]=dict(success=interval(means[:,j].mean(),boot[:,:,j].mean(1)),success_upper=interval(upper[:,j].mean(),bu[:,:,j].mean(1)),collision=interval(a['collision'][:,:,:,j].mean(),bc[:,:,j].mean(1)),timeout=interval(a['timeout'][:,:,:,j].mean(),bt[:,:,j].mean(1)),unknown=float(u[:,:,:,j].mean()))
+     selectors={}
+-    bc=collision.mean(2)[controllers[:,:,None],states,:].mean(2);bt=timeout.mean(2)[controllers[:,:,None],states,:].mean(2)
+-    for label in ['A3_full','A0_full','G_E','S500','F10','A3_fixed','A0_fixed']:
+-        point,sel=selected(means,label);bs=boot[np.arange(5000)[:,None],np.arange(C)[None,:],sel[controllers]];bsu=boot_upper[np.arange(5000)[:,None],np.arange(C)[None,:],sel[controllers]]
+-        selectors[label]=dict(success=summary(point.mean(),bs.mean(1)),success_upper=float(uppermeans[idx,sel].mean()),collision=summary(np.mean([collision[i,:,:,sel[i]].mean() for i in idx]),bc[np.arange(5000)[:,None],np.arange(C)[None,:],sel[controllers]].mean(1)),timeout=summary(np.mean([timeout[i,:,:,sel[i]].mean() for i in idx]),bt[np.arange(5000)[:,None],np.arange(C)[None,:],sel[controllers]].mean(1)),_point=point,_boot=bs)
+-    oracle=means[:,menu].max(1);boracle=boot[:,:,menu].max(2);oracle_sel=np.asarray(menu)[means[:,menu].argmax(1)];oracle_bsel=np.asarray(menu)[boot[:,:,menu].argmax(2)];table['oracle']=dict(success=summary(oracle.mean(),boracle.mean(1)),success_upper=float(uppermeans[:,menu].max(1).mean()),collision=summary(np.mean([collision[i,:,:,oracle_sel[i]].mean() for i in idx]),bc[np.arange(5000)[:,None],np.arange(C)[None,:],oracle_bsel].mean(1)),timeout=summary(np.mean([timeout[i,:,:,oracle_sel[i]].mean() for i in idx]),bt[np.arange(5000)[:,None],np.arange(C)[None,:],oracle_bsel].mean(1)))
+-    base=ARMS.index('safety baseline');s500=ARMS.index('S500');ts1=summary((means[:,s500]-means[:,base]).mean(),(boot[:,:,s500]-boot[:,:,base]).mean(1));ts1['identification_interval']=[float((means[:,s500]-uppermeans[:,base]).mean()),float((uppermeans[:,s500]-means[:,base]).mean())];ts1['CI_unknown_envelope']=[float(np.quantile((boot[:,:,s500]-boot_upper[:,:,base]).mean(1),.025)),float(np.quantile((boot_upper[:,:,s500]-boot[:,:,base]).mean(1),.975))];ts1['passed_robust_unknown']=ts1['CI_unknown_envelope'][0]>0;ts1['passed']=ts1['CI95'][0]>0
+-    schedule=means[:,schedules].max(1);fix=means[:,fixed].max(1);ts2=summary((schedule-fix).mean(),(boot[:,:,schedules].max(2)-boot[:,:,fixed].max(2)).mean(1));ts2['coverage']=float((schedule>=fix-.01).mean());ts2['coverage_definite']=float((schedule>=uppermeans[:,fixed].max(1)-.01).mean());ts2['coverage_possible']=float((uppermeans[:,schedules].max(1)>=fix-.01).mean());ts2['identification_interval']=[float((schedule-uppermeans[:,fixed].max(1)).mean()),float((uppermeans[:,schedules].max(1)-fix).mean())];ts2['CI_unknown_envelope']=[float(np.quantile((boot[:,:,schedules].max(2)-boot_upper[:,:,fixed].max(2)).mean(1),.025)),float(np.quantile((boot_upper[:,:,schedules].max(2)-boot[:,:,fixed].max(2)).mean(1),.975))];ts2['passed_robust_unknown']=ts2['CI_unknown_envelope'][0]>0 and ts2['coverage_definite']>=.7;ts2['passed']=ts2['CI95'][0]>0 and ts2['coverage']>=.7
+-    a3=selectors['A3_full'];regret=summary((oracle-a3['_point']).mean(),(boracle-a3['_boot']).mean(1));gain=summary((a3['_point']-means[:,base]).mean(),(a3['_boot']-boot[:,:,base]).mean(1));ts3a=dict(regret=regret,gain_over_safety=gain,passed=regret['mean']<=.03 and gain['CI95'][0]>0,comparisons={})
+-    a3sel=np.array([ARMS.index(choices[n]['A3_full']) for n in names]);other_lo=means[:,menu].copy();other_hi=uppermeans[:,menu].copy()
+-    for i in range(C):other_lo[i,menu.index(a3sel[i])]=-np.inf;other_hi[i,menu.index(a3sel[i])]=-np.inf
+-    ts3a['regret_identification_interval']=[float(np.maximum(0,other_lo.max(1)-uppermeans[idx,a3sel]).mean()),float(np.maximum(0,other_hi.max(1)-means[idx,a3sel]).mean())]
+-    a3upper=boot_upper[np.arange(5000)[:,None],np.arange(C)[None,:],a3sel[controllers]];ts3a['gain_CI_unknown_envelope']=[float(np.quantile((a3['_boot']-boot_upper[:,:,base]).mean(1),.025)),float(np.quantile((a3upper-boot[:,:,base]).mean(1),.975))];ts3a['passed_robust_unknown']=ts3a['regret_identification_interval'][1]<=.03 and ts3a['gain_CI_unknown_envelope'][0]>0;ts3a['passed']=regret['mean']<=.03 and gain['CI95'][0]>0
+-    for label in ['S500','A0_full','G_E','F10']:ts3a['comparisons'][label]=summary((a3['_point']-selectors[label]['_point']).mean(),(a3['_boot']-selectors[label]['_boot']).mean(1))
+-    prefer10=int((means[:,fixed[0]]-means[:,fixed[1]]>=.1).sum());prefer13=int((means[:,fixed[1]]-means[:,fixed[0]]>=.1).sum());a3f=selectors['A3_fixed'];a0f=selectors['A0_fixed'];delta=summary((a0f['_point']-a3f['_point']).mean(),(a0f['_boot']-a3f['_boot']).mean(1));ts3b=dict(preference_F10_count=prefer10,preference_F13_count=prefer13,regret_A3_minus_A0=delta,status='INCONCLUSIVE' if min(prefer10,prefer13)<3 else 'PASS' if delta['CI95'][1]<0 else 'REJECTED',agreement=float(np.mean([choices[n]['A3_fixed']==MENU[int(means[i,fixed].argmax())] for i,n in enumerate(names)])))
+-    transitions=dict(total_nominal_collision=0,safety_success=0,safety_timeout=0,safety_unknown=0,safety_collision=0,safety_other=0)
+-    for i in range(C):
+-        for s in range(S):
+-            for seed in range(2):
+-                if collision[i,s,seed,0]:
+-                    transitions['total_nominal_collision']+=1
+-                    k='safety_unknown' if u[i,s,seed,1] else 'safety_success' if y[i,s,seed,1] else 'safety_timeout' if timeout[i,s,seed,1] else 'safety_collision' if collision[i,s,seed,1] else 'safety_other';transitions[k]+=1
+-    transitions['proportions']={k:v/max(1,transitions['total_nominal_collision']) for k,v in transitions.items() if k!='total_nominal_collision'}
+-    # Pair teacher DEVELOPMENT references by original state index and seed.
+-    teachers={mode:np.full((C,S,2,4),np.nan) for mode in ['local','central','shared']};teacher_u={mode:np.zeros((C,S,2,4)) for mode in teachers};teacher_collision={mode:np.zeros((C,S,2,4)) for mode in teachers};teacher_timeout={mode:np.zeros((C,S,2,4)) for mode in teachers}
+-    old=D/'decentralized_pipeline_v1'
+-    for c in read(old/'main_CASES.json'):
+-        if c['base_controller_name'] not in names or c['pipeline'] not in teachers or c['arm'] not in MENU:continue
+-        r=read(old/'main/raw'/f"{c['rollout_uid']}.json");ix=(names.index(c['base_controller_name']),c['state_index'],c['seed'],MENU.index(c['arm']));teachers[c['pipeline']][ix]=0 if r['numerical_failure'] else r['success'];teacher_u[c['pipeline']][ix]=r['numerical_failure'];teacher_collision[c['pipeline']][ix]=r['collision'];teacher_timeout[c['pipeline']][ix]=r['timeout']
+-    ts5={};teacher_tables={}
++    for label2 in ['A3_full','A0_full','A3_fixed','A0_fixed','G_E','S500','F10']:
++        sel=np.array([ARMS.index(choices[n][label2]) for n in names]);point=means[idx,sel];bs=boot[br,cr,sel[controllers]];bsu=bu[br,cr,sel[controllers]];selectors[label2]=dict(point=point,boot=bs,upper_boot=bsu,indices=sel)
++        table[label2]=dict(success=interval(point.mean(),bs.mean(1)),success_upper=interval(upper[idx,sel].mean(),bsu.mean(1)),collision=interval(a['collision'].mean((1,2))[idx,sel].mean(),bc[br,cr,sel[controllers]].mean(1)),timeout=interval(a['timeout'].mean((1,2))[idx,sel].mean(),bt[br,cr,sel[controllers]].mean(1)))
++    oracle=means[:,MENU].max(1);bo=boot[:,:,MENU].max(2);osel=np.array(MENU)[means[:,MENU].argmax(1)];bosel=np.array(MENU)[boot[:,:,MENU].argmax(2)];table['oracle']=dict(success=interval(oracle.mean(),bo.mean(1)),success_upper=interval(upper[:,MENU].max(1).mean(),bu[:,:,MENU].max(2).mean(1)),collision=interval(a['collision'].mean((1,2))[idx,osel].mean(),bc[br,cr,bosel].mean(1)),timeout=interval(a['timeout'].mean((1,2))[idx,osel].mean(),bt[br,cr,bosel].mean(1)))
++    def contrast(j,k):
++        r=interval((means[:,j]-means[:,k]).mean(),(boot[:,:,j]-boot[:,:,k]).mean(1));r.update(identification_interval=[float((means[:,j]-upper[:,k]).mean()),float((upper[:,j]-means[:,k]).mean())],CI_unknown_envelope=[float(np.quantile((boot[:,:,j]-bu[:,:,k]).mean(1),.025)),float(np.quantile((bu[:,:,j]-boot[:,:,k]).mean(1),.975))]);r['passed']=r['CI95'][0]>0;return r
++    ts1=contrast(5,1);ts6=contrast(5,6);sf=means[:,4:6].max(1)-means[:,2:4].max(1);sfb=boot[:,:,4:6].max(2)-boot[:,:,2:4].max(2);ts2=interval(sf.mean(),sfb.mean(1));ts2['coverage']=float((sf>=-.01).mean());ts2['passed']=ts2['CI95'][0]>0 and ts2['coverage']>=.7;ts2['CI_unknown_envelope']=[float(np.quantile((boot[:,:,4:6].max(2)-bu[:,:,2:4].max(2)).mean(1),.025)),float(np.quantile((bu[:,:,4:6].max(2)-boot[:,:,2:4].max(2)).mean(1),.975))]
++    a3=selectors['A3_full'];gain=interval((a3['point']-means[:,1]).mean(),(a3['boot']-boot[:,:,1]).mean(1));regret=interval((oracle-a3['point']).mean(),(bo-a3['boot']).mean(1));ts3a=dict(regret=regret,gain_over_safety=gain,passed=regret['mean']<=.03 and gain['CI95'][0]>0,comparisons={})
++    for other in ['A0_full','G_E','S500','F10']:ts3a['comparisons'][other]=interval((a3['point']-selectors[other]['point']).mean(),(a3['boot']-selectors[other]['boot']).mean(1))
++    ts3a['gain_CI_unknown_envelope']=[float(np.quantile((a3['boot']-bu[:,:,1]).mean(1),.025)),float(np.quantile((a3['upper_boot']-boot[:,:,1]).mean(1),.975))]
++    ts3a['regret_identification_interval']=[float(np.maximum(0,oracle-upper[idx,a3['indices']]).mean()),float(np.maximum(0,upper[:,MENU].max(1)-a3['point']).mean())]
++    prefer10=int((means[:,2]-means[:,3]>=.1).sum());prefer13=int((means[:,3]-means[:,2]>=.1).sum());delta=interval((selectors['A0_fixed']['point']-selectors['A3_fixed']['point']).mean(),(selectors['A0_fixed']['boot']-selectors['A3_fixed']['boot']).mean(1));ts3b=dict(preference_F10_count=prefer10,preference_F13_count=prefer13,regret_A3_minus_A0=delta,status='INCONCLUSIVE' if min(prefer10,prefer13)<3 else 'PASS' if delta['CI95'][1]<0 else 'NOT_PASS')
++    for r in [ts1,ts2,ts3a,ts6]:r['status']=('PASS' if r['passed'] else 'NOT_PASS') if confirmatory_allowed else 'INCONCLUSIVE'
++    if not confirmatory_allowed:ts3b['numerical_status']=ts3b['status'];ts3b['status']='INCONCLUSIVE'
++    # Frozen joint-teacher comparisons, read-only, matched state/seed.
++    teachers={mode:np.full((C,32,2,4),np.nan) for mode in ['local','central','shared']}
++    teacher_unknown={mode:np.zeros((C,32,2,4)) for mode in teachers}
++    for c in read(D/'decentralized_pipeline_v1/main_CASES.json'):
++        if c['base_controller_name'] in names and c['pipeline'] in teachers and c['arm'] in ARMS[2:6]:
++            r=read(D/'decentralized_pipeline_v1/main/raw'/f"{c['rollout_uid']}.json");ix=(names.index(c['base_controller_name']),c['state_index'],c['seed'],ARMS[2:6].index(c['arm']));teachers[c['pipeline']][ix]=r['success'] if not r['numerical_failure'] else 0;teacher_unknown[c['pipeline']][ix]=r['numerical_failure']
++    assert all(np.isfinite(t).all() for t in teachers.values());teacher=teachers['local'];tm=teacher.mean((1,2));tb=teacher.mean(2)[controllers[:,:,None],states,:].mean(2);inherit=[]
++    for i,n in enumerate(names):
++        corr=spearmanr(means[i,2:6],tm[i]).statistic
++        inherit.append(dict(controller=n,student_best=ARMS[2+int(means[i,2:6].argmax())],teacher_best=ARMS[2+int(tm[i].argmax())],student_fixed=ARMS[2+int(means[i,2:4].argmax())],teacher_fixed=ARMS[2+int(tm[i,:2].argmax())],spearman=float(corr) if np.isfinite(corr) else None))
++    ts4=dict(inheritance=inherit,best_arm_agreement=float(np.mean([x['student_best']==x['teacher_best'] for x in inherit])))
++    ts5={}
+     for mode,t in teachers.items():
+-        assert np.isfinite(t).all();tm=t.mean((1,2));tb=t.mean(2)[controllers[:,:,None],states,:].mean(2);teacher_tables[mode]={};ts5[mode]={}
+-        for ai,arm in enumerate(MENU):
+-            si=ARMS.index(arm);teacher_tables[mode][arm]=dict(success=summary(tm[:,ai].mean(),tb[:,:,ai].mean(1)),success_upper=float((t+teacher_u[mode])[:,:,:,ai].mean()),collision=float(teacher_collision[mode][:,:,:,ai].mean()),timeout=float(teacher_timeout[mode][:,:,:,ai].mean()))
+-            ts5[mode][arm]=summary((means[:,si]-tm[:,ai]).mean(),(boot[:,:,si]-tb[:,:,ai]).mean(1));ts5[mode][arm]['identification_interval']=[float((means[:,si]-(t+teacher_u[mode]).mean((1,2))[:,ai]).mean()),float((uppermeans[:,si]-tm[:,ai]).mean())]
+-        for model in ['A3','A0']:
+-            sel=np.array([MENU.index(teacherchoices[n][model]) for n in names]);teacher_tables[mode][model+'_historical_R5']=dict(success=summary(tm[idx,sel].mean(),tb[np.arange(5000)[:,None],np.arange(C)[None,:],sel[controllers]].mean(1)),success_upper=float((t+teacher_u[mode]).mean((1,2))[idx,sel].mean()),collision=float(np.mean([teacher_collision[mode][i,:,:,sel[i]].mean() for i in idx])),timeout=float(np.mean([teacher_timeout[mode][i,:,:,sel[i]].mean() for i in idx])))
+-        teacher_tables[mode]['oracle']=dict(success=summary(tm.max(1).mean(),tb.max(2).mean(1)),success_upper=float((t+teacher_u[mode]).mean((1,2)).max(1).mean()))
+-        teacher_tables[mode]['always-S500']=teacher_tables[mode]['S500']
+-    # Reuse round28 D-shared RHR; never relabel this as D-local.
+-    rh=np.zeros((C,S,2));rhc=rh.copy();rht=rh.copy()
+-    for c in read(old/'main_CASES.json'):
+-        if c['pipeline']=='rhr' and c['base_controller_name'] in names:
+-            r=read(old/'main/raw'/f"{c['rollout_uid']}.json");ix=(names.index(c['base_controller_name']),c['state_index'],c['seed']);rh[ix]=r['success'] if not r['numerical_failure'] else 0;rhc[ix]=r['collision'];rht[ix]=r['timeout']
+-    teacher_tables['shared']['B-RHR (radius infinity)']=dict(success=summary(rh.mean(),rh.mean(2)[controllers[:,:,None],states].mean((1,2))),success_upper=float(rh.mean()),collision=float(rhc.mean()),timeout=float(rht.mean()))
+-    # Teacher nominal/safety additions (same evaluation states; all14 teachers may be reported separately).
+-    if (HERE/'teacher_DB_ROWS.json').exists():
+-        cases=read(HERE/'teacher_CASES.json');by={r['rollout_uid']:r for r in read(HERE/'teacher_DB_ROWS.json')};extra={arm:np.zeros((C,S,2)) for arm in ['nominal only','safety baseline']};ec={a:np.zeros((C,S,2)) for a in extra};et={a:np.zeros((C,S,2)) for a in extra};eu={a:np.zeros((C,S,2)) for a in extra}
+-        for c in cases:
+-            if c['base_controller_name'] in names:
+-                r=by[c['rollout_uid']];ix=(names.index(c['base_controller_name']),c['state_index'],c['seed']);extra[c['arm']][ix]=r['success'] if not r['numerical_failure'] else 0;ec[c['arm']][ix]=r['collision'];et[c['arm']][ix]=r['timeout'];eu[c['arm']][ix]=r['numerical_failure']
+-        for arm,t in extra.items():
+-            teacher_tables['local'][arm]=dict(success=summary(t.mean(),t.mean(2)[controllers[:,:,None],states].mean((1,2))),success_upper=float((t+eu[arm]).mean()),collision=float(ec[arm].mean()),timeout=float(et[arm].mean()),unknown=float(eu[arm].mean()))
+-            si=ARMS.index(arm);ts5['local'][arm]=summary((means[:,si]-t.mean((1,2))).mean(),(boot[:,:,si]-t.mean(2)[controllers[:,:,None],states].mean(2)).mean(1))
+-    inherit=[];tm=teachers['local'].mean((1,2))
++        m=t.mean((1,2));b=t.mean(2)[controllers[:,:,None],states,:].mean(2);tu=(t+teacher_unknown[mode]).mean((1,2));ts5[mode]={}
++        for j,arm in enumerate(ARMS[2:6]):
++            ts5[mode][arm]=interval((means[:,j+2]-m[:,j]).mean(),(boot[:,:,j+2]-b[:,:,j]).mean(1));ts5[mode][arm]['identification_interval']=[float((means[:,j+2]-tu[:,j]).mean()),float((upper[:,j+2]-m[:,j]).mean())]
++    ts4['fixed_preference_agreement']=float(np.mean([x['student_fixed']==x['teacher_fixed'] for x in inherit]))
++    result=dict(analysis_set=label,status='COMPLETE' if confirmatory_allowed else 'INCONCLUSIVE',n_controllers=C,controllers=names,states=32,seeds=2,bootstrap_replicates=5000,bootstrap='paired; controllers then state clusters, both seeds kept together; reselect maxima within each bootstrap',unknown_total=int(u.sum()),safety_layer_collisions=int(a['collision'][:,:,:,1:].sum()),table=table,TS1=ts1,TS2=ts2,TS3a=ts3a,TS3b=ts3b,TS6=ts6,TS4=ts4,TS5=ts5,controller_rates={n:{arm:float(means[i,j]) for j,arm in enumerate(ARMS)} for i,n in enumerate(names)})
++    lines=['| Arm/selector | Success lower | 95% CI | Success upper | Collision | Timeout |','|---|---:|---|---:|---:|---:|']
++    for arm in ARMS+['A3_full','S500','oracle']:
++        r=table[arm];v=r['success'];lo,hi=v['CI95'];lines.append(f"| {arm} | {v['mean']:.2%} | [{lo:.2%}, {hi:.2%}] | {r['success_upper']['mean']:.2%} | {r['collision']['mean']:.2%} | {r['timeout']['mean']:.2%} |")
++    (HERE/f'paper_table_{label.lower()}.md').write_text('\n'.join(lines)+'\n');return result
++
++def failures(names,a):
++    rows=[];transfers=[];by={};totals=collections.Counter()
++    def category(i,s,k,arm):
++        if a['unknown'][i,s,k,arm]:return 'unknown'
++        if a['success'][i,s,k,arm]:return 'success'
++        if a['collision'][i,s,k,arm]:return 'collision'
++        if a['timeout'][i,s,k,arm]:return 'timeout'
++        return 'other'
+     for i,n in enumerate(names):
+-        corr=spearmanr(means[i,menu],tm[i]);inherit.append(dict(controller=n,student_best=MENU[int(means[i,menu].argmax())],teacher_best=MENU[int(tm[i].argmax())],student_fixed=MENU[int(means[i,fixed].argmax())],teacher_fixed=MENU[int(tm[i,:2].argmax())],spearman=float(corr.statistic) if np.isfinite(corr.statistic) else None))
+-    for d in selectors.values():d.pop('_point');d.pop('_boot')
+-    study=read(HERE/'CAPABILITY_GATE.json')['study_status'];result=dict(utc=utc(),status='INCONCLUSIVE' if study=='INCONCLUSIVE' else 'COMPLETE',eligible_controllers=names,n_controllers=C,states=S,seeds=2,bootstrap_replicates=5000,unknown_total=int(u.sum()),unknown_treatment='lower success=0, upper success=1; not known failures, no reruns',safety_layer_collisions=int(collision[:,:,:,1:].sum()),TS1=ts1,TS2=ts2,TS3a=ts3a,TS3b=ts3b,TS4=dict(inheritance=inherit,best_arm_agreement=float(np.mean([x['student_best']==x['teacher_best'] for x in inherit])),fixed_preference_agreement=float(np.mean([x['student_fixed']==x['teacher_fixed'] for x in inherit])),student_majority_fixed_baseline=max(sum(x['student_fixed']=='F10' for x in inherit),sum(x['student_fixed']=='F13' for x in inherit))/C,fixed_preference_contingency={t:{a:sum(x['teacher_fixed']==t and x['student_fixed']==a for x in inherit) for a in ['F10','F13']} for t in ['F10','F13']},mean_spearman=float(np.mean([x['spearman'] for x in inherit if x['spearman'] is not None])) if any(x['spearman'] is not None for x in inherit) else None),TS5=ts5,student_table=table,selectors=selectors,teacher_tables=teacher_tables,transitions=transitions,controller_rates={n:{arm:float(means[i,a]) for a,arm in enumerate(ARMS)} for i,n in enumerate(names)},confirmatory_interpretation='No confirmatory claim if fewer than8 passed capability gate; teacher labels DEVELOPMENT',evidence='student labels new and preregistered; teacher comparisons DEVELOPMENT')
+-    result['protocol_deviations']=['PILOT_RUNNER_PROVENANCE.json','JOURNAL_PATH_DEVIATION.json'];result['source_file_hash_audit']='see INTEGRITY_COMPARISON.json (separate from failed write-scope audit)';result['write_scope_audit']='FAIL:448 pilot journals created in PoC copy, preserved and recovered through official merger; source files unchanged'
+-    write(HERE/'results.json',result);np.savez_compressed(HERE/'analysis_arrays.npz',success_lower=y,unknown=u,collision=collision,timeout=timeout,controller_names=names,arms=ARMS)
+-    (HERE/'transition_table.md').write_text('# Nominal collision → safety baseline\n\n'+json.dumps(transitions,indent=2)+'\n')
+-    (HERE/'inheritance_table.md').write_text('| Controller | Student best | Teacher best | Spearman |\n|---|---|---|---|\n'+''.join(f"| {r['controller']} | {r['student_best']} | {r['teacher_best']} | {r['spearman']} |\n" for r in inherit))
+-    lines=['| Family/arm | Success lower–upper | 95% CI | Collision | Timeout |','|---|---:|---:|---:|---:|']
+-    def fmt(v):return f'{100*v:.2f}%'
+-    for arm,t in table.items():
+-        s=t['success'];lines.append(f"| Student/{arm} | {fmt(s['mean'])}–{fmt(t['success_upper'])} | {fmt(s['CI95'][0])}, {fmt(s['CI95'][1])} | {fmt(t.get('collision',{}).get('mean',0)) if arm!='oracle' else fmt(t['collision']['mean'])} | {fmt(t.get('timeout',{}).get('mean',0)) if arm!='oracle' else fmt(t['timeout']['mean'])} |")
+-    for label,t in selectors.items():
+-        s=t['success'];lines.append(f"| Student/{label} | {fmt(s['mean'])}–{fmt(t['success_upper'])} | {fmt(s['CI95'][0])}, {fmt(s['CI95'][1])} | {fmt(t['collision']['mean'])} | {fmt(t['timeout']['mean'])} |")
+-    for mode,tab in teacher_tables.items():
+-        for arm,t in tab.items():
+-            s=t['success'];lines.append(f"| Teacher/{mode}/{arm} | {fmt(s['mean'])}–{fmt(t.get('success_upper',s['mean']))} | {fmt(s['CI95'][0])}, {fmt(s['CI95'][1])} | {fmt(t['collision']) if 'collision' in t else 'see raw'} | {fmt(t['timeout']) if 'timeout' in t else 'see raw'} |")
+-    lines+=['','Teacher D-local B-RHR: not evaluated; round28 B-RHR uses D-shared and is shown with radius infinity. Teacher A3/A0 use historical R5 descriptors with frozen round16 models and are DEVELOPMENT references, not newly probed D-local descriptors; student selector rows retain pre-evaluation frozen choices.']
+-    (HERE/'paper_table.md').write_text('\n'.join(lines)+'\n');print('Analysis',result['status'],ts1,ts2,ts3a['passed'],ts3b['status'],flush=True)
+-if __name__=='__main__':
+-    analyze()
+-    from metrics import main as metrics
+-    metrics()
+-    seal('ANALYSIS_COMPLETE.receipt.json',[HERE/'results.json',HERE/'paper_table.md',HERE/'rollout_metrics.csv',HERE/'FAILURE_DIAGNOSTICS.json',HERE/'analysis.py',HERE/'metrics.py'],rollouts_rerun=0)
++        outcomes=collections.Counter();transition=collections.Counter();groups={g:dict(count=0,rescued_F13=0,rescued_S500=0,rescued_BRHR=0) for g in ['own_stagnation','safety_induced_stagnation']}
++        for s in range(32):
++            for k in range(2):
++                nominal=category(i,s,k,0);safe=category(i,s,k,1);outcomes[nominal]+=1;transition[(nominal,safe)]+=1;transfers.append(dict(controller=n,state=s,seed=k,nominal=nominal,safety=safe))
++                group='own_stagnation' if nominal=='timeout' and not a['collision'][i,s,k,0] else 'safety_induced_stagnation' if nominal=='collision' and safe=='timeout' else None
++                if group:
++                    groups[group]['count']+=1
++                    for arm,key in [(3,'rescued_F13'),(5,'rescued_S500'),(6,'rescued_BRHR')]:groups[group][key]+=int(a['success'][i,s,k,arm])
++        for g,v in groups.items():
++            totals[g]+=v['count'];rows.append(dict(controller=n,source=g,**v))
++        by[n]=dict(nominal_outcomes=dict(outcomes),nominal_to_safety=[dict(nominal=x,safety=y,count=v) for (x,y),v in transition.items()],failure_sources=groups)
++    with (HERE/'failure_sources.csv').open('w') as f:
++        w=csv.DictWriter(f,fieldnames=['controller','source','count','rescued_F13','rescued_S500','rescued_BRHR']);w.writeheader();w.writerows(rows)
++    write(HERE/'TRANSFERS.json',transfers);write(HERE/'FAILURE_SOURCES.json',dict(controllers=by,totals=dict(totals),timeout_is_not_deadlock=True,unknown_is_not_known_failure=True));return dict(totals)
++
++def reuse_audit():
++    from shared_rollout_db.src.rollout_db import connect
++    from shared_rollout_db.src.planner import preflight
++    local_names=[read(HERE/'TEACHERS.json')[i]['name'] for i in [8,10,12,13]]
++    local_distill={r['teacher']:r for r in read(OLD/'DISTILLATION_REPORT.json')['controllers']}
++    local_checkpoints={}
++    for n in local_names:
++        ck=OLD/'students'/n/'best.pkl';complete=read(ck.parent/'COMPLETE.json');d=local_distill[n];assert complete['checkpoint_sha256']==sha(ck) and d['best_step']!=0 and d['mean_cosine']>=.90 and d['within_05_mps']>=.80;local_checkpoints[n]=sha(ck)
++    oldreceipt=read(OLD/'CHOICES_FROZEN.receipt.json')
++    for path,h in oldreceipt.get('files',oldreceipt.get('sha256',{})).items():assert sha(path)==h
++    report={'local_checkpoints':local_checkpoints,'local_choices_sha256':sha(OLD/'FROZEN_CHOICES.json'),'local_choices_receipt_sha256':sha(OLD/'CHOICES_FROZEN.receipt.json')}
++    for phase in ['main','teacher']:
++        cases=[c for c in read(OLD/f'{phase}_CASES.json') if phase=='teacher' or c['base_controller_name'] in local_names];snapshot={r['rollout_uid']:r for r in read(OLD/f'{phase}_DB_ROWS.json')}
++        manifest=HERE/f'REUSED_{phase.upper()}_PLANNED_ROLLOUTS.json';write(manifest,dict(requests=[{k:c[k] for k in ['state_uid','eta_uid','controller_uid','seed_key']} for c in cases]));pf=preflight(manifest);write(HERE/f'REUSED_{phase.upper()}_PREFLIGHT.json',pf)
++        with connect(True) as db:
++            for c in cases:
++                row=db.execute('SELECT * FROM rollout WHERE rollout_uid=?',(c['rollout_uid'],)).fetchone();assert row and not row['conflict_quarantined'];assert all(row[k]==snapshot[c['rollout_uid']][k] for k in ['state_uid','eta_uid','controller_uid','seed_key','success','collision','timeout','numerical_failure','episode_length'])
++        report[phase]=dict(records=len(cases),summary=pf['summary'],snapshot_sha256=sha(OLD/f'{phase}_DB_ROWS.json'),unknown_preserved=sum(snapshot[c['rollout_uid']]['numerical_failure'] for c in cases),new_rollouts=0)
++    write(HERE/'REUSED_EVIDENCE_AUDIT.json',report)
++
++def main():
++    assert (HERE/'CHOICES_FROZEN.receipt.json').exists() or (HERE/'NO_ELIGIBLE_CONTROLLERS.json').exists()
++    reuse_audit()
++    new_names=read(HERE/'CAPABILITY_GATE.json')['eligible'];local_names=[read(HERE/'TEACHERS.json')[i]['name'] for i in [8,10,12,13]];oldchoices=read(OLD/'FROZEN_CHOICES.json')['controllers'];newchoices=read(HERE/'FROZEN_CHOICES.json')['controllers'] if new_names else {};choices={**oldchoices,**newchoices};new=collect(HERE,new_names) if new_names else {k:np.empty((0,32,2,7)) for k in ['success','unknown','collision','timeout']};old=collect(OLD,local_names);both={k:np.concatenate((new[k],old[k]),axis=0) for k in new};allowed=len(new_names)>=8
++    result=dict(utc=utc(),distillation=read(HERE/'DISTILLATION_REPORT.json'),capability_gate=read(HERE/'CAPABILITY_GATE.json'),CONFIRMATORY=analyze_set('CONFIRMATORY',new_names,new,choices,allowed),DEVELOPMENT=analyze_set('DEVELOPMENT',new_names+local_names,both,choices,allowed),failure_sources=failures(new_names+local_names,both),old_global_students='已被取代; original files preserved',old_local_labels_previously_opened=True,unknown_policy='success lower 0 / upper 1; preserve and never rerun',capability_rule='round30: fewer than8 eligible new students makes endpoints INCONCLUSIVE; numerical results are descriptive')
++    write(HERE/'results.json',result);np.savez_compressed(HERE/'analysis_arrays.npz',**both,controller_names=new_names+local_names,arms=ARMS);source_inventory('imports_analysis.json');seal('ANALYSIS_COMPLETE.receipt.json',[HERE/'results.json',HERE/'analysis_arrays.npz',HERE/'FAILURE_SOURCES.json',HERE/'TRANSFERS.json',HERE/'analysis.py'],rollouts_rerun=0)
++if __name__=='__main__':main()
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/prepare.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/prepare.py
+@@ -1,31 +1,30 @@
+ from core import *
+-import sqlite3
+-p=read(D/'decentralized_pipeline_v1/main_protocol.json')
+-manifest_paths=list((D/'ring_exchange_stage1').glob('*/manifest.json'))
+-manifests={sha(m):m for m in manifest_paths}
+-rows=[]
+-for i,n in enumerate(p['controller_order']):
+-    v=p['base_profiles'][n]['payload'];checkpoint=Path(v['flow_checkpoint_path']);assert sha(checkpoint)==v['flow_checkpoint_sha256']
+-    cfg_path=D/'ring_exchange_stage1'/n/'config.json';cfg=read(cfg_path)
+-    m=manifests.get(cfg['dataset_manifest_sha256'])
+-    # Training configs may preserve the original manifest digest before appended audit metadata.
+-    if m is None:
+-        source=D/'ring_exchange_stage1'/(n.removesuffix('_macflow')+'_dataset')/'manifest.json'
+-        if source.exists():m=source
+-    assert m is not None,(n,cfg['dataset_manifest_sha256'])
+-    rows.append(dict(name=n,index=i,checkpoint=str(checkpoint),checkpoint_sha256=sha(checkpoint),
+-                     train_config_path=str(cfg_path),train_config_sha256=sha(cfg_path),dataset_manifest_path=str(m),
+-                     dataset_manifest_sha256=sha(m),training_manifest_digest=cfg['dataset_manifest_sha256'],
+-                     manifest_digest_matches_training=sha(m)==cfg['dataset_manifest_sha256'],student_seed=2026103000+i))
+-write(HERE/'TEACHERS.json',rows)
+-with sqlite3.connect('file:'+str(ROOT/'shared_rollout_db/rollout.sqlite')+'?mode=ro',uri=True) as db:
+-    historical=db.execute('SELECT state_uid,content_hash,physical_state_json FROM state').fetchall()
+-    metadata=db.execute("SELECT controller_uid,config_json FROM controller_config WHERE config_json LIKE '%student%' OR config_json LIKE '%onestep%' OR config_json LIKE '%distill%'").fetchall()
+-write(HERE/'HISTORY_AUDIT.json',dict(utc=utc(),historical_state_count=len(historical),student_metadata_candidates=metadata,
+- sources=['attempt1_blocked/HISTORY_AUDIT.md','round28 main_protocol, EVAL_STATES, frozen pipeline and teacher checkpoint hashes',
+-          'round27 probes/freeze_choices/controllers','official agents/macflow.py','Toy/Double-Bottleneck Stage-I implementations'],
+- reuse='Reuse round28 teacher four-arm three-pipeline labels and expert reference. Teacher nominal/safety require exact identity preflight. No compatible student checkpoint established.',
+- gap='New own-observation one-step students and their execution semantics need new training and closed-loop evidence.',
+- teacher_training_manifest_discrepancies=[r for r in rows if not r['manifest_digest_matches_training']],
+- no_rollout_executed=True))
+-print('Teacher hashes PASS',len(rows),'manifest discrepancies',sum(not r['manifest_digest_matches_training'] for r in rows))
++from audit_utils import source_inventory
++from data import teacher
++import jax
++jax.config.update('jax_enable_x64',False)
++OLD=D/'teacher_student_macflow_v1'
++def main():
++    assert (HERE/'INTEGRITY_START.json').exists()
++    assert not (HERE/'PREREGISTRATION.receipt.json').exists()
++    seal('PREREGISTRATION.receipt.json',[HERE/'PREREGISTRATION.md',ROOT/'docs/prompt_round30b_frame_consistent_students_20261015.md',HERE/'TEACHERS.json',HERE/'TRAINING_CONFIG.json'],closed_loop_started=False,training_started=False,cpu_limit=20,gpu_shards=2)
++    old_sources=read(OLD/'GATE_IMPORTED_SOURCES.json')['imported_sources'];checked={}
++    for p,h in old_sources.items():
++        if '/teacher_student_macflow_v1/' in p:continue
++        assert sha(p)==h,('noise gate source changed',p);checked[p]=h
++    gate=read(OLD/'NOISE_GATE.json');assert gate['status']=='PASS' and gate['passed_samples']==1008
++    write(HERE/'NOISE_GATE.json',dict(status='PASS',reuse=True,passed_samples=1008,source=str(OLD/'NOISE_GATE.json'),sha256=sha(OLD/'NOISE_GATE.json'),same_original_noise_implementation=True,source_hashes=checked))
++    evidence=[];scales=[]
++    for i in read(HERE/'GLOBAL_INDICES.json'):
++        r=read(HERE/'TEACHERS.json')[i]
++        for k in ['checkpoint','train_config_path','dataset_manifest_path']:
++            hk={'checkpoint':'checkpoint_sha256','train_config_path':'train_config_sha256','dataset_manifest_path':'dataset_manifest_sha256'}[k];assert sha(r[k])==r[hk]
++        folder=OLD/'data'/r['name'];ready=read(folder/'READY.json')
++        for name,h in ready['files'].items():assert sha(folder/name)==h,(folder,name)
++        rt=teacher(i);s=np.asarray(rt.scale);scales.append(dict(name=r['name'],act_scale=s,each_robot_isotropic=bool(np.all(s[:,0]==s[:,1])),all_dimensions_isotropic=bool(np.all(s==s.flat[0])),max_min_ratio=float(s.max()/s.min()),rotation_exact=bool(np.all(s[:,0]==s[:,1]))))
++        evidence.append(dict(teacher=r['name'],data=str(folder),ready_sha256=sha(folder/'READY.json'),reuse='train/dev local and teacher observations and train-only normalization reused byte-for-byte; position from own global observation[:2]',gap='new frame-consistent target/noise student and its execution labels',rollouts_generated=0))
++    write(HERE/'ACT_SCALE_AUDIT.json',scales);write(HERE/'HISTORY_AUDIT.json',dict(utc=utc(),evidence=evidence,local_reuse_indices=[8,10,12,13],old_global_results='superseded; original files preserved',teacher_supplement_reuse=str(OLD/'teacher_DB_ROWS.json')))
++    (HERE/'HISTORY_EVIDENCE.md').write_text('# Historical evidence\n\nRound30 TEACHERS/config/checkpoints and READY files verified by SHA256. All state arrays, observations and normalization reused without reconstructing states or generating rollouts. All 4 valid local students, frozen choices and existing labels are reused; only the ten global students lack frame-consistent checkpoints. Teacher supplementary arms are already in round30/DB and will be read only. Noise gate reuses 1008/1008 with all original non-wrapper imported source hashes unchanged.\n')
++    source_inventory('imports_prepare.json')
++    print('PREPARE PASS',flush=True)
++if __name__=='__main__':main()
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1/design.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/design.py
+@@ -1,36 +1,16 @@
++"""Register new round30b identities only; retain original round30 state pairing."""
+ from core import *
++from registration import *
+ from audit_utils import source_inventory
+-from registration import *
+-from diagnostics.controller_q_transfer_round3_v1.state_generator import generate
+ import jax
+ jax.config.update('jax_enable_x64',False)
+-def sig(p):
+-    if not p:return None
+-    try:
+-        vals=[]
+-        for keys in [('positions','initial_positions'),('velocities','initial_velocities'),('goals',)]:
+-            x=np.asarray(next(p[k] for k in keys if k in p),np.float64).copy();assert x.shape==(4,2);x[x==0]=0;vals.append(x.tobytes().hex())
+-        return uid('physical',dict(arrays=vals,timestep=float(p.get('timestep',0))))
+-    except (StopIteration,AssertionError,TypeError):return None
+-
+ def initial():
+-    assert read(HERE/'NOISE_GATE.json')['status']=='PASS'
++    assert (HERE/'TRAINING_FROZEN.receipt.json').exists()
++    assert read(HERE/'ROUND28_REPLAY_GATE.json')['completed']==16 and read(HERE/'ROUND28_REPLAY_GATE.json')['passed']
++    register('initial',[exp_row(p) for p in ['pilot','probe','main']])
++    # All states already have exact registered identities from round30; validate without reinserting.
+     with connect(True) as db:
+-        historical=[dict(r) for r in db.execute('SELECT state_uid,content_hash,physical_state_json FROM state')]
+-    ids={r['state_uid'] for r in historical};content={r['content_hash'] for r in historical};signatures=set();unresolved=0
+-    for r in historical:
+-        key=sig(json.loads(r['physical_state_json']) if r['physical_state_json'] else None)
+-        if key is None:unresolved+=1
+-        else:signatures.add(key)
+-    refs=read(D/'decentralized_pipeline_v1/PILOT_RESERVED_STATES.json')+read(D/'decentralized_pipeline_v1/EVAL_STATES.json');signatures.update(sig(s['physical']) for s in refs)
+-    native=read(D/'state_nuisance_rootcause_v1/real_state_expansion/protocol.json');pilot=[];rejected=[]
+-    for seed in range(202610300000,202610301000):
+-        s=generate('round30_pilot',1,seed,native)[0];key=sig(s['physical'])
+-        if s['state_uid'] in ids or s['content_hash'] in content or key in signatures:rejected.append(seed);continue
+-        s['study_index']=len(pilot);pilot.append(s);signatures.add(key)
+-        if len(pilot)==16:break
+-    assert len(pilot)==16
+-    write(HERE/'PILOT_STATES_ORIGINAL.json',pilot);pilot=[normalized_state(s) for s in pilot];evaluate=[normalized_state(s) for s in read(D/'decentralized_pipeline_v1/EVAL_STATES.json')];write(HERE/'PILOT_STATES.json',pilot);write(HERE/'EVAL_STATES.json',evaluate)
+-    write(HERE/'STATE_DEDUP_AUDIT.json',dict(utc=utc(),passed=True,DB_rows=len(historical),unresolved_physical=unresolved,pilot_seeds=[s['metadata']['draw_seed'] for s in pilot],rejected=rejected,round28_reserved_seed_ranges=[[202610280000,202610280007],[202610281000,202610281999]],state_uid_representation='new exact metadata representation without redundant timestep=0, same original eval positions/velocities/goals and RNG namespace; original_state_uid preserves pairing',evaluation_states_generated=0))
+-    register('initial',[exp_row(phase) for phase in ['pilot','probe','main','teacher']]+[state_row(s) for s in pilot+evaluate]);source_inventory('imports_design.json')
+-if __name__=='__main__':globals()[sys.argv[1]]()
++        for s in read(HERE/'PILOT_STATES.json')+read(HERE/'EVAL_STATES.json'):
++            r=db.execute('SELECT * FROM state WHERE state_uid=?',(s['state_uid'],)).fetchone();assert r and r['physical_state_json']==canonical(s['physical']) and r['content_hash']==s['content_hash']
++    source_inventory('imports_design.json')
++if __name__=='__main__':initial()

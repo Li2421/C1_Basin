@@ -1,0 +1,19 @@
+--- derived_metrics_correction_revised_20261021.py
++++ derived_metrics_supplement_20261022.py
+@@ -109,7 +109,7 @@
+     qualified=[r for r in rows if r['controller'] in eligible[r['scene']]]
+     pooled=[dict(r,original_scene=r['scene'],scene='qualified_scene_pool',state=f"{r['scene']}:{r['state']}") for r in qualified]
+     drops=controller_drops(qualified)+controller_drops(pooled);menus={s:training_menu(s) for s in NAMES};restricted={};disclosures={}
+-    census=read(HERE/'INSTANCE_CLASSES_REVISED.json')['instances']
++    census=read(HERE/'INSTANCE_CLASSES_SUPPLEMENT_20261022.json')['instances']
+     failures={(r['scene'],r['layer'],r['controller']) for r in census if r['remove_in_revised_exclusion']}
+     rates={s:weighted_rates([r for r in qualified if r['scene']==s]) for s in NAMES}
+     rates['qualified_scene_pool']=weighted_rates(qualified)
+@@ -134,6 +134,6 @@
+     write(HERE/'MAIN_ADDITIONAL_METRICS_REVISED_20261021.json',dict(utc=utc(),controller_drops=drops,weighted_outcome_and_diagnosis_rates=rates,per_layer_excluding_definite_controller_failure_rates=removed_rates,training_full_menu_oracles=menus,evaluation_fixed_reference_tables=restricted,choice_disclosures=disclosures,
+         independent_full_menu_regret='N/A; requested evaluation does not exhaust fifteen actions',
+         standard_method_NA=dict(A3='Frozen old controller representation does not apply',A0_frozen='Frozen old physical input interface does not apply; L3 is separately retrained',G_E='No compatible frozen probe/selection interface',expert='No privileged expert benchmark requested',nominal_only_other_scenes='Only the new crowded scene background is requested')))
+-    seal('MAIN_ADDITIONAL_METRICS_REVISED_20261021.receipt.json',[HERE/n for n in ('MAIN_ADDITIONAL_METRICS_REVISED_20261021.json','GEOMETRY_CENSUS_REVISED_20261021.json','FAILURE_SENSITIVITY_SUMMARY_REVISED_20261021.json','derived_metrics_correction_revised_20261021.py')],new_rollouts=0,uses_saved_predictions_not_new_training=True)
++    seal('MAIN_ADDITIONAL_METRICS_REVISED_20261021.receipt.json',[HERE/n for n in ('MAIN_ADDITIONAL_METRICS_REVISED_20261021.json','GEOMETRY_CENSUS_REVISED_20261021.json','FAILURE_SENSITIVITY_SUMMARY_REVISED_20261021.json','derived_metrics_supplement_20261022.py')],new_rollouts=0,uses_saved_predictions_not_new_training=True)
+ 
+ if __name__=='__main__':main()

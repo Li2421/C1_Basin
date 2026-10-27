@@ -1,0 +1,5628 @@
+{
+  "utc": "2026-10-17T04:25:54.326532+00:00",
+  "controllers": {
+    "centralized_sampling0": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.4905027747154236,
+        "F13": 0.563726007938385,
+        "S500": 0.8618093132972717
+      },
+      "expanded_scores": {
+        "F10": 0.45202505588531494,
+        "F13": 0.769984781742096,
+        "S500": 0.8749626874923706,
+        "RHR": 0.6877936720848083
+      },
+      "probe_effect": 0.79497060401026,
+      "pilot_2": "RHR",
+      "pilot_4": "RHR",
+      "pilot_8": "RHR",
+      "pilot_16": "RHR",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 1,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 3,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 6,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 1,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 13,
+            "RHR": 16
+          },
+          "unknown_counts": {
+            "S500": 1,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        }
+      ]
+    },
+    "centralized_sampling1": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.4689690172672272,
+        "F13": 0.5328837633132935,
+        "S500": 0.8586171269416809
+      },
+      "expanded_scores": {
+        "F10": 0.4444971978664398,
+        "F13": 0.7494823932647705,
+        "S500": 0.8795323371887207,
+        "RHR": 0.6497659683227539
+      },
+      "probe_effect": 0.7601641149700358,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 15
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "centralized_sampling2": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.481743186712265,
+        "F13": 0.5523595809936523,
+        "S500": 0.8601231575012207
+      },
+      "expanded_scores": {
+        "F10": 0.4523913860321045,
+        "F13": 0.7660780549049377,
+        "S500": 0.8783684968948364,
+        "RHR": 0.6788786053657532
+      },
+      "probe_effect": 0.7847562284351022,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 15,
+            "RHR": 15
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "centralized_sampling3": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.42736589908599854,
+        "F13": 0.4683699905872345,
+        "S500": 0.8522430658340454
+      },
+      "expanded_scores": {
+        "F10": 0.4330357015132904,
+        "F13": 0.6985180377960205,
+        "S500": 0.888551652431488,
+        "RHR": 0.5645833611488342
+      },
+      "probe_effect": 0.7106002956432493,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 15
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "centralized_sampling4": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.4197751581668854,
+        "F13": 0.45272770524024963,
+        "S500": 0.8522240519523621
+      },
+      "expanded_scores": {
+        "F10": 0.4237489402294159,
+        "F13": 0.676638126373291,
+        "S500": 0.8863993287086487,
+        "RHR": 0.5316272377967834
+      },
+      "probe_effect": 0.6948265561230402,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 7,
+            "RHR": 7
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 14,
+            "RHR": 13
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "centralized_sampling5": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.45103636384010315,
+        "F13": 0.4999619126319885,
+        "S500": 0.8578599095344543
+      },
+      "expanded_scores": {
+        "F10": 0.4239305555820465,
+        "F13": 0.7081996202468872,
+        "S500": 0.8765693306922913,
+        "RHR": 0.5835862159729004
+      },
+      "probe_effect": 0.7169345162460179,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "RHR",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 15,
+            "RHR": 16
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        }
+      ]
+    },
+    "cross_entropy0": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.43194758892059326,
+        "F13": 0.471177339553833,
+        "S500": 0.8544691205024719
+      },
+      "expanded_scores": {
+        "F10": 0.4235261082649231,
+        "F13": 0.6890192627906799,
+        "S500": 0.8826885223388672,
+        "RHR": 0.5516353845596313
+      },
+      "probe_effect": 0.7021102142991016,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 16
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "cross_entropy1": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.4266662001609802,
+        "F13": 0.46129047870635986,
+        "S500": 0.8541023135185242
+      },
+      "expanded_scores": {
+        "F10": 0.4195569157600403,
+        "F13": 0.67742520570755,
+        "S500": 0.8823559284210205,
+        "RHR": 0.5338818430900574
+      },
+      "probe_effect": 0.6938461570402416,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 16
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "cross_entropy2": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.42822879552841187,
+        "F13": 0.4645751416683197,
+        "S500": 0.854100227355957
+      },
+      "expanded_scores": {
+        "F10": 0.4214557707309723,
+        "F13": 0.6820141673088074,
+        "S500": 0.8828216195106506,
+        "RHR": 0.5408037900924683
+      },
+      "probe_effect": 0.6971497130311227,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 16
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "cross_entropy3": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.43244585394859314,
+        "F13": 0.47061973810195923,
+        "S500": 0.8549761176109314
+      },
+      "expanded_scores": {
+        "F10": 0.4206414222717285,
+        "F13": 0.685131847858429,
+        "S500": 0.881136953830719,
+        "RHR": 0.5460701584815979
+      },
+      "probe_effect": 0.6988894775208602,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 16
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "cross_entropy4": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.39631158113479614,
+        "F13": 0.39778441190719604,
+        "S500": 0.8534877300262451
+      },
+      "expanded_scores": {
+        "F10": 0.39270567893981934,
+        "F13": 0.5969918370246887,
+        "S500": 0.8750584125518799,
+        "RHR": 0.41543248295783997
+      },
+      "probe_effect": 0.6458853436099441,
+      "pilot_2": "S500",
+      "pilot_4": "RHR",
+      "pilot_8": "RHR",
+      "pilot_16": "RHR",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 3,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 7,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 14,
+            "RHR": 16
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        }
+      ]
+    },
+    "cross_entropy5": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.37331464886665344,
+        "F13": 0.3414262533187866,
+        "S500": 0.8547502756118774
+      },
+      "expanded_scores": {
+        "F10": 0.37064287066459656,
+        "F13": 0.5236349701881409,
+        "S500": 0.8629940152168274,
+        "RHR": 0.31846311688423157
+      },
+      "probe_effect": 0.6095921566751442,
+      "pilot_2": "RHR",
+      "pilot_4": "RHR",
+      "pilot_8": "RHR",
+      "pilot_16": "RHR",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 1,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 6,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 13,
+            "RHR": 16
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        }
+      ]
+    },
+    "prioritized_astar0": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.38850873708724976,
+        "F13": 0.32170844078063965,
+        "S500": 0.8634905815124512
+      },
+      "expanded_scores": {
+        "F10": 0.34436315298080444,
+        "F13": 0.46505388617515564,
+        "S500": 0.8320057392120361,
+        "RHR": 0.2440575808286667
+      },
+      "probe_effect": 0.5591942373587668,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 16
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "prioritized_astar1": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.38197991251945496,
+        "F13": 0.28524184226989746,
+        "S500": 0.8655499815940857
+      },
+      "expanded_scores": {
+        "F10": 0.3397727906703949,
+        "F13": 0.42187726497650146,
+        "S500": 0.8210121989250183,
+        "RHR": 0.19533124566078186
+      },
+      "probe_effect": 0.5327537489062595,
+      "pilot_2": "S500",
+      "pilot_4": "RHR",
+      "pilot_8": "S500",
+      "pilot_16": "RHR",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 3,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 7,
+            "RHR": 7
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 14,
+            "RHR": 15
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        }
+      ]
+    },
+    "prioritized_astar2": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.404623806476593,
+        "F13": 0.34116435050964355,
+        "S500": 0.8658089637756348
+      },
+      "expanded_scores": {
+        "F10": 0.34170854091644287,
+        "F13": 0.47400155663490295,
+        "S500": 0.825775146484375,
+        "RHR": 0.2518528997898102
+      },
+      "probe_effect": 0.555108069443343,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 16
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "prioritized_astar3": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.3672989010810852,
+        "F13": 0.23139189183712006,
+        "S500": 0.8681279420852661
+      },
+      "expanded_scores": {
+        "F10": 0.3413836359977722,
+        "F13": 0.36498576402664185,
+        "S500": 0.8140923976898193,
+        "RHR": 0.13998058438301086
+      },
+      "probe_effect": 0.5066249903686431,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 16
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "prioritized_astar4": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.37198925018310547,
+        "F13": 0.22226691246032715,
+        "S500": 0.8701514005661011
+      },
+      "expanded_scores": {
+        "F10": 0.3445455729961395,
+        "F13": 0.35158079862594604,
+        "S500": 0.8108217120170593,
+        "RHR": 0.1264340877532959
+      },
+      "probe_effect": 0.4951714385387732,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "RHR",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 7
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 14,
+            "RHR": 15
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "RHR"
+        }
+      ]
+    },
+    "prioritized_astar5": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.39011648297309875,
+        "F13": 0.30921491980552673,
+        "S500": 0.8651850819587708
+      },
+      "expanded_scores": {
+        "F10": 0.3407283425331116,
+        "F13": 0.4458380937576294,
+        "S500": 0.8243354558944702,
+        "RHR": 0.22087839245796204
+      },
+      "probe_effect": 0.5441083306059866,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 8
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 16
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "deterministic0": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.4489602744579315,
+        "F13": 0.4497227370738983,
+        "S500": 0.8674250841140747
+      },
+      "expanded_scores": {
+        "F10": 0.3553265929222107,
+        "F13": 0.5802229046821594,
+        "S500": 0.835398256778717,
+        "RHR": 0.3935209810733795
+      },
+      "probe_effect": 0.6140550489982195,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "deterministic1": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.40266382694244385,
+        "F13": 0.3867277204990387,
+        "S500": 0.8590743541717529
+      },
+      "expanded_scores": {
+        "F10": 0.3686070144176483,
+        "F13": 0.5550294518470764,
+        "S500": 0.8565636873245239,
+        "RHR": 0.35762056708335876
+      },
+      "probe_effect": 0.6140286016172463,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 3,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 7,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 15,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "deterministic2": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.9474159479141235,
+        "F13": 0.9244674444198608,
+        "S500": 0.9775306582450867
+      },
+      "expanded_scores": {
+        "F10": 0.4550187289714813,
+        "F13": 0.6150186657905579,
+        "S500": 0.7063557505607605,
+        "RHR": 0.3678276538848877
+      },
+      "probe_effect": 0.44601110001849453,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 7,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 12,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "deterministic3": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.86859130859375,
+        "F13": 0.8406455516815186,
+        "S500": 0.9475583434104919
+      },
+      "expanded_scores": {
+        "F10": 0.352399617433548,
+        "F13": 0.5539513230323792,
+        "S500": 0.6435750126838684,
+        "RHR": 0.32983657717704773
+      },
+      "probe_effect": 0.4796719753830141,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 1
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 2
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 7,
+            "RHR": 3
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 13,
+            "RHR": 4
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "deterministic4": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.4169982075691223,
+        "F13": 0.3709380328655243,
+        "S500": 0.866279661655426
+      },
+      "expanded_scores": {
+        "F10": 0.3437182903289795,
+        "F13": 0.5014440417289734,
+        "S500": 0.8281440734863281,
+        "RHR": 0.28479522466659546
+      },
+      "probe_effect": 0.5682256953141086,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "deterministic5": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.38472551107406616,
+        "F13": 0.3468174636363983,
+        "S500": 0.8586907982826233
+      },
+      "expanded_scores": {
+        "F10": 0.36014753580093384,
+        "F13": 0.5122113227844238,
+        "S500": 0.8518645167350769,
+        "RHR": 0.3027731478214264
+      },
+      "probe_effect": 0.5946473708401755,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "mixture0": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.4437922239303589,
+        "F13": 0.4494026303291321,
+        "S500": 0.8655263781547546
+      },
+      "expanded_scores": {
+        "F10": 0.3627553880214691,
+        "F13": 0.5917394757270813,
+        "S500": 0.8428492546081543,
+        "RHR": 0.4103206992149353
+      },
+      "probe_effect": 0.6244119986338728,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 15,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "mixture1": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.4022919237613678,
+        "F13": 0.33744704723358154,
+        "S500": 0.8655597567558289
+      },
+      "expanded_scores": {
+        "F10": 0.34187057614326477,
+        "F13": 0.47149479389190674,
+        "S500": 0.8262554407119751,
+        "RHR": 0.24919578433036804
+      },
+      "probe_effect": 0.5547388692162452,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 15,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "mixture2": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.39062732458114624,
+        "F13": 0.2960675060749054,
+        "S500": 0.8664379119873047
+      },
+      "expanded_scores": {
+        "F10": 0.3393157720565796,
+        "F13": 0.4285065531730652,
+        "S500": 0.8185305595397949,
+        "RHR": 0.20064803957939148
+      },
+      "probe_effect": 0.530992575462192,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 15,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "mixture3": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.3582673966884613,
+        "F13": 0.21166324615478516,
+        "S500": 0.8691642880439758
+      },
+      "expanded_scores": {
+        "F10": 0.3418819010257721,
+        "F13": 0.3445635437965393,
+        "S500": 0.814336895942688,
+        "RHR": 0.1237621009349823
+      },
+      "probe_effect": 0.5031286877462946,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "mixture4": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.3843076825141907,
+        "F13": 0.36911895871162415,
+        "S500": 0.8540013432502747
+      },
+      "expanded_scores": {
+        "F10": 0.38094857335090637,
+        "F13": 0.5594101548194885,
+        "S500": 0.8693233728408813,
+        "RHR": 0.364082008600235
+      },
+      "probe_effect": 0.6266843715691699,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 3,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 7,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 15,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "mixture5": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.38664329051971436,
+        "F13": 0.3318095803260803,
+        "S500": 0.8616794347763062
+      },
+      "expanded_scores": {
+        "F10": 0.34951794147491455,
+        "F13": 0.4830484688282013,
+        "S500": 0.8397601246833801,
+        "RHR": 0.2662230134010315
+      },
+      "probe_effect": 0.5732406451459737,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "diffusion0": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.4826507866382599,
+        "F13": 0.5448274612426758,
+        "S500": 0.8636921644210815
+      },
+      "expanded_scores": {
+        "F10": 0.4221707284450531,
+        "F13": 0.7313629388809204,
+        "S500": 0.8637685775756836,
+        "RHR": 0.6271203756332397
+      },
+      "probe_effect": 0.7454822671810799,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 15,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "diffusion1": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.4757734537124634,
+        "F13": 0.5339726209640503,
+        "S500": 0.8628690838813782
+      },
+      "expanded_scores": {
+        "F10": 0.4188673794269562,
+        "F13": 0.7220958471298218,
+        "S500": 0.8648785948753357,
+        "RHR": 0.6109217405319214
+      },
+      "probe_effect": 0.7335432993057067,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 1,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 3,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 7,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 14,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "diffusion2": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.5650989413261414,
+        "F13": 0.5263761878013611,
+        "S500": 0.8873819708824158
+      },
+      "expanded_scores": {
+        "F10": 0.31758955121040344,
+        "F13": 0.5212915539741516,
+        "S500": 0.7459841966629028,
+        "RHR": 0.2937108278274536
+      },
+      "probe_effect": 0.5156574100681538,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "diffusion3": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.7013219594955444,
+        "F13": 0.6862780451774597,
+        "S500": 0.9065067768096924
+      },
+      "expanded_scores": {
+        "F10": 0.29128292202949524,
+        "F13": 0.5302690267562866,
+        "S500": 0.6592837572097778,
+        "RHR": 0.3206930458545685
+      },
+      "probe_effect": 0.5157175266017169,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 8,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 16,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "diffusion4": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.4786094129085541,
+        "F13": 0.5310938358306885,
+        "S500": 0.8653873801231384
+      },
+      "expanded_scores": {
+        "F10": 0.4014747440814972,
+        "F13": 0.7000388503074646,
+        "S500": 0.8548864126205444,
+        "RHR": 0.5785385966300964
+      },
+      "probe_effect": 0.7124554564885052,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 5,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 13,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    },
+    "diffusion5": {
+      "original": "S500",
+      "controller_blind": "S500",
+      "probe_rule": "S500",
+      "expanded": "S500",
+      "always_schedule": "S500",
+      "always_right_hand": "RHR",
+      "original_scores": {
+        "F10": 0.4843677282333374,
+        "F13": 0.5452781915664673,
+        "S500": 0.8646292686462402
+      },
+      "expanded_scores": {
+        "F10": 0.4164988100528717,
+        "F13": 0.7252841591835022,
+        "S500": 0.860258936882019,
+        "RHR": 0.6185243725776672
+      },
+      "probe_effect": 0.739646670625964,
+      "pilot_2": "S500",
+      "pilot_4": "S500",
+      "pilot_8": "S500",
+      "pilot_16": "S500",
+      "pilot_evidence": [
+        {
+          "k": 2,
+          "success_counts": {
+            "S500": 2,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 4,
+          "success_counts": {
+            "S500": 4,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 8,
+          "success_counts": {
+            "S500": 7,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        },
+        {
+          "k": 16,
+          "success_counts": {
+            "S500": 14,
+            "RHR": 0
+          },
+          "unknown_counts": {
+            "S500": 0,
+            "RHR": 0
+          },
+          "selected": "S500"
+        }
+      ]
+    }
+  },
+  "controller_order": [
+    "centralized_sampling0",
+    "centralized_sampling1",
+    "centralized_sampling2",
+    "centralized_sampling3",
+    "centralized_sampling4",
+    "centralized_sampling5",
+    "cross_entropy0",
+    "cross_entropy1",
+    "cross_entropy2",
+    "cross_entropy3",
+    "cross_entropy4",
+    "cross_entropy5",
+    "prioritized_astar0",
+    "prioritized_astar1",
+    "prioritized_astar2",
+    "prioritized_astar3",
+    "prioritized_astar4",
+    "prioritized_astar5",
+    "deterministic0",
+    "deterministic1",
+    "deterministic2",
+    "deterministic3",
+    "deterministic4",
+    "deterministic5",
+    "mixture0",
+    "mixture1",
+    "mixture2",
+    "mixture3",
+    "mixture4",
+    "mixture5",
+    "diffusion0",
+    "diffusion1",
+    "diffusion2",
+    "diffusion3",
+    "diffusion4",
+    "diffusion5"
+  ],
+  "fair_rules": {
+    "centralized_sampling": {
+      "table": [
+        {
+          "grid_index": 0,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.1
+          },
+          "lower": 0.9583333333333334,
+          "upper": 0.9583333333333334,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 1,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.15
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 2,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.25
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 3,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 4,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.1
+          },
+          "lower": 0.6979166666666666,
+          "upper": 0.6979166666666666,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 5,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.15
+          },
+          "lower": 0.6979166666666666,
+          "upper": 0.6979166666666666,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 6,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.25
+          },
+          "lower": 0.6979166666666666,
+          "upper": 0.6979166666666666,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 7,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.35
+          },
+          "lower": 0.6979166666666666,
+          "upper": 0.6979166666666666,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 8,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.1
+          },
+          "lower": 0.6979166666666666,
+          "upper": 0.6979166666666666,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 9,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.15
+          },
+          "lower": 0.6979166666666666,
+          "upper": 0.6979166666666666,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 10,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.25
+          },
+          "lower": 0.6979166666666666,
+          "upper": 0.6979166666666666,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 11,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.35
+          },
+          "lower": 0.6979166666666666,
+          "upper": 0.6979166666666666,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 12,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.1
+          },
+          "lower": 0.9270833333333334,
+          "upper": 0.9270833333333334,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 13,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.15
+          },
+          "lower": 0.9583333333333334,
+          "upper": 0.9583333333333334,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 14,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.25
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 15,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.35
+          },
+          "lower": 0.9895833333333334,
+          "upper": 0.9895833333333334,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 16,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.1
+          },
+          "lower": 0.8541666666666666,
+          "upper": 0.8541666666666666,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 17,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.15
+          },
+          "lower": 0.78125,
+          "upper": 0.78125,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 18,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.25
+          },
+          "lower": 0.90625,
+          "upper": 0.90625,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 19,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.35
+          },
+          "lower": 0.9479166666666666,
+          "upper": 0.9479166666666666,
+          "controllers": [
+            "centralized_sampling0",
+            "centralized_sampling1",
+            "centralized_sampling2",
+            "centralized_sampling3",
+            "centralized_sampling4",
+            "centralized_sampling5"
+          ],
+          "episodes": 96
+        }
+      ],
+      "selected": {
+        "grid_index": 14,
+        "rule": {
+          "mode": "progress",
+          "steps": 20,
+          "speed": 0.25
+        },
+        "lower": 1.0,
+        "upper": 1.0,
+        "controllers": [
+          "centralized_sampling0",
+          "centralized_sampling1",
+          "centralized_sampling2",
+          "centralized_sampling3",
+          "centralized_sampling4",
+          "centralized_sampling5"
+        ],
+        "episodes": 96
+      },
+      "unknown_selection_ambiguous": false
+    },
+    "cross_entropy": {
+      "table": [
+        {
+          "grid_index": 0,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.1
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 1,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.15
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 2,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.25
+          },
+          "lower": 0.6666666666666666,
+          "upper": 0.6666666666666666,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 3,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.35
+          },
+          "lower": 0.4895833333333333,
+          "upper": 0.4895833333333333,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 4,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.1
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 5,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.15
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 6,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.25
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 7,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.35
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 8,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.1
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 9,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.15
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 10,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.25
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 11,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.35
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 12,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.1
+          },
+          "lower": 0.96875,
+          "upper": 0.96875,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 13,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.15
+          },
+          "lower": 0.9791666666666666,
+          "upper": 0.9791666666666666,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 14,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.25
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 15,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.35
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 16,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.1
+          },
+          "lower": 0.9895833333333334,
+          "upper": 0.9895833333333334,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 17,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.15
+          },
+          "lower": 0.96875,
+          "upper": 0.96875,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 18,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.25
+          },
+          "lower": 0.9895833333333334,
+          "upper": 0.9895833333333334,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 19,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.35
+          },
+          "lower": 0.9479166666666666,
+          "upper": 0.9479166666666666,
+          "controllers": [
+            "cross_entropy0",
+            "cross_entropy1",
+            "cross_entropy2",
+            "cross_entropy3",
+            "cross_entropy4",
+            "cross_entropy5"
+          ],
+          "episodes": 96
+        }
+      ],
+      "selected": {
+        "grid_index": 0,
+        "rule": {
+          "mode": "always",
+          "steps": 0,
+          "speed": 0.1
+        },
+        "lower": 1.0,
+        "upper": 1.0,
+        "controllers": [
+          "cross_entropy0",
+          "cross_entropy1",
+          "cross_entropy2",
+          "cross_entropy3",
+          "cross_entropy4",
+          "cross_entropy5"
+        ],
+        "episodes": 96
+      },
+      "unknown_selection_ambiguous": false
+    },
+    "deterministic": {
+      "table": [
+        {
+          "grid_index": 0,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.1
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 1,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.15
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 2,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.25
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 3,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 4,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.1
+          },
+          "lower": 0.09375,
+          "upper": 0.09375,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 5,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.15
+          },
+          "lower": 0.09375,
+          "upper": 0.09375,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 6,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.25
+          },
+          "lower": 0.10416666666666667,
+          "upper": 0.10416666666666667,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 7,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.35
+          },
+          "lower": 0.09375,
+          "upper": 0.09375,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 8,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.1
+          },
+          "lower": 0.08333333333333333,
+          "upper": 0.08333333333333333,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 9,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.15
+          },
+          "lower": 0.08333333333333333,
+          "upper": 0.08333333333333333,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 10,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.25
+          },
+          "lower": 0.09375,
+          "upper": 0.09375,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 11,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.35
+          },
+          "lower": 0.09375,
+          "upper": 0.09375,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 12,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.1
+          },
+          "lower": 0.03125,
+          "upper": 0.03125,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 13,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.15
+          },
+          "lower": 0.041666666666666664,
+          "upper": 0.041666666666666664,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 14,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.25
+          },
+          "lower": 0.03125,
+          "upper": 0.03125,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 15,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.35
+          },
+          "lower": 0.03125,
+          "upper": 0.03125,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 16,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.1
+          },
+          "lower": 0.09375,
+          "upper": 0.09375,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 17,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.15
+          },
+          "lower": 0.09375,
+          "upper": 0.09375,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 18,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.25
+          },
+          "lower": 0.08333333333333333,
+          "upper": 0.08333333333333333,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 19,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.35
+          },
+          "lower": 0.07291666666666667,
+          "upper": 0.07291666666666667,
+          "controllers": [
+            "deterministic0",
+            "deterministic1",
+            "deterministic2",
+            "deterministic3",
+            "deterministic4",
+            "deterministic5"
+          ],
+          "episodes": 96
+        }
+      ],
+      "selected": {
+        "grid_index": 6,
+        "rule": {
+          "mode": "slow",
+          "steps": 20,
+          "speed": 0.25
+        },
+        "lower": 0.10416666666666667,
+        "upper": 0.10416666666666667,
+        "controllers": [
+          "deterministic0",
+          "deterministic1",
+          "deterministic2",
+          "deterministic3",
+          "deterministic4",
+          "deterministic5"
+        ],
+        "episodes": 96
+      },
+      "unknown_selection_ambiguous": false
+    },
+    "mixture": {
+      "table": [
+        {
+          "grid_index": 0,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.1
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 1,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.15
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 2,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.25
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 3,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 4,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.1
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 5,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.15
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 6,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.25
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 7,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 8,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.1
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 9,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.15
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 10,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.25
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 11,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 12,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.1
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 13,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.15
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 14,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.25
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 15,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 16,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.1
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 17,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.15
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 18,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.25
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 19,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "mixture0",
+            "mixture1",
+            "mixture2",
+            "mixture3",
+            "mixture4",
+            "mixture5"
+          ],
+          "episodes": 96
+        }
+      ],
+      "selected": {
+        "grid_index": 0,
+        "rule": {
+          "mode": "always",
+          "steps": 0,
+          "speed": 0.1
+        },
+        "lower": 0.0,
+        "upper": 0.0,
+        "controllers": [
+          "mixture0",
+          "mixture1",
+          "mixture2",
+          "mixture3",
+          "mixture4",
+          "mixture5"
+        ],
+        "episodes": 96
+      },
+      "unknown_selection_ambiguous": false
+    },
+    "diffusion": {
+      "table": [
+        {
+          "grid_index": 0,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.1
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 1,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.15
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 2,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.25
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 3,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 4,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.1
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 5,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.15
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 6,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.25
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 7,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 8,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.1
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 9,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.15
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 10,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.25
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 11,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 12,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.1
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 13,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.15
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 14,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.25
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 15,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.010416666666666666,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 16,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.1
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 17,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.15
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 18,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.25
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 19,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "diffusion0",
+            "diffusion1",
+            "diffusion2",
+            "diffusion3",
+            "diffusion4",
+            "diffusion5"
+          ],
+          "episodes": 96
+        }
+      ],
+      "selected": {
+        "grid_index": 0,
+        "rule": {
+          "mode": "always",
+          "steps": 0,
+          "speed": 0.1
+        },
+        "lower": 0.0,
+        "upper": 0.0,
+        "controllers": [
+          "diffusion0",
+          "diffusion1",
+          "diffusion2",
+          "diffusion3",
+          "diffusion4",
+          "diffusion5"
+        ],
+        "episodes": 96
+      },
+      "unknown_selection_ambiguous": true
+    },
+    "prioritized_astar": {
+      "table": [
+        {
+          "grid_index": 0,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.1
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 1,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.15
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 2,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.25
+          },
+          "lower": 0.07291666666666667,
+          "upper": 0.07291666666666667,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 3,
+          "rule": {
+            "mode": "always",
+            "steps": 0,
+            "speed": 0.35
+          },
+          "lower": 0.0,
+          "upper": 0.0,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 4,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.1
+          },
+          "lower": 0.9791666666666666,
+          "upper": 0.9791666666666666,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 5,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.15
+          },
+          "lower": 0.9895833333333334,
+          "upper": 0.9895833333333334,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 6,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.25
+          },
+          "lower": 0.9791666666666666,
+          "upper": 0.9791666666666666,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 7,
+          "rule": {
+            "mode": "slow",
+            "steps": 20,
+            "speed": 0.35
+          },
+          "lower": 0.9791666666666666,
+          "upper": 0.9791666666666666,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 8,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.1
+          },
+          "lower": 0.9791666666666666,
+          "upper": 0.9791666666666666,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 9,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.15
+          },
+          "lower": 0.9791666666666666,
+          "upper": 0.9791666666666666,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 10,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.25
+          },
+          "lower": 0.9791666666666666,
+          "upper": 0.9791666666666666,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 11,
+          "rule": {
+            "mode": "slow",
+            "steps": 40,
+            "speed": 0.35
+          },
+          "lower": 0.9791666666666666,
+          "upper": 0.9791666666666666,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 12,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.1
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 13,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.15
+          },
+          "lower": 0.9895833333333334,
+          "upper": 0.9895833333333334,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 14,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.25
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 15,
+          "rule": {
+            "mode": "progress",
+            "steps": 20,
+            "speed": 0.35
+          },
+          "lower": 0.9270833333333334,
+          "upper": 0.9270833333333334,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 16,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.1
+          },
+          "lower": 0.9895833333333334,
+          "upper": 0.9895833333333334,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 17,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.15
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 18,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.25
+          },
+          "lower": 1.0,
+          "upper": 1.0,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        },
+        {
+          "grid_index": 19,
+          "rule": {
+            "mode": "progress",
+            "steps": 40,
+            "speed": 0.35
+          },
+          "lower": 0.96875,
+          "upper": 0.96875,
+          "controllers": [
+            "prioritized_astar0",
+            "prioritized_astar1",
+            "prioritized_astar2",
+            "prioritized_astar3",
+            "prioritized_astar4",
+            "prioritized_astar5"
+          ],
+          "episodes": 96
+        }
+      ],
+      "selected": {
+        "grid_index": 0,
+        "rule": {
+          "mode": "always",
+          "steps": 0,
+          "speed": 0.1
+        },
+        "lower": 1.0,
+        "upper": 1.0,
+        "controllers": [
+          "prioritized_astar0",
+          "prioritized_astar1",
+          "prioritized_astar2",
+          "prioritized_astar3",
+          "prioritized_astar4",
+          "prioritized_astar5"
+        ],
+        "episodes": 96
+      },
+      "unknown_selection_ambiguous": false
+    }
+  },
+  "capabilities": {
+    "pilot_centralized_sampling": {
+      "utc": "2026-10-17T03:57:44.952183+00:00",
+      "eligible": [
+        "centralized_sampling0",
+        "centralized_sampling1",
+        "centralized_sampling2",
+        "centralized_sampling3",
+        "centralized_sampling4",
+        "centralized_sampling5",
+        "cross_entropy0",
+        "cross_entropy1",
+        "cross_entropy2",
+        "cross_entropy3",
+        "cross_entropy4",
+        "cross_entropy5"
+      ],
+      "excluded": [],
+      "ambiguous": [],
+      "rates": {
+        "centralized_sampling0": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            0.8125,
+            0.875
+          ]
+        },
+        "centralized_sampling1": {
+          "F10": [
+            0.3125,
+            0.3125
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "centralized_sampling2": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            0.9375,
+            0.9375
+          ]
+        },
+        "centralized_sampling3": {
+          "F10": [
+            0.375,
+            0.375
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "centralized_sampling4": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            0.875,
+            0.875
+          ]
+        },
+        "centralized_sampling5": {
+          "F10": [
+            0.3125,
+            0.3125
+          ],
+          "S500": [
+            0.9375,
+            0.9375
+          ]
+        },
+        "cross_entropy0": {
+          "F10": [
+            0.4375,
+            0.4375
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "cross_entropy1": {
+          "F10": [
+            0.4375,
+            0.4375
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "cross_entropy2": {
+          "F10": [
+            0.4375,
+            0.4375
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "cross_entropy3": {
+          "F10": [
+            0.4375,
+            0.4375
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "cross_entropy4": {
+          "F10": [
+            0.25,
+            0.3125
+          ],
+          "S500": [
+            0.875,
+            0.875
+          ]
+        },
+        "cross_entropy5": {
+          "F10": [
+            0.3125,
+            0.3125
+          ],
+          "S500": [
+            0.8125,
+            0.8125
+          ]
+        }
+      },
+      "eligible_by_family": {
+        "centralized_sampling": [
+          "centralized_sampling0",
+          "centralized_sampling1",
+          "centralized_sampling2",
+          "centralized_sampling3",
+          "centralized_sampling4",
+          "centralized_sampling5"
+        ],
+        "cross_entropy": [
+          "cross_entropy0",
+          "cross_entropy1",
+          "cross_entropy2",
+          "cross_entropy3",
+          "cross_entropy4",
+          "cross_entropy5"
+        ]
+      },
+      "family_status": {
+        "centralized_sampling": "PASS",
+        "cross_entropy": "PASS"
+      },
+      "no_replacement_or_tuning": true
+    },
+    "pilot_deterministic": {
+      "utc": "2026-10-17T03:59:56.549161+00:00",
+      "eligible": [
+        "deterministic0",
+        "deterministic1",
+        "deterministic2",
+        "deterministic3",
+        "deterministic4",
+        "deterministic5",
+        "mixture0",
+        "mixture1",
+        "mixture2",
+        "mixture3",
+        "mixture4",
+        "mixture5",
+        "diffusion0",
+        "diffusion1",
+        "diffusion2",
+        "diffusion3",
+        "diffusion4",
+        "diffusion5"
+      ],
+      "excluded": [],
+      "ambiguous": [],
+      "rates": {
+        "deterministic0": {
+          "F10": [
+            0.3125,
+            0.3125
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "deterministic1": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            0.9375,
+            0.9375
+          ]
+        },
+        "deterministic2": {
+          "F10": [
+            0.0625,
+            0.0625
+          ],
+          "S500": [
+            0.75,
+            0.75
+          ]
+        },
+        "deterministic3": {
+          "F10": [
+            0.1875,
+            0.1875
+          ],
+          "S500": [
+            0.8125,
+            0.8125
+          ]
+        },
+        "deterministic4": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "deterministic5": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "mixture0": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            0.9375,
+            0.9375
+          ]
+        },
+        "mixture1": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            0.9375,
+            0.9375
+          ]
+        },
+        "mixture2": {
+          "F10": [
+            0.125,
+            0.125
+          ],
+          "S500": [
+            0.9375,
+            0.9375
+          ]
+        },
+        "mixture3": {
+          "F10": [
+            0.375,
+            0.375
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "mixture4": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            0.9375,
+            0.9375
+          ]
+        },
+        "mixture5": {
+          "F10": [
+            0.3125,
+            0.3125
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "diffusion0": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            0.9375,
+            0.9375
+          ]
+        },
+        "diffusion1": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            0.875,
+            0.875
+          ]
+        },
+        "diffusion2": {
+          "F10": [
+            0.125,
+            0.125
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "diffusion3": {
+          "F10": [
+            0.0625,
+            0.0625
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "diffusion4": {
+          "F10": [
+            0.3125,
+            0.3125
+          ],
+          "S500": [
+            0.8125,
+            0.8125
+          ]
+        },
+        "diffusion5": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            0.875,
+            0.875
+          ]
+        }
+      },
+      "eligible_by_family": {
+        "deterministic": [
+          "deterministic0",
+          "deterministic1",
+          "deterministic2",
+          "deterministic3",
+          "deterministic4",
+          "deterministic5"
+        ],
+        "mixture": [
+          "mixture0",
+          "mixture1",
+          "mixture2",
+          "mixture3",
+          "mixture4",
+          "mixture5"
+        ],
+        "diffusion": [
+          "diffusion0",
+          "diffusion1",
+          "diffusion2",
+          "diffusion3",
+          "diffusion4",
+          "diffusion5"
+        ]
+      },
+      "family_status": {
+        "deterministic": "PASS",
+        "mixture": "PASS",
+        "diffusion": "PASS"
+      },
+      "no_replacement_or_tuning": true
+    },
+    "pilot_prioritized_astar": {
+      "utc": "2026-10-17T04:10:15.372651+00:00",
+      "eligible": [
+        "prioritized_astar0",
+        "prioritized_astar1",
+        "prioritized_astar2",
+        "prioritized_astar3",
+        "prioritized_astar4",
+        "prioritized_astar5"
+      ],
+      "excluded": [],
+      "ambiguous": [],
+      "rates": {
+        "prioritized_astar0": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "prioritized_astar1": {
+          "F10": [
+            0.1875,
+            0.1875
+          ],
+          "S500": [
+            0.875,
+            0.875
+          ]
+        },
+        "prioritized_astar2": {
+          "F10": [
+            0.3125,
+            0.3125
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "prioritized_astar3": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        },
+        "prioritized_astar4": {
+          "F10": [
+            0.25,
+            0.25
+          ],
+          "S500": [
+            0.875,
+            0.875
+          ]
+        },
+        "prioritized_astar5": {
+          "F10": [
+            0.3125,
+            0.3125
+          ],
+          "S500": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "eligible_by_family": {
+        "prioritized_astar": [
+          "prioritized_astar0",
+          "prioritized_astar1",
+          "prioritized_astar2",
+          "prioritized_astar3",
+          "prioritized_astar4",
+          "prioritized_astar5"
+        ]
+      },
+      "family_status": {
+        "prioritized_astar": "PASS"
+      },
+      "no_replacement_or_tuning": true
+    }
+  },
+  "evaluation_labels_read": false
+}

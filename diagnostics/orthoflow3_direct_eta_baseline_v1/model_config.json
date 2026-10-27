@@ -1,0 +1,13 @@
+{
+  "activation": "SiLU",
+  "architecture": "214->128->128->3",
+  "loss": "normalized eta MSE only",
+  "optimizer": "AdamW lr1e-3 wd1e-5",
+  "output": "sigmoid affine to [0,-.5,0]..[1.25,.5,.75]",
+  "parameter_count": 44419,
+  "seeds": [
+    17,
+    23,
+    41
+  ]
+}

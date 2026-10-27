@@ -1,0 +1,2169 @@
+{
+ "plan": [
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p3",
+   "eta": [
+    0.11573196241303585,
+    0.338553535721951,
+    0.5483452839930184
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p3",
+   "eta": [
+    0.11573196241303585,
+    0.338553535721951,
+    0.5483452839930184
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "best_fixed_eta",
+   "key": "menu:sE22",
+   "eta": null,
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p3",
+   "eta": [
+    0.11573196241303585,
+    0.338553535721951,
+    0.5483452839930184
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p3",
+   "eta": [
+    0.11573196241303585,
+    0.338553535721951,
+    0.5483452839930184
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 15,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 15,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p3",
+   "eta": [
+    0.11573196241303585,
+    0.338553535721951,
+    0.5483452839930184
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p5",
+   "eta": [
+    0.10984647574833895,
+    0.37207912576767516,
+    0.5662130316435315
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p5",
+   "eta": [
+    0.10984647574833895,
+    0.37207912576767516,
+    0.5662130316435315
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "best_fixed_eta",
+   "key": "menu:sE22",
+   "eta": null,
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 12,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 12,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p5",
+   "eta": [
+    0.10984647574833895,
+    0.37207912576767516,
+    0.5662130316435315
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p5",
+   "eta": [
+    0.10984647574833895,
+    0.37207912576767516,
+    0.5662130316435315
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 12,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 12,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p5",
+   "eta": [
+    0.10984647574833895,
+    0.37207912576767516,
+    0.5662130316435315
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p3",
+   "eta": [
+    0.10866608630956232,
+    0.30974325775654943,
+    0.5631750991152881
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p3",
+   "eta": [
+    0.10866608630956232,
+    0.30974325775654943,
+    0.5631750991152881
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "best_fixed_eta",
+   "key": "menu:sE22",
+   "eta": null,
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 18,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 18,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p3",
+   "eta": [
+    0.10866608630956232,
+    0.30974325775654943,
+    0.5631750991152881
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p3",
+   "eta": [
+    0.10866608630956232,
+    0.30974325775654943,
+    0.5631750991152881
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 17,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 17,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p3",
+   "eta": [
+    0.10866608630956232,
+    0.30974325775654943,
+    0.5631750991152881
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 11,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 11,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p12",
+   "eta": [
+    1.1358482837677002,
+    -0.10255418717861176,
+    1.3841955661773682
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p12",
+   "eta": [
+    1.1358482837677002,
+    -0.10255418717861176,
+    1.3841955661773682
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 11,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 11,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p12",
+   "eta": [
+    1.1358482837677002,
+    -0.10255418717861176,
+    1.3841955661773682
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p12",
+   "eta": [
+    1.1358482837677002,
+    -0.10255418717861176,
+    1.3841955661773682
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 4,
+   "controller_type": "cross_entropy",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 4,
+   "controller_type": "cross_entropy",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p12",
+   "eta": [
+    1.1358482837677002,
+    -0.10255418717861176,
+    1.3841955661773682
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p12",
+   "eta": [
+    1.1358482837677002,
+    -0.10255418717861176,
+    1.3841955661773682
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p12",
+   "eta": [
+    1.1358482837677002,
+    -0.10255418717861176,
+    1.3841955661773682
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p0",
+   "eta": [
+    1.2220224142074585,
+    -0.060619376599788666,
+    1.4221155643463135
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p0",
+   "eta": [
+    1.2220224142074585,
+    -0.060619376599788666,
+    1.4221155643463135
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 12,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 12,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p0",
+   "eta": [
+    1.2220224142074585,
+    -0.060619376599788666,
+    1.4221155643463135
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p0",
+   "eta": [
+    1.2220224142074585,
+    -0.060619376599788666,
+    1.4221155643463135
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 4,
+   "controller_type": "cross_entropy",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 4,
+   "controller_type": "cross_entropy",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p0",
+   "eta": [
+    1.2220224142074585,
+    -0.060619376599788666,
+    1.4221155643463135
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 13,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 13,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p0",
+   "eta": [
+    1.2220224142074585,
+    -0.060619376599788666,
+    1.4221155643463135
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 11,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 11,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p0",
+   "eta": [
+    1.2220224142074585,
+    -0.060619376599788666,
+    1.4221155643463135
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n10_r013_f26_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p0",
+   "eta": [
+    1.2220224142074585,
+    -0.060619376599788666,
+    1.4221155643463135
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p7",
+   "eta": [
+    1.0438030824004207,
+    0.9796497115468961,
+    1.4131977847373693
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p7",
+   "eta": [
+    1.0438030824004207,
+    0.9796497115468961,
+    1.4131977847373693
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p7",
+   "eta": [
+    1.0438030824004207,
+    0.9796497115468961,
+    1.4131977847373693
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p7",
+   "eta": [
+    1.0438030824004207,
+    0.9796497115468961,
+    1.4131977847373693
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 4,
+   "controller_type": "cross_entropy",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 4,
+   "controller_type": "cross_entropy",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p7",
+   "eta": [
+    1.0438030824004207,
+    0.9796497115468961,
+    1.4131977847373693
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p7",
+   "eta": [
+    1.0438030824004207,
+    0.9796497115468961,
+    1.4131977847373693
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p7",
+   "eta": [
+    1.0438030824004207,
+    0.9796497115468961,
+    1.4131977847373693
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_box_n11_r014_f27_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p7",
+   "eta": [
+    1.0438030824004207,
+    0.9796497115468961,
+    1.4131977847373693
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5336307287216187,
+    -0.12314318865537643,
+    1.4153428077697754
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5336307287216187,
+    -0.12314318865537643,
+    1.4153428077697754
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5336307287216187,
+    -0.12314318865537643,
+    1.4153428077697754
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 20,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 20,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5336307287216187,
+    -0.12314318865537643,
+    1.4153428077697754
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5336307287216187,
+    -0.12314318865537643,
+    1.4153428077697754
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5336307287216187,
+    -0.12314318865537643,
+    1.4153428077697754
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 21,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 21,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5336307287216187,
+    -0.12314318865537643,
+    1.4153428077697754
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5470380783081055,
+    -0.15419495105743408,
+    1.4143035411834717
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 11,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 11,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5470380783081055,
+    -0.15419495105743408,
+    1.4143035411834717
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5470380783081055,
+    -0.15419495105743408,
+    1.4143035411834717
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5470380783081055,
+    -0.15419495105743408,
+    1.4143035411834717
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5470380783081055,
+    -0.15419495105743408,
+    1.4143035411834717
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5470380783081055,
+    -0.15419495105743408,
+    1.4143035411834717
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 11,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 11,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p10",
+   "eta": [
+    0.5470380783081055,
+    -0.15419495105743408,
+    1.4143035411834717
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p4",
+   "eta": [
+    0.5221731662750244,
+    -0.12014469504356384,
+    1.4139835834503174
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p4",
+   "eta": [
+    0.5221731662750244,
+    -0.12014469504356384,
+    1.4139835834503174
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p4",
+   "eta": [
+    0.5221731662750244,
+    -0.12014469504356384,
+    1.4139835834503174
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "eta13",
+   "key": "menu:eta13",
+   "eta": null,
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 4,
+   "controller_type": "cross_entropy",
+   "state": 12,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 4,
+   "controller_type": "cross_entropy",
+   "state": 12,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p4",
+   "eta": [
+    0.5221731662750244,
+    -0.12014469504356384,
+    1.4139835834503174
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 10,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 10,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p4",
+   "eta": [
+    0.5221731662750244,
+    -0.12014469504356384,
+    1.4139835834503174
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p4",
+   "eta": [
+    0.5221731662750244,
+    -0.12014469504356384,
+    1.4139835834503174
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "hs_obst_n08_R138_r048_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p4",
+   "eta": [
+    0.5221731662750244,
+    -0.12014469504356384,
+    1.4139835834503174
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 16,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 16,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p1",
+   "eta": [
+    0.22147622404250056,
+    0.22480625526069242,
+    1.0453002496092763
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 14,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 14,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p1",
+   "eta": [
+    0.22147622404250056,
+    0.22480625526069242,
+    1.0453002496092763
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 16,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 16,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p1",
+   "eta": [
+    0.22147622404250056,
+    0.22480625526069242,
+    1.0453002496092763
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 11,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 11,
+   "role": "correction_success",
+   "correction": "eta13",
+   "key": "menu:eta13",
+   "eta": null,
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p1",
+   "eta": [
+    0.22147622404250056,
+    0.22480625526069242,
+    1.0453002496092763
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 10,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 10,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p1",
+   "eta": [
+    0.22147622404250056,
+    0.22480625526069242,
+    1.0453002496092763
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 21,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 21,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p1",
+   "eta": [
+    0.22147622404250056,
+    0.22480625526069242,
+    1.0453002496092763
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p6",
+   "eta": [
+    0.40803974866867065,
+    1.2461837530136108,
+    1.0300698280334473
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p6",
+   "eta": [
+    0.40803974866867065,
+    1.2461837530136108,
+    1.0300698280334473
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p6",
+   "eta": [
+    0.40803974866867065,
+    1.2461837530136108,
+    1.0300698280334473
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 17,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 17,
+   "role": "correction_success",
+   "correction": "eta13",
+   "key": "menu:eta13",
+   "eta": null,
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 4,
+   "controller_type": "cross_entropy",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 4,
+   "controller_type": "cross_entropy",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p6",
+   "eta": [
+    0.40803974866867065,
+    1.2461837530136108,
+    1.0300698280334473
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p6",
+   "eta": [
+    0.40803974866867065,
+    1.2461837530136108,
+    1.0300698280334473
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 9,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 9,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p6",
+   "eta": [
+    0.40803974866867065,
+    1.2461837530136108,
+    1.0300698280334473
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 18,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n08_te",
+   "controller": 7,
+   "controller_type": "prioritized_astar",
+   "state": 18,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p6",
+   "eta": [
+    0.40803974866867065,
+    1.2461837530136108,
+    1.0300698280334473
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 0,
+   "controller_type": "centralized_sampling",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p8",
+   "eta": [
+    0.4495096802711487,
+    1.2743557691574097,
+    1.1389261484146118
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 13,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 1,
+   "controller_type": "gradient_mpc",
+   "state": 13,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p8",
+   "eta": [
+    0.4495096802711487,
+    1.2743557691574097,
+    1.1389261484146118
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 8,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 2,
+   "controller_type": "distributed_shooting",
+   "state": 8,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p8",
+   "eta": [
+    0.4495096802711487,
+    1.2743557691574097,
+    1.1389261484146118
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 17,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 3,
+   "controller_type": "centralized_mppi",
+   "state": 17,
+   "role": "correction_success",
+   "correction": "eta13",
+   "key": "menu:eta13",
+   "eta": null,
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 4,
+   "controller_type": "cross_entropy",
+   "state": 10,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 4,
+   "controller_type": "cross_entropy",
+   "state": 10,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p8",
+   "eta": [
+    0.4495096802711487,
+    1.2743557691574097,
+    1.1389261484146118
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 10,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 5,
+   "controller_type": "distributed_cross_entropy",
+   "state": 10,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p8",
+   "eta": [
+    0.4495096802711487,
+    1.2743557691574097,
+    1.1389261484146118
+   ],
+   "expected_outcome": "success"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 15,
+   "role": "safety_failure",
+   "key": "menu:safety",
+   "eta": null,
+   "expected_outcome": "timeout"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller": 6,
+   "controller_type": "conflict_based_search",
+   "state": 15,
+   "role": "correction_success",
+   "correction": "pipeline",
+   "key": "p8",
+   "eta": [
+    0.4495096802711487,
+    1.2743557691574097,
+    1.1389261484146118
+   ],
+   "expected_outcome": "success"
+  }
+ ],
+ "gaps": [
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller_type": "gradient_mpc",
+   "safety_failures": 0,
+   "reason": "no state with safety failure and a correction success"
+  },
+  {
+   "scene": "xsc_hs_plus_w020_te",
+   "controller_type": "cross_entropy",
+   "safety_failures": 0,
+   "reason": "no state with safety failure and a correction success"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller_type": "gradient_mpc",
+   "safety_failures": 0,
+   "reason": "no state with safety failure and a correction success"
+  },
+  {
+   "scene": "xsc_hs_plus_w030_te",
+   "controller_type": "cross_entropy",
+   "safety_failures": 0,
+   "reason": "no state with safety failure and a correction success"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller_type": "gradient_mpc",
+   "safety_failures": 0,
+   "reason": "no state with safety failure and a correction success"
+  },
+  {
+   "scene": "xsc_hs_plus_w038_te",
+   "controller_type": "cross_entropy",
+   "safety_failures": 0,
+   "reason": "no state with safety failure and a correction success"
+  },
+  {
+   "scene": "xsc_hs_box_n09_r013_f25_te",
+   "controller_type": "distributed_cross_entropy",
+   "safety_failures": 1,
+   "reason": "no state with safety failure and a correction success"
+  },
+  {
+   "scene": "hs_obst_n08_R142_r050_te",
+   "controller_type": "cross_entropy",
+   "safety_failures": 0,
+   "reason": "no state with safety failure and a correction success"
+  },
+  {
+   "scene": "hs_obst_n08_R148_r052_te",
+   "controller_type": "cross_entropy",
+   "safety_failures": 0,
+   "reason": "no state with safety failure and a correction success"
+  },
+  {
+   "scene": "xsc_hs_swap_n06_te",
+   "controller_type": "cross_entropy",
+   "safety_failures": 0,
+   "reason": "no state with safety failure and a correction success"
+  },
+  {
+   "scene": "xsc_hs_swap_n10_te",
+   "controller_type": "prioritized_astar",
+   "safety_failures": 0,
+   "reason": "no state with safety failure and a correction success"
+  }
+ ]
+}

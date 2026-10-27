@@ -1,0 +1,60 @@
+{
+  "utc": "2026-10-23T06:15:13.339547+00:00",
+  "source": {
+    "path": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/capability/raw/roll_aca4e6981ff3794d6322521fcc3f28cbcd43aa057c7dadb79527e9afffd0853b.json",
+    "sha256": "ff43e785a2ce8a8116649439e9945da66f5a5e6cb10437353cd22e3cf6ff57df"
+  },
+  "trace_path": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/capability/traces/roll_aca4e6981ff3794d6322521fcc3f28cbcd43aa057c7dadb79527e9afffd0853b.npz",
+  "trace_sha256": "cfd24e13643a8c88e6c2d2e9bb659bbf5d722e110e1ebe43f8d6fe5d2c268486",
+  "controller": "centralized_mppi4",
+  "state": 10,
+  "solo_agent": 5,
+  "seed": 0,
+  "eta_a": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "eta_b": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "step_index_zero_based": 83,
+  "time_seconds": 4.15,
+  "position": [
+    -0.5365084539447441,
+    -0.43752087014989616
+  ],
+  "moving_position": [
+    -0.25419744678657974,
+    -0.6471983014466817
+  ],
+  "executed_filtered_velocity": [
+    0.03930245456853283,
+    0.1840818855856972
+  ],
+  "obstacle_velocity_for_posthoc_explanation_only": [
+    -0.14271065146397865,
+    0.20526487755757605
+  ],
+  "control_period": 0.05,
+  "physical_separation": 0.35,
+  "inflated_separation": 0.3626,
+  "distance_at_step_start": 0.35165911044344544,
+  "distance_at_step_end": 0.3437520673687356,
+  "minimum_distance_during_step": 0.3437520673687356,
+  "minimum_time_offset": 0.05,
+  "inflated_h_at_start": -0.007814630042124626,
+  "moving_constraint_residual": 0.04718997272756989,
+  "moving_constraint_satisfied": true,
+  "filtered_robot_radial_away_speed": 0.0782072767862223,
+  "obstacle_radial_toward_robot_speed": 0.23695731898894268,
+  "assumed_stationary_obstacle_barrier_expression": 0.04718997272756989,
+  "actual_moving_obstacle_barrier_expression": -0.11946642728986076,
+  "projection_rewrite": false,
+  "second_projection_change_from_first": 0.0,
+  "constraint_violation_steps": 0,
+  "restoration_steps": 0,
+  "new_rollouts": 0
+}

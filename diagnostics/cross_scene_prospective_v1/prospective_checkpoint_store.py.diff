@@ -1,0 +1,11 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/checkpoint_store.py
++++ /home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/prospective_checkpoint_store.py
+@@ -15,7 +15,7 @@
+         self.folder=Path(folder)if folder is not None else HERE/'operational_checkpoints'/c['rollout_uid']
+         assert self.folder.resolve().is_relative_to(HERE)
+         self.folder.mkdir(parents=True,exist_ok=True)
+-        self.sources={str(HERE/n):sha(HERE/n)for n in ('runtime_new.py','runtime_checkpointed.py','checkpoint_store.py')}
++        self.sources={str(HERE/n):sha(HERE/n)for n in ('runtime_prospective.py','runtime_prospective_checkpointed.py','prospective_checkpoint_store.py')}
+         self.pause=pause;self.forced_steps=set(forced_steps);self.last_saved=time.monotonic()
+         self.resumed_from=None;self.saved=[]
+ 

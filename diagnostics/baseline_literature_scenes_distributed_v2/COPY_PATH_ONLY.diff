@@ -1,0 +1,13 @@
+--- /home/zhihan/research/Basin_C1_flow_field_poc_20261004/poc/field_controller.py
++++ /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/poc_field_controller.py
+@@ -14,8 +14,8 @@
+ from pathlib import Path
+ import sys
+ 
+-ROOT = Path(__file__).resolve().parents[1]
+-SOURCE = ROOT / "source"
++ROOT = Path("/home/zhihan/research/Basin_C1_flow_field_poc_20261004")
++SOURCE = Path("/home/zhihan/research/Basin_C1")
+ sys.path.insert(0, str(SOURCE))
+ 
+ import jax

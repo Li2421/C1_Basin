@@ -1,0 +1,20 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/common.py
++++ /home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/common.py
+@@ -7,7 +7,7 @@
+ from functools import lru_cache
+ from shared_rollout_db.src import rollout_db as dbm, planner, cache_writer
+ 
+-EXP = 'exp_eta_diverse_scene_test_v1'
++EXP = 'exp_hetero_scene_pipeline_v1'
+ SOURCE = ROOT / 'diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1'
+ SEARCH = SOURCE / 'best_correction_search_v1'
+ V2 = ROOT / 'diagnostics/baseline_literature_scenes_distributed_v2'
+@@ -103,7 +103,7 @@
+                 else:
+                     db.execute('INSERT INTO ' + table + '(' + ','.join(values) + ') VALUES(' + ','.join('?' for _ in values) + ')', list(values.values()))
+                     inserted.append(dict(table=table, row=values)); added[table].add(key)
+-            ins('experiment', dict(experiment_uid=EXP, name='Eta diverse scene test v1', path=str(HERE),
++            ins('experiment', dict(experiment_uid=EXP, name='Heterogeneous scene pipeline v1', path=str(HERE),
+                 protocol_hash=sha(HERE / 'PROTOCOL.md'), code_hash=sha(HERE / 'common.py'), metadata_json=canonical(dict(evidence='DEVELOPMENT'))))
+             for c in cases:
+                 s = c['state']; physical = {k: s[k] for k in ('positions', 'velocities', 'goals')}

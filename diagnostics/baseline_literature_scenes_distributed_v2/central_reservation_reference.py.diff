@@ -1,0 +1,18 @@
+--- central_tiled_runtime.py
++++ central_reservation_reference.py
+@@ -7,7 +7,7 @@
+ from flow_scene import LiteratureEnv
+ from states import LiteratureConfig
+ from controllers import bound
+-from tiled_nominal import TiledNominal as Nominal
++from reservation_certificate import ReservationNominal as Nominal
+ from projection_memo import MemoSafetyFilter as LiteratureSafetyFilter
+ from shared_control.basis_families import get_basis_family
+ jax.config.update('jax_enable_x64',False)
+@@ -55,5 +55,6 @@
+             error=dict(step=t,type=type(e).__name__,message=str(e),traceback=traceback.format_exc());term='unknown';break
+     result=dict(success=int(term=='success' and not env.collided),collision=int(env.collided),timeout=int(term=='timeout'),numerical_failure=int(error is not None),outcome=term,episode_length=len(aa),error=error,elapsed_seconds=time.monotonic()-start,switch_step=switch,minimum_swept_clearance=min(clear) if clear else None,final_goal_distances=np.linalg.norm(env.goals-env.positions,axis=-1),jax_enable_x64=bool(jax.config.x64_enabled),
+                 paper_position_convergence=int(np.all(np.linalg.norm(env.goals-env.positions,axis=-1)<.1)),paper_velocity_convergence=int(np.all(np.linalg.norm(env.velocities,axis=-1)<.1)))
++    result["reservation_no_goal_certificates"]=getattr(getattr(actor,"planner",None),"certificates",[])
+     arrays=dict(positions=np.asarray(p),velocities=np.asarray(vel),actions=np.asarray(aa).reshape(-1,env.num_agents,2),nominal=np.asarray(nom).reshape(-1,env.num_agents,2),safe=np.asarray(safe).reshape(-1,env.num_agents,2),cone_residual=np.asarray(residual),projection_rewrite=np.asarray(rewrite).reshape(-1,env.num_agents),active_json=np.asarray(json.dumps(active)),goals=env.goals,swept_clearance=np.asarray(clear),step_seconds=np.asarray(steps_seconds))
+     return result,arrays

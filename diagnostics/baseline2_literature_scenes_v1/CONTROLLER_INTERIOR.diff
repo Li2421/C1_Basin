@@ -1,0 +1,15 @@
+--- controllers.py
++++ controllers_interior.py
+@@ -23,6 +23,12 @@
+         clear=xp.minimum(xp.minimum(p[...,0],p[...,1]),xp.minimum(2-p[...,0],2-p[...,1]))-margin
+         return zero,xp.maximum(-clear,0)**2
+     if scene=='lit_circle_five':
++        # Every 128-gon normal has unit norm to floating-point precision.
++        # With this conservative interior guard, every old dot product is
++        # strictly below 11-margin, so its positive-part penalty is exactly +0.
++        # JAX and all other dtypes retain the original expression.
++        if xp is np and p.dtype==np.float64 and np.all(np.sum(p*p,axis=-1)<=(11-margin-1e-10)**2):
++            return zero,zero
+         normals=xp.asarray(np.stack([np.cos(np.arange(128)*2*np.pi/128),np.sin(np.arange(128)*2*np.pi/128)],-1))
+         return zero,xp.maximum(xp.max(p@normals.T,axis=-1)-(11-margin),0)**2
+     values=[]

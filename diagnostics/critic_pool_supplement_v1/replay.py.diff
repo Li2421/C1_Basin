@@ -1,0 +1,35 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/replay.py
++++ /home/zhihan/research/Basin_C1/diagnostics/critic_pool_supplement_v1/replay.py
+@@ -1,7 +1,7 @@
+ """Exactly two fast-controller historical diametric episodes; no search replay."""
+ from common import *
+ from execution import execute
+-from design import TEST1 as OLD,CONTROL_IDS,CONTROL_TYPES
++from design import HET as OLD,CONTROL_IDS,CONTROL_TYPES
+ import numpy as np
+ 
+ def iter_array(path):
+@@ -23,12 +23,17 @@
+             pos=end;yield value
+ 
+ def main():
+-    candidates=read_evidence(OLD/'main_CASES.json');chosen=[]
+-    for ctl in CONTROL_IDS[:2]:
+-        c=next(c for c in candidates if c['state']['scene']=='xsc_div_size_r014'and c['controller_payload']['nominal']['controller']==ctl and c['state']['index']==0 and c['requested_action']=='eta13')
+-        assert c['controller_payload']['nominal']['type_code']in CONTROL_TYPES
+-        source=next((p for stage in('pilot','pilot_tail','main')if(p:=OLD/stage/'raw'/f"{c['rollout_uid']}.json").exists()),None)
+-        assert source is not None;chosen.append((c,source))
++    chosen=[];targets={'xsc_het_plus_w020':('sE05','centralized_sampling0'),'xsc_het_box_n10_r013_f25':('eta4','gradient_mpc0')}
++    evidence(OLD/'main_CASES.json')
++    for c in iter_array(OLD/'main_CASES.json'):
++        name=c['state']['scene']
++        if name not in targets:continue
++        key,ctl=targets[name]
++        if c['state']['index']!=0 or c['requested_action']!=key or c['controller_payload']['nominal']['controller']!=ctl:continue
++        source=OLD/'main'/'raw'/f"{c['rollout_uid']}.json"
++        if source.exists():chosen.append((c,source));targets.pop(name)
++        if not targets:break
++    assert len(chosen)==2, 'Required complete replay records unavailable'
+     plan=HERE/'replay_PLANNED_ROLLOUTS.json';write(plan,dict(requests=[{k:c[k]for k in('state_uid','eta_uid','controller_uid','seed_key')}for c,p in chosen]));pf=planner.preflight(plan);write(HERE/'replay_CACHE_PREFLIGHT.json',pf)
+     assert pf['summary']['genuinely_missing']==0 and pf['summary']['ambiguous']==0
+     results=[]

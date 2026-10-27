@@ -1,0 +1,19 @@
+--- scene_learning_scheduler_reuse_order_20261022.py
++++ scene_learning_scheduler_spatial_mask_20261022.py
+@@ -6,7 +6,7 @@
+ from resources_corrections_release_20261023_quota18_now_20261022 import snapshot
+ from infrastructure_recovery_correction_20261021 import classify
+ from analysis_jobs_current import prepare as prepare_analysis
+-import fine_dispatch_pa_memo_20261022_quota18_now_20261022 as fine_dispatch
++import fine_dispatch_spatial_mask_20261022 as fine_dispatch
+ import subprocess
+ import time
+ 
+@@ -110,6 +110,7 @@
+         if current['free_cpu_shares']:
+             originals=[f'distributed_revised_fixed_{s}' for s in NAMES]
+             originals += [f'central_revised_fixed_{s}' for s in NAMES if stage_done(f'central_revised_fixed_{s}')]
++            originals += [s for s in fixed_evaluations if stage_done(s)]
+             originals += [evaluations[s] for s in active if s in evaluations and stage_done(evaluations[s])]
+             for original in originals:
+                 if original not in diagnostics:diagnostics[original]=prepare_analysis(original)

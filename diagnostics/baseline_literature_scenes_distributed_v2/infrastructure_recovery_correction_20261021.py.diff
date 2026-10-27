@@ -1,0 +1,11 @@
+--- infrastructure_recovery_active.py
++++ infrastructure_recovery_correction_20261021.py
+@@ -11,7 +11,7 @@
+ 
+ def classify(stage,job):
+     info=job_state(job)
+-    prefix='analysis' if stage.startswith('analysis_') else 'optional' if stage.startswith('optional_') else 'critic' if stage.startswith('critic_') else 'worker'
++    prefix='analysis' if stage.startswith('analysis_') else 'optional' if stage.startswith('optional_') else 'critic' if stage.startswith('critic_') else 'revised' if '_revised_' in stage else 'worker'
+     path=HERE/'logs'/f'{prefix}_{job}.log';tail=path.read_text(errors='replace')[-20000:] if path.exists() else ''
+     infrastructure=info['state'] in ('CANCELLED','TIMEOUT','PREEMPTED','NODE_FAIL','OUT_OF_MEMORY','BOOT_FAIL') or any(w in tail.lower() for w in ('oom_kill','out of memory','memoryerror','time limit','cancelled at','node failure','std::bad_alloc','cannot allocate memory'))
+     # CPU-only JAX logs a benign CUDA-plugin traceback without stopping.

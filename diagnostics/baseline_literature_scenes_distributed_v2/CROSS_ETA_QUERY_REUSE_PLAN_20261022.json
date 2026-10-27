@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-22T00:32:20.105113+00:00",
+  "history": [
+    "CBS_START_SIGNATURE_V2_FULL_REPLAY_20261022.json",
+    "CBS_START_SIGNATURE_SAVED_QUERIES_20261022.json",
+    "CBS_ACCELERATION_REVIEW.json"
+  ],
+  "gap": "Cross-eta low-level query overlap was not measured; no shared-filesystem cache is implemented or deployed",
+  "sources": [
+    {
+      "rollout_uid": "roll_186dfe489313d67a3924b510e2cb8f54761e1e206c19bf7704aaec3aeda7d312",
+      "raw_sha256": "cc4ea044b7b8d73d20163e791fb69691c9991bf9616a9da1827e4d45144d6581",
+      "trace_sha256": "6eabbc7d9e5ee8198269a91413748d0c73b0c53c42e99a5237c22545c1cf8cac"
+    },
+    {
+      "rollout_uid": "roll_67b1147c5b0c140aff8ee727817cb4d7b0b108bc91acfe0c034c0f710077e917",
+      "raw_sha256": "2d39cadae20c2009baa4b6508bf46f54d5eb464c10d73c0f77f5b7733c2cf5ec",
+      "trace_sha256": "75dad5a7ff57de49b8100dc0eebe45c186db3d14ed0acd3a7d5d771be7428690"
+    },
+    {
+      "rollout_uid": "roll_26c48d002d4b39b47379ec6386aa3d334d07ba5d2bacbf10315e17704be8dae1",
+      "raw_sha256": "13e1b68e0214ce063ee3d289c5b1ceb0977359f6b7e3537373fbfff2a605dd7d",
+      "trace_sha256": "4da7afc5120b0dcc6a305d06838dcaa475ff280bd49e15c0c8c4f4753fc6c200"
+    }
+  ],
+  "frames": [
+    0,
+    600,
+    1200,
+    1800
+  ],
+  "new_research_rollouts": 0,
+  "plant_steps": 0
+}

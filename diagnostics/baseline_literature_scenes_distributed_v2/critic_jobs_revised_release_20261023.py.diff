@@ -1,0 +1,11 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/critic_jobs_revised_20261021.py
++++ /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/critic_jobs_revised_release_20261023.py
+@@ -1,7 +1,7 @@
+ """The frozen v1 critic, with user-wide CPU and GPU share accounting."""
+ from experiment import *
+ from registry import verify_receipt
+-from resources_corrections_20261021 import require_capacity
++from resources_corrections_release_20261023 import require_capacity
+ import subprocess
+ import fcntl
+ import time

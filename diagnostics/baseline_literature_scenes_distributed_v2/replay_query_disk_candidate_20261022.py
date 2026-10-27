@@ -1,0 +1,51 @@
+"""Full saved revised episode replay; never register or publish new labels."""
+from experiment import *
+from atomic_write import write
+from runtime_correction_query_disk_candidate_20261022 import run
+import tiled_planning_query_disk_candidate_20261022 as backend
+import numpy as np,ctypes,time,resource
+
+
+def main():
+    os.sched_setaffinity(0,{read(HERE/'LOCAL_CPU_GUARD_STATUS.json')['local_cpu']})
+    tag=sys.argv[1];assert tag in ('cold','warm')
+    namespace=hashlib.sha256((backend.QUERY_CACHE_NAMESPACE+':full_saved_episode_validation01').encode()).hexdigest()
+    assert backend.CBS.query_disk_cache_configure(namespace.encode())
+    folder=HERE/'runtime_cbs_query_memo_candidate_20261022'/namespace
+    if tag=='cold':assert not list(folder.glob('*/*')),'Cold validation namespace already contains entries'
+    else:assert read(HERE/'CBS_QUERY_DISK_FULL_REPLAY_cold_20261022.json')['passed']
+    candidates=[]
+    for path in (HERE/'distributed_revised_fixed_lit_circle_five'/'raw').glob('*.json'):
+        r=read(path)
+        if (not r.get('deterministic_source') and r['case']['controller_payload']['nominal']['type_code']=='conflict_based_search'
+            and r['case']['seed']==0 and not r['numerical_failure'] and r['episode_length']==2000):candidates.append((r['elapsed_seconds'],path,r))
+    old_seconds,path,raw=max(candidates,key=lambda r:r[0]);assert sha(raw['trace_path'])==raw['trace_sha256']
+    plan=dict(utc=utc(),source_raw=str(path),raw_sha256=sha(path),trace_sha256=raw['trace_sha256'],old_seconds=old_seconds,
+              controller=raw['case']['controller_payload']['nominal']['controller'],state=raw['case']['state']['index'],method=raw['case']['method'],
+              purpose='Validate all2000 physical/control/event steps for the exact computational cache; same saved request, no new experimental labels',
+              source_stage='distributed_revised_fixed_lit_circle_five',new_research_rollouts=0,saved_episode_replays=1)
+    write(HERE/('CBS_QUERY_DISK_FULL_REPLAY_'+tag+'_PLAN_20261022.json'),plan);print(json.dumps(plan),flush=True)
+    usage=resource.getrusage(resource.RUSAGE_SELF);cpu_start=usage.ru_utime+usage.ru_stime
+    started=time.monotonic();result,arrays=run(raw['case']);seconds=time.monotonic()-started;checked={}
+    usage=resource.getrusage(resource.RUSAGE_SELF);cpu_seconds=usage.ru_utime+usage.ru_stime-cpu_start
+    with np.load(raw['trace_path']) as z:
+        assert set(arrays)==set(z.files),(set(arrays),set(z.files))
+        for name,value in arrays.items():
+            if name=='step_seconds':continue
+            expected=z[name];assert value.dtype==expected.dtype and value.shape==expected.shape,(name,value.dtype,expected.dtype,value.shape,expected.shape)
+            if value.tobytes()!=expected.tobytes():
+                np.savez_compressed(HERE/('CBS_QUERY_DISK_FULL_REPLAY_'+tag+'_MISMATCH_20261022.npz'),**arrays)
+                raise AssertionError(('Full saved physical array differs',name))
+            checked[name]=dict(dtype=str(value.dtype),shape=list(value.shape),sha256=hashlib.sha256(value.tobytes()).hexdigest(),bitwise_equal=True)
+    for key,value in result.items():
+        if key=='elapsed_seconds':continue
+        assert clean(value)==raw[key],('Result differs',key,clean(value),raw[key])
+    stats=np.zeros(5,np.uint64);backend.CBS.start_signature_cache_stats.argtypes=[ctypes.POINTER(ctypes.c_uint64)];backend.CBS.start_signature_cache_stats(stats.ctypes.data_as(ctypes.POINTER(ctypes.c_uint64)))
+    report=dict(utc=utc(),passed=True,plan=plan,steps=result['episode_length'],outcome=result['outcome'],candidate_seconds=seconds,source_elapsed_seconds=old_seconds,same_episode_speedup=old_seconds/seconds,
+                arrays=checked,all_non_timing_result_fields_equal=True,cache_stats=stats.tolist(),new_research_rollouts=0,saved_episode_replays=1,new_cache_journals=0,
+                source_hashes={str(HERE/n):sha(HERE/n) for n in ('runtime_correction_revised_20261021.py','runtime_correction_query_disk_candidate_20261022.py','cbs_kernel_query_disk_candidate_20261022.cpp','cbs_kernel_query_disk_candidate_20261022.so','cbs_query_disk_memo_candidate_20261022.hpp','reservation_certificate_v2_query_disk_candidate_20261022.py',Path(__file__).name)})
+    disk=np.zeros(7,np.uint64);backend.CBS.query_disk_cache_stats.argtypes=[ctypes.POINTER(ctypes.c_uint64)];backend.CBS.query_disk_cache_stats(disk.ctypes.data_as(ctypes.POINTER(ctypes.c_uint64)));report['disk_stats']=disk.tolist();report['disk_namespace']=namespace;report['candidate_cpu_seconds']=cpu_seconds;report['cpu_over_wall_ratio']=cpu_seconds/seconds;report['reference_memory_only_seconds']=read(HERE/'CBS_START_SIGNATURE_V2_FULL_REPLAY_20261022.json')['candidate_seconds']
+    write(HERE/('CBS_QUERY_DISK_FULL_REPLAY_'+tag+'_20261022.json'),report);print(json.dumps({k:v for k,v in report.items() if k not in ('arrays','source_hashes')}),flush=True)
+
+
+if __name__=='__main__':main()

@@ -1,0 +1,11 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/analysis_submit_cached.py
++++ /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/analysis_submit_release_20261023.py
+@@ -3,7 +3,7 @@
+ from atomic_write import write
+ from registry import verify_receipt
+ from result_inventory import find_raw
+-from resources_released import require_capacity
++from resources_corrections_release_20261023 import require_capacity
+ import subprocess
+ import fcntl
+ import time

@@ -1,0 +1,237 @@
+{
+  "utc": "2026-10-19T18:08:18.743557+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "type": "Flow",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "Flow",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "centralized_mppi",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "centralized_mppi",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "centralized_sampling",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "centralized_sampling",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "chunking",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "chunking",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "conflict_based_search",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "conflict_based_search",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "cross_entropy",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "cross_entropy",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "cvae",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "cvae",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "deterministic",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "deterministic",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "diffusion",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "diffusion",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "distributed_cross_entropy",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "distributed_cross_entropy",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "distributed_shooting",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "distributed_shooting",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "gaussian",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "gaussian",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "gradient_mpc",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "gradient_mpc",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "mixture",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "mixture",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "prioritized_astar",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "prioritized_astar",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "recurrent",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "recurrent",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "ring_ippo",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "ring_ippo",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "ring_ippo_conservative",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "ring_ippo_conservative",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "transformer_bc",
+      "model": "full",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "type": "transformer_bc",
+      "model": "no_controller",
+      "bitwise": true,
+      "max_abs_error": 0.0
+    }
+  ],
+  "x64": false,
+  "matmul_precision": "highest",
+  "new_eval_labels_read": false
+}

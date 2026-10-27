@@ -1,0 +1,22 @@
+# 跨类型6交接
+
+以REPORT.md、INFORMATION_VALUE.md、AXIS_TABLE.md、GAPS.md、INTEGRITY_COMPARISON.json开始。全部19类型是开发证据，19折模型确实整类留出外层类型；没有做最终3个完全未接触类型检验。
+
+本轮主方法 = 学习双 η·进度阈值学出·在线停滞触发。第一层的生成器和critic不看controller；在线层只加本局进度，离线层再加39维700步无成败探测。η来源按ETA_SOURCE_DECISION.json冻结为原8提议+实际late切换处隔离进程重查，不重训时间表生成器。进度阈值为五点网格，三种触发动作前判定。
+
+复用入口：schedule_c6.py、actions_c6.py、execution_c6.py、reuse_c6.py。controller/物理/安全投影/事件/成功标准沿用经16条逐位复现的执行链；旧given/requery执行文件保持原字节，重查CPU helper防止导入冻结网络修改controller进程XLA_FLAGS。实际controller进程必须unset XLA_FLAGS。旧人定标签阈值保留完整精度，新人定对照为精确.968。
+
+TRAINING_BUNDLE.npz的53槽保留原44槽全部q0及Safety q1，其余旧/新增未观测q1是结构性缺失。新编码19维，离线特征39维见PROBE_FEATURE_DEFINITION.json；失败指示和此前10缺失controller重试情况见PROBE_FAILURES.json与PREVIOUS_MISSING_CONTROLLERS_REATTEMPT.json。旧标签不因编码改变重跑。
+
+CRITIC_TRAINING_PLAN.json是382个源集合/分支三seed拟合，critic_fits/保存曲线、概率、checkpoint；19个外层及最终模型在FROZEN_PIPELINE.json，checkpoint、预处理、概率混合、全局触发全在源类型内部选。NEW_EVAL_CHOICES.receipt.json早于新闭环，NEW_EVAL_CHOSEN_ACTIONS.json和evaluation_ACTION_LINKS.json追踪8个固定方法的真实UID。
+
+本地等价仅*_ALL_LOCAL_EQUIVALENCE.json和evaluation/dynamic_aliases/，来源必须为实际轨迹，不写共享DB，不能作为新一层推断源。新评估先执行所选Safety，再官方merge后据其实际轨迹判未触发等价，节约补跑。unknown不重跑；timeout不当作deadlock。
+
+T1_T7_RESULTS.json、TYPE_INFORMATION_ORACLE_RESULTS.json、INFORMATION_VALUE_NUMERIC.json、AXIS_TABLE.csv由NUMERIC_RESULTS.receipt.json封存，绘图只用单独只读.venv-c1-plots，图不作为主线前置。类型信息参照使用同state完整物理动作匹配，并在每个bootstrap重新选donor动作，留出controller的全部副本排除；稀疏共同支持和回退须继续报告。
+
+coordinator_c6.py是前台受监督的恢复入口，未完成相同案例/种子可因基础设施原因重提最多3次，保留已完成/unknown；完成原始记录与journal之间中断可在finish_phase_c6.py恢复journal而不重跑物理。资源按当前18 CPU/2 GPU全用户总上限，每提交查squeue。其他目录/源码/docs/PoC/venv只读；禁止前缀只stat；不Git提交。用户要求非关键缺包、绘图和排版失败记缺口而继续主线，跨轮持续有效。
+
+下一轮是否允许冻结，应先核对REPORT.md的每学习型类型≥90%逐项结果；达到之前不把本轮19类说成最终未见类型检验。可直接复用本轮执行器、探测特征、训练标签与冻结模型，无需重新训练或rollout能回答的问题一律从已有预测/checkpoint重算。
+
+
+交付后补充复核入口：REPORT_FINAL.md、GAPS_FINAL.md、INTEGRITY_RECONCILIATION.json、DELIVERY_REVIEW.receipt.json。信息价值分组条形图为figures/information_value_grouped_bars_v2.png及.svg，原图保留。原REPORT.md/HANDOFF.md和原DELIVERY收据均未改写；最终复核区分内容一致与外部Git状态变化。每个学习型类型≥90%的前提未达到，未进行3个最终未见类型测试。

@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-22T01:26:27.219157+00:00",
+  "source_raw": "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/distributed_revised_fixed_lit_circle_five/raw/roll_186dfe489313d67a3924b510e2cb8f54761e1e206c19bf7704aaec3aeda7d312.json",
+  "raw_sha256": "cc4ea044b7b8d73d20163e791fb69691c9991bf9616a9da1827e4d45144d6581",
+  "trace_sha256": "6eabbc7d9e5ee8198269a91413748d0c73b0c53c42e99a5237c22545c1cf8cac",
+  "old_seconds": 3126.054705504328,
+  "controller": "conflict_based_search1",
+  "state": 13,
+  "method": "fixed_eta10",
+  "purpose": "Validate all2000 physical/control/event steps for the exact computational cache; same saved request, no new experimental labels",
+  "source_stage": "distributed_revised_fixed_lit_circle_five",
+  "new_research_rollouts": 0,
+  "saved_episode_replays": 1
+}

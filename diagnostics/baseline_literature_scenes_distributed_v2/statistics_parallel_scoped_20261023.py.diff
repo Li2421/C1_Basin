@@ -1,0 +1,38 @@
+--- statistics_parallel_correction_20261023.py
++++ statistics_parallel_scoped_20261023.py
+@@ -2,8 +2,9 @@
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+-from statistics_correction_header_20261023 import collect,revised_records,controller_census,complete_original_landed_label_diagnoses,save_or_assert,SEMANTICS
++from statistics_correction_header_20261023 import collect,revised_records,controller_census,save_or_assert,SEMANTICS
+ from statistics_parallel_tasks_20261023 import task_manifest
++from closed_old_circle_scope_20261023 import complete_original_landed_label_diagnoses
+ from coordinator_correction_release_20261023 import status,jobs_by_stage,stage_done
+ from resources_corrections_release_20261023 import snapshot,require_capacity
+ from infrastructure_recovery_correction_20261021 import classify
+@@ -27,7 +28,7 @@
+  current={s['rollout_uid']:s['raw_sha256'] for s in sources}
+  for s in read(HERE/'COMPLETED_SCENE_RESULT_SOURCES.json'):assert current[s['rollout_uid']]==s['raw_sha256'],s['rollout_uid']
+  for name,value in [('COMPACT_MAIN_RESULTS.json',old),('COMPACT_REVISED_MAIN_RESULTS_20261021.json',new),('CONTROLLER_LEVEL_FAILURES.json',census),('MIGRATION_RESULT_SOURCES.json',sources),('REVISED_MIGRATION_RESULT_SOURCES_20261021.json',new_sources)]:save_or_assert(name,value)
+- seal(INPUT_PROOF,[HERE/n for n in ('COMPACT_MAIN_RESULTS.json','COMPACT_REVISED_MAIN_RESULTS_20261021.json','CONTROLLER_LEVEL_FAILURES.json','MIGRATION_RESULT_SOURCES.json','REVISED_MIGRATION_RESULT_SOURCES_20261021.json','ORIGINAL_LANDED_LABEL_DIAGNOSIS_COVERAGE_20261021.json','INSTANCE_CLASSES_REVISED.receipt.json',CODE_PROOF)],original_raw_hashes_verified=True,original_census_exact=True,immutable_shared_statistical_inputs=True,new_rollouts=0)
++ seal(INPUT_PROOF,[HERE/n for n in ('COMPACT_MAIN_RESULTS.json','COMPACT_REVISED_MAIN_RESULTS_20261021.json','CONTROLLER_LEVEL_FAILURES.json','MIGRATION_RESULT_SOURCES.json','REVISED_MIGRATION_RESULT_SOURCES_20261021.json','ORIGINAL_LANDED_LABEL_DIAGNOSIS_COVERAGE_20261021.json','INSTANCE_CLASSES_REVISED.receipt.json',CODE_PROOF,'CORRECTION_SCOPED_NUMERICS_READY_20261023.receipt.json')],original_raw_hashes_verified=True,original_census_exact=True,immutable_shared_statistical_inputs=True,new_rollouts=0)
+ 
+ def submit(key,task,memory_gb):
+  with (HERE/'SUBMISSION.lock').open('a') as lock:
+@@ -85,13 +86,13 @@
+  fields=('scene','type','layer','method','success_rate','ci95','success_upper','upper_ci95','controllers','semantics')
+  with (HERE/'MIGRATION_RESULTS.csv').open('w') as f:
+   w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows({k:canonical(r[k]) if isinstance(r[k],(list,dict)) else r[k] for k in fields} for r in flat)
+- names=['MIGRATION_RESULTS.json','MIGRATION_RESULTS.csv','CONTROLLER_LEVEL_FAILURES.json','MIGRATION_RESULT_SOURCES.json','REVISED_MIGRATION_RESULT_SOURCES_20261021.json','COMPACT_MAIN_RESULTS.json','COMPACT_REVISED_MAIN_RESULTS_20261021.json','SAFETY_BASELINE.csv',INPUT_PROOF,CODE_PROOF,'statistics_parallel_correction_20261023.py','statistics_parallel_tasks_20261023.py','statistics.py','INSTANCE_CLASSES_REVISED.receipt.json']
++ names=['MIGRATION_RESULTS.json','MIGRATION_RESULTS.csv','CONTROLLER_LEVEL_FAILURES.json','MIGRATION_RESULT_SOURCES.json','REVISED_MIGRATION_RESULT_SOURCES_20261021.json','COMPACT_MAIN_RESULTS.json','COMPACT_REVISED_MAIN_RESULTS_20261021.json','SAFETY_BASELINE.csv',INPUT_PROOF,CODE_PROOF,'statistics_parallel_scoped_20261023.py','CORRECTION_SCOPED_NUMERICS_READY_20261023.receipt.json','statistics_parallel_tasks_20261023.py','statistics.py','INSTANCE_CLASSES_REVISED.receipt.json']
+  fragments=[HERE/'parallel_numeric_fragments_20261023'/(key+'.receipt.json') for key in manifest]
+  seal('MIGRATION_NUMBERS.receipt.json',[*[HERE/n for n in names],*fragments],bootstrap_iterations=5000,before_optional_dynamics_and_charts=True,original_outcome_estimates_exact_reuse=True,revised_semantics_posthoc=True,primary_exclusion='Only revised taxonomy controller failure,per layer',independent_native_calls_parallelized=True,mathematical_kernel_unchanged=True)
+ 
+ def main():
+  with (HERE/'PARALLEL_NUMERIC_DRIVER_20261023.lock').open('a') as lock:
+-  fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);verify_receipt(CODE_PROOF)
++  fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);verify_receipt(CODE_PROOF);verify_receipt('CORRECTION_SCOPED_NUMERICS_READY_20261023.receipt.json')
+   if (HERE/'MIGRATION_NUMBERS.receipt.json').exists():verify_receipt('MIGRATION_NUMBERS.receipt.json');return
+   status('revised_main_statistical_input_preparation');prepare_inputs();parts=run_tasks();assemble(parts)
+ if __name__=='__main__':main()

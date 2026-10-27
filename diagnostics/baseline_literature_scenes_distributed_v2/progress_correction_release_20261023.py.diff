@@ -1,0 +1,20 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/progress_correction_20261021.py
++++ /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/progress_correction_release_20261023.py
+@@ -1,7 +1,7 @@
+ """Live corrected-scope request counts; cancellation is distinct from unknown."""
+ from experiment import *
+ from atomic_write import write
+-from resources_corrections_20261021 import snapshot
++from resources_corrections_release_20261023 import snapshot
+ import time,fcntl
+ 
+ SCENES=list(NAMES);FIXED=[16896,29568,4320,17280];EVAL=[3072,3072,1536,3072]
+@@ -22,7 +22,7 @@
+  optional_done=sum(r['completed'] for r in optional);ability=119808
+  all_done=old_done+ability+done+optional_done;all_plan=old_done+ability+177600+127168
+  state=read(HERE/'STATUS.json');resources=snapshot()
+- result=dict(utc=utc(),phase=state['phase'],scope='User correction revision. Logical requests include exact reuse; percentages are not elapsed-time completion or physical trajectory counts.',main_registered_or_preflight_verified_completed=done,main_planned_logical_requests=177600,main_remaining=177600-done,main_request_percent=100*done/177600,revised_fixed_stages=stages,revised_learning_label_stages=labels,revised_learning_eval_stages=evaluation,original_semantics=dict(completed=old_done,circle_labels_landed=old_circle,circle_labels_planned=6144,circle_unwritten_stopped=6144-old_circle,circle_old_evaluation_stopped=1536,stop_reason='用户决定停止：修正语义修订',unknowns_from_stopping=0,old_circle_workers_may_still_drain=True),ability_gate_completed=ability,second_stage_and_other_optional=optional,all_v2_completed=all_done,all_v2_planned_logical_requests=all_plan,all_v2_remaining=all_plan-all_done,all_v2_request_percent=100*all_done/all_plan,resources=resources)
++ result=dict(utc=utc(),phase=state['phase'],scope='User correction revision. Logical requests include exact reuse; percentages are not elapsed-time completion or physical trajectory counts.',main_registered_or_preflight_verified_completed=done,main_planned_logical_requests=177600,main_remaining=177600-done,main_request_percent=100*done/177600,revised_fixed_stages=stages,revised_learning_label_stages=labels,revised_learning_eval_stages=evaluation,original_semantics=dict(completed=old_done,circle_labels_landed=old_circle,circle_labels_planned=6144,circle_unwritten_stopped=6144-old_circle,circle_old_evaluation_stopped=1536,stop_reason='用户决定停止：修正语义修订',unknowns_from_stopping=0,old_circle_workers_may_still_drain=not (HERE/'OLD_CIRCLE_LEARNING_STOPPED_20261021.receipt.json').exists()),ability_gate_completed=ability,second_stage_and_other_optional=optional,all_v2_completed=all_done,all_v2_planned_logical_requests=all_plan,all_v2_remaining=all_plan-all_done,all_v2_request_percent=100*all_done/all_plan,resources=resources)
+  write(HERE/'LIVE_PROGRESS_PERCENT.json',result);write(HERE/'CORRECTION_PROGRESS_20261021.json',result)
+  text=f"{result['utc']}。阶段：{result['phase']}。修订主线{done}/177600（{100*done/177600:.4f}%），还需{177600-done}个逻辑请求；含精确复用，不等于时间进度或实际新轨迹。原语义已有{old_done}个主线请求完成，旧圆形标签保留{old_circle}条，其余不再派发、不算unknown。资源上限18CPU含1本地、2GPU份额；当前Slurm{resources['scheduled_cpus']}CPU/{resources['gpu_shards']}GPU份额。\n"
+  (HERE/'STATUS.md').write_text(text)

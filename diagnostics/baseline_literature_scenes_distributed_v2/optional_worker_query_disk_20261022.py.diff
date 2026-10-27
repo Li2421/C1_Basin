@@ -1,0 +1,65 @@
+--- optional_worker_start_signature_20261022.py
++++ optional_worker_query_disk_20261022.py
+@@ -9,7 +9,18 @@
+     global STOP
+     STOP=True
+ 
++def query_disk_snapshot():
++    import ctypes
++    from tiled_planning_query_disk_candidate_20261022 import CBS,QUERY_CACHE_NAMESPACE
++    values=(ctypes.c_uint64*7)()
++    CBS.query_disk_cache_stats.argtypes=[ctypes.POINTER(ctypes.c_uint64)]
++    CBS.query_disk_cache_stats.restype=None
++    CBS.query_disk_cache_stats(values)
++    return dict(namespace=QUERY_CACHE_NAMESPACE,values=list(values))
++
++
+ def main(stage):
++    verify_receipt('CBS_QUERY_DISK_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_QUERY_DISK_PIPELINE_CODE_20261022.receipt.json')
+     verify_receipt('CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_START_SIGNATURE_PIPELINE_CODE_20261022.receipt.json')
+     verify_receipt('CORRECTION_OPTIONAL_EXECUTION_20261021.receipt.json');verify_receipt('CORRECTION_REVISION.receipt.json')
+     verify_receipt('CBS_FLAT_CACHE_STATIC_DEPLOYMENT.receipt.json');signal.signal(signal.SIGUSR1,stop);signal.signal(signal.SIGTERM,stop)
+@@ -31,11 +42,11 @@
+             engine=c['execution_engine']
+             if engine=='paper_dynamics':
+                 verify_receipt('DYNAMICS_IMPLEMENTATION.receipt.json')
+-                from dynamics_start_signature_20261022 import run
++                from dynamics_query_disk_20261022 import run
+             elif engine=='local_progress':
+-                from runtime_local_progress_start_signature_20261022 import run
++                from runtime_local_progress_query_disk_20261022 import run
+             else:
+-                from runtime_correction_start_signature_v2_candidate_20261022 import run
++                from runtime_correction_query_disk_candidate_20261022 import run
+             import jax
+             jax.config.update('jax_enable_x64',False)
+             kind=c['controller_payload']['nominal']['type_code']
+@@ -43,7 +54,12 @@
+             source=HERE/stage/'raw'/f'{twin}.json'
+             if c['seed']==1 and kind in ('gradient_mpc','prioritized_astar','conflict_based_search','goal_reference') and source.exists():result=save_alias(stage,c,source)
+             else:
++                before_query=query_disk_snapshot() if True else None
+                 result,arrays=run(c)
++                if before_query is not None:
++                    after_query=query_disk_snapshot()
++                    result['native_query_cache']=dict(namespace=after_query['namespace'],counter_deltas=[b-a for a,b in zip(before_query['values'],after_query['values'])],counter_order=['reads','hits','collisions','invalid','writes','write_errors','skipped'])
++                    result['query_disk_cache_equivalence_receipt_sha256']=sha(HERE/'CBS_QUERY_DISK_EQUIVALENCE_20261022.receipt.json')
+                 result['computational_equivalence_receipt_sha256']=sha(HERE/'CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json')
+                 result['pure_geometry_cache_equivalence_receipt_sha256']=sha(HERE/'CBS_FLAT_CACHE_EQUIVALENCE.receipt.json')
+                 result['jax_enable_x64']=bool(jax.config.x64_enabled)
+@@ -51,13 +67,13 @@
+                 result['optional_revision_execution_receipt_sha256']=sha(HERE/'CORRECTION_OPTIONAL_EXECUTION_20261021.receipt.json')
+                 result['optional_implementation_receipt_sha256']=sha(HERE/'OPTIONAL_DELIVERY_READY.receipt.json')
+                 result['reservation_equivalence_receipt_sha256']=sha(HERE/'RESERVATION_V2_EQUIVALENCE.receipt.json')
+-                result['execution_backend']=dict(actual='dynamics_start_signature_20261022.py' if engine=='paper_dynamics' else 'runtime_local_progress_start_signature_20261022.py' if engine=='local_progress' else 'runtime_correction_start_signature_v2_candidate_20261022.py')
++                result['execution_backend']=dict(actual='dynamics_query_disk_20261022.py' if engine=='paper_dynamics' else 'runtime_local_progress_query_disk_20261022.py' if engine=='local_progress' else 'runtime_correction_query_disk_candidate_20261022.py')
+                 if engine=='paper_dynamics' and c['state']['scene'] in ('lit_narrow_passage','lit_crowded_random'):
+                     import numpy as np
+                     result['acceleration_bound_violation_steps']=int(np.any(np.linalg.norm(arrays['actions'],axis=-1)>1.5+1e-7,axis=-1).sum())
+                 save(stage,c,result,arrays)
+             print(c['state']['scene'],c['controller_payload']['nominal']['controller'],c['method'],c['seed'],result['outcome'],round(result['elapsed_seconds'],3),flush=True)
+         write(claim/'COMPLETE.json',dict(utc=utc()));groups+=1
+-        if groups>=512:os.execv(sys.executable,[sys.executable,'-B',str(HERE/'optional_worker_start_signature_20261022.py'),stage])
++        if groups>=512:os.execv(sys.executable,[sys.executable,'-B',str(HERE/'optional_worker_query_disk_20261022.py'),stage])
+ 
+ if __name__=='__main__':main(sys.argv[1])

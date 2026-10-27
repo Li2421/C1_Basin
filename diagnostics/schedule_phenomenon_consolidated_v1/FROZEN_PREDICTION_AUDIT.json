@@ -1,0 +1,609 @@
+{
+  "utc": "2026-10-14T17:03:35.688668+00:00",
+  "passed": true,
+  "files": [
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T3_A0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "d775c9b0856389c8b1b8a0da28831adc6d5fde531c49a02e6f73b385b4fc2b2a",
+      "expected": "d775c9b0856389c8b1b8a0da28831adc6d5fde531c49a02e6f73b385b4fc2b2a",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold6_A3_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "de67c025fab109a3f13926845e6d4eb3824e89e032b36edbe195023d8cf5634b",
+      "expected": "de67c025fab109a3f13926845e6d4eb3824e89e032b36edbe195023d8cf5634b",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T1_A0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "d2c214fe30aad45d5ec96cc3b3f81647cf67a5f5c487c8957e0cb4fd4ad9bc10",
+      "expected": "d2c214fe30aad45d5ec96cc3b3f81647cf67a5f5c487c8957e0cb4fd4ad9bc10",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold5_A3_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "22009ed3e0b23530d5b1a4c3018a64e34115192a02cd57bd48d9b32b77760b4e",
+      "expected": "22009ed3e0b23530d5b1a4c3018a64e34115192a02cd57bd48d9b32b77760b4e",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold2_A3_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "d3f6f738954235bb998ca2a34b594b4e0c96afc089531600b7b941b76afe623d",
+      "expected": "d3f6f738954235bb998ca2a34b594b4e0c96afc089531600b7b941b76afe623d",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold4_A0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "159ddb31a4835d2d4e04cd390aaf3f755bc9e65dd504baf8d4c2a1099ac34e65",
+      "expected": "159ddb31a4835d2d4e04cd390aaf3f755bc9e65dd504baf8d4c2a1099ac34e65",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T2_A3_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "288ccd4c37b58616e46b8158c752abb1a7735fff18426db69288ffc926ec6611",
+      "expected": "288ccd4c37b58616e46b8158c752abb1a7735fff18426db69288ffc926ec6611",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold1_A3_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "6b359d97190530be073fa51a4ae41e3f1b8cbe3247840926b8676813fe25262f",
+      "expected": "6b359d97190530be073fa51a4ae41e3f1b8cbe3247840926b8676813fe25262f",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold6_A0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "9a7a51ca5b070c71fc5d2883c9c7237c6fc69aea9c8f5be8be6aa12b60134c95",
+      "expected": "9a7a51ca5b070c71fc5d2883c9c7237c6fc69aea9c8f5be8be6aa12b60134c95",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold5_A0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "d983b52eb8943e29487f9532862e162292f48e7cd8ceb236d6bd93cb09e5755b",
+      "expected": "d983b52eb8943e29487f9532862e162292f48e7cd8ceb236d6bd93cb09e5755b",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold1_A0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "3628f1f4bfe22bbcf4a3cb47c5280279ee879c7c716a028c00302c6d2fd08742",
+      "expected": "3628f1f4bfe22bbcf4a3cb47c5280279ee879c7c716a028c00302c6d2fd08742",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold6_A3_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "94997382fc43cd62a888a2f3bc7a254982a454b847626460e303a2f5014cff89",
+      "expected": "94997382fc43cd62a888a2f3bc7a254982a454b847626460e303a2f5014cff89",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T2_A0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "2627b8ca69a50f9b1641a882f558b2c3ef9d30453a032702db369501cf05e525",
+      "expected": "2627b8ca69a50f9b1641a882f558b2c3ef9d30453a032702db369501cf05e525",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold5_A3_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "e710989c3869c1ee65a08f9d8adb2a83311e06b5602651f203def1bbbbaf2476",
+      "expected": "e710989c3869c1ee65a08f9d8adb2a83311e06b5602651f203def1bbbbaf2476",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold3_A3_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "5afb0cded62e7e49defb6d6ce31549d875171acd2bcb83e0f8534e1111438101",
+      "expected": "5afb0cded62e7e49defb6d6ce31549d875171acd2bcb83e0f8534e1111438101",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold4_A3_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "06253a0e9b14074ade6a11db48cb8f56869a1d352d6d66db67260b0c56f56dd8",
+      "expected": "06253a0e9b14074ade6a11db48cb8f56869a1d352d6d66db67260b0c56f56dd8",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold5_A0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "8e16395fcf141769aa21f817c16906e3ed2bd6726f3f730f56622a88d4838ea7",
+      "expected": "8e16395fcf141769aa21f817c16906e3ed2bd6726f3f730f56622a88d4838ea7",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold0_A0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "ae36bdf19b24c6dedae9c4fe4c4c43289d2b45c5ef90df1ee76b8dc9682bd6d9",
+      "expected": "ae36bdf19b24c6dedae9c4fe4c4c43289d2b45c5ef90df1ee76b8dc9682bd6d9",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold6_A3_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "b278df5f0182e5ab6f6f947a348d409cf39114485315e03a2f35b7444a2ea734",
+      "expected": "b278df5f0182e5ab6f6f947a348d409cf39114485315e03a2f35b7444a2ea734",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold4_A0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "7dad9e9ce5a3399199a79a257efd74d587b3a1a5244c1585d9240a490437b8b3",
+      "expected": "7dad9e9ce5a3399199a79a257efd74d587b3a1a5244c1585d9240a490437b8b3",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T2_A3_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "496372529bc8ecc0fa4b4817b8aba40acfdd6e2a7f65922517d9cdca92efaca7",
+      "expected": "496372529bc8ecc0fa4b4817b8aba40acfdd6e2a7f65922517d9cdca92efaca7",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T1_A3_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "a0c957ff8e04166cecde4af5b1b035176f4655fea1dc98afaf23074f9ea05d77",
+      "expected": "a0c957ff8e04166cecde4af5b1b035176f4655fea1dc98afaf23074f9ea05d77",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T2_A3_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "78157dd5f6acca3f3478a937858a23746d301ecf4ff2907f59f8be15e35d4b97",
+      "expected": "78157dd5f6acca3f3478a937858a23746d301ecf4ff2907f59f8be15e35d4b97",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold0_A0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "f0a174a71f28c8870f1f572ab7c8873b80072e5d33f22b1c02b308a109865e19",
+      "expected": "f0a174a71f28c8870f1f572ab7c8873b80072e5d33f22b1c02b308a109865e19",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold5_A0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "6d783fad671817de55dc87b104690a19ae08f80878110dafcfc25dda7168bf00",
+      "expected": "6d783fad671817de55dc87b104690a19ae08f80878110dafcfc25dda7168bf00",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold3_A0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "527c38a346441bec328c3ddc831b11f1bcc367449276019666a0f76f19588080",
+      "expected": "527c38a346441bec328c3ddc831b11f1bcc367449276019666a0f76f19588080",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T3_A3_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "1bf2074380676e703e1baf55ea3125276a8b4ab1df05ded823a2c9e529507ef5",
+      "expected": "1bf2074380676e703e1baf55ea3125276a8b4ab1df05ded823a2c9e529507ef5",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold2_A3_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "8c74722a398306efa1300406560f0af1fb85a9ee32360caf180556c35407d459",
+      "expected": "8c74722a398306efa1300406560f0af1fb85a9ee32360caf180556c35407d459",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T1_A3_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "b30c1c044bd2212c50c66899d583e6938da78fa9e1918dbfd6fb8f2bb35e71cf",
+      "expected": "b30c1c044bd2212c50c66899d583e6938da78fa9e1918dbfd6fb8f2bb35e71cf",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold2_A0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "3a07e5550137ded1d5bab6c31ac3df938a780dd0e01bd5b720f52bf450a7d270",
+      "expected": "3a07e5550137ded1d5bab6c31ac3df938a780dd0e01bd5b720f52bf450a7d270",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold4_A3_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "a0af1adeecbf9feebb9c4eeb64a6be72f2c63407426fa3220f4a59526fa3d7bd",
+      "expected": "a0af1adeecbf9feebb9c4eeb64a6be72f2c63407426fa3220f4a59526fa3d7bd",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T1_A3_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "f75e5027b714e96629b301eab7a8d659d93fcce5b6263afa68cc8c773b24be49",
+      "expected": "f75e5027b714e96629b301eab7a8d659d93fcce5b6263afa68cc8c773b24be49",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold1_A0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "629bfe142650b18205aaf52d988830877ca9441bdaf31bd262c95ea07be94a2f",
+      "expected": "629bfe142650b18205aaf52d988830877ca9441bdaf31bd262c95ea07be94a2f",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T3_A0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "fb8a02185a6cf19779e445aa190b2f9b91d7ac447d22d0e6bd2505b0808deef7",
+      "expected": "fb8a02185a6cf19779e445aa190b2f9b91d7ac447d22d0e6bd2505b0808deef7",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold0_A0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "f71c6aee836f90ea9b68aeb74f06738c3ca1572a33e5c44fb4dd340ab23f9387",
+      "expected": "f71c6aee836f90ea9b68aeb74f06738c3ca1572a33e5c44fb4dd340ab23f9387",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T3_A3_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "d206c19b25f444b998d53121fdb4ed91968ac57679ed9f0289a9587d534fab50",
+      "expected": "d206c19b25f444b998d53121fdb4ed91968ac57679ed9f0289a9587d534fab50",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold0_A3_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "417373aca8aaa5eb8460b59f14f8d0301276ef4ce6c89e9165d86a442e7288de",
+      "expected": "417373aca8aaa5eb8460b59f14f8d0301276ef4ce6c89e9165d86a442e7288de",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold6_A0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "d907fd0e0dcb4e1b87fb6b36954f6cc4d20084ffadde5507f5c1696013eae1da",
+      "expected": "d907fd0e0dcb4e1b87fb6b36954f6cc4d20084ffadde5507f5c1696013eae1da",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold2_A3_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "4fa7b6f5229104a36789166a06ae7074d519cb496909485c092f70f9e22d6887",
+      "expected": "4fa7b6f5229104a36789166a06ae7074d519cb496909485c092f70f9e22d6887",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold2_A0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "fe96c29a7ffd9872c7f4652722250d6c0b66180e79a475e8b5105940d7724170",
+      "expected": "fe96c29a7ffd9872c7f4652722250d6c0b66180e79a475e8b5105940d7724170",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold0_A3_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "4989b92778d06a67fc4b5756ee6a7752d7c63a6a3a7f2d52cdbe81df0710c5fc",
+      "expected": "4989b92778d06a67fc4b5756ee6a7752d7c63a6a3a7f2d52cdbe81df0710c5fc",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold6_A0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "2b76bf907796c10882c773e26dee0fa16b31c7a145fdee21880ced044f631085",
+      "expected": "2b76bf907796c10882c773e26dee0fa16b31c7a145fdee21880ced044f631085",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold1_A0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "a9ccdaca62dce1bbdf4134da73b5f7a1baec34cb171598a065179af7279f5aee",
+      "expected": "a9ccdaca62dce1bbdf4134da73b5f7a1baec34cb171598a065179af7279f5aee",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold3_A3_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "32871b2f93cb1a677d95585c11385ff1663ebbb3afd553fa22a678bed81c2cc9",
+      "expected": "32871b2f93cb1a677d95585c11385ff1663ebbb3afd553fa22a678bed81c2cc9",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold3_A0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "01cc007d2dc7ad260ba184699b8a914f7757d54aa178033f41d748619f959f76",
+      "expected": "01cc007d2dc7ad260ba184699b8a914f7757d54aa178033f41d748619f959f76",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T2_A0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "a9426cd132dd1e5ef2fa745eaaad45ab8443f519e7df1d264f21209820666cee",
+      "expected": "a9426cd132dd1e5ef2fa745eaaad45ab8443f519e7df1d264f21209820666cee",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold4_A3_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "69f64611d8b125aedc162e18db6eefa29a6c11bca30a71c9cdb516564423f663",
+      "expected": "69f64611d8b125aedc162e18db6eefa29a6c11bca30a71c9cdb516564423f663",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold2_A0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "d086d7b32541c28d424281886a912234887f506589272d4281771c869c004b6c",
+      "expected": "d086d7b32541c28d424281886a912234887f506589272d4281771c869c004b6c",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T1_A0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "ca52065aa7467e88da01ad8781399c0cecc6fb1728951f8d5ff0ad63a5e7fdcc",
+      "expected": "ca52065aa7467e88da01ad8781399c0cecc6fb1728951f8d5ff0ad63a5e7fdcc",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold5_A3_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "44b5f511f2001e539df454bd05e4680f0bb05396c7348e1d6fae6381e2e9c024",
+      "expected": "44b5f511f2001e539df454bd05e4680f0bb05396c7348e1d6fae6381e2e9c024",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold4_A0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "b2dcd80594aa790e033709da2550bc5999e12c12636a2cbcb5ca9d21f3dfcce9",
+      "expected": "b2dcd80594aa790e033709da2550bc5999e12c12636a2cbcb5ca9d21f3dfcce9",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold0_A3_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "b0f30aafe6fae16060b35346b2af5e4e99055defb22e54e9e46d1f5532ebb80c",
+      "expected": "b0f30aafe6fae16060b35346b2af5e4e99055defb22e54e9e46d1f5532ebb80c",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T2_A0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "0185c94c94939b72c35fd7ee47f57e869b8595df40749201c7e03ca9bfb764d3",
+      "expected": "0185c94c94939b72c35fd7ee47f57e869b8595df40749201c7e03ca9bfb764d3",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold1_A3_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "eb0fd4a7ef3286a4968547a34c595434e57815a6c10411081563dde9fda6640e",
+      "expected": "eb0fd4a7ef3286a4968547a34c595434e57815a6c10411081563dde9fda6640e",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold3_A3_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "35d1938bc21e67ebe5305075301ce52daea2a8dfbaf8c08deefcf55047624ee8",
+      "expected": "35d1938bc21e67ebe5305075301ce52daea2a8dfbaf8c08deefcf55047624ee8",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T1_A0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "7f828adf96480a7af19cf5daec04c454309cc0af5c1f3ae745cb0c51bc36f291",
+      "expected": "7f828adf96480a7af19cf5daec04c454309cc0af5c1f3ae745cb0c51bc36f291",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold1_A3_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "cc978f06f63092369f90784b2838fc07eaa7781198c0f8b64eff3286cf5c9173",
+      "expected": "cc978f06f63092369f90784b2838fc07eaa7781198c0f8b64eff3286cf5c9173",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T3_A3_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "abc99b74ee39ba367563cf720983a5db9484fb7b910b4612ae5c7eebbf415ffa",
+      "expected": "abc99b74ee39ba367563cf720983a5db9484fb7b910b4612ae5c7eebbf415ffa",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/CV_fold3_A0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "b4dbc14e1b094e9a315adbbdc9b037d0568c7e4efab94f26e18669e1cd75b466",
+      "expected": "b4dbc14e1b094e9a315adbbdc9b037d0568c7e4efab94f26e18669e1cd75b466",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/predictions/T3_A0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_controller_critic_v1/MODEL_FREEZE.receipt.json",
+      "hash": "c2bbaebe70e5109bb5aa82a84347d4c6fade90413214ad0ec15b65629cd82c94",
+      "expected": "c2bbaebe70e5109bb5aa82a84347d4c6fade90413214ad0ec15b65629cd82c94",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/predictions/A0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/FINAL_FREEZE.receipt.json",
+      "hash": "11380cdeed59afae3f1599df0eed31d0cc93f85b1cd75c286c895e74a5c1b510",
+      "expected": "11380cdeed59afae3f1599df0eed31d0cc93f85b1cd75c286c895e74a5c1b510",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/predictions/A3_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/FINAL_FREEZE.receipt.json",
+      "hash": "de1b11fc1c6d3526040139691ffa55d083254512e86f95f72322ccd5178eff55",
+      "expected": "de1b11fc1c6d3526040139691ffa55d083254512e86f95f72322ccd5178eff55",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/predictions/A3_all_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/FINAL_FREEZE.receipt.json",
+      "hash": "2febc4a21a91fb85e3915e82ad12dbf01763994c613bb40e32a9037db8d982cf",
+      "expected": "2febc4a21a91fb85e3915e82ad12dbf01763994c613bb40e32a9037db8d982cf",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/predictions/A3_all_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/FINAL_FREEZE.receipt.json",
+      "hash": "e7e1292b12f0ac8c26db1b5bcc81cac324bbf99a46a03963e6742b59fbf62f0d",
+      "expected": "e7e1292b12f0ac8c26db1b5bcc81cac324bbf99a46a03963e6742b59fbf62f0d",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/predictions/A0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/FINAL_FREEZE.receipt.json",
+      "hash": "540f74f2f4a22d7957173459a9de8604ea15bcd3fe7fd361539b8810af5e1260",
+      "expected": "540f74f2f4a22d7957173459a9de8604ea15bcd3fe7fd361539b8810af5e1260",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/predictions/A3_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/FINAL_FREEZE.receipt.json",
+      "hash": "9395c787a05c5ee9f0f2701515144ca4e6aac110a7d2b3db829928d34508fd8e",
+      "expected": "9395c787a05c5ee9f0f2701515144ca4e6aac110a7d2b3db829928d34508fd8e",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/predictions/A0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/FINAL_FREEZE.receipt.json",
+      "hash": "81a7a95982013d63e116a12bb98c49e7b7394995f57206c24cbb9d20ff6a0171",
+      "expected": "81a7a95982013d63e116a12bb98c49e7b7394995f57206c24cbb9d20ff6a0171",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/predictions/A3_all_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/FINAL_FREEZE.receipt.json",
+      "hash": "e09a3da0c730505aec4c28bc4d511f52f731d306c8de2bdf45781e1b577d86ba",
+      "expected": "e09a3da0c730505aec4c28bc4d511f52f731d306c8de2bdf45781e1b577d86ba",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/predictions/A3_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_critic_new_recipe_confirmation_v1/FINAL_FREEZE.receipt.json",
+      "hash": "da5159813f17fe7b6bb54d182fb567c0e6f02d242c39167edabfc2104ad304e5",
+      "expected": "da5159813f17fe7b6bb54d182fb567c0e6f02d242c39167edabfc2104ad304e5",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/A0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "75e188ab04d9b3a271d89dba9f29816107187f103318942214340ea6fc5cec26",
+      "expected": "75e188ab04d9b3a271d89dba9f29816107187f103318942214340ea6fc5cec26",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/C3_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "de84ee5214bd3803e32097d8541a34c2a60674384b68ab56766b03cd23107628",
+      "expected": "de84ee5214bd3803e32097d8541a34c2a60674384b68ab56766b03cd23107628",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/C0_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "5586db01178edd814e653ccd7a79e6d442c564fd4a6fff077c18f1e66ac82f09",
+      "expected": "5586db01178edd814e653ccd7a79e6d442c564fd4a6fff077c18f1e66ac82f09",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/C2_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "ead706b240f1aa4e40a1130774d96dfb8fa582e30bd3b1fbeaed8ba9eb7ee6b2",
+      "expected": "ead706b240f1aa4e40a1130774d96dfb8fa582e30bd3b1fbeaed8ba9eb7ee6b2",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/C3_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "a93ab8c7aab4049fbc4233015991d4dab0f4833da4e1adc19e2ba0cff4b37cff",
+      "expected": "a93ab8c7aab4049fbc4233015991d4dab0f4833da4e1adc19e2ba0cff4b37cff",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/C3_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "5ae3fda3c9c4601c92cfa6380e29f9c438b056bf2ab80625c06a484a7e6db0d6",
+      "expected": "5ae3fda3c9c4601c92cfa6380e29f9c438b056bf2ab80625c06a484a7e6db0d6",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/A0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "8c64bf38b7d61985a1e784f2557602d5289cb109b2133c0c8668cbfa38e635cc",
+      "expected": "8c64bf38b7d61985a1e784f2557602d5289cb109b2133c0c8668cbfa38e635cc",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/C1_seed17.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "331f829dc3215da0357531fae4cccea4634b3dd385f41a007644613eafb2da9e",
+      "expected": "331f829dc3215da0357531fae4cccea4634b3dd385f41a007644613eafb2da9e",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/C1_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "156f65fe000afbc2fa1f52e6c722d77d8185de0c0524f9db34d90e4ed3f48e5f",
+      "expected": "156f65fe000afbc2fa1f52e6c722d77d8185de0c0524f9db34d90e4ed3f48e5f",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/A0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "12528bc8bb16b4e15371616a794c88d41d8876d5bb2e7e4438b6a2a4763c63ba",
+      "expected": "12528bc8bb16b4e15371616a794c88d41d8876d5bb2e7e4438b6a2a4763c63ba",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/C0_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "536b67214bf2540076188f51b24b7f817436bd3800539938ed2b400e8c1e57ce",
+      "expected": "536b67214bf2540076188f51b24b7f817436bd3800539938ed2b400e8c1e57ce",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/C0_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "6a3235825d4b433c8c86312b59948a923a5eb1996ee06e10c54f56680307eefd",
+      "expected": "6a3235825d4b433c8c86312b59948a923a5eb1996ee06e10c54f56680307eefd",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/C2_seed41.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "d7b872f673304cf9203bfccb19690545f244c7cfba85ddf0ec12861615ae8588",
+      "expected": "d7b872f673304cf9203bfccb19690545f244c7cfba85ddf0ec12861615ae8588",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/C2_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "0619412986dc5fd3ee113ad724184e6861ede93c42c3c3bb84d36ca6c4609e1e",
+      "expected": "0619412986dc5fd3ee113ad724184e6861ede93c42c3c3bb84d36ca6c4609e1e",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/predictions/C1_seed23.npz",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_eta2_gap_v1/TEST_FREEZE.receipt.json",
+      "hash": "01f6e83bc9b7ed5447f1af46e5b701e8a8d7b073a2a006cb4bd71afaa36a44a3",
+      "expected": "01f6e83bc9b7ed5447f1af46e5b701e8a8d7b073a2a006cb4bd71afaa36a44a3",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/controller_new_checkpoint_confirmation_v1/fp32_n8/SELECTOR_MODELS.json",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/controller_new_checkpoint_confirmation_v1/fp32_n8/SELECTOR_FROZEN.receipt.json",
+      "hash": "ef391944d3f3d203b2fea46206e2ff9f6662dac1e6196be0b841edeb72dc408e",
+      "expected": "ef391944d3f3d203b2fea46206e2ff9f6662dac1e6196be0b841edeb72dc408e",
+      "passed": true
+    },
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/ring_independent_flow_confirmation_v2/SELECTOR_MODELS.json",
+      "receipt": "/home/zhihan/research/Basin_C1/diagnostics/ring_independent_flow_confirmation_v2/SELECTOR_FROZEN.receipt.json",
+      "hash": "734130f3fa719b813a530680938361619b89194570221d3acde09bdc5f255625",
+      "expected": "734130f3fa719b813a530680938361619b89194570221d3acde09bdc5f255625",
+      "passed": true
+    }
+  ],
+  "file_count": 86
+}

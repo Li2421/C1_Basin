@@ -1,0 +1,43 @@
+{
+  "agent_order": [
+    "agent_000",
+    "agent_001",
+    "agent_002",
+    "agent_003",
+    "agent_004",
+    "agent_005",
+    "agent_006",
+    "agent_007",
+    "agent_008",
+    "agent_009"
+  ],
+  "allow_non_four_agents": true,
+  "batch_size": 256,
+  "dataset_manifest_sha256": "f74a2f761e027f6572342ce6ea246e835b1107991263d6711f08fde65bcde5ce",
+  "early_nominal_only": false,
+  "early_steps": 50,
+  "early_transition_fraction": 0.2,
+  "environment_fingerprint": "50e26f73969abbcaf8a0bfc2a31b4b2c983adf846d36e93a053b645daace39d1",
+  "flow_steps": 10,
+  "implementation": "official_ActorVectorField_ModuleDict_TrainState_Adam_CFM",
+  "motion_loss_weight": 5.0,
+  "near_goal_distance": 1.0,
+  "near_goal_fraction": 0.3,
+  "near_goal_transition_count": 89192,
+  "parameter_count": 162836,
+  "permutation_augmentation": true,
+  "schema": "new_benchmark_joint_stage1_train_v1",
+  "seed": 41,
+  "shared_agent_normalization": true,
+  "snapshot_interval": 20000,
+  "source_balanced_sampling": true,
+  "source_transitions": {
+    "gate_local_recovery": 0,
+    "nominal": 422056,
+    "targeted_agent": 0,
+    "targeted_wall_obstacle": 0,
+    "uniform_recovery": 28548
+  },
+  "steps": 80000,
+  "test_opened": false
+}

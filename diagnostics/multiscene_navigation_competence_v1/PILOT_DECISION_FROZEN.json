@@ -1,0 +1,121 @@
+{
+  "utc": "2026-10-17T19:02:35.370355+00:00",
+  "passed": true,
+  "families": {
+    "B": {
+      "family": "B",
+      "instances": [
+        {
+          "kind": "deterministic",
+          "seed": 17,
+          "episodes": 16,
+          "success": 16,
+          "collision": 0,
+          "timeout": 0,
+          "unknown": 0,
+          "passed": true,
+          "uncertain": false,
+          "checkpoint": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/policies39/B_deterministic_17/round_3/best.msgpack"
+        },
+        {
+          "kind": "deterministic",
+          "seed": 23,
+          "episodes": 16,
+          "success": 16,
+          "collision": 0,
+          "timeout": 0,
+          "unknown": 0,
+          "passed": true,
+          "uncertain": false,
+          "checkpoint": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/policies39/B_deterministic_23/round_3/best.msgpack"
+        },
+        {
+          "kind": "mixture",
+          "seed": 17,
+          "episodes": 16,
+          "success": 16,
+          "collision": 0,
+          "timeout": 0,
+          "unknown": 0,
+          "passed": true,
+          "uncertain": false,
+          "checkpoint": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/policies39/B_mixture_17/round_3/best.msgpack"
+        },
+        {
+          "kind": "mixture",
+          "seed": 23,
+          "episodes": 16,
+          "success": 16,
+          "collision": 0,
+          "timeout": 0,
+          "unknown": 0,
+          "passed": true,
+          "uncertain": false,
+          "checkpoint": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/policies39/B_mixture_23/round_3/best.msgpack"
+        }
+      ],
+      "family_passed": true
+    },
+    "F": {
+      "family": "F",
+      "instances": [
+        {
+          "kind": "deterministic",
+          "seed": 17,
+          "episodes": 16,
+          "success": 16,
+          "collision": 0,
+          "timeout": 0,
+          "unknown": 0,
+          "passed": true,
+          "uncertain": false,
+          "checkpoint": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/policies39/F_deterministic_17/round_3/best.msgpack"
+        },
+        {
+          "kind": "deterministic",
+          "seed": 23,
+          "episodes": 16,
+          "success": 16,
+          "collision": 0,
+          "timeout": 0,
+          "unknown": 0,
+          "passed": true,
+          "uncertain": false,
+          "checkpoint": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/policies39/F_deterministic_23/round_3/best.msgpack"
+        },
+        {
+          "kind": "mixture",
+          "seed": 17,
+          "episodes": 16,
+          "success": 16,
+          "collision": 0,
+          "timeout": 0,
+          "unknown": 0,
+          "passed": true,
+          "uncertain": false,
+          "checkpoint": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/policies39/F_mixture_17/round_3/best.msgpack"
+        },
+        {
+          "kind": "mixture",
+          "seed": 23,
+          "episodes": 16,
+          "success": 16,
+          "collision": 0,
+          "timeout": 0,
+          "unknown": 0,
+          "passed": true,
+          "uncertain": false,
+          "checkpoint": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/policies39/F_mixture_23/round_3/best.msgpack"
+        }
+      ],
+      "family_passed": true
+    }
+  },
+  "qualified_instances": {
+    "B": 4,
+    "F": 4
+  },
+  "all_single_agent_navigation_episodes_successful": true,
+  "pilot_reuse_without_reruns": true,
+  "full_stage_authorized_by_original_prompt": true
+}

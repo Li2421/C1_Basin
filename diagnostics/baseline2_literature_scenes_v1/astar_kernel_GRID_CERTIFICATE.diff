@@ -1,0 +1,18 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/baseline2_literature_scenes_v1/astar_kernel_memo.cpp
++++ /home/zhihan/research/Basin_C1/diagnostics/baseline2_literature_scenes_v1/astar_kernel_certified.cpp
+@@ -50,6 +50,15 @@
+   for(int i=0;i<nr;++i){int c=offset[i]+std::min(t,lens[i]-1),d=offset[i]+std::min(t+1,lens[i]-1);if(segment(ax-reserved[2*c],ay-reserved[2*c+1],bx-reserved[2*d],by-reserved[2*d+1])<sep-1e-12)return false;}return true;
+  };
+  int sx=std::nearbyint(start[0]/res),sy=std::nearbyint(start[1]/res),gx=std::nearbyint(goal[0]/res),gy=std::nearbyint(goal[1]/res);
++
++ // Exact no-incoming-edge certificate, using the original endpoint term.
++ // No goal, resolution, radius, search tie, reservation or budget is changed.
++ if(sx!=gx||sy!=gy){
++  const double bx=gx*res,by=gy*res;
++  for(int w=0;w<nw;++w){const double* z=walls+4*w;
++   if(segment(z[0]-bx,z[1]-by,z[2]-bx,z[3]-by)<margin-1e-12)return 0;
++  }
++ }
+  auto heur=[&](int x,int y){return norm(double(x-gx),double(y-gy))/std::sqrt(2.);};
+  std::priority_queue<Node,std::vector<Node>,Greater> q;std::unordered_map<uint64_t,uint64_t> parent;uint64_t serial=0;const auto initial=code(sx,sy,0);parent.emplace(initial,initial);q.push({heur(sx,sy),0,sx,sy,0});
+  const int moves[9][2]={{1,0},{0,1},{-1,0},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1},{0,0}};

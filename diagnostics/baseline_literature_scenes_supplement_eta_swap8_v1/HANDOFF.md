@@ -1,0 +1,3 @@
+第二部分按原顺序完成；当前入口为COMPLETE/REPORT/ETA_SCREEN/SWAP8_RESULTS/DB_POSTFLIGHT/INTEGRITY_END。源码、raw和trace保持不可变，不重启旧协调器；数值unknown保留。当前修订规则/规模见PREREGISTRATION_USER_FIX_20261023.md及REQUEST_LEDGER.jsonl；原PREREGISTRATION_REQUESTS_ADDENDUM中的旧static/moving合格数已作废；完整来源见EVIDENCE_INPUTS及EVIDENCE_SOURCES_END；用户资源上限18CPU总份额、2GPU，当前作业已结束。
+
+用户已另行授权：第三阶段完成后追加寻找最佳correction，包含固定参数和切换时间表；任务记录见FOLLOWUP_BEST_CORRECTION_REQUEST_20261023.json。该任务尚未执行，须先核实第三阶段完成；本目录part=2的COMPLETE只封存原主线，不代表新增搜索已完成。后续先查历史证据、冻结搜索与独立验证协议，再按官方preflight补缺，不覆盖当前训练选择、评估或物理/成功/能力门标准。

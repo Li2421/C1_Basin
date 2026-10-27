@@ -1,0 +1,34 @@
+"""Diagnose already landed revised circle traces on spare tail CPUs; no research requests."""
+from experiment import *
+from atomic_write import write
+from registry import verify_receipt
+from statistics_correction_revised_20261021 import save_or_assert
+from analysis_jobs_current import prepare
+from coordinator_correction_configured_20261023 import stage_done
+from resources_corrections_release_20261023 import snapshot
+from diagnosis_backfill_release_20261023 import submit
+import fine_dispatch_correction_release_20261023 as fine
+import fcntl
+
+def main():
+ os.sched_setaffinity(0,{read(HERE/'LOCAL_CPU_GUARD_STATUS.json')['local_cpu']})
+ with (HERE/'OPPORTUNISTIC_CIRCLE_PARTIAL_DIAGNOSES_20261023.lock').open('a') as lock:
+  fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);verify_receipt('OPPORTUNISTIC_CIRCLE_PARTIAL_DIAGNOSES_CODE_20261023.receipt.json')
+  original='distributed_revised_fixed_lit_circle_five';name='landed_revised_circle_partial_20261023'
+  verify_receipt(original+'_PREFLIGHT.receipt.json')
+  cases=read(HERE/(original+'_CASES.json'));landed=[c for c in cases if (HERE/original/'raw'/(c['rollout_uid']+'.json')).exists()]
+  save_or_assert(name+'_CASES.json',landed)
+  if not (HERE/'PARTIAL_CIRCLE_DIAGNOSIS_PLAN_20261023.receipt.json').exists():seal('PARTIAL_CIRCLE_DIAGNOSIS_PLAN_20261023.receipt.json',[HERE/(name+'_CASES.json'),HERE/(original+'_CASES.json')],planned_full=len(cases),landed_at_snapshot=len(landed),not_landed_not_unknown=len(cases)-len(landed),saved_trace_diagnoses_only=True,canonical_full_scope_still_required=True)
+  stage=prepare(name);state=snapshot();budget=max(0,state['free_cpu_shares']-2);submitted=[];reason='No available tail slot'
+  for _ in range(budget):
+   if (HERE/'CORRECTION_CONTINUATION_PID_20261021.json').exists() or read(HERE/'STATUS.json')['phase']!='revised_distributed_fixed':reason='Continuation started; main submission priority';break
+   if fine.available(original):reason='Required research request appeared';break
+   ready=[f'analysis_distributed_revised_fixed_{s}' for s in NAMES if s!='lit_circle_five']
+   if not all(stage_done(s) for s in ready):reason='Parent has pending ready fixed diagnoses';break
+   if snapshot()['free_cpu_shares']<=2:reason='Keep transition capacity';break
+   available=sum(not (HERE/stage/'claims'/r['group']).exists() for r in read(HERE/stage/'GROUP_INDEX.json'))
+   if not available:reason='Snapshot diagnosis groups already claimed';break
+   submitted.append(submit(stage));reason='One-shot preemptible diagnosis of landed circle traces'
+  write(HERE/'OPPORTUNISTIC_CIRCLE_PARTIAL_DIAGNOSES_20261023.json',dict(utc=utc(),submitted=submitted,reason=reason,landed_at_snapshot=len(landed),full_planned=len(cases),snapshot_only_not_main_completion=True,new_rollouts=0,science_workers_interrupted=0,canonical_full_stage_later_skips_existing_UID_diagnostics=True))
+  print('Circle saved-trace snapshot',len(landed),'/',len(cases),'analysis jobs',len(submitted),reason,flush=True)
+if __name__=='__main__':main()

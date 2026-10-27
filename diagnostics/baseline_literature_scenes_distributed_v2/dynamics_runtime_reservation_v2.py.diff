@@ -1,0 +1,11 @@
+--- dynamics_runtime_reservation_certified.py
++++ dynamics_runtime_reservation_v2.py
+@@ -5,7 +5,7 @@
+ import time
+ from flow_scene import LiteratureEnv
+ from states import LiteratureConfig
+-from reservation_certificate import ReservationNominal as Nominal
++from reservation_certificate_v2 import ReservationNominal as Nominal
+ from controllers import bound
+ from distributed_safety import local_basis
+ from central_reference import progress

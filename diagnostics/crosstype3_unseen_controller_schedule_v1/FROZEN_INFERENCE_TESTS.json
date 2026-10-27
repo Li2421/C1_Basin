@@ -1,0 +1,255 @@
+{
+  "utc": "2026-10-19T05:15:39.158656+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "cohort": "new104",
+      "type": "Flow",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "Flow",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "centralized_mppi",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "centralized_mppi",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "centralized_sampling",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "centralized_sampling",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "chunking",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "chunking",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "cross_entropy",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "cross_entropy",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "cvae",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "cvae",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "deterministic",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "deterministic",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "diffusion",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "diffusion",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "distributed_cross_entropy",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "distributed_cross_entropy",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "distributed_shooting",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "distributed_shooting",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "gaussian",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "gaussian",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "mixture",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "mixture",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "prioritized_astar",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "prioritized_astar",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "recurrent",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "recurrent",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "ring_ippo",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "ring_ippo",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "ring_ippo_conservative",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "new104",
+      "type": "ring_ippo_conservative",
+      "model": "no_controller",
+      "bitwise": true
+    },
+    {
+      "cohort": "old_c1c_frozen62",
+      "type": "Flow",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "old_c1c_frozen62",
+      "type": "chunking",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "old_c1c_frozen62",
+      "type": "cvae",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "old_c1c_frozen62",
+      "type": "deterministic",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "old_c1c_frozen62",
+      "type": "diffusion",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "old_c1c_frozen62",
+      "type": "gaussian",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "old_c1c_frozen62",
+      "type": "mixture",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "old_c1c_frozen62",
+      "type": "recurrent",
+      "model": "full",
+      "bitwise": true
+    },
+    {
+      "cohort": "old_c1c_frozen62",
+      "type": "ring_ippo",
+      "model": "full",
+      "bitwise": true
+    }
+  ],
+  "x64": false,
+  "matmul_precision": "highest",
+  "new_eval_outcomes_read": false
+}

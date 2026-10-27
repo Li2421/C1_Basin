@@ -1,0 +1,25 @@
+--- final_reports_correction_delivery_20261023.py
++++ final_reports_correction_closed_scope_20261023.py
+@@ -84,6 +84,7 @@
+ 主数值认MIGRATION_NUMBERS、后验指标认原/新MAIN_ADDITIONAL_METRICS、可选数值认OPTIONAL_NUMBERS、数据库认DB_POSTFLIGHT、源码只认INTEGRITY_END、交付认FINAL_REPORTS。全部实际作业结束后才做最终审计和完成标志；可选缺口独立披露，不混入主线或算unknown。v1原两个非Python配置缺开工全文件哈希的限制仍保留，不能倒补为严格覆盖。"""
+ 
+ def main():
++ verify_receipt('CORRECTION_CLOSED_SCOPE_DELIVERY_READY_20261023.receipt.json')
+  verify_receipt('CORRECTION_FINAL_DELIVERY_READY_20261023.receipt.json')
+  for proof in ('MIGRATION_NUMBERS.receipt.json','MAIN_ADDITIONAL_METRICS.receipt.json','MAIN_ADDITIONAL_METRICS_REVISED_20261021.receipt.json','OPTIONAL_NUMBERS.receipt.json','DB_POSTFLIGHT.receipt.json','INTEGRITY_END.receipt.json','CORRECTION_OPTIONAL_READY_20261021.receipt.json'):verify_receipt(proof)
+  audit=read(HERE/'INTEGRITY_END.json');db=read(HERE/'DB_POSTFLIGHT.json');assert audit['passed'] and db['passed']
+@@ -139,6 +140,7 @@
+  paragraphs.append('场景内重新学习：'+'；'.join(learned)+'。原菜单12动作，新菜单15动作补入两种全程固定η及人定双η；原结构、19维动作编码、留一类型、初始化种子17/23/41、2000训练步与checkpoint选择不变。选择在首条评估之前封存。修订集中式不重新学习。比较仅在相同独立评估state内，不能与全部主state混为同一分母；完整独立评估菜单regret未穷举，为N/A。')
+  paragraphs.append('修订说明：看过预注册结果后，用户要求纠正窄通道安全层全局失败归类、门口controller自身停住的增益解释、学习菜单缺固定动作、目标附近徘徊四处问题。修订只给按全部其他机器人平均得到的原Brel加接触开关，Rc=1.25×实际d_safe；三分量公式、η、两次安全投影、跟踪、到达停止与6/7回退不变。Rc在首条修订rollout前封存，不按结果调参。强制全开逐位一致、全部已到达时Brel为零、论文窄通道开关全开、编号置换数值误差门及每场景8条η0完整回放共32条通过；静态徘徊检查及实际例外见CORRECTION_REVISION_STATIC_LOGICAL_SCOPES_20261021。修订证据明确为事后开发证据，不能冒充预注册确认。全部已到达时Brel为零只消除了该分量；严格目标构型成为完整安全闭环平衡点仍需该构型满足安全约束，不能由开关单独推得。')
+  notes=['v1按用户要求完成窄通道、二维拥挤随机、门口三场景收尾；圆形流程版为用户停止转入v2的缺口，不能写成v1四场景合并。论文版沿用v1的PAPER_REPRODUCTION.*，不重跑。', '旧语义圆形标签2044条保留并合并，4100条未落盘请求按用户决定停止、不恢复、不计unknown；旧圆形1536条评估未执行。修订圆形学习为独立新语义，不能补成旧语义完成。', '第二阶段与变体为非主线：实际动力学约束违反、采样速度违反、无解最小违反与门口非线性求解无全局最优性证书均保留；成功仍按原任务标准。没有额外集中式动力学试验，联合锥只是同动力学耦合诊断参照。', '冻结旧表示A3、冻结旧物理接口A0、无兼容冻结选择接口G_E、未要求专家参照为N/A；训练state上的菜单oracle与带符号regret仅作描述，不能当独立state性能。', '原语义和修订语义各自保留unknown识别上下界、配对伤害和10个百分点下降实例。基线按流程先于学习可见，选择文件outcomes_opened=False只指选动作阶段不打开所选评估输出，不代表全局盲测。']
++ notes.append('旧圆形闭合范围固定为用户停止时封存的2044条。修订阶段依指令补齐η0时，相同执行身份可能进入全局缓存；它们归新阶段授权，不扩大旧学习范围，不视为恢复旧批次。DB_POSTFLIGHT另外列出这些跨范围η0缓存命中，旧4100条仍按停止决定列示。')
+  for gap in (read(HERE/'OPTIONAL_GAPS.json') if (HERE/'OPTIONAL_GAPS.json').exists() else []):notes.append('非主线缺口：'+canonical(gap))
+  stage2=[]
+  for scene in NAMES:
+@@ -157,5 +159,5 @@
+  save('GAPS.md','\n\n'.join(notes));save('REPORT.md','\n\n'.join(paragraphs)+'\n\n'+'\n\n'.join(notes))
+  save('HANDOFF.md',handoff_text())
+  outputs=['REPORT.md','AXIS_TABLE.md','AXIS_TABLE.csv','FAILURE_DECOMPOSITION.md','CONTROLLER_LEVEL_FAILURES.md','GEOMETRY_CENSUS.md','GEOMETRY_CENSUS_REVISED_20261021.md','DYNAMICS_STAGE.md','GAPS.md','HANDOFF.md','CORRECTION_GAIN_SPLITS_20261021.md','VARIANT_RESULTS_20261023.md']
+- seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_correction_delivery_20261023.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),posthoc_revision_explicit=True)
++ seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_correction_closed_scope_20261023.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),posthoc_revision_explicit=True)
+ if __name__=='__main__':main()

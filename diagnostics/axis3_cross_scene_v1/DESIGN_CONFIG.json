@@ -1,0 +1,96 @@
+{
+  "controllers": {
+    "toy_give_way": [
+      "flow_isotropic",
+      "flow_anisotropic",
+      "flow_coupled"
+    ],
+    "double_bottleneck": [
+      "flow_isotropic",
+      "flow_anisotropic",
+      "flow_coupled"
+    ],
+    "four_way_intersection": [
+      "base_u_v5_outer_buffer_macflow__best",
+      "base_u_v5_outer_buffer_macflow__final",
+      "base_u_v9_world_goal_recovery_macflow__best",
+      "base_u_v9_world_goal_recovery_macflow__final",
+      "base_u_v9_world_goal_recovery_source_balanced_macflow__best",
+      "base_u_v9_world_goal_recovery_source_balanced_macflow__final"
+    ],
+    "ring_exchange": [
+      "flow_isotropic",
+      "flow_anisotropic",
+      "flow_coupled"
+    ]
+  },
+  "precision": false,
+  "pilot_start": 202610340000,
+  "probe_start": 202610341000,
+  "eval_start": 202610342000,
+  "scene_offsets": {
+    "toy_give_way": 0,
+    "double_bottleneck": 10000,
+    "four_way_intersection": 20000,
+    "ring_exchange": 30000
+  },
+  "pilot_states": 16,
+  "probe_states": 16,
+  "evaluation_states": 32,
+  "seeds": [
+    0,
+    1
+  ],
+  "preferred": {
+    "toy_give_way": "F10",
+    "double_bottleneck": "F15",
+    "four_way_intersection": "F15",
+    "ring_exchange": "F13"
+  },
+  "fit_seeds": [
+    17,
+    23,
+    41
+  ],
+  "steps": [
+    500,
+    1000,
+    1500,
+    2000,
+    2500,
+    3000,
+    3500,
+    4000,
+    4500,
+    5000,
+    5500,
+    6000,
+    6500,
+    7000,
+    7500,
+    8000,
+    8500,
+    9000,
+    9500,
+    10000,
+    10500,
+    11000,
+    11500,
+    12000
+  ],
+  "lr": 0.0008,
+  "wd": 0.0001,
+  "clip": 5,
+  "batch": 256,
+  "bootstrap": 5000,
+  "bootstrap_seed": 202610153400,
+  "fewshot_seed": 202610153401,
+  "fewshot_repeats": 1000,
+  "ks": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ]
+}

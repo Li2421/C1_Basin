@@ -1,0 +1,35 @@
+--- deploy_flat_cache_local_cpu.py
++++ deploy_flat_cache_static.py
+@@ -30,7 +30,7 @@
+ def main():
+     with (HERE/'FLAT_CACHE_DEPLOYMENT.lock').open('a') as lock:
+         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+-        verify_receipt('CBS_FLAT_CACHE_DEPLOYMENT.receipt.json')
++        verify_receipt('CBS_FLAT_CACHE_STATIC_DEPLOYMENT.receipt.json')
+         verify_receipt('CBS_FLAT_CACHE_EQUIVALENCE.receipt.json')
+         assert read(HERE/'CBS_FLAT_CACHE_FULL_REPLAY.json')['passed']
+         assert read(HERE/'CBS_FLAT_CACHE_MATRIX.json')['passed']
+@@ -65,19 +65,19 @@
+         stop_local(entry['pid'],'coordinator_complete.py')
+         for pid in children:stop_local(pid,'downstream_complete.py')
+         with (HERE/'coordinator.log').open('a') as stream:
+-            coordinator=subprocess.Popen([sys.executable,'-B',str(HERE/'coordinator_flat.py')],cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT,start_new_session=True)
+-        entry.update(utc=utc(),coordinator='coordinator_flat.py',pid=coordinator.pid,worker='worker_flat.py',submit='fine_dispatch_flat.py',downstream='downstream_flat.py',optional='optional_delivery_flat.py',optional_worker='optional_worker_flat.py',watchdog='scheduler_watchdog_flat.py',computation_acceleration='Exact native geometry-cache dictionary layout')
++            coordinator=subprocess.Popen([sys.executable,'-B',str(HERE/'coordinator_flat_static.py')],cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT,start_new_session=True)
++        entry.update(local_cpu_guard='local_cpu_guard.py',native_backend='tiled_planning_flat_static.py',utc=utc(),coordinator='coordinator_flat_static.py',pid=coordinator.pid,worker='worker_flat_static.py',submit='fine_dispatch_flat_static.py',downstream='downstream_flat_static.py',optional='optional_delivery_flat_static.py',optional_worker='optional_worker_flat_static.py',watchdog='scheduler_watchdog_flat_static.py',computation_acceleration='Exact native geometry-cache dictionary layout')
+         write(HERE/'ACTIVE_ENTRYPOINT.json',entry)
+         deadline=time.monotonic()+180
+         while time.monotonic()<deadline:
+             if (HERE/'COORDINATOR_ACTION_ERROR.json').exists():raise RuntimeError(read(HERE/'COORDINATOR_ACTION_ERROR.json'))
+             if read(HERE/'COORDINATOR_PID.json')['pid']==coordinator.pid:
+                 commands=subprocess.check_output(['ps','-eo','args='],text=True).splitlines()
+-                if any(c==sys.executable+' -B '+str(HERE/'downstream_flat.py') for c in commands):break
++                if any(c==sys.executable+' -B '+str(HERE/'downstream_flat_static.py') for c in commands):break
+             time.sleep(1)
+         else:raise RuntimeError('New coordinator/downstream not ready; existing workers remain untouched')
+         with (HERE/'scheduler_watchdog.log').open('a') as stream:
+-            watch=subprocess.Popen([sys.executable,'-B',str(HERE/'scheduler_watchdog_flat.py')],cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT,start_new_session=True)
++            watch=subprocess.Popen([sys.executable,'-B',str(HERE/'scheduler_watchdog_flat_static.py')],cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT,start_new_session=True)
+         # USR1 is handled after the current saved episode by the unchanged old
+         # worker. No hard cancellation, truncated label or unknown is produced.
+         for job in old_jobs:

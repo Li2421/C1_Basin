@@ -1,0 +1,18 @@
+--- resource_guard_v2.py
++++ resource_guard_released.py
+@@ -1,12 +1,12 @@
+ """Same release policy, with retry if Slurm races an already-finished job."""
+ from experiment import *
+-from resource_guard import enforce
++from resource_guard_released_core import enforce
+ import time
+ import traceback
+ 
+ def main():
+-    policy=read(HERE/'RESOURCE_SCHEDULE.json');deadline=datetime.fromisoformat(policy['release_at_utc'])
+-    write(HERE/'RESOURCE_GUARD_PID.json',dict(pid=os.getpid(),utc=utc(),policy=policy,entrypoint='resource_guard_v2.py'))
++    policy=read(HERE/'RESOURCE_SCHEDULE_CORRECTED.json');deadline=datetime.fromisoformat(policy['release_at_utc'])
++    write(HERE/'RESOURCE_GUARD_PID.json',dict(pid=os.getpid(),utc=utc(),policy=policy,entrypoint='resource_guard_released.py'))
+     while True:
+         seconds=(deadline-datetime.now(timezone.utc)).total_seconds()
+         if seconds<=0:break

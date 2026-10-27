@@ -1,0 +1,16 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/backend/swap_runtime_user_fix_20261023.py
++++ /home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/runtime_new.py
+@@ -4,10 +4,11 @@
+ import time
+ import numpy as np
+ import jax
+-from swap_geometry_user_fix_20261023 import SwapEnvRevision as SwapEnv,LiteratureConfig
++from scene_environment import NewEnv as SwapEnv
++from legacy_states import LiteratureConfig
+ from swap_safety_user_fix_20261023 import SwapSafetyRevision as SwapSafety
+ from controllers import bound
+-from nominal_geometry_user_fix_20261023 import Nominal
++from scene_environment import NewNominal as Nominal
+ from correction_revision_20261021 import distributed_fields,contact_radius
+ from central_reference import progress
+ from shared_control.hard_projection import HardProjectionConfig

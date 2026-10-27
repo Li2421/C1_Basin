@@ -1,0 +1,21 @@
+| 场景 | 因素 | 几何有效 | 单机器人路径 | 联合可解 | 控制器类型通过数 | 主模型成功率（外推为截尾界） | 正式死锁解决 |
+|---|---|---|---|---|---:|---:|---|
+| lit_narrow_passage | historical | 历史有效状态 | 历史几何证据 | 未认证 | 8 | 92.2% | 未建立 |
+| lit_crowded_random | historical | 历史有效状态 | 历史几何证据 | 未认证 | 8 | 87.5% | 未建立 |
+| lit_circle_five | historical | 历史有效状态 | 历史几何证据 | 未认证 | 7 | 54.5% | 未建立 |
+| lit_swap8_free | historical | 历史有效状态 | 历史几何证据 | 未认证 | 7 | 57.1% | 未建立 |
+| lit_swap8_obstacles | historical | 历史有效状态 | 历史几何证据 | 未认证 | 7 | 66.1% | 未建立 |
+| lit_swap8_moving | historical | 历史有效状态 | 历史几何证据 | 未认证 | 7 | 44.6% | 未建立 |
+| xsc_swap_n4 | agent_count | 12/12 | 12/12 | 未认证 | 7 | 71.4% | 未建立 |
+| xsc_swap_n6 | agent_count | 12/12 | 12/12 | 未认证 | 7 | 69.0% | 未建立 |
+| xsc_swap_n10 | agent_count | 12/12 | 12/12 | 未认证 | 7 | 75.0% | 未建立 |
+| xsc_swap_n12 | agent_count | 12/12 | 12/12 | 未认证 | 7 | 75.0% | 未建立 |
+| xsc_swap_n8_dense | density | 12/12 | 12/12 | 未认证 | 7 | 28.6% | 未建立 |
+| xsc_gap_n2 | agent_count | 8/8 | 8/8 | 未认证 | 2 | 100.0% | 未建立 |
+| xsc_gap_n4 | agent_count | 8/8 | 8/8 | 未认证 | 2 | 75.0% | 未建立 |
+| xsc_gap_n6 | agent_count | 8/8 | 8/8 | 未认证 | 2 | 37.5% | 未建立 |
+| xsc_wide_n4 | geometry | 8/8 | 8/8 | 未认证 | 2 | 100.0% | 未建立 |
+| xsc_double_n4 | geometry | 8/8 | 8/8 | 未认证 | 2 | 81.2% | 未建立 |
+| xsc_offset_n4 | geometry | 8/8 | 8/8 | 未认证 | 2 | 93.8% | 未建立 |
+| xsc_three_doors_n4 | geometry | 8/8 | 8/8 | 未认证 | 2 | 81.2% | 未建立 |
+| xsc_gap_n10 | agent_count | 12/12 | 12/12 | 未认证 | 2 | 16.7%—33.3%（截尾界） | 未建立 |

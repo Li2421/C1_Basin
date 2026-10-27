@@ -1,0 +1,30 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/scene_learning_scheduler_revised_20261021.py
++++ /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/scene_learning_scheduler_revised_release_20261023.py
+@@ -2,11 +2,11 @@
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+-from coordinator_correction_recovery_20261021 import action,stage_done,jobs_by_stage,stage_ready
+-from resources_corrections_20261021 import snapshot
++from coordinator_correction_release_20261023 import action,stage_done,jobs_by_stage,stage_ready
++from resources_corrections_release_20261023 import snapshot
+ from infrastructure_recovery_correction_20261021 import classify
+ from analysis_jobs_current import prepare as prepare_analysis
+-import fine_dispatch_correction_recovery_20261021 as fine_dispatch
++import fine_dispatch_correction_release_20261023 as fine_dispatch
+ import subprocess
+ import time
+ 
+@@ -34,9 +34,9 @@
+ 
+ 
+ def run(scenes):
+-    from critic_jobs_revised_20261021 import submit as submit_critic
+-    from diagnosis_backfill import submit as submit_backfill
+-    from coordinator_correction_recovery_20261021 import status
++    from critic_jobs_revised_release_20261023 import submit as submit_critic
++    from diagnosis_backfill_release_20261023 import submit as submit_backfill
++    from coordinator_correction_release_20261023 import status
+     verify_receipt('PIPELINED_SCHEDULING.receipt.json')
+     labels=['learning_labels_revised_20261021_'+s for s in scenes]
+     for stage in labels:fine_dispatch.prepare(stage)

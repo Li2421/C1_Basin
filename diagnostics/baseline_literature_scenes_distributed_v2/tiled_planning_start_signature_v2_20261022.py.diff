@@ -1,0 +1,11 @@
+--- tiled_planning_flat_static.py
++++ tiled_planning_start_signature_v2_20261022.py
+@@ -7,7 +7,7 @@
+ import numpy as np
+ 
+ PTR=ctypes.POINTER(ctypes.c_double);IPTR=ctypes.POINTER(ctypes.c_int)
+-ASTAR=ctypes.CDLL(str(HERE/'astar_kernel_tiled.so'));CBS=ctypes.CDLL(str(HERE/'cbs_kernel_flat_cache.so'))
++ASTAR=ctypes.CDLL(str(HERE/'astar_kernel_tiled.so'));CBS=ctypes.CDLL(str(HERE/'cbs_kernel_start_signature_v2_candidate_20261022.so'))
+ ASTAR.astar.argtypes=[ctypes.c_double]*4+[ctypes.c_int,PTR,PTR,ctypes.c_int,IPTR,PTR,ctypes.c_int,PTR,ctypes.c_double,PTR]
+ CBS.astar_constrained.argtypes=[ctypes.c_double]*4+[ctypes.c_int,PTR,PTR,ctypes.c_int,IPTR,PTR,ctypes.c_int,PTR,PTR,ctypes.c_int,PTR,ctypes.c_double,PTR]
+ ASTAR.astar.restype=CBS.astar_constrained.restype=ctypes.c_int

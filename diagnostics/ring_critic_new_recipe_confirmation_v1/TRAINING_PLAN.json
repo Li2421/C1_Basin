@@ -1,0 +1,321 @@
+[
+  {
+    "group": "N1",
+    "run": "base_u_v7_local_macflow",
+    "name": "base_u_v7_local_plus_drift__seed1",
+    "seed": 43125,
+    "original_seed": 3124,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_v7_local_plus_drift_dataset",
+    "dataset_manifest_sha256": "2c449366978130916f3386cd75bbe0bd9b5c371dcb0b174bfa2da8f352fb940d",
+    "config": "diagnostics/ring_exchange_stage1/base_u_v7_local_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_v7_local_macflow/best.pkl",
+    "actor_hidden_dims": [
+      256,
+      256,
+      256
+    ],
+    "steps": 100000,
+    "available": true
+  },
+  {
+    "group": "N1",
+    "run": "base_u_v7_local_macflow",
+    "name": "base_u_v7_local_plus_drift__seed2",
+    "seed": 43126,
+    "original_seed": 3124,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_v7_local_plus_drift_dataset",
+    "dataset_manifest_sha256": "2c449366978130916f3386cd75bbe0bd9b5c371dcb0b174bfa2da8f352fb940d",
+    "config": "diagnostics/ring_exchange_stage1/base_u_v7_local_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_v7_local_macflow/best.pkl",
+    "actor_hidden_dims": [
+      256,
+      256,
+      256
+    ],
+    "steps": 100000,
+    "available": true
+  },
+  {
+    "group": "N1",
+    "run": "base_u_v7_local_macflow",
+    "name": "base_u_v7_local_plus_drift__seed3",
+    "seed": 43127,
+    "original_seed": 3124,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_v7_local_plus_drift_dataset",
+    "dataset_manifest_sha256": "2c449366978130916f3386cd75bbe0bd9b5c371dcb0b174bfa2da8f352fb940d",
+    "config": "diagnostics/ring_exchange_stage1/base_u_v7_local_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_v7_local_macflow/best.pkl",
+    "actor_hidden_dims": [
+      256,
+      256,
+      256
+    ],
+    "steps": 100000,
+    "available": true
+  },
+  {
+    "group": "N1",
+    "run": "base_u_v7_local_macflow",
+    "name": "base_u_v7_local_plus_drift__seed4",
+    "seed": 43128,
+    "original_seed": 3124,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_v7_local_plus_drift_dataset",
+    "dataset_manifest_sha256": "2c449366978130916f3386cd75bbe0bd9b5c371dcb0b174bfa2da8f352fb940d",
+    "config": "diagnostics/ring_exchange_stage1/base_u_v7_local_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_v7_local_macflow/best.pkl",
+    "actor_hidden_dims": [
+      256,
+      256,
+      256
+    ],
+    "steps": 100000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_macflow",
+    "name": "base_u_macflow__arch512",
+    "seed": 43103,
+    "original_seed": 3102,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_dataset",
+    "dataset_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+    "config": "diagnostics/ring_exchange_stage1/base_u_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 5000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_v4_macflow",
+    "name": "base_u_v4_macflow__arch512",
+    "seed": 43113,
+    "original_seed": 3112,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_v4_dataset",
+    "dataset_manifest_sha256": "115b20011046267a7be9dd34f5742755c53e7b4c06a0d00aad6b7450e7c17515",
+    "config": "diagnostics/ring_exchange_stage1/base_u_v4_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_v4_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 80000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_plus_w_v6_macflow",
+    "name": "base_u_plus_w_v6_macflow__arch512",
+    "seed": 43123,
+    "original_seed": 3122,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_plus_w_v6_dataset",
+    "dataset_manifest_sha256": "6b664b19b590baf530e709e692447d30b2cff72387b276ebaa3728ede395532e",
+    "config": "diagnostics/ring_exchange_stage1/base_u_plus_w_v6_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_plus_w_v6_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 100000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_plus_w_v3_macflow",
+    "name": "base_u_plus_w_v3_macflow__arch512",
+    "seed": 43111,
+    "original_seed": 3110,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_plus_w_v3_dataset",
+    "dataset_manifest_sha256": "bd611622e9c8a80948e0407479ee33dbb52298f3eb59a203a5f787809645de8b",
+    "config": "diagnostics/ring_exchange_stage1/base_u_plus_w_v3_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_plus_w_v3_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 60000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_plus_w_v4_train_targeted_macflow",
+    "name": "base_u_plus_w_v4_train_targeted_macflow__arch512",
+    "seed": 43116,
+    "original_seed": 3115,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_plus_w_v4_train_targeted_dataset",
+    "dataset_manifest_sha256": "1ea5d99b338a00fe467e8188392a938b77e001ccb3897ebd57e978c5ca31cf69",
+    "config": "diagnostics/ring_exchange_stage1/base_u_plus_w_v4_train_targeted_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_plus_w_v4_train_targeted_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 80000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_v3_macflow",
+    "name": "base_u_v3_macflow__arch512",
+    "seed": 43110,
+    "original_seed": 3109,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_v3_dataset",
+    "dataset_manifest_sha256": "d7987615ee03bdd33f18d873c527856e19ca491be52a50d9d61ed963ec7bd242",
+    "config": "diagnostics/ring_exchange_stage1/base_u_v3_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_v3_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 60000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_v2_macflow",
+    "name": "base_u_v2_macflow__arch512",
+    "seed": 43105,
+    "original_seed": 3104,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_v2_dataset",
+    "dataset_manifest_sha256": "b49dcafe393b4f5f4103cad8e633c589d0dd8ee08200d52ce512a62941a57d1b",
+    "config": "diagnostics/ring_exchange_stage1/base_u_v2_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_v2_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 12000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_v10_local_macflow",
+    "name": "base_u_v10_local_macflow__arch512",
+    "seed": 43128,
+    "original_seed": 3127,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_v10_local_dataset",
+    "dataset_manifest_sha256": "dd72095a957acfb9fe47ff9b6478329bb06424c91bd9dd401d6e1b3c74431732",
+    "config": "diagnostics/ring_exchange_stage1/base_u_v10_local_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_v10_local_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 100000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_plus_w_v5_macflow",
+    "name": "base_u_plus_w_v5_macflow__arch512",
+    "seed": 43117,
+    "original_seed": 3116,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_plus_w_v5_dataset",
+    "dataset_manifest_sha256": "04d12430ab57a28affb1ded33d9aac8ba9656274e073a2c1057c159cdfd616a5",
+    "config": "diagnostics/ring_exchange_stage1/base_u_plus_w_v5_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_plus_w_v5_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 100000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_v7_local_macflow",
+    "name": "base_u_v7_local_macflow__arch512",
+    "seed": 43125,
+    "original_seed": 3124,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_v7_local_dataset",
+    "dataset_manifest_sha256": "1f64eb949e360fa0a99816ed118760435a22475956e0dbd895fdbdebc88447dd",
+    "config": "diagnostics/ring_exchange_stage1/base_u_v7_local_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_v7_local_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 100000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_plus_w_v4_macflow",
+    "name": "base_u_plus_w_v4_macflow__arch512",
+    "seed": 43114,
+    "original_seed": 3113,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_plus_w_v4_dataset",
+    "dataset_manifest_sha256": "bce651f6aeb32710e26001c641c3554e00a11b0d7866c1a977b6f241d07400cf",
+    "config": "diagnostics/ring_exchange_stage1/base_u_plus_w_v4_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_plus_w_v4_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 80000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_v8_local_macflow",
+    "name": "base_u_v8_local_macflow__arch512",
+    "seed": 43126,
+    "original_seed": 3125,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_v8_local_dataset",
+    "dataset_manifest_sha256": "4dc96b770ddb0e1a7981b50df5b7d64c03b700ba09ce6146d381b0dd36769f0c",
+    "config": "diagnostics/ring_exchange_stage1/base_u_v8_local_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_v8_local_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 100000,
+    "available": true
+  },
+  {
+    "group": "N2",
+    "run": "base_u_v9_local_macflow",
+    "name": "base_u_v9_local_macflow__arch512",
+    "seed": 43127,
+    "original_seed": 3126,
+    "dataset": "diagnostics/ring_exchange_stage1/base_u_v8_local_dataset",
+    "dataset_manifest_sha256": "4dc96b770ddb0e1a7981b50df5b7d64c03b700ba09ce6146d381b0dd36769f0c",
+    "config": "diagnostics/ring_exchange_stage1/base_u_v9_local_macflow/config.json",
+    "original_best": "diagnostics/ring_exchange_stage1/base_u_v9_local_macflow/best.pkl",
+    "actor_hidden_dims": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "steps": 100000,
+    "available": true
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-17T10:16:28.074066+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/decentralized_fix_selection_v1/folds/G/RULE_SELECTION.json": "7249356e69b11955aa6b3c1150f86b956eae58b44417388a24f59806bdcef597",
+    "/home/zhihan/research/Basin_C1/diagnostics/decentralized_fix_selection_v1/folds/G/RULE_GRID.json": "8a385c5ab7e7058d7868d2bc2ba30f0593b1feff740d58c041b091f11e04ed2d",
+    "/home/zhihan/research/Basin_C1/diagnostics/decentralized_fix_selection_v1/folds/G/STEP_SELECTION.json": "f47363bd79c9709927b700a9e34363e9a926806b5095a55779d43b4a3805b714",
+    "/home/zhihan/research/Basin_C1/diagnostics/decentralized_fix_selection_v1/folds/G/CRITIC_PREDICTIONS.npz": "fe640af5fe2067e413a320852a01f62b7ce5faf97a7ef29e0186d43c83880c70",
+    "/home/zhihan/research/Basin_C1/diagnostics/decentralized_fix_selection_v1/folds/G/CRITIC_SELECTION.json": "3c4381159020164482b271bd9c50d31a72be1a46ff28d187d4f49447995413e2"
+  },
+  "before_held_evaluation": true,
+  "held_labels_read": false,
+  "guard": {
+    "package": "/home/zhihan/research/Basin_C1/shared_rollout_db/__init__.py",
+    "journals": "/home/zhihan/research/Basin_C1/shared_rollout_db/journals",
+    "jax_enable_x64": false
+  }
+}

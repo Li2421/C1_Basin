@@ -1,0 +1,11 @@
+--- central_reservation_reference.py
++++ central_reservation_reference_v2.py
+@@ -7,7 +7,7 @@
+ from flow_scene import LiteratureEnv
+ from states import LiteratureConfig
+ from controllers import bound
+-from reservation_certificate import ReservationNominal as Nominal
++from reservation_certificate_v2 import ReservationNominal as Nominal
+ from projection_memo import MemoSafetyFilter as LiteratureSafetyFilter
+ from shared_control.basis_families import get_basis_family
+ jax.config.update('jax_enable_x64',False)

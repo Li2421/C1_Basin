@@ -1,0 +1,25 @@
+--- correction_revision_20261021.py
++++ correction_revision_mask_cache_candidate_20261023.py
+@@ -22,9 +22,21 @@
+     conflict=close & ~np.eye(len(p),dtype=bool) & ~(arrived[:,None]&arrived[None,:])
+     return np.any(conflict,axis=1)
+ 
++from functools import lru_cache
++@lru_cache(maxsize=1)
++def _contact_from_exact_bits(n,position_bits,goal_bits,tolerance_bits,radius_bits,force_all_open):
++    p=np.frombuffer(position_bits,np.float64).reshape(n,2)
++    g=np.frombuffer(goal_bits,np.float64).reshape(n,2)
++    result=contact_mask(p,g,np.frombuffer(tolerance_bits,np.float64)[0],np.frombuffer(radius_bits,np.float64)[0],force_all_open)
++    return result
++
++def _cached_contact_mask(positions,goals,tolerance,radius,force_all_open=False):
++    p=np.asarray(positions,np.float64);g=np.asarray(goals,np.float64)
++    return _contact_from_exact_bits(len(p),p.tobytes(),g.tobytes(),np.float64(tolerance).tobytes(),np.float64(radius).tobytes(),force_all_open).copy()
++
+ def distributed_fields(positions,goals,safe,i,speed,tolerance,radius,force_all_open=False):
+     fields=local_basis(positions,goals,safe,i,np.inf,speed)
+-    if not contact_mask(positions,goals,tolerance,radius,force_all_open)[i]:
++    if not _cached_contact_mask(positions,goals,tolerance,radius,force_all_open)[i]:
+         fields=fields.copy();fields[2]=0.
+     return fields
+ 

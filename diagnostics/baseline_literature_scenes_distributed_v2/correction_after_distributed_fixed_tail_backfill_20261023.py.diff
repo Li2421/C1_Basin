@@ -1,0 +1,19 @@
+--- correction_after_distributed_fixed_20261021.py
++++ correction_after_distributed_fixed_tail_backfill_20261023.py
+@@ -2,7 +2,7 @@
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+-from coordinator_correction_release_20261023 import action,status,stage_ready,stage_done,jobs_by_stage,prepare_fixed,run_stages
++from coordinator_correction_tail_backfill_20261023 import action,status,stage_ready,stage_done,jobs_by_stage,prepare_fixed,run_stages
+ from resources_corrections_release_20261023 import snapshot
+ from infrastructure_recovery_correction_20261021 import recover
+ import fine_dispatch_correction_release_20261023 as fine
+@@ -50,6 +50,7 @@
+   status('revised_main_saved_trace_diagnosis',pending=pending,stage_worker_counts=counts);time.sleep(10)
+ 
+ def main():
++ verify_receipt('CORRECTION_CONTINUATION_TAIL_BACKFILL_READY_20261023.receipt.json')
+  with (HERE/'CORRECTION_CONTINUATION.lock').open('a') as lock:
+   fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+   for proof in ('CORRECTION_CONTINUATION_READY_20261021.receipt.json','REVISED_DISTRIBUTED_FIXED_COMPLETE_20261021.receipt.json','CORRECTION_REVISION.receipt.json','REVISED_LEARNING_IMPLEMENTATION_20261021.receipt.json','CPU_RELEASE_CODE_20261023.receipt.json'):verify_receipt(proof)

@@ -1,0 +1,92 @@
+{
+  "utc": "2026-10-22T06:22:47.994144+00:00",
+  "active_entry": {
+    "utc": "2026-10-22T06:20:04.222588+00:00",
+    "coordinator": "coordinator_sealed_main_resume_20261022.py",
+    "pid": 1800714,
+    "worker": "worker_spatial_mask_eval_20261022.py",
+    "submit": "fine_dispatch_spatial_mask_20261022.py",
+    "analysis": "analysis_jobs_cached.py",
+    "downstream": "sealed_main_optional_resume_20261022.py",
+    "optional": "optional_delivery_audit_order_20261022.py",
+    "final_reports": "final_reports_audit_order_20261022.py",
+    "resources": "resources_corrections_release_20261023_quota18_now_20261022.py",
+    "watchdog": "scheduler_watchdog_sealed_main_resume_20261022.py",
+    "total_cpu": 18,
+    "total_gpu_shards": 2,
+    "optional_worker": "optional_worker_spatial_mask_20261022.py",
+    "local_cpu_guard": "local_cpu_guard_shared_own_fallback_20261022.py",
+    "native_backend": "tiled_planning_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+    "computation_acceleration": "Verified exact PA cell/move static predicate masks plus PA query memo and CBS shared caches",
+    "scene_learning_scheduler": "scene_learning_scheduler_spatial_mask_20261022.py",
+    "optional_submit": "optional_fine_dispatch_spatial_mask_20261022.py",
+    "entry_metadata_updated": "2026-10-21T14:42:35.667979+00:00",
+    "resource_guard": "resource_guard_corrections_release_cpu_only_20261023_quota18_now_20261022.py",
+    "cpu_authority": "Latest user: release six CPUs immediately;18 total including1 local reserve",
+    "state": "Exact bootstrap matrix memo;all5000 draws unchanged;native spatial caches,analysis supplement and reuse order retained;18CPU total",
+    "do_not_restart_old_coordinator": true,
+    "old_circle_semantics_permanently_stopped": true,
+    "recovery": "infrastructure_recovery_correction_20261021.py",
+    "resource_policy": "RESOURCE_LIMIT_IMMEDIATE_18CPU_20261022.json",
+    "fixed_tail_backfill": true,
+    "downstream_receipt": "SEALED_MAIN_OPTIONAL_RESUME_READY_20261022.receipt.json",
+    "main_statistics": "statistics_bootstrap_memo_20261022.py",
+    "main_statistics_ready": "BOOTSTRAP_EXACT_MEMO_LAUNCHER_FIX_20261022.receipt.json",
+    "live_revised_fixed_success": "LIVE_REVISED_FIXED_SUCCESS.json",
+    "live_revised_controller_success": "LIVE_REVISED_FIXED_CONTROLLER_SUCCESS.csv",
+    "resource_request": "USER_RELEASE_SIX_CPUS_NOW_20261022_PLAN.json",
+    "optional_receipt": "FINAL_DELIVERY_AUDIT_ORDER_20261022.receipt.json",
+    "computational_equivalence_receipt": "PA_SPATIAL_MASK_EQUIVALENCE_20261022.receipt.json",
+    "computation_deployment_receipt": "PA_SPATIAL_MASK_DEPLOYMENT_20261022.receipt.json",
+    "computation_deployment_complete_utc": "2026-10-22T04:37:44.998350+00:00",
+    "label_native_backend": "tiled_planning_pa_memo_candidate_spatial_mask_20261022.py",
+    "label_worker": "worker_spatial_mask_label_20261022.py",
+    "previous_computational_equivalence_receipt": "PA_SPATIAL_MASK_EQUIVALENCE_20261022.receipt.json",
+    "resource_limit_receipt": "CPU_LIMIT_IMMEDIATE_18CPU_CODE_20261022.receipt.json",
+    "progress": "progress_supplement_20261022.py",
+    "analysis_supplement_protocol": "ANALYSIS_SUPPLEMENT_PROTOCOL_20261022.receipt.json",
+    "statistics_acceleration_receipt": "BOOTSTRAP_EXACT_MEMO_DEPLOYMENT_20261022.receipt.json",
+    "local_cpu_management_policy": "LOCAL_CPU_SHARED_OWN_FALLBACK_20261022.receipt.json",
+    "delivery_clarity_receipt": "FINAL_DELIVERY_CLARITY_20261022.receipt.json",
+    "restart_coordinator": "coordinator_sealed_main_resume_20261022.py",
+    "sealed_main_resume_receipt": "SEALED_MAIN_OPTIONAL_RESUME_READY_20261022.receipt.json",
+    "audit_order_receipt": "FINAL_DELIVERY_AUDIT_ORDER_20261022.receipt.json"
+  },
+  "managers": [
+    [
+      1800720,
+      "scheduler_watchdog_sealed_main_resume_20261022.py"
+    ],
+    [
+      1800714,
+      "coordinator_sealed_main_resume_20261022.py"
+    ],
+    [
+      1800719,
+      "sealed_main_optional_resume_20261022.py"
+    ],
+    [
+      1800926,
+      "optional_delivery_audit_order_20261022.py"
+    ]
+  ],
+  "science_jobs": [
+    "27932|blv2_optional|RUNNING|1",
+    "27933|blv2_optional|RUNNING|1",
+    "27934|blv2_optional|RUNNING|1",
+    "27935|blv2_optional|RUNNING|1",
+    "27931|blv2_optional|RUNNING|1",
+    "27919|blv2_optional|RUNNING|1",
+    "27920|blv2_optional|RUNNING|1",
+    "27921|blv2_optional|RUNNING|1",
+    "27923|blv2_optional|RUNNING|1",
+    "27924|blv2_optional|RUNNING|1",
+    "27925|blv2_optional|RUNNING|1",
+    "27927|blv2_optional|RUNNING|1",
+    "27928|blv2_optional|RUNNING|1",
+    "27929|blv2_optional|RUNNING|1",
+    "27915|blv2_optional|RUNNING|1",
+    "27916|blv2_optional|RUNNING|1",
+    "27917|blv2_optional|RUNNING|1"
+  ]
+}

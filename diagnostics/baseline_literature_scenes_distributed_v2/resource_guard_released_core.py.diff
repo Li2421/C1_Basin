@@ -1,0 +1,22 @@
+--- resource_guard.py
++++ resource_guard_released_core.py
+@@ -2,7 +2,7 @@
+ from experiment import *
+ import time
+ import subprocess
+-from resources import snapshot, limits
++from resources_released import snapshot, limits
+ 
+ def enforce():
+     state=snapshot();cancelled=[]
+@@ -22,8 +22,8 @@
+         within_limit=cpu+state['local_cpu_reserve']<=state['cpu_limit'] and gpu<=state['gpu_shard_limit']))
+ 
+ def main():
+-    write(HERE/'RESOURCE_GUARD_PID.json',dict(pid=os.getpid(),utc=utc(),policy=read(HERE/'RESOURCE_SCHEDULE.json')))
+-    deadline=datetime.fromisoformat(read(HERE/'RESOURCE_SCHEDULE.json')['release_at_utc'])
++    write(HERE/'RESOURCE_GUARD_PID.json',dict(pid=os.getpid(),utc=utc(),policy=read(HERE/'RESOURCE_SCHEDULE_CORRECTED.json')))
++    deadline=datetime.fromisoformat(read(HERE/'RESOURCE_SCHEDULE_CORRECTED.json')['release_at_utc'])
+     while True:
+         seconds=(deadline-datetime.now(timezone.utc)).total_seconds()
+         if seconds<=0:break

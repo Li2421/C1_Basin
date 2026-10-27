@@ -1,0 +1,27 @@
+--- statistics_correction_revised_20261021.py
++++ statistics_correction_header_20261023.py
+@@ -2,7 +2,8 @@
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+-from statistics import FIXED,LAYERS,collect,controller_census,summarize,crossfit_oracle
++from statistics_header_reader_20261023 import FIXED,LAYERS,collect,controller_census,summarize,crossfit_oracle
++from reclassify_instances_20261021 import small_diagnosis
+ from result_inventory import find_raw,qualification
+ from derived_metrics import weighted_rates
+ import numpy as np,collections,csv,copy
+@@ -15,7 +16,7 @@
+  stages += ['learning_eval_revised_20261021_'+s for s in NAMES if (HERE/f'learning_eval_revised_20261021_{s}_CASES.json').exists()]
+  for stage in stages:
+   for c in read(HERE/f'{stage}_CASES.json'):
+-   path=find_raw(c['rollout_uid'],stage,c['state']['scene']);raw=read(path);dpath=HERE/'DIAGNOSTICS'/f"{c['rollout_uid']}.json";diag=read(dpath);ctl=c['controller_payload']['nominal'];s=c['state'];cats=diag['local']
++   path=find_raw(c['rollout_uid'],stage,c['state']['scene']);raw=read(path);dpath=HERE/'DIAGNOSTICS'/f"{c['rollout_uid']}.json";diag=small_diagnosis(dpath.read_bytes());ctl=c['controller_payload']['nominal'];s=c['state'];cats=diag['local']
+    rows.append(dict(layer=c.get('safety_layer','distributed'),scene=s['scene'],N=s['N'],state=s['index'],controller=ctl['controller'],type=ctl['type_code'],method=c['method'],seed=c['seed'],success=raw['success'],upper=min(1,raw['success']+raw['numerical_failure']),collision=raw['collision'],timeout=raw['timeout'],unknown=raw['numerical_failure'],deadlock_episode=int('robot_filter_equilibrium_deadlock' in cats),wall_episode=int('wall_filter_equilibrium' in cats),deadlock_agents=cats.count('robot_filter_equilibrium_deadlock'),wall_agents=cats.count('wall_filter_equilibrium'),categories=cats,canonical_joint_episode=int('filter_equilibrium_deadlock' in diag.get('canonical_joint',[])),actual_joint_episode=int('filter_equilibrium_deadlock' in diag.get('actual_product_joint',[])),rollout_uid=c['rollout_uid']))
+    sources.append(dict(rollout_uid=c['rollout_uid'],logical_stage=stage,raw=str(path),raw_sha256=sha(path),diagnostic=str(dpath),diagnostic_sha256=sha(dpath)))
+  return rows,sources
+@@ -137,4 +138,4 @@
+   w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows({k:canonical(r[k]) if isinstance(r[k],(list,dict)) else r[k] for k in fields} for r in flat)
+  names=['MIGRATION_RESULTS.json','MIGRATION_RESULTS.csv','CONTROLLER_LEVEL_FAILURES.json','MIGRATION_RESULT_SOURCES.json','REVISED_MIGRATION_RESULT_SOURCES_20261021.json','COMPACT_MAIN_RESULTS.json','COMPACT_REVISED_MAIN_RESULTS_20261021.json','SAFETY_BASELINE.csv','statistics_correction_revised_20261021.py','statistics.py','INSTANCE_CLASSES_REVISED.receipt.json']
+  seal('MIGRATION_NUMBERS.receipt.json',[HERE/n for n in names],bootstrap_iterations=5000,before_optional_dynamics_and_charts=True,original_outcome_estimates_exact_reuse=True,revised_semantics_posthoc=True,primary_exclusion='Only revised taxonomy controller failure,per layer')
+-if __name__=='__main__':main()
++if __name__=='__main__':raise RuntimeError('Import-only helper; use statistics_parallel_correction_20261023.py')

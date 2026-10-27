@@ -1,0 +1,63 @@
+{
+  "train_states": [
+    22,
+    15,
+    0,
+    29,
+    4,
+    30,
+    2,
+    24,
+    21,
+    7,
+    25,
+    6,
+    10,
+    19,
+    9,
+    14
+  ],
+  "validation_states": [
+    1,
+    16,
+    3,
+    11,
+    27,
+    8,
+    18,
+    5
+  ],
+  "joint_test_states": [
+    26,
+    17,
+    28,
+    23,
+    20,
+    31,
+    13,
+    12
+  ],
+  "source_controllers": [
+    0,
+    2,
+    3
+  ],
+  "held_controllers": [
+    1,
+    4
+  ],
+  "source_seed_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "target_evaluation_seed_indices": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "unknown_identity": "all zero source onehot before train-only normalization",
+  "status": "DEVELOPMENT Q-only fallback; C2-main gate failed"
+}

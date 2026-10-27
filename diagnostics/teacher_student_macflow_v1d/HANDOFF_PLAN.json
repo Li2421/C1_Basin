@@ -1,0 +1,95 @@
+{
+  "utc": "2026-10-15T16:46:46.683558+00:00",
+  "transfers": [
+    {
+      "pid": 1090727,
+      "original_worker": 11,
+      "completed_prefix": 624,
+      "inflight_and_retained_cases": [
+        "roll_03bf3613f2572236c26b154977335f2edbd4f2cba753c70b2aafb424519dc625",
+        "roll_90a5a2844ccdd0c53a5d638009a977992b1b61948e6de234cc5a2bf26757af8b"
+      ],
+      "cut": 626,
+      "reserved_guard_case": "roll_f98d24034690246cd74027d3f6d4cb9d79d89fa28b4a5d38c194a17facec9f7c",
+      "transferred_cases": 121
+    },
+    {
+      "pid": 1090822,
+      "original_worker": 12,
+      "completed_prefix": 620,
+      "inflight_and_retained_cases": [
+        "roll_0037e2addea1f1d6e5add566759b785643bcfcb4b8fa13ede1d0aca4575d2de7",
+        "roll_ee42d5d26afe99a1f0665ff12ba3c32ac80265127b3907e3ffe6f9a856d97392"
+      ],
+      "cut": 622,
+      "reserved_guard_case": "roll_b862c05951637241a28def9b91744cb3a102df3fddf0dfd7c3df508355353432",
+      "transferred_cases": 124
+    },
+    {
+      "pid": 1092451,
+      "original_worker": 13,
+      "completed_prefix": 459,
+      "inflight_and_retained_cases": [
+        "roll_be52436357e9a5e9973d5474d43bb457900cc669b0466a2101720e96a1db714a",
+        "roll_7d1cdf9fc4323c3bcf44a2a6115b3996ba4a8051e3c93bf4496f23e9210addc9"
+      ],
+      "cut": 461,
+      "reserved_guard_case": "roll_d9d914a06a0421de4eec24d58d15f887dcd3993a476284223ed0de0a1281615e",
+      "transferred_cases": 285
+    },
+    {
+      "pid": 1092629,
+      "original_worker": 14,
+      "completed_prefix": 447,
+      "inflight_and_retained_cases": [
+        "roll_3d59c1c3638b9a006d6598a39c5f77a48eb2d3cac27638abf7b8792ecbac6e45",
+        "roll_e8b4cfac4cadb6f7c509f06cbb2610828163931f59573dad617b246db3359ee6"
+      ],
+      "cut": 449,
+      "reserved_guard_case": "roll_71d10b4e10f8dc0f48002c9f753089af462b499dfc958ffbb6582be28fe54989",
+      "transferred_cases": 297
+    },
+    {
+      "pid": 1092677,
+      "original_worker": 15,
+      "completed_prefix": 439,
+      "inflight_and_retained_cases": [
+        "roll_5f37b79dd1dd7f6900c500b1ce866dd6a49a262e6e9fe67dbe2f2a794c098515",
+        "roll_5556a0b945096baf19d807a872785467f170f51df44bc5d8d5310bc6376693d6"
+      ],
+      "cut": 441,
+      "reserved_guard_case": "roll_a34b38fc24015e49d0e0a081375a738dfd29f36868be7a56a199811213ac30fa",
+      "transferred_cases": 305
+    },
+    {
+      "pid": 1093212,
+      "original_worker": 16,
+      "completed_prefix": 412,
+      "inflight_and_retained_cases": [
+        "roll_e9c9fa759279cd0bec69472e4ad3b4608bb90b2421d6c84c1941761d1c637b2c",
+        "roll_7e6b6c6fef66dac291c3f560a890390ac1dc428dbb71a9dcc1b9bf44e6a7e3c5"
+      ],
+      "cut": 414,
+      "reserved_guard_case": "roll_b35d3d0cca0dc6202ba9b52613cfcc95efed3f976b616c95002104bb00eccd12",
+      "transferred_cases": 332
+    },
+    {
+      "pid": 1093421,
+      "original_worker": 17,
+      "completed_prefix": 391,
+      "inflight_and_retained_cases": [
+        "roll_0120b90dd24986b7da0b8f68b0bd32f03061a3b58d482f987bcd2cec8e7c5d2a",
+        "roll_6afea13434284faeb8280f9e3cd63e831d556d03c72b4ad235fab2878084d422"
+      ],
+      "cut": 393,
+      "reserved_guard_case": "roll_33294558e96d79dd250dd46583ba961cac4637b9e646224ad697c40b8357892e",
+      "transferred_cases": 353
+    }
+  ],
+  "source_preflight_sha256": "56881c6479c0d05664ae8f6fd9b38c86de63bb2efc70c138059c920a5ee41814",
+  "original_worker_sha256": "fa547fd821698d4048b5bd1f29ea5bfb9c9ebc3d6cbaac07d98e81f0633d22e1",
+  "helper_sha256": "8774a37149f48b34fb1026394cd49df83fb0b61f922505073f411efd64bfb6cd",
+  "controls_and_physics_unchanged": true,
+  "no_inflight_cases_transferred": true,
+  "unknowns_or_completed_transferred": 0
+}

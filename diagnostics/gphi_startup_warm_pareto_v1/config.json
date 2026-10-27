@@ -1,0 +1,16 @@
+{
+  "architecture": [214, 128, 128, 4],
+  "activation": "SiLU",
+  "optimizer": "AdamW",
+  "learning_rate": 0.001,
+  "weight_decay": 0.00001,
+  "batch_size": 256,
+  "epochs": 1200,
+  "training_seeds": [17, 23, 41],
+  "loss": "mean squared error to g*_exec",
+  "sampling": "existing unified sample-uniform minibatch permutation",
+  "normalization": "fit on the frozen unified train split only",
+  "checkpoint_frequency_epochs": 1,
+  "selection_rule": "per-seed validation-only minimax multiplicative regret on the startup/warm Pareto frontier; ties use all-validation state-grouped mean L2 then earlier epoch",
+  "test_used_for_selection": false
+}

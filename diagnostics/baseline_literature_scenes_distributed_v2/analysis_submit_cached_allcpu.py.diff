@@ -1,0 +1,11 @@
+--- analysis_submit_cached.py
++++ analysis_submit_cached_allcpu.py
+@@ -3,7 +3,7 @@
+ from atomic_write import write
+ from registry import verify_receipt
+ from result_inventory import find_raw
+-from resources_released import require_capacity
++from resources_idle_cpu import require_capacity
+ import subprocess
+ import fcntl
+ import time

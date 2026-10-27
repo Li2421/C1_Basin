@@ -1,0 +1,11 @@
+--- correction_continuation_supplement_clarified_20261022.py
++++ correction_continuation_reuse_order_20261022.py
+@@ -23,7 +23,7 @@
+   status('saved_analysis_yielding_to_next_required_phase',jobs=targets);time.sleep(10)
+ 
+ def learning(scenes):
+- from scene_learning_scheduler_supplement_20261022 import run
++ from scene_learning_scheduler_reuse_order_20261022 import run
+  verify_receipt('REVISED_LEARNING_IMPLEMENTATION_20261021.receipt.json');verify_receipt('CPU_RELEASE_CODE_20261023.receipt.json')
+  for scene in scenes:
+   stage='learning_labels_revised_20261021_'+scene

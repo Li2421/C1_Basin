@@ -1,0 +1,44 @@
+--- coordinator_current.py
++++ coordinator_released.py
+@@ -3,7 +3,7 @@
+ import subprocess
+ import time
+ import fcntl
+-from resources import snapshot
++from resources_released import snapshot
+ from infrastructure_recovery_current import recover
+ 
+ def action(label,*arguments):
+@@ -28,7 +28,7 @@
+     return mapping
+ 
+ def run_stages(stages,phase):
+-    from status import main as status
++    from status_released import main as status
+     while True:
+         state=snapshot();mapping=jobs_by_stage(state);live=set(mapping)
+         for stage in stages:recover(stage,live)
+@@ -39,8 +39,8 @@
+             if not any(s in stages for s in mapping.values()):return
+         free=state['free_cpu_shares']
+         if pending and free:
+-            from submit_reservation_v2 import submit
+-            from analysis_jobs_current import submit as submit_analysis
++            from submit_reservation_released import submit
++            from analysis_jobs_released import submit as submit_analysis
+             counts={s:sum(v==s for v in mapping.values()) for s in pending}
+             available={s:sum(not (HERE/s/'claims'/r['group']).exists() for r in read(HERE/s/'GROUP_INDEX.json')) for s in pending}
+             for _ in range(min(free,sum(available.values()))):
+@@ -70,10 +70,10 @@
+         run_stages(stages,'central_comparison_safety_only')
+         # Downstream implementation is sealed independently before use.
+         while not (HERE/'DOWNSTREAM_READY.receipt.json').exists():
+-            from status import main as status
++            from status_released import main as status
+             status('central_complete_awaiting_downstream_implementation');time.sleep(30)
+         from registry import verify_receipt
+         verify_receipt('DOWNSTREAM_READY.receipt.json')
+-        action('downstream','downstream_current.py')
++        action('downstream','downstream_released.py')
+ 
+ if __name__=='__main__':main()

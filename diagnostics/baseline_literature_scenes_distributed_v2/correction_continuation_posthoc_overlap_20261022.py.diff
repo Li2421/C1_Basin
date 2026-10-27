@@ -1,0 +1,17 @@
+--- correction_continuation_bootstrap_memo_20261022.py
++++ correction_continuation_posthoc_overlap_20261022.py
+@@ -50,6 +50,7 @@
+   status('revised_main_saved_trace_diagnosis',pending=pending,stage_worker_counts=counts);time.sleep(10)
+ 
+ def main():
++ verify_receipt('POSTHOC_METRICS_OVERLAP_READY_20261022.receipt.json')
+  verify_receipt('BOOTSTRAP_EXACT_MEMO_READY_20261022.receipt.json')
+  verify_receipt('PA_SPATIAL_MASK_EQUIVALENCE_20261022.receipt.json');verify_receipt('PA_SPATIAL_MASK_PIPELINE_CODE_20261022.receipt.json')
+  verify_receipt('PA_QUERY_MEMO_EQUIVALENCE_20261022.receipt.json');verify_receipt('PA_QUERY_MEMO_PIPELINE_CODE_20261022.receipt.json')
+@@ -79,5 +80,5 @@
+   wait_ready('CORRECTION_SCOPED_NUMERICS_READY_20261023.receipt.json','revised_main_complete_waiting_combined_statistics_implementation')
+   if not (HERE/'MIGRATION_NUMBERS.receipt.json').exists():action('combined_original_revised_numbers','statistics_bootstrap_memo_20261022.py')
+   wait_ready('CORRECTION_CLOSED_SCOPE_DELIVERY_READY_20261023.receipt.json','combined_main_numbers_sealed_waiting_revised_optional_implementation')
+-  action('revised_optional_and_final_delivery','optional_delivery_spatial_mask_20261022.py')
++  action('revised_optional_and_final_delivery','optional_delivery_posthoc_overlap_20261022.py')
+ if __name__=='__main__':main()

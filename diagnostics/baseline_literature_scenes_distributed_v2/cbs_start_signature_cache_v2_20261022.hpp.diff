@@ -1,0 +1,20 @@
+--- cbs_start_signature_cache_20261022.hpp
++++ cbs_start_signature_cache_v2_20261022.hpp
+@@ -32,9 +32,15 @@
+         value.reserve(38+size_t(nc)*5*sizeof(double));
+         append(value,sx);append(value,sy);append(value,max_time);
+         value.append(reinterpret_cast<const char*>(goal),2*sizeof(double));
+-        append(value,nc);append(value,signature);
++        // Time-zero exclusions affect only the ten predicates in signature.
++        // Every later edge ignores them, so their coordinates/count are not
++        // independent inputs to the search once that signature is fixed.
++        int later_count=0;
++        for(int c=0;c<nc;++c)if(int(constraints[5*c])!=0)++later_count;
++        append(value,later_count);append(value,signature);
+         int rounding_mode=std::fegetround();append(value,rounding_mode);
+-        if(nc)value.append(reinterpret_cast<const char*>(constraints),size_t(nc)*5*sizeof(double));
++        for(int c=0;c<nc;++c)if(int(constraints[5*c])!=0)
++            value.append(reinterpret_cast<const char*>(constraints+5*c),5*sizeof(double));
+         return value;
+     }
+     bool get(const std::string& key,const double* start,double* output,int& count){

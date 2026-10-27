@@ -1,0 +1,45 @@
+--- fine_dispatch.py
++++ optional_fine_dispatch.py
+@@ -11,14 +11,14 @@
+ 
+ 
+ def eligible(stage):
+-    return stage.startswith(('learning_labels_','learning_eval_'))
++    return stage.startswith('optional_')
+ 
+ 
+ def prepare(stage):
+     assert eligible(stage),stage
+     target=HERE/stage/'FINE_QUEUE.receipt.json'
+     if target.exists():return
+-    verify_receipt('PIPELINED_SCHEDULING.receipt.json')
++    verify_receipt('OPTIONAL_FINE_SCHEDULING.receipt.json')
+     verify_receipt(f'{stage}_PREFLIGHT.receipt.json')
+     verify_receipt(f'{stage}/WORK_QUEUE.receipt.json')
+     index=[];before=[];after=[]
+@@ -43,7 +43,7 @@
+     rids=[c['rollout_uid'] for c in before];assert len(rids)==len(set(rids))
+     write(HERE/stage/'FINE_GROUP_INDEX.json',index)
+     seal(f'{stage}/FINE_QUEUE.receipt.json',
+-        [HERE/stage/'FINE_GROUP_INDEX.json',HERE/stage/'WORK_QUEUE.receipt.json',HERE/'fine_dispatch.py'],
++        [HERE/stage/'FINE_GROUP_INDEX.json',HERE/stage/'WORK_QUEUE.receipt.json',HERE/'optional_fine_dispatch.py'],
+         original_requests=len(before),fine_requests=sum(len(r['rollout_uids']) for r in index),
+         request_payloads_identical=True,new_registration=False,maximum_requests_per_claim=2)
+ 
+@@ -91,14 +91,14 @@
+ 
+ 
+ def submit(stage):
+-    verify_receipt('PIPELINED_SCHEDULING.receipt.json')
++    verify_receipt('OPTIONAL_FINE_SCHEDULING.receipt.json')
+     verify_receipt(f'{stage}_PREFLIGHT.receipt.json')
+     verify_receipt(f'{stage}/FINE_QUEUE.receipt.json')
+     with (HERE/'SUBMISSION.lock').open('a') as lock:
+         fcntl.flock(lock,fcntl.LOCK_EX);before=require_capacity()
+         memory=read(HERE/stage/'MEMORY_OVERRIDE_GB.json')['memory_gb'] if (HERE/stage/'MEMORY_OVERRIDE_GB.json').exists() else 4
+         job=subprocess.check_output(['sbatch','--parsable',f'--mem={memory}G',
+-            f'--export=ALL,BLV2_STAGE={stage}',str(HERE/'worker_fine.sbatch')],text=True).strip()
++            f'--export=ALL,BLV2_STAGE={stage}',str(HERE/'optional_fine.sbatch')],text=True).strip()
+         write(HERE/'submissions'/f'{time.time_ns()}_{job}.json',dict(utc=utc(),stage=stage,
+             job_id=job,resource_snapshot=before,memory_gb=memory,fine_dispatch=True,
+             original_preflight_sha256=sha(HERE/f'{stage}_PREFLIGHT.receipt.json'),

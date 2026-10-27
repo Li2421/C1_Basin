@@ -1,0 +1,36 @@
+--- worker_active.py
++++ worker_fine.py
+@@ -11,10 +11,10 @@
+ 
+ def main(stage):
+     prereg();verify_receipt('IMPLEMENTATION_FROZEN.receipt.json');verify_receipt('RESERVATION_V2_EQUIVALENCE.receipt.json');verify_receipt('WORKER_FULL_CERTIFIED_DEPLOYMENT.receipt.json')
+-    verify_receipt(f'{stage}/WORK_QUEUE.receipt.json')
+-    index=read(HERE/stage/'GROUP_INDEX.json')
++    verify_receipt(f'{stage}/WORK_QUEUE.receipt.json');verify_receipt('PIPELINED_SCHEDULING.receipt.json');verify_receipt(f'{stage}/FINE_QUEUE.receipt.json')
++    index=read(HERE/stage/'FINE_GROUP_INDEX.json')
+     signal.signal(signal.SIGUSR1,stop);signal.signal(signal.SIGTERM,stop)
+-    claims=HERE/stage/'claims';claims.mkdir(parents=True,exist_ok=True);count=0;groups=0
++    claims=HERE/stage/'fine_claims';claims.mkdir(parents=True,exist_ok=True);count=0;groups=0
+     from runtime_reservation_v2 import run as distributed_run
+     from central_reservation_reference_v2 import run as historical_run
+     for entry in index:
+@@ -25,7 +25,7 @@
+         except FileExistsError:continue
+         write(claim/'OWNER.json',dict(utc=utc(),job=os.environ['SLURM_JOB_ID'],pid=os.getpid(),rollout_uids=entry['rollout_uids']))
+         path=Path(entry['file']);assert path.resolve().is_relative_to(HERE/stage/'queue') and sha(path)==entry['sha256']
+-        for c in read(path):
++        for c in read(path)[entry['start']:entry['end']]:
+             if STOP:break
+             out=HERE/stage/'raw'/f"{c['rollout_uid']}.json"
+             if out.exists():repair_journal(stage,c);continue
+@@ -44,8 +44,8 @@
+         if STOP:break
+         write(claim/'COMPLETE.json',dict(utc=utc()));groups+=1
+         write(HERE/stage/f"worker_{os.environ['SLURM_JOB_ID']}.json",dict(utc=utc(),completed_in_process=count,groups=groups,last=entry['group']))
+-        if groups>=128:
+-            os.execv(sys.executable,[sys.executable,'-B',str(HERE/'worker_active.py'),stage])
++        if groups>=512:
++            os.execv(sys.executable,[sys.executable,'-B',str(HERE/'worker_fine.py'),stage])
+     write(HERE/stage/f"worker_{os.environ['SLURM_JOB_ID']}_EXIT.json",dict(utc=utc(),graceful_stop=STOP,completed_in_process=count))
+ 
+ if __name__=='__main__':main(sys.argv[1])

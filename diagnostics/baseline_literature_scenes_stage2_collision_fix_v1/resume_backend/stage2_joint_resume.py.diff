@@ -1,0 +1,14 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/resume_backend/stage2_joint.py
++++ /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_stage2_collision_fix_v1/resume_backend/stage2_joint_resume.py
+@@ -45,7 +45,10 @@
+                 if kind[0]=='pair':
+                     j=kind[2]
+                     if i>j:continue
+-                    row[j]=-a;b=2*b
++                    params={k:v for k,v in json.loads(str(z['safety_fix_json'])).items() if k in ('gamma','circle_discrete')} if 'safety_fix_json' in z else {}
++                    Aj,bj,kj=acceleration_problem(p,v,j,c,wall_segments,**params)
++                    partner=next(k for k,label in enumerate(kj) if label[0]=='pair' and label[2]==i)
++                    row[j]=Aj[partner];b=b+bj[partner]
+                 if row.ravel()@safe.ravel()-b<=1e-7:rows.append(row.ravel())
+             for a,kind in zip(*local[i]):
+                 if kind[0]=='acceleration_bound':

@@ -1,0 +1,1882 @@
+{
+  "utc": "2026-10-23T12:07:26.407765+00:00",
+  "scenes": {
+    "lit_swap8_free": {
+      "status": "SELECTED_WITH_TYPE_GAPS",
+      "best_fixed": "eta9",
+      "best_pair": "eta15_to_9",
+      "fixed_ranking": [
+        {
+          "action": "eta9",
+          "type_equal_lower": 0.4017857142857143,
+          "type_equal_upper": 0.4017857142857143,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 1.0,
+              "success_upper": 1.0,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.75,
+              "success_upper": 0.75,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta3",
+          "type_equal_lower": 0.39285714285714285,
+          "type_equal_upper": 0.39285714285714285,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 1.0,
+              "success_upper": 1.0,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.6875,
+              "success_upper": 0.6875,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta15",
+          "type_equal_lower": 0.39285714285714285,
+          "type_equal_upper": 0.39285714285714285,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.25,
+              "success_upper": 0.25,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.6875,
+              "success_upper": 0.6875,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta5",
+          "type_equal_lower": 0.375,
+          "type_equal_upper": 0.375,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.75,
+              "success_upper": 0.75,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.6875,
+              "success_upper": 0.6875,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta11",
+          "type_equal_lower": 0.36607142857142855,
+          "type_equal_upper": 0.36607142857142855,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.8125,
+              "success_upper": 0.8125,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.6875,
+              "success_upper": 0.6875,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta7",
+          "type_equal_lower": 0.3482142857142857,
+          "type_equal_upper": 0.3482142857142857,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.8125,
+              "success_upper": 0.8125,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta1",
+          "type_equal_lower": 0.29464285714285715,
+          "type_equal_upper": 0.29464285714285715,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.6875,
+              "success_upper": 0.6875,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta13",
+          "type_equal_lower": 0.24107142857142858,
+          "type_equal_upper": 0.24107142857142858,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.25,
+              "success_upper": 0.25,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta8",
+          "type_equal_lower": 0.23214285714285715,
+          "type_equal_upper": 0.23214285714285715,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.25,
+              "success_upper": 0.25,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta2",
+          "type_equal_lower": 0.14285714285714285,
+          "type_equal_upper": 0.14285714285714285,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta14",
+          "type_equal_lower": 0.13392857142857142,
+          "type_equal_upper": 0.13392857142857142,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta4",
+          "type_equal_lower": 0.125,
+          "type_equal_upper": 0.125,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta10",
+          "type_equal_lower": 0.125,
+          "type_equal_upper": 0.125,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta0",
+          "type_equal_lower": 0.11607142857142858,
+          "type_equal_upper": 0.11607142857142858,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta12",
+          "type_equal_lower": 0.11607142857142858,
+          "type_equal_upper": 0.11607142857142858,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta6",
+          "type_equal_lower": 0.08035714285714286,
+          "type_equal_upper": 0.08035714285714286,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.0,
+              "success_upper": 0.0,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.0,
+              "success_upper": 0.0,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            }
+          }
+        }
+      ],
+      "pair_ranking": [
+        {
+          "action": "eta15_to_9",
+          "type_equal_lower": 0.4107142857142857,
+          "type_equal_upper": 0.4107142857142857,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 1.0,
+              "success_upper": 1.0,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.25,
+              "success_upper": 0.25,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.75,
+              "success_upper": 0.75,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta9_to_3",
+          "type_equal_lower": 0.4017857142857143,
+          "type_equal_upper": 0.4017857142857143,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 1.0,
+              "success_upper": 1.0,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.75,
+              "success_upper": 0.75,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta9_to_15",
+          "type_equal_lower": 0.4017857142857143,
+          "type_equal_upper": 0.4017857142857143,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 1.0,
+              "success_upper": 1.0,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.75,
+              "success_upper": 0.75,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta15_to_3",
+          "type_equal_lower": 0.4017857142857143,
+          "type_equal_upper": 0.4017857142857143,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.25,
+              "success_upper": 0.25,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.75,
+              "success_upper": 0.75,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta3_to_9",
+          "type_equal_lower": 0.39285714285714285,
+          "type_equal_upper": 0.39285714285714285,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 1.0,
+              "success_upper": 1.0,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.6875,
+              "success_upper": 0.6875,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta3_to_15",
+          "type_equal_lower": 0.39285714285714285,
+          "type_equal_upper": 0.39285714285714285,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 1.0,
+              "success_upper": 1.0,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.6875,
+              "success_upper": 0.6875,
+              "n": 16
+            }
+          }
+        }
+      ],
+      "missing_types": [
+        "centralized_mppi"
+      ],
+      "selection_uses_evaluation_labels": false,
+      "bootstrap_reselects": false
+    },
+    "lit_swap8_obstacles": {
+      "status": "SELECTED_WITH_TYPE_GAPS",
+      "best_fixed": "eta0",
+      "best_pair": "eta0_to_3",
+      "fixed_ranking": [
+        {
+          "action": "eta0",
+          "type_equal_lower": 0.5357142857142857,
+          "type_equal_upper": 0.5357142857142857,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta3",
+          "type_equal_lower": 0.5089285714285714,
+          "type_equal_upper": 0.5089285714285714,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 1.0,
+              "success_upper": 1.0,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta11",
+          "type_equal_lower": 0.49107142857142855,
+          "type_equal_upper": 0.49107142857142855,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.0,
+              "success_upper": 0.0,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta8",
+          "type_equal_lower": 0.48214285714285715,
+          "type_equal_upper": 0.48214285714285715,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.8125,
+              "success_upper": 0.8125,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.25,
+              "success_upper": 0.25,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.75,
+              "success_upper": 0.75,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta5",
+          "type_equal_lower": 0.45535714285714285,
+          "type_equal_upper": 0.45535714285714285,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.0,
+              "success_upper": 0.0,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta7",
+          "type_equal_lower": 0.45535714285714285,
+          "type_equal_upper": 0.45535714285714285,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.25,
+              "success_upper": 0.25,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.6875,
+              "success_upper": 0.6875,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta14",
+          "type_equal_lower": 0.45535714285714285,
+          "type_equal_upper": 0.45535714285714285,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta9",
+          "type_equal_lower": 0.44642857142857145,
+          "type_equal_upper": 0.44642857142857145,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.125,
+              "success_upper": 0.125,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.6875,
+              "success_upper": 0.6875,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta15",
+          "type_equal_lower": 0.44642857142857145,
+          "type_equal_upper": 0.44642857142857145,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.25,
+              "success_upper": 0.25,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.875,
+              "success_upper": 0.875,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.875,
+              "success_upper": 0.875,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta1",
+          "type_equal_lower": 0.42857142857142855,
+          "type_equal_upper": 0.42857142857142855,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.6875,
+              "success_upper": 0.6875,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta4",
+          "type_equal_lower": 0.4107142857142857,
+          "type_equal_upper": 0.4107142857142857,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta13",
+          "type_equal_lower": 0.4107142857142857,
+          "type_equal_upper": 0.4107142857142857,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.8125,
+              "success_upper": 0.8125,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta2",
+          "type_equal_lower": 0.4017857142857143,
+          "type_equal_upper": 0.4017857142857143,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta12",
+          "type_equal_lower": 0.38392857142857145,
+          "type_equal_upper": 0.38392857142857145,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta10",
+          "type_equal_lower": 0.375,
+          "type_equal_upper": 0.375,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta6",
+          "type_equal_lower": 0.33035714285714285,
+          "type_equal_upper": 0.33035714285714285,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.25,
+              "success_upper": 0.25,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.3125,
+              "success_upper": 0.3125,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.1875,
+              "success_upper": 0.1875,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.25,
+              "success_upper": 0.25,
+              "n": 16
+            }
+          }
+        }
+      ],
+      "pair_ranking": [
+        {
+          "action": "eta0_to_3",
+          "type_equal_lower": 0.5535714285714286,
+          "type_equal_upper": 0.5535714285714286,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.6875,
+              "success_upper": 0.6875,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta0_to_11",
+          "type_equal_lower": 0.5446428571428571,
+          "type_equal_upper": 0.5446428571428571,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.625,
+              "success_upper": 0.625,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.5,
+              "success_upper": 0.5,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.5625,
+              "success_upper": 0.5625,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta3_to_11",
+          "type_equal_lower": 0.5089285714285714,
+          "type_equal_upper": 0.5089285714285714,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 1.0,
+              "success_upper": 1.0,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta3_to_0",
+          "type_equal_lower": 0.5,
+          "type_equal_upper": 0.5,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 1.0,
+              "success_upper": 1.0,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.0625,
+              "success_upper": 0.0625,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta11_to_0",
+          "type_equal_lower": 0.49107142857142855,
+          "type_equal_upper": 0.49107142857142855,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.0,
+              "success_upper": 0.0,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            }
+          }
+        },
+        {
+          "action": "eta11_to_3",
+          "type_equal_lower": 0.49107142857142855,
+          "type_equal_upper": 0.49107142857142855,
+          "per_type": {
+            "centralized_sampling": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "conflict_based_search": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "cross_entropy": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            },
+            "distributed_cross_entropy": {
+              "success_lower": 0.4375,
+              "success_upper": 0.4375,
+              "n": 16
+            },
+            "distributed_shooting": {
+              "success_lower": 0.375,
+              "success_upper": 0.375,
+              "n": 16
+            },
+            "gradient_mpc": {
+              "success_lower": 0.0,
+              "success_upper": 0.0,
+              "n": 16
+            },
+            "prioritized_astar": {
+              "success_lower": 0.9375,
+              "success_upper": 0.9375,
+              "n": 16
+            }
+          }
+        }
+      ],
+      "missing_types": [
+        "centralized_mppi"
+      ],
+      "selection_uses_evaluation_labels": false,
+      "bootstrap_reselects": false
+    }
+  },
+  "before_evaluation_preflight": true
+}

@@ -1,0 +1,20 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/build_isolated.py
++++ /home/zhihan/research/Basin_C1/diagnostics/critic_pool_supplement_v1/build_isolated.py
+@@ -1,7 +1,7 @@
+ """Copy provenance is in TOOLING_COPY; compile only the import-required native library."""
+ from pathlib import Path
+ import json,hashlib,subprocess,os
+-H=Path(__file__).resolve().parent;R=H.parents[1];V=R/'diagnostics/eta_diverse_scene_test_v1'
++H=Path(__file__).resolve().parent;R=H.parents[1];V=R/'diagnostics/hetero_scene_pipeline_v1'
+ def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+ def main():
+  rows=json.loads((H/'TOOLING_COPY.receipt.json').read_text())['files']
+@@ -14,7 +14,7 @@
+  subprocess.run(command,check=True,env=dict(os.environ,TMPDIR=str(H/'tmp')))
+  (H/'BACKEND_BUILD.json').write_text(json.dumps(dict(sources=graph,native_command=command,native_sha256=sha(H/'native_resume/cbs_kernel_resume.so'),native_only_change='cache root; runtime_new imports CDLL eagerly, no search rollout'),indent=2)+'\n')
+  d=json.loads((H/'REUSED_EVIDENCE_SHA256_START.json').read_text());d['files'].update({r['source']:r['source_sha256']for r in rows})
+- for path in [V/'BACKEND_BUILD.json',V/'REPORT.md',V/'COMPLETE.json',V/'INTEGRITY_COMPARE.json',R/'diagnostics/cross_scene_pipeline_v2/REPORT.md',R/'diagnostics/cross_scene_pipeline_v2/COMPLETE.json',R/'diagnostics/cross_scene_pipeline_v2/INTEGRITY_COMPARE.json']:
++ for path in [V/'BACKEND_BUILD.json',V/'REPORT.md',V/'COMPLETE.json',V/'INTEGRITY_COMPARE.json']:
+   d['files'][str(path)]=sha(path)
+  for folder in ['shared_control','single_integrator','bottleneck_family','shared_rollout_db/src']:
+   for path in (R/folder).glob('*.py'):d['files'][str(path)]=sha(path)

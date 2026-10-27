@@ -1,0 +1,13 @@
+--- deploy_flat_cache.py
++++ deploy_flat_cache_local_cpu.py
+@@ -34,7 +34,9 @@
+         verify_receipt('CBS_FLAT_CACHE_EQUIVALENCE.receipt.json')
+         assert read(HERE/'CBS_FLAT_CACHE_FULL_REPLAY.json')['passed']
+         assert read(HERE/'CBS_FLAT_CACHE_MATRIX.json')['passed']
+-        assert sorted(os.sched_getaffinity(0))==[0]
++        from local_cpu_guard import allocated_cpus
++        occupied,_=allocated_cpus()
++        assert len(os.sched_getaffinity(0))==1 and not (set(os.sched_getaffinity(0)) & occupied)
+         entry=read(HERE/'ACTIVE_ENTRYPOINT.json')
+         assert entry['coordinator']=='coordinator_complete.py',entry
+         assert read(HERE/'STATUS.json')['phase']=='scene_learning_pipeline'

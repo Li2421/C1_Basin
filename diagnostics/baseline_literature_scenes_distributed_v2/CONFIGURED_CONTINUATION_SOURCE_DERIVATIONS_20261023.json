@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-21T17:46:26.087340+00:00",
+  "changes": [
+    {
+      "source": "coordinator_correction_tail_backfill_20261023.py",
+      "source_sha256": "655092cb9760fb90d85d97dd46e2113a847fca8ca6518b8b7a32679a8beae632",
+      "target": "coordinator_correction_configured_20261023.py",
+      "target_sha256": "c7173358c4257693e1d4a106e7910629a2d6aaa6609ca6215ef0c17efa0c3598"
+    },
+    {
+      "source": "correction_after_distributed_fixed_tail_backfill_20261023.py",
+      "source_sha256": "227d0c47f1c1570deced7ef5cb7318dafd05d7c5116110ba8a15f1705c220e67",
+      "target": "correction_after_distributed_fixed_parallel_20261023.py",
+      "target_sha256": "18f05908e289ddc427503085e8eaf64ad8f52115d4837c13b61d94e4a866a957"
+    },
+    {
+      "source": "scheduler_watchdog_correction_tail_backfill_20261023.py",
+      "source_sha256": "74dc2954fcba3472c1c27218f6a929dabbb554d4ff2b883e48cc33106d84db63",
+      "target": "scheduler_watchdog_correction_configured_20261023.py",
+      "target_sha256": "5aed571ada3703d03347f0a51ab055aeb5efdbc114371dab9ec8f165e831c6e6"
+    }
+  ],
+  "scientific_worker_and_request_identity_unchanged": true,
+  "strict_phase_order_unchanged": true,
+  "statistical_change": "Independent unchanged native calls in27 tasks; diagnostic reader avoids unused census JSON parse, retaining original full-file hashes",
+  "entrypoint_selection": "Only presealed .py entries underHERE whose hashes appear in the declared ready receipt; normal process dispatch, no runtime module patch"
+}

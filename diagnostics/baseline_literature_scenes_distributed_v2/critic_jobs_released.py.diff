@@ -1,0 +1,11 @@
+--- critic_jobs.py
++++ critic_jobs_released.py
+@@ -1,7 +1,7 @@
+ """The frozen v1 critic, with user-wide CPU and GPU share accounting."""
+ from experiment import *
+ from registry import verify_receipt
+-from resources import require_capacity
++from resources_released import require_capacity
+ import subprocess
+ import fcntl
+ import time

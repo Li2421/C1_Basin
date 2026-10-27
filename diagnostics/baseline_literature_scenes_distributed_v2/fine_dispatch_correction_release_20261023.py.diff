@@ -1,0 +1,11 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/fine_dispatch_correction_recovery_20261021.py
++++ /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/fine_dispatch_correction_release_20261023.py
+@@ -3,7 +3,7 @@
+ from atomic_write import write
+ from registry import verify_receipt
+ from infrastructure_recovery_correction_20261021 import classify
+-from resources_corrections_20261021 import snapshot,require_capacity
++from resources_corrections_release_20261023 import snapshot,require_capacity
+ import collections
+ import subprocess
+ import fcntl

@@ -1,0 +1,28 @@
+--- dynamics_spatial_mask_20261022.py
++++ runtime_fix.py
+@@ -10,7 +10,7 @@
+ from distributed_safety import local_basis
+ from correction_revision_20261021 import distributed_fields,contact_radius
+ from central_reference import progress
+-from dynamics_safety import *
++from stage2_safety import *
+ from single_integrator.environment import point_segment_distance,segment_distance
+ jax.config.update('jax_enable_x64',False)
+ 
+@@ -97,12 +97,13 @@
+                     first_nom.append(diag['nominal_front_velocity']);first.append(diag['safe_front_velocity']);labels.append(dict(A=diag['active_A'],kinds=diag['active_labels']))
+                     problems.append(None);step_events.append(dict(first=diag))
+                 else:
+-                    A,lower,kinds=acceleration_problem(env.positions,env.velocities,i,cfg,env.walls)
++                    A,lower,kinds=acceleration_problem(env.positions,env.velocities,i,cfg,env.walls,gamma=c['safety_fix']['gamma'],circle_discrete=c['safety_fix']['circle_discrete'])
+                     target=track_acceleration(desired[i],env.velocities[i],cfg.dt,bound_accel)
+                     control,diag=solve_soc(target,A,lower,bound_accel);first.append(control);first_nom.append(target)
+                     first_next_velocity.append(env.velocities[i]+cfg.dt*control)
+-                    relaxation=diag['minimax_relaxation']+(1e-8 if diag['restored'] else 0.)
+-                    ids=np.flatnonzero(A@control-lower+relaxation<=1e-7)
++                    included=np.asarray(diag['included_rows'],int)
++                    effective=np.asarray(diag['effective_lower'])
++                    ids=included[(A@control-effective)[included]<=1e-7]
+                     rows=A[ids].tolist();ks=[kinds[k] for k in ids]
+                     if bound_accel is not None and abs(np.linalg.norm(control)-bound_accel)<=1e-7:
+                         rows.append((-control/max(np.linalg.norm(control),1e-30)).tolist());ks.append(['acceleration_bound',i])

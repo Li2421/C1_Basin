@@ -1,0 +1,11 @@
+--- optional_fine_dispatch_flat_static.py
++++ optional_fine_dispatch_flat_static_allcpu.py
+@@ -3,7 +3,7 @@
+ from atomic_write import write
+ from registry import verify_receipt
+ from infrastructure_recovery_active import classify
+-from resources_released import snapshot,require_capacity
++from resources_idle_cpu import snapshot,require_capacity
+ import collections
+ import subprocess
+ import fcntl

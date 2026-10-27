@@ -1,0 +1,5 @@
+{
+  "unused_original_manifest": "probe_pilot_centralized_sampling",
+  "reason": "Six centralized random-sampling controllers have exact historical R5 features; do not regenerate 192 probes. Original 384-probe design was never submitted. A second design invocation stopped at existing receipt assertion after an empty registration transaction; original insertion manifest restored byte-for-byte from registered rows and verified against original receipt. New six-controller-only manifest uses a distinct phase name.",
+  "restored_hash": "3e3b0ccdd6416227c58357487ebbdef58a897f88491eb5604b8c05cca9230633"
+}

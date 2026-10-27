@@ -1,0 +1,23 @@
+--- scene_learning_scheduler_supplement_20261022.py
++++ scene_learning_scheduler_reuse_order_20261022.py
+@@ -46,8 +46,11 @@
+     while True:
+         for scene in NAMES:
+             if not (HERE/f'TRAIN_SELECTED_FIXED_20261022_{scene}.receipt.json').exists() and not (HERE/f'LEARNING_BUNDLE_REVISED_20261021_{scene}.receipt.json').exists():continue
++            if not (HERE/f'TRAIN_SELECTED_FIXED_20261022_{scene}.receipt.json').exists():action('freeze_training_selected_fixed_'+scene,'analysis_standard_supplement_20261022.py')
++            if scene=='lit_circle_five' and not stage_done('learning_eval_revised_20261021_'+scene):continue
+             stage=stage_name(scene)
+             if stage not in fixed_evaluations:
++                if scene=='lit_circle_five' and not (HERE/f'{stage}_PREFLIGHT.receipt.json').exists():action('merge_completed_circle_learned_before_fixed_preflight','db_merge.py')
+                 if not (HERE/f'{stage}_PREFLIGHT.receipt.json').exists():action('train_selected_fixed_plan_'+scene,'plan_training_selected_fixed_20261022.py',scene)
+                 if not stage_ready(stage):action('train_selected_fixed_queue_'+scene,'work_queue.py',stage)
+                 fine_dispatch.prepare(stage);fixed_evaluations.append(stage)
+@@ -125,7 +128,7 @@
+             scene_evaluation_stages=evaluations,free_cpu_shares=state['resources']['free_cpu_shares'],
+             independent_diagnostics_backfill=True,case_claim_maximum=2,
+             scientific_functions_unchanged=True))
+-        finished=all(s in evaluations and stage_done(evaluations[s]) for s in active) and all(stage_done(s) for s in fixed_evaluations)
++        finished=all(s in evaluations and stage_done(evaluations[s]) for s in active) and len(fixed_evaluations)==len(NAMES) and all(stage_done(s) for s in fixed_evaluations)
+         if finished:
+             current=snapshot();live=jobs_by_stage(current)
+             own_main=[j for j,s in live.items() if s in rollout_stages or s.startswith('critic_revised_20261021_')]

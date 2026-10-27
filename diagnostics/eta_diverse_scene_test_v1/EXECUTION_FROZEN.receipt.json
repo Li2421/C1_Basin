@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-25T16:48:32.183501+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/SCENES.json": "7c6fc0fbd9b5bfab2370f783745b5653c3203c8578ba995507eebb33318b43d4",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/GEOMETRY_BASE_REPORTS.json": "7d645e86cbb00a6c577570efe57ec689d72373d2543dda9e4b58b6f7358db1f4",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/ETA_MENU.json": "8032dc3d15e9b5bd6f91cecab0b3f8d3188578a8ec546b1bcdcb7b7c3ac64cb7",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/OLD_LABEL_TABLES.json": "6bba00d5b14156a636d31980e908e4531de465e74dad31b393def20c711046b5",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/STATISTICAL_CONVENTIONS.json": "a3e076ade6a310c6de220daf2a0e5bf8d890dc8c012ef3736a033e4a7b046ea3",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/scenes.py": "bb7c607066ef296747ec007103fdd81884ec5f2ad29116683c5da106e22eeeac",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/stages.py": "25526313d8b498f577b6fe11a1c1cdbefb3c17733843e8486e55c49e83f9ece0",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/design.py": "3e593b4e0dcb6437e9ae5a21b757b8ce1eabe931c13ef4d999a64c9ae7bcc0e8",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/runtime_new.py": "0210001b6d4cca172c8857e13ca932fca62e98cf702d66a415f3adfa2b3a64fa",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/scene_environment.py": "398b0ab568f382616a7c299b12357b85f2b20cfdd4539562c447678685dc18c9",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/controllers_new.py": "2f00b267108186f2100e11178815d57357d8ea80e3816dcbcbfce98a7826d735",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/worker.py": "43f468d5239a67d574e0c8a67f49223729a71ab0136207d28758cc47afbce4eb",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/rollout_worker.py": "a31889fa5132d2170a62cb1b3bc5bf96eae8f52699cbc691373d0c14bf3efe20",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/dispatch.py": "1be3d1b292f1c0450a8bdc1f7e3878462ae39618f34cf2d7ecac5a11b5fd88cd",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/schedule.py": "a5b24395554495fcde69af3d16ecc986ea9e1c1fbd71d0b793e785781f4ad307",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/queueing.py": "463399d7c6f180f912c0639de2a6a0a7db7344cfa98cd533779959f4c6d0cf6c",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/worker.sbatch": "1013d19876042dcc2f386d534fde056f9b80bc350350f33e8a61b3c13a0c96d4"
+  },
+  "main_seed": 0,
+  "capability_seeds": [
+    0,
+    1
+  ],
+  "maximum_requests": 4500,
+  "no_training": true,
+  "no_second_stage": true,
+  "only_three_fast_controllers": true
+}

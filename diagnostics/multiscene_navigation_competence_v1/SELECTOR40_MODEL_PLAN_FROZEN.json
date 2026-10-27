@@ -1,0 +1,533 @@
+{
+  "utc": "2026-10-17T23:08:00.647505+00:00",
+  "models": [
+    {
+      "model_id": "sources_8d0447385389cac327a6081e23d22e27414476f0c57846db43350fc6672fb171",
+      "sources": [
+        "C",
+        "D",
+        "E",
+        "ring_exchange"
+      ]
+    },
+    {
+      "model_id": "sources_b304ac9512c15dc916afdd5402e60a816dfd8fd05ce64c985afa67015da4224c",
+      "sources": [
+        "D",
+        "ring_exchange"
+      ]
+    },
+    {
+      "model_id": "sources_3b01d3c83af4392ca6b151537808ecb26b9d0942ee43018a52111075e6ce549a",
+      "sources": [
+        "A",
+        "D",
+        "E",
+        "ring_exchange"
+      ]
+    },
+    {
+      "model_id": "sources_9c8b1bec5e6016c411432d28c905d5ffab031081fe0b00f98c90a8d36a6c5634",
+      "sources": [
+        "A",
+        "ring_exchange"
+      ]
+    },
+    {
+      "model_id": "sources_4f8cfde5a3ceba56ec7ddc1a1464f1c898cb205702376c6c55e9ec38d04bc745",
+      "sources": [
+        "A",
+        "C",
+        "E",
+        "ring_exchange"
+      ]
+    },
+    {
+      "model_id": "sources_1e760645070bb0faaba4ee059a7efdf42ba864410d027ece62041051bca86f4e",
+      "sources": [
+        "C",
+        "ring_exchange"
+      ]
+    },
+    {
+      "model_id": "sources_9aa13705058c56bdda58e09ba958b0b03ded5686aaf88cb879ef4367233914ff",
+      "sources": [
+        "E",
+        "ring_exchange"
+      ]
+    },
+    {
+      "model_id": "sources_9f44e9bc8bf7a2939e873b6dd7d9c4da6343044c730db9970c904cae52c64134",
+      "sources": [
+        "A",
+        "C",
+        "D",
+        "ring_exchange"
+      ]
+    }
+  ],
+  "predictions": [
+    {
+      "target": "A",
+      "tag": "leave_one_family",
+      "model_id": "sources_8d0447385389cac327a6081e23d22e27414476f0c57846db43350fc6672fb171",
+      "sources": [
+        "C",
+        "D",
+        "E",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 3,
+      "actual_training_family_count": 3
+    },
+    {
+      "target": "A",
+      "tag": "m1_combination1",
+      "model_id": "sources_b304ac9512c15dc916afdd5402e60a816dfd8fd05ce64c985afa67015da4224c",
+      "sources": [
+        "D",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 1,
+      "actual_training_family_count": 1
+    },
+    {
+      "target": "C",
+      "tag": "leave_one_family",
+      "model_id": "sources_3b01d3c83af4392ca6b151537808ecb26b9d0942ee43018a52111075e6ce549a",
+      "sources": [
+        "A",
+        "D",
+        "E",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 3,
+      "actual_training_family_count": 3
+    },
+    {
+      "target": "C",
+      "tag": "m1_combination1",
+      "model_id": "sources_b304ac9512c15dc916afdd5402e60a816dfd8fd05ce64c985afa67015da4224c",
+      "sources": [
+        "D",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 1,
+      "actual_training_family_count": 1
+    },
+    {
+      "target": "C",
+      "tag": "m1_combination2",
+      "model_id": "sources_9c8b1bec5e6016c411432d28c905d5ffab031081fe0b00f98c90a8d36a6c5634",
+      "sources": [
+        "A",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 1,
+      "actual_training_family_count": 1
+    },
+    {
+      "target": "D",
+      "tag": "leave_one_family",
+      "model_id": "sources_4f8cfde5a3ceba56ec7ddc1a1464f1c898cb205702376c6c55e9ec38d04bc745",
+      "sources": [
+        "A",
+        "C",
+        "E",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 3,
+      "actual_training_family_count": 3
+    },
+    {
+      "target": "D",
+      "tag": "m1_combination0",
+      "model_id": "sources_9c8b1bec5e6016c411432d28c905d5ffab031081fe0b00f98c90a8d36a6c5634",
+      "sources": [
+        "A",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 1,
+      "actual_training_family_count": 1
+    },
+    {
+      "target": "D",
+      "tag": "m1_combination1",
+      "model_id": "sources_1e760645070bb0faaba4ee059a7efdf42ba864410d027ece62041051bca86f4e",
+      "sources": [
+        "C",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 1,
+      "actual_training_family_count": 1
+    },
+    {
+      "target": "D",
+      "tag": "m1_combination2",
+      "model_id": "sources_9aa13705058c56bdda58e09ba958b0b03ded5686aaf88cb879ef4367233914ff",
+      "sources": [
+        "E",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 1,
+      "actual_training_family_count": 1
+    },
+    {
+      "target": "E",
+      "tag": "leave_one_family",
+      "model_id": "sources_9f44e9bc8bf7a2939e873b6dd7d9c4da6343044c730db9970c904cae52c64134",
+      "sources": [
+        "A",
+        "C",
+        "D",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 3,
+      "actual_training_family_count": 3
+    },
+    {
+      "target": "E",
+      "tag": "m1_combination0",
+      "model_id": "sources_1e760645070bb0faaba4ee059a7efdf42ba864410d027ece62041051bca86f4e",
+      "sources": [
+        "C",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 1,
+      "actual_training_family_count": 1
+    },
+    {
+      "target": "E",
+      "tag": "m1_combination1",
+      "model_id": "sources_b304ac9512c15dc916afdd5402e60a816dfd8fd05ce64c985afa67015da4224c",
+      "sources": [
+        "D",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 1,
+      "actual_training_family_count": 1
+    },
+    {
+      "target": "E",
+      "tag": "m3_combination0",
+      "model_id": "sources_9f44e9bc8bf7a2939e873b6dd7d9c4da6343044c730db9970c904cae52c64134",
+      "sources": [
+        "A",
+        "C",
+        "D",
+        "ring_exchange"
+      ],
+      "partial_source_coverage": true,
+      "requested_training_family_count": 3,
+      "actual_training_family_count": 3
+    }
+  ],
+  "gaps": [
+    {
+      "target": "A",
+      "tag": "m0_combination0",
+      "reason": "At least two source scenes required for unchanged leave-one-source-scene validation",
+      "missing_sources": [],
+      "available_sources": [
+        "ring_exchange"
+      ]
+    },
+    {
+      "target": "A",
+      "tag": "m1_combination0",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B"
+      ],
+      "available_sources": [
+        "ring_exchange"
+      ]
+    },
+    {
+      "target": "A",
+      "tag": "m1_combination2",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange"
+      ]
+    },
+    {
+      "target": "A",
+      "tag": "m3_combination0",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B",
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "C"
+      ]
+    },
+    {
+      "target": "A",
+      "tag": "m3_combination1",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "target": "A",
+      "tag": "m3_combination2",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B",
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "E"
+      ]
+    },
+    {
+      "target": "A",
+      "tag": "m5_combination0",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B",
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "target": "C",
+      "tag": "m0_combination0",
+      "reason": "At least two source scenes required for unchanged leave-one-source-scene validation",
+      "missing_sources": [],
+      "available_sources": [
+        "ring_exchange"
+      ]
+    },
+    {
+      "target": "C",
+      "tag": "m1_combination0",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange"
+      ]
+    },
+    {
+      "target": "C",
+      "tag": "m3_combination0",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "target": "C",
+      "tag": "m3_combination1",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "target": "C",
+      "tag": "m3_combination2",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B",
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "A"
+      ]
+    },
+    {
+      "target": "C",
+      "tag": "m5_combination0",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B",
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "A",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "target": "D",
+      "tag": "m0_combination0",
+      "reason": "At least two source scenes required for unchanged leave-one-source-scene validation",
+      "missing_sources": [],
+      "available_sources": [
+        "ring_exchange"
+      ]
+    },
+    {
+      "target": "D",
+      "tag": "m3_combination0",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "A",
+        "E"
+      ]
+    },
+    {
+      "target": "D",
+      "tag": "m3_combination1",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "A",
+        "C"
+      ]
+    },
+    {
+      "target": "D",
+      "tag": "m3_combination2",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B",
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "E"
+      ]
+    },
+    {
+      "target": "D",
+      "tag": "m5_combination0",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B",
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "A",
+        "C",
+        "E"
+      ]
+    },
+    {
+      "target": "E",
+      "tag": "m0_combination0",
+      "reason": "At least two source scenes required for unchanged leave-one-source-scene validation",
+      "missing_sources": [],
+      "available_sources": [
+        "ring_exchange"
+      ]
+    },
+    {
+      "target": "E",
+      "tag": "m1_combination2",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B"
+      ],
+      "available_sources": [
+        "ring_exchange"
+      ]
+    },
+    {
+      "target": "E",
+      "tag": "m3_combination1",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "target": "E",
+      "tag": "m3_combination2",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B",
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "A"
+      ]
+    },
+    {
+      "target": "E",
+      "tag": "m5_combination0",
+      "reason": "Fixed combination contains blocked source families",
+      "missing_sources": [
+        "B",
+        "F"
+      ],
+      "available_sources": [
+        "ring_exchange",
+        "A",
+        "C",
+        "D"
+      ]
+    }
+  ],
+  "historical_scenes": [
+    "ring_exchange"
+  ],
+  "target_families": [
+    "A",
+    "C",
+    "D",
+    "E"
+  ],
+  "model_cache": "Exact source set plus immutable dataset/config/training hashes; no duplicate source-set training",
+  "source_G_rows": 0
+}

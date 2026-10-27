@@ -1,0 +1,14 @@
+{
+  "runs": 36,
+  "fits": 230,
+  "datasets": 28,
+  "full_variants": 40,
+  "class_addition_fits": 25,
+  "curve_fits": 45,
+  "cv_fits": 120,
+  "cv_uses_general10_seed_rule": true,
+  "maximum_parallel": 14,
+  "maximum_total_cpus": 18,
+  "no_generators": true,
+  "validation_labels_unopened": true
+}

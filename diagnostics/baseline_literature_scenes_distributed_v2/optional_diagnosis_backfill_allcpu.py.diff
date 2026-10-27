@@ -1,0 +1,13 @@
+--- optional_diagnosis_backfill.py
++++ optional_diagnosis_backfill_allcpu.py
+@@ -2,8 +2,8 @@
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+-from resources_released import require_capacity,snapshot
+-from coordinator_pipelined import jobs_by_stage,stage_done
++from resources_idle_cpu import require_capacity,snapshot
++from coordinator_flat_static_allcpu import jobs_by_stage,stage_done
+ from analysis_jobs_current import prepare
+ from infrastructure_recovery_active import recover
+ import fcntl

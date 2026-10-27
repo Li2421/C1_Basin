@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-24T14:50:05.910167+00:00",
+  "diametric_seed": 2026102411,
+  "bottleneck_seed": 2026102412,
+  "no_resampling_invalid_states": true,
+  "diametric_formula": "radius=N/8, plus N8 radius .7; goals fixed opposite unperturbed starts",
+  "initial_perturbation": "Uniform [-.1,.1]^2, state0 unperturbed",
+  "horizon": "max(2000,800*N), explicit axis4b prescription; Config.max_steps=10000 is a generic default, not an alternate N schedule",
+  "free_area": "Physical workspace area minus rectangles; unbounded plane => infinity, density0",
+  "closest_approach": "Shared normalized straight-path progress t in [0,1]",
+  "midpoint_crowding": "Mean count of other path midpoints within 3r",
+  "seeds_for_analysis": 2026102413,
+  "feature_names": [
+    "N",
+    "radius",
+    "step_over_radius",
+    "horizon_over_straight_time",
+    "density",
+    "wall_segments",
+    "min_opening_over_diameter",
+    "serial_walls",
+    "moving",
+    "mover_speed_over_speed",
+    "mover_radius_over_radius",
+    "diametric",
+    "closest_approach_min",
+    "closest_approach_mean",
+    "conflict_pairs_per_robot",
+    "intersections_per_robot",
+    "head_on_fraction",
+    "midpoint_crowding"
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "utc": "2026-10-22T03:57:44.485166+00:00",
+  "old_managers": [
+    [
+      1301284,
+      "scheduler_watchdog_query_disk_20261022_quota18_now_20261022.py"
+    ],
+    [
+      1301283,
+      "coordinator_query_disk_20261022_quota18_now_20261022.py"
+    ],
+    [
+      1301591,
+      "correction_after_distributed_fixed_query_disk_20261022_quota18_now_20261022.py"
+    ]
+  ],
+  "pre_resources": {
+    "utc": "2026-10-22T03:57:43.987535+00:00",
+    "jobs": [
+      {
+        "job_id": "27745",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27744",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27742",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27743",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27741",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27740",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27738",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27735",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27734",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27733",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27732",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27730",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27731",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27729",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27728",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27725",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27724",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      }
+    ],
+    "scheduled_cpus": 17,
+    "gpu_shards": 0,
+    "local_cpu_reserve": 1,
+    "cpu_limit": 18,
+    "gpu_shard_limit": 2,
+    "release_at_utc": "2026-10-22T03:32:56.482312+00:00",
+    "reduced": true,
+    "admission_cpu_limit": 18,
+    "graceful_drain_at_utc": "2026-10-22T03:32:56.482312+00:00",
+    "deadline_fallback_at_utc": "2026-10-22T03:32:56.482312+00:00",
+    "free_cpu_shares": 0,
+    "free_gpu_shards": 2
+  },
+  "scientific_worker_signals": 0,
+  "current_episode_and_evidence_preserved": true,
+  "planned_signal": "USR1_finish_current_episode"
+}

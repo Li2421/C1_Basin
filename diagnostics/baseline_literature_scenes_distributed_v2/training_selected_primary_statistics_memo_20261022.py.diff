@@ -1,0 +1,11 @@
+--- training_selected_primary_statistics_20261022.py
++++ training_selected_primary_statistics_memo_20261022.py
+@@ -2,7 +2,7 @@
+ from experiment import *
+ from analysis_standard_supplement_20261022 import FIXED as SELECTION_PREFIX
+ from registry import verify_receipt
+-from statistics_training_selected_reader_20261022 import summarize
++from statistics_training_selected_memo_reader_20261022 import summarize
+ 
+ SCOPES=('all_qualified','controller_failure','remaining_instances','safety_layer_global_failure')
+ 

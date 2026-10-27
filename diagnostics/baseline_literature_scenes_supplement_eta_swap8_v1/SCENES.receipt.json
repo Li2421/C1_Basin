@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-23T03:53:42.785707+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/FLOW_STATES_lit_swap8_free.json": "af1a21533be48946e3405c270361385c54c68461d91ae35115a9a597b69cae49",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/GEOMETRY_VALIDATION_lit_swap8_free.json": "c27a9dbfa6999d4533c0053a785b0ddbaa5410497b409c0571714e859f3a4b8f",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/LEARNING_SPLIT_lit_swap8_free.json": "1a875bea36f838fd2571464385411d11f0f93226ee8c5e9a5305524ccc5320da",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/FLOW_STATES_lit_swap8_obstacles.json": "a7bde1719f02360a7ac4380280f8f5fa49ee2646572dba10c830dcac2f4435cd",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/GEOMETRY_VALIDATION_lit_swap8_obstacles.json": "f5b4ee5b7aa661f10b14148324ad611056692ffd52d79b6b9fc7051f68f1efc3",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/LEARNING_SPLIT_lit_swap8_obstacles.json": "fbb79ddc994609d730fa899d5bc9fee6837226ef2abb5fba1e09642cd26b810f",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/FLOW_STATES_lit_swap8_moving.json": "8ebb5928304feebbff7f562b1961587e942436b614cbb662399e2135f2d366e6",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/GEOMETRY_VALIDATION_lit_swap8_moving.json": "1356273fd676e81e0f2aa631b4ab5dbb6650d61333a9de1ba215a063437fff25",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/LEARNING_SPLIT_lit_swap8_moving.json": "fb6812a9a154905b15f2c8896419d84e9c1c08935afb6083b46e47571baea370"
+  },
+  "before_any_new_research_rollout": true,
+  "seeds": [
+    2026102311,
+    2026102312,
+    2026102313
+  ],
+  "moving_robot_samples": "Exactly free states; third seed controls obstacle RNG only",
+  "layout": "Prompt-declared four L arms, not calibrated reproduction of Figure 7 I-shaped obstacle"
+}

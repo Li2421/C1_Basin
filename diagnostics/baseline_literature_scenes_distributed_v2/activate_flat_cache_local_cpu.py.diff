@@ -1,0 +1,28 @@
+--- activate_flat_cache_when_verified.py
++++ activate_flat_cache_local_cpu.py
+@@ -11,7 +11,7 @@
+ def main():
+     with (HERE/'FLAT_CACHE_ACTIVATOR.lock').open('a') as lock:
+         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+-        verify_receipt('CBS_FLAT_CACHE_ACTIVATOR_CODE.receipt.json')
++        verify_receipt('CBS_FLAT_CACHE_LOCAL_ACTIVATOR_CODE.receipt.json')
+         verify_receipt('CBS_FLAT_CACHE_CODE.receipt.json')
+         write(HERE/'CBS_FLAT_CACHE_ACTIVATOR_PID.json',dict(utc=utc(),pid=os.getpid(),cpu_affinity=sorted(os.sched_getaffinity(0))))
+         proof=HERE/'CBS_FLAT_CACHE_FULL_REPLAY.json'
+@@ -34,14 +34,14 @@
+         if not (HERE/'CBS_FLAT_CACHE_EQUIVALENCE.receipt.json').exists():
+             seal('CBS_FLAT_CACHE_EQUIVALENCE.receipt.json',[HERE/n for n in ('CBS_FLAT_CACHE_CODE.receipt.json','CBS_FLAT_CACHE_FULL_REPLAY.json','CBS_FLAT_CACHE_MATRIX.json','CBS_FLAT_CACHE_SOURCE_CHECK.json')],
+                  passed=True,all_noncache_cpp_bytes_unchanged=True,full_replay_steps=2000,native_saved_queries=16,finite_native_grid_tests=64,dictionary_exact_keys=1100000,new_research_rollouts=0)
+-        paths=[HERE/n for n in ('flat_geometry_backend.py','deploy_flat_cache.py','CBS_FLAT_CACHE_DEPLOYMENT_SOURCE_CHANGES.json','CBS_FLAT_CACHE_DEPLOYMENT_SOURCE_CHECK.json','CBS_FLAT_CACHE_EQUIVALENCE.receipt.json','CBS_FLAT_CACHE_ACTIVATOR_CODE.receipt.json')]
++        paths=[HERE/n for n in ('flat_geometry_backend.py','deploy_flat_cache_local_cpu.py','CBS_FLAT_CACHE_DEPLOYMENT_SOURCE_CHANGES.json','CBS_FLAT_CACHE_DEPLOYMENT_SOURCE_CHECK.json','CBS_FLAT_CACHE_EQUIVALENCE.receipt.json','CBS_FLAT_CACHE_LOCAL_ACTIVATOR_CODE.receipt.json')]
+         paths += [HERE/item['new'] for item in changes]+[HERE/(item['new']+'.diff') for item in changes]
+         if not (HERE/'CBS_FLAT_CACHE_DEPLOYMENT.receipt.json').exists():
+             seal('CBS_FLAT_CACHE_DEPLOYMENT.receipt.json',paths,scientific_functions_unchanged=True,case_payloads_unchanged=True,only_storage_and_entrypoints=True,no_hard_rollout_cancellation=True)
+         verify_receipt('CBS_FLAT_CACHE_DEPLOYMENT.receipt.json')
+         write(HERE/'CBS_FLAT_CACHE_ACTIVATOR_STATUS.json',dict(utc=utc(),phase='Equivalence passed; switching local orchestration'))
+         with (HERE/'CBS_FLAT_CACHE_DEPLOYMENT.log').open('a') as stream:
+-            result=subprocess.run([sys.executable,'-B',str(HERE/'deploy_flat_cache.py')],cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT)
++            result=subprocess.run([sys.executable,'-B',str(HERE/'deploy_flat_cache_local_cpu.py')],cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT)
+         assert result.returncode==0,'See CBS_FLAT_CACHE_DEPLOYMENT.log'
+         migration=read(HERE/'CBS_FLAT_CACHE_MIGRATION_INITIATED.json');old=set(migration['old_jobs'])
+         while True:

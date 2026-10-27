@@ -1,0 +1,20 @@
+{
+  "scene_family": "D",
+  "family": "deterministic",
+  "seed": 17,
+  "round": 3,
+  "steps": 60000,
+  "batch": 256,
+  "lr": 0.0003,
+  "hidden": [
+    256,
+    256,
+    256
+  ],
+  "observation_dimensions": 39,
+  "selection": "earliest minimum fixed dev loss",
+  "initialization": "fresh same policy seed each round",
+  "dataset": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/datasets39/D_deterministic_17_round_3.npz",
+  "source_dataset_sha256": "1bcfcd3c9205e50a3d3e47a724fbe67abeed344d7098abd9d9bc620262a758b8",
+  "final_round": 3
+}

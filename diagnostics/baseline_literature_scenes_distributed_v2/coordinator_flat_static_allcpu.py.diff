@@ -1,0 +1,47 @@
+--- coordinator_flat_static.py
++++ coordinator_flat_static_allcpu.py
+@@ -3,9 +3,9 @@
+ import subprocess
+ import time
+ import fcntl
+-from resources_released import snapshot
++from resources_idle_cpu import snapshot
+ from infrastructure_recovery_active import recover
+-import fine_dispatch_flat_static as fine_dispatch
++import fine_dispatch_flat_static_allcpu as fine_dispatch
+ 
+ def action(label,*arguments):
+     path=HERE/'coordinator_actions'/f'{label}_{time.time_ns()}.log';path.parent.mkdir(exist_ok=True)
+@@ -29,7 +29,7 @@
+     return mapping
+ 
+ def run_stages(stages,phase):
+-    from status_released import main as status
++    from status_released_allcpu import main as status
+     for stage in stages:
+         if fine_dispatch.eligible(stage):fine_dispatch.prepare(stage)
+     while True:
+@@ -45,8 +45,8 @@
+             if not any(s in stages for s in mapping.values()):return
+         free=state['free_cpu_shares']
+         if pending and free:
+-            from submit_active import submit
+-            from analysis_submit_cached import submit as submit_analysis
++            from submit_active_allcpu import submit
++            from analysis_submit_cached_allcpu import submit as submit_analysis
+             counts={s:sum(v==s for v in mapping.values()) for s in pending}
+             available={s:(fine_dispatch.available(s) if fine_dispatch.eligible(s) else sum(not (HERE/s/'claims'/r['group']).exists() for r in read(HERE/s/'GROUP_INDEX.json'))) for s in pending}
+             for _ in range(min(free,sum(available.values()))):
+@@ -76,10 +76,10 @@
+         run_stages(stages,'central_comparison_safety_only')
+         # Downstream implementation is sealed independently before use.
+         while not (HERE/'DOWNSTREAM_READY.receipt.json').exists():
+-            from status_released import main as status
++            from status_released_allcpu import main as status
+             status('central_complete_awaiting_downstream_implementation');time.sleep(30)
+         from registry import verify_receipt
+         verify_receipt('DOWNSTREAM_READY.receipt.json')
+-        action('downstream','downstream_flat_static.py')
++        action('downstream','downstream_flat_static_allcpu.py')
+ 
+ if __name__=='__main__':main()

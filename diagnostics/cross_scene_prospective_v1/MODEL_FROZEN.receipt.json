@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-25T10:49:43.135093+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/PROTOCOL.md": "6eb7d9616859b502f613415df7e845b6fb1bfd994ea6990e6ab97840b0a86114",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/prepare_design.py": "fdd7c9a19ef22897038d32a926519ded24c886351afd2759c588d041fde14cce",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/models.py": "4139fb0473853dac03bc8a172e6eef08264feec79783cb4ed9e8cd73eb0c0ac3",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/scenes.py": "4de028694c3862561e946fc41864f8bea0682f428998576cdffd0f95dbfbf3d9",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/analysis_stats.py": "2c5f697c9e54d762464db8ec05e275e0e168727d60a3cc15f85fe8d25219778e",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/SCENES.json": "f4568fee9651b5cca26a5a0b8425e5c8b75bd47d033f61854fb7b79939a0ec69",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/FEATURES.json": "cff56c8252ce2e8b33efae51cc2531bc7a36f1158875bf47b4717e783fd2656b",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/DEDUPLICATION.json": "55014be35cee07d1a3a72f3bcc14d76b370a4ff9d81c427f302d5c6e5734c0d9",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/FROZEN_CHOICES.json": "452ff937b2815f6567801921d9f6eb93d9ab802ee141b5ea2c5327b7abd40324",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/MODEL_DETAILS.json": "38ef6d8e3aade24028f51b1e87453e50ad0e8022ea3d63222511489d4f19b99f",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/DESIGN_EXPECTATION_CHECK.json": "2da20a19f8cd7f361d3144971f905ef774c93af6afedd703c31a5a58025f6c97"
+  },
+  "training_rollouts_added": 0,
+  "test_rollouts_before_freeze": 0,
+  "training_label_source": "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/LABEL_TABLES.json",
+  "training_label_sha256": "aca86cac654a515cae3e492bd0bcf5854b77fb81c04a607fb5180f712db8040c",
+  "methods": [
+    "knn_dedup",
+    "ridge_dedup",
+    "knn_full",
+    "ridge_full",
+    "global_fixed",
+    "eta13",
+    "safety"
+  ],
+  "statistical_seed": 2026102513,
+  "replicates": 5000,
+  "selection_changes_after_freeze_forbidden": true
+}

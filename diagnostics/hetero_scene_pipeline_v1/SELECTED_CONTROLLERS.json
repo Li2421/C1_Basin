@@ -1,0 +1,58 @@
+{
+  "lit_swap8_obstacles": {
+    "test_applicable": true,
+    "all_three_passed": true,
+    "geometry_all_states_eligible": true,
+    "status": "可测试",
+    "gate_source": "Historical qualified controllers and exact existing labels; no new literature labels."
+  },
+  "xsc_swap_n10": {
+    "test_applicable": true,
+    "all_three_passed": true,
+    "geometry_all_states_eligible": true,
+    "status": "可测试",
+    "gate_source": "Exact historical first4 solo cases reused"
+  },
+  "lit_swap8_free": {
+    "test_applicable": true,
+    "all_three_passed": true,
+    "geometry_all_states_eligible": true,
+    "status": "可测试",
+    "gate_source": "Historical qualified controllers and exact existing labels; no new literature labels."
+  },
+  "xsc_swap_n6": {
+    "test_applicable": true,
+    "all_three_passed": true,
+    "geometry_all_states_eligible": true,
+    "status": "可测试",
+    "gate_source": "Exact historical first4 solo cases reused"
+  },
+  "xsc_het_plus_w020": {
+    "test_applicable": true,
+    "all_three_passed": true,
+    "geometry_all_states_eligible": true,
+    "status": "可测试",
+    "gate_source": "New first4 solo states, seeds0/1"
+  },
+  "xsc_het_plus_w040": {
+    "test_applicable": true,
+    "all_three_passed": true,
+    "geometry_all_states_eligible": true,
+    "status": "可测试",
+    "gate_source": "New first4 solo states, seeds0/1"
+  },
+  "lit_circle_five": {
+    "test_applicable": true,
+    "all_three_passed": true,
+    "geometry_all_states_eligible": true,
+    "status": "可测试",
+    "gate_source": "Historical qualified controllers and exact existing labels; no new literature labels."
+  },
+  "xsc_het_box_n10_r013_f25": {
+    "test_applicable": true,
+    "all_three_passed": true,
+    "geometry_all_states_eligible": true,
+    "status": "可测试",
+    "gate_source": "New first4 solo states, seeds0/1"
+  }
+}

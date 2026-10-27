@@ -1,0 +1,39 @@
+{
+  "pstar": 0.9681620884830543,
+  "A1_seed_start": 202610354000,
+  "A1_seed_stop": 202610354999,
+  "tuning_seed_start": 202610370000,
+  "tuning_seed_stop": 202610370999,
+  "radii": [
+    0.8,
+    0.85,
+    0.95,
+    1.0
+  ],
+  "H": [
+    500,
+    700,
+    1000
+  ],
+  "bootstrap": 5000,
+  "bootstrap_seed": 202610163700,
+  "stall_window": 100,
+  "stall_displacement": 0.05,
+  "stall_speed": 0.05,
+  "stall_all_slow_consecutive": 100,
+  "E_N": [
+    2,
+    10,
+    20
+  ],
+  "E_H": {
+    "2": 2000,
+    "10": 8000,
+    "20": 16000
+  },
+  "E_cpu_seconds_cap": 1555200,
+  "E_timing_prefix_steps": 200,
+  "E_warmup_steps": 20,
+  "cpu_shards_total": 18,
+  "gpu_shards_total": 2
+}

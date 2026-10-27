@@ -1,0 +1,20 @@
+{
+  "scene_family": "C",
+  "family": "mixture",
+  "seed": 23,
+  "round": 3,
+  "steps": 60000,
+  "batch": 256,
+  "lr": 0.0003,
+  "hidden": [
+    256,
+    256,
+    256
+  ],
+  "observation_dimensions": 39,
+  "selection": "earliest minimum fixed dev loss",
+  "initialization": "fresh same policy seed each round",
+  "dataset": "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/datasets39/C_mixture_23_round_3.npz",
+  "source_dataset_sha256": "5c985e1c8dfd949c0a623bbdcc792785e0183d26207d3121a8fe8b049f14cbfc",
+  "final_round": 3
+}

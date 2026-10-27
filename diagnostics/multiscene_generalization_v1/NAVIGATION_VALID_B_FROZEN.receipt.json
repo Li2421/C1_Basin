@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-17T09:44:06.825631+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_generalization_v1/capability.py": "12894126f17260e38af7c2df27f233e10d9ffdfe92b133900d0304b7be8549fd",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_generalization_v1/generated_runtime.py": "6f6d2d487771be974dce6582ae18f1af07fc3ce79c78a6336df8c7ca2aba0175",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_generalization_v1/policies/B_deterministic_17/best.msgpack": "fe1db45b7ac9f41d60be338033d9de731fedd91bf198bf1436a5444b5638b2a1",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_generalization_v1/policies/B_deterministic_23/best.msgpack": "9c6eaff9126dac985b6ea33cbb2729bd1fb57a28cf2914a26bad79d7327b4d14",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_generalization_v1/policies/B_mixture_17/best.msgpack": "4ab6e04c4b5a3ae845b57f8585afb0b720553699f3a0f2473689ee12bc3588ca",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_generalization_v1/policies/B_mixture_23/best.msgpack": "e7afd64d418b8a7d1a77a62ae1b56ebebef341fd3a47169846566c603a502599"
+  },
+  "threshold": 0.9,
+  "episodes_per_instance": 16,
+  "evaluation_geometry_only_for_gate": true,
+  "before_gate": true,
+  "valid_holdout": true
+}

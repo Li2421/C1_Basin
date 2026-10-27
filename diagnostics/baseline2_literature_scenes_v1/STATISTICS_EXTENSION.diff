@@ -1,0 +1,10 @@
+--- migration_statistics.py
++++ migration_statistics_complete.py
+@@ -52,6 +52,6 @@
+                 row['delta_vs_fixed']={}
+                 for fixedname in ('fixed_eta10','fixed_eta13','human_progress'):
+                     if fixedname in methods:
+-                        fixed=methods.index(fixedname);row['delta_vs_fixed'][fixedname]=dict(delta=float(point[i]-point[fixed]),ci95=np.quantile(draws[:,i]-draws[:,fixed],[.025,.975]).tolist())
++                        fixed=methods.index(fixedname);row['delta_vs_fixed'][fixedname]=dict(delta=float(point[i]-point[fixed]),ci95=np.quantile(draws[:,i]-draws[:,fixed],[.025,.975]).tolist(),identified_delta_bounds=[float(point[i]-up[fixed]),float(up[i]-point[fixed])],unknown_sensitive_ci95=[float(np.quantile(draws[:,i]-upperdraws[:,fixed],.025)),float(np.quantile(upperdraws[:,i]-draws[:,fixed],.975))])
+             result.append(row)
+     return dict(statistics=result,pooled_counts=counts,harms_vs_safety=harm,methods=methods,paired_states=states,qualified_controllers=controllers)

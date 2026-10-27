@@ -1,0 +1,101 @@
+--- final_reports_correction_revised_20261021.py
++++ final_reports_correction_delivery_20261023.py
+@@ -1,7 +1,7 @@
+ """Final user-requested original/revised report from sealed evidence only."""
+ from experiment import *
+ from registry import verify_receipt
+-from final_reports_flat_static_allcpu_delivery import pct,cell,delta,table,METHODS,LAYERS,pick,geometry,dynamics
++from final_reports_flat_static_allcpu_delivery import pct,cell,delta,table,METHODS,LAYERS,pick,geometry,dynamics,comparison
+ import csv,collections
+ SEM={'original':'原修正语义（预注册）','revised':'修订修正语义（看过预注册结果后提出的事后修订，开发证据）'}
+ 
+@@ -59,7 +59,32 @@
+   chunks.append(NAMES[scene]+'\n\n'+table(['修正语义','安全层','实例范围','state范围','做法','成功率','相对只加安全投影增益','解释'],rows))
+  save('CORRECTION_GAIN_SPLITS_20261021.md','只去除新归类中的controller级失败；安全层导致的全局失败保留并单列。每层独立归类与取样，不能把两层失败集合混为一谈。controller级失败增益标为“修正推动controller自身停住的实例”，不计为解开死锁。\n\n'+'\n\n'.join(chunks))
+ 
++def handoff_text():
++ entry=read(HERE/'ACTIVE_ENTRYPOINT.json');policy=read(HERE/'RESOURCE_SCHEDULE_CORRECTIONS_RELEASE_20261023.json')
++ return f"""本轮为四个文献场景分布式安全层迁移v2，原修正语义预注册证据与看过结果后提出的修订开发证据分开。工作目录{HERE}；v1目录{V1}只读。唯有V2_COMPLETE.json表示实际完成；不存在时继续按STATUS与日志处理，不把后台仍跑写成完成。v1三场景收尾已冻结，圆形流程版缺口不恢复，论文版结果沿用，不冒充v1四场景合并。
++
++当前唯一入口和进程信息以ACTIVE_ENTRYPOINT.json、COORDINATOR_PID.json为准：协调器{entry['coordinator']}，下游{entry['downstream']}，可选阶段{entry['optional']}，最终报告{entry['final_reports']}。启动前核对现存PID/命令及CORRECTION_COORDINATOR.lock，不能并发启动第二协调器；下游也有独立锁。已运行child期间不要更改下游配置。只选择本轮目录内源码哈希列在声明READY收据中的静态入口；不在运行时改模块或改封存文件。历史部署文字里的入口可能已过时。
++
++流程Python为/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python -B；最后画图才用.venv-c1-plots。禁止安装包、写v1/外部源码或做git commit。experiment.py将TMP/MPL/XDG/CUDA缓存限制于本轮且禁用bytecode。所有已封存raw、trace、checkpoint、配置和源文件不修改，修订用新文件并记录来源SHA。
++
++分布式安全层在distributed_safety.LocalSafety：各机器人独立解二维投影，不输入其他机器人的名义或安全速度。配对行2(pi-pj)·ui>=-c*gamma*h，窄通道/拥挤随机/圆形主线c=1/2，门口c=1；墙全责，速度球和同问题数值重试不变。集中式保持原联合投影及原OrthoFlow3。构造snapshot和实际约束由projection_adapter.constraints/LocalSafety完成；runtime_correction_revised_20261021.run执行分布式与拥挤集中式，central_correction_revised_20261021.run执行其他集中式。
++
++调用顺序仍为冻结名义控制器→原速度界和到达停止→第一次安全投影→三个原修正基→第二次同问题安全投影→原物理。correction_revision_20261021只把Brel在无接触冲突的机器人行置零；Brel启用时仍对全部其他机器人先bound再平均，不能改成仅近邻平均。接触为距离<=Rc且两者不同时在原到达容差内，Rc=1.25*d_safe，d_safe含分离buffer，第二阶段门口含前视膨胀半径；具体数值CORRECTION_REVISION.md在首条研究运行前固定，不据结果调整。到达位每步广播1bit，其他通信假设保持原样。双η主线使用平均进度及原6/7时限回退；逐机器人进度只作为非主线变体。
++
++48个名义controller=8类型×6冻结实例，不训练这些controller；各场景能力门合格数44/44/45/45。旧12与新15指修正动作菜单，新菜单补η10、η13和人定双η。物理输入12维、动作编码19维、模型架构、36个source-type fit集合、三初始化17/23/41、2000训练步及嵌套留一类型选择不变。新模型路径critic_fits_revised_20261021/，选择LEARNED_EVAL_CHOICES_REVISED_20261021_<scene>在首条评估前封存。集中式修订学习不运行。原η0轨迹32条完整逐位回放通过后全部按精确执行身份复用；修订非零用新身份，同语义的三个固定训练动作和冻结后选到的现有执行直接复用。
++
++顺序严格为D修订固定4场景→D修订学习窄通道/拥挤/门口→C修订固定4场景→圆形D修订学习→全部保存轨迹诊断和原/新合并主数值→第二阶段与变体→图、数据库和源码结束审计、报告。前一研究阶段全结束才进后一阶段；空核可做已完成轨迹的可让出诊断。统计27独立任务调用原数学内核，5000次bootstrap、原种子、类型→实例→state等权、seed配对和unknown识别界不变；source AST、5000抽样数组、串并行类别增益一致的证据在CORRECTION_PARALLEL_NUMERICS_READY_20261023.receipt.json。
++
++每项新研究前先查HISTORY_CHECK及现存配置/数据/checkpoint/预测，遵守共享数据库README的官方preflight，只跑genuinely_missing。registry/revised_case_factory负责身份与注册；worker只通过官方cache_writer.append_journal写默认实验exp_baseline_literature_scenes_distributed_v2，不能写SQLite。唯一merger由db_merge.py包装官方程序并持锁。原圆形学习2044条保留且已合并，4100条停止不恢复，旧评估1536不运行；这项用户停止不产生unknown。数值求解失败的unknown独立保留，不能改成timeout/deadlock或默默重跑覆盖。
++
++性能加速为已验证静态必要条件证书和原生精确bit-key几何缓存，科学语义/RNG/事件不变；CBS_FLAT_CACHE_EQUIVALENCE等收据含完整轨迹逐位回放。未采用的候选也保留证据，不能随意启用。实例类以INSTANCE_CLASSES_REVISED为主：失败上界<=5%后用未到达机器人·局的4a′/4a″多数判断，只去掉controller级失败，安全层全局失败保留，墙前陷阱单列。旧CONTROLLER_LEVEL_FAILURES.json保留作历史核对，不能替代新归类。timeout本身不是死锁。目标附近徘徊为超时且所有未到达机器人距目标<=3倍原容差，至少一台未到达；两种语义、两层和实际第二阶段分别报告。图只读封存仿真证据。
++
++资源最新用户授权：当前总24CPU（23调度+1本地），{policy['release_at_local']}降为18CPU（17调度+1本地），GPU保持2份额。实际限额读resources_corrections_release_20261023.limits与RESOURCE_RELEASE_STATUS，ACTIVE里的部署初值不能覆盖日期政策。07:30开始超额CPU worker逐局收尾，09:00准时释放；优先纯CPU任务，不打断GPU critic fits。独立CPU释放guard及watchdog持久运行。每次提交先squeue计全用户含pending；本地进程由local_cpu_guard_idle_cpu绑定未被Slurm分配的单核，不与worker抢同一物理CPU。
++
++主数值认MIGRATION_NUMBERS、后验指标认原/新MAIN_ADDITIONAL_METRICS、可选数值认OPTIONAL_NUMBERS、数据库认DB_POSTFLIGHT、源码只认INTEGRITY_END、交付认FINAL_REPORTS。全部实际作业结束后才做最终审计和完成标志；可选缺口独立披露，不混入主线或算unknown。v1原两个非Python配置缺开工全文件哈希的限制仍保留，不能倒补为严格覆盖。"""
++
+ def main():
++ verify_receipt('CORRECTION_FINAL_DELIVERY_READY_20261023.receipt.json')
+  for proof in ('MIGRATION_NUMBERS.receipt.json','MAIN_ADDITIONAL_METRICS.receipt.json','MAIN_ADDITIONAL_METRICS_REVISED_20261021.receipt.json','OPTIONAL_NUMBERS.receipt.json','DB_POSTFLIGHT.receipt.json','INTEGRITY_END.receipt.json','CORRECTION_OPTIONAL_READY_20261021.receipt.json'):verify_receipt(proof)
+  audit=read(HERE/'INTEGRITY_END.json');db=read(HERE/'DB_POSTFLIGHT.json');assert audit['passed'] and db['passed']
+  data=read(HERE/'MIGRATION_RESULTS.json');results=data['results'];additional={'original':read(HERE/'MAIN_ADDITIONAL_METRICS.json'),'revised':read(HERE/'MAIN_ADDITIONAL_METRICS_REVISED_20261021.json')};classes=read(HERE/'INSTANCE_CLASSES_REVISED.json');optional=read(HERE/'OPTIONAL_RESULTS.json')
+@@ -78,6 +103,9 @@
+   for layer in ('central','distributed'):
+    d=next(r for r in classes['discrimination'] if (r['scene'],r['layer'])==(scene,layer));base=pick(results[scene]['fixed_full'],layer,'safety');rate=additional['original']['weighted_outcome_and_diagnosis_rates'][scene][layer+'|safety']['rates']
+    classification.append(f"{NAMES[scene]}、{LAYERS[layer]}：基线成功{cell(base)}，逐机器人4a′局比例{pct(rate['deadlock_episode'])}；controller级失败{d['controller_level_failure_instances']}、state相关失败{d['state_related_failure_instances']}、安全层导致的全局失败{d['safety_layer_global_failure_instances']}个合格实例，墙前陷阱{d['wall_trap_instances']}个。")
++ for scene in NAMES:
++  contrast=comparison(results[scene]['fixed_full'],'safety').get('distributed_minus_central')
++  classification.append(NAMES[scene]+'只加安全投影的分布式−集中式配对成功差：'+delta(contrast)+'。')
+  paragraphs.append(' '.join(classification)+' 窄通道分布式多数低成功实例归为安全层导致的全局失败，保留为死锁候选证据；门口两层各5个controller级失败另列。九格改变的实例与另一安全层旁证见INSTANCE_CLASSES_REVISED。timeout不等于死锁，有限窗口候选不能证明永久死锁。')
+  gains=[]
+  for scene in NAMES:
+@@ -87,7 +115,14 @@
+     for method in ('fixed_eta10','fixed_eta13','human_progress'):
+      row=pick(entry['fixed_full'],layer,method);items.append(LAYERS[layer]+'、'+METHODS[method]+'成功'+cell(row)+'，增益'+delta(row.get('delta_vs_safety') if row else None))
+    gains.append(NAMES[scene]+'、'+SEM[sem]+'：'+'；'.join(items)+'。')
+- paragraphs.append(' '.join(gains)+' 每种固定修正与重新学习增益按全部合格实例、controller级失败、其余实例及安全层全局失败分列于CORRECTION_GAIN_SPLITS_20261021.md。controller级增益称“修正推动controller自身停住的实例”，不计为解开死锁；死锁解决结论只从其余实例与安全层全局失败范围判断，不能从总体成功增益直接推断。目标附近徘徊的新旧两套率见FAILURE_DECOMPOSITION.md与JSON。')
++ paired_gains=[]
++ for scene in NAMES:
++  for sem in SEM:
++   entry=results[scene] if sem=='original' else results[scene]['revised']
++   for method in ('fixed_eta10','fixed_eta13','human_progress'):
++    contrast=comparison(entry['fixed_full'],method).get('correction_gain_difference')
++    paired_gains.append(NAMES[scene]+'、'+SEM[sem]+'、'+METHODS[method]+'的修正增益（分布式−集中式）配对差'+delta(contrast)+'。')
++ paragraphs.append(' '.join(gains)+' '.join(paired_gains)+' 每种固定修正与重新学习增益按全部合格实例、controller级失败、其余实例及安全层全局失败分列于CORRECTION_GAIN_SPLITS_20261021.md。controller级增益称“修正推动controller自身停住的实例”，不计为解开死锁；死锁解决结论只从其余实例与安全层全局失败范围判断，不能从总体成功增益直接推断。目标附近徘徊的新旧两套率见FAILURE_DECOMPOSITION.md与JSON。')
+  learned=[]
+  for scene in NAMES:
+   for sem in SEM:
+@@ -102,12 +137,25 @@
+      if row:eligible_gains.append(NAMES[scene]+'、'+SEM[sem]+'、'+LAYERS[layer]+'、'+label+'：全程η10相对基线'+delta(row.get('delta_vs_safety')))
+  paragraphs.append('用于讨论死锁解决的实例范围：'+'；'.join(eligible_gains)+'。这些范围排除了controller自身停住的增益，仍需与逐机器人4a′、墙前4a″及徘徊诊断联合阅读；成功改善是有限样本操作性证据，不是永久死锁或全局可解证明。门口5个controller实例的保存轨迹与两种语义下η10三分量范数描述见DOOR_CONTROLLER_GAIN_COMPONENTS_20261021.json；不把分量范数当分量消融的因果结论。')
+  paragraphs.append('场景内重新学习：'+'；'.join(learned)+'。原菜单12动作，新菜单15动作补入两种全程固定η及人定双η；原结构、19维动作编码、留一类型、初始化种子17/23/41、2000训练步与checkpoint选择不变。选择在首条评估之前封存。修订集中式不重新学习。比较仅在相同独立评估state内，不能与全部主state混为同一分母；完整独立评估菜单regret未穷举，为N/A。')
+- paragraphs.append('修订说明：看过预注册结果后，用户要求纠正窄通道安全层全局失败归类、门口controller自身停住的增益解释、学习菜单缺固定动作、目标附近徘徊四处问题。修订只给原Brel加接触开关，Rc=1.25×实际d_safe；三分量公式、η、两次安全投影、跟踪、到达停止与6/7回退不变。Rc在首条修订rollout前封存，不按结果调参。强制全开逐位一致、全部已到达时Brel为零、论文窄通道开关全开、编号置换数值误差门及每场景8条η0完整回放共32条通过；静态徘徊检查及实际例外见CORRECTION_REVISION_STATIC_LOGICAL_SCOPES_20261021。修订证据明确为事后开发证据，不能冒充预注册确认。全部已到达时Brel为零只消除了该分量；严格目标构型成为完整安全闭环平衡点仍需该构型满足安全约束，不能由开关单独推得。')
++ paragraphs.append('修订说明：看过预注册结果后，用户要求纠正窄通道安全层全局失败归类、门口controller自身停住的增益解释、学习菜单缺固定动作、目标附近徘徊四处问题。修订只给按全部其他机器人平均得到的原Brel加接触开关，Rc=1.25×实际d_safe；三分量公式、η、两次安全投影、跟踪、到达停止与6/7回退不变。Rc在首条修订rollout前封存，不按结果调参。强制全开逐位一致、全部已到达时Brel为零、论文窄通道开关全开、编号置换数值误差门及每场景8条η0完整回放共32条通过；静态徘徊检查及实际例外见CORRECTION_REVISION_STATIC_LOGICAL_SCOPES_20261021。修订证据明确为事后开发证据，不能冒充预注册确认。全部已到达时Brel为零只消除了该分量；严格目标构型成为完整安全闭环平衡点仍需该构型满足安全约束，不能由开关单独推得。')
+  notes=['v1按用户要求完成窄通道、二维拥挤随机、门口三场景收尾；圆形流程版为用户停止转入v2的缺口，不能写成v1四场景合并。论文版沿用v1的PAPER_REPRODUCTION.*，不重跑。', '旧语义圆形标签2044条保留并合并，4100条未落盘请求按用户决定停止、不恢复、不计unknown；旧圆形1536条评估未执行。修订圆形学习为独立新语义，不能补成旧语义完成。', '第二阶段与变体为非主线：实际动力学约束违反、采样速度违反、无解最小违反与门口非线性求解无全局最优性证书均保留；成功仍按原任务标准。没有额外集中式动力学试验，联合锥只是同动力学耦合诊断参照。', '冻结旧表示A3、冻结旧物理接口A0、无兼容冻结选择接口G_E、未要求专家参照为N/A；训练state上的菜单oracle与带符号regret仅作描述，不能当独立state性能。', '原语义和修订语义各自保留unknown识别上下界、配对伤害和10个百分点下降实例。基线按流程先于学习可见，选择文件outcomes_opened=False只指选动作阶段不打开所选评估输出，不代表全局盲测。']
+  for gap in (read(HERE/'OPTIONAL_GAPS.json') if (HERE/'OPTIONAL_GAPS.json').exists() else []):notes.append('非主线缺口：'+canonical(gap))
+- paragraphs.append('第二阶段各场景完成情况、动力学与修订第一阶段的配对差、类别拆分与目标附近徘徊见DYNAMICS_STAGE.md、OPTIONAL_RESULTS.json。所有图只读取封存仿真证据，不改变控制器、物理、事件或成功标准。')
++ stage2=[]
++ for scene in NAMES:
++  entry=optional['results'].get('optional_dynamics_'+scene,{})
++  estimates=[METHODS[row['method']]+' '+cell(row) for row in entry.get('statistics',{}).get('statistics',[]) if row['type']=='type_equal']
++  stage2.append(NAMES[scene]+'：'+('; '.join(estimates) if estimates else 'N/A：'+str(entry.get('reason','未取得完整第二阶段证据')))+'，unknown '+str(entry.get('counts',{}).get('unknown','N/A')))
++ paragraphs.insert(3,'第二阶段（非主线修订开发证据）：'+'；'.join(stage2)+'。配对参照是修订后的第一阶段，差异、约束和速度违反、新实例类、类别增益与徘徊率见DYNAMICS_STAGE.md、OPTIONAL_RESULTS.json及INSTANCE_CLASSES_DYNAMICS_REVISED_20261021.json。没有额外集中式动力学执行，联合锥只是同动力学参照；不能把controller级增益计为死锁解决。')
++ variant_rows=[]
++ for stage,entry in optional['results'].items():
++  if not stage.startswith(('optional_full_circle_','optional_local_progress_','optional_nominal_')):continue
++  for row in entry.get('statistics',{}).get('statistics',[]):
++   if row['type']=='type_equal':variant_rows.append([stage,METHODS.get(row['method'],row['method']),cell(row),entry.get('status')])
++  if entry.get('background_only'):variant_rows.append([stage,'二维拥挤随机无安全层背景','collision='+str(entry['counts']['collision'])+' / completed='+str(entry['counts']['completed']),entry.get('status')])
++ save('VARIANT_RESULTS_20261023.md','第二优先级非主线。圆形全责与个人进度采用修订Brel接触开关，名义无安全背景保持原语义。相对主线的配对差和无安全碰撞→安全结果转移的完整计数见OPTIONAL_RESULTS.json，不与四场景主线混合。\n\n'+table(['定位stage','做法','成功率或原始背景计数','状态'],variant_rows))
++ paragraphs.append('第二优先级变体与无安全层背景单列于VARIANT_RESULTS_20261023.md；原始碰撞到安全结果的转移、个人进度−广播进度、全责−互惠责任的配对结果见OPTIONAL_RESULTS.json。图只读取封存证据，不改变控制器、物理、事件或成功标准。')
+  save('GAPS.md','\n\n'.join(notes));save('REPORT.md','\n\n'.join(paragraphs)+'\n\n'+'\n\n'.join(notes))
+- save('HANDOFF.md',f"任务完成标志仅以V2_COMPLETE.json为准。工作目录{HERE}；v1只读。当前入口coordinator_correction_release_20261023.py，下游correction_after_distributed_fixed_20261021.py，optional_delivery_correction_revised_20261021.py。严禁恢复旧圆形语义或旧协调器。资源依据RESOURCE_SCHEDULE_CORRECTIONS_RELEASE_20261023.json：24CPU，2026-10-23 09:00 Asia/Singapore降18，GPU2份额。修订科学定义、门、执行身份与后验类别分别见CORRECTION_REVISION.receipt.json、PREREGISTRATION_ADDENDUM_20261021.receipt.json、INSTANCE_CLASSES_REVISED。全部原结果保留，combined主数值MIGRATION_NUMBERS、数据库DB_POSTFLIGHT、源码INTEGRITY_END、最终报告FINAL_REPORTS分别封存。无完成标志则继续STATUS/日志，不能写已完成。")
+- outputs=['REPORT.md','AXIS_TABLE.md','AXIS_TABLE.csv','FAILURE_DECOMPOSITION.md','CONTROLLER_LEVEL_FAILURES.md','GEOMETRY_CENSUS.md','GEOMETRY_CENSUS_REVISED_20261021.md','DYNAMICS_STAGE.md','GAPS.md','HANDOFF.md','CORRECTION_GAIN_SPLITS_20261021.md']
+- seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_correction_revised_20261021.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),posthoc_revision_explicit=True)
++ save('HANDOFF.md',handoff_text())
++ outputs=['REPORT.md','AXIS_TABLE.md','AXIS_TABLE.csv','FAILURE_DECOMPOSITION.md','CONTROLLER_LEVEL_FAILURES.md','GEOMETRY_CENSUS.md','GEOMETRY_CENSUS_REVISED_20261021.md','DYNAMICS_STAGE.md','GAPS.md','HANDOFF.md','CORRECTION_GAIN_SPLITS_20261021.md','VARIANT_RESULTS_20261023.md']
++ seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_correction_delivery_20261023.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),posthoc_revision_explicit=True)
+ if __name__=='__main__':main()

@@ -1,0 +1,136 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/scenes.py
++++ /home/zhihan/research/Basin_C1/diagnostics/critic_pool_supplement_v1/scenes.py
+@@ -1,6 +1,6 @@
+ """Specified four one-knob scenes; immutable base physical configurations."""
+ from common import *
+-from design import OLD,NEW_NAMES,SCENE_NAMES
++from design import specifications
+ from bottleneck_family.scenario import Config,Geometry
+ import numpy as np,math
+ from single_integrator.environment import segment_distance
+@@ -82,63 +82,70 @@
+         .3/r if scene.get('moving') else 0., float(scene['diametric'])] + np.mean(state_features,axis=0).tolist()
+ 
+ 
++
+ def geometry_report(scene):
+  r=base_geometry_report(scene);r.update(joint_solvable='未认证',deadlock_resolution='未认证');return r
+ 
++def construct(spec):
++ from legacy_states import LiteratureConfig
++ from single_integrator.environment import point_segment_distance
++ SEED=2026102661;name=spec['name'];group=spec['group'];n=spec['N'];r=spec['r'];f=spec['f'];v=spec['v'];bc=None;states=[]
++ if group in ['A','B']:
++  radius=n/8;theta=np.arange(n)*2*np.pi/n;initial=radius*np.stack([np.cos(theta),np.sin(theta)],-1);goals=-initial
++  seed=[SEED,n]if group=='A'else[SEED,n,spec['K']];rng=np.random.default_rng(np.random.SeedSequence(seed))
++  if group=='B':
++   k=spec['K'];a=spec['a'];rho=spec['rho'];H=max(2.,round(radius+.9,2));angles=2*np.pi*np.arange(n)/n+np.pi/n
++   if k==n//2:angles=angles[::2]
++   assert len(angles)==k
++   centers=rho*radius*np.stack([np.cos(angles),np.sin(angles)],-1);rects=tuple((x-a,y-a,x+a,y+a)for x,y in centers)
++   bc=Config(num_agents=n,half_length=H,half_height=H,barrier_x=(H-.3,),openings=(((0.,2*H-.4),),),barrier_thickness=.1,extra_rectangles=rects,agent_radius=.05,dt=.05,max_speed=.5,max_steps=400)
++   area=(2*H)**2-.04-k*(2*a)**2;opening=min(10.,(2*rho*radius*np.sin(np.pi/k)-2*a)/.1)
++  else:area=None;opening=10.
++  for index in range(8):
++   p=initial.copy()if index==0 else initial+rng.uniform(-.1,.1,(n,2));states.append(dict(scene=name,index=index,N=n,positions=p.tolist(),goals=goals.tolist(),velocities=np.zeros_like(p).tolist()))
++  diametric=True
++ elif group in ['C','D']:
++  bc=Config(num_agents=n,half_length=1.2,half_height=1.2,barrier_x=(.95,),openings=(((0.,2.),),),barrier_thickness=.1,extra_rectangles=(),agent_radius=.05,dt=.05,max_speed=.5,max_steps=400);geom=Geometry(bc)
++  seed=[SEED,n,round(100*r),round(10*f)]+([round(100*v)]if group=='D'else[]);rng=np.random.default_rng(np.random.SeedSequence(seed));clear=r+.035;attempts=0
++  def usable(p):return bool(np.all(point_segment_distance(p,geom.walls[:,0],geom.walls[:,1])>clear))
++  while len(states)<8:
++   attempts+=1;p=[];goals=[]
++   for _ in range(2000):
++    x=rng.uniform(-1.2,1.2,2)
++    if usable(x)and(not p or np.all(np.linalg.norm(np.asarray(p)-x,axis=-1)>2*r+.1)):p.append(x)
++    if len(p)==n:break
++   if len(p)!=n:continue
++   for _ in range(4000):
++    x=rng.uniform(-1.2,1.2,2);i=len(goals)
++    if usable(x)and np.linalg.norm(x-p[i])>=1. and(not goals or np.all(np.linalg.norm(np.asarray(goals)-x,axis=-1)>2*r+.1)):goals.append(x)
++    if len(goals)==n:break
++   if len(goals)!=n:continue
++   states.append(dict(scene=name,index=len(states),N=n,positions=np.asarray(p).tolist(),goals=np.asarray(goals).tolist(),velocities=np.zeros((n,2)).tolist()))
++  area=2.4**2-.04;opening=10.;diametric=False
++ else:
++  w=spec['w'];bc=Config(num_agents=4,half_length=1.6,half_height=1.6,barrier_x=(1.35,),openings=(((0.,2.8),),),barrier_thickness=.1,extra_rectangles=((w,w,1.6,1.6),(-1.6,w,-w,1.6),(-1.6,-1.6,-w,-w),(w,-1.6,1.6,-w)),agent_radius=.05,dt=.05,max_speed=.5,max_steps=400)
++  theta=np.arange(4)*2*np.pi/4;radial=np.stack([np.cos(theta),np.sin(theta)],-1);tangent=np.stack([-np.sin(theta),np.cos(theta)],-1);initial=radial.copy();goals=initial[(np.arange(4)+2)%4]
++  seed=[SEED,4,round(100*w)];rng=np.random.default_rng(np.random.SeedSequence(seed))
++  for index in range(8):
++   if index==0:p=initial.copy()
++   else:
++    along=rng.uniform(-.1,.1,4);side=rng.uniform(-.02,.02,4);p=initial+along[:,None]*radial+side[:,None]*tangent
++   states.append(dict(scene=name,index=index,N=4,positions=p.tolist(),goals=goals.tolist(),velocities=np.zeros_like(p).tolist()))
++  area=3.2**2-4*(1.6-w)**2;opening=w/.05;diametric=True
++ if bc:
++  geom=Geometry(bc);walls=geom.walls.tolist()
++  for state in states:state['bottleneck_config']=bc.to_dict()
++ else:walls=[]
++ longest=max(np.linalg.norm(np.asarray(s['goals'])-s['positions'],axis=-1).max()for s in states)/v;cfg=LiteratureConfig(name,n,r,.05,v,int(math.ceil(f*longest/.05))).to_dict()
++ scene=dict(name=name,title=name,family='critic_training_pool',factor=group,group=group,specification=spec,config=cfg,walls=walls,states=states,sampler_seed=seed,free_area=area,min_opening_over_diameter=opening,serial_walls=0,diametric=diametric,moving=False)
++ if bc:scene['bottleneck_config']=bc.to_dict()
++ scene['definition_sha256']=uid('scene_definition',scene);scene['features']=features(scene);return scene
++
+ def prepare():
+- from design import OLD_NAMES
+- from legacy_states import LiteratureConfig
+- assert read(HERE/'REPLAY_CHECK.json')['passed']
+- old={s['name']:s for s in read_evidence(OLD/'SCENES.json')};out=[];checks={};SEED=2026102411
+- for name,title in SCENE_NAMES.items():
+-  if name in OLD_NAMES:
+-   scene=copy.deepcopy(old[name]);scene['title']=title
+-   if name.startswith('xsc_swap_'):
+-    n=scene['config']['num_agents'];theta=np.arange(n)*2*np.pi/n;initial=(n/8)*np.stack([np.cos(theta),np.sin(theta)],-1);goals=-initial
+-    rng=np.random.default_rng(np.random.SeedSequence([SEED,n]));states=[]
+-    for index in range(28):
+-     p=initial.copy()if index==0 else initial+rng.uniform(-.1,.1,initial.shape)
+-     states.append(dict(scene=name,index=index,N=n,positions=p.tolist(),goals=goals.tolist(),velocities=np.zeros_like(p).tolist()))
+-    assert canonical(states[:12])==canonical(scene['states']);scene['states']=states
+-    checks[name]=dict(old12_exactly_equal=True,config_unchanged=True,definition_identity_preserved=True,new_indices=list(range(12,28)))
+-   scene['features']=features(scene);out.append(scene);continue
+-  if name.startswith('xsc_het_plus_'):
+-   w=.2 if name.endswith('020')else .4;n=4;r=.05;f=4.
+-   bc=Config(num_agents=4,half_length=1.6,half_height=1.6,barrier_x=(1.35,),openings=(((0.,2.8),),),barrier_thickness=.1,
+-    extra_rectangles=((w,w,1.6,1.6),(-1.6,w,-w,1.6),(-1.6,-1.6,-w,-w),(w,-1.6,1.6,-w)),agent_radius=.05,dt=.05,max_speed=.5,max_steps=400)
+-   geom=Geometry(bc);theta=np.arange(n)*2*np.pi/n;radial=np.stack([np.cos(theta),np.sin(theta)],-1);tangent=np.stack([-np.sin(theta),np.cos(theta)],-1)
+-   initial=radial.copy();goals=initial[(np.arange(n)+2)%n];rng=np.random.default_rng(np.random.SeedSequence([SEED,4]));states=[]
+-   for index in range(24):
+-    if index==0:p=initial.copy()
+-    else:
+-     along=rng.uniform(-.1,.1,4);side=rng.uniform(-.02,.02,4);p=initial+along[:,None]*radial+side[:,None]*tangent
+-    states.append(dict(scene=name,index=index,N=n,positions=p.tolist(),goals=goals.tolist(),velocities=np.zeros_like(p).tolist(),bottleneck_config=bc.to_dict()))
+-   area=3.2**2-4*(1.6-w)**2;opening=w/.05;diametric=True
+-  else:
+-   n=10;r=.13;f=2.5
+-   bc=Config(num_agents=10,half_length=1.2,half_height=1.2,barrier_x=(.95,),openings=(((0.,2.),),),barrier_thickness=.1,extra_rectangles=(),agent_radius=.05,dt=.05,max_speed=.5,max_steps=400)
+-   geom=Geometry(bc);rng=np.random.default_rng(np.random.SeedSequence([SEED,10,13]));clear=.13+.035;states=[];attempts=0
+-   from single_integrator.environment import point_segment_distance
+-   def usable(p):return bool(np.all(point_segment_distance(p,geom.walls[:,0],geom.walls[:,1])>clear))
+-   while len(states)<24:
+-    attempts+=1;p=[];goals=[]
+-    for _ in range(2000):
+-     x=rng.uniform(-1.2,1.2,2)
+-     if usable(x)and(not p or np.all(np.linalg.norm(np.asarray(p)-x,axis=-1)>2*.13+.1)):p.append(x)
+-     if len(p)==10:break
+-    if len(p)!=10:continue
+-    for _ in range(4000):
+-     x=rng.uniform(-1.2,1.2,2);i=len(goals)
+-     if usable(x)and np.linalg.norm(x-p[i])>=1.0 and(not goals or np.all(np.linalg.norm(np.asarray(goals)-x,axis=-1)>2*.13+.1)):goals.append(x)
+-     if len(goals)==10:break
+-    if len(goals)!=10:continue
+-    states.append(dict(scene=name,index=len(states),N=n,positions=np.asarray(p).tolist(),goals=np.asarray(goals).tolist(),velocities=np.zeros((n,2)).tolist(),bottleneck_config=bc.to_dict()))
+-   area=2.4**2-.04;opening=10.;diametric=False;checks[name]=dict(accepted=24,attempts=attempts,clearance=clear,minimum_start_goal_separation=1.)
+-  longest=max(np.linalg.norm(np.asarray(s['goals'])-s['positions'],axis=-1).max()for s in states)/.5
+-  cfg=LiteratureConfig(name,n,r,.05,.5,int(math.ceil(f*longest/.05))).to_dict()
+-  scene=dict(name=name,title=title,family='hetero_new',factor='cross_width'if n==4 else'box_random',config=cfg,walls=geom.walls.tolist(),states=states,bottleneck_config=bc.to_dict(),sampler_seed=[SEED,n]if n==4 else[SEED,10,13],free_area=area,min_opening_over_diameter=opening,serial_walls=0,diametric=diametric,moving=False)
+-  scene['definition_sha256']=uid('scene_definition',scene);scene['features']=features(scene);out.append(scene)
+- reports={s['name']:geometry_report(s)for s in out};write(HERE/'SCENES.json',out);write(HERE/'GEOMETRY_BASE_REPORTS.json',reports);write(HERE/'GEOMETRY_REPORTS.json',reports)
+- write(HERE/'SCENE_CONSTRUCTION_CHECK.json',dict(passed=True,checks=checks,counts={s['name']:len(s['states'])for s in out},new_state_rules='new hetero8..23; diametric12..27; literature existing16',no_invalid_state_replaced=True))
+- return out
++ assert read(HERE/'REPLAY_CHECK.json')['passed'];base=[construct(s)for s in specifications()];mild=[]
++ for spec in specifications():
++  if spec['group']=='B':mild.append(construct(dict(spec,name=spec['name']+'_mild',base_name=spec['name'],a=.05,rho=.85)))
++ library=base+mild;reports={s['name']:geometry_report(s)for s in library};write(HERE/'SCENE_LIBRARY.json',library);write(HERE/'SCENES_INITIAL.json',base);write(HERE/'SCENES.json',base);write(HERE/'GEOMETRY_BASE_REPORTS.json',reports);write(HERE/'GEOMETRY_REPORTS.json',reports)
++ write(HERE/'SCENE_CONSTRUCTION_CHECK.json',dict(initial_scenes=22,prespecified_mild_alternatives=5,states_per_scene=8,geometry={n:dict(valid=sum(v['geometric_valid']for v in r['states']),paths=sum(v['single_robot_paths']for v in r['states']))for n,r in reports.items()},no_invalid_states_replaced=True))
++ print('Constructed22 scenes plus5 prespecified mild alternatives.',flush=True)
+ if __name__=='__main__':prepare()

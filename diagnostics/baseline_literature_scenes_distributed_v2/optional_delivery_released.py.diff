@@ -1,0 +1,33 @@
+--- optional_delivery.py
++++ optional_delivery_released.py
+@@ -1,8 +1,8 @@
+ """Optional work follows sealed main numbers; failures become explicit gaps."""
+ from experiment import *
+-from coordinator_current import action,stage_ready,stage_done,jobs_by_stage
++from coordinator_released import action,stage_ready,stage_done,jobs_by_stage
+ from infrastructure_recovery_current import recover
+-from resources import snapshot,require_capacity
++from resources_released import snapshot,require_capacity
+ from registry import verify_receipt
+ import time
+ import subprocess
+@@ -26,7 +26,7 @@
+     write(path,rows)
+ 
+ def run(stages,phase):
+-    from status import main as status
++    from status_released import main as status
+     blocked=set()
+     while True:
+         state=snapshot();mapping=jobs_by_stage(state)
+@@ -85,8 +85,8 @@
+     # Every experiment worker has ended before the final source audit.
+     state=snapshot();assert not any(j['name'].startswith('blv2_') for j in state['jobs']),state
+     if not (HERE/'INTEGRITY_END.receipt.json').exists():action('integrity_end','integrity.py','end')
+-    if not (HERE/'FINAL_REPORTS.receipt.json').exists():action('final_report','final_reports.py')
+-    from status import main as status
++    if not (HERE/'FINAL_REPORTS.receipt.json').exists():action('final_report','final_reports_released.py')
++    from status_released import main as status
+     status('complete_with_explicit_optional_gaps' if (HERE/'OPTIONAL_GAPS.json').exists() else 'complete')
+     write(HERE/'V2_COMPLETE.json',dict(utc=utc(),main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),source_audit=sha(HERE/'INTEGRITY_END.json'),v1_readonly=True))
+ 

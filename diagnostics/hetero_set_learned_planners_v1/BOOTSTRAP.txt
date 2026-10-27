@@ -1,0 +1,6 @@
+learned_mlp_r2 pipe-rhr: +5.6 [-4.1,+15.9] | pipe-rhr_goal: +8.8 [-3.1,+22.2] | pipe-sE22: +25.9 [+16.9,+35.3] | pipe-safety: +28.4 [+19.7,+37.8]
+learned_mlp_s1_r2 pipe-rhr: +6.9 [-3.4,+17.8] | pipe-rhr_goal: +10.9 [-2.8,+24.7] | pipe-sE22: +23.8 [+14.7,+33.8] | pipe-safety: +35.6 [+25.9,+45.0]
+learned_diffusion_r2 pipe-rhr: +9.7 [+1.6,+20.3] | pipe-rhr_goal: +10.6 [+2.8,+19.7] | pipe-sE22: +25.9 [+15.9,+36.2] | pipe-safety: +11.9 [+4.7,+20.3]
+learned_diffusion_s1_r2 pipe-rhr: +8.1 [-0.3,+17.5] | pipe-rhr_goal: +10.6 [+0.6,+22.5] | pipe-sE22: +20.6 [+10.9,+31.3] | pipe-safety: +13.1 [+5.6,+21.9]
+learned_attention_r2 pipe-rhr: +5.0 [-7.5,+17.5] | pipe-rhr_goal: +15.6 [+0.6,+31.6] | pipe-sE22: +21.9 [+12.5,+31.6] | pipe-safety: +33.4 [+23.8,+43.1]
+ALL_LEARNED pipe-rhr: +7.1 [-1.5,+16.9] | pipe-rhr_goal: +11.3 [+1.1,+23.1] | pipe-sE22: +23.6 [+16.1,+31.6] | pipe-safety: +24.5 [+19.0,+30.1]

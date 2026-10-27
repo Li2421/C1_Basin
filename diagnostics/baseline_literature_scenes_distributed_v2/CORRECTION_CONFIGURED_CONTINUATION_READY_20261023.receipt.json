@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-21T17:46:26.090317+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/prepare_configured_continuation_20261023.py": "a4eb899b9ca4a36cca36abe264e07bd9d0180f94fc2984a6b1baa27c4b36e37e",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/coordinator_correction_configured_20261023.py": "c7173358c4257693e1d4a106e7910629a2d6aaa6609ca6215ef0c17efa0c3598",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/coordinator_correction_configured_20261023.py.diff": "17c522759841c096d15110ccac3297fe4aed791ae59ec5314e13618860569b79",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/correction_after_distributed_fixed_parallel_20261023.py": "18f05908e289ddc427503085e8eaf64ad8f52115d4837c13b61d94e4a866a957",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/correction_after_distributed_fixed_parallel_20261023.py.diff": "372ad416134c3ac6d3250046971a76f27d19a60cda0990d5adfb40387c091227",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/scheduler_watchdog_correction_configured_20261023.py": "5aed571ada3703d03347f0a51ab055aeb5efdbc114371dab9ec8f165e831c6e6",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/scheduler_watchdog_correction_configured_20261023.py.diff": "98b2dea38f1600357f13a9f260620e13308792d7f600e8d45a9775654a4ab3ff",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/CONFIGURED_CONTINUATION_SOURCE_DERIVATIONS_20261023.json": "56985f4c475a07fb37ddce8fb1c0ddd121e9cf8a43bc3243287d1e1f8fc2893e",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/CORRECTION_PARALLEL_NUMERICS_READY_20261023.receipt.json": "e1a1184dbe1436ea857c0bfb508e35b68f86b5dec17b075773cc0ae3ba7b2c87",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/CORRECTION_CONTINUATION_TAIL_BACKFILL_READY_20261023.receipt.json": "86547f0bf82d26f9cfcbe1b9d229fa503b1d17f126e3bb632adfec8c9c5cdeff"
+  },
+  "numerical_equivalence_verified": true,
+  "science_unchanged": true,
+  "worker_processes_not_interrupted": true,
+  "scheduler_owner_guard_preserved": true
+}

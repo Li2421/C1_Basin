@@ -1,0 +1,11 @@
+--- statistics_correction_supplement_20261022.py
++++ statistics_correction_bootstrap_memo_20261022.py
+@@ -2,7 +2,7 @@
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+-from statistics_header_reader_20261023 import FIXED,LAYERS,collect,controller_census,summarize,crossfit_oracle
++from statistics_bootstrap_memo_reader_20261022 import FIXED,LAYERS,collect,controller_census,summarize,crossfit_oracle
+ from reclassify_instances_20261021 import small_diagnosis
+ from result_inventory import find_raw,qualification
+ from derived_metrics import weighted_rates

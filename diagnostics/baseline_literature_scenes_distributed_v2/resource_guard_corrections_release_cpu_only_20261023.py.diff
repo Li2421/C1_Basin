@@ -1,0 +1,19 @@
+--- resource_guard_corrections_release_20261023.py
++++ resource_guard_corrections_release_cpu_only_20261023.py
+@@ -6,13 +6,13 @@
+ import subprocess,time,signal
+ 
+ def main():
+-    verify_receipt('CPU_RELEASE_CODE_20261023.receipt.json')
+-    write(HERE/'RESOURCE_GUARD_PID.json',dict(utc=utc(),pid=os.getpid(),entrypoint='resource_guard_corrections_release_20261023.py'))
++    verify_receipt('CPU_RELEASE_CODE_20261023.receipt.json');verify_receipt('CPU_RELEASE_CPU_ONLY_GUARD_20261023.receipt.json')
++    write(HERE/'RESOURCE_GUARD_PID.json',dict(utc=utc(),pid=os.getpid(),entrypoint='resource_guard_corrections_release_cpu_only_20261023.py'))
+     while not (HERE/'V2_COMPLETE.json').exists():
+         state=snapshot();cpu=state['scheduled_cpus'];gpu=state['gpu_shards'];yielded=[]
+         target=state['admission_cpu_limit']
+         deadline=datetime.now(timezone.utc)>=datetime.fromisoformat(state['deadline_fallback_at_utc'])
+-        for job in sorted(state['jobs'],key=lambda r:int(r['job_id'].split('_')[0]),reverse=True):
++        for job in sorted(state['jobs'],key=lambda r:(r['gpu_shards']==0,int(r['job_id'].split('_')[0])),reverse=True):
+             if cpu+1<=target and gpu<=state['gpu_shard_limit']:break
+             if not job['name'].startswith('blv2_'):continue
+             if job['state']=='PENDING' or deadline:args=['scancel',job['job_id']]

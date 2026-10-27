@@ -1,0 +1,38 @@
+--- optional_revision_diagnostics_supplement_20261022.py
++++ optional_revision_diagnostics_causeaware_20261022.py
+@@ -7,6 +7,10 @@
+ from derived_metrics import weighted_rates
+ from result_inventory import qualification
+ import numpy as np,collections
++
++def baseline_failure_modes(rows,failures):
++ baseline=[r for r in rows if r['method']=='safety' and r['controller'] in failures]
++ return dict(logical_episodes=len(baseline),collision=sum(bool(r['collision']) for r in baseline),unknown=sum(bool(r['unknown']) for r in baseline),constraint_violation_episodes=sum(r.get('constraint_violation_steps',0)>0 for r in baseline),sampled_speed_violation_episodes=sum(r.get('sampled_speed_violation_steps',0)>0 for r in baseline),acceleration_violation_episodes=sum(r.get('acceleration_bound_violation_steps',0)>0 for r in baseline),interpretation='Descriptive logical episode counts;seed aliases are not independent physical trials')
+ 
+ def report(results,dynamics,sources):
+  byuid={s['rollout_uid']:s for s in sources};groups={};hover_cache={};allrows=[]
+@@ -33,17 +37,22 @@
+   counts=g.pop('counts');lo=g['successes']/g['episodes'];hi=(g['successes']+g['unknowns'])/g['episodes'];primary=category(True,hi,counts[(5.,.05)])
+   sensitivity=[dict(window_seconds=W,cone_tolerance=tau,classification=category(True,hi,counts[(W,tau)]),unarrived_agent_episode_categories=dict(counts[(W,tau)])) for W,tau in GRID]
+   instances.append(dict(**g,qualified=True,success_lower=lo,success_upper=hi,classification=primary,remove_in_revised_exclusion=primary==LABELS[2],robot_deadlock_evidence_eligible=primary!=LABELS[2],state_related_failure_definite=lo>.05 and hi<.95,primary_unarrived_agent_episode_categories=dict(counts[(5.,.05)]),sensitivity=sensitivity,sensitivity_changes=any(x['classification']!=primary for x in sensitivity),other_layer_success='N/A: no centralized stage-two execution requested'))
+- discrimination=[];splits={};hovers={}
++ discrimination=[];splits={};hovers={};failure_modes={}
+  for scene in NAMES:
+   rr=[r for r in instances if r['scene']==scene];rows=[r for r in allrows if r['scene']==scene]
+   failures={r['controller'] for r in rr if r['remove_in_revised_exclusion']};globals={r['controller'] for r in rr if r['classification']==LABELS[0]}
+   discrimination.append(dict(scene=scene,layer='paper_dynamics',qualified_instances=len(rr),controller_level_failure_instances=len(failures),state_related_failure_instances=sum(r['state_related_failure_definite'] for r in rr),safety_layer_global_failure_instances=len(globals),wall_trap_instances=sum(r['classification']==LABELS[1] for r in rr)))
++  failure_modes[scene]=baseline_failure_modes(rows,failures)
+   split={}
+   for label,predicate in [('all_qualified',lambda c:True),('controller_failure',lambda c:c in failures),('remaining_instances',lambda c:c not in failures),('safety_layer_global_failure',lambda c:c in globals)]:
+    subset=[r for r in rows if predicate(r['controller'])]
+    split[label]=dict(fixed_full=summarize(subset,[('paper_dynamics',m) for m in FIXED],[scene]),gain_interpretation='修正推动controller自身停住的实例；不计为解开死锁' if label=='controller_failure' else '有限窗口诊断候选；timeout不是死锁')
++  modes=failure_modes[scene]
++  if any(modes[k] for k in ('collision','unknown','constraint_violation_episodes','sampled_speed_violation_episodes','acceleration_violation_episodes')):
++   split['controller_failure']['gain_interpretation']='本层低成功率归类包含碰撞、数值失败或动力学违反；不能直接解释为controller自身停住被修正，也不计死锁解决'
++   split['controller_failure']['baseline_failure_modes']=modes
+   splits[scene]=split;hovers[scene]=weighted_rates(rows,('near_goal_wandering',))
+- write(HERE/'INSTANCE_CLASSES_DYNAMICS_SUPPLEMENT_20261022.json',dict(utc=utc(),instances=instances,discrimination=discrimination,sensitivity_changes=[r for r in instances if r['sensitivity_changes']],primary=dict(window_seconds=5.,cone_tolerance=.05),new_rollouts=0,centralized_stage_two='N/A: not requested',original_stage_two_nonzero='N/A: no original nonzero stage-two executions; eta0 unchanged'))
++ write(HERE/'INSTANCE_CLASSES_DYNAMICS_SUPPLEMENT_20261022.json',dict(utc=utc(),instances=instances,discrimination=discrimination,controller_failure_baseline_failure_modes=failure_modes,sensitivity_changes=[r for r in instances if r['sensitivity_changes']],primary=dict(window_seconds=5.,cone_tolerance=.05),new_rollouts=0,centralized_stage_two='N/A: not requested',original_stage_two_nonzero='N/A: no original nonzero stage-two executions; eta0 unchanged'))
+  for scene in NAMES:
+   stage='optional_dynamics_'+scene
+   if stage in results:results[stage].update(instance_class_gain_splits=splits[scene],near_goal_wandering=hovers[scene],semantics='修订修正语义（事后开发证据）；eta0沿用原执行语义')

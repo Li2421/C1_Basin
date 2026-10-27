@@ -1,0 +1,19 @@
+--- optional_fine_dispatch_pa_memo_20261022_quota18_now_20261022.py
++++ optional_fine_dispatch_spatial_mask_20261022.py
+@@ -91,6 +91,7 @@
+ 
+ 
+ def submit(stage):
++    verify_receipt('PA_SPATIAL_MASK_EQUIVALENCE_20261022.receipt.json');verify_receipt('PA_SPATIAL_MASK_PIPELINE_CODE_20261022.receipt.json')
+     verify_receipt('PA_QUERY_MEMO_EQUIVALENCE_20261022.receipt.json');verify_receipt('PA_QUERY_MEMO_PIPELINE_CODE_20261022.receipt.json')
+     verify_receipt('CBS_QUERY_DISK_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_QUERY_DISK_PIPELINE_CODE_20261022.receipt.json')
+     verify_receipt('CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_START_SIGNATURE_PIPELINE_CODE_20261022.receipt.json')
+@@ -103,7 +104,7 @@
+         fcntl.flock(lock,fcntl.LOCK_EX);before=require_capacity()
+         memory=read(HERE/stage/'MEMORY_OVERRIDE_GB.json')['memory_gb'] if (HERE/stage/'MEMORY_OVERRIDE_GB.json').exists() else 4
+         job=subprocess.check_output(['sbatch','--parsable',f'--mem={memory}G',
+-            f'--export=ALL,BLV2_STAGE={stage}',str(HERE/'optional_pa_memo_20261022.sbatch')],text=True).strip()
++            f'--export=ALL,BLV2_STAGE={stage}',str(HERE/'optional_spatial_mask_20261022.sbatch')],text=True).strip()
+         write(HERE/'submissions'/f'{time.time_ns()}_{job}.json',dict(utc=utc(),stage=stage,
+             job_id=job,resource_snapshot=before,memory_gb=memory,fine_dispatch=True,
+             original_preflight_sha256=sha(HERE/f'{stage}_PREFLIGHT.receipt.json'),

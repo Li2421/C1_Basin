@@ -1,0 +1,173 @@
+{
+  "utc": "2026-10-22T04:37:39.509384+00:00",
+  "old_managers": [
+    [
+      1364583,
+      "scheduler_watchdog_supplement_20261022.py"
+    ],
+    [
+      1364465,
+      "coordinator_supplement_20261022.py"
+    ],
+    [
+      1364625,
+      "correction_continuation_reuse_order_20261022.py"
+    ]
+  ],
+  "pre_resources": {
+    "utc": "2026-10-22T04:37:38.884327+00:00",
+    "jobs": [
+      {
+        "job_id": "27774",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27772",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27773",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27766",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27767",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27768",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27769",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27770",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27771",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27754",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27753",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27752",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27751",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27750",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27749",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27748",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      },
+      {
+        "job_id": "27747",
+        "name": "blv2_revision",
+        "state": "RUNNING",
+        "cpus": 1,
+        "gpu_shards": 0,
+        "gres": "N/A"
+      }
+    ],
+    "scheduled_cpus": 17,
+    "gpu_shards": 0,
+    "local_cpu_reserve": 1,
+    "cpu_limit": 18,
+    "gpu_shard_limit": 2,
+    "release_at_utc": "2026-10-22T03:32:56.482312+00:00",
+    "reduced": true,
+    "admission_cpu_limit": 18,
+    "graceful_drain_at_utc": "2026-10-22T03:32:56.482312+00:00",
+    "deadline_fallback_at_utc": "2026-10-22T03:32:56.482312+00:00",
+    "free_cpu_shares": 0,
+    "free_gpu_shards": 2
+  },
+  "scientific_worker_signals": 0,
+  "current_episode_and_evidence_preserved": true,
+  "planned_signal": "USR1_finish_current_episode"
+}

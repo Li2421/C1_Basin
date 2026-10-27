@@ -1,0 +1,206 @@
+[
+ {
+  "order": 1,
+  "scene": "xsc_hs_box_n08_r014_f24",
+  "plain": "8 台机器人，半径 0.14 m（验证）",
+  "family": "拥挤方形场地",
+  "controller": 0,
+  "controller_name": "集中式随机采样模型预测控制",
+  "state": 8,
+  "pipeline_key": "p14",
+  "pipeline_eta": [
+   0.8956165909767151,
+   0.02064412273466587,
+   1.279848337173462
+  ],
+  "rhr_goal_rate": 50.0,
+  "pipeline_rate": 87.5
+ },
+ {
+  "order": 2,
+  "scene": "xsc_hs_box_n10_r012_f25",
+  "plain": "10 台机器人，半径 0.12 m（验证）",
+  "family": "拥挤方形场地",
+  "controller": 12,
+  "controller_name": "Transformer 规划器·种子 0",
+  "state": 9,
+  "pipeline_key": "p9",
+  "pipeline_eta": [
+   1.1591398247457643,
+   -0.05351728941531578,
+   1.4724615815340691
+  ],
+  "rhr_goal_rate": 37.5,
+  "pipeline_rate": 62.5
+ },
+ {
+  "order": 3,
+  "scene": "xsc_hs_box_n09_r013_f25_te",
+  "plain": "9 台机器人，半径 0.13 m（测试）",
+  "family": "拥挤方形场地",
+  "controller": 6,
+  "controller_name": "冲突搜索多机规划",
+  "state": 8,
+  "pipeline_key": "p12",
+  "pipeline_eta": [
+   1.1358482837677002,
+   -0.10255418717861176,
+   1.3841955661773682
+  ],
+  "rhr_goal_rate": 68.8,
+  "pipeline_rate": 100.0
+ },
+ {
+  "order": 4,
+  "scene": "xsc_hs_box_n10_r013_f26_te",
+  "plain": "10 台机器人，半径 0.13 m（测试）",
+  "family": "拥挤方形场地",
+  "controller": 12,
+  "controller_name": "Transformer 规划器·种子 0",
+  "state": 8,
+  "pipeline_key": "p0",
+  "pipeline_eta": [
+   1.2220224142074585,
+   -0.060619376599788666,
+   1.4221155643463135
+  ],
+  "rhr_goal_rate": 31.2,
+  "pipeline_rate": 81.2
+ },
+ {
+  "order": 5,
+  "scene": "xsc_hs_box_n11_r014_f27_te",
+  "plain": "11 台机器人，半径 0.14 m（测试）",
+  "family": "拥挤方形场地",
+  "controller": 9,
+  "controller_name": "多层感知机行为克隆·种子 1",
+  "state": 8,
+  "pipeline_key": "p7",
+  "pipeline_eta": [
+   1.0438030824004207,
+   0.9796497115468961,
+   1.4131977847373693
+  ],
+  "rhr_goal_rate": 25.0,
+  "pipeline_rate": 87.5
+ },
+ {
+  "order": 6,
+  "scene": "xsc_hs_box_n09_r014_f26_t2_te",
+  "plain": "9 台机器人，半径 0.14 m（第二批测试）",
+  "family": "拥挤方形场地",
+  "controller": 0,
+  "controller_name": "集中式随机采样模型预测控制",
+  "state": 8,
+  "pipeline_key": "p5",
+  "pipeline_eta": [
+   0.8862710637125466,
+   0.31505565142897934,
+   1.3124802346647635
+  ],
+  "rhr_goal_rate": 37.5,
+  "pipeline_rate": 87.5
+ },
+ {
+  "order": 7,
+  "scene": "xsc_hs_box_n10_r012_f27_t2_te",
+  "plain": "10 台机器人，半径 0.12 m（第二批测试）",
+  "family": "拥挤方形场地",
+  "controller": 11,
+  "controller_name": "扩散策略·种子 1",
+  "state": 10,
+  "pipeline_key": "p12",
+  "pipeline_eta": [
+   0.8067572712898254,
+   -0.09823824465274811,
+   1.4209017753601074
+  ],
+  "rhr_goal_rate": 56.2,
+  "pipeline_rate": 81.2
+ },
+ {
+  "order": 8,
+  "scene": "xsc_hs_box_n11_r013_f26_t2_te",
+  "plain": "11 台机器人，半径 0.13 m（第二批测试）",
+  "family": "拥挤方形场地",
+  "controller": 12,
+  "controller_name": "Transformer 规划器·种子 0",
+  "state": 9,
+  "pipeline_key": "p12",
+  "pipeline_eta": [
+   1.037616491317749,
+   0.01596316322684288,
+   1.4609640836715698
+  ],
+  "rhr_goal_rate": 31.2,
+  "pipeline_rate": 56.2
+ },
+ {
+  "order": 9,
+  "scene": "xsc_hs_plus_w018",
+  "plain": "路宽 0.36 m，窄（验证）",
+  "family": "十字路口（窄）",
+  "controller": 13,
+  "controller_name": "Transformer 规划器·种子 1",
+  "state": 8,
+  "pipeline_key": "p1",
+  "pipeline_eta": [
+   0.11370833636017663,
+   0.36738728498608997,
+   0.5587266410263882
+  ],
+  "rhr_goal_rate": 0.0,
+  "pipeline_rate": 100.0
+ },
+ {
+  "order": 10,
+  "scene": "xsc_hs_plus_w020_te",
+  "plain": "路宽 0.40 m，窄（测试）",
+  "family": "十字路口（窄）",
+  "controller": 12,
+  "controller_name": "Transformer 规划器·种子 0",
+  "state": 8,
+  "pipeline_key": "p3",
+  "pipeline_eta": [
+   0.11573196241303585,
+   0.338553535721951,
+   0.5483452839930184
+  ],
+  "rhr_goal_rate": 0.0,
+  "pipeline_rate": 100.0
+ },
+ {
+  "order": 11,
+  "scene": "xsc_hs_plus_w019_t2_te",
+  "plain": "路宽 0.38 m，窄（第二批测试）",
+  "family": "十字路口（窄）",
+  "controller": 13,
+  "controller_name": "Transformer 规划器·种子 1",
+  "state": 8,
+  "pipeline_key": "p9",
+  "pipeline_eta": [
+   0.10381081743964315,
+   0.322517130651604,
+   0.5305492214810419
+  ],
+  "rhr_goal_rate": 0.0,
+  "pipeline_rate": 100.0
+ },
+ {
+  "order": 12,
+  "scene": "xsc_hs_plus_w023_t2_te",
+  "plain": "路宽 0.46 m，窄（第二批测试）",
+  "family": "十字路口（窄）",
+  "controller": 12,
+  "controller_name": "Transformer 规划器·种子 0",
+  "state": 8,
+  "pipeline_key": "p7",
+  "pipeline_eta": [
+   0.11274993059061278,
+   0.3924995903990371,
+   0.5403107114956668
+  ],
+  "rhr_goal_rate": 0.0,
+  "pipeline_rate": 100.0
+ }
+]

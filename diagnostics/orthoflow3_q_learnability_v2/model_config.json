@@ -1,0 +1,14 @@
+{
+  "activations": "SiLU",
+  "architecture": "217->256->256->1",
+  "early_stopping": "VAL NLL only; patience=120; max_epochs=2000",
+  "loss": "candidate-level binomial NLL",
+  "optimizer": "Adam lr=1e-3",
+  "output": "logit/sigmoid",
+  "parameter_count": 121857,
+  "training_seeds": [
+    17,
+    23,
+    41
+  ]
+}

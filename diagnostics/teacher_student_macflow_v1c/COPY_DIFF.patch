@@ -1,0 +1,480 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/student.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/student.py
+@@ -20,7 +20,7 @@
+         from data import teacher
+         base=teacher(index)
+         self.scenario=base.scenario;self.config=base.config;self.config_cls=base.config_cls;self.env_cls=base.env_cls;self.manifest=base.manifest;self.basis=base.basis;self.cbf=base.cbf
+-        self._base=base;self.checkpoint=HERE/'students'/read(HERE/'TEACHERS.json')[index]['name']/'best.pkl'
++        self._base=base;self.checkpoint=Path(read(HERE/'STUDENTS.json')[str(index)]['checkpoint'])
+         with self.checkpoint.open('rb') as f:ck=pickle.load(f)
+         self.mean=ck['mean'];self.scale=ck['scale'];self.params=ck['params'];model=network()
+         self.forward=jax.jit(lambda o,z:model.apply({'params':self.params},o,z))
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/registration.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/registration.py
+@@ -31,4 +31,4 @@
+     return dict(s,original_state_uid=s['state_uid'],physical=physical,content_hash=content,state_uid=uid('state',dict(scenario=s['scenario_uid'],content=content)))
+ def state_row(s):return ('state',dict(state_uid=s['state_uid'],scenario_uid=s['scenario_uid'],source_group=s['family'],content_hash=s['content_hash'],physical_state_json=canonical(s['physical']),provenance_json=canonical(dict(**s['metadata'],original_state_uid=s['original_state_uid'],reset='empty monitor true-t0',representation='physical3_without_redundant_timestep0')),identity_quality='CONTENT_EXACT'))
+ def exp_row(phase):
+-    return ('experiment',dict(experiment_uid='exp_teacher_student_macflow_v1b_'+phase,name='Round30 '+phase,path=str(HERE/phase),protocol_hash=sha(HERE/'PREREGISTRATION.md'),code_hash=sha(__file__),metadata_json=canonical(dict(preregistered=True,phase=phase))))
++    return ('experiment',dict(experiment_uid='exp_teacher_student_macflow_v1c_'+phase,name='Round30 '+phase,path=str(HERE/phase),protocol_hash=sha(HERE/'PREREGISTRATION.md'),code_hash=sha(__file__),metadata_json=canonical(dict(preregistered=True,phase=phase))))
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/probes.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/probes.py
+@@ -12,7 +12,7 @@
+ def design():
+     names=read(HERE/'CAPABILITY_GATE.json')['eligible'];base=read(D/'decentralized_pipeline_v1/main_protocol.json');states=[normalized_state(s) for s in read(D/'controller_flow_blend_v1/stage_2/probes/protocol.json')['states']];rows=[];registered=[state_row(s) for s in states];ts=read(HERE/'TEACHERS.json')
+     for n in names:
+-        i=base['controller_order'].index(n);ck=HERE/'students'/n/'best.pkl';payload=dict(student=n,checkpoint_sha256=sha(ck),pipeline_sha256=sha(HERE/'pipeline.py'),probe_sha256=sha(__file__),success_semantics='UNLABELED_SHORT_PROBE',probe_steps=200,terminate_on_success=False,terminate_on_collision=False,own_observation=True,private_robot_noise=True,jax_enable_x64=False);ctl=uid('ctl',payload);scid=states[0]['scenario_uid'];registered.append(('controller_config',dict(controller_uid=ctl,scenario_uid=scid,flow_checkpoint_sha256=sha(ck),config_json=canonical(payload),compatibility_quality='EXACT_PROFILE')))
++        i=base['controller_order'].index(n);ck=Path(read(HERE/'STUDENTS.json')[str(i)]['checkpoint']);payload=dict(student=n,checkpoint_sha256=sha(ck),pipeline_sha256=sha(HERE/'pipeline.py'),probe_sha256=sha(__file__),success_semantics='UNLABELED_SHORT_PROBE',probe_steps=200,terminate_on_success=False,terminate_on_collision=False,own_observation=True,private_robot_noise=True,jax_enable_x64=False);ctl=uid('ctl',payload);scid=states[0]['scenario_uid'];registered.append(('controller_config',dict(controller_uid=ctl,scenario_uid=scid,flow_checkpoint_sha256=sha(ck),config_json=canonical(payload),compatibility_quality='EXACT_PROFILE')))
+         for si,s in enumerate(states):
+             for ei in [10,13]:
+                 eid,ev,hx=eta_identity(base['eta'][ei]);registered.append(('eta',dict(eta_uid=eid,eta1=ev[0],eta2=ev[1],eta3=ev[2],canonical_hex=hx)));sk=canonical(dict(future_index=0));rows.append(dict(probe_uid=uid('probe',dict(state=s['state_uid'],eta=eid,controller=ctl,seed=sk)),controller_name=n,student_index=i,state_index=si,state_uid=s['state_uid'],eta_index=ei,eta_uid=eid,eta=ev,controller_uid=ctl,seed_key=sk))
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/postflight.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/postflight.py
+@@ -15,7 +15,7 @@
+             if rawpath.exists():
+                 raw=read(rawpath);assert all(raw[k]==row[k] for k in ['success','deadlock','timeout','collision','numerical_failure','episode_length']);assert sha(raw['trace_path'])==raw['trace_sha256']
+             found.append(dict(row))
+-    pf=preflight(HERE/f'{phase}_PLANNED_ROLLOUTS.json');unknown={r['rollout_uid'] for r in found if r['numerical_failure']};missingids={c['rollout_uid'] for c,d in zip(rows,pf['details']) if d['missing_seeds']};assert missingids==unknown;write(HERE/f'{phase}_CACHE_POSTFLIGHT.json',pf);write(HERE/f'{phase}_DB_ROWS.json',found);write(HERE/f'{phase}_MERGE_RECEIPT.json',dict(utc=utc(),records=len(found),unknown=len(unknown),db_exact=True,missing_equals_preserved_unknown=True,official_command=cmd))
++    pf=preflight(HERE/f'{phase}_PLANNED_ROLLOUTS.json');unknown={r['rollout_uid'] for r in found if r['numerical_failure']};assert pf['summary']['genuinely_missing']==len(unknown) and pf['summary']['ambiguous']==0;write(HERE/f'{phase}_CACHE_POSTFLIGHT.json',pf);write(HERE/f'{phase}_DB_ROWS.json',found);write(HERE/f'{phase}_MERGE_RECEIPT.json',dict(utc=utc(),records=len(found),unknown=len(unknown),db_exact=True,missing_equals_preserved_unknown=True,official_command=cmd))
+     if phase=='pilot':
+         names=p['controller_order'];eligible=[];excluded=[];rates={}
+         for n in names:
+@@ -25,6 +25,6 @@
+             a,b=[rates[n][arm]['lower'] for arm in ['safety baseline','S500']]
+             if (a<.15 and b<.15) or (a>.98 and b>.98):excluded.append(dict(name=n,reason='both_low' if a<.15 else 'both_high'))
+             else:eligible.append(n)
+-        write(HERE/'CAPABILITY_GATE.json',dict(utc=utc(),eligible=eligible,excluded=excluded,rates=rates,study_status='INCONCLUSIVE' if len(eligible)<8 else 'CONTINUE',unknown_rule='lower/upper preserved; gate decisions use preregistered lower bound, no reruns'))
++        write(HERE/'CAPABILITY_GATE.json',dict(utc=utc(),eligible=eligible,excluded=excluded,rates=rates,study_status='INCONCLUSIVE' if len(eligible)+2<8 else 'CONTINUE',unknown_rule='lower/upper preserved; gate decisions use preregistered lower bound, no reruns'))
+     print(phase,'postflight',len(found),'unknown',len(unknown),flush=True)
+ if __name__=='__main__':merge(sys.argv[1])
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/analysis.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/analysis.py
+@@ -3,11 +3,11 @@
+ from audit_utils import source_inventory
+ import collections,csv
+ from scipy.stats import spearmanr
+-ARMS=['nominal only','safety baseline','F10','F13','S300','S500','B-RHR'];MENU=[2,3,4,5]
++ARMS=['nominal only','safety baseline','F10','F13','S300','S500','B-RHR','B-RHR-tuned'];MENU=[2,3,4,5]
+ OLD=D/'teacher_student_macflow_v1'
+ def interval(point,boot):return dict(mean=float(point),CI95=np.quantile(boot,[.025,.975]).tolist())
+ def collect(path,names):
+-    cases=read(path/'main_CASES.json');by={r['rollout_uid']:r for r in read(path/'main_DB_ROWS.json')};arrays={k:np.full((len(names),32,2,7),np.nan) for k in ['success','unknown','collision','timeout']}
++    cases=read(path/'main_CASES.json');by={r['rollout_uid']:r for r in read(path/'main_DB_ROWS.json')};arrays={k:np.full((len(names),32,2,8),np.nan) for k in ['success','unknown','collision','timeout']}
+     for c in cases:
+         n=c['base_controller_name']
+         if n not in names:continue
+@@ -30,13 +30,13 @@
+     oracle=means[:,MENU].max(1);bo=boot[:,:,MENU].max(2);osel=np.array(MENU)[means[:,MENU].argmax(1)];bosel=np.array(MENU)[boot[:,:,MENU].argmax(2)];table['oracle']=dict(success=interval(oracle.mean(),bo.mean(1)),success_upper=interval(upper[:,MENU].max(1).mean(),bu[:,:,MENU].max(2).mean(1)),collision=interval(a['collision'].mean((1,2))[idx,osel].mean(),bc[br,cr,bosel].mean(1)),timeout=interval(a['timeout'].mean((1,2))[idx,osel].mean(),bt[br,cr,bosel].mean(1)))
+     def contrast(j,k):
+         r=interval((means[:,j]-means[:,k]).mean(),(boot[:,:,j]-boot[:,:,k]).mean(1));r.update(identification_interval=[float((means[:,j]-upper[:,k]).mean()),float((upper[:,j]-means[:,k]).mean())],CI_unknown_envelope=[float(np.quantile((boot[:,:,j]-bu[:,:,k]).mean(1),.025)),float(np.quantile((bu[:,:,j]-boot[:,:,k]).mean(1),.975))]);r['passed']=r['CI95'][0]>0;return r
+-    ts1=contrast(5,1);ts6=contrast(5,6);sf=means[:,4:6].max(1)-means[:,2:4].max(1);sfb=boot[:,:,4:6].max(2)-boot[:,:,2:4].max(2);ts2=interval(sf.mean(),sfb.mean(1));ts2['coverage']=float((sf>=-.01).mean());ts2['passed']=ts2['CI95'][0]>0 and ts2['coverage']>=.7;ts2['CI_unknown_envelope']=[float(np.quantile((boot[:,:,4:6].max(2)-bu[:,:,2:4].max(2)).mean(1),.025)),float(np.quantile((bu[:,:,4:6].max(2)-boot[:,:,2:4].max(2)).mean(1),.975))]
++    ts1=contrast(5,1);ts6=contrast(5,6);ts6b=contrast(5,7);sf=means[:,4:6].max(1)-means[:,2:4].max(1);sfb=boot[:,:,4:6].max(2)-boot[:,:,2:4].max(2);ts2=interval(sf.mean(),sfb.mean(1));ts2['coverage']=float((sf>=-.01).mean());ts2['passed']=ts2['CI95'][0]>0 and ts2['coverage']>=.7;ts2['CI_unknown_envelope']=[float(np.quantile((boot[:,:,4:6].max(2)-bu[:,:,2:4].max(2)).mean(1),.025)),float(np.quantile((bu[:,:,4:6].max(2)-boot[:,:,2:4].max(2)).mean(1),.975))]
+     a3=selectors['A3_full'];gain=interval((a3['point']-means[:,1]).mean(),(a3['boot']-boot[:,:,1]).mean(1));regret=interval((oracle-a3['point']).mean(),(bo-a3['boot']).mean(1));ts3a=dict(regret=regret,gain_over_safety=gain,passed=regret['mean']<=.03 and gain['CI95'][0]>0,comparisons={})
+     for other in ['A0_full','G_E','S500','F10']:ts3a['comparisons'][other]=interval((a3['point']-selectors[other]['point']).mean(),(a3['boot']-selectors[other]['boot']).mean(1))
+     ts3a['gain_CI_unknown_envelope']=[float(np.quantile((a3['boot']-bu[:,:,1]).mean(1),.025)),float(np.quantile((a3['upper_boot']-boot[:,:,1]).mean(1),.975))]
+     ts3a['regret_identification_interval']=[float(np.maximum(0,oracle-upper[idx,a3['indices']]).mean()),float(np.maximum(0,upper[:,MENU].max(1)-a3['point']).mean())]
+     prefer10=int((means[:,2]-means[:,3]>=.1).sum());prefer13=int((means[:,3]-means[:,2]>=.1).sum());delta=interval((selectors['A0_fixed']['point']-selectors['A3_fixed']['point']).mean(),(selectors['A0_fixed']['boot']-selectors['A3_fixed']['boot']).mean(1));ts3b=dict(preference_F10_count=prefer10,preference_F13_count=prefer13,regret_A3_minus_A0=delta,status='INCONCLUSIVE' if min(prefer10,prefer13)<3 else 'PASS' if delta['CI95'][1]<0 else 'NOT_PASS')
+-    for r in [ts1,ts2,ts3a,ts6]:r['status']=('PASS' if r['passed'] else 'NOT_PASS') if confirmatory_allowed else 'INCONCLUSIVE'
++    for r in [ts1,ts2,ts3a,ts6,ts6b]:r['status']=('PASS' if r['passed'] else 'NOT_PASS') if confirmatory_allowed else 'INCONCLUSIVE'
+     if not confirmatory_allowed:ts3b['numerical_status']=ts3b['status'];ts3b['status']='INCONCLUSIVE'
+     # Frozen joint-teacher comparisons, read-only, matched state/seed.
+     teachers={mode:np.full((C,32,2,4),np.nan) for mode in ['local','central','shared']}
+@@ -55,10 +55,10 @@
+         for j,arm in enumerate(ARMS[2:6]):
+             ts5[mode][arm]=interval((means[:,j+2]-m[:,j]).mean(),(boot[:,:,j+2]-b[:,:,j]).mean(1));ts5[mode][arm]['identification_interval']=[float((means[:,j+2]-tu[:,j]).mean()),float((upper[:,j+2]-m[:,j]).mean())]
+     ts4['fixed_preference_agreement']=float(np.mean([x['student_fixed']==x['teacher_fixed'] for x in inherit]))
+-    result=dict(analysis_set=label,status='COMPLETE' if confirmatory_allowed else 'INCONCLUSIVE',n_controllers=C,controllers=names,states=32,seeds=2,bootstrap_replicates=5000,bootstrap='paired; controllers then state clusters, both seeds kept together; reselect maxima within each bootstrap',unknown_total=int(u.sum()),safety_layer_collisions=int(a['collision'][:,:,:,1:].sum()),table=table,TS1=ts1,TS2=ts2,TS3a=ts3a,TS3b=ts3b,TS6=ts6,TS4=ts4,TS5=ts5,controller_rates={n:{arm:float(means[i,j]) for j,arm in enumerate(ARMS)} for i,n in enumerate(names)})
++    result=dict(analysis_set=label,status='COMPLETE' if confirmatory_allowed else 'INCONCLUSIVE',n_controllers=C,controllers=names,states=32,seeds=2,bootstrap_replicates=5000,bootstrap='paired; controllers then state clusters, both seeds kept together; reselect maxima within each bootstrap',unknown_total=int(u.sum()),safety_layer_collisions=int(a['collision'][:,:,:,1:].sum()),table=table,TS1=ts1,TS2=ts2,TS3a=ts3a,TS3b=ts3b,TS6=ts6,TS6b=ts6b,always_S500_minus_A3=interval((means[:,5]-a3['point']).mean(),(boot[:,:,5]-a3['boot']).mean(1)),TS4=ts4,TS5=ts5,controller_rates={n:{arm:float(means[i,j]) for j,arm in enumerate(ARMS)} for i,n in enumerate(names)})
+     lines=['| Arm/selector | Success lower | 95% CI | Success upper | Collision | Timeout |','|---|---:|---|---:|---:|---:|']
+     for arm in ARMS+['A3_full','S500','oracle']:
+-        r=table[arm];v=r['success'];lo,hi=v['CI95'];lines.append(f"| {arm} | {v['mean']:.2%} | [{lo:.2%}, {hi:.2%}] | {r['success_upper']['mean']:.2%} | {r['collision']['mean']:.2%} | {r['timeout']['mean']:.2%} |")
++        r=table[arm];v=r['success'];lo,hi=v['CI95'];display='always S500' if arm=='S500' and len(lines)>9 else 'A3 zero-shot' if arm=='A3_full' else arm;lines.append(f"| {display} | {v['mean']:.2%} | [{lo:.2%}, {hi:.2%}] | {r['success_upper']['mean']:.2%} | {r['collision']['mean']:.2%} | {r['timeout']['mean']:.2%} |")
+     (HERE/f'paper_table_{label.lower()}.md').write_text('\n'.join(lines)+'\n');return result
+ 
+ def failures(names,a):
+@@ -70,19 +70,19 @@
+         if a['timeout'][i,s,k,arm]:return 'timeout'
+         return 'other'
+     for i,n in enumerate(names):
+-        outcomes=collections.Counter();transition=collections.Counter();groups={g:dict(count=0,rescued_F13=0,rescued_S500=0,rescued_BRHR=0) for g in ['own_stagnation','safety_induced_stagnation']}
++        outcomes=collections.Counter();transition=collections.Counter();groups={g:dict(count=0,rescued_F13=0,rescued_S500=0,rescued_BRHR=0,rescued_BRHR_tuned=0) for g in ['own_stagnation','safety_induced_stagnation']}
+         for s in range(32):
+             for k in range(2):
+                 nominal=category(i,s,k,0);safe=category(i,s,k,1);outcomes[nominal]+=1;transition[(nominal,safe)]+=1;transfers.append(dict(controller=n,state=s,seed=k,nominal=nominal,safety=safe))
+                 group='own_stagnation' if nominal=='timeout' and not a['collision'][i,s,k,0] else 'safety_induced_stagnation' if nominal=='collision' and safe=='timeout' else None
+                 if group:
+                     groups[group]['count']+=1
+-                    for arm,key in [(3,'rescued_F13'),(5,'rescued_S500'),(6,'rescued_BRHR')]:groups[group][key]+=int(a['success'][i,s,k,arm])
++                    for arm,key in [(3,'rescued_F13'),(5,'rescued_S500'),(6,'rescued_BRHR'),(7,'rescued_BRHR_tuned')]:groups[group][key]+=int(a['success'][i,s,k,arm])
+         for g,v in groups.items():
+             totals[g]+=v['count'];rows.append(dict(controller=n,source=g,**v))
+         by[n]=dict(nominal_outcomes=dict(outcomes),nominal_to_safety=[dict(nominal=x,safety=y,count=v) for (x,y),v in transition.items()],failure_sources=groups)
+     with (HERE/'failure_sources.csv').open('w') as f:
+-        w=csv.DictWriter(f,fieldnames=['controller','source','count','rescued_F13','rescued_S500','rescued_BRHR']);w.writeheader();w.writerows(rows)
++        w=csv.DictWriter(f,fieldnames=['controller','source','count','rescued_F13','rescued_S500','rescued_BRHR','rescued_BRHR_tuned']);w.writeheader();w.writerows(rows)
+     write(HERE/'TRANSFERS.json',transfers);write(HERE/'FAILURE_SOURCES.json',dict(controllers=by,totals=dict(totals),timeout_is_not_deadlock=True,unknown_is_not_known_failure=True));return dict(totals)
+ 
+ def reuse_audit():
+@@ -106,9 +106,13 @@
+     write(HERE/'REUSED_EVIDENCE_AUDIT.json',report)
+ 
+ def main():
+-    assert (HERE/'CHOICES_FROZEN.receipt.json').exists() or (HERE/'NO_ELIGIBLE_CONTROLLERS.json').exists()
++    assert (HERE/'RHR_FROZEN.receipt.json').exists() and (HERE/'CHOICES_FROZEN.receipt.json').exists()
+     reuse_audit()
+-    new_names=read(HERE/'CAPABILITY_GATE.json')['eligible'];local_names=[read(HERE/'TEACHERS.json')[i]['name'] for i in [8,10,12,13]];oldchoices=read(OLD/'FROZEN_CHOICES.json')['controllers'];newchoices=read(HERE/'FROZEN_CHOICES.json')['controllers'] if new_names else {};choices={**oldchoices,**newchoices};new=collect(HERE,new_names) if new_names else {k:np.empty((0,32,2,7)) for k in ['success','unknown','collision','timeout']};old=collect(OLD,local_names);both={k:np.concatenate((new[k],old[k]),axis=0) for k in new};allowed=len(new_names)>=8
+-    result=dict(utc=utc(),distillation=read(HERE/'DISTILLATION_REPORT.json'),capability_gate=read(HERE/'CAPABILITY_GATE.json'),CONFIRMATORY=analyze_set('CONFIRMATORY',new_names,new,choices,allowed),DEVELOPMENT=analyze_set('DEVELOPMENT',new_names+local_names,both,choices,allowed),failure_sources=failures(new_names+local_names,both),old_global_students='已被取代; original files preserved',old_local_labels_previously_opened=True,unknown_policy='success lower 0 / upper 1; preserve and never rerun',capability_rule='round30: fewer than8 eligible new students makes endpoints INCONCLUSIVE; numerical results are descriptive')
+-    write(HERE/'results.json',result);np.savez_compressed(HERE/'analysis_arrays.npz',**both,controller_names=new_names+local_names,arms=ARMS);source_inventory('imports_analysis.json');seal('ANALYSIS_COMPLETE.receipt.json',[HERE/'results.json',HERE/'analysis_arrays.npz',HERE/'FAILURE_SOURCES.json',HERE/'TRANSFERS.json',HERE/'analysis.py'],rollouts_rerun=0)
++    ts=read(HERE/'TEACHERS.json');new=read(HERE/'CAPABILITY_GATE.json')['eligible'];prior=[ts[i]['name'] for i in [1,7]];local=[ts[i]['name'] for i in [8,10,12,13]];primary=prior+new;combined=primary+local
++    choices={**read(D/'teacher_student_macflow_v1/FROZEN_CHOICES.json')['controllers'],**read(D/'teacher_student_macflow_v1b/FROZEN_CHOICES.json')['controllers'],**read(HERE/'FROZEN_CHOICES.json')['controllers']};data=collect(HERE,combined);allowed=len(primary)>=8;sets={}
++    for label,names in [('CONFIRMATORY',primary),('SENSITIVITY',new),('DEVELOPMENT',combined)]:
++        ix=[combined.index(n) for n in names];subset={k:v[ix] for k,v in data.items()};sets[label]=analyze_set(label,names,subset,choices,allowed)
++    sources=failures(combined,data)
++    result=dict(utc=utc(),**sets,regate=read(HERE/'REGATE.json'),capability_gate=read(HERE/'CAPABILITY_GATE.json'),rhr_selected=read(HERE/'RHR_SELECTED.json'),failure_sources=sources,primary_prior_labels_opened=True,primary_provenance='round30b2 previously evaluated + newly regated and capability-eligible students; revised gate preregistered before new dev metrics and before eight candidate closed loops',development_provenance='primary plus4 round30 local students, previously opened labels',sensitivity_provenance='new round30c regated/capability-eligible students only',confirmatory_minimum=8,unknown_policy='lower0 upper1, retained and never rerun, not known failures',tuning_asymmetry='RHR tuned on all valid students; eta fixed on joint teachers and never tuned for students')
++    write(HERE/'results.json',result);np.savez_compressed(HERE/'analysis_arrays.npz',**data,controller_names=combined,arms=ARMS);source_inventory('imports_analysis.json');seal('ANALYSIS_COMPLETE.receipt.json',[HERE/'results.json',HERE/'analysis_arrays.npz',HERE/'FAILURE_SOURCES.json',HERE/'TRANSFERS.json',HERE/'analysis.py'],rollouts_rerun=0)
+ if __name__=='__main__':main()
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/offline.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/regate.py
+@@ -1,29 +1,23 @@
+ from core import *
++from student import Student,inputs
++from coordinates import to_local_jax
+ from audit_utils import source_inventory
+-from student import Student,inputs,network
+-from coordinates import to_local_jax
+-from data import teacher
+-from ring_exchange.local_frame import world_actions_to_local,local_actions_to_world,local_observation
+-import jax,jax.numpy as jnp,pickle
++import jax,jax.numpy as jnp
+ jax.config.update('jax_enable_x64',False)
+ def main():
+-    assert not (HERE/'TRAINING_FROZEN.receipt.json').exists()
+-    rng=np.random.default_rng(2026101503);p=rng.normal(size=(4,2));v=rng.normal(size=(4,2));expected=world_actions_to_local(v,p);actual=np.asarray(to_local_jax(jnp.asarray(v),jnp.asarray(p)));assert np.max(abs(expected-actual))<1e-6
+-    for i in range(4):
+-        q=p.copy();q[np.arange(4)!=i]+=10;assert world_actions_to_local(v,q)[i].tobytes()==expected[i].tobytes();np.testing.assert_array_equal(np.asarray(to_local_jax(jnp.asarray(v),jnp.asarray(q)))[i],actual[i])
+-    tests=dict(row_own_position_only=True,jax_numpy_max_abs_error=float(abs(actual-expected).max()))
+-    results=[];files=[]
+-    for i in read(HERE/'GLOBAL_INDICES.json'):
+-        r=read(HERE/'TEACHERS.json')[i];folder=HERE/'students'/r['name'];c=read(folder/'COMPLETE.json');assert sha(folder/'best.pkl')==c['checkpoint_sha256'];s=Student(i);base=s._base;env=s.make_env(read(HERE/'EVAL_STATES.json')[0]);obs=local_observation(env.positions,env.velocities,env.goals,env.config);o=inputs(jnp.asarray(obs),s.mean,s.scale);noise=jax.random.normal(jax.random.PRNGKey(12),(4,2));first=np.asarray(s.forward(o,noise));second=np.asarray(s.forward(o,noise));assert first.tobytes()==second.tobytes();goals=env.goals.copy()
+-        for agent in range(4):
+-            env.goals[:]=goals;env.goals[np.arange(4)!=agent]+=.123;pert=local_observation(env.positions,env.velocities,env.goals,env.config);assert pert[agent].tobytes()==obs[agent].tobytes();po=inputs(jnp.asarray(pert),s.mean,s.scale);assert np.asarray(s.forward(po[agent],noise[agent])).tobytes()==np.asarray(s.forward(o[agent],noise[agent])).tobytes()
+-        env.goals[:]=goals
+-        data=D/'teacher_student_macflow_v1/data'/r['name'];x=np.load(data/'dev_local.npy',mmap_mode='r');ot=np.load(data/'dev_teacher.npy',mmap_mode='r');indices=np.random.default_rng(2026103033).integers(0,len(x),2048);keys=jax.random.split(jax.random.PRNGKey(2026103034),2048);jo=jnp.asarray(ot[indices]);target=to_local_jax(jax.jit(jax.vmap(base.native_fn))(jo,keys),jo[...,:2]);z=to_local_jax(jax.jit(jax.vmap(lambda obs,k:base.trace_fn(obs,k)[0].reshape(4,2)))(jo,keys),jo[...,:2]);prediction=np.asarray(s.forward(inputs(jnp.asarray(x[indices]),s.mean,s.scale),z));target=np.asarray(target);diff=prediction-target;cos=(prediction*target).sum(-1)/np.maximum(np.linalg.norm(prediction,axis=-1)*np.linalg.norm(target,axis=-1),1e-12);fraction=float((np.linalg.norm(diff,axis=-1)<=.05).mean());cosine=float(cos.mean());valid=c['best_step']!=0 and cosine>=.90 and fraction>=.80
+-        report=dict(teacher=r['name'],best_step=c['best_step'],independent_dev_mse=float(np.mean(diff**2)),action_rmse=float(np.sqrt(np.mean(diff**2))),mean_cosine=cosine,within_05_mps=fraction,valid=bool(valid),other_goals_invariant=True,deterministic=True)
+-        results.append(report);files.extend([folder/'best.pkl',folder/'COMPLETE.json']);print('distillation',i,valid,cosine,fraction,flush=True)
+-    # Local teacher uses identity label/noise; original local student deployment chart is identical.
+-    r=read(HERE/'TEACHERS.json')[10];base=teacher(10);env=base.make_env(read(HERE/'EVAL_STATES.json')[0]);key=jax.random.PRNGKey(19);obs=base.observation(env);u=np.asarray(base.native_fn(obs,key));xi=np.asarray(base.trace_fn(obs,key)[0]).reshape(4,2);np.testing.assert_array_equal(base.to_world(u,env),local_actions_to_world(u,env.positions))
+-    ck=pickle.loads((D/'teacher_student_macflow_v1/students'/r['name']/'best.pkl').read_bytes());model=network();ox=inputs(jnp.asarray(local_observation(env.positions,env.velocities,env.goals,env.config)),ck['mean'],ck['scale']);raw=np.stack([np.asarray(model.apply({'params':ck['params']},ox[i],jax.random.normal(jax.random.fold_in(key,i),(2,),dtype=jnp.float32))) for i in range(4)]);raw=np.clip(raw,-1.,1.);raw*=np.minimum(1.,env.config.max_speed/np.maximum(np.linalg.norm(raw,axis=1,keepdims=True),1e-12));np.testing.assert_array_equal(base.to_world(np.asarray(raw,np.float64),env),local_actions_to_world(np.asarray(raw,np.float64),env.positions));tests.update(local_teacher_identity_labels_noise=True,local_teacher_deployment_matches_round30=True,local_teacher_checkpoint_sha256=sha(D/'teacher_student_macflow_v1/students'/r['name']/'best.pkl'))
+-    write(HERE/'UNIT_TESTS.json',dict(status='PASS',tests=tests,all_students_other_goals_invariant=True,all_students_deterministic=True,jax_enable_x64=bool(jax.config.x64_enabled),simulation_steps=0));valid_names=[r['teacher'] for r in results if r['valid']];write(HERE/'DISTILLATION_REPORT.json',dict(utc=utc(),controllers=results,valid_names=valid_names,n_valid=len(valid_names),closed_loop_labels_read=False,jax_enable_x64=bool(jax.config.x64_enabled)));seal('TRAINING_FROZEN.receipt.json',files+[HERE/'DISTILLATION_REPORT.json',HERE/'UNIT_TESTS.json',HERE/'TRAINING_CONFIG.json',HERE/'student.py',HERE/'train.py',HERE/'coordinates.py'],before_student_rollouts=True);source_inventory('imports_offline.json')
+-    lines=['# Distillation validity gate','', '| Teacher | Step | Cosine | <= .05m/s | Valid |','|---|---:|---:|---:|---|']+[f"| {r['teacher']} | {r['best_step']} | {r['mean_cosine']:.5f} | {r['within_05_mps']:.3%} | {r['valid']} |" for r in results];(HERE/'DISTILLATION_REPORT.md').write_text('\n'.join(lines)+'\n')
++    assert not (HERE/'REGATE.json').exists();results=[];valid=[];files=[]
++    for i,r in enumerate(read(HERE/'TEACHERS.json')):
++        info=read(HERE/'STUDENTS.json')[str(i)];assert sha(info['checkpoint'])==info['checkpoint_sha256'];s=Student(i);base=s._base;data=D/'teacher_student_macflow_v1/data'/r['name'];x=np.load(data/'dev_local.npy',mmap_mode='r');o=np.load(data/'dev_teacher.npy',mmap_mode='r');indices=np.random.default_rng(2026103033).integers(0,len(x),2048);keys=jax.random.split(jax.random.PRNGKey(2026103034),2048);jo=jnp.asarray(o[indices]);u=jax.jit(jax.vmap(base.native_fn))(jo,keys);z=jax.jit(jax.vmap(lambda obs,key:base.trace_fn(obs,key)[0].reshape(4,2)))(jo,keys)
++        if i not in [8,10,12,13]:u=to_local_jax(u,jo[...,:2]);z=to_local_jax(z,jo[...,:2])
++        prediction=np.asarray(s.forward(inputs(jnp.asarray(x[indices]),s.mean,s.scale),z));u=np.asarray(u);norm=np.linalg.norm(u,axis=-1);error=np.linalg.norm(prediction-u,axis=-1);cos=(prediction*u).sum(-1)/np.maximum(norm*np.linalg.norm(prediction,axis=-1),1e-12);metrics={}
++        for threshold in [.05,.10,.20]:
++            mask=norm>=threshold;metrics[str(threshold)]=dict(samples=int(mask.sum()),coverage=float(mask.mean()),mean_cosine=float(cos[mask].mean()) if mask.any() else None)
++        m=metrics['0.1']['mean_cosine'];fraction=float((error<=.05).mean());regate=info['best_step']!=0 and m is not None and m>=.90 and fraction>=.80;previous=info['previously_valid'];effective=previous or regate
++        row=dict(index=i,teacher=r['name'],best_step=info['best_step'],checkpoint_sha256=sha(info['checkpoint']),previously_valid=previous,regate_applied=not previous,passes_revised_metrics=bool(regate),valid=bool(effective),all_sample_cosine=float(cos.mean()),within_05_mps=fraction,action_rmse=float(np.sqrt(np.mean((prediction-u)**2))),filtered=metrics);results.append(row)
++        if not previous and effective:valid.append(r['name'])
++        p=HERE/'dev_predictions'/f"{r['name']}.npz";p.parent.mkdir(exist_ok=True);np.savez_compressed(p,prediction=prediction,target=u,local_noise=np.asarray(z),indices=indices,keys=np.asarray(keys));files.append(p);print('regate',i,metrics['0.1'],effective,flush=True)
++    write(HERE/'REGATE.json',dict(utc=utc(),controllers=results,new_valid=valid,n_new_valid=len(valid),valid_names=[r['teacher'] for r in results if r['valid']],jax_enable_x64=bool(jax.config.x64_enabled),simulation_steps=0,closed_loop_labels_read=False));seal('REGATE_FROZEN.receipt.json',[HERE/'REGATE.json',HERE/'regate.py',HERE/'student.py',HERE/'coordinates.py',HERE/'STUDENTS.json',HERE/'PREREGISTRATION.md']+files,before_new_candidate_closed_loop=True,training_steps=0);source_inventory('imports_regate.json')
++    lines=['# Revised distillation gate (frozen checkpoints only)','', '| Student | Previously valid | Step | All cosine | Cosine ≥.05/.10/.20 | ≤.05m/s | New decision |','|---|---|---:|---:|---|---:|---|']
++    for r in results:lines.append(f"| {r['teacher']} | {r['previously_valid']} | {r['best_step']} | {r['all_sample_cosine']:.5f} | "+'/'.join(f"{r['filtered'][str(t)]['mean_cosine']:.5f}" if r['filtered'][str(t)]['mean_cosine'] is not None else 'undefined' for t in [.05,.1,.2])+f" | {r['within_05_mps']:.2%} | {'unchanged' if r['previously_valid'] else r['valid']} |")
++    (HERE/'REGATE.md').write_text('\n'.join(lines)+'\n')
+ if __name__=='__main__':main()
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/phase_design.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/planning.py
+@@ -1,35 +1,81 @@
+ from core import *
+ from registration import *
+ from shared_rollout_db.src.planner import preflight
++from audit_utils import source_inventory
++BASE=D/'decentralized_pipeline_v1';A=D/'teacher_student_macflow_v1';B=D/'teacher_student_macflow_v1b'
+ ARMS=['nominal only','safety baseline','F10','F13','S300','S500','B-RHR']
++from functools import lru_cache
++@lru_cache(None)
++def original():
++    old={}
++    for origin,indices in [(A,[8,10,12,13]),(B,[1,7])]:
++        names={read(HERE/'TEACHERS.json')[i]['name'] for i in indices}
++        for c in read(origin/'main_CASES.json'):
++            if c['base_controller_name'] in names:old[(c['base_controller_name'],c['state_index'],c['seed'],c['arm'])]=dict(c,reused_from=str(origin))
++    return old
++
++def physical_signature(p):
++    if not p:return None
++    try:
++        vals=[]
++        for keys in [('positions','initial_positions'),('velocities','initial_velocities'),('goals',)]:
++            v=np.asarray(next(p[k] for k in keys if k in p),np.float64).copy()
++            if v.shape!=(4,2):return None
++            v[v==0]=0;vals.append(v.tobytes().hex())
++        return uid('physical',vals)
++    except (StopIteration,TypeError,ValueError):return None
++
++def initial():
++    assert (HERE/'REGATE_FROZEN.receipt.json').exists()
++    from diagnostics.controller_q_transfer_round3_v1.state_generator import generate
++    import jax
++    jax.config.update('jax_enable_x64',False)
++    with connect(True) as db:existing=[dict(r) for r in db.execute('SELECT state_uid,content_hash,physical_state_json FROM state')]
++    ids={r['state_uid'] for r in existing};content={r['content_hash'] for r in existing};signatures={physical_signature(json.loads(r['physical_state_json'])) for r in existing if r['physical_state_json']};unresolved=None in signatures;signatures.discard(None)
++    for s in read(HERE/'PILOT_STATES.json')+read(HERE/'EVAL_STATES.json'):signatures.add(physical_signature(s['physical']))
++    selected=[];rejected=[];native=read(D/'state_nuisance_rootcause_v1/real_state_expansion/protocol.json')
++    for seed in range(2026101503000,2026101504000):
++        s=normalized_state(generate('round30c_tune',1,seed,native)[0]);sig=physical_signature(s['physical'])
++        if s['state_uid'] in ids or s['content_hash'] in content or sig in signatures:rejected.append(seed);continue
++        s['study_index']=len(selected);selected.append(s);signatures.add(sig)
++        if len(selected)==16:break
++    assert len(selected)==16;write(HERE/'TUNING_STATES.json',selected);write(HERE/'STATE_DEDUP_AUDIT.json',dict(utc=utc(),DB_rows=len(existing),physical_signatures=len(signatures),unresolved_DB_physical_present=unresolved,chosen_seeds=[s['metadata']['draw_seed'] for s in selected],rejected=rejected,comparisons=['DB uid/content/physical','round28 eval','round30 pilot'],outcomes_read=False))
++    register('initial',[exp_row(p) for p in ['pilot','probe','tune','main']]+[state_row(s) for s in selected]);source_inventory('imports_design.json')
++
++def controller(i,arm,speed=None,trigger=None):
++    ts=read(HERE/'TEACHERS.json');n=ts[i]['name'];base=read(BASE/'main_protocol.json');v=dict(base['base_profiles'][n]['payload']);ck=read(HERE/'STUDENTS.json')[str(i)];assert sha(ck['checkpoint'])==ck['checkpoint_sha256'];v.update(flow_checkpoint_path=ck['checkpoint'],flow_checkpoint_sha256=ck['checkpoint_sha256']);a=13 if arm in ['F13','S300','S500'] else 10 if arm=='F10' else None;eta_a=base['eta'][a] if a is not None else [0.,0.,0.];eta_b=base['eta'][10] if arm in ['S300','S500'] else eta_a;switch=int(arm[1:]) if arm in ['S300','S500'] else 700;mode='nominal' if arm=='nominal only' else 'rhr_local' if speed is not None or arm=='B-RHR' else 'local'
++    # Exact R28 parameters inherit existing6 controller identity, regardless of the new state cohort.
++    if i in [1,7,8,10,12,13] and (arm in ARMS and speed is None or speed==.15 and trigger==40):
++        ref=original()[(n,0,0,'B-RHR' if speed is not None else arm)];return v,ref['controller_uid'],ref['eta_uid'],eta_a,eta_b,switch,mode,[]
++    canonical_arm=('B-RHR' if speed==.15 and trigger==40 else 'B-RHR-tuned') if speed is not None else arm
++    payload=dict(v,controller_family='decentralized_onestep_student',student_index=i,teacher_checkpoint_sha256=ts[i]['checkpoint_sha256'],conditioning='own_local_observation_own_goal_own_fold_in_noise',arm=canonical_arm,eta_schedule=dict(a=eta_a,b=eta_b,switch_step=switch),rhr_params=dict(speed=speed if speed is not None else .15,trigger_steps=trigger if trigger is not None else 40,slow_threshold=.01,clockwise=True) if mode=='rhr_local' else None,pipeline_sha256=sha(HERE/'pipeline.py'),runner_sha256=sha(HERE/'episode_extended.py'),student_source_sha256=sha(HERE/'student.py'),original_actions_sha256=sha(HERE/'actions.py'),tuned_code_sha256=sha(HERE/'tuned.py') if speed is not None and (speed,trigger)!=(.15,40) else None,rng=dict(root=2026100403,key='fold_in(fold_in(fold_in(PRNGKey(root),sha256(state.uid)[:8]),seed),step)',private_noise='fold_in(key,i)'),jax_enable_x64=False)
++    # Canonical original-RHR identity must also match the (.15,40) tuning point.
++    if mode=='rhr_local' and canonical_arm=='B-RHR':payload['rhr_params']=dict(speed=.15,trigger_steps=40,slow_threshold=.01,clockwise=True)
++    ctl=uid('ctl',payload);eid,values,hexes=eta_identity(eta_a);rows=[('controller_config',dict(controller_uid=ctl,scenario_uid=v['scenario_uid'],flow_checkpoint_sha256=ck['checkpoint_sha256'],orthoflow3_sha256=v['orthoflow3_sha256'],safety_config_hash=uid('safe',dict(pipeline=sha(HERE/'pipeline.py'),mode=mode,radius=1.5)),horizon=str(v['horizon']),dt=str(v['dt']),success_semantics_version=v['success_semantics'],conditioning_version=payload['conditioning'],rng_semantics_version=canonical(payload['rng']),config_json=canonical(payload),compatibility_quality='EXACT_PROFILE')),('eta',dict(eta_uid=eid,eta1=values[0],eta2=values[1],eta3=values[2],canonical_hex=hexes))];return v,ctl,eid,eta_a,eta_b,switch,mode,rows
++
+ def create(phase):
+-    assert read(HERE/'ROUND28_REPLAY_GATE.json')['completed']==16 and read(HERE/'ROUND28_REPLAY_GATE.json')['passed']
+-    if phase!='teacher':assert (HERE/'TRAINING_FROZEN.receipt.json').exists()
+-    if phase=='main':assert (HERE/'CHOICES_FROZEN.receipt.json').exists()
+-    source=read(D/'decentralized_pipeline_v1/main_protocol.json');ts=read(HERE/'TEACHERS.json');names=read(HERE/'DISTILLATION_REPORT.json')['valid_names'] if phase=='pilot' else source['controller_order'] if phase=='teacher' else read(HERE/'CAPABILITY_GATE.json')['eligible'];states=read(HERE/('PILOT_STATES.json' if phase=='pilot' else 'EVAL_STATES.json'));p=dict(experiment_uid='exp_teacher_student_macflow_v1b_'+phase,phase=phase,base_profiles={},controller_order=names,states=states,controllers={},eta=source['eta'],runner_sha256=sha(HERE/'episode_extended.py'),pipeline_sha256=sha(HERE/'pipeline.py'));rows=[];registrations=[]
++    assert (HERE/'REGATE_FROZEN.receipt.json').exists();ts=read(HERE/'TEACHERS.json');reg=read(HERE/'REGATE.json');valid=reg['valid_names'];fresh=reg['new_valid'];eligible=read(HERE/'CAPABILITY_GATE.json')['eligible'] if phase=='main' else fresh;names=fresh if phase=='pilot' else valid;states=read(HERE/('PILOT_STATES.json' if phase=='pilot' else 'TUNING_STATES.json' if phase=='tune' else 'EVAL_STATES.json'));base=read(BASE/'main_protocol.json');p=dict(experiment_uid='exp_teacher_student_macflow_v1c_'+phase,phase=phase,states=states,controller_order=names,base_profiles={},controllers={},eta=base['eta']);registrations=[];cases=[];old=original()
++    if phase=='main':assert (HERE/'CHOICES_FROZEN.receipt.json').exists() and (HERE/'RHR_FROZEN.receipt.json').exists()
+     for n in names:
+-        idx=source['controller_order'].index(n);v=dict(source['base_profiles'][n]['payload'])
+-        ck=Path(ts[idx]['checkpoint']) if phase=='teacher' else HERE/'students'/n/'best.pkl'
+-        if phase!='teacher':assert sha(ck)==read(ck.parent/'COMPLETE.json')['checkpoint_sha256']
+-        v.update(flow_checkpoint_path=str(ck),flow_checkpoint_sha256=sha(ck));p['base_profiles'][n]=dict(payload=v)
+-        arms=['safety baseline','S500'] if phase=='pilot' else ['nominal only','safety baseline'] if phase=='teacher' else ARMS
+-        for arm in arms:
+-            a=13 if arm in ['F13','S300','S500'] else 10 if arm=='F10' else None;eta_a=p['eta'][a] if a is not None else [0.,0.,0.];eta_b=p['eta'][10] if arm.startswith('S') else eta_a;switch=int(arm[1:]) if arm.startswith('S') else 700;mode='nominal' if arm=='nominal only' else 'rhr_local' if arm=='B-RHR' else 'local'
+-            payload=dict(v,controller_family='frozen_joint_teacher' if phase=='teacher' else 'decentralized_onestep_student',teacher_checkpoint_sha256=ts[idx]['checkpoint_sha256'],student_index=idx,execution_semantics='round30_native_nominal_only_v1' if mode=='nominal' else 'round30_Dlocal_TT_v1',conditioning='private_student_own_goal_own_noise' if phase!='teacher' else 'original_teacher_joint_information',arm=arm,eta_schedule=dict(a=eta_a,b=eta_b,switch_step=switch),sense_radius=1.5,safety_enabled=mode!='nominal',nominal_source_code_sha256=sha(HERE/'student.py') if phase!='teacher' else v.get('controller_source_sha256',sha(FIELD/'validation_v2/adapters.py')),additional_arms_code_sha256=sha(HERE/'actions.py'),pipeline_sha256=sha(HERE/'pipeline.py'),runner_sha256=sha(HERE/'episode_extended.py'),rng=dict(root=2026100403,key='fold_in(fold_in(fold_in(PRNGKey(root), SHA256(state.uid)[:8]),seed),step)',private_robot_noise='fold_in(key,i)' if phase!='teacher' else 'original joint noise',seed_key='future_index; root/controller and state alias locked by profile/provenance'),jax_enable_x64=False)
+-            ctl=uid('ctl',payload);name=n+'__'+arm;p['controllers'][name]=dict(controller_uid=ctl,payload=payload)
+-            registrations.append(('controller_config',dict(controller_uid=ctl,scenario_uid=v['scenario_uid'],flow_checkpoint_sha256=sha(ck),orthoflow3_sha256=v['orthoflow3_sha256'],safety_config_hash=uid('safe',dict(pipeline=p['pipeline_sha256'],mode=mode,radius=1.5)),horizon=str(v['horizon']),dt=str(v['dt']),success_semantics_version=v['success_semantics'],conditioning_version=payload['conditioning'],rng_semantics_version=canonical(payload['rng']),config_json=canonical(payload),compatibility_quality='EXACT_PROFILE')))
+-            eid,values,hexes=eta_identity(eta_a);registrations.append(('eta',dict(eta_uid=eid,eta1=values[0],eta2=values[1],eta3=values[2],canonical_hex=hexes)))
++        i=next(j for j,r in enumerate(ts) if r['name']==n)
++        if phase=='pilot':arms=[('safety baseline',None,None),('S500',None,None)]
++        elif phase=='tune':arms=[(f'RHR_v{speed:.2f}_t{trigger}',speed,trigger) for speed in [.10,.15,.25,.35] for trigger in [20,40,80]]
++        else:
++            chosen=read(HERE/'RHR_SELECTED.json');arms=[(a,None,None) for a in ARMS] if n in eligible or i in [1,7,8,10,12,13] else [];arms.append(('B-RHR-tuned',chosen['speed'],chosen['trigger_steps']))
++        for arm,speed,trigger in arms:
++            v,ctl,eid,ea,eb,switch,mode,rows=controller(i,arm,speed,trigger);registrations.extend(rows);p['base_profiles'][n]=dict(payload=v);p['controllers'][n+'__'+arm]=dict(controller_uid=ctl)
+             for s in states:
+-                for seed in ([0] if phase=='pilot' else [0,1]):
+-                    sk=canonical(dict(future_index=seed));rows.append(dict(rollout_uid=uid('roll',dict(state=s['state_uid'],eta=eid,controller=ctl,seed=sk)),state_uid=s['state_uid'],eta_uid=eid,controller_uid=ctl,seed_key=sk,controller_name=name,base_controller_name=n,pipeline=mode,arm=arm,state_index=s['study_index'],seed=seed,eta_a=eta_a,eta_b=eta_b,switch_step=switch,student_index=idx,teacher=phase=='teacher'))
+-    write(HERE/f'{phase}_protocol.json',p);write(HERE/f'{phase}_CASES.json',rows);register(phase+'_controllers',registrations)
+-    manifest=HERE/f'{phase}_PLANNED_ROLLOUTS.json';write(manifest,dict(requests=[{k:c[k] for k in ['state_uid','eta_uid','controller_uid','seed_key']} for c in rows]));pf=preflight(manifest);assert pf['summary']['ambiguous']==0;write(HERE/f'{phase}_CACHE_PREFLIGHT.json',pf)
++                for seed in ([0] if phase in ['pilot','tune'] else [0,1]):
++                    sk=canonical(dict(future_index=seed));rid=uid('roll',dict(state=s['state_uid'],eta=eid,controller=ctl,seed=sk));c=dict(rollout_uid=rid,state_uid=s['state_uid'],eta_uid=eid,controller_uid=ctl,seed_key=sk,controller_name=n+'__'+arm,base_controller_name=n,pipeline=mode,arm=arm,state_index=s['study_index'],seed=seed,eta_a=ea,eta_b=eb,switch_step=switch,student_index=i,teacher=False,rhr_speed=speed,rhr_trigger=trigger)
++                    if phase=='main' and i in [1,7,8,10,12,13] and arm in ARMS:
++                        ref=old[(n,s['study_index'],seed,arm)];assert c['rollout_uid']==ref['rollout_uid'];c['reused_from']=ref['reused_from']
++                    cases.append(c)
++    write(HERE/f'{phase}_protocol.json',p);write(HERE/f'{phase}_CASES.json',cases);register(phase+'_controllers',registrations);unique={c['rollout_uid']:c for c in cases};manifest=HERE/f'{phase}_PLANNED_ROLLOUTS.json';write(manifest,dict(requests=[{k:c[k] for k in ['state_uid','eta_uid','controller_uid','seed_key']} for c in unique.values()]));pf=preflight(manifest);assert pf['summary']['ambiguous']==0;write(HERE/f'{phase}_CACHE_PREFLIGHT.json',pf);missing=[];reuse=[];unknown=[]
+     with connect(True) as db:
+-        missing=[];reuse=[];unknown=[]
+-        for c in rows:
+-            found=db.execute('SELECT * FROM rollout WHERE rollout_uid=?',(c['rollout_uid'],)).fetchone()
+-            if found:
+-                assert not found['conflict_quarantined'];(unknown if found['numerical_failure'] else reuse).append(c)
++        for c in unique.values():
++            row=db.execute('SELECT * FROM rollout WHERE rollout_uid=?',(c['rollout_uid'],)).fetchone()
++            if row:
++                assert not row['conflict_quarantined'] and row['compatibility_quality']=='EXACT_REUSE';(unknown if row['numerical_failure'] else reuse).append(c)
+             else:missing.append(c)
+-    write(HERE/f'{phase}_MISSING_CASES.json',missing);write(HERE/f'{phase}_REUSE_CASES.json',dict(exact=reuse,preserved_unknown=unknown));seal(f'{phase}_PREFLIGHT.receipt.json',[manifest,HERE/f'{phase}_CACHE_PREFLIGHT.json',HERE/f'{phase}_protocol.json',HERE/f'{phase}_MISSING_CASES.json'],before_submission=True,planned=len(rows),missing=len(missing),reuse=len(reuse),preserved_unknown=len(unknown));print(phase,len(rows),'missing',len(missing),flush=True)
+-if __name__=='__main__':create(sys.argv[1])
++    write(HERE/f'{phase}_MISSING_CASES.json',missing);write(HERE/f'{phase}_REUSE_CASES.json',dict(exact=reuse,preserved_unknown=unknown));seal(f'{phase}_PREFLIGHT.receipt.json',[manifest,HERE/f'{phase}_CACHE_PREFLIGHT.json',HERE/f'{phase}_MISSING_CASES.json',HERE/f'{phase}_protocol.json',HERE/f'{phase}_CASES.json'],before_submission=True,unique_cases=len(unique),cases_with_aliases=len(cases),missing=len(missing),reuse=len(reuse),unknown=len(unknown));print(phase,'unique',len(unique),'missing',len(missing),flush=True)
++if __name__=='__main__':initial() if sys.argv[1]=='initial' else create(sys.argv[1])
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/run.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/run.py
+@@ -2,26 +2,30 @@
+ from shared_rollout_db.src.cache_writer import append_journal
+ from audit_utils import source_inventory
+ from episode_extended import episode,CountedRuntime
+-from data import teacher
++from tuned import TunedRuntime
+ from student import Student
+ import jax
+ jax.config.update('jax_enable_x64',False)
+ def worker(phase,index,workers):
+-    import shared_rollout_db.src.cache_writer as official_writer
+-    assert Path(official_writer.__file__).resolve()==ROOT/'shared_rollout_db/src/cache_writer.py'
+-    assert official_writer.ROOT==ROOT/'shared_rollout_db'
+-    assert read(HERE/'ROUND28_REPLAY_GATE.json')['passed'];assert read(HERE/'COMPONENT_TESTS.json')['status']=='PASS';assert (HERE/f'{phase}_PREFLIGHT.receipt.json').exists()
+-    p=read(HERE/f'{phase}_protocol.json');writepath=HERE/'main_protocol.json'
+-    # episode's exact frozen bookkeeping reads main_protocol.json for all non-gate phases.
+-    assert writepath.exists()
+-    cache={};count=0
++    from shared_rollout_db.src import cache_writer
++    assert Path(shared_rollout_db.__file__).resolve().is_relative_to(ROOT/'shared_rollout_db');assert cache_writer.ROOT/'journals'==ROOT/'shared_rollout_db/journals'
++    assert (HERE/'REGATE_FROZEN.receipt.json').exists() and read(HERE/'COMPONENT_TESTS.json')['status']=='PASS';assert (HERE/f'{phase}_PREFLIGHT.receipt.json').exists()
++    if phase=='main':assert (HERE/'CHOICES_FROZEN.receipt.json').exists() and (HERE/'RHR_FROZEN.receipt.json').exists()
++    p=read(HERE/f'{phase}_protocol.json');cache={};bases={};count=0
+     for c in read(HERE/f'{phase}_MISSING_CASES.json')[index::workers]:
+-        out=HERE/phase/'raw'/f"{c['rollout_uid']}.json"
+-        if out.exists():continue
+-        n=c['base_controller_name']
+-        if n not in cache:cache[n]=CountedRuntime(teacher(c['student_index']) if c['teacher'] else Student(c['student_index']))
+-        r=episode(c,p,cache,phase);s=next(s for s in p['states'] if s['state_uid']==c['state_uid']);r.update(experiment_uid=p['experiment_uid'],cache_identity_schema='registered_exact_uid_v1',scenario_uid=p['base_profiles'][n]['payload']['scenario_uid'],flow_checkpoint_sha256=p['base_profiles'][n]['payload']['flow_checkpoint_sha256'],eta=c['eta_a'],future_index=c['seed'],initial_positions=s['physical']['positions'],initial_velocities=s['physical']['velocities'],goals=s['physical']['goals'],phase_protocol_sha256=sha(HERE/f'{phase}_protocol.json'))
+-        write(out,r);journal=append_journal([r],p['experiment_uid'],f'{phase}_{index}');assert journal.resolve().is_relative_to(ROOT/'shared_rollout_db/journals');count+=1
+-        if count%8==0:print(phase,index,count,c['base_controller_name'],c['arm'],flush=True)
++        out=HERE/phase/'raw'/f"{c['rollout_uid']}.json";assert not out.exists(),'No retry or overwrite of completed/unknown trial'
++        n=c['base_controller_name'];i=c['student_index']
++        if n not in bases:
++            bases[n]=Student(i);assert sha(bases[n].checkpoint)==read(HERE/'STUDENTS.json')[str(i)]['checkpoint_sha256']
++        speed=c.get('rhr_speed');trigger=c.get('rhr_trigger');tuned=speed is not None and (speed,trigger)!=(.15,40);cache[n]=TunedRuntime(bases[n],speed,trigger) if tuned else CountedRuntime(bases[n]);r=episode(c,p,cache,phase)
++        if tuned:
++            path=Path(r['trace_path'])
++            with np.load(path) as z:values={k:z[k] for k in z.files}
++            positions=values['positions'];velocities=values['velocities'];goals=values['goals'];counts=np.zeros(4,int);active=[]
++            for t in range(len(positions)-1):
++                active.append((counts>=trigger)&(np.linalg.norm(goals-positions[t],axis=1)>bases[n].config.goal_tolerance));mask=(np.linalg.norm(velocities[t+1],axis=1)<.01)&(np.linalg.norm(goals-positions[t+1],axis=1)>bases[n].config.goal_tolerance);counts=np.where(mask,counts+1,0)
++            values['rhr_active']=np.asarray(active,bool);meta=json.loads(str(values['metadata_json']));meta['rhr_params']=dict(speed=speed,trigger_steps=trigger);values['metadata_json']=np.array(json.dumps(meta));np.savez_compressed(path,**values);r['trace_sha256']=sha(path)
++        s=next(s for s in p['states'] if s['state_uid']==c['state_uid']);r.update(experiment_uid=p['experiment_uid'],cache_identity_schema='registered_exact_uid_v1',scenario_uid=p['base_profiles'][n]['payload']['scenario_uid'],flow_checkpoint_sha256=p['base_profiles'][n]['payload']['flow_checkpoint_sha256'],eta=c['eta_a'],future_index=c['seed'],initial_positions=s['physical']['positions'],initial_velocities=s['physical']['velocities'],goals=s['physical']['goals'],phase_protocol_sha256=sha(HERE/f'{phase}_protocol.json'),rhr_params=dict(speed=speed,trigger_steps=trigger) if speed is not None else None);write(out,r);journal=append_journal([r],p['experiment_uid'],f'{phase}_{index}');assert journal.resolve().is_relative_to(ROOT/'shared_rollout_db/journals');count+=1
++        if count%16==0:print(phase,index,count,flush=True)
+     write(HERE/phase/f'worker_{index}.json',dict(utc=utc(),complete=True,new=count));source_inventory(f'imports_{phase}_{index}.json')
+ if __name__=='__main__':worker(sys.argv[1],int(sys.argv[2]),int(sys.argv[3]))
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/integrity.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/integrity.py
+@@ -1,10 +1,15 @@
+-"""Read-only protected-tree audit; outputs only in round30b."""
++"""Read-only protected-tree audit; outputs only in round30c."""
+ import sys, os, json, hashlib, subprocess
+ from pathlib import Path
+ from datetime import datetime, timezone
+ sys.dont_write_bytecode=True
+ HERE=Path(__file__).resolve().parent
+ ROOT=HERE.parents[1]
++sys.path.insert(0,str(ROOT))
++import shared_rollout_db
++from shared_rollout_db.src import cache_writer
++assert Path(shared_rollout_db.__file__).resolve().is_relative_to(ROOT/'shared_rollout_db')
++assert (cache_writer.ROOT/'journals').resolve()==ROOT/'shared_rollout_db/journals'
+ OFF=Path('/home/zhihan/research/01_MACFlow_Baseline_Reproduction/MACFlow_Official')
+ POC=Path('/home/zhihan/research/Basin_C1_flow_field_poc_20261004')
+ def sha(p):
+@@ -18,16 +23,16 @@
+ def tree(p):return {str(f.relative_to(p)):sha(f) for f in sorted(p.rglob('*')) if f.is_file()}
+ def write(name,x):(HERE/name).write_text(json.dumps(x,indent=2,ensure_ascii=False)+'\n')
+ def main(phase):
+- data=dict(utc=datetime.now(timezone.utc).isoformat(),basin=git(ROOT),official=git(OFF),poc=tree(POC),round30=tree(ROOT/'diagnostics/teacher_student_macflow_v1'))
++ data=dict(utc=datetime.now(timezone.utc).isoformat(),basin=git(ROOT),official=git(OFF),poc=tree(POC),round30=tree(ROOT/'diagnostics/teacher_student_macflow_v1'),round30b=tree(ROOT/'diagnostics/teacher_student_macflow_v1b'))
+  write('INTEGRITY_'+phase.upper()+'.json',data)
+  if phase=='end':
+   start=json.loads((HERE/'INTEGRITY_START.json').read_text());delta={}
+-  for k in ('official','poc','round30'):
++  for k in ('official','poc','round30','round30b'):
+    if data[k]!=start[k]:delta[k]=dict(changed=True)
+   for k in ('head','diff_sha256'):
+    if data['basin'][k]!=start['basin'][k]:delta['basin_'+k]=dict(before=start['basin'][k],after=data['basin'][k])
+   before=set(start['basin']['status'].splitlines());after=set(data['basin']['status'].splitlines())
+-  external=[s for s in after-before if 'diagnostics/teacher_student_macflow_v1b/' not in s]
++  external=[s for s in after-before if 'diagnostics/teacher_student_macflow_v1c/' not in s]
+   removed=sorted(before-after)
+-  write('INTEGRITY_COMPARISON.json',dict(protected_content_pass=not delta,changes=delta,concurrent_new_status_entries=external,removed_status_entries=removed,round30b_entries=[s for s in after-before if 'diagnostics/teacher_student_macflow_v1b/' in s]))
++  write('INTEGRITY_COMPARISON.json',dict(protected_content_pass=not delta,changes=delta,concurrent_new_status_entries=external,removed_status_entries=removed,round30c_entries=[s for s in after-before if 'diagnostics/teacher_student_macflow_v1c/' in s]))
+ if __name__=='__main__':main(sys.argv[1])
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/teacher_supplement.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/teacher_supplement.py
+@@ -4,10 +4,10 @@
+ OLD=D/'teacher_student_macflow_v1'
+ def summarize(point,draw):return dict(mean=float(point),CI95=np.quantile(draw,[.025,.975]).tolist())
+ def main():
+-    assert (HERE/'DELIVERY.receipt.json').exists()
++    assert (HERE/'ANALYSIS_COMPLETE.receipt.json').exists()
+     results=read(HERE/'results.json');raw={r['rollout_uid']:r for r in read(OLD/'teacher_DB_ROWS.json')};cases=read(OLD/'teacher_CASES.json');z=np.load(HERE/'analysis_arrays.npz');all_names=z['controller_names'].tolist();out={}
+-    lines=['# TS5 descriptive teacher supplementary-arm reuse','', 'No new rollouts. Matched state/seed; controller then state clustered paired bootstrap5000, seed2026103032. Teacher rows are DEVELOPMENT references. Unknowns preserved as lower0/upper1, never rerun. The primary confirmatory status remains INCONCLUSIVE.','', '| Set | Arm | Teacher success lower [95% CI] | Teacher success upper | Student−teacher lower [95% CI] | Identification interval |','|---|---|---|---:|---|---|']
+-    for setname in ['CONFIRMATORY','DEVELOPMENT']:
++    lines=['# TS5 descriptive teacher supplementary-arm reuse','', 'No new rollouts. Matched state/seed; controller then state clustered paired bootstrap5000, seed2026103032. Teacher rows are DEVELOPMENT references. Unknowns preserved as lower0/upper1, never rerun. Endpoint status is reported in results.json; these teacher references are descriptive.','', '| Set | Arm | Teacher success lower [95% CI] | Teacher success upper | Student−teacher lower [95% CI] | Identification interval |','|---|---|---|---:|---|---|']
++    for setname in ['CONFIRMATORY','SENSITIVITY','DEVELOPMENT']:
+         names=results[setname]['controllers'];C=len(names)
+         if not C:continue
+         t=np.full((C,32,2,2),np.nan);u=np.zeros_like(t);collision=np.zeros_like(t);timeout=np.zeros_like(t)
+@@ -19,5 +19,5 @@
+         bt=draw(t);bs=draw(s);bu=draw(u);bsu=draw(su);out[setname]={}
+         for j,arm in enumerate(['nominal only','safety baseline']):
+             v=dict(teacher_success=summarize(t[...,j].mean(),bt[:,j]),teacher_success_upper=summarize((t+u)[...,j].mean(),(bt+bu)[:,j]),teacher_collision=summarize(collision[...,j].mean(),draw(collision)[:,j]),teacher_timeout=summarize(timeout[...,j].mean(),draw(timeout)[:,j]),teacher_unknown=int(u[...,j].sum()),student_minus_teacher=summarize((s-t)[...,j].mean(),(bs-bt)[:,j]),identification_interval=[float((s-t-u)[...,j].mean()),float((s+su-t)[...,j].mean())],CI_unknown_envelope=[float(np.quantile((bs-bt-bu)[:,j],.025)),float(np.quantile((bs+bsu-bt)[:,j],.975))]);out[setname][arm]=v;ts=v['teacher_success'];delta=v['student_minus_teacher'];lines.append(f"| {setname} | {arm} | {ts['mean']:.2%} {ts['CI95']} | {v['teacher_success_upper']['mean']:.2%} | {delta['mean']:.2%} {delta['CI95']} | {v['identification_interval']} |")
+-    write(HERE/'TS5_TEACHER_SUPPLEMENT.json',dict(utc=utc(),sets=out,source_cases_sha256=sha(OLD/'teacher_CASES.json'),source_rows_sha256=sha(OLD/'teacher_DB_ROWS.json'),rollouts_generated=0,primary_results_unchanged=True));(HERE/'TS5_TEACHER_SUPPLEMENT.md').write_text('\n'.join(lines)+'\n');source_inventory('imports_teacher_supplement.json');seal('SUPPLEMENT_DELIVERY.receipt.json',[HERE/'TS5_TEACHER_SUPPLEMENT.json',HERE/'TS5_TEACHER_SUPPLEMENT.md',HERE/'teacher_supplement.py',HERE/'DELIVERY.receipt.json'],new_rollouts=0,main_results_unchanged=True)
++    write(HERE/'TS5_TEACHER_SUPPLEMENT.json',dict(utc=utc(),sets=out,source_cases_sha256=sha(OLD/'teacher_CASES.json'),source_rows_sha256=sha(OLD/'teacher_DB_ROWS.json'),rollouts_generated=0,primary_results_unchanged=True));(HERE/'TS5_TEACHER_SUPPLEMENT.md').write_text('\n'.join(lines)+'\n');source_inventory('imports_teacher_supplement.json');seal('SUPPLEMENT_DELIVERY.receipt.json',[HERE/'TS5_TEACHER_SUPPLEMENT.json',HERE/'TS5_TEACHER_SUPPLEMENT.md',HERE/'teacher_supplement.py',HERE/'ANALYSIS_COMPLETE.receipt.json'],new_rollouts=0,main_results_unchanged=True)
+ if __name__=='__main__':main()
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/actions.py
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/tuned.py
+@@ -1,20 +1,23 @@
+-"""Additional arms only; frozen pipeline logic is untouched."""
+ from core import *
+-from pipeline import LocalSafety,decentralized_action
+-
+-def nominal_only(rt,env,key,eta,counts):
+-    action=rt.nominal(env,key)[1]
+-    return action,dict(projection_calls=0,minimum_local_linear_residual=np.nan,neighbor_counts=[0]*4,rhr_active=np.zeros(4,bool))
+-def right_hand_local(rt,env,key,eta,counts):
++from pipeline import LocalSafety
++from episode_extended import CountedRuntime
++import jax
++jax.config.update("jax_enable_x64",False)
++def right_hand_tuned(rt,env,key,eta,counts,speed,trigger):
+     nominal=np.stack([rt.nominal(env,key)[1][i] for i in range(4)])
+     filters=[LocalSafety(env.positions,i,env.config,1.5) for i in range(4)];safe=np.stack([f.project(nominal[i:i+1])[0][0] for i,f in enumerate(filters)])
+     target=safe.copy();active=np.zeros(4,bool)
+     for i in range(4):
+-        if counts[i]>=40 and np.linalg.norm(env.goals[i]-env.positions[i])>env.config.goal_tolerance:
+-            q=env.positions[i];target[i]+=.15*np.array([q[1],-q[0]])/max(np.linalg.norm(q),1e-30);active[i]=True
++        if counts[i]>=trigger and np.linalg.norm(env.goals[i]-env.positions[i])>env.config.goal_tolerance:
++            q=env.positions[i];target[i]+=speed*np.array([q[1],-q[0]])/max(np.linalg.norm(q),1e-30);active[i]=True
+     executed=np.stack([f.project(target[i:i+1])[0][0] for i,f in enumerate(filters)])
+     return executed,dict(projection_calls=sum(f.calls for f in filters),minimum_local_linear_residual=min(f.certificate(executed[i:i+1])['min_linear_residual'] for i,f in enumerate(filters)),neighbor_counts=[len(f.neighbor_indices) for f in filters],rhr_active=active)
+-def dispatch(rt,env,key,eta,kind,counts):
+-    if kind=='nominal':return nominal_only(rt,env,key,eta,counts)
+-    if kind=='rhr_local':return right_hand_local(rt,env,key,eta,counts)
+-    return decentralized_action(rt,env,key,eta,kind,counts)
++
++class TunedRuntime(CountedRuntime):
++    def __init__(self,base,speed,trigger):super().__init__(base);self.speed=speed;self.trigger=trigger
++    def action(self,env,key,eta,chain='old'):
++        if env.step_count==0:self.last_step=0;self.slow_counts[:]=0
++        elif env.step_count!=self.last_step:
++            mask=(np.linalg.norm(env.velocities,axis=1)<.01)&(np.linalg.norm(env.goals-env.positions,axis=1)>env.config.goal_tolerance);self.slow_counts=np.where(mask,self.slow_counts+1,0);self.last_step=env.step_count
++        a,d=right_hand_tuned(self.base,env,key,eta,self.slow_counts,self.speed,self.trigger)
++        return a,dict(min_linear_residual=d['minimum_local_linear_residual']),d['projection_calls']
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/rollout.sbatch
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/rollout.sbatch
+@@ -1,11 +1,11 @@
+ #!/bin/bash
+-#SBATCH --job-name=r30b_roll
++#SBATCH --job-name=r30c_roll
+ #SBATCH --partition=cpu
+ #SBATCH --cpus-per-task=1
+ #SBATCH --mem=5G
+ #SBATCH --time=24:00:00
+-#SBATCH --output=/home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/roll_%A_%a.log
++#SBATCH --output=/home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/roll_%A_%a.log
+ set -euo pipefail
+ cd /home/zhihan/research/Basin_C1
+ export PYTHONDONTWRITEBYTECODE=1 JAX_PLATFORMS=cpu
+-exec /home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python -B diagnostics/teacher_student_macflow_v1b/run.py "$1" "$SLURM_ARRAY_TASK_ID" "$2"
++exec /home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python -B diagnostics/teacher_student_macflow_v1c/run.py "$1" "$SLURM_ARRAY_TASK_ID" "$2"
+--- /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/probe.sbatch
++++ /home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/probe.sbatch
+@@ -1,11 +1,11 @@
+ #!/bin/bash
+-#SBATCH --job-name=r30b_probe
++#SBATCH --job-name=r30c_probe
+ #SBATCH --partition=cpu
+ #SBATCH --cpus-per-task=1
+ #SBATCH --mem=5G
+ #SBATCH --time=16:00:00
+-#SBATCH --output=/home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1b/probe_%A_%a.log
++#SBATCH --output=/home/zhihan/research/Basin_C1/diagnostics/teacher_student_macflow_v1c/probe_%A_%a.log
+ set -euo pipefail
+ cd /home/zhihan/research/Basin_C1
+ export PYTHONDONTWRITEBYTECODE=1 JAX_PLATFORMS=cpu
+-exec /home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python -B diagnostics/teacher_student_macflow_v1b/probes.py worker "$SLURM_ARRAY_TASK_ID" "$1"
++exec /home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python -B diagnostics/teacher_student_macflow_v1c/probes.py worker "$SLURM_ARRAY_TASK_ID" "$1"

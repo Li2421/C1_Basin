@@ -1,0 +1,51 @@
+{
+  "status": "POST_FREEZE_EXTERNAL_FEATURE_AVAILABILITY_CORRECTION",
+  "utc": "2026-10-14T03:03:41.260447+00:00",
+  "cohort": "T2",
+  "model": "A2",
+  "reason": "Round11 R6_FEATURES.npz contains all 14 T2 original controllers and the identical seven R6 statistics. Initial directory-local audit missed this compatible historical file.",
+  "external_T2_labels_already_opened": true,
+  "use_in_T1_hypothesis_gates": false,
+  "model_or_hyperparameter_changed": false,
+  "r6_feature_sha256": "d3ca09b106138660401de1806df04aa0d6bcaa735b3ebedf9b59df870512416c",
+  "training_r6_feature_sha256": "8d0f22d1a8965294bfbe23041f5e155eaa91a16cb4553b7fb0b8bc9d21076a36",
+  "original_model_freeze_receipt_sha256": "048f3331b5a394734f543ef11d32466c95a1de0a47e57db7142ed79a712a073b",
+  "selected_step": 500,
+  "controller_names": [
+    "base_u_plus_w_v4_wide_macflow",
+    "base_u_macflow",
+    "base_u_v4_macflow",
+    "base_u_plus_w_v6_macflow",
+    "base_u_plus_w_v3_macflow",
+    "base_u_plus_w_v4_train_targeted_macflow",
+    "base_u_v3_macflow",
+    "base_u_v2_macflow",
+    "base_u_v10_local_macflow",
+    "base_u_plus_w_v5_macflow",
+    "base_u_v7_local_macflow",
+    "base_u_plus_w_v4_macflow",
+    "base_u_v8_local_macflow",
+    "base_u_v9_local_macflow"
+  ],
+  "paired_state_count": [
+    15,
+    16,
+    16,
+    16,
+    16,
+    16,
+    15,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16
+  ],
+  "checkpoint_sha256": {
+    "17": "db80268f053e22c283950db9d6bcd1b754a685a8765dbe2076e4609be101652f",
+    "23": "68c161e3cd4267863b7abb15caf219f3b1d77fe2db05cec4347a53f253e9b35b",
+    "41": "eed7174a950687bb86dbb9b16f704d97770d92b49f6a45b37ed55b4af125a305"
+  }
+}

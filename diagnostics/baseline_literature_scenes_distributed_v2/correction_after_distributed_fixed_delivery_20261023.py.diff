@@ -1,0 +1,19 @@
+--- correction_after_distributed_fixed_parallel_20261023.py
++++ correction_after_distributed_fixed_delivery_20261023.py
+@@ -50,6 +50,7 @@
+   status('revised_main_saved_trace_diagnosis',pending=pending,stage_worker_counts=counts);time.sleep(10)
+ 
+ def main():
++ verify_receipt('CORRECTION_FINAL_DELIVERY_READY_20261023.receipt.json')
+  verify_receipt('CORRECTION_CONFIGURED_CONTINUATION_READY_20261023.receipt.json')
+  with (HERE/'CORRECTION_CONTINUATION.lock').open('a') as lock:
+   fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+@@ -69,6 +70,6 @@
+   action('merge_revised_main','db_merge.py')
+   wait_ready('CORRECTION_PARALLEL_NUMERICS_READY_20261023.receipt.json','revised_main_complete_waiting_combined_statistics_implementation')
+   if not (HERE/'MIGRATION_NUMBERS.receipt.json').exists():action('combined_original_revised_numbers','statistics_parallel_correction_20261023.py')
+-  wait_ready('CORRECTION_OPTIONAL_READY_20261021.receipt.json','combined_main_numbers_sealed_waiting_revised_optional_implementation')
+-  action('revised_optional_and_final_delivery','optional_delivery_correction_revised_20261021.py')
++  wait_ready('CORRECTION_FINAL_DELIVERY_READY_20261023.receipt.json','combined_main_numbers_sealed_waiting_revised_optional_implementation')
++  action('revised_optional_and_final_delivery','optional_delivery_correction_delivery_20261023.py')
+ if __name__=='__main__':main()

@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-15T11:35:56.056549+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/axis4a_geometry_horizon_v1/FROZEN_REFERENCE_PREDICTIONS.npz": "1ad4b7967d0de1c1ca568d43bc645654a203fa5c8f89343093170a632ab7ad92",
+    "/home/zhihan/research/Basin_C1/diagnostics/axis4a_geometry_horizon_v1/FROZEN_REFERENCE_CHOICES.json": "f57ef0fdb56b30f061b041ce8be12c8c53bbc73ed75d924cf744655df255455a",
+    "/home/zhihan/research/Basin_C1/diagnostics/method_benchmark_v1/T2_ALIGNED_PREDICTIONS.npz": "73bf22f4c59fdd72cf588002ccfd52d70ce02e0e00d19644a97f6bb1e9473292",
+    "/home/zhihan/research/Basin_C1/diagnostics/method_benchmark_v1/T2_ALIGNMENT_CORRECTION.receipt.json": "6b37bedc3d2f3b02dd29666db31fbdf542008479a41af3ef95438d0d6eb823b0"
+  },
+  "before_new_rollouts": true,
+  "physical23_contains_no_geometry_or_horizon": true
+}

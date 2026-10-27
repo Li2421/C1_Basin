@@ -1,0 +1,30 @@
+--- scene_learning_scheduler_flat_static.py
++++ scene_learning_scheduler_flat_static_allcpu.py
+@@ -2,11 +2,11 @@
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+-from coordinator_pipelined import action,stage_done,jobs_by_stage,stage_ready
+-from resources_released import snapshot
++from coordinator_flat_static_allcpu import action,stage_done,jobs_by_stage,stage_ready
++from resources_idle_cpu import snapshot
+ from infrastructure_recovery_active import classify
+ from analysis_jobs_current import prepare as prepare_analysis
+-import fine_dispatch_flat_static as fine_dispatch
++import fine_dispatch_flat_static_allcpu as fine_dispatch
+ import subprocess
+ import time
+ 
+@@ -34,9 +34,9 @@
+ 
+ 
+ def run(scenes):
+-    from critic_jobs_released import submit as submit_critic
+-    from diagnosis_backfill import submit as submit_backfill
+-    from status_released import main as status
++    from critic_jobs_released_allcpu import submit as submit_critic
++    from diagnosis_backfill_allcpu import submit as submit_backfill
++    from status_released_allcpu import main as status
+     verify_receipt('PIPELINED_SCHEDULING.receipt.json')
+     labels=['learning_labels_'+s for s in scenes]
+     for stage in labels:fine_dispatch.prepare(stage)

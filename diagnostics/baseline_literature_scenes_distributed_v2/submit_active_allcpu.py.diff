@@ -1,0 +1,11 @@
+--- submit_active.py
++++ submit_active_allcpu.py
+@@ -1,7 +1,7 @@
+ """Serialized, quota-aware submissions; every job has a sealed preflight."""
+ from experiment import *
+ from registry import verify_receipt
+-from resources_released import require_capacity,snapshot
++from resources_idle_cpu import require_capacity,snapshot
+ import subprocess
+ import fcntl
+ import time

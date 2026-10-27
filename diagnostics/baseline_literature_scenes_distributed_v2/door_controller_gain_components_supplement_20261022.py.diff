@@ -1,0 +1,11 @@
+--- door_controller_gain_components_20261021.py
++++ door_controller_gain_components_supplement_20261022.py
+@@ -10,7 +10,7 @@
+ import numpy as np,collections
+ 
+ def main():
+- verify_receipt('MIGRATION_NUMBERS.receipt.json');classes=read(HERE/'INSTANCE_CLASSES_REVISED.json')['instances'];rows=[];sources=[];fixed=read(HERE/'FIXED_ETA.json')['10']['values'];basis=get_basis_family('orthoflow3')
++ verify_receipt('MIGRATION_NUMBERS.receipt.json');classes=read(HERE/'INSTANCE_CLASSES_SUPPLEMENT_20261022.json')['instances'];rows=[];sources=[];fixed=read(HERE/'FIXED_ETA.json')['10']['values'];basis=get_basis_family('orthoflow3')
+  for layer in ('central','distributed'):
+   eligible={r['controller'] for r in classes if r['scene']=='lit_doorway' and r['layer']==layer and r['remove_in_revised_exclusion']}
+   baselines=read(HERE/f'{layer}_baseline_lit_doorway_CASES.json');chosen=collections.Counter()

@@ -1,0 +1,3331 @@
+{
+  "eta": [
+    [
+      0.562171065248549,
+      -0.3615773478522897,
+      0.6961268512532115
+    ],
+    [
+      1.0193532314151525,
+      0.2190246358513832,
+      0.0731143222656101
+    ],
+    [
+      1.142077801283449,
+      -0.11184126418083906,
+      0.5354755260050297
+    ],
+    [
+      0.8730407957918942,
+      0.46923899091780186,
+      0.198283078847453
+    ],
+    [
+      0.7037163688801229,
+      -0.24619798455387354,
+      0.11380863189697266
+    ],
+    [
+      1.1619757157750428,
+      0.3575362041592598,
+      0.6201831239741296
+    ],
+    [
+      0.9089664416387677,
+      -0.4969349233433604,
+      0.3677007621154189
+    ],
+    [
+      0.6403199601918459,
+      0.10825409926474094,
+      0.40112129389308393
+    ],
+    [
+      0.6430725338868797,
+      -0.03824079968035221,
+      0.2958621312864125
+    ],
+    [
+      0.9355227262713015,
+      0.4269340494647622,
+      0.42650406737811863
+    ],
+    [
+      1.2463931469246745,
+      -0.2889987491071224,
+      0.18647276004776359
+    ],
+    [
+      0.7657949328422546,
+      0.17765000741928816,
+      0.594160825246945
+    ],
+    [
+      0.7823977759107947,
+      -0.4154763016849756,
+      0.5148059329949319
+    ],
+    [
+      1.0745060704648495,
+      0.05806048307567835,
+      0.2660608480218798
+    ],
+    [
+      1.0111074964515865,
+      -0.16573071107268333,
+      0.7174359750933945
+    ],
+    [
+      0.5293891974724829,
+      0.3083034185692668,
+      0.004511061357334256
+    ]
+  ],
+  "base_profiles": {
+    "M0": {
+      "controller_uid": "ctl_81da1648038cf3c0a912bd917fe6a5ea6fb862c0934360d1fd392e883ba3c300",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": null,
+        "flow_checkpoint_sha256": null,
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "M",
+        "nominal_parameters": [
+          10,
+          64,
+          20
+        ],
+        "nominal_implementation_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "M1": {
+      "controller_uid": "ctl_e83db045e97146a25f8848138657974d00aefb663c0bdf4dc8bb604fbcb86ccd",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": null,
+        "flow_checkpoint_sha256": null,
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "M",
+        "nominal_parameters": [
+          10,
+          64,
+          100
+        ],
+        "nominal_implementation_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "M2": {
+      "controller_uid": "ctl_b7844691e4aa9f17071a4049bc8d007c94538445f7e7575d0423412c2f02fd70",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": null,
+        "flow_checkpoint_sha256": null,
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "M",
+        "nominal_parameters": [
+          10,
+          256,
+          20
+        ],
+        "nominal_implementation_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "M3": {
+      "controller_uid": "ctl_dda9333bc5aad8387dccee1ad52b7e24db4f832611f5bad41f9baf9491ed5be7",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": null,
+        "flow_checkpoint_sha256": null,
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "M",
+        "nominal_parameters": [
+          10,
+          256,
+          100
+        ],
+        "nominal_implementation_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "M4": {
+      "controller_uid": "ctl_9a2b3419e1326e005ecd42e5ec3565eec4027bb51547fa9079747ea5908f3ec5",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": null,
+        "flow_checkpoint_sha256": null,
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "M",
+        "nominal_parameters": [
+          30,
+          64,
+          20
+        ],
+        "nominal_implementation_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "M5": {
+      "controller_uid": "ctl_ae37fd7202c469278db419b639d036d6d028257a0e112aa9b2e5088b4c02edd5",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": null,
+        "flow_checkpoint_sha256": null,
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "M",
+        "nominal_parameters": [
+          30,
+          256,
+          100
+        ],
+        "nominal_implementation_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "P0": {
+      "controller_uid": "ctl_5081f18c60c750215a22d9514520a95b79253ef7e9e0775c1f7ca9a0e790e83d",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": null,
+        "flow_checkpoint_sha256": null,
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "P",
+        "nominal_parameters": [
+          0.6,
+          0.015,
+          0.01
+        ],
+        "nominal_implementation_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "P1": {
+      "controller_uid": "ctl_6180a8c2cf530076dcafdd2bd12798d5bb6028d9dc5e45b78ad0841f42023371",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": null,
+        "flow_checkpoint_sha256": null,
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "P",
+        "nominal_parameters": [
+          0.6,
+          0.06,
+          0.04
+        ],
+        "nominal_implementation_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "P2": {
+      "controller_uid": "ctl_3b23b94b7b970c07fb83b8be16a475bf58acc397f424583fb24f7f25a02eb347",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": null,
+        "flow_checkpoint_sha256": null,
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "P",
+        "nominal_parameters": [
+          1,
+          0.015,
+          0.01
+        ],
+        "nominal_implementation_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "P3": {
+      "controller_uid": "ctl_41b6592d724f12d48d7ff6cae57955300ef97d0c4b31e02d5b52053edc22e58a",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": null,
+        "flow_checkpoint_sha256": null,
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "P",
+        "nominal_parameters": [
+          1,
+          0.06,
+          0.04
+        ],
+        "nominal_implementation_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "P4": {
+      "controller_uid": "ctl_1b675152251fef549a5dadbc1b977f823144523279e88717178a5a67423dfa98",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": null,
+        "flow_checkpoint_sha256": null,
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "P",
+        "nominal_parameters": [
+          1.4,
+          0.03,
+          0.02
+        ],
+        "nominal_implementation_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "P5": {
+      "controller_uid": "ctl_6c0aa199794f89a80293a38debdae2dc83869207e830ed6169d81b2b78620f0b",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": null,
+        "flow_checkpoint_sha256": null,
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "P",
+        "nominal_parameters": [
+          1.4,
+          0.12,
+          0.08
+        ],
+        "nominal_implementation_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "base_u_macflow": {
+      "controller_uid": "ctl_0a5d90772dd8bc061a09992b94daf9c8036e1267dec6c5b0932853e4528a8e0e",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_macflow/best.pkl",
+        "flow_checkpoint_sha256": "cad731b1d5581465c111a6a51462c802a947813d4fb3665502bd712f99944118",
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "Flow",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "base_u_v10_local_macflow": {
+      "controller_uid": "ctl_ec6c9a2f66a4580ff6f77fca9757a9166eec403615c1fab2c59316ebce12bbfd",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1_flow_field_poc_20261004/field_pipeline_v1/ring_t0_source.py",
+        "execution_callable_sha256": "8b17fc744dcd3f4bb90b30816f4cd7e5f770e29bab9be3f086a42bdfe66c2926",
+        "flow_checkpoint_path": "/home/zhihan/research/Basin_C1_flow_field_poc_20261004/assets/diagnostics/ring_exchange_stage1/base_u_v10_local_macflow/best.pkl",
+        "flow_checkpoint_sha256": "11ea8860e05ea19aef5c10ec12041c592d69460260e28a4f726af4533d19bcda",
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "legacy_controller_uid_verified_by_original_function": "field_ring_t0_source_v1_ctl_8fb979aef9685481600c90043032cfaa8847db832910f2a0929cf538a41d615d",
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "controller_class": "Flow",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "base_u_v9_local_macflow": {
+      "controller_uid": "ctl_06029e6459ed91bd28bb44c69fd6eb2fa6bfd557374d2b88c75a754075577247",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_v9_local_macflow/best.pkl",
+        "flow_checkpoint_sha256": "3ecacb648a2ac54c0c34ce62dfffe8857f505c950d63ccf526edf4ba24bb1ed6",
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_v10_local_dataset/manifest.json",
+        "adapter_manifest_sha256": "dd72095a957acfb9fe47ff9b6478329bb06424c91bd9dd401d6e1b3c74431732",
+        "observation_frame": "local",
+        "checkpoint_environment_fingerprint": "b2c23c9e2d0a5ed8638a90651214867dabe93986f8e0dbe1620b1e4e18adbbad",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "Flow",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    },
+    "base_u_plus_w_v4_wide_macflow": {
+      "controller_uid": "ctl_923646854ee651b35c1b76cc48d4e09d40fb73982730270a234bbb7b804c1b4e",
+      "payload": {
+        "action_code_hashes": {
+          "poc/field_controller.py": "d01c1b63fe253bcebcac3727ccda7fc0de9bb81c52e122cafa05d762831427d9",
+          "source/shared_control/basis_families.py": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+          "validation_stage2/factorial_controller.py": "df5ea9ab857db320c093c6fd8209cef52b5570a5bbb245acda343205a8a311e2",
+          "validation_v2/adapters.py": "6d95d00c39731db21a3f44b3303814896ef8f5a96bf809a8fa411a6a1814deb5"
+        },
+        "agent_slot_semantics": "unchanged native checkpoint/runtime slots; unified encoder masks only",
+        "cbf": {
+          "feasibility_tol": 1e-09,
+          "gamma": 1.0,
+          "gamma_wall": 1.0,
+          "intervention_tol": 1e-06,
+          "max_iterations": 200,
+          "optimality_tol": 2e-06,
+          "separation_buffer": 0.0001,
+          "solver_ftol": 1e-12,
+          "speed_tol": 1e-10
+        },
+        "chain": "FF",
+        "conditioning": "nominal_TT_project_correct_reproject",
+        "dt": 0.05,
+        "environment_sha256": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "execution_callable": "/home/zhihan/research/Basin_C1/diagnostics/controller_q_transfer_round3_v1/flow_adapter.py",
+        "execution_callable_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "flow_checkpoint_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_plus_w_v4_wide_macflow/best.pkl",
+        "flow_checkpoint_sha256": "63074027489081421ed60a1be28b05b325a73ac7ac0282129191e33d0aec41c2",
+        "horizon": 700,
+        "jax_enable_x64": false,
+        "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+        "pseudo_steps": 10,
+        "rng": {
+          "future_root": 2026100403,
+          "key": "fold_in(fold_in(fold_in(PRNGKey(root),SHA256(source_alias)[:8]),future_index),physical_step)",
+          "seed_key_includes_namespace": true
+        },
+        "safety_projection_sha256": "847f7045ffb617f403abb5af3a4edd092c70eef7734e819d42718c3391b0ff79",
+        "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+        "success_semantics": "native collision_free_success AND termination=success AND no numerical failure",
+        "base_controller": "real_ring_flow_checkpoint_free_t0_ff_round3_v1",
+        "checkpoint_training_manifest_sha256": null,
+        "adapter_manifest_path": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_dataset/manifest.json",
+        "adapter_manifest_sha256": "609f45f7543b922db2f0ca5b317f06334e392948a2f70c22dbc3296502c8da86",
+        "observation_frame": "global",
+        "checkpoint_environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+        "controller_source_sha256": "43ca78b21285ee5c80ccac09deaa4f1e174dba1ebff897ad35583aa806758c41",
+        "controller_class": "Flow",
+        "execution_semantics": "nonflow_TT_native_v1",
+        "placement": "TT"
+      }
+    }
+  },
+  "controller_order": [
+    "M0",
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "P0",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "base_u_macflow",
+    "base_u_v10_local_macflow",
+    "base_u_v9_local_macflow",
+    "base_u_plus_w_v4_wide_macflow"
+  ],
+  "native_manifest": {
+    "action_shape": [
+      4,
+      2
+    ],
+    "agent_order": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "complete": true,
+    "counts": {
+      "source": {
+        "nominal": 95,
+        "targeted_agent": 0,
+        "targeted_wall_obstacle": 0,
+        "uniform_recovery": 182
+      },
+      "split": {
+        "dev": 57,
+        "test": 30,
+        "train": 190
+      }
+    },
+    "environment_fingerprint": "9a3b417c1f542eddb728877e3677a332be93df8771a0bca10fbfb2c8051c8665",
+    "extra_report": {
+      "expert_failures": {
+        "dev": 0,
+        "test": 0,
+        "train": 0
+      },
+      "nominal_requested": {
+        "dev": 15,
+        "test": 30,
+        "train": 50
+      },
+      "nominal_success": {
+        "dev": 15,
+        "test": 30,
+        "train": 50
+      },
+      "targeted_recovery_transitions": 0,
+      "uniform_recovery_failures": 0,
+      "uniform_recovery_success": 182
+    },
+    "files": [
+      {
+        "file": "rollouts/train/train_nominal_000000.npz",
+        "length": 310,
+        "rollout_id": "train_nominal_000000",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "7ac3a671ca933ba4fa5399f767b5aad5d3e458a79faf0fd7a69a2d80077f842e"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000001.npz",
+        "length": 315,
+        "rollout_id": "train_uniform_000001",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "74fceb260e43d5b3aecfc5cfabff34fe52df1bb31d8bf2bbe4c49d07b91bdddb"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000002.npz",
+        "length": 212,
+        "rollout_id": "train_uniform_000002",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "3ba6430d15a60e575d7cfd9cbd41af28341cc78f5d510fa877625bb92fd0da06"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000003.npz",
+        "length": 5,
+        "rollout_id": "train_uniform_000003",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "8a81dba3a8c09990eab134648ca6a726d877b5a3dc40d39d3f0e5e0fc541dafb"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000004.npz",
+        "length": 316,
+        "rollout_id": "train_nominal_000004",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "d8ec99f4790ae0322d0daccfac65f3a9af25f3d2308a1ba7be03999f5bb8da0b"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000005.npz",
+        "length": 317,
+        "rollout_id": "train_uniform_000005",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "33d38918f3dc1fdbc9e8c13838c5d9ccb51ec546e7bb915c54c4c0641d135b39"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000006.npz",
+        "length": 368,
+        "rollout_id": "train_uniform_000006",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "089c69b95348ab98ad62663b511f85a57183a06f7595f6ddf0b688f64a06cfee"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000007.npz",
+        "length": 105,
+        "rollout_id": "train_uniform_000007",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "c1eec864b8894bb0ae0e6e0a36eff3b3de7cf244c4b8f1ee0ef16aae2fd5a3cc"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000008.npz",
+        "length": 562,
+        "rollout_id": "train_uniform_000008",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "807c0a591d4bb469602dc2db35cc601ccbfe9f1a60df347198ff3ef2f2524792"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000009.npz",
+        "length": 325,
+        "rollout_id": "train_nominal_000009",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "e30b88705de5f1208eaa23774b46a6ff33b103dabf11d2b3ae2ceb39463971fe"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000010.npz",
+        "length": 328,
+        "rollout_id": "train_uniform_000010",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "cc948e8840ec5709f4c0104191f12f39470fb2a15b20ab8c2c09173f1237ea13"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000011.npz",
+        "length": 554,
+        "rollout_id": "train_uniform_000011",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "8c88b6e4830ad3b7ccdf265f05856dacf2582032d868f0021a04e4bb35feca8f"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000012.npz",
+        "length": 312,
+        "rollout_id": "train_nominal_000012",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "12b857397438a58968891d67428c44d57f329619a29cf7f2a1ac0e13c915b130"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000013.npz",
+        "length": 311,
+        "rollout_id": "train_uniform_000013",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "d7ba5d908be1dc4dfbf4406da2aacd5b12b9213704f6ebe38dce70d4ed72c9dc"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000014.npz",
+        "length": 103,
+        "rollout_id": "train_uniform_000014",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "2b778d68a414db31d0b00d34960e38bfe91eeb32f5c74f2df5705d79ba5c07cc"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000015.npz",
+        "length": 326,
+        "rollout_id": "train_nominal_000015",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "1967b453b40ed6c6eb8adc9893e0abb08969cf9b9c4cfc0db4953d17cbe54175"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000016.npz",
+        "length": 330,
+        "rollout_id": "train_uniform_000016",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "d732ee40d4358fbe962b3c33c31b598402a5896653b9eeb297847a336270a65a"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000017.npz",
+        "length": 220,
+        "rollout_id": "train_uniform_000017",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "3fa226141effad028e68c69fd2f63c0a3a7899f51f7d6d1047d51a6de8db6676"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000018.npz",
+        "length": 572,
+        "rollout_id": "train_uniform_000018",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "82394ff62316f8b30fa65f415a510273960d9ab424c026b2575876e00c25036d"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000019.npz",
+        "length": 331,
+        "rollout_id": "train_nominal_000019",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "7e3c897ad7e46f0bb46edaf0a87a238cc6239e7ed3e3488cb16daa09d58f976b"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000020.npz",
+        "length": 302,
+        "rollout_id": "train_uniform_000020",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "4f73b16bb005d8658b2474e35084751a38c79d21ec4b7424717192651f214949"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000021.npz",
+        "length": 225,
+        "rollout_id": "train_uniform_000021",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "e34c271ecee75b7365cb15ce5dd1a5d5c5641de585199f296c06d604e6f7d929"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000022.npz",
+        "length": 107,
+        "rollout_id": "train_uniform_000022",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "573c18a676a446b9c8bf38c08007209373062501fa4d10b029c84fd0e1aa3837"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000023.npz",
+        "length": 320,
+        "rollout_id": "train_nominal_000023",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "e027705fbb06816a4c5556dc7f249c7040f6160ce2e37af5e291a06101623f50"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000024.npz",
+        "length": 323,
+        "rollout_id": "train_uniform_000024",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "30fb6e5ba1dc796a443790992645d87d6944aba223e71e2a74306cb3dd28b20d"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000025.npz",
+        "length": 478,
+        "rollout_id": "train_uniform_000025",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "cf2c0a2cf2b98f35741565443f1c33bb8cb82ddfa37b656caa0f159177d591bb"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000026.npz",
+        "length": 576,
+        "rollout_id": "train_uniform_000026",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "99f9643a173ec8bc85725b398b8be3e6d3366660ba9bf9329fec75d94d67a5f6"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000027.npz",
+        "length": 308,
+        "rollout_id": "train_nominal_000027",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "77274a46813d819f0cf941bf813a4c7601b8a906a857f6b2fe945b42122c0eaf"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000028.npz",
+        "length": 307,
+        "rollout_id": "train_uniform_000028",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "f7da21100e86a61558e68045e42b404daa1d2920d3b64f9ae036af9c345723ab"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000029.npz",
+        "length": 374,
+        "rollout_id": "train_uniform_000029",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "50675cd5593c4ddd7c79bc74c6e144a9b7be205883ab6c1b226bb13a552a4147"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000030.npz",
+        "length": 565,
+        "rollout_id": "train_uniform_000030",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "9d2ca76479622eed2504272508b527523d51f7a685a16a9e1ab129d7b8ada69f"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000031.npz",
+        "length": 328,
+        "rollout_id": "train_nominal_000031",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "89cf66e1505a2cebea6bb0887b82e6076f0c114635905812cafdc9c5e5078585"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000032.npz",
+        "length": 315,
+        "rollout_id": "train_uniform_000032",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "b8141c568ca0fdec719bd0b0482b162a3aaa2c83845c1b6236c196738c7b6ecf"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000033.npz",
+        "length": 367,
+        "rollout_id": "train_uniform_000033",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "ec2320925ed8f8b6cfb6a8000d2158f77a2e36afe1c9a817a3e2f068fb4a4289"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000034.npz",
+        "length": 109,
+        "rollout_id": "train_uniform_000034",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "9fd8a2e3c530a6dd57d5d870997c37f9fbd4981f5dc1398855a78c2c259c4c71"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000035.npz",
+        "length": 563,
+        "rollout_id": "train_uniform_000035",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "8b5e781451ad76b6b26e16de3831f9b18ed1ef39e2172738bd3db8b76c78fc7e"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000036.npz",
+        "length": 315,
+        "rollout_id": "train_nominal_000036",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "c6577b99d7a010e8838e0b015e2d5358f773e20fdede5ad9c54849fd3b599b66"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000037.npz",
+        "length": 310,
+        "rollout_id": "train_uniform_000037",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "6864bc0c611e67e68bef7bf494182732bd9d36328ad3e0aa6d54376278b0c55b"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000038.npz",
+        "length": 371,
+        "rollout_id": "train_uniform_000038",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "bcf3b84cdefd828a755edc53c083ebceeffe0603d6122055cb20033732a3ee24"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000039.npz",
+        "length": 314,
+        "rollout_id": "train_nominal_000039",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "29658ab455a3ecd5e2248d6686947f60fa74e3bdb9d579cd8b903cd38dd29e4b"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000040.npz",
+        "length": 310,
+        "rollout_id": "train_uniform_000040",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "9b83ef6cc91f19d588d4424dccceb271892f4aa845c6893d0a7d09eecc0a0284"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000041.npz",
+        "length": 308,
+        "rollout_id": "train_nominal_000041",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "156683fb8cc89838b44633f977b764ce86243d14cc0333656dd17223d0063ca9"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000042.npz",
+        "length": 315,
+        "rollout_id": "train_uniform_000042",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "c24164eb50869fe6060b8270730c3b6b4161397b07b17ea906dedd6fa86841c1"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000043.npz",
+        "length": 375,
+        "rollout_id": "train_uniform_000043",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "51af446e70f7d6841873e087a8f9e80017ed9fc1be53a8ef5a558b27f5599d26"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000044.npz",
+        "length": 559,
+        "rollout_id": "train_uniform_000044",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "7ef00dffd860a90244a4953eeb189c58168a73087bae2af4e31fe4aeda3429c6"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000045.npz",
+        "length": 332,
+        "rollout_id": "train_nominal_000045",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "2ffa31f6d47f514f94a64f1fe5e07a114bc9d626ad2dcffb992d79e962541aa1"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000046.npz",
+        "length": 311,
+        "rollout_id": "train_uniform_000046",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "29f089dbbbbb001948099c675c66be9dcbad88f2eeb23c92c6f3b2c134e2a66d"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000047.npz",
+        "length": 367,
+        "rollout_id": "train_uniform_000047",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "0c2f9dc393c585efbb26d5f378eb4be26304352249e86186763e9a79f1bd6909"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000048.npz",
+        "length": 113,
+        "rollout_id": "train_uniform_000048",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "3f78733b4baf7a842e3ff726d83772a44ef24303113fdd825b15391813b16c2e"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000049.npz",
+        "length": 552,
+        "rollout_id": "train_uniform_000049",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "5efe11851c1788a9faa24eb90ff8a393e41c8acb95abcb657cb83186c54a4df5"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000050.npz",
+        "length": 325,
+        "rollout_id": "train_nominal_000050",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "1cff726c8e7c958bfe11db4c133d3015ded676879939f9b74d5fde3fa6ab9e96"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000051.npz",
+        "length": 301,
+        "rollout_id": "train_uniform_000051",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "bf221b516e38d83f6b1b46cfee0e46c1ceca493350ab39f01c65fc4398eeb62c"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000052.npz",
+        "length": 362,
+        "rollout_id": "train_uniform_000052",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "fc72fc7d7f921c2336278994cdfd501f193af2017856fc6293d9ca4d815fc0cf"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000053.npz",
+        "length": 565,
+        "rollout_id": "train_uniform_000053",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "49a123140293e38004b737b77d20a2456d61bcb8f98c4c2b420d8503d5dcdc95"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000054.npz",
+        "length": 308,
+        "rollout_id": "train_nominal_000054",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "4f8c200fce27c6a3990702daebbaf3a094a9714bae354c3937a41070f98364cf"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000055.npz",
+        "length": 325,
+        "rollout_id": "train_uniform_000055",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "0a9abcb383333b784a965916ce22873e1d3b4034c5387ee6c8dc310527faca5a"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000056.npz",
+        "length": 208,
+        "rollout_id": "train_uniform_000056",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "0c4f73d6b34216b64c9c3e55be305539610b8bcd7dbe261abf79b8ec65a7b397"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000057.npz",
+        "length": 319,
+        "rollout_id": "train_nominal_000057",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "2c9ed502253c4188af9c8361ebfa4e3cd840f4c749bd404f7c262a62f4fe6545"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000058.npz",
+        "length": 304,
+        "rollout_id": "train_uniform_000058",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "59b29b498f5815696f82e3d98577be21aa85b5702cfe31851b47004b927d5b9c"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000059.npz",
+        "length": 370,
+        "rollout_id": "train_uniform_000059",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "0079b8ceb3c585fab1ee2b6235e4a26f28f20b9e7e68f560ccaa097980558d18"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000060.npz",
+        "length": 113,
+        "rollout_id": "train_uniform_000060",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "4e5acbc7e3cd9268ec53e017e7975c365ef809cea2c069cd07379eb4fa46fa75"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000061.npz",
+        "length": 554,
+        "rollout_id": "train_uniform_000061",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "4a791ff512f107ac3a3a32ddee795d41368ffaf731295992f7a81b6111344562"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000062.npz",
+        "length": 328,
+        "rollout_id": "train_nominal_000062",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "fee4f5c88067bc404579aaf30ecbbb5b4e3cc8033ec94697216da03a22509b34"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000063.npz",
+        "length": 324,
+        "rollout_id": "train_uniform_000063",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "9cb29b76eb38aa3416298450453e62cd15d8c71deefa0895b604997aa76dff56"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000064.npz",
+        "length": 377,
+        "rollout_id": "train_uniform_000064",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "00d8166cedbee8add359bbf71cf6d87d41c849620509d4df2e24e8bd79f33f5e"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000065.npz",
+        "length": 568,
+        "rollout_id": "train_uniform_000065",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "4bcf414a3fc5a938439850bdda811542b5748fdb2997c0a008dbd9c7a7c236f2"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000066.npz",
+        "length": 319,
+        "rollout_id": "train_nominal_000066",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "a68816d1655bb535d2ede000023731f7f6ae49fa93d9e9c44418258f04ece503"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000067.npz",
+        "length": 316,
+        "rollout_id": "train_uniform_000067",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "da2371828e3146fedc802164030e043e9c2e2f310729579c17f708d955a98945"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000068.npz",
+        "length": 464,
+        "rollout_id": "train_uniform_000068",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "d3c0f49559e2bc226ce695b1640fa6487c5ecd9890c8ffac31c2f5dcc44ef6fb"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000069.npz",
+        "length": 63,
+        "rollout_id": "train_uniform_000069",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "4ba9fff6f89bb9a0f7862e6c46a495f5de5a1cc23a1c589c5be531755f389762"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000070.npz",
+        "length": 309,
+        "rollout_id": "train_nominal_000070",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "b1f87d942f792780b71a9eb0efa03a4ebfd30002852f2dc37cfaf5384b83c481"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000071.npz",
+        "length": 313,
+        "rollout_id": "train_uniform_000071",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "381b6049fd6c02d5eb58345338ccf2c1110f1b76114af76bdf3d568dc4a83ed5"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000072.npz",
+        "length": 213,
+        "rollout_id": "train_uniform_000072",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "0538832d818a426450fd9e89244941c88141492d31f7a07a9b413f6fcd98b872"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000073.npz",
+        "length": 319,
+        "rollout_id": "train_nominal_000073",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "10b937b6adbd83bf7172c8d77a96dd44e0858a25bd844ffcef6d86c3aa39413c"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000074.npz",
+        "length": 318,
+        "rollout_id": "train_uniform_000074",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "beecdf49ac011859b34935010545314e7b20ab3842e251f2e4f6c8dd6e764196"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000075.npz",
+        "length": 374,
+        "rollout_id": "train_uniform_000075",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "f2afec70ada5856df8ee737ffbb39e80195ca3d7b98d56c5e07dab3afcce94f9"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000076.npz",
+        "length": 111,
+        "rollout_id": "train_uniform_000076",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "d48bbcd09290984475bf91f398d4909fa5eee7591497e339183374e1b34ac855"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000077.npz",
+        "length": 558,
+        "rollout_id": "train_uniform_000077",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "d0f5e917bdd5f11eac2e8bd9e85c14baf3de166a2c63663723a1f8fa126156e8"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000078.npz",
+        "length": 309,
+        "rollout_id": "train_nominal_000078",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "7cfa1240cd9361935041e2a82eb159306d1bbb7bdb9a0dd0fc3f7bf33dbe62dd"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000079.npz",
+        "length": 310,
+        "rollout_id": "train_uniform_000079",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "21405b406905a0b3c774d1eafab201aed2cf4b8365086653399c8fe39640d7d8"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000080.npz",
+        "length": 373,
+        "rollout_id": "train_uniform_000080",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "ef75d9c26279d30579dc4f8cde588e78805989a9c7d7228a650da2992868e137"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000081.npz",
+        "length": 550,
+        "rollout_id": "train_uniform_000081",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "46a495f454c5119374ce19059f3372af70462b06d7a6026b6af9724a8038d16b"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000082.npz",
+        "length": 315,
+        "rollout_id": "train_nominal_000082",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "268044188d68ef17e7e9ba0e5ff0c7682005f59ce9ffef1d4ae349253360ddeb"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000083.npz",
+        "length": 325,
+        "rollout_id": "train_uniform_000083",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "b0a1e8417a10beebdc799cf129fe2df625f5090d7b1dcf8439409106b9ab41ec"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000084.npz",
+        "length": 363,
+        "rollout_id": "train_uniform_000084",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "38c5cbb28d3e6ce0ddc561a2cb6441b366395a14dcbb72fe786b230ef155641a"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000085.npz",
+        "length": 568,
+        "rollout_id": "train_uniform_000085",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "3acb1fd61d932a3c51884fdd09a744f992feee360f3d7a3426c421f0452e463b"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000086.npz",
+        "length": 332,
+        "rollout_id": "train_nominal_000086",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "a2faa3a98b2e9f3299ad4d098161e2f7e3d040829c724f6dfc3665483571694b"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000087.npz",
+        "length": 306,
+        "rollout_id": "train_uniform_000087",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "38753a19806a3c066c1ae49d76b60987068c75a0b053d9a3d19c303abde08d79"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000088.npz",
+        "length": 492,
+        "rollout_id": "train_uniform_000088",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "7c82a01a09201115136c7ed345e10604edf7a11cd83f63f9a26a1c70af0ef36d"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000089.npz",
+        "length": 563,
+        "rollout_id": "train_uniform_000089",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "0b930f0043fa2753e5ed3611d2e7e061709461ec48a75f1167e57381c98caa56"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000090.npz",
+        "length": 324,
+        "rollout_id": "train_nominal_000090",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "e1992d9134d8f581564ee527db1545c67dcc2c9774f51d0c5e2f17040aa973bb"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000091.npz",
+        "length": 325,
+        "rollout_id": "train_uniform_000091",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "9c3715f18ccfa41eda4c34f8c5572110fb219c747a5f7d49a02a1f209251bea5"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000092.npz",
+        "length": 114,
+        "rollout_id": "train_uniform_000092",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "09346940563b0b396ccff8f6c03c09f6ee780493e302ba7705b419c5ce5bf5c2"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000093.npz",
+        "length": 68,
+        "rollout_id": "train_uniform_000093",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "3c03e751e01e8533b3cae20fe2305ffd09c1084f3877b6c438370bd8b25ff31b"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000094.npz",
+        "length": 311,
+        "rollout_id": "train_nominal_000094",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "fcfdecbe2e93f631b71820484c93c4263833bd98b4551ac0aaea08d68b850e57"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000095.npz",
+        "length": 304,
+        "rollout_id": "train_uniform_000095",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "0493e3366ce6cbda8ff8d93a381f91757900a6fd4b806ba18e5c53f81f1392bb"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000096.npz",
+        "length": 211,
+        "rollout_id": "train_uniform_000096",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "0ac6b30498df5e89e07f7deb4e81ad76c3f395a24669bfd5344cf4fbc8bc89ca"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000097.npz",
+        "length": 313,
+        "rollout_id": "train_nominal_000097",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "d86a3ba7ff77eae82bee875186a492a84f24dfcfaa96f3f553fb08b962c307c9"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000098.npz",
+        "length": 314,
+        "rollout_id": "train_uniform_000098",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "2da5db2aea585ef665730f01375bcfddbc5199879ec452f6c9f784741f9f9ced"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000099.npz",
+        "length": 207,
+        "rollout_id": "train_uniform_000099",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "b006703e22f812e0977f0117922b09631b7d7f1c13ea3b897e8ccde588c1b0fc"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000100.npz",
+        "length": 108,
+        "rollout_id": "train_uniform_000100",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "0e9b86461deb84aaf2a34b663c64a650523b6d016029906953806cf23df2c572"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000101.npz",
+        "length": 561,
+        "rollout_id": "train_uniform_000101",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "24edeffcc092ab8ee19b01693d22c66e47a8b716f7f69015d4d96604657fe1fe"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000102.npz",
+        "length": 314,
+        "rollout_id": "train_nominal_000102",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "020aa04de53ea5ddc275ea4dbff40ca795b1b587647129711cbc53d8d687e554"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000103.npz",
+        "length": 323,
+        "rollout_id": "train_uniform_000103",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "5b74602dee6d9273e664d01a7776457eb737a8deda3249246e014fe04ae5bea4"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000104.npz",
+        "length": 324,
+        "rollout_id": "train_nominal_000104",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "b7f4d62af2b52413dbb870962e184a423180bf0858844681ff105dc90f993401"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000105.npz",
+        "length": 306,
+        "rollout_id": "train_uniform_000105",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "4be54e012b06aebce081c0989e79685e71b7651c7855d144419336ec8dc4e314"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000106.npz",
+        "length": 217,
+        "rollout_id": "train_uniform_000106",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "74d22f7821247a6375a40685d4030956b5a407c40643d82358487a67dc6d6fd3"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000107.npz",
+        "length": 1,
+        "rollout_id": "train_uniform_000107",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "875097772ff6a0afca6b48b5b1c9eae4b57c79cbb4ce49dfb02a2bfb57a1bf26"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000108.npz",
+        "length": 329,
+        "rollout_id": "train_nominal_000108",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "588f418abb39cc011901b91ee968a4640e241e076f7bf7d592fc978660cf31c4"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000109.npz",
+        "length": 328,
+        "rollout_id": "train_uniform_000109",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "4b1cada7b9a7eca40b1e425826cb0d24ab2c649408555643e6e2ca34b6fef263"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000110.npz",
+        "length": 122,
+        "rollout_id": "train_uniform_000110",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "2d6b40171b7e966c7603d014b6f347e7901afbf7515a0b9535300d0ad3734a17"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000111.npz",
+        "length": 563,
+        "rollout_id": "train_uniform_000111",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "540e92fdf07cb0634dba1290b7b8d0b7a68b99702e466c6615cca7907b3e384c"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000112.npz",
+        "length": 311,
+        "rollout_id": "train_nominal_000112",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "29f06ca8aeb64f2c25e678836cbc26a7bb3cc3889fc409386de516790b316916"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000113.npz",
+        "length": 330,
+        "rollout_id": "train_uniform_000113",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "a1b0ae731569b317a338d65007d859516d47bdd9848648c428ee66cd49309c65"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000114.npz",
+        "length": 212,
+        "rollout_id": "train_uniform_000114",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "4b8f950a79bf24753e2f9147e4e85a9f1ed223720318c683abef6da1bcfcafac"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000115.npz",
+        "length": 307,
+        "rollout_id": "train_nominal_000115",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "adca0f86d50ecd995744cd0bcab8dfb486baf31e35993fe1ac4d594475723972"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000116.npz",
+        "length": 316,
+        "rollout_id": "train_uniform_000116",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "92811f5059ec792a1062b860b8b75b36b710351314d480e6cfbce81304518c8f"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000117.npz",
+        "length": 354,
+        "rollout_id": "train_uniform_000117",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "ab16b11c71448124af3969ffc391051d00dc713327035e3d6e400dd4ba4072f9"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000118.npz",
+        "length": 553,
+        "rollout_id": "train_uniform_000118",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "4c68f5aba7505ea60d2b744491ea2b31db6eb5ff848bfa3cf87c5b178787e483"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000119.npz",
+        "length": 310,
+        "rollout_id": "train_nominal_000119",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "c90a404b12bcd7c87f0a57249c904cd386ab6cc0c08fff7af6f6bd706c09f5eb"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000120.npz",
+        "length": 312,
+        "rollout_id": "train_uniform_000120",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "79594b0b28c140c8449dd80f39f31f2035fa1359c173de6c63d98564a638db24"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000121.npz",
+        "length": 111,
+        "rollout_id": "train_uniform_000121",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "509d9492ae2c7810c68e3b220c2a05501db2d73cce4548644a28e4145d342a96"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000122.npz",
+        "length": 560,
+        "rollout_id": "train_uniform_000122",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "72f18ccfa8cf9de5509d754e19a3233833a3506e43045b071cc21b83394d4c24"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000123.npz",
+        "length": 314,
+        "rollout_id": "train_nominal_000123",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "18af03dfb0d069069dce3602a1befe997caf2947adf4f60f4e7c6a6c7d7be29b"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000124.npz",
+        "length": 319,
+        "rollout_id": "train_uniform_000124",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "be053c8d45406f354eaabe117646fe13f714c46ab1fdc56261ffb9363b3f37c4"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000125.npz",
+        "length": 218,
+        "rollout_id": "train_uniform_000125",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "9e18a05a5d56d7a50e34e1c3495e61b70a4c339cb8c0cd98ead634cee191fa57"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000126.npz",
+        "length": 552,
+        "rollout_id": "train_uniform_000126",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "afdca4544b9f80474ef9cb6c911c02c6c1d761f1c1d3fad8407d82a76fab928a"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000127.npz",
+        "length": 307,
+        "rollout_id": "train_nominal_000127",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "f47e005a0707153280ef783754c5b93ecc447f1b01d9cdafc899f9eda8b2b6c3"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000128.npz",
+        "length": 305,
+        "rollout_id": "train_uniform_000128",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "1bf4782b2bb3e201fd038d2d4a2bdffcacb4072881ee0181c90e7ed9540775c5"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000129.npz",
+        "length": 460,
+        "rollout_id": "train_uniform_000129",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "b230b3202a42f0c91a6bb20c056ca189b2b6b74098e861326eede43dd91f9445"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000130.npz",
+        "length": 561,
+        "rollout_id": "train_uniform_000130",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "46836cd752bdced72ce1378061ec9f2d5392acf5fc062ce6fcc1911c83b333ab"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000131.npz",
+        "length": 315,
+        "rollout_id": "train_nominal_000131",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "3bce8698e22f040f77a690fbf3b5b8ad1355c8955abf5dde167b699440953816"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000132.npz",
+        "length": 317,
+        "rollout_id": "train_uniform_000132",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "aff49e61a1ab498876ed57f66fe4c53e379edb3964a81912db014b27c5cad005"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000133.npz",
+        "length": 487,
+        "rollout_id": "train_uniform_000133",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "511dc72b8c08efed891920d5df5a52c18662331e3fc96c8f276164d8445bcd5f"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000134.npz",
+        "length": 565,
+        "rollout_id": "train_uniform_000134",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "e2526a7cfef13004dea8323215b75c708946439ca7b505dd19f7d08aa07a7b8a"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000135.npz",
+        "length": 311,
+        "rollout_id": "train_nominal_000135",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "24f6400909d50a1c9a89260786c9a22d75cac2d34e78c793fd75ffdc442d4a5c"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000136.npz",
+        "length": 318,
+        "rollout_id": "train_uniform_000136",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "ba6f2f0a1637337fca3bceccb86df1b09c4b1ec396276d079e35092c486b87b8"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000137.npz",
+        "length": 373,
+        "rollout_id": "train_uniform_000137",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "ab07665b0b2e54c682d4bf4f065cc4546d8aa203749456530ceaeff338d6858f"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000138.npz",
+        "length": 552,
+        "rollout_id": "train_uniform_000138",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "6daf083f27daeb4aef590cfddc81cd7838939797e314bf2863f9dd15889982e7"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000139.npz",
+        "length": 325,
+        "rollout_id": "train_nominal_000139",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "de3eb00caff8f0e56dbb0b1350794bc47f86fe3f08467cb4b78518772a43fce9"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000140.npz",
+        "length": 319,
+        "rollout_id": "train_uniform_000140",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "5f4323ac268b681c20e462383c25b22b0acd26e0d093a1f818a2d65268449a29"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000141.npz",
+        "length": 555,
+        "rollout_id": "train_uniform_000141",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "9d27c0d6ee6f3838d2f16a9a13436b11fa9fe09d167f62fd448291f22d4ac8be"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000142.npz",
+        "length": 318,
+        "rollout_id": "train_nominal_000142",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "235eff807fb1a1f13c70a8196d8aa5d5e13a7627e10f318b58f5f0279cb62a24"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000143.npz",
+        "length": 314,
+        "rollout_id": "train_uniform_000143",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "896313c7f1e8993cf3851a82ec858dd3c997efbb41330b614e0993c2f6c04672"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000144.npz",
+        "length": 216,
+        "rollout_id": "train_uniform_000144",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "2548072714b7e39df7f790dcc1bc9b00c6e9a4785821501d5f7e6d3f3c8829dc"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000145.npz",
+        "length": 479,
+        "rollout_id": "train_uniform_000145",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "b9d192b70ecd560eb10d023b7a3d44f98363c4350091a4d001ac21a4c4845257"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000146.npz",
+        "length": 554,
+        "rollout_id": "train_uniform_000146",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "40a5afe74dd42daf557966cfc3c3fbdc3f5aefdebebf2cf61ac2b62c8bb5b1a6"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000147.npz",
+        "length": 322,
+        "rollout_id": "train_nominal_000147",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "34b3d14f2af427e18aad9a7ad4922b9c4c07dc377e08b41713987427a6aa80e3"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000148.npz",
+        "length": 322,
+        "rollout_id": "train_uniform_000148",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "bc6a3051d6a4302b4ca6d5cd7f4b470e102eb650cf0815457d0286a34302cf51"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000149.npz",
+        "length": 112,
+        "rollout_id": "train_uniform_000149",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "680d1529afae4fb107b6d2068efc3a913afc68143219787ff5a5b94c0ab67f81"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000150.npz",
+        "length": 563,
+        "rollout_id": "train_uniform_000150",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "9ef132c9c075a2efe28227224c96e5ba04ad809eef9a037aa178ab512aec170d"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000151.npz",
+        "length": 318,
+        "rollout_id": "train_nominal_000151",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "80290cedef63c21998af82774c2057a4bf0deb8c17c99095745000102f3acf49"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000152.npz",
+        "length": 316,
+        "rollout_id": "train_uniform_000152",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "5f06f9a8e638a68d25ac631fe5a3ed14c986c140ec8a5bee16deb8deed45b4a9"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000153.npz",
+        "length": 220,
+        "rollout_id": "train_uniform_000153",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "da9c84862e1c9d3b9cb063a666b408d620381df3dd208d2923fe41a14881fc11"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000154.npz",
+        "length": 116,
+        "rollout_id": "train_uniform_000154",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "07881ba1853013a728c6f9d1f8b1e30a2ed2f845343a8d3bd7ae90b29b4671f1"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000155.npz",
+        "length": 64,
+        "rollout_id": "train_uniform_000155",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "e386b6883110f16b8e149994c6b50a945f046e2ee479c518c3ef929f876f938d"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000156.npz",
+        "length": 335,
+        "rollout_id": "train_nominal_000156",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "9664c9fcaadb09a0265e288a19f92760806574159e03c6f3e636b0aab0cd27ab"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000157.npz",
+        "length": 311,
+        "rollout_id": "train_uniform_000157",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "83e41349e7894f6d8b47421f2391712ff6ea49cd11f61fb79465303873f00074"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000158.npz",
+        "length": 365,
+        "rollout_id": "train_uniform_000158",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "1f62487fd3da1418dd9276c47a7f04dc5f5133668be30828dfbbc29fc94be34a"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000159.npz",
+        "length": 482,
+        "rollout_id": "train_uniform_000159",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "51e971dd7f31f755a8046800700fe037faabac361dbb50fa09ea063a3d34fb33"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000160.npz",
+        "length": 557,
+        "rollout_id": "train_uniform_000160",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "0d18cc11d0e8315cef34e0b4020f80d36ab1caded47ccc346aba8ad75a8c5567"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000161.npz",
+        "length": 314,
+        "rollout_id": "train_nominal_000161",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "c557e15b35d882ed9815eb4ef58046a7e097df86487b51c6ef11d30bd8528f51"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000162.npz",
+        "length": 313,
+        "rollout_id": "train_uniform_000162",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "a2c4d923feaeeabdc983f67273971df1232447836c0b620b8b56a3ff87884f40"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000163.npz",
+        "length": 308,
+        "rollout_id": "train_nominal_000163",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "70b54027430a81b5d255156c4fb5c3dc68588a7c2f7e67ff1b6d9281cb80b1be"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000164.npz",
+        "length": 313,
+        "rollout_id": "train_uniform_000164",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "2d5530d1df8cf43311ef9e0bc443b26981e3975db20197d28ea2ac527352e29d"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000165.npz",
+        "length": 106,
+        "rollout_id": "train_uniform_000165",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "892d7f8f4a5128409c8704525f9a9cb11f8ab8a5c2bb0fc7835502026c018245"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000166.npz",
+        "length": 56,
+        "rollout_id": "train_uniform_000166",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "7da0a8ccbeaabc08b462962996352fc39dbc5ca9ef50218ae485195d3ceb8114"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000167.npz",
+        "length": 310,
+        "rollout_id": "train_nominal_000167",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "97527e5fc8d59925ae2852333ad18a764bba1916af159655fd4e2c8bf2f55ebe"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000168.npz",
+        "length": 314,
+        "rollout_id": "train_uniform_000168",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "dd540432a0182d3dbe31ba099914923db8d0f0a5a34ee97bd50e8bf6940ec89e"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000169.npz",
+        "length": 559,
+        "rollout_id": "train_uniform_000169",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "a61b225db3b2fed40c001aa8b8e4eeb5433d50da75b6ef1ee79ffd4be62ea9c4"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000170.npz",
+        "length": 318,
+        "rollout_id": "train_nominal_000170",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "bbb82021bfb2dfd6fde7c67bbb2ebad071ea814426c7751988555df78c286aa4"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000171.npz",
+        "length": 316,
+        "rollout_id": "train_uniform_000171",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "c9ca10322a1a2296462eb52ef786c06b78b4d2b7bdd19b4a8fd464bf6c0d9c3f"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000172.npz",
+        "length": 563,
+        "rollout_id": "train_uniform_000172",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "24273c2e052125d4e3c3c0d79cb221cbe4fa94069364698a6aae27c82842d8cb"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000173.npz",
+        "length": 315,
+        "rollout_id": "train_nominal_000173",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "7aa8dacbd9c3be95a6248d7a96c7d7d6505597ca3313918cb2f85c301f3dd30b"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000174.npz",
+        "length": 314,
+        "rollout_id": "train_uniform_000174",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "2750c66299e5f31d6a3927824beeb3828ac84f9dea745eed764f033d7fa19a4a"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000175.npz",
+        "length": 218,
+        "rollout_id": "train_uniform_000175",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "ee4eaf277bec2fa88b6f8c782e9193dcb680cfefa6620aa37871f61cdb5b7db4"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000176.npz",
+        "length": 470,
+        "rollout_id": "train_uniform_000176",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "0952d00f712b7420344390a4702dc7678fd12300766827cd172b572ef1f18737"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000177.npz",
+        "length": 530,
+        "rollout_id": "train_uniform_000177",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "c6ebc54420a300f8598ffce90bdb4e4223dbf63fc574639649896e29e3cb0509"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000178.npz",
+        "length": 322,
+        "rollout_id": "train_nominal_000178",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "2a120831979e673804763a301c9ff58034979c9d928a95ae8963ead248641a08"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000179.npz",
+        "length": 308,
+        "rollout_id": "train_uniform_000179",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "1bc020a877dbdc0e77ee89556b5434e5e2cac9d66ff2d99ef24574f7d9fe8cc8"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000180.npz",
+        "length": 566,
+        "rollout_id": "train_uniform_000180",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "5a61302cd6693a0f03606a16ee4e19502421e983b11f2135daa92d2f971413df"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000181.npz",
+        "length": 319,
+        "rollout_id": "train_nominal_000181",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "5e74b5d9d487e8bc2612f0908e9d5727675288d0bf1c85c2b2518d1a15910269"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000182.npz",
+        "length": 322,
+        "rollout_id": "train_uniform_000182",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "716d42bded3c7ad77cd21cb15bda58386087b99f3ed20f6389f7458d2f981ee5"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000183.npz",
+        "length": 221,
+        "rollout_id": "train_uniform_000183",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "529d631c9e83ed253900bd2bddd901b29f77d09f49a9091c3c920daea2c73a77"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000184.npz",
+        "length": 565,
+        "rollout_id": "train_uniform_000184",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "26c71b85d23e775681907dd5129fa6280f896af321cd6bc9e18fdda66f71153b"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000185.npz",
+        "length": 307,
+        "rollout_id": "train_nominal_000185",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "1479f2880df083cb18834da2aa99ad2d2612fa3504d18be9897d1c679e980fcd"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000186.npz",
+        "length": 310,
+        "rollout_id": "train_uniform_000186",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "e18f34d263abb93c00ea56e2f530b1a852f0464f1fe48abe9d1d671cb2a6664b"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000187.npz",
+        "length": 110,
+        "rollout_id": "train_uniform_000187",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "8e98c17980fb67a64ce039a39f16876ce7352230905028f3146e91120b2adef7"
+      },
+      {
+        "file": "rollouts/train/train_nominal_000188.npz",
+        "length": 326,
+        "rollout_id": "train_nominal_000188",
+        "source": "nominal",
+        "split": "train",
+        "trajectory_digest": "94dc2fede997f1d891ec1b0027962994326434f7b5e915ecec9bffd2f85beb41"
+      },
+      {
+        "file": "rollouts/train/train_uniform_000189.npz",
+        "length": 319,
+        "rollout_id": "train_uniform_000189",
+        "source": "uniform_recovery",
+        "split": "train",
+        "trajectory_digest": "837559dfc63416e85ffdd8a3792de93125198909768f2d8e3308c1625a178489"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000190.npz",
+        "length": 323,
+        "rollout_id": "dev_nominal_000190",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "2b303e96b1ae076f3ec688ced578c03cf6ea3190b0fbefff1cc0b6d9239399de"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000191.npz",
+        "length": 322,
+        "rollout_id": "dev_uniform_000191",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "dd61820958a3c989bf4d769411caa0117d8dc8f426678734974bf240a0a6e215"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000192.npz",
+        "length": 371,
+        "rollout_id": "dev_uniform_000192",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "7ea5a6ad42824c4e05c847f2e1112f2e4d8ff1a2c3905125395d8aabb28063d9"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000193.npz",
+        "length": 108,
+        "rollout_id": "dev_uniform_000193",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "8770290c2c309050d8ab631132ecef45f9da9028398931ba0e97c2d504f00387"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000194.npz",
+        "length": 570,
+        "rollout_id": "dev_uniform_000194",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "788f23fd23e0bedcf868c076cfc4c6576a9dd89f51654f89b689dede4ed94970"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000195.npz",
+        "length": 321,
+        "rollout_id": "dev_nominal_000195",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "e5286dda43c975182928a9a0ca3f0c1db106c999790488e8c6ee088ef4d28052"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000196.npz",
+        "length": 324,
+        "rollout_id": "dev_uniform_000196",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "73a106b64419781aa715999876f36636b442850c4963ce04ec5bdf53869ad6ad"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000197.npz",
+        "length": 221,
+        "rollout_id": "dev_uniform_000197",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "422edb1ea5ddcc6ed300a2eeafd131194807e786392410fe0c05f222784bef1f"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000198.npz",
+        "length": 571,
+        "rollout_id": "dev_uniform_000198",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "061836b2fcc3983d63ecef263e5df312e1dc7552dd99524340608a6b25dd7ad4"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000199.npz",
+        "length": 328,
+        "rollout_id": "dev_nominal_000199",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "d8517b8d8f5e6e628889b2bb996371001fedd60d0a5787faf23563846ef5e172"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000200.npz",
+        "length": 313,
+        "rollout_id": "dev_uniform_000200",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "d4abbea98ad94d32d2916ca6fd1802dbb18c79d809ab44a943d8312cd7013158"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000201.npz",
+        "length": 560,
+        "rollout_id": "dev_uniform_000201",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "6a3eed41cbdcdfc0cd45b20c166032247b114b099aa22b6ab6358559fb5d233b"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000202.npz",
+        "length": 307,
+        "rollout_id": "dev_nominal_000202",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "9ec86b0fb37b4aa2693b827cdb784a7cf8f2254abe538a3655fb1cfc06ddf7eb"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000203.npz",
+        "length": 315,
+        "rollout_id": "dev_uniform_000203",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "3ea7de893357bfce77bc6cf8d5f1de1a5fbb23c8f031b61bd3bb548a4e2164f8"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000204.npz",
+        "length": 363,
+        "rollout_id": "dev_uniform_000204",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "ec58665ea236176135ebf8de269437ee562c6c64db507a58f76430f7e32fac1d"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000205.npz",
+        "length": 465,
+        "rollout_id": "dev_uniform_000205",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "52ac1b22ca5904df3bf81f3969779d76bf02e7888cf7a39061aa8fc82ca3dc90"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000206.npz",
+        "length": 549,
+        "rollout_id": "dev_uniform_000206",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "16b77236df8a614a0e1c5936606951d08f31c544a39496c0af5071b60fb2f6a8"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000207.npz",
+        "length": 317,
+        "rollout_id": "dev_nominal_000207",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "041582544f29b353c7f90754c67beabb177d9e46506f36178fa1ec4add521e93"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000208.npz",
+        "length": 322,
+        "rollout_id": "dev_uniform_000208",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "f4d35e00e727d08599d1e5706b0871de578b320e29cec5b8c8aa3da206e6452e"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000209.npz",
+        "length": 464,
+        "rollout_id": "dev_uniform_000209",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "58b78d2467e9b9a16278742c33892c0ba1a27a44cddf2811790727916c5a8cd6"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000210.npz",
+        "length": 557,
+        "rollout_id": "dev_uniform_000210",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "d4fcbb2bd3eace25bfa4e885ee85d284f7ad48348953ca563d48841a2b176b6a"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000211.npz",
+        "length": 312,
+        "rollout_id": "dev_nominal_000211",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "5a0914baf54a107737da52eec2d606d34b011a5886693359ec8967bf0b827d41"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000212.npz",
+        "length": 314,
+        "rollout_id": "dev_uniform_000212",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "01aae7d7f1b2eff2bb3f46e83fcd975e0cb1d00f78e1a22ccc8bde87c786f075"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000213.npz",
+        "length": 321,
+        "rollout_id": "dev_nominal_000213",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "c55e0ebc3403fb1955c2c28be6b7f1739ade898a3dc8d19bf733f1fb8d58afce"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000214.npz",
+        "length": 309,
+        "rollout_id": "dev_uniform_000214",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "51dfe3d387aa64c66555f5f69e9d99c920db48d777ca9032d1e99548c3bda3ce"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000215.npz",
+        "length": 369,
+        "rollout_id": "dev_uniform_000215",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "d22c47f40376a24adeb464851cc47dba0315dee2f011b6d20aea4620990bcded"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000216.npz",
+        "length": 110,
+        "rollout_id": "dev_uniform_000216",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "b850598eb4fe4a3da6cf30b37538701607ceca129921e17e8aca9275dd1f7f75"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000217.npz",
+        "length": 565,
+        "rollout_id": "dev_uniform_000217",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "9c8492dd739e27de4772b3fe9a181b2d00d45b393bc2f4045d17fb22ee90fb98"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000218.npz",
+        "length": 323,
+        "rollout_id": "dev_nominal_000218",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "b30d7f237c79f3dc7da6d2f67dce50c2ba0cd01ae97e7f368fb279facfc4089b"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000219.npz",
+        "length": 325,
+        "rollout_id": "dev_uniform_000219",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "7789fd96f79d0cb93a98e6a3e5287878e6ec6643f54bd87f02a57786763cd71b"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000220.npz",
+        "length": 113,
+        "rollout_id": "dev_uniform_000220",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "38bf07dd89335ff16a014fe095a80ca1076dd03e2c7042653bab5ef99c35940f"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000221.npz",
+        "length": 67,
+        "rollout_id": "dev_uniform_000221",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "571e731ed875571c8adfff808d48c1864b7f87f4b2c5bea316d57b11a18a73a8"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000222.npz",
+        "length": 305,
+        "rollout_id": "dev_nominal_000222",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "dec1c20764ed1559fcb7c36f8faf0d24985a323af3b9b74257a29d60c796267d"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000223.npz",
+        "length": 307,
+        "rollout_id": "dev_uniform_000223",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "0c5821aec653cc29ce59ebb3412065059e011377ed19955f4cbc0f716d08a5b8"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000224.npz",
+        "length": 102,
+        "rollout_id": "dev_uniform_000224",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "589f060cf3ddffecc70c3f4300b64e58af5a3bfa38604cbd456377a88e5e5870"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000225.npz",
+        "length": 558,
+        "rollout_id": "dev_uniform_000225",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "a20252a696e20dbb338647007ae36eda873fbec3379d4c17c22b2e1fc8fb6570"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000226.npz",
+        "length": 316,
+        "rollout_id": "dev_nominal_000226",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "8e4c8b1dc576c2e908af30dbba96979696d54cd688c5cc26257d558834165e25"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000227.npz",
+        "length": 315,
+        "rollout_id": "dev_uniform_000227",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "6e7e5d2b825a70256217664b387052f8be128259b76fd088743796d95015644f"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000228.npz",
+        "length": 466,
+        "rollout_id": "dev_uniform_000228",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "fe5088df0e70741ab9e61d0bae7ea80e0e7e6bd3cfb66900d614af320dde1b25"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000229.npz",
+        "length": 566,
+        "rollout_id": "dev_uniform_000229",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "2a672f542fc65bb7d40fce4661fcc5997de7f32f82c3ffa1903be57ec73974e5"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000230.npz",
+        "length": 318,
+        "rollout_id": "dev_nominal_000230",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "2e4ba59c6d91c00ba62fd7f32e65634ed4a37570ac0dc50101c32b549524149f"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000231.npz",
+        "length": 305,
+        "rollout_id": "dev_uniform_000231",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "b8e1bd425f7af93965eab299143ffe6390e08ea9bd4da352deee2b4589b43d5c"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000232.npz",
+        "length": 551,
+        "rollout_id": "dev_uniform_000232",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "8d2cf5d305e5ad1b7bcd7731f406a8e337ab95e4afb31c1db3e6b5a472ca4071"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000233.npz",
+        "length": 322,
+        "rollout_id": "dev_nominal_000233",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "abcf4799fa9058f52183816a3ff43d923c04f76bfbfcde87b866a1ac9c639dbd"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000234.npz",
+        "length": 321,
+        "rollout_id": "dev_uniform_000234",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "139b8ded2e6b742b610f296e2a9ac6834ae59fd143442dd4c44f7557a20c36b2"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000235.npz",
+        "length": 365,
+        "rollout_id": "dev_uniform_000235",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "1ca35112217b44b83ba5a7c6fe17f9244e64d154dd39b2c2b084ae33e8598e25"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000236.npz",
+        "length": 316,
+        "rollout_id": "dev_nominal_000236",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "9db39fe8e8f6a745ce9a464ef8b7498e0d70fca06d03771da23583094f414e8a"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000237.npz",
+        "length": 314,
+        "rollout_id": "dev_uniform_000237",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "c0c1fdb05621529e293be61453759320fe1b65f81ce26db5c056c9b6871cc0d6"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000238.npz",
+        "length": 389,
+        "rollout_id": "dev_uniform_000238",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "0bdca3160d9157ada4ea26dfce7b1b3f225eecbb9860a3f6c8b36b207a7fd8f8"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000239.npz",
+        "length": 62,
+        "rollout_id": "dev_uniform_000239",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "631ef10f4d01a0dc50230e0e054decf379fc95072121a64c434112a47d09372b"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000240.npz",
+        "length": 319,
+        "rollout_id": "dev_nominal_000240",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "64cd76bf6838335a6bc9580716a5459a634355f6cda279a5858653c8d2ea0435"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000241.npz",
+        "length": 314,
+        "rollout_id": "dev_uniform_000241",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "60776113cb30336d9078f82ecc2df598256ac2a7da2759bb475b59e1c563867a"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000242.npz",
+        "length": 57,
+        "rollout_id": "dev_uniform_000242",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "3b9b730d20502c114112b7bc4bca040b477bdceda3accbe035b8d04d14d730bb"
+      },
+      {
+        "file": "rollouts/dev/dev_nominal_000243.npz",
+        "length": 310,
+        "rollout_id": "dev_nominal_000243",
+        "source": "nominal",
+        "split": "dev",
+        "trajectory_digest": "12619674c10dc8775c41b0b97bf9fc2e46b99117079aa2daf370493c70ab586d"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000244.npz",
+        "length": 317,
+        "rollout_id": "dev_uniform_000244",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "a29d3d83ac373e6a8662d6369cb70d6f555ff786f9cc7348db52fe3bf6f3f71b"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000245.npz",
+        "length": 105,
+        "rollout_id": "dev_uniform_000245",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "9996bf857985a87122896dd37c21f778ef43c27323622eee407aecf169ef6305"
+      },
+      {
+        "file": "rollouts/dev/dev_uniform_000246.npz",
+        "length": 564,
+        "rollout_id": "dev_uniform_000246",
+        "source": "uniform_recovery",
+        "split": "dev",
+        "trajectory_digest": "bc9674de32f5831d89c0f6d711c849e4ee84e2d897a32e6a001f59054a521f98"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000247.npz",
+        "length": 315,
+        "rollout_id": "test_nominal_000247",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "5b1391ee9adfa922ba152fb488b4e49a52bbe97e09caffd860e6ee3e7623f052"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000248.npz",
+        "length": 319,
+        "rollout_id": "test_nominal_000248",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "3169f0cfd4cca7ed6d66138d3091877999ddf23741dc6fcc0ee8a14086b9805c"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000249.npz",
+        "length": 325,
+        "rollout_id": "test_nominal_000249",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "aca5fa2ebab919414bc790f62692f00eb013e13437d5ad9f0754ded912b8e59a"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000250.npz",
+        "length": 319,
+        "rollout_id": "test_nominal_000250",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "d320f57cd2e964527bbaa020e6a7c6e27f912f900e12836431c29867c42a88f5"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000251.npz",
+        "length": 317,
+        "rollout_id": "test_nominal_000251",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "36b07e24394c13945ebfb55f4a2778ed6586a988480d084513f057db55650c6b"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000252.npz",
+        "length": 301,
+        "rollout_id": "test_nominal_000252",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "0fa0ebc3cae0fc927e51def13c64bf02c8098375273949e330cf4df15cedf60b"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000253.npz",
+        "length": 316,
+        "rollout_id": "test_nominal_000253",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "98a1ab947cc7b9ee94bf56172f38b7c947dbc04a75b63952360f826520dbac0d"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000254.npz",
+        "length": 300,
+        "rollout_id": "test_nominal_000254",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "c1433021ecbee3cd3d6b869895f1378075c7507d06abf270baa7ae2c0acbd074"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000255.npz",
+        "length": 311,
+        "rollout_id": "test_nominal_000255",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "75936138c233c36cce7ee880f7ea38ba1ebfa88855ebee7797663084ebc17310"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000256.npz",
+        "length": 310,
+        "rollout_id": "test_nominal_000256",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "98a5825af20f8244c1f4c9035872e2d4d0c6f9fc11966b7e7027a512e19cad62"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000257.npz",
+        "length": 315,
+        "rollout_id": "test_nominal_000257",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "144ba103aa2ad8c07091bbf7e08c99afcb5a526469d7d20467bd5b64e367baa8"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000258.npz",
+        "length": 322,
+        "rollout_id": "test_nominal_000258",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "79b72169a2602152f5a7c303cb01424dec30e3e9f9bd40e370053d414d17c07e"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000259.npz",
+        "length": 312,
+        "rollout_id": "test_nominal_000259",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "8adb9c3d5ecb03b8e5be576fb4741cf31a5a98bb072ecd5189769a66ed93a1dd"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000260.npz",
+        "length": 313,
+        "rollout_id": "test_nominal_000260",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "5b37b634714ced65fe29f5d77a2f47df51ea7f8499e530364771528d552bd6e1"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000261.npz",
+        "length": 323,
+        "rollout_id": "test_nominal_000261",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "48403a5c243c3ea218f15fbbb1b0fddee2870d472c8e86be876910d0192bda39"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000262.npz",
+        "length": 311,
+        "rollout_id": "test_nominal_000262",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "8916083737a948e1e182e1f52dcaa12f4582b7116044ea2412229f2db482dbe5"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000263.npz",
+        "length": 308,
+        "rollout_id": "test_nominal_000263",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "8bdcd3ac8307210130729d99dc0357a568cf1c99925b6180649263bc845cd06c"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000264.npz",
+        "length": 312,
+        "rollout_id": "test_nominal_000264",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "449bb22b5497ca71e3f47a62b43d4a9b133ddbcb520c41f188ffec6e3637c674"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000265.npz",
+        "length": 307,
+        "rollout_id": "test_nominal_000265",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "578a05f0c7e1f21bb68c96ef8e0a28c9c09d9e7c5e732aa63f9d9f8816ffbfe9"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000266.npz",
+        "length": 312,
+        "rollout_id": "test_nominal_000266",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "012fec09fd4bfdc3c1506cbca22b88555d72d3f5ac59f2c6c55b886304f5670c"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000267.npz",
+        "length": 314,
+        "rollout_id": "test_nominal_000267",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "fecaa5995fd53e6da8b0e080b6e3afc4fb0ff738bec9f9179eb3896979bb9f10"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000268.npz",
+        "length": 316,
+        "rollout_id": "test_nominal_000268",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "b136085eec1c7c3114655a33126e872e359d778f1c212e058ece4e20031a5762"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000269.npz",
+        "length": 319,
+        "rollout_id": "test_nominal_000269",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "1e77337c4659d21e16281f002d5b429f8687d4e77889ce44b54c4b70d42b008c"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000270.npz",
+        "length": 316,
+        "rollout_id": "test_nominal_000270",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "bbfcd4a3d84e13a180197948435e2db95b18cf5fbd63f26c675170210e4603c3"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000271.npz",
+        "length": 320,
+        "rollout_id": "test_nominal_000271",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "2b576cd1ce44d48afaeb296fd3d465ea8dce25d141e0a69c8443121605f545e6"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000272.npz",
+        "length": 317,
+        "rollout_id": "test_nominal_000272",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "12037c560d323056bc38ffbf8a3d7175351f71e2aa3c64f422cda109e1fc83b3"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000273.npz",
+        "length": 315,
+        "rollout_id": "test_nominal_000273",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "4a6ce5eefe24ee21bb786baa5f4e1c97bf54307df220eda7d1b276958ce9ef4a"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000274.npz",
+        "length": 322,
+        "rollout_id": "test_nominal_000274",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "2a5cb02ec18a65b40347f3038c9ce47a3b54f01b031fd6fdad54a7beb6f88981"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000275.npz",
+        "length": 308,
+        "rollout_id": "test_nominal_000275",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "8a11b81cda8db0ad576a466f617c3173cccdfe141f573e69f9c71536b81e1694"
+      },
+      {
+        "file": "rollouts/test/test_nominal_000276.npz",
+        "length": 326,
+        "rollout_id": "test_nominal_000276",
+        "source": "nominal",
+        "split": "test",
+        "trajectory_digest": "72c468e93061f99db178c8f270b6f1fd5cc09f797c5ae93ae36c42dfd29f8b8c"
+      }
+    ],
+    "observation_shape": [
+      4,
+      23
+    ],
+    "recovery_protocol": "uniform anchors + local perturb/re-query; targeted sources limited to train/dev valid pre-collision states",
+    "scenario": "ring_exchange",
+    "scenario_config": {
+      "agent_collision_margin": 0.0,
+      "agent_radius": 0.16,
+      "collision_margin": 0.005,
+      "dt": 0.05,
+      "goal_tolerance": 0.09,
+      "max_speed": 0.52,
+      "max_steps": 700,
+      "obstacle_radius": 0.9,
+      "outer_radius": 3.25,
+      "schema": "ring_exchange_single_integrator_v1",
+      "terminate_on_collision": true,
+      "terminate_on_success": true
+    },
+    "schema": "new_benchmark_joint_stage1_dataset_v1"
+  },
+  "environments": {
+    "ring_exchange": {
+      "code_config_fingerprint": "env_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e",
+      "config": {
+        "config": {
+          "agent_collision_margin": 0.0,
+          "agent_radius": 0.16,
+          "collision_margin": 0.005,
+          "dt": 0.05,
+          "goal_tolerance": 0.09,
+          "max_speed": 0.52,
+          "max_steps": 700,
+          "obstacle_radius": 0.9,
+          "outer_radius": 3.25,
+          "schema": "ring_exchange_single_integrator_v2_local_frame",
+          "terminate_on_collision": true,
+          "terminate_on_success": true
+        },
+        "environment_code_sha256": "af0a2dbea497f0d2a6e9e5a429adf9ed50f190128f46d906286dd2d8813dbaa9",
+        "reset": "native true-t0 reset, empty termination monitor"
+      },
+      "scenario_uid": "scenario_afeb6753496854b6d4bf3cd543ebd22055f56954f018b0639237c0701f079a7e"
+    }
+  },
+  "experiment_uid": "exp_other_controller_classes_v1",
+  "controller_code_sha256": "6be4df5cf403e2e88253a6bc61dae957323c11aa64f2d330889c4d9abf8402d9",
+  "preregistration_sha256": "0736e97ac5d3512b6b5ca271ef1987734d3adf6def18318a53bb317cba6a1196"
+}

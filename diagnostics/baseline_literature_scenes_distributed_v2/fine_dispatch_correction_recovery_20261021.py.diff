@@ -1,0 +1,19 @@
+--- fine_dispatch_correction_20261021.py
++++ fine_dispatch_correction_recovery_20261021.py
+@@ -2,7 +2,7 @@
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+-from infrastructure_recovery_active import classify
++from infrastructure_recovery_correction_20261021 import classify
+ from resources_corrections_20261021 import snapshot,require_capacity
+ import collections
+ import subprocess
+@@ -91,6 +91,7 @@
+ 
+ 
+ def submit(stage):
++    verify_receipt('CORRECTION_RECOVERY_ADAPTER_20261021.receipt.json')
+     assert eligible(stage),stage
+     verify_receipt('CORRECTION_REVISION.receipt.json');verify_receipt('PREREGISTRATION_ADDENDUM_20261021.receipt.json');verify_receipt('CORRECTION_FIXED_PIPELINE_IMPLEMENTATION_20261021.receipt.json')
+     verify_receipt('CBS_FLAT_CACHE_STATIC_DEPLOYMENT.receipt.json')

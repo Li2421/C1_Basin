@@ -1,0 +1,13 @@
+{
+  "architecture": [214, 128, 128, 4],
+  "activation": "SiLU",
+  "optimizer": "AdamW",
+  "learning_rate": 0.001,
+  "weight_decay": 0.00001,
+  "batch_size": 256,
+  "epochs": 1200,
+  "training_seeds": [17, 23, 41],
+  "loss": "mean squared error to g*_exec",
+  "sampling": "unified sample-uniform permutation; no weighting or oversampling",
+  "selection_rule": "validation-only startup/warm Pareto minimax multiplicative regret"
+}

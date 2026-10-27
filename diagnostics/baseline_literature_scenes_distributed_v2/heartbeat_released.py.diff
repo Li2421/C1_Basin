@@ -1,0 +1,20 @@
+--- heartbeat.py
++++ heartbeat_released.py
+@@ -1,7 +1,7 @@
+ """Keep the required status current during long synchronous analysis actions."""
+ from experiment import *
+ from atomic_write import write
+-from resources import snapshot
++from resources_released import snapshot
+ import fcntl
+ import time
+ import subprocess
+@@ -24,7 +24,7 @@
+     current.update(utc=utc(),stages=stages,resources=snapshot(),heartbeat_during_long_action=True,coordinator_alive=running)
+     current['recent_action_logs']=[str(p) for p in sorted((HERE/'coordinator_actions').glob('*.log'),key=lambda p:p.stat().st_mtime,reverse=True)[:3]]
+     write(HERE/'STATUS.json',current)
+-    text=f"{current['utc']}。阶段：{current['phase']}。长操作期间由独立 heartbeat 刷新；协调器 PID {pid} 存活={running}。\n\nv1 已冻结，本轮只读。资源上限/释放时刻见 RESOURCE_SCHEDULE.json；全部用户作业计入。当前 Slurm {current['resources']['scheduled_cpus']} CPU、{current['resources']['gpu_shards']} GPU份额。\n\n"
++    text=f"{current['utc']}。阶段：{current['phase']}。长操作期间由独立 heartbeat 刷新；协调器 PID {pid} 存活={running}。\n\nv1 已冻结，本轮只读。资源上限/释放时刻见 RESOURCE_SCHEDULE_CORRECTED.json；全部用户作业计入。当前 Slurm {current['resources']['scheduled_cpus']} CPU、{current['resources']['gpu_shards']} GPU份额。\n\n"
+     text+='\n\n'.join(f"- {r['stage']}：小批次 {r['finished_groups']}/{r['queue_groups']}，完整批次请求 {r['completed_requests_in_finished_groups']}（不含进行中部分）。" for r in stages)
+     temp=HERE/'STATUS.heartbeat.tmp';temp.write_text(text+'\n');temp.replace(HERE/'STATUS.md')
+     return True

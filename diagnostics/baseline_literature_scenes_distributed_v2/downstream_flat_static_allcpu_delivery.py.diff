@@ -1,0 +1,10 @@
+--- downstream_flat_static_allcpu.py
++++ downstream_flat_static_allcpu_delivery.py
+@@ -62,6 +62,6 @@
+     while not (HERE/'OPTIONAL_DELIVERY_READY.receipt.json').exists():
+         from status_released_allcpu import main as status
+         status('main_numbers_sealed_awaiting_optional_delivery_implementation');time.sleep(30)
+-    action('optional_delivery','optional_delivery_flat_static_allcpu.py')
++    action('optional_delivery','optional_delivery_flat_static_allcpu_delivery.py')
+ 
+ if __name__=='__main__':main()

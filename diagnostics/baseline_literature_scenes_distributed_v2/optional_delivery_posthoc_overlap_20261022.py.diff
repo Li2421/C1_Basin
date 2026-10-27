@@ -1,0 +1,45 @@
+--- optional_delivery_spatial_mask_20261022.py
++++ optional_delivery_posthoc_overlap_20261022.py
+@@ -5,6 +5,7 @@
+ from resources_corrections_release_20261023_quota18_now_20261022 import snapshot,require_capacity
+ from registry import verify_receipt
+ import time
++import posthoc_metrics_overlap_20261022 as background
+ import subprocess
+ import fcntl
+ import optional_fine_dispatch_spatial_mask_20261022 as fine
+@@ -34,6 +35,7 @@
+     for stage in stages:
+         if fine.eligible(stage):fine.prepare(stage)
+     while True:
++        background.ensure()
+         state=snapshot();mapping=jobs_by_stage(state)
+         for stage in stages:
+             if fine.eligible(stage):
+@@ -66,6 +68,7 @@
+         gap(stage,str(exc));return None
+ 
+ def main():
++    verify_receipt('POSTHOC_METRICS_OVERLAP_READY_20261022.receipt.json')
+     verify_receipt('PA_SPATIAL_MASK_EQUIVALENCE_20261022.receipt.json');verify_receipt('PA_SPATIAL_MASK_PIPELINE_CODE_20261022.receipt.json')
+     verify_receipt('PA_QUERY_MEMO_EQUIVALENCE_20261022.receipt.json');verify_receipt('PA_QUERY_MEMO_PIPELINE_CODE_20261022.receipt.json')
+     verify_receipt('CBS_QUERY_DISK_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_QUERY_DISK_PIPELINE_CODE_20261022.receipt.json')
+@@ -75,9 +78,7 @@
+     verify_receipt('CORRECTION_OPTIONAL_READY_20261021.receipt.json');verify_receipt('CORRECTION_OPTIONAL_EXECUTION_20261021.receipt.json');verify_receipt('CPU_RELEASE_CODE_20261023.receipt.json')
+     verify_receipt('MIGRATION_NUMBERS.receipt.json');verify_receipt('OPTIONAL_DELIVERY_READY.receipt.json');verify_receipt('OPTIONAL_FINE_SCHEDULING.receipt.json')
+     if (HERE/'V2_COMPLETE.json').exists():return
+-    if not (HERE/'MAIN_ADDITIONAL_METRICS.receipt.json').exists():action('additional_main_metrics','derived_metrics_original_supplement_20261022.py')
+-    if not (HERE/'MAIN_ADDITIONAL_METRICS_REVISED_20261021.receipt.json').exists():action('additional_revised_main_metrics','derived_metrics_supplement_20261022.py')
+-    if not (HERE/'DOOR_CONTROLLER_GAIN_COMPONENTS_20261021.receipt.json').exists():action('door_controller_components','door_controller_gain_components_supplement_20261022.py')
++    background.ensure()
+     from learning_label_support import main as old_support
+     from learning_label_support_correction_revised_20261021 import main as new_support
+     old_support(seal_result=not (HERE/'LEARNING_LABEL_SUPPORT.receipt.json').exists())
+@@ -97,6 +98,7 @@
+         except Exception as exc:gap('analysis_'+stage,str(exc))
+     run(analysis,'optional_saved_trace_diagnosis')
+     if not (HERE/'OPTIONAL_NUMBERS.receipt.json').exists():action('optional_numbers','optional_results_supplement_20261022.py')
++    background.wait()
+     action('official_final_merge','db_merge.py')
+     if not (HERE/'DB_POSTFLIGHT.receipt.json').exists():action('postflight','postflight_correction_closed_scope_20261023_quota18_now_20261022.py')
+     # No scientific image may change a controller or physical evidence.

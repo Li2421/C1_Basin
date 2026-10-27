@@ -1,0 +1,26 @@
+from experiment import *
+from learning_design import make_case
+from registry import register
+from flow_scene import physical12
+from learn_critic import Critic,apply,predict,SEEDS
+from flax import serialization
+import jax
+import jax.numpy as jnp
+import numpy as np
+
+def main(scene):
+    prereg();frozen=read(HERE/f'FROZEN_SCENE_CRITIC_{scene}.json');split=read(HERE/f'LEARNING_SPLIT_{scene}.json');states=split['evaluation'];ctls=read(HERE/'CONTROLLER_MANIFEST.json');menu=read(HERE/'LEARNING_MENU.json');from learning_design import encode
+    X=np.asarray([physical12(s) for s in states]);actions=np.asarray([encode(a) for a in menu]);choices={};files=[];case_rows=[]
+    template=jax.tree_util.tree_map(lambda *a:jnp.stack(a),*[Critic().init(jax.random.PRNGKey(seed),jnp.zeros((1,9)),jnp.zeros((1,3)),jnp.zeros((1,19))) for seed in SEEDS])
+    for t,fold in frozen['folds'].items():
+        path=Path(fold['checkpoint']);assert sha(path)==fold['checkpoint_sha256'];pa=serialization.from_bytes(template,path.read_bytes());prob=np.asarray(predict(pa,jnp.asarray(apply(X,fold['transform'])),jnp.asarray(actions))).mean(0);choices[t]=np.argmax(prob,axis=-1).tolist()
+    # Seal every logical choice before preflight submission or opening any
+    # evaluation outcome. Stored baseline outcomes may only be reused later.
+    write(HERE/f'LEARNED_EVAL_CHOICES_{scene}.json',dict(utc=utc(),choices_by_held_out_type=choices,states=states,menu_sha256=sha(HERE/'LEARNING_MENU.json'),frozen_model_sha256=sha(HERE/f'FROZEN_SCENE_CRITIC_{scene}.json'),outcomes_opened=False))
+    seal(f'LEARNED_EVAL_CHOICES_{scene}.receipt.json',[HERE/f'LEARNED_EVAL_CHOICES_{scene}.json',HERE/'freeze_scene_choices.py'],before_first_evaluation_submission=True)
+    for ctl in ctls:
+        for si,s in enumerate(states):
+            ai=choices[ctl['type_code']][si]
+            for seed in (0,1):case_rows.append(make_case(s,ctl,menu[ai],ai,seed,method='learned_scene'))
+    register('learning_eval_'+scene,case_rows)
+if __name__=='__main__':main(sys.argv[1])

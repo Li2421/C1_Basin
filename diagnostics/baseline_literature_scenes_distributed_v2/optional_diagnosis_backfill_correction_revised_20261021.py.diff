@@ -1,0 +1,16 @@
+--- optional_diagnosis_backfill_allcpu.py
++++ optional_diagnosis_backfill_correction_revised_20261021.py
+@@ -2,10 +2,10 @@
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+-from resources_idle_cpu import require_capacity,snapshot
+-from coordinator_flat_static_allcpu import jobs_by_stage,stage_done
++from resources_corrections_release_20261023 import require_capacity,snapshot
++from coordinator_correction_release_20261023 import jobs_by_stage,stage_done
+ from analysis_jobs_current import prepare
+-from infrastructure_recovery_active import recover
++from infrastructure_recovery_correction_20261021 import recover
+ import fcntl
+ import subprocess
+ import time

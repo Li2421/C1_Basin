@@ -1,0 +1,26 @@
+--- scheduler_watchdog_correction_tail_backfill_20261023.py
++++ scheduler_watchdog_correction_configured_20261023.py
+@@ -17,11 +17,11 @@
+ 
+ def main():
+  with (HERE/'SCHEDULER_WATCHDOG.lock').open('a') as lock:
+-  fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);verify_receipt('CPU_RELEASE_CODE_20261023.receipt.json');verify_receipt('CORRECTION_CONTINUATION_TAIL_BACKFILL_READY_20261023.receipt.json')
+-  write(HERE/'SCHEDULER_WATCHDOG_PID.json',dict(utc=utc(),pid=os.getpid(),entrypoint='scheduler_watchdog_correction_tail_backfill_20261023.py'));last_restart=0
++  fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);verify_receipt('CPU_RELEASE_CODE_20261023.receipt.json');verify_receipt('CORRECTION_CONFIGURED_CONTINUATION_READY_20261023.receipt.json')
++  write(HERE/'SCHEDULER_WATCHDOG_PID.json',dict(utc=utc(),pid=os.getpid(),entrypoint='scheduler_watchdog_correction_configured_20261023.py'));last_restart=0
+   while not (HERE/'V2_COMPLETE.json').exists():
+    entry=read(HERE/'ACTIVE_ENTRYPOINT.json');pid=read(HERE/'COORDINATOR_PID.json')['pid'];running=alive(pid)
+-   commands=subprocess.check_output(['ps','-eo','args='],text=True).splitlines();child=any(c==sys.executable+' -B '+str(HERE/'correction_after_distributed_fixed_tail_backfill_20261023.py') for c in commands)
++   commands=subprocess.check_output(['ps','-eo','args='],text=True).splitlines();child=any(c==sys.executable+' -B '+str(HERE/entry['downstream']) for c in commands)
+    error=(HERE/'COORDINATOR_ACTION_ERROR.json').exists();restarted=None
+    candidate=int(entry.get('pid',0));candidate_alive=alive(candidate) if candidate>0 else False
+    if not running and candidate_alive:
+@@ -29,7 +29,7 @@
+     if str(HERE/entry['coordinator']) in cmd:pid=candidate;running=True
+    lock_held=owner_lock_held() if not running else True
+    if not running and not child and not lock_held and not error and time.time()-last_restart>120:
+-    assert entry['coordinator']=='coordinator_correction_tail_backfill_20261023.py',entry;verify_receipt('CORRECTION_FIXED_PIPELINE_IMPLEMENTATION_20261021.receipt.json')
++    assert entry['coordinator']=='coordinator_correction_configured_20261023.py',entry;verify_receipt('CORRECTION_FIXED_PIPELINE_IMPLEMENTATION_20261021.receipt.json')
+     with (HERE/'coordinator_correction_20261021.log').open('a') as out:proc=subprocess.Popen([sys.executable,'-B',str(HERE/entry['coordinator'])],cwd=ROOT,stdout=out,stderr=subprocess.STDOUT,start_new_session=True)
+     last_restart=time.time();restarted=proc.pid;entry.update(pid=proc.pid,utc=utc());write(HERE/'ACTIVE_ENTRYPOINT.json',entry)
+    write(HERE/'SCHEDULER_WATCHDOG.json',dict(utc=utc(),poll_seconds=30,coordinator_pid=pid,coordinator_alive=running,downstream_alive=child,restarted_pid=restarted,action_error=error,phase=read(HERE/'STATUS.json')['phase'],resources=snapshot(),correction_prompt_active=True,old_semantics_never_restarted=True,coordinator_owner_lock_held=lock_held))

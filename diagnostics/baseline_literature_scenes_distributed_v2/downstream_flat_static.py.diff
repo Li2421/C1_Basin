@@ -1,0 +1,19 @@
+--- downstream_complete.py
++++ downstream_flat_static.py
+@@ -50,7 +50,7 @@
+         if (HERE/f'LEARNING_GAP_{scene}.json').exists():continue
+         if not stage_ready(stage):action('labels_queue_'+scene,'work_queue.py',stage)
+         learning.append(scene)
+-    from scene_learning_scheduler import run as run_learning
++    from scene_learning_scheduler_flat_static import run as run_learning
+     evaluations=run_learning(learning)
+     for scene in ('lit_narrow_passage','lit_doorway'):old_learning(scene)
+     diagnostics=[*['distributed_baseline_'+s for s in NAMES],*fixed,*evaluations,
+@@ -62,6 +62,6 @@
+     while not (HERE/'OPTIONAL_DELIVERY_READY.receipt.json').exists():
+         from status_released import main as status
+         status('main_numbers_sealed_awaiting_optional_delivery_implementation');time.sleep(30)
+-    action('optional_delivery','optional_delivery_fine.py')
++    action('optional_delivery','optional_delivery_flat_static.py')
+ 
+ if __name__=='__main__':main()

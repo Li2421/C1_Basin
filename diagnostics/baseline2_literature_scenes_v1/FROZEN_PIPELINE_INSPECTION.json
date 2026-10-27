@@ -1,0 +1,35 @@
+{
+  "path": "diagnostics/crosstype6_shared_correction_controller_information_v1/FROZEN_PIPELINE.json",
+  "sha256": "132b961d350aca1b510e8bb861a63b9468538dc2e18bb8e4a2bb75bd1a056716",
+  "top_keys": [
+    "utc",
+    "evidence",
+    "outer",
+    "all_types",
+    "fresh_closed_loop_before_freeze",
+    "eta_source_decision",
+    "reference_C5_pipeline_sha256"
+  ],
+  "outer_types": [
+    "Flow",
+    "centralized_mppi",
+    "centralized_sampling",
+    "chunking",
+    "conflict_based_search",
+    "cross_entropy",
+    "cvae",
+    "deterministic",
+    "diffusion",
+    "distributed_cross_entropy",
+    "distributed_shooting",
+    "gaussian",
+    "gradient_mpc",
+    "mixture",
+    "prioritized_astar",
+    "recurrent",
+    "ring_ippo",
+    "ring_ippo_conservative",
+    "transformer_bc"
+  ],
+  "final_keys": []
+}

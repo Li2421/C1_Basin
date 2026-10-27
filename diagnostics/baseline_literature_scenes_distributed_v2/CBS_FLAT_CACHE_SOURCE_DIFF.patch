@@ -1,0 +1,44 @@
+--- cbs_kernel_tiled.cpp
++++ cbs_kernel_flat_cache.cpp
+@@ -26,7 +26,40 @@
+ struct EdgeHash {size_t operator()(const EdgeKey&k)const{size_t h=0;for(auto b:k.b)h^=std::hash<uint64_t>{}(b)+0x9e3779b9+(h<<6)+(h>>2);return h;}};
+ static std::vector<double> memo_walls;
+ static double memo_margin=0;
+-static std::unordered_map<EdgeKey,bool,EdgeHash> memo;
++// Exact bit-key -> pure geometry bool dictionary. Storage layout only.
++class FlatGeometryMemo {
++ struct Slot {EdgeKey first{};uint32_t generation=0;bool second=false;};
++ std::vector<Slot> slots_;size_t count_=0;uint32_t generation_=1;
++ static size_t hash(const EdgeKey& key){
++  uint64_t h=EdgeHash{}(key);h^=h>>30;h*=0xbf58476d1ce4e5b9ULL;
++  h^=h>>27;h*=0x94d049bb133111ebULL;return size_t(h^(h>>31));
++ }
++ void grow(){
++  std::vector<Slot> old;old.swap(slots_);slots_.resize(old.empty()?32768:old.size()*2);
++  count_=0;uint32_t previous=generation_;generation_=1;
++  for(const auto& slot:old)if(slot.generation==previous)emplace(slot.first,slot.second);
++ }
++public:
++ Slot* end(){return nullptr;}
++ Slot* find(const EdgeKey& key){
++  if(slots_.empty())return nullptr;
++  size_t i=hash(key)&(slots_.size()-1);
++  while(slots_[i].generation==generation_){if(slots_[i].first==key)return &slots_[i];i=(i+1)&(slots_.size()-1);}
++  return nullptr;
++ }
++ size_t size()const{return count_;}
++ void clear(){
++  count_=0;
++  if(++generation_==0){for(auto& slot:slots_)slot.generation=0;generation_=1;}
++ }
++ void emplace(const EdgeKey& key,bool value){
++  if(slots_.empty()||(count_+1)*10>slots_.size()*6)grow();
++  size_t i=hash(key)&(slots_.size()-1);
++  while(slots_[i].generation==generation_){if(slots_[i].first==key)return;i=(i+1)&(slots_.size()-1);}
++  slots_[i].first=key;slots_[i].second=value;slots_[i].generation=generation_;++count_;
++ }
++};
++static FlatGeometryMemo memo;
+ static bool ready=false;
+ static void prepare_memo(int nw,const double* walls,double margin){
+  if(!ready||memo_walls.size()!=size_t(4*nw)||std::memcmp(&margin,&memo_margin,sizeof(double))!=0||(nw&&std::memcmp(memo_walls.data(),walls,4*nw*sizeof(double))!=0)){

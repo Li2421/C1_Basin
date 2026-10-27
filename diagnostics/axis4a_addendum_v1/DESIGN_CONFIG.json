@@ -1,0 +1,30 @@
+{
+  "radii": [
+    0.8,
+    0.85,
+    0.95,
+    1.0
+  ],
+  "baseline_radius": 0.9,
+  "H": 700,
+  "A1_seed_start": 202610354000,
+  "A1_states": 16,
+  "A2_states": 16,
+  "eval_states": 32,
+  "controllers": 14,
+  "arms_capability": [
+    "F10",
+    "S500"
+  ],
+  "GA3_arms": [
+    "nominal_only",
+    "safety_baseline",
+    "F10",
+    "F13",
+    "S500"
+  ],
+  "bootstrap": 5000,
+  "bootstrap_seed": 202610163700,
+  "capacity_threshold": 0.2,
+  "B_enabled": false
+}

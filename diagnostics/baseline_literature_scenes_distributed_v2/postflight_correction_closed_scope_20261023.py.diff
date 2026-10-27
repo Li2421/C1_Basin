@@ -1,0 +1,48 @@
+--- postflight_correction_revised_20261021.py
++++ postflight_correction_closed_scope_20261023.py
+@@ -2,6 +2,7 @@
+ from experiment import *
+ from registry import EXP,dbm,verify_receipt
+ from result_inventory import find_raw
++from closed_old_circle_scope_20261023 import preserved_scope,OLD_STAGE
+ 
+ def main():
+     prereg();verify_receipt('MIGRATION_NUMBERS.receipt.json')
+@@ -10,9 +11,12 @@
+         for proof in HERE.glob('*_PREFLIGHT.receipt.json'):
+             stage=proof.name.removesuffix('_PREFLIGHT.receipt.json');verify_receipt(proof.name)
+             cases=read(HERE/f'{stage}_CASES.json');complete=0;absent=[]
++            closed=preserved_scope() if stage==OLD_STAGE else None
+             for c in cases:
+                 rid=c['rollout_uid']
+-                try:path=find_raw(rid,stage,c['state']['scene'])
++                if closed is not None and rid not in closed:
++                    absent.append(rid);continue
++                try:path=Path(closed[rid]['raw']) if closed is not None else find_raw(rid,stage,c['state']['scene'])
+                 except FileNotFoundError:
+                     absent.append(rid);continue
+                 complete+=1
+@@ -41,13 +45,21 @@
+                 user_stopped=True
+             main_stage=not stage.startswith('optional_') and not user_stopped
+             if main_stage and absent:differences.append(dict(kind='missing_main_requests',stage=stage,count=len(absent)))
+-            stages.append(dict(stage=stage,planned=len(cases),completed=complete,missing=len(absent),main=main_stage,user_stopped=user_stopped,unwritten_not_unknown=user_stopped))
++            later_exact_eta0_cache_hits=0
++            if closed is not None:
++                for c in cases:
++                    if c['rollout_uid'] in closed:continue
++                    row=db.execute('SELECT * FROM rollout WHERE rollout_uid=?',(c['rollout_uid'],)).fetchone()
++                    if row is not None:
++                        assert c.get('menu_index')==0 and not any(c['eta_a']) and not any(c['eta_b']),'Unexpected old nonzero execution after stop'
++                        later_exact_eta0_cache_hits+=1
++            stages.append(dict(stage=stage,planned=len(cases),completed=complete,missing=len(absent),main=main_stage,user_stopped=user_stopped,unwritten_not_unknown=user_stopped,later_exact_eta0_cache_hits_not_old_stage_completion=later_exact_eta0_cache_hits,closed_original_raw_scope=closed is not None))
+         quarantined=db.execute('SELECT COUNT(*) FROM rollout WHERE experiment_uid=? AND conflict_quarantined!=0',(EXP,)).fetchone()[0]
+         if quarantined:differences.append(dict(kind='own_quarantined_rows',count=quarantined))
+     pending=list((ROOT/'shared_rollout_db/journals'/EXP).glob('*.jsonl'))
+     if pending:differences.append(dict(kind='unmerged_completed_journals',count=len(pending)))
+     write(HERE/'DB_POSTFLIGHT.json',dict(utc=utc(),passed=not differences,differences=differences,stages=stages,unique_completed_identities=len(checked),unique_trace_files=len(traces),own_completed_identities=own_raw,new_physical_steps=physical_steps,own_quarantined_rows=quarantined,unmerged_complete_journals=len(pending)))
+-    seal('DB_POSTFLIGHT.receipt.json',[HERE/'DB_POSTFLIGHT.json',HERE/'postflight_correction_revised_20261021.py'],passed=not differences)
++    seal('DB_POSTFLIGHT.receipt.json',[HERE/'DB_POSTFLIGHT.json',HERE/'postflight_correction_closed_scope_20261023.py'],passed=not differences)
+     assert not differences,differences[:10]
+ 
+ if __name__=='__main__':main()

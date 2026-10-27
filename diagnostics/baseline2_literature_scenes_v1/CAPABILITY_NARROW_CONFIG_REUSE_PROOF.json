@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-20T11:39:57.966155+00:00",
+  "cases": 18432,
+  "same_input_config": true,
+  "old_constructor": "LiteratureEnv(state), which replaces config.num_agents with state.N",
+  "new_constructor": "LiteratureEnv(state, serialized exact case config)",
+  "action_and_projection_functions_changed": false,
+  "new_capability_rollouts_required": 0
+}

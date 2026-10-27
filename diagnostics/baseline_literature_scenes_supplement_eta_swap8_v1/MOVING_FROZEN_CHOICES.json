@@ -1,0 +1,944 @@
+{
+  "utc": "2026-10-23T12:46:10.543448+00:00",
+  "free_choices_sha256": "2782dfadfeb9bc57a03f2499e6ae1627aa63064ba42fc33ffce161f4addba96a",
+  "selected_from_free": true,
+  "no_moving_screen": true,
+  "choice": {
+    "status": "SELECTED_WITH_TYPE_GAPS",
+    "best_fixed": "eta9",
+    "best_pair": "eta15_to_9",
+    "fixed_ranking": [
+      {
+        "action": "eta9",
+        "type_equal_lower": 0.4017857142857143,
+        "type_equal_upper": 0.4017857142857143,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 1.0,
+            "success_upper": 1.0,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.4375,
+            "success_upper": 0.4375,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.75,
+            "success_upper": 0.75,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta3",
+        "type_equal_lower": 0.39285714285714285,
+        "type_equal_upper": 0.39285714285714285,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 1.0,
+            "success_upper": 1.0,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.5,
+            "success_upper": 0.5,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.6875,
+            "success_upper": 0.6875,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta15",
+        "type_equal_lower": 0.39285714285714285,
+        "type_equal_upper": 0.39285714285714285,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.0625,
+            "success_upper": 0.0625,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.9375,
+            "success_upper": 0.9375,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.25,
+            "success_upper": 0.25,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.5625,
+            "success_upper": 0.5625,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.6875,
+            "success_upper": 0.6875,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta5",
+        "type_equal_lower": 0.375,
+        "type_equal_upper": 0.375,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.75,
+            "success_upper": 0.75,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.5625,
+            "success_upper": 0.5625,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.6875,
+            "success_upper": 0.6875,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta11",
+        "type_equal_lower": 0.36607142857142855,
+        "type_equal_upper": 0.36607142857142855,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.8125,
+            "success_upper": 0.8125,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.5,
+            "success_upper": 0.5,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.6875,
+            "success_upper": 0.6875,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta7",
+        "type_equal_lower": 0.3482142857142857,
+        "type_equal_upper": 0.3482142857142857,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.8125,
+            "success_upper": 0.8125,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.5,
+            "success_upper": 0.5,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.5625,
+            "success_upper": 0.5625,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta1",
+        "type_equal_lower": 0.29464285714285715,
+        "type_equal_upper": 0.29464285714285715,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.0625,
+            "success_upper": 0.0625,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.6875,
+            "success_upper": 0.6875,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.375,
+            "success_upper": 0.375,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.5,
+            "success_upper": 0.5,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta13",
+        "type_equal_lower": 0.24107142857142858,
+        "type_equal_upper": 0.24107142857142858,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.5625,
+            "success_upper": 0.5625,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.25,
+            "success_upper": 0.25,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.3125,
+            "success_upper": 0.3125,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta8",
+        "type_equal_lower": 0.23214285714285715,
+        "type_equal_upper": 0.23214285714285715,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.4375,
+            "success_upper": 0.4375,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.25,
+            "success_upper": 0.25,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.375,
+            "success_upper": 0.375,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta2",
+        "type_equal_lower": 0.14285714285714285,
+        "type_equal_upper": 0.14285714285714285,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta14",
+        "type_equal_lower": 0.13392857142857142,
+        "type_equal_upper": 0.13392857142857142,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta4",
+        "type_equal_lower": 0.125,
+        "type_equal_upper": 0.125,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta10",
+        "type_equal_lower": 0.125,
+        "type_equal_upper": 0.125,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta0",
+        "type_equal_lower": 0.11607142857142858,
+        "type_equal_upper": 0.11607142857142858,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.0625,
+            "success_upper": 0.0625,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta12",
+        "type_equal_lower": 0.11607142857142858,
+        "type_equal_upper": 0.11607142857142858,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.0625,
+            "success_upper": 0.0625,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta6",
+        "type_equal_lower": 0.08035714285714286,
+        "type_equal_upper": 0.08035714285714286,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.0625,
+            "success_upper": 0.0625,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.0,
+            "success_upper": 0.0,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.0,
+            "success_upper": 0.0,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          }
+        }
+      }
+    ],
+    "pair_ranking": [
+      {
+        "action": "eta15_to_9",
+        "type_equal_lower": 0.4107142857142857,
+        "type_equal_upper": 0.4107142857142857,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.0625,
+            "success_upper": 0.0625,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 1.0,
+            "success_upper": 1.0,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.25,
+            "success_upper": 0.25,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.5625,
+            "success_upper": 0.5625,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.75,
+            "success_upper": 0.75,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta9_to_3",
+        "type_equal_lower": 0.4017857142857143,
+        "type_equal_upper": 0.4017857142857143,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 1.0,
+            "success_upper": 1.0,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.4375,
+            "success_upper": 0.4375,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.75,
+            "success_upper": 0.75,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta9_to_15",
+        "type_equal_lower": 0.4017857142857143,
+        "type_equal_upper": 0.4017857142857143,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 1.0,
+            "success_upper": 1.0,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.4375,
+            "success_upper": 0.4375,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.75,
+            "success_upper": 0.75,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta15_to_3",
+        "type_equal_lower": 0.4017857142857143,
+        "type_equal_upper": 0.4017857142857143,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.0625,
+            "success_upper": 0.0625,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 0.9375,
+            "success_upper": 0.9375,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.25,
+            "success_upper": 0.25,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.5625,
+            "success_upper": 0.5625,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.75,
+            "success_upper": 0.75,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta3_to_9",
+        "type_equal_lower": 0.39285714285714285,
+        "type_equal_upper": 0.39285714285714285,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 1.0,
+            "success_upper": 1.0,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.5,
+            "success_upper": 0.5,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.6875,
+            "success_upper": 0.6875,
+            "n": 16
+          }
+        }
+      },
+      {
+        "action": "eta3_to_15",
+        "type_equal_lower": 0.39285714285714285,
+        "type_equal_upper": 0.39285714285714285,
+        "per_type": {
+          "centralized_sampling": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "conflict_based_search": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "cross_entropy": {
+            "success_lower": 1.0,
+            "success_upper": 1.0,
+            "n": 16
+          },
+          "distributed_cross_entropy": {
+            "success_lower": 0.1875,
+            "success_upper": 0.1875,
+            "n": 16
+          },
+          "distributed_shooting": {
+            "success_lower": 0.125,
+            "success_upper": 0.125,
+            "n": 16
+          },
+          "gradient_mpc": {
+            "success_lower": 0.5,
+            "success_upper": 0.5,
+            "n": 16
+          },
+          "prioritized_astar": {
+            "success_lower": 0.6875,
+            "success_upper": 0.6875,
+            "n": 16
+          }
+        }
+      }
+    ],
+    "missing_types": [
+      "centralized_mppi"
+    ],
+    "selection_uses_evaluation_labels": false,
+    "bootstrap_reselects": false
+  }
+}

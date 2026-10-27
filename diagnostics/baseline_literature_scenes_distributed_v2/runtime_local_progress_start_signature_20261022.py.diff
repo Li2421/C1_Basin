@@ -1,0 +1,11 @@
+--- runtime_local_progress_correction_revised_20261021.py
++++ runtime_local_progress_start_signature_20261022.py
+@@ -6,7 +6,7 @@
+ from states import LiteratureConfig
+ from flow_scene import LiteratureEnv
+ from controllers import bound
+-from reservation_certificate_v2_flat_static import ReservationNominal as Nominal
++from reservation_certificate_v2_start_signature_v2_20261022 import ReservationNominal as Nominal
+ from distributed_safety import LocalSafety,local_basis,responsibility
+ from projection_memo import MemoSafetyFilter
+ from projection_adapter import constraints

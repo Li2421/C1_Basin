@@ -1,0 +1,56 @@
+    PID %CPU %MEM COMMAND
+1396428  102  0.0 /usr/bin/git -c core.askPass= -c protocol.ext.allow=never -c submodule.recurse=false -c log.showSignature=false -c format.pretty=medium -c gc.auto=0 -c maintenance.auto=false -c hook.applypatch-msg.enabled=false -c hook.pre-applypatch.enabled=false -c hook.post-applypatch.enabled=false -c hook.pre-commit.enabled=false -c hook.pre-merge-commit.enabled=false -c hook.prepare-commit-msg.enabled=false -c hook.commit-msg.enabled=false -c hook.post-commit.enabled=false -c hook.pre-rebase.enabled=false -c hook.post-checkout.enabled=false -c hook.post-merge.enabled=false -c hook.pre-push.enabled=false -c hook.pre-receive.enabled=false -c hook.update.enabled=false -c hook.proc-receive.enabled=false -c hook.post-receive.enabled=false -c hook.post-update.enabled=false -c hook.reference-transaction.enabled=false -c hook.push-to-checkout.enabled=false -c hook.pre-auto-gc.enabled=false -c hook.post-rewrite.enabled=false -c hook.sendemail-validate.enabled=false -c hook.fsmonitor-watchman.enabled=false -c hook.p4-changelist.enabled=false -c hook.p4-prepare-changelist.enabled=false -c hook.p4-post-changelist.enabled=false -c hook.p4-pre-submit.enabled=false -c hook.post-index-change.enabled=false -c core.hooksPath=/dev/null -c core.fsmonitor= -c safe.bareRepository=explicit -c protocol.file.allow=never --no-optional-locks status --porcelain --ignore-submodules=dirty --untracked-files=normal
+1395703 60.3  0.7 python3 -
+1394688  3.7  0.2 codex resume --all --sandbox danger-full-access --ask-for-approval never
+1288589  2.2  0.3 claude bg-spare --bg-spare /tmp/cc-daemon-1004/12089038/spare/1bfc1945.claim.sock
+1282130  0.2  0.0 sshd: zhihan@pts/17
+1288536  0.2  0.1 claude agents
+1288556  0.1  0.1 /home/zhihan/.local/bin/claude daemon run --origin transient --spawned-by {"label":"claude agents","cwd":"/home/zhihan","pid":1288536}
+3653718  0.1  0.2 /home/zhihan/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/bin/codex app-server --listen unix:// --analytics-default-enabled -c features.api_key_model_discovery=true -c features.auth_elicitation=true -c features.code_mode_host=true -c features.mcp_oauth_refresh_coordination=false --managed-daemon
+1169768  0.1  0.0 [codex] <defunct>
+1069794  0.1  0.0 tmux new -s double
+1288575  0.1  0.0 claude bg-pty-host --bg-pty-host /tmp/cc-daemon-1004/12089038/spare/1bfc1945.pty.sock 200 50 -- /home/zhihan/.local/share/claude/versions/2.1.310 --bg-spare /tmp/cc-daemon-1004/12089038/spare/1bfc1945.claim.sock
+1288519  0.0  0.0 sshd: zhihan@pts/2
+1288654  0.0  0.0 claude bg-spare --bg-spare /tmp/cc-daemon-1004/12089038/spare/e810451c.claim.sock
+1288646  0.0  0.0 claude bg-pty-host --bg-pty-host /tmp/cc-daemon-1004/12089038/spare/e810451c.pty.sock 200 50 -- /home/zhihan/.local/share/claude/versions/2.1.310 --bg-spare /tmp/cc-daemon-1004/12089038/spare/e810451c.claim.sock
+2886643  0.0  0.0 /usr/bin/python3 diagnostics/gap_flow_scale_20261007/n20_cpu_priority_governor.py --interval 5
+1282044  0.0  0.0 codex app-server proxy
+3805412  0.0  0.0 /home/zhihan/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/bin/codex app-server daemon pid-update-loop
+3670984  0.0  0.0 /home/zhihan/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/bin/codex-code-mode-host
+1659000  0.0  0.0 /home/zhihan/.vscode-server/code-07f806f999227108933c2e30515b26eecc1fda74 --cli-data-dir /home/zhihan/.vscode-server/cli agent host
+1282043  0.0  0.0 sshd: zhihan@notty
+2168964  0.0  0.0 /snap/snapd-desktop-integration/391/usr/bin/user-session-helper /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration
+2030680  0.0  0.0 [codex] <defunct>
+1837459  0.0  0.0 /usr/bin/wireplumber
+ 304362  0.0  0.0 /usr/lib/systemd/systemd --user
+1282131  0.0  0.0 -bash
+ 304401  0.0  0.0 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+ 304457  0.0  0.0 /usr/libexec/xdg-document-portal
+ 304375  0.0  0.0 /usr/bin/pipewire
+ 530741  0.0  0.0 /usr/libexec/gvfsd-trash --spawner :1.33 /org/gtk/gvfs/exec_spaw/0
+ 304462  0.0  0.0 /usr/libexec/xdg-permission-store
+1760523  0.0  0.0 -bash
+2756487  0.0  0.0 -bash
+2735645  0.0  0.0 -bash
+2720796  0.0  0.0 -bash
+2162300  0.0  0.0 -bash
+1935045  0.0  0.0 -bash
+1547939  0.0  0.0 -bash
+1463755  0.0  0.0 -bash
+1213788  0.0  0.0 -bash
+1069795  0.0  0.0 -bash
+ 304363  0.0  0.0 (sd-pam)
+ 304376  0.0  0.0 /usr/bin/pipewire -c filter-chain.conf
+ 304381  0.0  0.0 /usr/bin/pipewire-pulse
+ 529155  0.0  0.0 /usr/libexec/gvfsd
+ 529161  0.0  0.0 /usr/libexec/gvfsd-fuse /run/user/1004/gvfs -f
+ 529170  0.0  0.0 /usr/libexec/gvfsd-metadata
+1211651  0.0  0.0 -bash
+1288520  0.0  0.0 -bash
+1395702  0.0  0.0 /bin/bash -c python3 - <<'PY' from pathlib import Path import subprocess,json,hashlib,time,os root=Path.cwd(); out=root/'diagnostics/cross_scene_prospective_v1' assert not out.exists() assert json.loads((root/'diagnostics/cross_scene_correction_v1/INTEGRITY_COMPARE.json').read_text())['passed'] assert (root/'diagnostics/cross_scene_correction_v1/COMPLETE.json').exists() def git(p,args):return subprocess.check_output(['git','-C',str(p),*args]) repos={} for p in (root,root.parent/'02_C1_Toy_GiveWay'):  status=git(p,['status','--porcelain']); diff=git(p,['diff']); staged=git(p,['diff','--cached'])  repos[str(p)]={'status':status.decode(),'status_sha256':hashlib.sha256(status).hexdigest(),'diff_sha256':hashlib.sha256(diff).hexdigest(),'cached_diff_sha256':hashlib.sha256(staged).hexdigest()} recent={}; cutoff=time.time()-86400 for d in (root/'diagnostics').iterdir():  if not d.is_dir():continue  hits=[]  for base,dirs,files in os.walk(d):   for f in files:    p=Path(base)/f    try:     st=p.stat()     if st.st_mtime>=cutoff: hits.append((st.st_mtime,str(p.relative_to(root))))    except FileNotFoundError:pass  if hits: recent[str(d.relative_to(root))]={'recent_files':len(hits),'latest':max(hits)} process=subprocess.check_output(['ps','-u','zhihan','-o','pid,pcpu,pmem,args','--sort=-pcpu']).decode() squeue=subprocess.check_output(['squeue','-u','zhihan','-o','%.18i %.14j %.9T %.10M %.10l %.6C %.12b %.100Z']).decode() active=set(recent) active.add('diagnostics/cross_scene_pipeline_v1') # Immutable baseline for all potential source dependencies; no imports are executed. files={} for prefix in ['diagnostics/cross_scene_correction_v1','diagnostics/cross_scene_homogeneity_audit_v1','diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1','diagnostics/baseline_literature_scenes_distributed_v2','bottleneck_family','single_integrator','shared_rollout_db/src']:  for p in (root/prefix).rglob('*'):   if p.is_file() and p.suffix in ('.py','.cpp','.hpp','.so','.json','.md') and not any(x in p.parts for x in ('cache','cuda_cache','tmp','runtime_cbs_query_cache','operational_checkpoints')):    files[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest() for p in [root/'AGENTS.md',root/'docs/prompt_cross_scene_prospective_v1_20261025.md',root/'shared_rollout_db/README.md']:  files[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest() out.mkdir() def put(name,data):(out/name).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n') put('INTEGRITY_START.json',{'utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'repositories':repos,'parallel_directories':sorted(active),'status_exceptions':['diagnostics/cross_scene_prospective_v1/','docs/prompt_*.md']}) put('OTHER_ACTIVITY_START.json',{'recent_24h':recent,'registered_parallel_directories':sorted(active),'squeue':squeue,'processes':process,'rule':'No importing or writing registered active directories; immutable historical inputs separately baseline hashed.'}) put('EVIDENCE_SHA256_START.json',{'files':files}) (out/'PROCESSES_START.txt').write_text(process);(out/'SQUEUE_START.txt').write_text(squeue) for p,r in repos.items():(out/('START_'+Path(p).name+'.status')).write_text(r['status']) print(json.dumps({'started':str(out),'baseline_files':len(files),'recent_directories':list(recent),'slurm':squeue},ensure_ascii=False,indent=2)) PY
+1396472  0.0  0.0 ps -u zhihan -o pid,pcpu,pmem,args --sort=-pcpu
+1620883  0.0  0.0 -bash
+1770803  0.0  0.0 -bash
+1782503  0.0  0.0 -bash
+3643085  0.0  0.0 -bash
+3796037  0.0  0.0 /usr/libexec/at-spi-bus-launcher

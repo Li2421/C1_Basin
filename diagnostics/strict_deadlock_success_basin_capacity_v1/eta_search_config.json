@@ -1,0 +1,74 @@
+{
+  "authoritative_source_protocol": "/home/zhihan/research/Basin_C1/diagnostics/success_basin_multimodality/protocol.json",
+  "authoritative_source_protocol_sha256": "3a477f18b11172137820b455c1b5526791d562e44b12bb2394dc195c8c958e2b",
+  "basis_recomputed_each_step": true,
+  "coarse_grid": {
+    "goal": [
+      0.5,
+      0.75,
+      1.0,
+      1.25
+    ],
+    "relative": [
+      0.0,
+      0.25,
+      0.5,
+      0.75
+    ],
+    "safe": [
+      -0.5,
+      -0.25,
+      0.0,
+      0.25,
+      0.5
+    ]
+  },
+  "coarse_points": 80,
+  "continuation_horizon": "remaining global episode horizon through absolute step 850, matching the authoritative oracle-label pipeline",
+  "domain_reason": "exact axis-aligned envelope of the authoritative frozen 80-cell Phase-A lattice; no bound expansion",
+  "eta_fixed_for_entire_continuation": true,
+  "exact_flow_stream": "inherit source benchmark root seed, rollout_id, and absolute physical step",
+  "frozen_before_search_outcomes": true,
+  "frozen_domain": {
+    "goal": [
+      0.5,
+      1.25
+    ],
+    "relative": [
+      0.0,
+      0.75
+    ],
+    "safe": [
+      -0.5,
+      0.5
+    ]
+  },
+  "independent_flow_stream": "episode_key=fold_in(PRNGKey(oracle_seed), query_state rng_namespace); step_key=fold_in(episode_key, absolute physical step)",
+  "policy_family": {
+    "coordinate_order": [
+      "goal_feedback",
+      "safe_feedback",
+      "relative_feedback"
+    ],
+    "deterministic_corrector": true,
+    "dimension": 3,
+    "flow_randomness": "fresh frozen Flow Gaussian sample at every physical step",
+    "formula": "G_eta(z)=eta_goal*bounded(goal-position)+eta_safe*u_safe+eta_relative*bounded(self-other)",
+    "recomputed_every_step": true,
+    "same_eta_full_continuation": true
+  },
+  "projection": "authoritative exact hard projection with retry; same first/second chain",
+  "robust_seed_count": 64,
+  "robust_seed_range": [
+    95310001,
+    95310064
+  ],
+  "robust_threshold": 63,
+  "schema": "strict_deadlock_frozen_eta_search_v1",
+  "stages": {
+    "stage1": "all 80 authoritative lattice candidates on inherited exact Flow continuation",
+    "stage2": "deterministic 0.125 one-ring refinement around exact-Flow successes, clipped to the frozen domain",
+    "stage3": "256 deterministic scrambled Sobol candidates inside the same frozen domain when stages 1/2 find no success",
+    "stage4": "0.0625 local one-ring refinement around successful cells, clipped to the frozen domain"
+  }
+}

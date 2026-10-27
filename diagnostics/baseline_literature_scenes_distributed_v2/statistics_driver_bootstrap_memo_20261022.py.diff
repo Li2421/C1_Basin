@@ -1,0 +1,52 @@
+--- statistics_supplement_20261022.py
++++ statistics_driver_bootstrap_memo_20261022.py
+@@ -2,16 +2,16 @@
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+-from statistics_correction_supplement_20261022 import collect,revised_records,controller_census,save_or_assert,SEMANTICS
+-from statistics_tasks_supplement_20261022 import task_manifest
++from statistics_correction_bootstrap_memo_20261022 import collect,revised_records,controller_census,save_or_assert,SEMANTICS
++from statistics_tasks_bootstrap_memo_20261022 import task_manifest
+ from closed_old_circle_scope_20261023_quota18_now_20261022 import complete_original_landed_label_diagnoses
+ from coordinator_correction_release_20261023_quota18_now_20261022 import status,jobs_by_stage,stage_done
+ from resources_corrections_release_20261023_quota18_now_20261022 import snapshot,require_capacity
+ from infrastructure_recovery_correction_20261021 import classify
+ import subprocess,time,fcntl,csv
+ 
+-INPUT_PROOF='PARALLEL_NUMERIC_INPUTS_SUPPLEMENT_20261022.receipt.json'
+-CODE_PROOF='ANALYSIS_SUPPLEMENT_READY_20261022.receipt.json'
++INPUT_PROOF='PARALLEL_NUMERIC_INPUTS_BOOTSTRAP_MEMO_20261022.receipt.json'
++CODE_PROOF='BOOTSTRAP_EXACT_MEMO_READY_20261022.receipt.json'
+ 
+ def prepare_inputs():
+  if (HERE/INPUT_PROOF).exists():verify_receipt(INPUT_PROOF);return
+@@ -38,12 +38,12 @@
+  with (HERE/'SUBMISSION.lock').open('a') as lock:
+   fcntl.flock(lock,fcntl.LOCK_EX);before=snapshot()
+   if not before['free_cpu_shares']:return None
+-  job=subprocess.check_output(['sbatch','--parsable',f'--mem={memory_gb}G',f'--export=ALL,BLV2_NUMERIC_TASK={key}',str(HERE/'statistics_supplement_20261022.sbatch')],text=True).strip()
++  job=subprocess.check_output(['sbatch','--parsable',f'--mem={memory_gb}G',f'--export=ALL,BLV2_NUMERIC_TASK={key}',str(HERE/'statistics_bootstrap_memo_20261022.sbatch')],text=True).strip()
+   write(HERE/'submissions'/f'{time.time_ns()}_{job}.json',dict(utc=utc(),job_id=job,stage='analysis_'+key,numeric_task=key,numeric_definition=task,memory_gb=memory_gb,resource_snapshot=before,posthoc_only=True))
+   return job
+ 
+ def run_tasks():
+- manifest=task_manifest();folder=HERE/'parallel_numeric_fragments_supplement_20261022';folder.mkdir(exist_ok=True);reviewed=set();memory={k:4 for k in manifest}
++ manifest=task_manifest();folder=HERE/'parallel_numeric_fragments_bootstrap_memo_20261022';folder.mkdir(exist_ok=True);reviewed=set();memory={k:4 for k in manifest}
+  while True:
+   state=snapshot();mapping=jobs_by_stage(state);live={j['job_id'] for j in state['jobs']}
+   complete={key for key in manifest if (folder/(key+'.receipt.json')).exists()}
+@@ -94,9 +94,10 @@
+  fields=('scene','type','layer','method','success_rate','ci95','success_upper','upper_ci95','controllers','semantics')
+  with (HERE/'MIGRATION_RESULTS.csv').open('w') as f:
+   w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows({k:canonical(r[k]) if isinstance(r[k],(list,dict)) else r[k] for k in fields} for r in flat)
+- names=['MIGRATION_RESULTS.json','MIGRATION_RESULTS.csv','CONTROLLER_LEVEL_FAILURES.json','MIGRATION_RESULT_SOURCES.json','REVISED_MIGRATION_RESULT_SOURCES_20261021.json','COMPACT_MAIN_RESULTS.json','COMPACT_REVISED_MAIN_RESULTS_20261021.json','SAFETY_BASELINE.csv',INPUT_PROOF,CODE_PROOF,'statistics_supplement_20261022.py','CORRECTION_SCOPED_NUMERICS_READY_20261023.receipt.json','statistics_tasks_supplement_20261022.py','statistics.py','INSTANCE_CLASSES_SUPPLEMENT_20261022.receipt.json']
+- names += ['training_selected_primary_statistics_20261022.py','statistics_training_selected_reader_20261022.py','analysis_standard_supplement_20261022.py']+[f'TRAIN_SELECTED_FIXED_20261022_{s}.receipt.json' for s in NAMES]
+- fragments=[HERE/'parallel_numeric_fragments_supplement_20261022'/(key+'.receipt.json') for key in manifest]
++ names=['MIGRATION_RESULTS.json','MIGRATION_RESULTS.csv','CONTROLLER_LEVEL_FAILURES.json','MIGRATION_RESULT_SOURCES.json','REVISED_MIGRATION_RESULT_SOURCES_20261021.json','COMPACT_MAIN_RESULTS.json','COMPACT_REVISED_MAIN_RESULTS_20261021.json','SAFETY_BASELINE.csv',INPUT_PROOF,CODE_PROOF,'statistics_bootstrap_memo_20261022.py','CORRECTION_SCOPED_NUMERICS_READY_20261023.receipt.json','statistics_tasks_bootstrap_memo_20261022.py','statistics.py','INSTANCE_CLASSES_SUPPLEMENT_20261022.receipt.json']
++ names += ['training_selected_primary_statistics_memo_20261022.py','statistics_training_selected_memo_reader_20261022.py','analysis_standard_supplement_20261022.py']+[f'TRAIN_SELECTED_FIXED_20261022_{s}.receipt.json' for s in NAMES]
++ names += ['bootstrap_exact_memo_20261022.py','bootstrap_fp_control_20261022.cpp','bootstrap_fp_control_20261022.so','statistics_bootstrap_memo_reader_20261022.py','statistics_training_selected_memo_reader_20261022.py']
++ fragments=[HERE/'parallel_numeric_fragments_bootstrap_memo_20261022'/(key+'.receipt.json') for key in manifest]
+  seal('MIGRATION_NUMBERS.receipt.json',[*[HERE/n for n in names],*fragments],bootstrap_iterations=5000,before_optional_dynamics_and_charts=True,original_outcome_estimates_exact_reuse=True,revised_semantics_posthoc=True,primary_exclusion='Only revised taxonomy controller failure,per layer',independent_native_calls_parallelized=True,mathematical_kernel_unchanged=True)
+ 
+ def main():

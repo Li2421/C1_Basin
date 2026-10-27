@@ -1,0 +1,44 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/dispatch.py
++++ /home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/dispatch.py
+@@ -8,7 +8,7 @@
+ def owner_alive(owner):
+     try:cmd=Path(f"/proc/{owner['pid']}/cmdline").read_bytes().replace(b'\0',b' ').decode()
+     except FileNotFoundError:return False
+-    return str(HERE/'worker.py')in cmd or'diagnostics/eta_diverse_scene_test_v1/worker.py'in cmd
++    return str(HERE/'worker.py')in cmd or'diagnostics/hetero_scene_pipeline_v1/worker.py'in cmd
+ 
+ def finished(stage,case):
+     rid=case['rollout_uid']
+@@ -24,7 +24,7 @@
+         if fatal:raise RuntimeError(('IMPLEMENTATION_FAILURE',str(fatal[0])))
+         done=[c for c in cases if finished(stage,c)]
+         if len(done)==len(cases):break
+-        rows=jobs();ours=[r for r in rows if r['name']=='xdt_'+stage];live={r['id']for r in rows};active={}
++        rows=jobs();ours=[r for r in rows if r['name']=='xhp_'+stage];live={r['id']for r in rows};active={}
+         for claim in(folder/'uid_claims').glob('*'):
+             if not(claim/'OWNER.json').exists()or(claim/'DONE.json').exists():continue
+             owner=read(claim/'OWNER.json');rid=claim.name
+@@ -52,7 +52,7 @@
+                 if r['id']not in active:cancel(r['id'],True)
+         desired=max(0,min(cap-len(ours),len(unclaimed)))
+         if desired:
+-            cmd=['sbatch','--parsable',f'--job-name=xdt_{stage}',f'--array=0-{desired-1}',f'--time={limit//3600:02d}:{limit%3600//60:02d}:00',
++            cmd=['sbatch','--parsable',f'--job-name=xhp_{stage}',f'--array=0-{desired-1}',f'--time={limit//3600:02d}:{limit%3600//60:02d}:00',
+                 f'--export=ALL,XDT_STAGE={stage},XDT_TIME_LIMIT_S={limit}',str(HERE/'worker.sbatch')]
+             job=subprocess.check_output(cmd,text=True).strip().split(';')[0];submitted[job]=time.time();log('submitted',stage=stage,job=job,count=desired,seconds=limit)
+             observed=[]
+@@ -67,11 +67,11 @@
+         (HERE/'STATUS.md').write_text(f'# 当前状态\n\n{utc()}：{stage}，完成{len(done)}/{len(cases)}个缺失请求，运行{len(running)}，补交{retry}/3。全部选择已冻结。\n\n逐UID独占领取，运行中仿真仅因时限或实际资源压力使用已验证的检查点交接；没有无新结果超时撤销规则。预计剩余时间受规划长尾影响。\n')
+         time.sleep(10)
+     for r in jobs():
+-        if r['name']=='xdt_'+stage:cancel(r['id'],True)
++        if r['name']=='xhp_'+stage:cancel(r['id'],True)
+     for _ in range(30):
+-        if not any(r['name']=='xdt_'+stage for r in jobs()):break
++        if not any(r['name']=='xhp_'+stage for r in jobs()):break
+         time.sleep(1)
+-    assert not any(r['name']=='xdt_'+stage for r in jobs())
++    assert not any(r['name']=='xhp_'+stage for r in jobs())
+     for e in index:
+         if all(finished(stage,c)for c in read(e['path'])):write(folder/'done'/e['group'],dict(utc=utc(),count=e['count'],uid_exclusive_execution=True))
+     merge(stage);log('completed',stage=stage)

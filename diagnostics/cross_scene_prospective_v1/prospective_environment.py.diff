@@ -1,0 +1,19 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/scene_environment.py
++++ /home/zhihan/research/Basin_C1/diagnostics/cross_scene_prospective_v1/prospective_environment.py
+@@ -6,7 +6,7 @@
+ from swap_geometry import SwapEnv
+ from swap_geometry_user_fix_20261023 import GeometryRevision
+ from nominal_geometry_user_fix_20261023 import Nominal as OriginalNominal
+-from controllers_new import Nominal as GeometryNominal
++from controllers_prospective import Nominal as GeometryNominal
+ from bottleneck_family.scenario import Config, Geometry
+ 
+ 
+@@ -38,6 +38,6 @@
+ 
+ class NewNominal(OriginalNominal):
+     def action(self, env, key):
+-        if env.config.scene.startswith('xsc_') and self.kind not in ('prioritized_astar', 'conflict_based_search'):
++        if env.config.scene.startswith(('xsc_','xsp_')) and self.kind not in ('prioritized_astar', 'conflict_based_search'):
+             return GeometryNominal.action(self, env, key)
+         return super().action(env, key)

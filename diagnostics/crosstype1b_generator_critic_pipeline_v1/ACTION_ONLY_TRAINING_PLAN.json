@@ -1,0 +1,1446 @@
+{
+  "utc": "2026-10-18T09:20:32.167135+00:00",
+  "bundle_path": "/home/zhihan/research/Basin_C1/diagnostics/crosstype1b_generator_critic_pipeline_v1/TRAINING_BUNDLE.npz",
+  "bundle_sha256": "9fbc22965a0a62b8b6c62132b096744265cb92811c85c5248bc500f3bba68c7b",
+  "seeds": [
+    17,
+    23,
+    41
+  ],
+  "steps": [
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    1000,
+    1100,
+    1200,
+    1300,
+    1400,
+    1500,
+    1600,
+    1700,
+    1800,
+    1900,
+    2000
+  ],
+  "batch": 256,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "gradient_clip": 5.0,
+  "x64": false,
+  "matmul_precision": "highest",
+  "tasks": [
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture"
+      ],
+      "source_key": "16409ae035439a7c6b93",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "10088b304b1ced964374b190790ef812e8128c079ff13387d35798a88e78aaec"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture"
+      ],
+      "source_key": "16409ae035439a7c6b93",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "65f1dc5ca5766910870d39064a2413cf70093a640d5a8e65df8f308de52dc072"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "recurrent"
+      ],
+      "source_key": "b7601b7ab89e9f5bb525",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "f2997695e0193fd0348e602518014d7b3731b0b3744d7fb2e43dd535b99a0655"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "recurrent"
+      ],
+      "source_key": "b7601b7ab89e9f5bb525",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "3cb02ad1245c465c9c6326e7731c58affa7f1cfe2bd8164c28eb0913daabf536"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "ring_ippo"
+      ],
+      "source_key": "275cfe22eceb899c4128",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "2cde5b1c45df36bf8160561f8fb3dc6f14102cbf2991f989e25f6459a1e1d5c2"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "ring_ippo"
+      ],
+      "source_key": "275cfe22eceb899c4128",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "894321e44e24668c8a37347c818b63a85301942017e5c6fd9906aa4e96b4848f"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "89c6e03ef4df3d9a1a48",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "dc7e72e317535618fee854ff7886c8901d6ea86c9b74ff6a7c46afa59f2f59b0"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "89c6e03ef4df3d9a1a48",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "f2aa28cebf0b4ab1fbbdf5c7b0fd5b69f890023196420a8a3ebcf8d85f50850c"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "bb8d24c4910f8cb6d665",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "cae97d3c6fffca85739e7facfe665013ef1cbc97e8101a41303488e2e54003a5"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "bb8d24c4910f8cb6d665",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "04cb7d61dd5f6783f46543ab190350a67117e5b097edfeb3afeea76a09d0d469"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "665da6be8706d1c032a7",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "cfd76be1044fc8d4efc8f61f413106d956eb14ad2c3e7e2b03556d91567daef1"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "665da6be8706d1c032a7",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "01d8bf2d8638eb388ff83243677866ce75d361caceb5f65df9c46bd642883e73"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "gaussian",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "f926029d74ee385c2785",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "bee6a0d037bd438d654b474b957c3bba7bd03381a8ddb238cfd57c526d8c8561"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "gaussian",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "f926029d74ee385c2785",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "7c8b6ba73f7fcefb5ad7b6d7bd425e24ed14a14ad2987ef6192c86874794a511"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "gaussian",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "0ad39ca5407b77e08095",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "f9b5d1d0ca453ffe736eadd098eb3c251b2d3de1abc89bb2ae8ca698efebc706"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "gaussian",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "0ad39ca5407b77e08095",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "484d2b40cf72ef9dfd63386aacd263fc768a00df2fcdca1bed92df5761b2865a"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "gaussian",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "28369b298dfc649babe6",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "289ff0888474ae88be3dfdee44e0f3d587b0353f2f1273d198a5f5854e5d5333"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "gaussian",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "28369b298dfc649babe6",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "8cb79c54e843472cc1c412ad1cec70fe884224cfbd71d6ad420bf6eb8183cefa"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "86f2f32fc85e42c03c15",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "e9460572a8c82dfa2764f21fe914bd82118e2d8816462007601a9dabee739d86"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "86f2f32fc85e42c03c15",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "142455236c2b3b5a4853ccc795a04531f14588e6bbd05591a6be73d8af622d94"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "0b1bb24d2c06563a388f",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "f024dc052034b6ce7f8917acc82d55394807799ee2e957350ac23002f08553d4"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "0b1bb24d2c06563a388f",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "ed1698666d3ecce3cf4a24c1b0f522e51af6fd2de21261f76d02eac4b3590c80"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "4b46013461c90e76e517",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "b610869e2005e39769239ea1a2ef916edd4aa13188cd6db20b71696beb20b38d"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "4b46013461c90e76e517",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "61a36ed6bf58f5770f608a395ffcc89037ba02fc48353ae35d4f77eefe837246"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "diffusion",
+        "gaussian",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "d9365d1c4a943fa8b34b",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "85e64b653a67e2206b94772a4ea5f52f9035ae9ae94bf78f0cbedbfbdeac7bbe"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "diffusion",
+        "gaussian",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "d9365d1c4a943fa8b34b",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "75e12d9bd0b5ce01ecb082e79a89b851dc25740051f56cd1313d045c78af76d9"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "diffusion",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "dcc9aa7216c2a1265d52",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "ed58b8fb0561c3ca9d322f28ac039c650f070f342a67f7a664268c73eafd612b"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "diffusion",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "dcc9aa7216c2a1265d52",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "3687663242792c462ecc90cd0f681ac5bf38e1ae5a87ceacf7ed5fb08ddd2051"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "e41e6cd17728339a0adc",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "43cb13d341740f4b381073d854a31795401415d47f9a3d89c033ca8edc201697"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "e41e6cd17728339a0adc",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "ec00dd7bf4c76d6b765c5f4e97209322d1628e0184f35c417340744e991d6bf2"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "aead14b7bd7e0d170913",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "6b79ab6e367daf69ace68a1e7e0d30e82df88eaadb1d350a71afbc4bc3a13273"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "aead14b7bd7e0d170913",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "5d1ad4e056422c4d98ca3819dd83827fecbf05f7a1a6e2b2b5f351ca4fba7c4d"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "40407f2b8cf9059b2887",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "81a3581f68ac2ca86a401a241ccf71b9cff4490e199267397c3c377c042739ff"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "40407f2b8cf9059b2887",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "9e18b7929d35f93f0eac2262b91447507ea817f21cccfac10b1503b7e72eae76"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "6a8ad6809935bd4f981a",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "d61a566c6694249cf83d9e26f17fa9ac1487df04a8f9eeccc66b846dd2c7e815"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "6a8ad6809935bd4f981a",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "51bb79fad7b39ed8d4613e9f8a5469f3ab22d9f4e3a503d10bb0616d4963c3a2"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "deterministic",
+        "diffusion",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "3b42b31da60d96a246d1",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "27008dca0bd95c86791859d2165ac6c34420ee3b2aa8887049ea810c75eb06e1"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "deterministic",
+        "diffusion",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "3b42b31da60d96a246d1",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "4df20bcebd053a6fda369f296af02122e9de839d795ec296cb61f797694c5171"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "deterministic",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "bea940fb814146a70743",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "129b6283d67a7520f8e78a13e65aecd40b90e1be6f8af03dff618ce74d06af1d"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "deterministic",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "bea940fb814146a70743",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "973a9369d6f858dd7589da745befd916e1e657cbc85f3771d3802dfa96c2f4d9"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "685d10553bb5165dd9d9",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "1a2fe2cf836300a4aa0cfabb2c75e364d4819b227675a65eb75886fb0f8f1a1f"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "685d10553bb5165dd9d9",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "93658b226130aac90b7a52010ad49498b93deec02e85ba6315fd32722531c8ed"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "b6ba610c30f007064216",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "bff6330bc3d3be39d8ca30b6090cefbc67e9e0db84e7e038efdfe10019a80123"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "b6ba610c30f007064216",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "f3f40c8bf334923f9fd358f133302a4059d05afe90a806d5517e238b7944f86c"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "93b23f8ffcb8ee5a1a83",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "fb71ced0078c2a5c82ab99c105b39f870e9eeba79cfec53b472a6762af23c5c0"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "93b23f8ffcb8ee5a1a83",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "76ca561df8d154dfde6bb917f55b57c6f6a6f2ec345dd32f413cd1088d3968d2"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "d3055351ef070332ca4b",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "90f1d79ab6d5591bb4d74ed1bd2cd1d29c676b75a7ba1fd486f81f921e1c68c6"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "d3055351ef070332ca4b",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "4c8991a2ed9aa962d15ed5613b9bf5c587d61f781d7381df60da4dd3963a245b"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "9f649adf56022ce15f9b",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "4d02436309757ddbe711f3bd00a82992a20c33f3c2e5b09ff1ecb5020ffc7c4a"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "9f649adf56022ce15f9b",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "81bc98ad9eab0db51f5c1236659494d8c52e48d54cc871ba97e3da41ea5af88d"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "deterministic",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "060f78531889e06e6c8b",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "eee52a7d54b09f1aea2c307014cbdf69c18498039dd5ae19ee284b1b67e3b8b9"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "deterministic",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "060f78531889e06e6c8b",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "ba3b4644c30c489fc2d019f7bee1ad235405ae9a4deb2e2c7d7841d586bbece2"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "1c6610b82430c3703d57",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "4b6a43eee709cf4d6372a7a8f23fe71445921506fce214d7414be3a739a6d27d"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "1c6610b82430c3703d57",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "2279ff8e5468445d770d05efbc275e722442f2af420a69819939d283d043a6b2"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "e5edd15ded22f6919600",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "c5076f1037651c33ad528312cd272c8caa1b66bd519ed8253123df652837f730"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "e5edd15ded22f6919600",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "73c55b1cffcc7c8111a4b9ce9133296cd4d21a949516109fce4f90cb73fc80e0"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "4672aeb6da153c80f62e",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "5ca89c72771461c685bbcbec941d66b9b477c159002473d530f5865c918f8863"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "4672aeb6da153c80f62e",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "547dd9e1e46f8c6485f0fcfa9c37dab6fdf6cc85c658d09a318558b58789624e"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "348a95277158196e9b22",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "157343ae81397faae425b0317c3eebd64f09a63007447413a53f369f4966f4b6"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "348a95277158196e9b22",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "dc2af8d3196a6d193fd78635e39f5dc2060c05fefa3190b6fbb1c67612f459f4"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "50929e928904f57c45fb",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "7ca6d83e4a9e55e4ea67566d36a8a48353e6eb556c1e5bd317bd1748d3e870a5"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "50929e928904f57c45fb",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "0129c0f8bb04c4e8555892d7dc2800c0a39e1821ac4094627bd32675f7a8cb2e"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "36c0c9b8d6bfa547404a",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "6bee3e1738a3975b4b33bab203585c12b12dfb6a4fd82c08a475f2d67e404759"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "36c0c9b8d6bfa547404a",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "e6bf0f53fb3ab9d33534fdf4ff9225df5eb1d80c43dda76dbadc39d65f1a68bb"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "deterministic",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "1673880b950fe6457998",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "78eaca43bde74eaf070522714dd8e3f20bd946ba8ab47fca834bb96d6d9e85ec"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "deterministic",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "1673880b950fe6457998",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "519dda6102a9bdf84461ffa35b03180b674fa36e0c8d3cf68300dde9ae444ec4"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "2d9859ea394d42e795d5",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "ce2dd5a099f945703d9027dfee631b0babb0dd8348f78facef942ad5ff365855"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "2d9859ea394d42e795d5",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "5de4027e293176a19c6d8a7bb6c478680f4c2a1300604c103d54b82686ed0f0a"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "14a32bb04847fa39eda9",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "54495872b05830cc68650476889f62436eed25b5dd573cd584b3b1f24f1a2e52"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "14a32bb04847fa39eda9",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "fb891e4909f803f5df577dfb78f0e9f7f0aeb13eb497866d2894cffd2e1a72e6"
+    },
+    {
+      "source_types": [
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "d9443f6045b7d5848b4f",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "7de6501c7ca223b39677207d507109655f7521e5db94789c252ba8a25dbd2175"
+    },
+    {
+      "source_types": [
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "d9443f6045b7d5848b4f",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "8d8a749d478f8c85980b077183a46cc801aa7b44373305dafb256974251edf04"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "8ce380c5ceb6be95dcb6",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "98a3809c28e43e8745d535a38cd4c4fddc85cffd6e21c9c90b2842be430c0b95"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent"
+      ],
+      "source_key": "8ce380c5ceb6be95dcb6",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "1ed03a7a34ab99da935bfa7e9ea886e6df8d1df57205aa3c7f0e3e58b88ecb37"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "b006fc88d0b9cc4665b0",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "4a0a5a463cf3d134d48285767f835562f88a3d9f3119d5a2a0ae3403cd5a944f"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "ring_ippo"
+      ],
+      "source_key": "b006fc88d0b9cc4665b0",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "92c47c9d93dea030d8a2219f976a1799a58381607903f9313715cd4937e14223"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "80956eb343571d439f61",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "f56337979451981c3b825946e656796795217662cdfba32dae43ea6087c5b0bd"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "80956eb343571d439f61",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "189e1769f2161022e1500eb504445e6a954bbee783ea18255114edd0a800df3c"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "699c5b6c7c840ac4320c",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "19277b3064a070adcef1620642684c772a6d8245d79d0079b9e4b463b6957f3c"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "699c5b6c7c840ac4320c",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "35e8fd32ab6b07e14b9aff52ff38e29541b85bb84406d3ac2d660051c6b6ae93"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "b0101df7cd110eae3ff3",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "b68a729296c5a1b6829be98f79597d1a82f1f965f8bd98679cb0af9da58f99d0"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "b0101df7cd110eae3ff3",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "61cc11a089fddba2e23fee8d4d3fd4989485573c262540d8f5496994cd7077ce"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "1f22875984e07103d0bc",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "c8bba1437ea261aa160287faedd259de9e201f09220adc66039e9a911591772d"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "1f22875984e07103d0bc",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "57d121c4d4ac9903437b3be5844c08e6df8a39dfe458a6b6279bc6940b253238"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "ecaa113560b820ce4697",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "b7a90c139895323a01911e957f090b42d30768fa6f162574050e8edc1deec34b"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "ecaa113560b820ce4697",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "01809a3c2038689f7b40f1ff834cbad95fbc9e52432446aabd7baf31dfb76911"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "a27741a63328137a6e4b",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "dd7011a91571769f6f1065f103027bee08b7e8f6e2b1d40f7cd322ff332bf39f"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "a27741a63328137a6e4b",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "766a13610ee6ee0cf6ad59e93a13fa5dadb85cc0ce012b4c352876683ec2341e"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "6b8f6931d092b9454ff5",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "1321d3603dc63b70f58092480a72de3d9cd82b7fca925349b94fcaeb9b7cf638"
+    },
+    {
+      "source_types": [
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "6b8f6931d092b9454ff5",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "a72f344da3479e947fe5102f8211e0be92ad3bf353c3a3c4d9f023d2ae47f922"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "954f714499623ea0dc78",
+      "mode": "action_only",
+      "initialization": "scratch",
+      "task_uid": "4520e80d03697efec0064ca13467649413494a54ffdf65277f19392e64e2500c"
+    },
+    {
+      "source_types": [
+        "Flow",
+        "chunking",
+        "cvae",
+        "deterministic",
+        "diffusion",
+        "gaussian",
+        "mixture",
+        "recurrent",
+        "ring_ippo"
+      ],
+      "source_key": "954f714499623ea0dc78",
+      "mode": "action_only",
+      "initialization": "warm",
+      "task_uid": "392cf4bfb47b2339e9c910397621b91a51dfed476f384401c9fda437f8faa405"
+    }
+  ],
+  "unique_source_type_sets": 46,
+  "nested_reuse_rule": "The same seven-source-type fit may validate each of its two omitted types; outer A selects using only omitted B and never uses A labels. No fit is early-stopped using omitted-type labels.",
+  "selector": "Choose initialization/checkpoint using type-equal inner ensemble NLL; tie earlier step, higher within-state ranking, scratch",
+  "original_weights_immutable": true
+}

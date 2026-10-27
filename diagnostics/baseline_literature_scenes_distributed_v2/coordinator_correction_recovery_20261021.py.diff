@@ -1,0 +1,24 @@
+--- coordinator_correction_20261021.py
++++ coordinator_correction_recovery_20261021.py
+@@ -3,7 +3,7 @@
+ from atomic_write import write
+ from registry import verify_receipt
+ from resources_corrections_20261021 import snapshot
+-import fine_dispatch_correction_20261021 as fine
++import fine_dispatch_correction_recovery_20261021 as fine
+ from coordinator_flat_static import stage_ready,stage_done,jobs_by_stage
+ import time,subprocess,fcntl
+ 
+@@ -40,10 +40,11 @@
+   time.sleep(10)
+ 
+ def main():
++ verify_receipt('CORRECTION_RECOVERY_ADAPTER_20261021.receipt.json')
+  with (HERE/'CORRECTION_COORDINATOR.lock').open('a') as lock:
+   fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+   verify_receipt('CORRECTION_FIXED_PIPELINE_IMPLEMENTATION_20261021.receipt.json');verify_receipt('CORRECTION_REVISION.receipt.json');verify_receipt('PREREGISTRATION_ADDENDUM_20261021.receipt.json')
+-  write(HERE/'COORDINATOR_PID.json',dict(pid=os.getpid(),utc=utc(),entrypoint='coordinator_correction_20261021.py'))
++  write(HERE/'COORDINATOR_PID.json',dict(pid=os.getpid(),utc=utc(),entrypoint='coordinator_correction_recovery_20261021.py'))
+   status('revised_distributed_fixed_preflight')
+   action('merge_landed_old_semantics','db_merge.py')
+   stages=[prepare_fixed('distributed',scene) for scene in NAMES]

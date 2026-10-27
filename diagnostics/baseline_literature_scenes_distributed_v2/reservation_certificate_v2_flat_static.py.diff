@@ -1,0 +1,13 @@
+--- reservation_certificate_v2.py
++++ reservation_certificate_v2_flat_static.py
+@@ -1,8 +1,8 @@
+ """Exact rejection when every canonical terminal-goal test must fail."""
+ from experiment import *
+ import numpy as np
+-from reservation_certificate import CertifiedPlanner as FirstPlanner,CertifiedGrid as FirstGrid
+-from reservation_certificate import cbs_search,CanonicalNominal,EmptyWallControllerView
++from reservation_certificate_flat_static import CertifiedPlanner as FirstPlanner,CertifiedGrid as FirstGrid
++from reservation_certificate_flat_static import cbs_search,CanonicalNominal,EmptyWallControllerView
+ 
+ def swept_distance(a,b):
+     delta=b-a;denominator=np.maximum(np.sum(delta*delta,axis=-1),1e-30)

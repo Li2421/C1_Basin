@@ -1,0 +1,121 @@
+{
+  "CEM": [
+    [
+      10,
+      3,
+      64
+    ],
+    [
+      10,
+      5,
+      64
+    ],
+    [
+      10,
+      3,
+      256
+    ],
+    [
+      10,
+      5,
+      256
+    ],
+    [
+      30,
+      3,
+      64
+    ],
+    [
+      30,
+      5,
+      256
+    ]
+  ],
+  "ASTAR": [
+    [
+      0.05,
+      10,
+      "index"
+    ],
+    [
+      0.05,
+      10,
+      "far"
+    ],
+    [
+      0.05,
+      25,
+      "index"
+    ],
+    [
+      0.1,
+      10,
+      "index"
+    ],
+    [
+      0.1,
+      10,
+      "far"
+    ],
+    [
+      0.1,
+      25,
+      "far"
+    ]
+  ],
+  "MPPI": [
+    [
+      10,
+      64,
+      1.0
+    ],
+    [
+      10,
+      256,
+      1.0
+    ],
+    [
+      10,
+      64,
+      0.1
+    ],
+    [
+      10,
+      256,
+      0.1
+    ],
+    [
+      30,
+      64,
+      1.0
+    ],
+    [
+      30,
+      256,
+      0.1
+    ]
+  ],
+  "mppi_updates": 1,
+  "mppi_noise": "independent full horizon joint sequences; std .8*vmax",
+  "mppi_warm_start": "shift one physical step; repeat last control",
+  "test_environment": {
+    "agent_collision_margin": 0.0,
+    "agent_radius": 0.0,
+    "collision_margin": 0.0,
+    "dt": 0.05,
+    "goal_tolerance": 0.09,
+    "max_speed": 0.52,
+    "max_steps": 700,
+    "obstacle_radius": 0.0,
+    "outer_radius": 1000.0,
+    "schema": "ring_exchange_single_integrator_v1",
+    "terminate_on_collision": true,
+    "terminate_on_success": true
+  },
+  "locked_types": [
+    "distributed_cross_entropy",
+    "centralized_mppi"
+  ],
+  "optional_locked": "implicit",
+  "source_grid_sha256": "794b997c51be17e95fa8e0da358c465a1ee76df7abb8028587b82ef7ddcd4c20"
+}

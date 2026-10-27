@@ -1,0 +1,19 @@
+--- dynamics_runtime.py
++++ dynamics_runtime_reservation_certified.py
+@@ -5,7 +5,7 @@
+ import time
+ from flow_scene import LiteratureEnv
+ from states import LiteratureConfig
+-from nominal_adapter import Nominal
++from reservation_certificate import ReservationNominal as Nominal
+ from controllers import bound
+ from distributed_safety import local_basis
+ from central_reference import progress
+@@ -133,6 +133,7 @@
+         constraint_violation_steps=violation_steps,sampled_speed_violation_steps=speed_steps,minimum_swept_clearance=min(clear) if clear else None,
+         final_goal_distances=np.linalg.norm(env.goals-env.positions,axis=-1),paper_velocity_convergence=int(np.all(np.linalg.norm(env.velocities,axis=-1)<.1)),
+         stage='paper_dynamics',global_sampled_safety_guarantee=False)
++    result["reservation_no_goal_certificates"]=getattr(getattr(actor,"planner",None),"certificates",[])
+     arrays=dict(positions=np.asarray(positions),velocities=np.asarray(velocities),headings=np.asarray(headings),goals=env.goals,
+         actions=np.asarray(actions).reshape(-1,env.num_agents,2),desired=np.asarray(desireds).reshape(-1,env.num_agents,2),nominal=np.asarray(nominal).reshape(-1,env.num_agents,2),safe=np.asarray(safe).reshape(-1,env.num_agents,2),
+         projection_rewrite=np.asarray(rewrites).reshape(-1,env.num_agents),local_active_json=np.asarray(json.dumps(active)),events_json=np.asarray(json.dumps(clean(events))),swept_clearance=np.asarray(clear))

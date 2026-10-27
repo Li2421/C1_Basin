@@ -1,0 +1,225 @@
+{
+  "utc": "2026-10-18T03:47:53.114237+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "controller": "centralized_sampling0",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "centralized_sampling1",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "centralized_sampling2",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "centralized_sampling3",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "centralized_sampling4",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "centralized_sampling5",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "cross_entropy0",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "cross_entropy1",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "cross_entropy2",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "cross_entropy3",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "cross_entropy4",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "cross_entropy5",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "prioritized_astar0",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "prioritized_astar1",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "prioritized_astar2",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "prioritized_astar3",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "prioritized_astar4",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "prioritized_astar5",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "deterministic0",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "deterministic1",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "deterministic2",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "deterministic3",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "deterministic4",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "deterministic5",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "mixture0",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "mixture1",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "mixture2",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "mixture3",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "mixture4",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "mixture5",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "diffusion0",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "diffusion1",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "diffusion2",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "diffusion3",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "diffusion4",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    },
+    {
+      "controller": "diffusion5",
+      "actual": "S500",
+      "reference": "S500",
+      "passed": true
+    }
+  ],
+  "physical_steps": 0,
+  "training_updates": 0,
+  "task_labels_read": false
+}

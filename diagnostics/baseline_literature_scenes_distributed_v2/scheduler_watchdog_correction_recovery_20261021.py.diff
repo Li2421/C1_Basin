@@ -1,0 +1,20 @@
+--- scheduler_watchdog_correction_20261021.py
++++ scheduler_watchdog_correction_recovery_20261021.py
+@@ -11,14 +11,14 @@
+ 
+ def main():
+  with (HERE/'SCHEDULER_WATCHDOG.lock').open('a') as lock:
+-  fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);verify_receipt('CORRECTION_MONITOR_CODE_20261021.receipt.json')
+-  write(HERE/'SCHEDULER_WATCHDOG_PID.json',dict(utc=utc(),pid=os.getpid(),entrypoint='scheduler_watchdog_correction_20261021.py'));last_restart=0
++  fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);verify_receipt('CORRECTION_RECOVERY_ADAPTER_20261021.receipt.json')
++  write(HERE/'SCHEDULER_WATCHDOG_PID.json',dict(utc=utc(),pid=os.getpid(),entrypoint='scheduler_watchdog_correction_recovery_20261021.py'));last_restart=0
+   while not (HERE/'V2_COMPLETE.json').exists():
+    entry=read(HERE/'ACTIVE_ENTRYPOINT.json');pid=read(HERE/'COORDINATOR_PID.json')['pid'];running=alive(pid)
+    commands=subprocess.check_output(['ps','-eo','args='],text=True).splitlines();child=any(c==sys.executable+' -B '+str(HERE/'correction_after_distributed_fixed_20261021.py') for c in commands)
+    error=(HERE/'COORDINATOR_ACTION_ERROR.json').exists();restarted=None
+    if not running and not child and not error and time.time()-last_restart>120:
+-    assert entry['coordinator']=='coordinator_correction_20261021.py',entry;verify_receipt('CORRECTION_FIXED_PIPELINE_IMPLEMENTATION_20261021.receipt.json')
++    assert entry['coordinator']=='coordinator_correction_recovery_20261021.py',entry;verify_receipt('CORRECTION_FIXED_PIPELINE_IMPLEMENTATION_20261021.receipt.json')
+     with (HERE/'coordinator_correction_20261021.log').open('a') as out:proc=subprocess.Popen([sys.executable,'-B',str(HERE/entry['coordinator'])],cwd=ROOT,stdout=out,stderr=subprocess.STDOUT,start_new_session=True)
+     last_restart=time.time();restarted=proc.pid;entry.update(pid=proc.pid,utc=utc());write(HERE/'ACTIVE_ENTRYPOINT.json',entry)
+    write(HERE/'SCHEDULER_WATCHDOG.json',dict(utc=utc(),poll_seconds=30,coordinator_pid=pid,coordinator_alive=running,downstream_alive=child,restarted_pid=restarted,action_error=error,phase=read(HERE/'STATUS.json')['phase'],resources=snapshot(),correction_prompt_active=True,old_semantics_never_restarted=True))

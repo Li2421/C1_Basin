@@ -1,0 +1,20 @@
+--- statistics_header_reader_20261023.py
++++ statistics_training_selected_reader_20261022.py
+@@ -6,7 +6,7 @@
+ import collections
+ import csv
+ 
+-FIXED=('safety','fixed_eta10','fixed_eta13','human_progress')
++FIXED=('safety','train_selected_fixed')
+ LAYERS=('central','distributed')
+ 
+ def bootstrap(M,types,iterations=5000):
+@@ -108,7 +108,7 @@
+                 if fixes:
+                     ix=[2*arms.index(a) for a in fixes];i=2*ai
+                     delta=draws[:,i]-draws[:,ix].max(1)
+-                    row['delta_vs_best_aggregate_fixed']=dict(delta=float(point[i]-point[ix].max()),ci95=np.quantile(delta,[.025,.975]).tolist(),bootstrap_reselects_best_fixed=True,
++                    row['delta_vs_train_selected_fixed']=dict(delta=float(point[i]-point[ix].max()),ci95=np.quantile(delta,[.025,.975]).tolist(),bootstrap_reselects_best_fixed=False,
+                         identified_bounds=[float(point[i]-point[np.asarray(ix)+1].max()),float(point[i+1]-point[ix].max())])
+             tables.append(row)
+         for m in sorted({a[1] for a in arms}):

@@ -1,0 +1,50 @@
+"""v1 label/model interface with the sealed v2 states and distributed actions."""
+from experiment import *
+from revised_case_factory_20261021 import make
+from registry import register
+from flow_scene import physical12
+from result_inventory import find_raw
+import numpy as np
+import collections
+
+def selected_states(scene,role):
+    split=read(HERE/f'LEARNING_STATE_SPLIT_{scene}.json')
+    return split['training' if role=='train' else 'evaluation']
+
+def make_case(s,ctl,a,index,seed,method=None):
+    c=make(s,ctl,method='safety' if index==0 else f'learning_action_{index:02d}',seed=seed,eta_a=a['eta_a'],eta_b=a['eta_b'],theta=a['theta'],menu_index=index)
+    c['menu_index']=index
+    if method:c['method']=method
+    return c
+
+def plan(scene):
+    prereg();usability=read(HERE/f'BASELINE_USABILITY_{scene}.json')
+    if not usability['informative']:
+        write(HERE/f'LEARNING_GAP_REVISED_20261021_{scene}.json',dict(reason=usability['reason'],required_by_protocol=False));return
+    states=selected_states(scene,'train');evaluation=selected_states(scene,'evaluation');assert len(states)==32
+    groups=collections.defaultdict(list)
+    for row in read(HERE/'CONTROLLER_MANIFEST.json'):groups[row['type_code']].append(row)
+    controllers=[r for t in sorted(groups) for r in groups[t][:2]];menu=read(HERE/'LEARNING_MENU_REVISED.json')
+    cases=[make_case(s,ctl,a,ai,0) for ctl in controllers for s in states for ai,a in enumerate(menu)]
+    assert len(cases)==7680
+    write(HERE/f'LEARNING_SPLIT_REVISED_20261021_{scene}.json',dict(training=states,evaluation=evaluation,training_controllers=controllers,menu_sha256=sha(HERE/'LEARNING_MENU_REVISED.json')))
+    seal(f'LEARNING_SPLIT_REVISED_20261021_{scene}.receipt.json',[HERE/f'LEARNING_SPLIT_REVISED_20261021_{scene}.json',HERE/'learning_design_revised_20261021.py'],before_training_labels=True)
+    register('learning_labels_revised_20261021_'+scene,cases)
+
+def encode(a):
+    early=np.asarray(a['eta_a']);late=np.asarray(a['eta_b']);progress=a['theta'] is not None
+    return np.asarray([*early,*late,*(late-early),0. if progress else 500/700,float(np.all(early==0)),float(np.all(late==0)),float(progress),0.,float(a['theta'] or 0.),1.,0.,0.,0.],np.float32)
+
+def assemble(scene):
+    split=read(HERE/f'LEARNING_SPLIT_REVISED_20261021_{scene}.json');states=split['training'];ctls=split['training_controllers'];cases=read(HERE/f'learning_labels_revised_20261021_{scene}_CASES.json');menu=read(HERE/'LEARNING_MENU_REVISED.json')
+    labels=np.full((len(ctls),32,15),-1,np.int8);provenance=[];ci={c['controller']:i for i,c in enumerate(ctls)};si={(s['N'],s['index']):i for i,s in enumerate(states)}
+    for c in cases:
+        path=find_raw(c['rollout_uid'],scene=scene);r=read(path);a=c['menu_index'];i=ci[c['controller_payload']['nominal']['controller']];j=si[(c['state']['N'],c['state']['index'])]
+        labels[i,j,a]=-1 if r['numerical_failure'] else r['success'];provenance.append(dict(rollout_uid=c['rollout_uid'],source=str(path),sha256=sha(path)))
+    X=np.asarray([physical12(s) for s in states]);actions=np.asarray([encode(a) for a in menu]);assert X.shape==(32,12) and actions.shape==(15,19)
+    path=HERE/f'LEARNING_BUNDLE_REVISED_20261021_{scene}.npz';np.savez_compressed(path,labels=labels,physical12=X,action=actions,controllers=np.asarray([c['controller'] for c in ctls]),types=np.asarray([c['type_code'] for c in ctls]))
+    write(HERE/f'LEARNING_BUNDLE_REVISED_20261021_SOURCES_{scene}.json',provenance)
+    seal(f'LEARNING_BUNDLE_REVISED_20261021_{scene}.receipt.json',[path,HERE/f'LEARNING_BUNDLE_REVISED_20261021_SOURCES_{scene}.json',HERE/f'LEARNING_SPLIT_REVISED_20261021_{scene}.receipt.json',HERE/'learning_design_revised_20261021.py'],before_training=True,unknown_labels=int((labels<0).sum()),observed_labels=int((labels>=0).sum()))
+    print(scene,'bundle',labels.shape,'unknown',int((labels<0).sum()),flush=True)
+
+if __name__=='__main__':plan(sys.argv[2]) if sys.argv[1]=='plan' else assemble(sys.argv[2])

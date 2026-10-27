@@ -1,0 +1,45 @@
+--- optional_worker_flat_static.py
++++ optional_worker_correction_revised_20261021.py
+@@ -10,6 +10,7 @@
+     STOP=True
+ 
+ def main(stage):
++    verify_receipt('CORRECTION_OPTIONAL_EXECUTION_20261021.receipt.json');verify_receipt('CORRECTION_REVISION.receipt.json')
+     verify_receipt('CBS_FLAT_CACHE_STATIC_DEPLOYMENT.receipt.json');signal.signal(signal.SIGUSR1,stop);signal.signal(signal.SIGTERM,stop)
+     verify_receipt('OPTIONAL_FINE_SCHEDULING.receipt.json');verify_receipt(f'{stage}/FINE_QUEUE.receipt.json')
+     prereg();verify_receipt('IMPLEMENTATION_FROZEN.receipt.json');verify_receipt('OPTIONAL_CERTIFIED_BACKENDS_V2.receipt.json');verify_receipt(f'{stage}/WORK_QUEUE.receipt.json');verify_receipt('OPTIONAL_DELIVERY_READY.receipt.json')
+@@ -29,11 +30,11 @@
+             engine=c['execution_engine']
+             if engine=='paper_dynamics':
+                 verify_receipt('DYNAMICS_IMPLEMENTATION.receipt.json')
+-                from dynamics_runtime_flat_static import run
++                from dynamics_correction_revised_20261021 import run
+             elif engine=='local_progress':
+-                from runtime_local_progress_flat_static import run
++                from runtime_local_progress_correction_revised_20261021 import run
+             else:
+-                from runtime_flat_static import run
++                from runtime_correction_revised_20261021 import run
+             import jax
+             jax.config.update('jax_enable_x64',False)
+             kind=c['controller_payload']['nominal']['type_code']
+@@ -44,15 +45,17 @@
+                 result,arrays=run(c)
+                 result['pure_geometry_cache_equivalence_receipt_sha256']=sha(HERE/'CBS_FLAT_CACHE_EQUIVALENCE.receipt.json')
+                 result['jax_enable_x64']=bool(jax.config.x64_enabled)
++                result['correction_revision_receipt_sha256']=sha(HERE/'CORRECTION_REVISION.receipt.json')
++                result['optional_revision_execution_receipt_sha256']=sha(HERE/'CORRECTION_OPTIONAL_EXECUTION_20261021.receipt.json')
+                 result['optional_implementation_receipt_sha256']=sha(HERE/'OPTIONAL_DELIVERY_READY.receipt.json')
+                 result['reservation_equivalence_receipt_sha256']=sha(HERE/'RESERVATION_V2_EQUIVALENCE.receipt.json')
+-                result['execution_backend']=dict(actual='dynamics_runtime_flat_static.py' if engine=='paper_dynamics' else 'runtime_local_progress_flat_static.py' if engine=='local_progress' else 'runtime_flat_static.py')
++                result['execution_backend']=dict(actual='dynamics_correction_revised_20261021.py' if engine=='paper_dynamics' else 'runtime_local_progress_correction_revised_20261021.py' if engine=='local_progress' else 'runtime_correction_revised_20261021.py')
+                 if engine=='paper_dynamics' and c['state']['scene'] in ('lit_narrow_passage','lit_crowded_random'):
+                     import numpy as np
+                     result['acceleration_bound_violation_steps']=int(np.any(np.linalg.norm(arrays['actions'],axis=-1)>1.5+1e-7,axis=-1).sum())
+                 save(stage,c,result,arrays)
+             print(c['state']['scene'],c['controller_payload']['nominal']['controller'],c['method'],c['seed'],result['outcome'],round(result['elapsed_seconds'],3),flush=True)
+         write(claim/'COMPLETE.json',dict(utc=utc()));groups+=1
+-        if groups>=512:os.execv(sys.executable,[sys.executable,'-B',str(HERE/'optional_worker_flat_static.py'),stage])
++        if groups>=512:os.execv(sys.executable,[sys.executable,'-B',str(HERE/'optional_worker_correction_revised_20261021.py'),stage])
+ 
+ if __name__=='__main__':main(sys.argv[1])

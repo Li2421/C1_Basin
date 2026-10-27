@@ -1,0 +1,26 @@
+{
+  "activation": "SiLU",
+  "architecture": "214->128->128->3",
+  "batch_size": 32,
+  "early_stop_patience": 180,
+  "gamma": 0.8,
+  "improvement_tolerance": 1e-08,
+  "learning_rate": 0.001,
+  "max_epochs": 3000,
+  "optimizer": "AdamW",
+  "output": "unconstrained normalized eta; physical eta=affine_center+eta_scale*output",
+  "output_domain_audit": {
+    "E_bridge_violations_recorded": true,
+    "old_active_box_clip": false,
+    "old_eta1_ge_0.5_constraint": false,
+    "posthoc_repair": false,
+    "zero_snap": false
+  },
+  "parameter_count": 44419,
+  "seeds": [
+    17,
+    23,
+    41
+  ],
+  "weight_decay": 1e-05
+}

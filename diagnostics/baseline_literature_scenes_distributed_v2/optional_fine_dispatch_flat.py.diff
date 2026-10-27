@@ -1,0 +1,19 @@
+--- optional_fine_dispatch.py
++++ optional_fine_dispatch_flat.py
+@@ -91,6 +91,7 @@
+ 
+ 
+ def submit(stage):
++    verify_receipt('CBS_FLAT_CACHE_DEPLOYMENT.receipt.json')
+     verify_receipt('OPTIONAL_FINE_SCHEDULING.receipt.json')
+     verify_receipt(f'{stage}_PREFLIGHT.receipt.json')
+     verify_receipt(f'{stage}/FINE_QUEUE.receipt.json')
+@@ -98,7 +99,7 @@
+         fcntl.flock(lock,fcntl.LOCK_EX);before=require_capacity()
+         memory=read(HERE/stage/'MEMORY_OVERRIDE_GB.json')['memory_gb'] if (HERE/stage/'MEMORY_OVERRIDE_GB.json').exists() else 4
+         job=subprocess.check_output(['sbatch','--parsable',f'--mem={memory}G',
+-            f'--export=ALL,BLV2_STAGE={stage}',str(HERE/'optional_fine.sbatch')],text=True).strip()
++            f'--export=ALL,BLV2_STAGE={stage}',str(HERE/'optional_flat.sbatch')],text=True).strip()
+         write(HERE/'submissions'/f'{time.time_ns()}_{job}.json',dict(utc=utc(),stage=stage,
+             job_id=job,resource_snapshot=before,memory_gb=memory,fine_dispatch=True,
+             original_preflight_sha256=sha(HERE/f'{stage}_PREFLIGHT.receipt.json'),

@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-25T18:10:16.231044+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/scenes.py": "6fee7c17fac36395dce72a0f5c14280eec5d1d415039234cad55ede9a882e25f",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/design.py": "20ed7acbec2f6097bf560276054c8e1961934f39122718d365504d3f01a42559",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/stages.py": "8b10affcb638ea2cad6e23d7609195f36a881056b5510d76d30c650030941b2d",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/common.py": "cda88ee9eeff1aac5f1d90172a8fb89522f1c6334331e02157449e3a2c06a952",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/execution.py": "c1a89da3ef9f8e2c6717ab3e445c0111b43aac43a7b918f23c71b620ac828fec",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/runtime_new.py": "0210001b6d4cca172c8857e13ca932fca62e98cf702d66a415f3adfa2b3a64fa",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/scene_environment.py": "398b0ab568f382616a7c299b12357b85f2b20cfdd4539562c447678685dc18c9",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/controllers_new.py": "2f00b267108186f2100e11178815d57357d8ea80e3816dcbcbfce98a7826d735",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/worker.py": "9f9ff457a948969553f13322513ea2b1c6ea09d7b1aefb518bbc4fb3a1bdede9",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/rollout_worker.py": "a31889fa5132d2170a62cb1b3bc5bf96eae8f52699cbc691373d0c14bf3efe20",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/dispatch.py": "88bee112c623e1c54e497a610ed6170d09c178117f18d2c2e61c2b2385656db8",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/schedule.py": "e4c21c865cd458826f6ef63c9b62d9eecd4a15c9996689347d62c6b4658defac",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/queueing.py": "463399d7c6f180f912c0639de2a6a0a7db7344cfa98cd533779959f4c6d0cf6c",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/SCENES.json": "04dfb0ada0228c15416133ba5195f248bfca256f818531829fb7291b290a12d6",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/GEOMETRY_BASE_REPORTS.json": "7f58cdddf417f0863b3e02240bf97487c6a29ca14d9e1f3811724c7d359e1dad",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/REPLAY_CHECK.json": "ea4cab036849d67034763327d4195af6033a970ffe146a86a2671b37e9279fc2",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/RESOURCE_AMENDMENT.json": "69173f42a5125a58c8905ee7ea8801b5db4f412127e1e5ee8c31c410d51dcf15"
+  },
+  "only_three_fast_controllers": true,
+  "maximum_new_rollouts": 20000
+}

@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-17T16:34:43.457393+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/PILOT_NAVIGATION_STATES_FROZEN.json": "713255e1e672c279049a55f5fdbc569e34b79373a4dc8608ac1c10e88a4667d7",
+    "/home/zhihan/research/Basin_C1/diagnostics/multiscene_navigation_competence_v1/navigation_gate40.py": "d5ab1d4640401f4bd7aa1808f5b07b3e625d2b2cbdca3f40a2473e82356216d6"
+  },
+  "episodes_per_instance": 16,
+  "success_threshold": 15,
+  "final_round": 3,
+  "rng_root": 2026101740,
+  "per_step": "fold state prefix32 then physical step",
+  "before_checkpoints": true,
+  "no_gate_retraining": true
+}

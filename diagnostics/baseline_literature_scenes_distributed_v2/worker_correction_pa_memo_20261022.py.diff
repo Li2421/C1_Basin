@@ -1,0 +1,66 @@
+--- worker_correction_query_disk_20261022.py
++++ worker_correction_pa_memo_20261022.py
+@@ -11,7 +11,7 @@
+ 
+ def query_disk_snapshot():
+     import ctypes
+-    from tiled_planning_query_disk_candidate_20261022 import CBS,QUERY_CACHE_NAMESPACE
++    from tiled_planning_pa_memo_query_disk_candidate_20261022 import CBS,QUERY_CACHE_NAMESPACE
+     values=(ctypes.c_uint64*7)()
+     CBS.query_disk_cache_stats.argtypes=[ctypes.POINTER(ctypes.c_uint64)]
+     CBS.query_disk_cache_stats.restype=None
+@@ -19,7 +19,13 @@
+     return dict(namespace=QUERY_CACHE_NAMESPACE,values=list(values))
+ 
+ 
++def pa_query_snapshot():
++    from pa_query_memo_candidate_20261022 import snapshot
++    return snapshot()
++
++
+ def main(stage):
++    verify_receipt('PA_QUERY_MEMO_EQUIVALENCE_20261022.receipt.json');verify_receipt('PA_QUERY_MEMO_PIPELINE_CODE_20261022.receipt.json')
+     verify_receipt('CBS_QUERY_DISK_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_QUERY_DISK_PIPELINE_CODE_20261022.receipt.json')
+     verify_receipt('CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_START_SIGNATURE_PIPELINE_CODE_20261022.receipt.json')
+     assert stage.startswith(('distributed_revised_fixed_','central_revised_fixed_','learning_labels_revised_20261021_','learning_eval_revised_20261021_')),stage
+@@ -29,7 +35,7 @@
+     index=read(HERE/stage/'FINE_GROUP_INDEX.json')
+     signal.signal(signal.SIGUSR1,stop);signal.signal(signal.SIGTERM,stop)
+     claims=HERE/stage/'fine_claims';claims.mkdir(parents=True,exist_ok=True);count=0;groups=0
+-    from runtime_correction_query_disk_candidate_20261022 import run as distributed_run
++    from runtime_correction_pa_memo_query_disk_candidate_20261022 import run as distributed_run
+     from central_correction_revised_20261021 import run as historical_run
+     for entry in index:
+         if STOP:break
+@@ -51,7 +57,13 @@
+             else:
+                 run=historical_run if c['safety_layer']=='central' and c['state']['scene']!='lit_crowded_random' else distributed_run
+                 before_query=query_disk_snapshot() if run is distributed_run else None
++                before_pa=pa_query_snapshot() if run is distributed_run else None
+                 result,arrays=run(c)
++                if before_pa is not None:
++                    after_pa=pa_query_snapshot()
++                    names=('queries','hits','negative_hits','misses','stored','evictions','bypass','oversize','allocation_fallback')
++                    result['pa_query_cache']=dict(counter_deltas={k:after_pa.get(k,0)-before_pa.get(k,0) for k in names},state_after=after_pa)
++                    result['pa_query_cache_equivalence_receipt_sha256']=sha(HERE/'PA_QUERY_MEMO_EQUIVALENCE_20261022.receipt.json')
+                 if before_query is not None:
+                     after_query=query_disk_snapshot()
+                     result['native_query_cache']=dict(namespace=after_query['namespace'],counter_deltas=[b-a for a,b in zip(before_query['values'],after_query['values'])],counter_order=['reads','hits','collisions','invalid','writes','write_errors','skipped'])
+@@ -59,7 +71,7 @@
+                 result['computational_equivalence_receipt_sha256']=sha(HERE/'CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json') if run is distributed_run else None
+                 result['correction_revision_receipt_sha256']=sha(HERE/'CORRECTION_REVISION.receipt.json')
+                 result['pure_geometry_cache_equivalence_receipt_sha256']=sha(HERE/'CBS_FLAT_CACHE_EQUIVALENCE.receipt.json')
+-                result['execution_backend']=dict(actual='central_correction_revised_20261021.py' if run is historical_run else 'runtime_correction_query_disk_candidate_20261022.py',implementation_receipt_sha256=sha(HERE/'IMPLEMENTATION_FROZEN.receipt.json'))
++                result['execution_backend']=dict(actual='central_correction_revised_20261021.py' if run is historical_run else 'runtime_correction_pa_memo_query_disk_candidate_20261022.py',implementation_receipt_sha256=sha(HERE/'IMPLEMENTATION_FROZEN.receipt.json'))
+                 result["reservation_equivalence_receipt_sha256"]=sha(HERE/"RESERVATION_V2_EQUIVALENCE.receipt.json");result["central_fixed_equivalence_receipt_sha256"]=sha(HERE/"CENTRAL_FIXED_CERTIFICATE_REPLAY.receipt.json");save(stage,c,result,arrays)
+             count+=1
+             print(c['controller_payload']['nominal']['controller'],c['state']['N'],c['state']['index'],c['method'],c['seed'],result['outcome'],round(result['elapsed_seconds'],4),flush=True)
+@@ -67,7 +79,7 @@
+         write(claim/'COMPLETE.json',dict(utc=utc()));groups+=1
+         write(HERE/stage/f"worker_{os.environ['SLURM_JOB_ID']}.json",dict(utc=utc(),completed_in_process=count,groups=groups,last=entry['group']))
+         if groups>=512:
+-            os.execv(sys.executable,[sys.executable,'-B',str(HERE/'worker_correction_query_disk_20261022.py'),stage])
++            os.execv(sys.executable,[sys.executable,'-B',str(HERE/'worker_correction_pa_memo_20261022.py'),stage])
+     write(HERE/stage/f"worker_{os.environ['SLURM_JOB_ID']}_EXIT.json",dict(utc=utc(),graceful_stop=STOP,completed_in_process=count))
+ 
+ if __name__=='__main__':main(sys.argv[1])

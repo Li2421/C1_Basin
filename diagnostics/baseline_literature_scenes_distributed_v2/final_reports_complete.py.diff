@@ -1,0 +1,48 @@
+--- final_reports_pipelined.py
++++ final_reports_complete.py
+@@ -103,7 +103,7 @@
+ def handoff():
+     save('HANDOFF.md',f'''本轮是四文献场景分布式安全层迁移 v2，全部为开发证据。工作目录为 {HERE}。v1 在 {V1}，已经按用户要求完成三场景收尾并冻结；禁止写入、恢复圆形围场被丢弃的局或调用旧协调器。圆形围场 v1 流程版的缺口保持为缺口。
+ 
+-当前入口为 coordinator_pipelined.py；其 detached PID/日志分别见 COORDINATOR_PID.json、coordinator.log。重启前先读 PID 与 ps，确认没有现存协调器，再使用同一流程 Python 运行此入口；禁止并发启动第二个协调器。下游入口为 downstream_pipelined.py，实际 rollout 使用 submit_active.py、worker_fine.py。deploy_current.py 是旧部署快照生成器，不要重新运行覆盖 current 文件。当前进度与每场景完整/部分成功率见 STATUS.md、STATUS.json、LIVE_SAFETY_SUCCESS.json、LIVE_CONTROLLER_SAFETY_SUCCESS.csv；LIVE 为已完成局池化，不能替代最终类型等权率。
++当前入口为 coordinator_complete.py；其 detached PID/日志分别见 COORDINATOR_PID.json、coordinator.log。重启前先读 PID 与 ps，确认没有现存协调器，再使用同一流程 Python 运行此入口；禁止并发启动第二个协调器。下游入口为 downstream_complete.py，学习 rollout 使用 fine_dispatch.py、worker_fine.py；第二阶段和补充 rollout 使用 optional_fine_dispatch.py、optional_worker_fine.py。deploy_current.py 是旧部署快照生成器，不要重新运行覆盖 current 文件。当前进度与每场景完整/部分成功率见 STATUS.md、STATUS.json、LIVE_SAFETY_SUCCESS.json、LIVE_CONTROLLER_SAFETY_SUCCESS.csv；LIVE 为已完成局池化，不能替代最终类型等权率。
+ 
+ 流程 Python：/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python -B；图仅最后用 .venv-c1-plots/bin/python -B。禁止安装包。experiment.py 把 TMP/MPL/XDG/CUDA 缓存限定在本轮并禁用 bytecode。新代码与输出只在本轮；共享 journal 只能通过官方 cache_writer 写默认实验目录，数据库合并只调用 db_merge.py 包装的官方单进程 merger。实验 ID 为 exp_baseline_literature_scenes_distributed_v2。
+ 
+@@ -113,9 +113,9 @@
+ 
+ 控制器为 8 类×6 实例=48 个，参数冻结；12 指学习动作菜单，不是训练 12 个 controller。合格实例窄通道/拥挤随机各 44、门口/圆形各 45。主 state 窄通道/门口各64，拥挤随机各 N=2/4/6/8/10/12/14 的16组共112，圆形前16。LEARNING_STATE_SPLIT_<scene>.json 密封各32训练 state；窄通道/门口评估32，拥挤随机评估主线 N8/14 共32，圆形评估16。训练标签每类前2实例×32×12×seed0；按能力以外的预注册 informative 规则决定是否学习。learn_critic.py、freeze_scene_choices.py 保持旧模型与嵌套留一类型程序，三初始化17/23/41，36组 source fits/场景。选择在首条 learned 评估提交前密封；基线结果按流程先前已知，这不是全局盲测。
+ 
+-first-stage 主数值在 MIGRATION_NUMBERS.receipt.json 封存后才进入 optional_delivery_pipelined.py。固定修正主 state 与 learned 独立评估子集必须分表；类型→实例→可用场景/state→两个配对 seed 聚合，5000次bootstrap，unknown 下界0/上界1。统计程序 statistics.py；补充指标 derived_metrics.py；原轨迹后验诊断 analysis_jobs_cached.py/optional_analysis_worker_cached.py 用 atomic_write.py 的唯一临时文件保护共享缓存，不能改已密封规范 experiment.write。scene_learning_scheduler.py每10秒按场景推进标签、冻结模型与密封选动作后的评估；fine_dispatch.py只将已密封案例切成单局/双种子小批次；worker_fine.py执行体与worker_active.py相同。scheduler_watchdog.py独立检查协调器存活及空闲原因。diagnosis_alias_cache.py仅复用trace SHA相同、case除seed身份外一致、完整raw除seed/计时元数据外一致的确定性副本；23组独立既有诊断核对通过，语义不匹配就正常重算。每个seed仍有独立UID/诊断入口并保留统计权重。DIAGNOSTICS 只读仿真轨迹，不改控制器或物理。
++first-stage 主数值在 MIGRATION_NUMBERS.receipt.json 封存后才进入 optional_delivery_fine.py。固定修正主 state 与 learned 独立评估子集必须分表；类型→实例→可用场景/state→两个配对 seed 聚合，5000次bootstrap，unknown 下界0/上界1。统计程序 statistics.py；补充指标 derived_metrics.py；原轨迹后验诊断 analysis_jobs_cached.py/optional_analysis_worker_cached.py 用 atomic_write.py 的唯一临时文件保护共享缓存，不能改已密封规范 experiment.write。scene_learning_scheduler.py每10秒按场景推进标签、冻结模型与密封选动作后的评估；fine_dispatch.py只将已密封案例切成单局/双种子小批次；worker_fine.py执行体与worker_active.py相同。scheduler_watchdog_complete.py独立检查协调器存活及空闲原因。diagnosis_alias_cache.py仅复用trace SHA相同、case除seed身份外一致、完整raw除seed/计时元数据外一致的确定性副本；23组独立既有诊断核对通过，语义不匹配就正常重算。每个seed仍有独立UID/诊断入口并保留统计权重。DIAGNOSTICS 只读仿真轨迹，不改控制器或物理。
+ 
+-非主线第二阶段使用 dynamics_runtime_reservation_v2.py 与 dynamics_safety.py；另有圆形全责、个人进度、拥挤随机无安全层背景。各部分独立 preflight，新身份且使用对应第一阶段物理 state UID 作随机数配对。无解违反、速度事件、非线性求解限制必须披露。optional_delivery_pipelined.py 负责可恢复队列、可选缺口、最终官方合并、DB postflight、最后画图、结束源审计和 final_reports_pipelined.py。任何 optional 缺口不得改变已封存主数值。
++非主线第二阶段使用 dynamics_runtime_reservation_v2.py 与 dynamics_safety.py；另有圆形全责、个人进度、拥挤随机无安全层背景。各部分独立 preflight，新身份且使用对应第一阶段物理 state UID 作随机数配对。无解违反、速度事件、非线性求解限制必须披露。optional_delivery_fine.py 负责可恢复队列、可选缺口、最终官方合并、DB postflight、最后画图、结束源审计和 final_reports_complete.py。任何 optional 缺口不得改变已封存主数值。
+ 
+ 用户最新资源覆盖 prompt 的旧限额：已纠正释放日期：2026-10-21起已释放6 CPU和3 GPU份额，总计18 CPU份额/2 GPU份额；RESOURCE_SCHEDULE_CORRECTED.json覆盖旧日程。GPU份额为单卡 shard；所有用户作业（含pending）计入，CPU预留1给本地协调/分析。resources_released.py 每次提交前检查；resource_guard_released.py 独立守护，只取消本轮 blv2_ 作业至限额，完整raw/journal保留，未完成基础设施重试。
+ 
+@@ -148,6 +148,8 @@
+     paras.append(' '.join(gains)+' 全部主 state 的固定修正与重新学习评估子集分开；共同范围的比较及四场景类型等权合并见 AXIS_TABLE.md，unknown 上界、配对伤害、10 pp 实例下降与训练菜单描述性 oracle 另见 JSON。')
+     stage2=[s for s,e in optional['results'].items() if s.startswith('optional_dynamics_') and e['status']=='complete']
+     paras.append(f"第二阶段已有 {len(stage2)}/4 个场景完成计划请求。逐场景成功率、动力学−单积分器的配对差、修正增益之差、约束违反、速度违反和直接静止判据见 DYNAMICS_STAGE.md；未完成项按缺口报告，不当作 unknown。联合锥仅为同动力学下的耦合参照，未运行额外集中式动力学控制器；二阶约束没有全局采样安全证明，门口非线性问题没有全局最优证书。")
++    from learning_label_support import main as label_support
++    support=label_support(seal_result=not (HERE/'LEARNING_LABEL_SUPPORT.receipt.json').exists())
+     gaps=read(HERE/'OPTIONAL_GAPS.json') if (HERE/'OPTIONAL_GAPS.json').exists() else []
+     notes=['四篇论文版完全沿用 v1 的 PAPER_REPRODUCTION.*，本轮不重跑。v1 流程版只有窄通道、二维拥挤随机、门口三场景收尾，圆形流程版为用户决定停止、转入 v2 的缺口；不能把 v1 三场景当四场景。v2 圆形仅前16主 state，旧已落盘部分精确复用，其余为 v2 独立请求，不恢复 v1 已丢弃的8918局。',
+         '冻结旧流程零样本、冻结旧表示 A3、旧物理接口 A0、无兼容冻结选择接口 G_E、未要求的专家参照均 N/A。集中式场景内重新学习只复用窄通道与门口，其他两场景本轮仅要求固定修正。第二阶段不重新学习。',
+@@ -156,10 +158,13 @@
+         'v1 原严格审计覆盖限制、圆形有限静止窗口、数值 unknown 识别界、动力学约束违反与非线性最优性限制如前述；所有结论为开发证据。']
+     for scene in NAMES:
+         if results[scene]['learned_evaluation'].get('status')=='N/A':notes.append(NAMES[scene]+'学习缺口：'+canonical(results[scene]['learned_evaluation'].get('reason')))
++    for row in support['scenes']:
++        if not row['observed_positive_action_support']:
++            notes.append(NAMES[row['scene']]+'：预注册12动作菜单的训练标签中成功 '+str(row['success'])+'、失败 '+str(row['failure'])+'、unknown '+str(row['unknown'])+'；该数据没有观测到正例，不能用来证明模型识别成功动作的能力。密封选择计数与逐动作标签见 LEARNING_LABEL_SUPPORT.json；不据此改菜单、超参数或重训练。')
+     notes.extend('非主线运行缺口：'+canonical(r) for r in gaps)
+     save('GAPS.md','\n\n'.join(notes));save('REPORT.md','\n\n'.join(paras)+'\n\n缺口摘要：\n\n'+'\n\n'.join(notes))
+-    outputs=['REPORT.md','AXIS_TABLE.md','AXIS_TABLE.csv','FAILURE_DECOMPOSITION.md','CONTROLLER_LEVEL_FAILURES.md','GEOMETRY_CENSUS.md','DYNAMICS_STAGE.md','GAPS.md','HANDOFF.md']
+-    seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_pipelined.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),optional_numbers_receipt_sha256=sha(HERE/'OPTIONAL_NUMBERS.receipt.json'))
++    outputs=['REPORT.md','AXIS_TABLE.md','AXIS_TABLE.csv','FAILURE_DECOMPOSITION.md','CONTROLLER_LEVEL_FAILURES.md','GEOMETRY_CENSUS.md','DYNAMICS_STAGE.md','GAPS.md','HANDOFF.md','LEARNING_LABEL_SUPPORT.json','LEARNING_LABEL_SUPPORT.receipt.json']
++    seal('FINAL_REPORTS.receipt.json',[HERE/n for n in [*outputs,'final_reports_complete.py']],source_audit_passed=True,db_postflight_passed=True,main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),optional_numbers_receipt_sha256=sha(HERE/'OPTIONAL_NUMBERS.receipt.json'))
+ 
+ if __name__=='__main__':
+     if sys.argv[1:]==['handoff']:handoff()

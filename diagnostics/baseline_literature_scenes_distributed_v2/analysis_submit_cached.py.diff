@@ -1,0 +1,24 @@
+--- analysis_jobs_released.py
++++ analysis_submit_cached.py
+@@ -26,10 +26,10 @@
+     return stage
+ 
+ def submit(stage):
+-    verify_receipt(f'{stage}/WORK_QUEUE.receipt.json')
++    verify_receipt(f'{stage}/WORK_QUEUE.receipt.json');verify_receipt('POSTHOC_CACHE_DEPLOYMENT.receipt.json')
+     with (HERE/'SUBMISSION.lock').open('a') as lock:
+         fcntl.flock(lock,fcntl.LOCK_EX);before=require_capacity()
+-        job=subprocess.check_output(['sbatch','--parsable',f'--export=ALL,BLV2_STAGE={stage}',str(HERE/'analysis_current.sbatch')],text=True).strip()
++        job=subprocess.check_output(['sbatch','--parsable',f'--export=ALL,BLV2_STAGE={stage}',str(HERE/'analysis_cached.sbatch')],text=True).strip()
+         write(HERE/'submissions'/f'{time.time_ns()}_{job}.json',dict(utc=utc(),stage=stage,job_id=job,resource_snapshot=before,posthoc_only=True))
+         print('Submitted analysis',job,stage,flush=True)
+         return job
+@@ -37,7 +37,7 @@
+ def worker(stage):
+     import numpy as np
+     from failure_analysis import summary
+-    verify_receipt(f'{stage}/WORK_QUEUE.receipt.json');index=read(HERE/stage/'GROUP_INDEX.json')
++    verify_receipt(f'{stage}/WORK_QUEUE.receipt.json');verify_receipt('POSTHOC_CACHE_DEPLOYMENT.receipt.json');index=read(HERE/stage/'GROUP_INDEX.json')
+     claims=HERE/stage/'claims';claims.mkdir(parents=True,exist_ok=True);groups=0
+     for entry in index:
+         claim=claims/entry['group']

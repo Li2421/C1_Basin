@@ -1,0 +1,43 @@
+--- downstream_flat_static.py
++++ downstream_flat_static_allcpu.py
+@@ -1,7 +1,7 @@
+ """Follow the prescribed order after baseline comparisons; resumable receipts."""
+ from experiment import *
+-from coordinator_pipelined import action,prepare,run_stages,stage_ready,jobs_by_stage
+-from resources_released import snapshot
++from coordinator_flat_static_allcpu import action,prepare,run_stages,stage_ready,jobs_by_stage
++from resources_idle_cpu import snapshot
+ import time
+ 
+ def old_learning(scene):
+@@ -22,8 +22,8 @@
+     run_stages([prepare_analysis(stage) for stage in stages],phase)
+ 
+ def train(scenes):
+-    from critic_jobs_released import submit
+-    from status_released import main as status
++    from critic_jobs_released_allcpu import submit
++    from status_released_allcpu import main as status
+     while True:
+         pending=[s for s in scenes if not (HERE/f'FROZEN_SCENE_CRITIC_{s}.receipt.json').exists()]
+         if not pending:return
+@@ -50,7 +50,7 @@
+         if (HERE/f'LEARNING_GAP_{scene}.json').exists():continue
+         if not stage_ready(stage):action('labels_queue_'+scene,'work_queue.py',stage)
+         learning.append(scene)
+-    from scene_learning_scheduler_flat_static import run as run_learning
++    from scene_learning_scheduler_flat_static_allcpu import run as run_learning
+     evaluations=run_learning(learning)
+     for scene in ('lit_narrow_passage','lit_doorway'):old_learning(scene)
+     diagnostics=[*['distributed_baseline_'+s for s in NAMES],*fixed,*evaluations,
+@@ -60,8 +60,8 @@
+     if not (HERE/"MIGRATION_NUMBERS.receipt.json").exists():action('numeric_results','statistics.py')
+     # Main numbers must be sealed before optional dynamics, variants or charts.
+     while not (HERE/'OPTIONAL_DELIVERY_READY.receipt.json').exists():
+-        from status_released import main as status
++        from status_released_allcpu import main as status
+         status('main_numbers_sealed_awaiting_optional_delivery_implementation');time.sleep(30)
+-    action('optional_delivery','optional_delivery_flat_static.py')
++    action('optional_delivery','optional_delivery_flat_static_allcpu.py')
+ 
+ if __name__=='__main__':main()

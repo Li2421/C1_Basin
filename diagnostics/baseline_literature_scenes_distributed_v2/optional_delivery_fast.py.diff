@@ -1,0 +1,28 @@
+--- optional_delivery_active.py
++++ optional_delivery_fast.py
+@@ -1,6 +1,6 @@
+ """Optional work follows sealed main numbers; failures become explicit gaps."""
+ from experiment import *
+-from coordinator_active import action,stage_ready,stage_done,jobs_by_stage
++from coordinator_fast import action,stage_ready,stage_done,jobs_by_stage
+ from infrastructure_recovery_active import recover
+ from resources_released import snapshot,require_capacity
+ from registry import verify_receipt
+@@ -12,7 +12,7 @@
+     verify_receipt('OPTIONAL_DELIVERY_READY.receipt.json');verify_receipt(f'{stage}/WORK_QUEUE.receipt.json')
+     analysis=stage.startswith('analysis_')
+     if not analysis:verify_receipt(f'{stage}_PREFLIGHT.receipt.json')
+-    script='optional_analysis.sbatch' if analysis else 'optional.sbatch'
++    script='optional_analysis_cached.sbatch' if analysis else 'optional.sbatch'
+     with (HERE/'SUBMISSION.lock').open('a') as lock:
+         fcntl.flock(lock,fcntl.LOCK_EX);before=require_capacity()
+         memory=read(HERE/stage/'MEMORY_OVERRIDE_GB.json')['memory_gb'] if (HERE/stage/'MEMORY_OVERRIDE_GB.json').exists() else 4
+@@ -85,7 +85,7 @@
+     # Every experiment worker has ended before the final source audit.
+     state=snapshot();assert not any(j['name'].startswith('blv2_') for j in state['jobs']),state
+     if not (HERE/'INTEGRITY_END.receipt.json').exists():action('integrity_end','integrity.py','end')
+-    if not (HERE/'FINAL_REPORTS.receipt.json').exists():action('final_report','final_reports_active.py')
++    if not (HERE/'FINAL_REPORTS.receipt.json').exists():action('final_report','final_reports_fast.py')
+     from status_released import main as status
+     status('complete_with_explicit_optional_gaps' if (HERE/'OPTIONAL_GAPS.json').exists() else 'complete')
+     write(HERE/'V2_COMPLETE.json',dict(utc=utc(),main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),source_audit=sha(HERE/'INTEGRITY_END.json'),v1_readonly=True))

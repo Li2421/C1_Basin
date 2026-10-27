@@ -1,0 +1,11 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/controller_eta_switch_time_v1/core.py
++++ /home/zhihan/research/Basin_C1/diagnostics/axis1_state_v1/core.py
+@@ -2,7 +2,7 @@
+ import os,sys,json,hashlib
+ from pathlib import Path
+ from datetime import datetime,timezone
+-HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];R4=ROOT/'diagnostics/controller_loco_real_flow_v1';DBROOT=ROOT/'shared_rollout_db';EXP='exp_controller_eta_switch_time_v1'
++HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];R4=ROOT/'diagnostics/controller_loco_real_flow_v1';DBROOT=ROOT/'shared_rollout_db';EXP='exp_axis1_state_v1'
+ PY='/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python'
+ sys.dont_write_bytecode=True
+ for k in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS'):os.environ[k]='1'

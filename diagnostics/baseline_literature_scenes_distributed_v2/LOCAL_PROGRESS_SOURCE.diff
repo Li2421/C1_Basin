@@ -1,0 +1,37 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/runtime.py
++++ /home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/runtime_local_progress.py
+@@ -26,7 +26,7 @@
+         int(hashlib.sha256(rng_uid.encode()).hexdigest()[:8],16)),c['seed'])
+     positions=[env.positions.copy()];velocities=[env.velocities.copy()]
+     nominal=[];safe=[];actions=[];rewrite=[];active=[];local_active=[];clear=[];durations=[]
+-    switch=None;error=None;termination='timeout';d0=np.linalg.norm(env.goals-env.positions,axis=-1)
++    switch=np.full(env.num_agents,-1,dtype=int);error=None;termination='timeout';d0=np.linalg.norm(env.goals-env.positions,axis=-1)
+     for t in range(cfg.max_steps):
+         before=time.monotonic()
+         try:
+@@ -34,9 +34,13 @@
+             ref=bound(actor.action(env,jax.random.fold_in(root,t)),cfg.max_speed).astype(np.float64)
+             ref[np.linalg.norm(env.goals-env.positions,axis=-1)<=cfg.goal_tolerance]=0
+             snap=env.snapshot()
+-            if c['theta'] is not None and switch is None and (progress(env.positions,env.goals,d0,cfg.goal_tolerance)>=c['theta'] or t>=round(6*cfg.max_steps/7)):
+-                switch=t
+-            eta=np.asarray(c['eta_b'] if switch is not None else c['eta_a'])
++            assert layer == "distributed"
++            dist=np.linalg.norm(env.goals-env.positions,axis=-1)
++            ratio=np.empty_like(dist);moving=d0>0
++            ratio[moving]=np.clip(1-dist[moving]/d0[moving],0,1)
++            ratio[~moving]=(dist[~moving]<=cfg.goal_tolerance).astype(float)
++            switch[(switch<0)&((ratio>=c["theta"])|(t>=round(6*cfg.max_steps/7)))]=t
++            eta=np.where((switch>=0)[:,None],np.asarray(c["eta_b"]),np.asarray(c["eta_a"]))
+             if c['method']=='nominal_only':
+                 v=ref.copy();a=ref.copy();global_labels=[];local_labels=[[] for _ in ref]
+             elif layer=='central':
+@@ -58,7 +62,7 @@
+                 else:
+                     for i in range(len(v)):
+                         fields=local_basis(env.positions,env.goals,v,i,np.inf,cfg.max_speed)
+-                        target[i]+=sum(float(value)*field for value,field in zip(eta,fields))
++                        target[i]+=sum(float(value)*field for value,field in zip(eta[i],fields))
+                 a=np.concatenate([f.project(target[i:i+1])[0] for i,f in enumerate(filters)])
+                 local_labels=[[f.kinds[k] for k in np.flatnonzero(f.A@v[i]-f.lower<=1e-7)] for i,f in enumerate(filters)]
+                 A,lower,kinds=problem

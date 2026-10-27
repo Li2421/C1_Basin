@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-25T17:00:41.744643+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/statistics_test.py": "64131165db50821170b54d4a89739de4bba2922c9311e1534c1bcb92cb9c54e0",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/design.py": "3e593b4e0dcb6437e9ae5a21b757b8ce1eabe931c13ef4d999a64c9ae7bcc0e8",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/STATISTICAL_CONVENTIONS.json": "a3e076ade6a310c6de220daf2a0e5bf8d890dc8c012ef3736a033e4a7b046ea3",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/EXISTING_BEST_SETS.json": "25270662294950613d8141ca001d81961c46dabec7ec66bd922c578a621cd65f",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/HALF_SPLITS.json": "8f934210b9f99484dca52ba6b7cedb5385bc119efa2301ab82cf528c8bb77347",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/OLD_LABEL_TABLES.json": "6bba00d5b14156a636d31980e908e4531de465e74dad31b393def20c711046b5",
+    "/home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/ETA_MENU.json": "8032dc3d15e9b5bd6f91cecab0b3f8d3188578a8ec546b1bcdcb7b7c3ac64cb7"
+  },
+  "bootstrap_seed": 2026102611,
+  "bootstrap_replicates": 5000,
+  "inner_half_splits": 200,
+  "primary_pool_score": "Oracle maximum on scoring half",
+  "mutual_loss_both_directions": true,
+  "no_model_training": true
+}

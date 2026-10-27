@@ -1,0 +1,82 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/audit.py
++++ /home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/audit.py
+@@ -26,24 +26,32 @@
+ 
+ def database():
+     from scenes import make_new
+-    from design import CONTROL_IDS,controllers,menu
++    from design import CONTROL_IDS,controllers,menu,OLD,NEW_NAMES
++    scene_index={s['name']:s for s in read(HERE/'SCENES.json')}
+     seen={};counts={};hashes={};collision={};checkpoint_files=set();metadata={};timings={};missing_requests=[]
+-    executed={c['rollout_uid']for stage in('capability','main')for c in read(HERE/f'{stage}_MISSING_CASES.json')}
++    executed={c['rollout_uid']for stage in('capability','main','proposal')for c in read(HERE/f'{stage}_MISSING_CASES.json')}
+     def digest(p):
+         p=str(p)
+         if p not in hashes:hashes[p]=sha(p)
+         return hashes[p]
+     with dbm.connect(True)as db:
+-        for stage in ('capability','main'):
++        for stage in ('capability','main','proposal'):
+             cases=read(HERE/f'{stage}_CASES.json');counts[stage]=len(cases)
+             reg=read(HERE/f'{stage}_REGISTRATION.receipt.json');assert reg['original_rows_before']==reg['original_rows_after']
+             for c in cases:
+                 rid=c['rollout_uid'];name=c['state']['scene'];ctl=c['controller_payload']['nominal']['controller']
+-                scene=next(s for s in read(HERE/'SCENES.json')if s['name']==name)
+-                nominal=next(t for t in controllers()if t['controller']==ctl);action=next(a for a in menu()if a['key']==c['requested_action'])
+-                assert canonical(nominal)==canonical(c['controller_payload']['nominal'])and ctl in CONTROL_IDS
+-                rebuilt=make_new(scene,nominal,c['state'],action,c['seed'])
+-                assert canonical(rebuilt)==canonical(c),('PLANNED_CONSTRUCTOR_DIFF',rid)
++                scene=scene_index[name]
++                nominal=next(t for t in controllers()if t['controller']==ctl);action=next((a for a in menu()if a['key']==c['requested_action']),dict(key=c['requested_action'],eta_a=c['eta_a']))
++                assert ctl in CONTROL_IDS
++                if stage=='capability'and name not in NEW_NAMES:
++                    from stages import old_cap_cases
++                    original=next(x for x in old_cap_cases()if x['rollout_uid']==rid);assert canonical(c)==canonical(original)
++                elif name.startswith('lit_'):
++                    from requests_corrected import request
++                    assert canonical(request(name,ctl,c['state']['index'],c['eta_a']))==canonical(c)
++                else:
++                    assert canonical(nominal)==canonical(c['controller_payload']['nominal'])
++                    rebuilt=make_new(scene,nominal,c['state'],action,c['seed']);assert canonical(rebuilt)==canonical(c),('PLANNED_CONSTRUCTOR_DIFF',rid)
+                 for table,key,expect,col in [('scenario','scenario_uid',canonical(c['scenario_payload']),'metadata_json'),
+                     ('controller_config','controller_uid',canonical(c['controller_payload']),'config_json')]:
+                     identity=(table,c[key]);prior=metadata.get(identity)
+@@ -93,14 +101,14 @@
+     elapsed=np.array([v['seconds']for k,v in timings.items()if k in executed]);events=[json.loads(line)for line in(HERE/'SCHEDULER_EVENTS.jsonl').read_text().splitlines()]
+     wall={}
+     from datetime import datetime
+-    for stage in ('capability','main'):
++    for stage in ('capability','main','proposal'):
+         begin=[e['utc']for e in events if e['event']=='started'and e.get('stage')==stage]
+         end=[e['utc']for e in events if e['event']=='completed'and e.get('stage')==stage]
+         wall[stage]=dict(start=begin[0],end=end[-1],seconds=(datetime.fromisoformat(end[-1])-datetime.fromisoformat(begin[0])).total_seconds())
+     write(HERE/'ACTUAL_COST.json',dict(unique_rollouts=len(timings),new_execution_count=len(executed-set(missing_requests)),single_cpu_episode_wall_hours_sum=float(elapsed.sum()/3600),
+         maximum_episode_seconds=float(elapsed.max()),episode_seconds_quantiles={str(q):float(np.quantile(elapsed,q))for q in (.5,.9,.95,.99)},
+         stage_wall=wall,per_request=timings,scope='Single-CPU episode wall times, unique UID counted once; excludes worker import, trace compression and scheduling overhead.'))
+-    write(HERE/'DB_POSTFLIGHT.json',dict(utc=utc(),passed=True,scope='All completed capability/main test requests and all registered metadata; explicit unfinished requests retained as gaps.',
++    write(HERE/'DB_POSTFLIGHT.json',dict(utc=utc(),passed=True,scope='All completed capability/main/proposal requests and all registered metadata; explicit unfinished requests retained as gaps.',
+         stage_requests=counts,unique_requests=len(seen),all_requests_present=not missing_requests,uncompleted_requests=missing_requests,all_identities_and_results_equal=True,
+         all_metadata_equal=True,all_cases_exactly_reconstructed=True,all_exact_eta_bytes_equal=True,all_trace_hashes_equal=True,all_database_raw_record_hashes_equal=True,
+         no_unmerged_experiment_journals=True,existing_rows_unchanged_at_registration=True,unknowns_retained_without_retry=True,
+@@ -125,8 +133,11 @@
+         actual[p]=sha(p)
+         if actual[p]!=h:changed[p]=dict(before=h,after=actual[p])
+     frozen={}
+-    for name in('EXECUTION_FROZEN.receipt.json','STATISTICS_FROZEN.receipt.json'):
++    for name in('EXECUTION_FROZEN.receipt.json','STATISTICS_FROZEN.receipt.json','TRAINING_FROZEN.receipt.json'):
+         for p,h in read(HERE/name)['files'].items():frozen[p]=h
++    for receipt,digest in read(HERE/'ALL_FOLDS_FROZEN.receipt.json')['files'].items():
++        assert sha(receipt)==digest
++        frozen.update(read(receipt)['files'])
+     frozen_changed={p:dict(before=h,after=sha(p))for p,h in frozen.items()if sha(p)!=h}
+     # Strictly metadata-only: neither read nor hash any reserved scene file.
+     meta={}
+@@ -144,7 +155,7 @@
+         keep=[];skip=[]
+         for line in status.splitlines():
+             p=line[3:];absolute=str(ROOT/p)
+-            exc=p.startswith('diagnostics/cross_scene_pipeline_v2/')or any(absolute.startswith(d.rstrip('/')+'/')for d in start['parallel_directories'])or(line.startswith('??')and p.startswith('docs/prompt_')and p.endswith('.md'))
++            exc=p.startswith('diagnostics/hetero_scene_pipeline_v1/')or any(absolute.startswith(d.rstrip('/')+'/')for d in start['parallel_directories'])or(line.startswith('??')and p.startswith('docs/prompt_')and p.endswith('.md'))
+             (skip if exc else keep).append(line)
+         return keep,skip
+     repos={};exceptions={}

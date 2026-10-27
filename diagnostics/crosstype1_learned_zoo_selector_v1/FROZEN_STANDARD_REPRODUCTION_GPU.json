@@ -1,0 +1,78 @@
+{
+  "utc": "2026-10-18T05:17:08.894489+00:00",
+  "passed": true,
+  "choices_identical": true,
+  "backend": "gpu",
+  "checks": [
+    {
+      "cohort": "T1",
+      "method": "A0",
+      "controllers": 14,
+      "max_probability_error": 0.0,
+      "choices_identical": true,
+      "passed": true
+    },
+    {
+      "cohort": "T1",
+      "method": "A3",
+      "controllers": 14,
+      "max_probability_error": 1.0728836059570312e-06,
+      "choices_identical": true,
+      "passed": true
+    },
+    {
+      "cohort": "T1",
+      "method": "G_E",
+      "controllers": 14,
+      "choices_identical": true,
+      "passed": true
+    },
+    {
+      "cohort": "T3",
+      "method": "A0",
+      "controllers": 8,
+      "max_probability_error": 5.960464477539063e-08,
+      "choices_identical": true,
+      "passed": true
+    },
+    {
+      "cohort": "T3",
+      "method": "A3",
+      "controllers": 8,
+      "max_probability_error": 1.8477439880371094e-06,
+      "choices_identical": true,
+      "passed": true
+    },
+    {
+      "cohort": "T3",
+      "method": "G_E",
+      "controllers": 8,
+      "choices_identical": true,
+      "passed": true
+    },
+    {
+      "cohort": "current_development_frozen_choices",
+      "method": "A0",
+      "controllers": 56,
+      "choices_identical": true,
+      "passed": true
+    },
+    {
+      "cohort": "current_development_frozen_choices",
+      "method": "A3",
+      "controllers": 56,
+      "choices_identical": true,
+      "passed": true
+    },
+    {
+      "cohort": "current_development_frozen_choices",
+      "method": "G_E",
+      "controllers": 56,
+      "choices_identical": true,
+      "passed": true
+    }
+  ],
+  "training_updates": 0,
+  "physical_steps": 0,
+  "task_outcomes_read": false
+}

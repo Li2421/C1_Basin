@@ -1,0 +1,18 @@
+--- downstream_released.py
++++ downstream_active.py
+@@ -1,6 +1,6 @@
+ """Follow the prescribed order after baseline comparisons; resumable receipts."""
+ from experiment import *
+-from coordinator_released import action,prepare,run_stages,stage_ready,jobs_by_stage
++from coordinator_active import action,prepare,run_stages,stage_ready,jobs_by_stage
+ from resources_released import snapshot
+ import time
+ 
+@@ -73,6 +73,6 @@
+     while not (HERE/'OPTIONAL_DELIVERY_READY.receipt.json').exists():
+         from status_released import main as status
+         status('main_numbers_sealed_awaiting_optional_delivery_implementation');time.sleep(30)
+-    action('optional_delivery','optional_delivery_released.py')
++    action('optional_delivery','optional_delivery_active.py')
+ 
+ if __name__=='__main__':main()

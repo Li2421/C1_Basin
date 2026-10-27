@@ -1,0 +1,28 @@
+--- optional_delivery_correction_delivery_20261023.py
++++ optional_delivery_correction_closed_scope_20261023.py
+@@ -66,6 +66,7 @@
+         gap(stage,str(exc));return None
+ 
+ def main():
++    verify_receipt('CORRECTION_CLOSED_SCOPE_DELIVERY_READY_20261023.receipt.json')
+     verify_receipt('CORRECTION_FINAL_DELIVERY_READY_20261023.receipt.json')
+     verify_receipt('CORRECTION_OPTIONAL_READY_20261021.receipt.json');verify_receipt('CORRECTION_OPTIONAL_EXECUTION_20261021.receipt.json');verify_receipt('CPU_RELEASE_CODE_20261023.receipt.json')
+     verify_receipt('MIGRATION_NUMBERS.receipt.json');verify_receipt('OPTIONAL_DELIVERY_READY.receipt.json');verify_receipt('OPTIONAL_FINE_SCHEDULING.receipt.json')
+@@ -93,7 +94,7 @@
+     run(analysis,'optional_saved_trace_diagnosis')
+     if not (HERE/'OPTIONAL_NUMBERS.receipt.json').exists():action('optional_numbers','optional_results_correction_revised_20261021.py')
+     action('official_final_merge','db_merge.py')
+-    if not (HERE/'DB_POSTFLIGHT.receipt.json').exists():action('postflight','postflight_correction_revised_20261021.py')
++    if not (HERE/'DB_POSTFLIGHT.receipt.json').exists():action('postflight','postflight_correction_closed_scope_20261023.py')
+     # No scientific image may change a controller or physical evidence.
+     plots=HERE/'FINAL_PLOTS.log'
+     if not (HERE/'FIGURES.receipt.json').exists():
+@@ -103,7 +104,7 @@
+     # Every experiment worker has ended before the final source audit.
+     state=snapshot();assert not any(j['name'].startswith('blv2_') for j in state['jobs']),state
+     if not (HERE/'INTEGRITY_END.receipt.json').exists():action('integrity_end','integrity.py','end')
+-    if not (HERE/'FINAL_REPORTS.receipt.json').exists():action('final_report','final_reports_correction_delivery_20261023.py')
++    if not (HERE/'FINAL_REPORTS.receipt.json').exists():action('final_report','final_reports_correction_closed_scope_20261023.py')
+     from coordinator_correction_release_20261023 import status
+     status('complete_with_explicit_optional_gaps' if (HERE/'OPTIONAL_GAPS.json').exists() else 'complete')
+     write(HERE/'V2_COMPLETE.json',dict(utc=utc(),main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),source_audit=sha(HERE/'INTEGRITY_END.json'),v1_readonly=True))

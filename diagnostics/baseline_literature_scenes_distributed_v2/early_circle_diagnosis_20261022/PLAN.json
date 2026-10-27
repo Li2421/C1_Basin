@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-22T05:11:02.195547+00:00",
+  "original": "learning_eval_revised_20261021_lit_circle_five",
+  "canonical_target": "analysis_learning_eval_revised_20261021_lit_circle_five",
+  "groups": 47,
+  "requests": 1504,
+  "excluded_not_landed_groups": [
+    {
+      "group": "000043",
+      "missing": [
+        "roll_ace6a4e493a8031c1eb89a12bcab895591ea87ee118a8f7fb6d5afe410ad2a6d",
+        "roll_c550cb17af34d571ee587d30d14248f583ae83d35e476f188aefb85beb12f4c3"
+      ]
+    }
+  ],
+  "case_manifest_sha256": "ddc8d1633f2c620c84e7d4de56580815563d4e4226e7b2a7c37174cf32997520",
+  "group_rule": "Exactly frozen analysis_jobs_current.prepare:deduplicate rollout UID preserving CASES order;32 rows per group;offset//32 identifiers",
+  "exclusive_claims": "Use canonical target/claims atomically;future canonical workers skip the same owned/completed groups",
+  "original_failure_analysis_function": true,
+  "new_rollouts": 0,
+  "new_training": 0,
+  "only_saved_trajectories": true
+}

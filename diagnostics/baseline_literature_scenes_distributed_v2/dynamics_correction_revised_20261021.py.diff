@@ -1,0 +1,19 @@
+--- dynamics_runtime_flat_static.py
++++ dynamics_correction_revised_20261021.py
+@@ -8,6 +8,7 @@
+ from reservation_certificate_v2_flat_static import ReservationNominal as Nominal
+ from controllers import bound
+ from distributed_safety import local_basis
++from correction_revision_20261021 import distributed_fields,contact_radius
+ from central_reference import progress
+ from dynamics_safety import *
+ from single_integrator.environment import point_segment_distance,segment_distance
+@@ -108,7 +109,7 @@
+                     labels.append(dict(A=rows,kinds=ks));problems.append((A,lower,kinds));step_events.append(dict(first=diag))
+             first=np.asarray(first);first_nom=np.asarray(first_nom);first_next_velocity=np.asarray(first_next_velocity)
+             correction=np.zeros_like(desired)
+-            for i in range(env.num_agents):correction[i]=np.asarray(eta)@local_basis(env.positions,env.goals,first_next_velocity,i,np.inf,cfg.max_speed)
++            for i in range(env.num_agents):correction[i]=np.asarray(eta)@distributed_fields(env.positions,env.goals,first_next_velocity,i,cfg.max_speed,cfg.goal_tolerance,contact_radius(cfg,'paper_dynamics'))
+             final=[]
+             for i in range(env.num_agents):
+                 target_velocity=desired[i]+correction[i]

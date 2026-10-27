@@ -1,0 +1,42 @@
+{
+  "/home/zhihan/research/Basin_C1/diagnostics/decentralized_pipeline_v1/pipeline.py": {
+    "expected_sha256": "41603e9841ad5f7d0390577cc5e0722e1d5bcce470423c9388bcce1ca75e3b13",
+    "actual_sha256": "41603e9841ad5f7d0390577cc5e0722e1d5bcce470423c9388bcce1ca75e3b13",
+    "passed": true
+  },
+  "/home/zhihan/research/Basin_C1/diagnostics/decentralized_pipeline_v1/run.py": {
+    "expected_sha256": "7476c185f036fe7e6176fb32b1f231d3c94198550f63c4abfd748731118fd444",
+    "actual_sha256": "7476c185f036fe7e6176fb32b1f231d3c94198550f63c4abfd748731118fd444",
+    "passed": true
+  },
+  "/home/zhihan/research/Basin_C1/diagnostics/decentralized_pipeline_v1/test_components.py": {
+    "expected_sha256": "1198a806e5888bdd710dba18ec79b0083824c47823efab009d55d4d5ebcf8e9a",
+    "actual_sha256": "1198a806e5888bdd710dba18ec79b0083824c47823efab009d55d4d5ebcf8e9a",
+    "passed": true
+  },
+  "/home/zhihan/research/Basin_C1/diagnostics/decentralized_pipeline_v1/UNIT_TESTS.json": {
+    "expected_sha256": "9a25b2db0974ff8327e5117b4620ccc58444902fae08e484faec10f7fed1f335",
+    "actual_sha256": "9a25b2db0974ff8327e5117b4620ccc58444902fae08e484faec10f7fed1f335",
+    "passed": true
+  },
+  "/home/zhihan/research/Basin_C1/diagnostics/decentralized_pipeline_v1/base_protocol.json": {
+    "expected_sha256": "ac074cfec778a8d5e91358524a6dfd796c7e83b9c31ac05841dba6c0cb3700e1",
+    "actual_sha256": "ac074cfec778a8d5e91358524a6dfd796c7e83b9c31ac05841dba6c0cb3700e1",
+    "passed": true
+  },
+  "/home/zhihan/research/Basin_C1/diagnostics/decentralized_pipeline_v1/EVAL_STATES.json": {
+    "expected_sha256": "a0d1c2236898f658648c3fddd00a5e11923dc6abca9889e0f031659877b195ae",
+    "actual_sha256": "a0d1c2236898f658648c3fddd00a5e11923dc6abca9889e0f031659877b195ae",
+    "passed": true
+  },
+  "/home/zhihan/research/Basin_C1/diagnostics/decentralized_pipeline_v1/STATE_DEDUP_AUDIT.json": {
+    "expected_sha256": "beff249fa0552372da836a95db92ca8fc6d666cd95c9d94e7ea620b2a0253d9c",
+    "actual_sha256": "beff249fa0552372da836a95db92ca8fc6d666cd95c9d94e7ea620b2a0253d9c",
+    "passed": true
+  },
+  "/home/zhihan/research/Basin_C1/diagnostics/decentralized_pipeline_v1/PREREGISTRATION.md": {
+    "expected_sha256": "4ddcf4f0623f0ebb69b190c36ebb3ac685cae34d2f9cdd7be388b27a8f062683",
+    "actual_sha256": "4ddcf4f0623f0ebb69b190c36ebb3ac685cae34d2f9cdd7be388b27a8f062683",
+    "passed": true
+  }
+}

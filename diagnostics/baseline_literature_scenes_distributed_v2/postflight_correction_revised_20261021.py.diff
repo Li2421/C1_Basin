@@ -1,0 +1,31 @@
+--- postflight.py
++++ postflight_correction_revised_20261021.py
+@@ -29,15 +29,25 @@
+                 if traces[trace]!=raw['trace_sha256']:differences.append(dict(kind='trace_hash',path=str(trace)))
+                 if path.is_relative_to(HERE):
+                     own_raw+=1;physical_steps+=raw.get('new_physical_steps',raw.get('episode_length',0))
+-            main_stage=not stage.startswith('optional_')
++            user_stopped=False
++            if stage=='learning_labels_lit_circle_five':
++                verify_receipt('OLD_CIRCLE_LEARNING_STOPPED_20261021.receipt.json')
++                preserved=read(HERE/'OLD_CIRCLE_LEARNING_LANDED_20261021.json')['rows']
++                old_uids={r['rollout_uid'] for r in preserved}
++                expected_absent={c['rollout_uid'] for c in cases}-old_uids
++                assert set(absent)==expected_absent and len(absent)==4100,(stage,len(absent))
++                assert complete==2044
++                for r in preserved:assert sha(r['raw'])==r['raw_sha256'],r['raw']
++                user_stopped=True
++            main_stage=not stage.startswith('optional_') and not user_stopped
+             if main_stage and absent:differences.append(dict(kind='missing_main_requests',stage=stage,count=len(absent)))
+-            stages.append(dict(stage=stage,planned=len(cases),completed=complete,missing=len(absent),main=main_stage))
++            stages.append(dict(stage=stage,planned=len(cases),completed=complete,missing=len(absent),main=main_stage,user_stopped=user_stopped,unwritten_not_unknown=user_stopped))
+         quarantined=db.execute('SELECT COUNT(*) FROM rollout WHERE experiment_uid=? AND conflict_quarantined!=0',(EXP,)).fetchone()[0]
+         if quarantined:differences.append(dict(kind='own_quarantined_rows',count=quarantined))
+     pending=list((ROOT/'shared_rollout_db/journals'/EXP).glob('*.jsonl'))
+     if pending:differences.append(dict(kind='unmerged_completed_journals',count=len(pending)))
+     write(HERE/'DB_POSTFLIGHT.json',dict(utc=utc(),passed=not differences,differences=differences,stages=stages,unique_completed_identities=len(checked),unique_trace_files=len(traces),own_completed_identities=own_raw,new_physical_steps=physical_steps,own_quarantined_rows=quarantined,unmerged_complete_journals=len(pending)))
+-    seal('DB_POSTFLIGHT.receipt.json',[HERE/'DB_POSTFLIGHT.json',HERE/'postflight.py'],passed=not differences)
++    seal('DB_POSTFLIGHT.receipt.json',[HERE/'DB_POSTFLIGHT.json',HERE/'postflight_correction_revised_20261021.py'],passed=not differences)
+     assert not differences,differences[:10]
+ 
+ if __name__=='__main__':main()

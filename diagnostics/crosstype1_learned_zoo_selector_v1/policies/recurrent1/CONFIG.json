@@ -1,0 +1,46 @@
+{
+  "name": "recurrent1",
+  "recipe": "base_u_v3_macflow",
+  "seed": 2026103302,
+  "steps": 60000,
+  "batch_size": 256,
+  "hidden_dims": [
+    256,
+    256,
+    256
+  ],
+  "activation": "relu",
+  "optimizer": "Adam",
+  "learning_rate": 0.0003,
+  "validation_batches": 8,
+  "validation_batch_size": 256,
+  "validation_interval": 250,
+  "validation_seed": 2026104302,
+  "log_std_bounds": [
+    -5,
+    1.5
+  ],
+  "training_sampling": "uniform transitions on exact Flow train split",
+  "checkpoint_selection": "minimum fixed dev loss, earliest tie",
+  "frame": "global",
+  "manifest": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_v3_dataset/manifest.json",
+  "manifest_sha256": "d7987615ee03bdd33f18d873c527856e19ca491be52a50d9d61ed963ec7bd242",
+  "flow_checkpoint": "/home/zhihan/research/Basin_C1/diagnostics/ring_exchange_stage1/base_u_v3_macflow/best.pkl",
+  "flow_checkpoint_sha256": "4d4470f950f54fc619069571cf9a7c007a7258db23feaeeac5a5ac77d5d597bb",
+  "normalization": "exact obs_mean/obs_scale/act_mean/act_scale from corresponding Flow checkpoint config",
+  "action_decode": "normalized Gaussian sample; decode; clip raw[-1,1]; per-agent speed bound; original to_world; final float64 speed bound",
+  "test_split_never_opened": true,
+  "family": "recurrent",
+  "source_instance": "G1",
+  "locked": false,
+  "source_config_sha256": "5ad9fb835dfbe548afcbb944b89da9878d2fd1349d90afbf19b16d2782d9aa23",
+  "gru_hidden": 256,
+  "head_hidden": [
+    256,
+    256
+  ],
+  "tbptt": 32,
+  "parallel_streams": 8,
+  "loss": "Gaussian NLL; 8 sequences x32=256 token batch",
+  "state_rule": "carry detached state across consecutive windows; reset at episode boundaries"
+}

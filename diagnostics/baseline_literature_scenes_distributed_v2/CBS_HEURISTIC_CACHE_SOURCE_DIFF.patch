@@ -1,0 +1,25 @@
+--- cbs_kernel_flat_cache.cpp
++++ cbs_kernel_heuristic_cache.cpp
+@@ -95,7 +95,21 @@
+    if(segment(z[0]-bx,z[1]-by,z[2]-bx,z[3]-by)<margin-1e-12)return 0;
+   }
+  }
+- auto heur=[&](int x,int y){return norm(double(x-gx),double(y-gy))/std::sqrt(2.);};
++ // Memo stores the ORIGINAL scalar expression for the exact integer (x,y).
++ // The bounded array is memory layout only; all other keys use the same expression.
++ constexpr int heuristic_extent=128,heuristic_width=2*heuristic_extent+1;
++ std::vector<double> heuristic_values(heuristic_width*heuristic_width);
++ std::vector<uint8_t> heuristic_seen(heuristic_width*heuristic_width,0);
++ auto heur=[&](int x,int y){
++  if(x < -heuristic_extent || x > heuristic_extent || y < -heuristic_extent || y > heuristic_extent)
++   return norm(double(x-gx),double(y-gy))/std::sqrt(2.);
++  const size_t slot=size_t(x+heuristic_extent)*heuristic_width+size_t(y+heuristic_extent);
++  if(!heuristic_seen[slot]){
++   heuristic_values[slot]=norm(double(x-gx),double(y-gy))/std::sqrt(2.);
++   heuristic_seen[slot]=1;
++  }
++  return heuristic_values[slot];
++ };
+  std::priority_queue<Node,std::vector<Node>,Greater> q;TiledParentStore parent(res,max_time);uint64_t serial=0;const auto initial=code(sx,sy,0);parent.emplace(initial,initial);q.push({heur(sx,sy),0,sx,sy,0});
+  const int moves[9][2]={{1,0},{0,1},{-1,0},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1},{0,0}};
+  while(!q.empty()){

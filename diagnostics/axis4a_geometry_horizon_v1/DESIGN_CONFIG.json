@@ -1,0 +1,37 @@
+{
+  "H": [
+    500,
+    700,
+    1000
+  ],
+  "radii": [
+    0.8,
+    0.85,
+    0.95,
+    1.0
+  ],
+  "baseline_radius": 0.9,
+  "pilot_seed_start": 202610350000,
+  "pilot_radius_offsets": [
+    0,
+    1000,
+    2000,
+    3000
+  ],
+  "states": 32,
+  "seeds": [
+    0,
+    1
+  ],
+  "geometry_pilot_states": 16,
+  "bootstrap": 5000,
+  "bootstrap_seed": 202610153500,
+  "progress_candidate": 0.9728120313305867,
+  "progress_enabled": false,
+  "progress_definition_status": "Awaiting optional user clarification; strict original896p500 median not identifiable. Other work proceeds; no candidate executed without clarification.",
+  "alias_rules": {
+    "H500_Sabs": "F13",
+    "H700_Sabs": "S500",
+    "H700_Srel": "S500"
+  }
+}

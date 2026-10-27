@@ -1,0 +1,43 @@
+--- downstream_current.py
++++ downstream_released.py
+@@ -1,7 +1,7 @@
+ """Follow the prescribed order after baseline comparisons; resumable receipts."""
+ from experiment import *
+-from coordinator_current import action,prepare,run_stages,stage_ready,jobs_by_stage
+-from resources import snapshot
++from coordinator_released import action,prepare,run_stages,stage_ready,jobs_by_stage
++from resources_released import snapshot
+ import time
+ 
+ def old_learning(scene):
+@@ -22,8 +22,8 @@
+     run_stages([prepare_analysis(stage) for stage in stages],phase)
+ 
+ def train(scenes):
+-    from critic_jobs import submit
+-    from status import main as status
++    from critic_jobs_released import submit
++    from status_released import main as status
+     while True:
+         pending=[s for s in scenes if not (HERE/f'FROZEN_SCENE_CRITIC_{s}.receipt.json').exists()]
+         if not pending:return
+@@ -54,7 +54,7 @@
+     action('official_merge_before_models','db_merge.py')
+     for scene in learning:
+         if not (HERE/f'LEARNING_BUNDLE_{scene}.receipt.json').exists():action('bundle_'+scene,'learning_design.py','assemble',scene)
+-    from critic_supervisor_current import train as robust_train
++    from critic_supervisor_released import train as robust_train
+     learning=robust_train(learning)
+     evaluations=[]
+     for scene in learning:
+@@ -71,8 +71,8 @@
+     if not (HERE/"MIGRATION_NUMBERS.receipt.json").exists():action('numeric_results','statistics.py')
+     # Main numbers must be sealed before optional dynamics, variants or charts.
+     while not (HERE/'OPTIONAL_DELIVERY_READY.receipt.json').exists():
+-        from status import main as status
++        from status_released import main as status
+         status('main_numbers_sealed_awaiting_optional_delivery_implementation');time.sleep(30)
+-    action('optional_delivery','optional_delivery.py')
++    action('optional_delivery','optional_delivery_released.py')
+ 
+ if __name__=='__main__':main()

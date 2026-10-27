@@ -1,0 +1,61 @@
+"""Read-only opening audit; reserved prospective evidence is stat-only."""
+from pathlib import Path
+from datetime import datetime,timezone
+from concurrent.futures import ThreadPoolExecutor,as_completed
+import os,json,hashlib,subprocess
+
+H=Path(__file__).resolve().parent;R=H.parents[1];P=R/'diagnostics/cross_scene_prospective_v1'
+def sha(p):
+    p=Path(p).resolve();assert not p.is_relative_to(P)
+    return hashlib.sha256(p.read_bytes()).hexdigest()
+def write(n,v):(H/n).write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
+def meta(root):
+    out={}
+    for base,dirs,files in os.walk(root,followlinks=False):
+        for n in dirs+files:
+            p=Path(base)/n;s=p.stat(follow_symlinks=False);out[str(p)]=dict(size=s.st_size,mtime_ns=s.st_mtime_ns,mode=s.st_mode)
+    return out
+def recent(root,cutoff):
+    s=root.stat()
+    if s.st_mtime>=cutoff:return dict(path=str(root),mtime_ns=s.st_mtime_ns)
+    return None
+def main():
+    v=R/'diagnostics/eta_diverse_scene_test_v1/COMPLETE.json';assert json.loads(v.read_text())['status']=='COMPLETE'
+    for d in ('eta_diverse_scene_test_v1','cross_scene_pipeline_v2'):
+        assert json.loads((R/'diagnostics'/d/'INTEGRITY_COMPARE.json').read_text())['passed']
+    assert not(H/'INTEGRITY_START.json').exists();now=datetime.now(timezone.utc);repos={}
+    for repo in(R,R.parent/'02_C1_Toy_GiveWay'):
+        status=subprocess.check_output(['git','-C',str(repo),'status','--porcelain']).decode();diff=subprocess.check_output(['git','-C',str(repo),'diff']);cached=subprocess.check_output(['git','-C',str(repo),'diff','--cached'])
+        repos[str(repo)]=dict(status=status,diff_sha256=hashlib.sha256(diff).hexdigest(),cached_diff_sha256=hashlib.sha256(cached).hexdigest())
+    parallel={};dirs=[d for d in(R/'diagnostics').iterdir()if d.is_dir()and d!=H]
+    with ThreadPoolExecutor(max_workers=16)as pool:
+        pending={pool.submit(recent,d,now.timestamp()-86400):d for d in dirs}
+        for future in as_completed(pending):
+            d=pending[future];m=future.result()
+            if m:parallel[str(d)]=m
+    jobs=subprocess.check_output(['squeue','-h','-r','-a','-o','%i|%u|%T|%C|%R|%j|%Z'],text=True)
+    for line in jobs.splitlines():
+        vals=line.split('|',6)
+        if len(vals)==7 and vals[2]=='RUNNING':parallel.setdefault(vals[6],dict(job=vals[0],user=vals[1]))
+    learning=R/'diagnostics/cross_scene_pipeline_v2_learning_tests'
+    if learning.exists():parallel.setdefault(str(learning),dict(registered_conservatively=True,metadata_only=True))
+    for d in ('eta_diverse_scene_test_v2','cross_scene_pipeline_v2_learning_tests'):
+        parallel.setdefault(str(R/'diagnostics'/d),dict(metadata_only=True,explicit_prompt_registration=True))
+    write('INTEGRITY_START.json',dict(utc=now.isoformat(),repositories=repos,parallel_directories=list(parallel),parallel_metadata=parallel,
+        slurm_jobs=jobs,prospective_metadata=meta(P),prospective_policy='os.stat only; no opens or hashes'))
+    source=R/'docs/prompt_hetero_scene_pipeline_v1_20261026.md'
+    write('PROTOCOL_SOURCE.receipt.json',dict(path=str(source),sha256=sha(source),fully_read=True));(H/'PROTOCOL.md').write_bytes(source.read_bytes())
+    write('REUSED_EVIDENCE_SHA256_START.json',dict(files={str(source):sha(source),str(v):sha(v),str(R/'AGENTS.md'):sha(R/'AGENTS.md'),str(R/'shared_rollout_db/README.md'):sha(R/'shared_rollout_db/README.md')}))
+    write('STATISTICAL_CONVENTIONS.json',dict(utc=now.isoformat(),user_confirmed=True,primary_pool_score='Maximum candidate success on scoring half (oracle pool coverage).',
+        secondary_pool_score='Choose within pool on training half and score on scoring half.',mutual_pair_requirement='Both directed cross-use losses >=0.10.',
+        half_splits=200,bootstrap_replicates=5000,rng_seed=2026102651,ties='Canonical candidate and lexicographic combination order; first exact maximum.',
+        coverage_set_selection='Select k-set using training halves only; score per-scene maximum on corresponding scoring halves.',
+        split_pairing='Same train/scoring half for every compared method within each scene and replicate; independent scene permutations.',
+        bootstrap='5000 fixed-scene state resamples and 5000 scene-then-state resamples, repeat 200 paired half splits; phase1 seed2026102651, phase2 seed2026102652.',
+        unfit_scenes='Do not replace scenes or controllers; report applicability gaps and explicitly name available-scene coverage groups.'))
+    write('RESOURCE_AMENDMENT.json',dict(all_remaining_cpus_when_no_other_users_running=True,maximum_workers=23,coordinator_cpu=1,gpu_shares=0,
+        authority='User earlier in this session explicitly requested all available compute while preserving effectiveness; otherwise default total18.'))
+    (H/'ITERATION_LOG.md').write_text('# 实现与运行修正\n\n尚无运行修正；用户已确认覆盖基准取计分半内最高值、互异性要求双向损失。\n')
+    (H/'GAPS.md').write_text('# 证据缺口\n\n执行中。\n');(H/'STATUS.md').write_text('# 当前状态\n\n开工条件通过，正在隔离重建与历史证据核对；尚未训练模型。\n')
+    print('Opening baseline recorded; reserved scenes metadata only; no training.',flush=True)
+if __name__=='__main__':main()

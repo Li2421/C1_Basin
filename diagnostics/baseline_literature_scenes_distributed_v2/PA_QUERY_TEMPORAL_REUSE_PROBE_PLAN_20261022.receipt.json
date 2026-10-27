@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-22T03:15:08.340445+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/probe_saved_pa_temporal_reuse_20261022.py": "a0f22b3ef78f96172d50caf0e51bbdcc98bab138fc22f2244a6b3fe6a0a20c64",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/probe_saved_pa_reuse_20261022.py": "4861fdcf21f2b6e6058a222c6e928cf6fe99de9e3cacf7b9dffcd960de3907a6",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/PA_QUERY_REUSE_PROBE_20261022.receipt.json": "cf07b14cbeb6da391e42b6eec1bfe347b3b05b5d6497e2fae57632ac8821e7f6",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/PA_QUERY_REUSE_PROBE_PLAN_20261022.receipt.json": "8856713c042384a7f992700c63d2a18c0d82c07cc708f33b9e4e4c9fe46272d4"
+  },
+  "gap": "Sparse40-query probe has13 exact repeated suffixes; dense consecutive-replan opportunity not measured",
+  "new_rollouts": 0,
+  "environment_steps": 0,
+  "all_native_searches_executed": true,
+  "PA_key_unused_by_sealed_actor": true
+}

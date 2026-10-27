@@ -1,0 +1,27 @@
+{
+  "agent_order": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "batch_size": 256,
+  "dataset_manifest_sha256": "fc19e79ae728e9d74572ded12654b8fdeb0654f39d84d4330cc8123883769c42",
+  "early_nominal_only": false,
+  "early_steps": 1,
+  "early_transition_fraction": 0.0,
+  "environment_fingerprint": "73910125d272d2a45793581f11bbd503cc4262f1d6651aaa44bbbb854db78849",
+  "flow_steps": 10,
+  "implementation": "official_ActorVectorField_ModuleDict_TrainState_Adam_CFM",
+  "parameter_count": 154632,
+  "schema": "new_benchmark_joint_stage1_train_v1",
+  "seed": 3111,
+  "source_transitions": {
+    "nominal": 31498,
+    "targeted_agent": 0,
+    "targeted_wall_obstacle": 0,
+    "uniform_recovery": 129492
+  },
+  "steps": 100000,
+  "test_opened": false
+}

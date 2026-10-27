@@ -1,0 +1,69 @@
+--- optional_delivery_pipelined.py
++++ optional_delivery_fine.py
+@@ -7,8 +7,11 @@
+ import time
+ import subprocess
+ import fcntl
++import optional_fine_dispatch as fine
++import optional_diagnosis_backfill as backfill
+ 
+ def submit(stage):
++    if not stage.startswith('analysis_'):return fine.submit(stage)
+     verify_receipt('OPTIONAL_DELIVERY_READY.receipt.json');verify_receipt(f'{stage}/WORK_QUEUE.receipt.json')
+     analysis=stage.startswith('analysis_')
+     if not analysis:verify_receipt(f'{stage}_PREFLIGHT.receipt.json')
+@@ -28,10 +31,14 @@
+ def run(stages,phase):
+     from status_released import main as status
+     blocked=set()
++    for stage in stages:
++        if fine.eligible(stage):fine.prepare(stage)
+     while True:
+         state=snapshot();mapping=jobs_by_stage(state)
+         for stage in stages:
+-            recover(stage,set(mapping))
++            if fine.eligible(stage):
++                fine.recover(stage,set(mapping));fine.sync_original(stage)
++            else:recover(stage,set(mapping))
+             issue=HERE/stage/'NEEDS_IMPLEMENTATION_REVIEW.json'
+             if issue.exists():
+                 blocked.add(stage);gap(stage,dict(kind='Optional implementation failure',review=read(issue)))
+@@ -40,23 +47,26 @@
+         pending=[s for s in stages if s not in blocked and not stage_done(s)]
+         status(phase)
+         if not pending and not any(s in stages for s in mapping.values()):return [s for s in stages if s not in blocked]
+-        available={s:sum(not (HERE/s/'claims'/r['group']).exists() for r in read(HERE/s/'GROUP_INDEX.json')) for s in pending}
++        available={s:(fine.available(s) if fine.eligible(s) else sum(not (HERE/s/'claims'/r['group']).exists() for r in read(HERE/s/'GROUP_INDEX.json'))) for s in pending}
++        if any(fine.eligible(s) and available[s] for s in pending):backfill.yield_jobs(state)
+         counts={s:sum(v==s for v in mapping.values()) for s in pending}
+         for _ in range(min(state['free_cpu_shares'],sum(available.values()))):
+             target=min([s for s in pending if available[s]],key=lambda s:counts[s]);submit(target);counts[target]+=1;available[target]-=1
+-        time.sleep(20)
++        if any(fine.eligible(s) for s in stages):backfill.fill()
++        time.sleep(10)
+ 
+ def prepare(kind,scene):
+     stage=f'optional_{kind}_{scene}'
+     try:
+         if not (HERE/f'{stage}_PREFLIGHT.receipt.json').exists():action('plan_'+stage,'optional_cases.py',kind,scene)
+         if not stage_ready(stage):action('queue_'+stage,'work_queue.py',stage)
++        fine.prepare(stage)
+         return stage
+     except Exception as exc:
+         gap(stage,str(exc));return None
+ 
+ def main():
+-    verify_receipt('MIGRATION_NUMBERS.receipt.json');verify_receipt('OPTIONAL_DELIVERY_READY.receipt.json')
++    verify_receipt('MIGRATION_NUMBERS.receipt.json');verify_receipt('OPTIONAL_DELIVERY_READY.receipt.json');verify_receipt('OPTIONAL_FINE_SCHEDULING.receipt.json')
+     if (HERE/'V2_COMPLETE.json').exists():return
+     if not (HERE/'MAIN_ADDITIONAL_METRICS.receipt.json').exists():action('additional_main_metrics','derived_metrics.py')
+     stages=[s for scene in NAMES if (s:=prepare('dynamics',scene))]
+@@ -85,7 +95,7 @@
+     # Every experiment worker has ended before the final source audit.
+     state=snapshot();assert not any(j['name'].startswith('blv2_') for j in state['jobs']),state
+     if not (HERE/'INTEGRITY_END.receipt.json').exists():action('integrity_end','integrity.py','end')
+-    if not (HERE/'FINAL_REPORTS.receipt.json').exists():action('final_report','final_reports_pipelined.py')
++    if not (HERE/'FINAL_REPORTS.receipt.json').exists():action('final_report','final_reports_complete.py')
+     from status_released import main as status
+     status('complete_with_explicit_optional_gaps' if (HERE/'OPTIONAL_GAPS.json').exists() else 'complete')
+     write(HERE/'V2_COMPLETE.json',dict(utc=utc(),main_numbers_receipt_sha256=sha(HERE/'MIGRATION_NUMBERS.receipt.json'),source_audit=sha(HERE/'INTEGRITY_END.json'),v1_readonly=True))

@@ -1,0 +1,36 @@
+--- worker_reservation_certified.py
++++ worker_reservation_v2.py
+@@ -10,12 +10,12 @@
+     STOP=True
+ 
+ def main(stage):
+-    prereg();verify_receipt('IMPLEMENTATION_FROZEN.receipt.json');verify_receipt('RESERVATION_EQUIVALENCE.receipt.json')
++    prereg();verify_receipt('IMPLEMENTATION_FROZEN.receipt.json');verify_receipt('RESERVATION_V2_EQUIVALENCE.receipt.json')
+     verify_receipt(f'{stage}/WORK_QUEUE.receipt.json')
+     index=read(HERE/stage/'GROUP_INDEX.json')
+     signal.signal(signal.SIGUSR1,stop);signal.signal(signal.SIGTERM,stop)
+     claims=HERE/stage/'claims';claims.mkdir(parents=True,exist_ok=True);count=0;groups=0
+-    from runtime_reservation_certified import run as distributed_run
++    from runtime_reservation_v2 import run as distributed_run
+     from central_tiled_runtime import run as historical_run
+     for entry in index:
+         if STOP:break
+@@ -37,15 +37,15 @@
+             else:
+                 run=historical_run if c['safety_layer']=='central' and c['state']['scene']!='lit_crowded_random' else distributed_run
+                 result,arrays=run(c)
+-                result['execution_backend']=dict(actual='central_tiled_runtime.py' if run is historical_run else 'runtime_reservation_certified.py',implementation_receipt_sha256=sha(HERE/'IMPLEMENTATION_FROZEN.receipt.json'))
+-                result["reservation_equivalence_receipt_sha256"]=sha(HERE/"RESERVATION_EQUIVALENCE.receipt.json");save(stage,c,result,arrays)
++                result['execution_backend']=dict(actual='central_tiled_runtime.py' if run is historical_run else 'runtime_reservation_v2.py',implementation_receipt_sha256=sha(HERE/'IMPLEMENTATION_FROZEN.receipt.json'))
++                result["reservation_equivalence_receipt_sha256"]=sha(HERE/"RESERVATION_V2_EQUIVALENCE.receipt.json");save(stage,c,result,arrays)
+             count+=1
+             print(c['controller_payload']['nominal']['controller'],c['state']['N'],c['state']['index'],c['method'],c['seed'],result['outcome'],round(result['elapsed_seconds'],4),flush=True)
+         if STOP:break
+         write(claim/'COMPLETE.json',dict(utc=utc()));groups+=1
+         write(HERE/stage/f"worker_{os.environ['SLURM_JOB_ID']}.json",dict(utc=utc(),completed_in_process=count,groups=groups,last=entry['group']))
+         if groups>=128:
+-            os.execv(sys.executable,[sys.executable,'-B',str(HERE/'worker_reservation_certified.py'),stage])
++            os.execv(sys.executable,[sys.executable,'-B',str(HERE/'worker_reservation_v2.py'),stage])
+     write(HERE/stage/f"worker_{os.environ['SLURM_JOB_ID']}_EXIT.json",dict(utc=utc(),graceful_stop=STOP,completed_in_process=count))
+ 
+ if __name__=='__main__':main(sys.argv[1])

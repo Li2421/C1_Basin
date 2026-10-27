@@ -1,0 +1,64 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/eta_diverse_scene_test_v1/schedule.py
++++ /home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/schedule.py
+@@ -15,18 +15,21 @@
+ def cancel(job,graceful=False):
+     row=next((r for r in jobs()if r['id']==job),None)
+     if row is None:return
+-    assert row['name'].startswith('xdt_'),('REFUSE_NON_TEST_CANCELLATION',row)
++    assert row['name'].startswith('xhp_'),('REFUSE_NON_TEST_CANCELLATION',row)
+     proc=subprocess.run(['scancel']+(['--signal=USR1','--full']if graceful else[])+[job],capture_output=True,text=True)
+     if proc.returncode and any(r['id']==job for r in jobs()):raise RuntimeError(proc.stderr)
+ 
+ def quota(rows):
+-    own_other=sum(int(r['cpus'])for r in rows if r['user']=='zhihan' and r['state']=='RUNNING' and not r['name'].startswith('xdt_'))
+-    all_other=sum(int(r['cpus'])for r in rows if r['state']=='RUNNING' and not r['name'].startswith('xdt_'))
++    own_other=sum(int(r['cpus'])for r in rows if r['user']=='zhihan' and r['state']=='RUNNING' and not r['name'].startswith('xhp_'))
++    all_other=sum(int(r['cpus'])for r in rows if r['state']=='RUNNING' and not r['name'].startswith('xhp_'))
+     total=int(subprocess.check_output(['sinfo','-N','-h','-o','%c'],text=True).splitlines()[0])
+     amendment=HERE/'RESOURCE_AMENDMENT.json'
+     if amendment.exists()and read(amendment)['all_remaining_cpus_when_no_other_users_running']:
++        from datetime import datetime,timezone
++        deadline=datetime.fromisoformat(read(amendment)['six_cpu_release_utc'])
++        if datetime.now(timezone.utc)>=deadline:return max(0,min(17-own_other,total-all_other-1))
+         if not any(r['user']!='zhihan'and r['state']=='RUNNING'for r in rows):
+-            return max(0,total-all_other-1)
++            return max(0,min(23-own_other,total-all_other-1))
+     return max(0,min(17-own_other,total-all_other-1))
+ 
+ def pressure_limit(rows,stage,base):
+@@ -36,7 +39,7 @@
+     def num(k):
+         x=re.search(r'\b'+k+r'=(\d+)',node);return int(x.group(1))if x else 0
+     total,alloc,mem,used=[num(k)for k in ('CPUTot','CPUAlloc','RealMemory','AllocMem')]
+-    ours=sum(int(r['cpus'])for r in rows if r['name'].startswith('xdt_')and r['state']=='RUNNING')
++    ours=sum(int(r['cpus'])for r in rows if r['name'].startswith('xhp_')and r['state']=='RUNNING')
+     def resource(s,name):
+         m=re.search(r'(?:^|,)'+name+r'(?::[^:,()]+)?:(\d+)',s);return int(m.group(1))if m else 0
+     avail=re.search(r'\bGres=([^\s]+)',node);busy=re.search(r'\bGresUsed=([^\s]+)',node)
+@@ -79,7 +82,7 @@
+     while not complete(stage):
+         fatal=list((HERE/'WORKER_FATAL').glob('*.json'))
+         if fatal:raise RuntimeError(('WORKER_FAILURE',str(fatal[0])))
+-        rows=jobs();ours=[r for r in rows if r['name']==f'xdt_{stage}'];live={r['id']for r in rows};release_stale(stage,live)
++        rows=jobs();ours=[r for r in rows if r['name']==f'xhp_{stage}'];live={r['id']for r in rows};release_stale(stage,live)
+         cap=pressure_limit(rows,stage,quota(rows));running=[r for r in ours if r['state']=='RUNNING'];pending=[r for r in ours if r['state']=='PENDING']
+         for r in rows:first_seen.setdefault(r['id'],time.time())
+         for r in pending:
+@@ -89,7 +92,7 @@
+         unfinished=sum(not(HERE/'QUEUES'/stage/'done'/e['group']).exists()for e in read(HERE/'QUEUES'/stage/'INDEX.json'))
+         desired=max(0,min(cap-len(ours),unfinished-len(ours)))
+         if desired:
+-            command=['sbatch','--parsable',f'--job-name=xdt_{stage}',f'--array=0-{desired-1}',f'--time={limit//3600:02d}:{limit%3600//60:02d}:00',
++            command=['sbatch','--parsable',f'--job-name=xhp_{stage}',f'--array=0-{desired-1}',f'--time={limit//3600:02d}:{limit%3600//60:02d}:00',
+                 f'--export=ALL,XDT_STAGE={stage},XDT_TIME_LIMIT_S={limit}',str(HERE/'worker.sbatch')]
+             job=subprocess.check_output(command,text=True).strip().split(';')[0];submitted[job]=time.time();log('submitted',stage=stage,job=job,count=desired,seconds=limit)
+             observed=[]
+@@ -106,7 +109,7 @@
+             no_new_result_timeout_rule=False))
+         time.sleep(30)
+     for r in jobs():
+-        if r['name']==f'xdt_{stage}':cancel(r['id'])
++        if r['name']==f'xhp_{stage}':cancel(r['id'])
+     
+     if not stage.startswith('train_'):merge(stage)
+     log('completed',stage=stage)

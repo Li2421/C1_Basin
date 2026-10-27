@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-17T19:33:01.868696+00:00",
+  "reason": "Historical geometry metadata has both config-wrapped and direct config schemas; normalize container without changing any physical value",
+  "previous_source_sha256": "3f6dc1ecc0e8fc400a66a98c9671ab36e1da8962f95c7aa9cadb9ff6b5ec5b96",
+  "current_source_sha256": "abf4838865394c17e1a53cb37f1b18996aaf36c7f0398f3d313d0499028ec7ad",
+  "failed_readonly_audit_job": "24124",
+  "new_rollouts": 0,
+  "new_training": 0
+}

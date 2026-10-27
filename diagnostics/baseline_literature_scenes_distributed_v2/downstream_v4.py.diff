@@ -1,0 +1,10 @@
+--- downstream_v3.py
++++ downstream_v4.py
+@@ -1,6 +1,6 @@
+ """Follow the prescribed order after baseline comparisons; resumable receipts."""
+ from experiment import *
+-from coordinator_v3 import action,prepare,run_stages,stage_ready,jobs_by_stage
++from coordinator_v4 import action,prepare,run_stages,stage_ready,jobs_by_stage
+ from resources import snapshot
+ import time
+ 

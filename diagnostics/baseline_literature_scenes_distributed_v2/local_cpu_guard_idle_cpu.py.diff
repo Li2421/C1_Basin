@@ -1,0 +1,18 @@
+--- local_cpu_guard.py
++++ local_cpu_guard_idle_cpu.py
+@@ -56,13 +56,13 @@
+             processes.append(dict(pid=int(proc.name),script=script.name))
+             if count:changes.append(dict(pid=int(proc.name),threads_rebound=count))
+         except (FileNotFoundError,ProcessLookupError):continue
+-    write(HERE/'LOCAL_CPU_GUARD_STATUS.json',dict(utc=utc(),local_cpu=chosen,slurm_allocated_cpus=sorted(occupied),free_physical_cpus=sorted(free),local_processes=processes,rebound=changes,poll_seconds=5,local_cpu_shares=1,total_user_cpu_cap=18,no_worker_signals=True))
++    write(HERE/'LOCAL_CPU_GUARD_STATUS.json',dict(utc=utc(),local_cpu=chosen,slurm_allocated_cpus=sorted(occupied),free_physical_cpus=sorted(free),local_processes=processes,rebound=changes,poll_seconds=5,local_cpu_shares=1,total_user_cpu_cap=read(HERE/'RESOURCE_RELEASE_STATUS.json')['snapshot']['cpu_limit'],no_worker_signals=True))
+ 
+ 
+ def main():
+     with (HERE/'LOCAL_CPU_GUARD.lock').open('a') as lock:
+         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+-        verify_receipt('LOCAL_CPU_GUARD_CODE.receipt.json')
++        verify_receipt('IDLE_CPU_DELIVERY_METADATA_CODE.receipt.json')
+         write(HERE/'LOCAL_CPU_GUARD_PID.json',dict(utc=utc(),pid=os.getpid()))
+         while not (HERE/'V2_COMPLETE.json').exists():
+             try:tick()

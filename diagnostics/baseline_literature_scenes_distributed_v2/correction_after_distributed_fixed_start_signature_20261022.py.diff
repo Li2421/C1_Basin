@@ -1,0 +1,39 @@
+--- correction_after_distributed_fixed_closed_scope_20261023.py
++++ correction_after_distributed_fixed_start_signature_20261022.py
+@@ -2,10 +2,10 @@
+ from experiment import *
+ from atomic_write import write
+ from registry import verify_receipt
+-from coordinator_correction_configured_20261023 import action,status,stage_ready,stage_done,jobs_by_stage,prepare_fixed,run_stages
++from coordinator_start_signature_20261022 import action,status,stage_ready,stage_done,jobs_by_stage,prepare_fixed,run_stages
+ from resources_corrections_release_20261023 import snapshot
+ from infrastructure_recovery_correction_20261021 import recover
+-import fine_dispatch_correction_release_20261023 as fine
++import fine_dispatch_start_signature_20261022 as fine
+ import subprocess,time,fcntl
+ 
+ def wait_ready(name,phase):
+@@ -23,7 +23,7 @@
+   status('saved_analysis_yielding_to_next_required_phase',jobs=targets);time.sleep(10)
+ 
+ def learning(scenes):
+- from scene_learning_scheduler_revised_release_20261023 import run
++ from scene_learning_scheduler_start_signature_20261022 import run
+  verify_receipt('REVISED_LEARNING_IMPLEMENTATION_20261021.receipt.json');verify_receipt('CPU_RELEASE_CODE_20261023.receipt.json')
+  for scene in scenes:
+   stage='learning_labels_revised_20261021_'+scene
+@@ -50,6 +50,7 @@
+   status('revised_main_saved_trace_diagnosis',pending=pending,stage_worker_counts=counts);time.sleep(10)
+ 
+ def main():
++ verify_receipt('CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json');verify_receipt('CBS_START_SIGNATURE_PIPELINE_CODE_20261022.receipt.json')
+  verify_receipt('CORRECTION_CLOSED_SCOPE_DELIVERY_READY_20261023.receipt.json')
+  verify_receipt('CORRECTION_FINAL_DELIVERY_READY_20261023.receipt.json')
+  verify_receipt('CORRECTION_CONFIGURED_CONTINUATION_READY_20261023.receipt.json')
+@@ -72,5 +73,5 @@
+   wait_ready('CORRECTION_SCOPED_NUMERICS_READY_20261023.receipt.json','revised_main_complete_waiting_combined_statistics_implementation')
+   if not (HERE/'MIGRATION_NUMBERS.receipt.json').exists():action('combined_original_revised_numbers','statistics_parallel_scoped_20261023.py')
+   wait_ready('CORRECTION_CLOSED_SCOPE_DELIVERY_READY_20261023.receipt.json','combined_main_numbers_sealed_waiting_revised_optional_implementation')
+-  action('revised_optional_and_final_delivery','optional_delivery_correction_closed_scope_20261023.py')
++  action('revised_optional_and_final_delivery','optional_delivery_start_signature_20261022.py')
+ if __name__=='__main__':main()

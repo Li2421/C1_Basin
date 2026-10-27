@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-22T00:42:06.087756+00:00",
+  "history": [
+    "CBS_START_SIGNATURE_EQUIVALENCE_20261022.receipt.json",
+    "CBS_START_SIGNATURE_DEPLOYMENT_20261022.receipt.json",
+    "CROSS_ETA_QUERY_REUSE_20261022.json"
+  ],
+  "gap": "Sequential probe saved587/1118native searches; interprocess correctness,overhead and actual benefit still unmeasured",
+  "candidate_only": true,
+  "production_entry_unchanged": true,
+  "new_research_rollouts": 0,
+  "namespace_slot_data_cap_bytes": 1073741824,
+  "cache_policy": "Own mutable scratch slots,atomic replacement,full exact key plus SHA256 image check; cache miss/error executes the original search",
+  "source_hashes": {
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/cbs_kernel_query_disk_candidate_20261022.cpp": "4e65ae1b2aaea73490c42044de9845aacb15eea93ae42b9324aff1a747ea88cd",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/cbs_query_disk_memo_candidate_20261022.hpp": "b4e12dca3168cd01c4beaf0719a94ed82fd9748a138c7f6e2115a6922047adfc",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/cbs_kernel_query_disk_candidate_20261022.so": "052078b0e7c8d0d7571fdaba38072197bdd2290743830a6b078d0a503e261273",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/tiled_planning_query_disk_candidate_20261022.py": "072df06e4732ecc0cf44886240ac9ebe04b2dabd9b16cc8269aa6e7fb4c292dc",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/reservation_certificate_query_disk_candidate_20261022.py": "54fc29e3b9288b79cd4a3b9c3614ae907cb6c0f3cd91136f81bb3d77674d31ad",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/reservation_certificate_v2_query_disk_candidate_20261022.py": "8de222cb1938f68d304fc6112cbfe9720650e2789c6177e16d5683caf5184dbf",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/runtime_correction_query_disk_candidate_20261022.py": "1a3a0d215cfc99b57de3c520120822ed19f57a1af1788c010fdbe0a9c6689065",
+    "/home/zhihan/research/Basin_C1/diagnostics/baseline_literature_scenes_distributed_v2/build_query_disk_candidate_20261022.py": "246107c134ad7caeac9cd20c82aa5c6af802ff26660dc8cbf70c56f8b093eb89"
+  }
+}

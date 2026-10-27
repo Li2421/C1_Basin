@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-16T05:08:54.092421+00:00",
+  "passed": true,
+  "source": "/home/zhihan/research/Basin_C1/diagnostics/axis2_controller_v1/controllers.py",
+  "source_sha256": "44d9272ffa7d4cc77f41b2a3f9ea109d3a8d1e7e54b1c19dc968cf58c7eec231",
+  "destination_sha256": "b3660333dd48ed1541577a720e518314de4f802e9f70642dbb2d14d86acec42f",
+  "ring_static_cost_AST_identical": true,
+  "all_other_loop_body_AST_identical_after_count_normalization": true,
+  "changes": [
+    "Agent loop and neighbor count read environment agent count",
+    "Static geometry chooses unchanged Ring terms or native Gap wall segments"
+  ],
+  "native_dynamic_semantics_unchanged": true
+}

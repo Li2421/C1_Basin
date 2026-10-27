@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-24T19:46:27.507536+00:00",
+  "passed": true,
+  "outcomes_read": false,
+  "expected_cells": 60564,
+  "actual_cells": 60564,
+  "scenes": 18,
+  "physical_scene_states_checked": 212,
+  "each_scene_state_controller_action_exactly_once": true,
+  "all_declared_initial_physical_states_equal": true,
+  "all_selected_controller_parameters_equal": true,
+  "exact_float64_candidate_vectors": 49,
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/SCENES.json": "eed13ffbd32172b3b95e77b11e885335ca1f2270e79eea06302f1a80f48104a9",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/SELECTED_CONTROLLERS.json": "24247c7a426337be1c3db968371cd7d2ba39e7326e253b1ab53cce429fb04354",
+    "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/main_CASES.json": "015539c12d893381697f520af9a8d67fe0e9882c7d400d7efc1e342609980ed9"
+  }
+}

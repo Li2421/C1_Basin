@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-25T18:38:09.687443+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/heterogeneity.py": "4c42b434612b699b493b413ab93369f769cb4b2c8824ccf3d834ad3f0d7b0a0e",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/statistics_hetero.py": "4ea8aa6150e3f276ef0faf3743218ccd5be95e43514fb8ae6d3c8815da57cf87",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/labels.py": "b38b232bcbb3ab4c17c979d395ace2f71f90250da8e1bfac8cf80ec2f4747bb5",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/STATISTICAL_CONVENTIONS.json": "eaed0e8834b4d7474b3571aefecbe1d42860a22c47c80bdeff4a061c7e332e79",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/METHOD_PARITY_CHECK.json": "3d7e4b39b5614d52aaceda024bf7afe030e267923ff3f1c2d0af1fc6544af4c8",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/requests_corrected.py": "f2f111ef6fc13e3e4835922f2c958b978d23ba85fa861cfef9a67b3868887d79",
+    "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/REQUEST_RECONSTRUCTION_CHECK.json": "53c8587e81ee8e260ca40be900650b7da577402eb1415a13fe087715ec21b6d6"
+  },
+  "phase1_seed": 2026102651,
+  "phase2_seed": 2026102652,
+  "bootstrap_replicates": 5000,
+  "half_splits": 200,
+  "exact_scene_permutation_test": true,
+  "previous_receipt": "/home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/STATISTICS_FROZEN.before_state_id_fix.receipt.json",
+  "previous_receipt_sha256": "cf2e583a1874b6acc002074441c4e3027b084c7cf5f89a4110020cf4c3979a39",
+  "amendment": "Implementation-only state-ID to label-row mapping; no trained model or frozen fold choice exists; same scientific observations and random draws."
+}

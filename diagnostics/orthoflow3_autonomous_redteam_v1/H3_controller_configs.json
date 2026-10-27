@@ -1,0 +1,17 @@
+{
+  "ctl_665c36fd7e3c659daac711e9a04e503d3ae737034b20c1cf1313c09517c2ddff": {
+    "compatibility_quality": "EXACT_PROFILE",
+    "conditioning_version": "frozen_test_initial_state_episode_eta_v1",
+    "config_json": "{\"chain\":\"orthoflow3\",\"conditioning\":\"frozen_test_initial_state_episode_eta_v1\",\"dt\":0.05,\"environment_sha256\":\"4a09c349e9492246ab4361ec3f85152e6030f9618c0b52f87e14eef6687ccb2a\",\"flow_checkpoint_sha256\":\"11ea8860e05ea19aef5c10ec12041c592d69460260e28a4f726af4533d19bcda\",\"horizon\":700,\"macflow_source_sha256\":\"d02e61d0b5447f0da206b839ab292d5f7655ec44e6be866b15a5227d7cb06fac\",\"orthoflow3_sha256\":\"f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213\",\"rng\":{\"derivation\":\"fold_in(fold_in(PRNGKey(root),state_token),future_index),then_step\",\"future_root\":2026093011,\"name\":\"matched_future_index_v1\"},\"runtime_versions\":{\"clarabel\":\"0.11.1\",\"jax\":\"0.6.2\",\"numpy\":\"2.4.6\",\"scipy\":\"1.17.1\"},\"safety_config\":{\"feasibility_tol\":1e-09,\"gamma\":1.0,\"gamma_wall\":1.0,\"intervention_tol\":1e-06,\"max_iterations\":200,\"optimality_tol\":2e-06,\"separation_buffer\":0.0001,\"solver_ftol\":1e-12,\"speed_tol\":1e-10},\"safety_projection_sha256\":\"18419e7a15d3dbeb9b49bacefbaf6e376a7e3551833a89bdfec52c3bab1861be\",\"scenario\":\"ring_exchange\",\"success_semantics\":\"collision_free_all_agents_goal_tolerance_v1\"}",
+    "controller_uid": "ctl_665c36fd7e3c659daac711e9a04e503d3ae737034b20c1cf1313c09517c2ddff",
+    "created_at": "2026-10-01 14:51:05",
+    "dt": "0.05",
+    "flow_checkpoint_sha256": "11ea8860e05ea19aef5c10ec12041c592d69460260e28a4f726af4533d19bcda",
+    "horizon": "700",
+    "orthoflow3_sha256": "f78c1b3754464a5495a9556cf93907bbf4abb61ffb8fe30418cfd43cf230c213",
+    "rng_semantics_version": "{\"derivation\":\"fold_in(fold_in(PRNGKey(root),state_token),future_index),then_step\",\"future_root\":2026093011,\"name\":\"matched_future_index_v1\"}",
+    "safety_config_hash": "18419e7a15d3dbeb9b49bacefbaf6e376a7e3551833a89bdfec52c3bab1861be",
+    "scenario_uid": "scn_0da5bf75a493f09e467cb70ee31c91b4371851048ab9016615058d456539ca7c",
+    "success_semantics_version": "collision_free_all_agents_goal_tolerance_v1"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "utc": "2026-10-15T07:24:43.942972+00:00",
+  "controllers": {
+    "base_u_plus_w_v4_wide_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S500",
+      "A3_fixed": "F13",
+      "G_E": "S500",
+      "G_E_Ehat": 0.6711370064142397,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S500",
+      "A3_fixed": "F13",
+      "G_E": "S500",
+      "G_E_Ehat": 0.7943456099684828,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_v4_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S500",
+      "A3_fixed": "F13",
+      "G_E": "S500",
+      "G_E_Ehat": 0.6721529935295698,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_plus_w_v6_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S500",
+      "A3_fixed": "F13",
+      "G_E": "S500",
+      "G_E_Ehat": 0.664141246615726,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_plus_w_v3_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S500",
+      "A3_fixed": "F13",
+      "G_E": "S500",
+      "G_E_Ehat": 0.7097939150676138,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_plus_w_v4_train_targeted_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S500",
+      "A3_fixed": "F13",
+      "G_E": "S500",
+      "G_E_Ehat": 0.870832396434319,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_v3_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S500",
+      "A3_fixed": "F13",
+      "G_E": "S500",
+      "G_E_Ehat": 0.8330788278172512,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_v2_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S500",
+      "A3_fixed": "F13",
+      "G_E": "S500",
+      "G_E_Ehat": 0.860992133581672,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_v10_local_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S300",
+      "A3_fixed": "F10",
+      "G_E": "S500",
+      "G_E_Ehat": 0.5683672647539519,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_plus_w_v5_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S500",
+      "A3_fixed": "F13",
+      "G_E": "S500",
+      "G_E_Ehat": 0.6921634311054778,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_v7_local_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S300",
+      "A3_fixed": "F10",
+      "G_E": "S500",
+      "G_E_Ehat": 0.3277265515036234,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_plus_w_v4_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S500",
+      "A3_fixed": "F13",
+      "G_E": "S500",
+      "G_E_Ehat": 0.6877492483055717,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_v8_local_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S300",
+      "A3_fixed": "F10",
+      "G_E": "S500",
+      "G_E_Ehat": 0.47153482360712895,
+      "S500": "S500",
+      "F10": "F10"
+    },
+    "base_u_v9_local_macflow": {
+      "A0_full": "S500",
+      "A0_fixed": "F10",
+      "A3_full": "S300",
+      "A3_fixed": "F10",
+      "G_E": "S500",
+      "G_E_Ehat": 0.5234047006188922,
+      "S500": "S500",
+      "F10": "F10"
+    }
+  },
+  "controller_order": [
+    "base_u_plus_w_v4_wide_macflow",
+    "base_u_macflow",
+    "base_u_v4_macflow",
+    "base_u_plus_w_v6_macflow",
+    "base_u_plus_w_v3_macflow",
+    "base_u_plus_w_v4_train_targeted_macflow",
+    "base_u_v3_macflow",
+    "base_u_v2_macflow",
+    "base_u_v10_local_macflow",
+    "base_u_plus_w_v5_macflow",
+    "base_u_v7_local_macflow",
+    "base_u_plus_w_v4_macflow",
+    "base_u_v8_local_macflow",
+    "base_u_v9_local_macflow"
+  ],
+  "arm_order": [
+    "F10",
+    "F13",
+    "S300",
+    "S500"
+  ],
+  "evaluation_labels_read": false,
+  "jax_enable_x64": false
+}

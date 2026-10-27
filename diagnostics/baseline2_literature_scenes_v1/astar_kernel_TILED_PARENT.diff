@@ -1,0 +1,25 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/baseline2_literature_scenes_v1/astar_kernel_certified.cpp
++++ /home/zhihan/research/Basin_C1/diagnostics/baseline2_literature_scenes_v1/astar_kernel_tiled.cpp
+@@ -1,3 +1,4 @@
++#include "tiled_parent_store.hpp"
+ // Exact search order of SpaceTimeGrid, with scalar double geometry.
+ #include <cmath>
+ #include <vector>
+@@ -60,7 +61,7 @@
+   }
+  }
+  auto heur=[&](int x,int y){return norm(double(x-gx),double(y-gy))/std::sqrt(2.);};
+- std::priority_queue<Node,std::vector<Node>,Greater> q;std::unordered_map<uint64_t,uint64_t> parent;uint64_t serial=0;const auto initial=code(sx,sy,0);parent.emplace(initial,initial);q.push({heur(sx,sy),0,sx,sy,0});
++ std::priority_queue<Node,std::vector<Node>,Greater> q;TiledParentStore parent(res,max_time);uint64_t serial=0;const auto initial=code(sx,sy,0);parent.emplace(initial,initial);q.push({heur(sx,sy),0,sx,sy,0});
+  const int moves[9][2]={{1,0},{0,1},{-1,0},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1},{0,0}};
+  while(!q.empty()){
+   Node u=q.top();q.pop();double ax=u.t==0?start[0]:u.x*res,ay=u.t==0?start[1]:u.y*res;
+@@ -69,7 +70,7 @@
+    if(held){std::vector<uint64_t> chain;uint64_t id=code(u.x,u.y,u.t);chain.push_back(id);while(id!=initial){id=parent.at(id);chain.push_back(id);}std::reverse(chain.begin(),chain.end());int k=0;output[k++]=start[0];output[k++]=start[1];for(size_t j=1;j<chain.size();++j){int x=int((chain[j]>>20)&((uint64_t(1)<<20)-1))-100000,y=int(chain[j]&((uint64_t(1)<<20)-1))-100000;output[k++]=x*res;output[k++]=y*res;}output[k++]=goal[0];output[k++]=goal[1];return k/2;}
+   }
+   if(u.t>=max_time-1)continue;
+-  for(auto&m:moves){int x=u.x+m[0],y=u.y+m[1],t=u.t+1;uint64_t id=code(x,y,t);if(parent.find(id)!=parent.end())continue;if(!edge(ax,ay,x*res,y*res,u.t))continue;parent.emplace(id,code(u.x,u.y,u.t));q.push({double(t)+heur(x,y),++serial,x,y,t});}
++  for(auto&m:moves){int x=u.x+m[0],y=u.y+m[1],t=u.t+1;uint64_t id=code(x,y,t);if(parent.contains(id))continue;if(!edge(ax,ay,x*res,y*res,u.t))continue;parent.emplace(id,code(u.x,u.y,u.t));q.push({double(t)+heur(x,y),++serial,x,y,t});}
+  }
+  return 0;
+ }

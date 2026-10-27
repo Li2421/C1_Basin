@@ -1,0 +1,8 @@
+{
+  "source": "/home/zhihan/research/Basin_C1/diagnostics/orthoflow3_generator_critic_v1/train_evaluate.py",
+  "source_sha256": "4272aa2f2ddcc9afa42ae80adb8ea964bbfc9d4a34f4be008f68c44c6f90e061",
+  "target": "/home/zhihan/research/Basin_C1/diagnostics/crosstype1b_generator_critic_pipeline_v1/frozen_networks.py",
+  "target_sha256": "c2439df1a4200777beaf990f6e49a094234c69cbd8479fcdd1479036a0171b6c",
+  "differences": "Only CPU thread environment defaults; OUT resolves to the new file directory",
+  "diff": "--- /home/zhihan/research/Basin_C1/diagnostics/orthoflow3_generator_critic_v1/train_evaluate.py\n+++ /home/zhihan/research/Basin_C1/diagnostics/crosstype1b_generator_critic_pipeline_v1/frozen_networks.py\n@@ -17,8 +17,8 @@\n \n os.environ.setdefault(\"JAX_PLATFORMS\", \"cpu\")\n os.environ.setdefault(\"CUDA_VISIBLE_DEVICES\", \"\")\n-os.environ.setdefault(\"OMP_NUM_THREADS\", \"2\")\n-os.environ.setdefault(\"XLA_FLAGS\", \"--xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=2\")\n+os.environ.setdefault(\"OMP_NUM_THREADS\", \"1\")\n+os.environ.setdefault(\"XLA_FLAGS\", \"--xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=1\")\n \n import flax.linen as nn\n from flax import serialization, core\n"
+}

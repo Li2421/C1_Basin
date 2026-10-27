@@ -1,0 +1,379 @@
+{
+  "round": 39,
+  "precision": false,
+  "family_names": {
+    "A": "单门隔墙",
+    "B": "串联瓶颈走廊",
+    "C": "多门隔墙",
+    "D": "十字路口",
+    "E": "环岛",
+    "F": "房间与门",
+    "G": "随机障碍场"
+  },
+  "geometry_seeds": {
+    "train": 202610390000,
+    "evaluation": 202610391000,
+    "pilot": 202610392000,
+    "probe": 202610393000
+  },
+  "family_seed_offset": 10000,
+  "reject_next_seed_limit": 10000,
+  "training_geometry_count": 16,
+  "evaluation_geometry_count": 8,
+  "evaluation_states_per_geometry": 4,
+  "pilot_states": 16,
+  "probe_states": 16,
+  "seeds": [
+    0,
+    1
+  ],
+  "training_seeds": [
+    17,
+    23
+  ],
+  "fit_seeds": [
+    17,
+    23,
+    41
+  ],
+  "training_steps": 60000,
+  "batch": 256,
+  "lr": 0.0003,
+  "dev_interval": 250,
+  "dev_transitions": 2048,
+  "demonstrations_per_training_geometry": 32,
+  "dev_demonstrations_per_training_geometry": 8,
+  "sample_navigation_states_every": 1,
+  "MLP": [
+    256,
+    256,
+    256
+  ],
+  "activation": "relu",
+  "mixture_components": 5,
+  "log_std_bounds": [
+    -5,
+    1.5
+  ],
+  "nav_gate": 0.9,
+  "multiagent_lower_gate": 0.2,
+  "multiagent_upper_exclusion": 0.98,
+  "horizon_rule": "ceil(2.5*max_single_robot_path_length/.5/.05/100)*100",
+  "expert_horizon": 10000,
+  "expert_grid_step": 0.25,
+  "expert_buffer": 0.015,
+  "navigation_lookahead": 0.3,
+  "slowdown_distance": 0.3,
+  "single_equivalence_separation_threshold": 2.0,
+  "pstar": 0.9681620884830543,
+  "rhr": {
+    "mode": "progress",
+    "steps": 40,
+    "speed": 0.35
+  },
+  "critic": {
+    "widths": [
+      64,
+      64,
+      16
+    ],
+    "activation": "silu",
+    "lr": 0.0008,
+    "wd": 0.0001,
+    "clip": 5,
+    "batch": 256,
+    "steps": [
+      500,
+      1000,
+      1500,
+      2000,
+      2500,
+      3000,
+      3500,
+      4000,
+      4500,
+      5000,
+      5500,
+      6000,
+      6500,
+      7000,
+      7500,
+      8000,
+      8500,
+      9000,
+      9500,
+      10000,
+      10500,
+      11000,
+      11500,
+      12000
+    ],
+    "step_selection": "inner leave-one-source-family cross-validation; earliest minimum mean binomial NLL across fit seeds; target excluded"
+  },
+  "fewshot_ks": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "fewshot_repeats": 1000,
+  "fewshot_seed": 202610173901,
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 202610173900,
+  "scaling_combinations": {
+    "A": {
+      "0": [
+        []
+      ],
+      "1": [
+        [
+          "E"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "3": [
+        [
+          "E",
+          "B",
+          "C"
+        ],
+        [
+          "E",
+          "F",
+          "C"
+        ],
+        [
+          "B",
+          "F",
+          "D"
+        ]
+      ],
+      "5": [
+        [
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      ]
+    },
+    "B": {
+      "0": [
+        []
+      ],
+      "1": [
+        [
+          "D"
+        ],
+        [
+          "F"
+        ],
+        [
+          "F"
+        ]
+      ],
+      "3": [
+        [
+          "D",
+          "E",
+          "A"
+        ],
+        [
+          "F",
+          "D",
+          "C"
+        ],
+        [
+          "F",
+          "A",
+          "D"
+        ]
+      ],
+      "5": [
+        [
+          "A",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      ]
+    },
+    "C": {
+      "0": [
+        []
+      ],
+      "1": [
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "3": [
+        [
+          "D",
+          "E",
+          "A"
+        ],
+        [
+          "E",
+          "B",
+          "A"
+        ],
+        [
+          "B",
+          "E",
+          "F"
+        ]
+      ],
+      "5": [
+        [
+          "A",
+          "B",
+          "D",
+          "E",
+          "F"
+        ]
+      ]
+    },
+    "D": {
+      "0": [
+        []
+      ],
+      "1": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "E"
+        ]
+      ],
+      "3": [
+        [
+          "A",
+          "C",
+          "E"
+        ],
+        [
+          "C",
+          "E",
+          "B"
+        ],
+        [
+          "E",
+          "B",
+          "F"
+        ]
+      ],
+      "5": [
+        [
+          "A",
+          "B",
+          "C",
+          "E",
+          "F"
+        ]
+      ]
+    },
+    "E": {
+      "0": [
+        []
+      ],
+      "1": [
+        [
+          "F"
+        ],
+        [
+          "A"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "3": [
+        [
+          "F",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "F"
+        ],
+        [
+          "B",
+          "F",
+          "D"
+        ]
+      ],
+      "5": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "F"
+        ]
+      ]
+    },
+    "F": {
+      "0": [
+        []
+      ],
+      "1": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "E"
+        ]
+      ],
+      "3": [
+        [
+          "A",
+          "C",
+          "B"
+        ],
+        [
+          "B",
+          "D",
+          "C"
+        ],
+        [
+          "E",
+          "B",
+          "A"
+        ]
+      ],
+      "5": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ]
+    }
+  },
+  "G_controller_training": "unresolved: prompt specifies no training geometries for G but four family-trained instances; mark gap if no compliant historical controller exists"
+}

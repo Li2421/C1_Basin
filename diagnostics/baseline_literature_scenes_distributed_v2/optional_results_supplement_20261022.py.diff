@@ -1,0 +1,16 @@
+--- optional_results_correction_revised_20261021.py
++++ optional_results_supplement_20261022.py
+@@ -96,11 +96,11 @@
+             result['dynamics_four_scene_type_equal']['diagnosis_status']='N/A: one or more saved-trace diagnoses unavailable'
+             for pooled in result['dynamics_four_scene_type_equal'].get('pooled_counts',{}).values():
+                 for key in ('deadlock_episode','wall_episode','deadlock_agents','wall_agents','canonical_joint_episode','actual_joint_episode'):pooled[key]=None
+-    from optional_revision_diagnostics_20261021 import report
++    from optional_revision_diagnostics_supplement_20261022 import report
+     revision=report(result,all_dynamics,sources)
+     write(HERE/'OPTIONAL_RESULTS.json',dict(utc=utc(),results=result,main_numbers_unchanged=True,revision=revision))
+     write(HERE/'OPTIONAL_RESULT_SOURCES.json',sources)
+     write(HERE/'COMPACT_DYNAMICS_RESULTS.json',all_dynamics)
+-    seal('OPTIONAL_NUMBERS.receipt.json',[HERE/n for n in ('OPTIONAL_RESULTS.json','OPTIONAL_RESULT_SOURCES.json','COMPACT_DYNAMICS_RESULTS.json','INSTANCE_CLASSES_DYNAMICS_REVISED_20261021.json','optional_revision_diagnostics_20261021.py','optional_results_correction_revised_20261021.py')],main_numbers_unchanged=True)
++    seal('OPTIONAL_NUMBERS.receipt.json',[HERE/n for n in ('OPTIONAL_RESULTS.json','OPTIONAL_RESULT_SOURCES.json','COMPACT_DYNAMICS_RESULTS.json','INSTANCE_CLASSES_DYNAMICS_SUPPLEMENT_20261022.json','optional_revision_diagnostics_supplement_20261022.py','optional_results_supplement_20261022.py')],main_numbers_unchanged=True)
+ 
+ if __name__=='__main__':main()

@@ -1,0 +1,11 @@
+--- analysis_jobs_current.py
++++ analysis_jobs_released.py
+@@ -3,7 +3,7 @@
+ from atomic_write import write
+ from registry import verify_receipt
+ from result_inventory import find_raw
+-from resources import require_capacity
++from resources_released import require_capacity
+ import subprocess
+ import fcntl
+ import time

@@ -1,0 +1,10 @@
+--- coordinator_pipelined.py
++++ coordinator_complete.py
+@@ -80,6 +80,6 @@
+             status('central_complete_awaiting_downstream_implementation');time.sleep(30)
+         from registry import verify_receipt
+         verify_receipt('DOWNSTREAM_READY.receipt.json')
+-        action('downstream','downstream_pipelined.py')
++        action('downstream','downstream_complete.py')
+ 
+ if __name__=='__main__':main()

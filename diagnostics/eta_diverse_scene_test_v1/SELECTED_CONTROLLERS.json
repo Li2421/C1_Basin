@@ -1,0 +1,110 @@
+{
+  "xsc_div_size_r014": {
+    "all_three_passed": true,
+    "geometry_all_states_eligible": true,
+    "test_applicable": true,
+    "status": "可测试",
+    "controllers": [
+      {
+        "controller": "centralized_sampling0",
+        "type": "集中式随机采样模型预测控制",
+        "type_code": "centralized_sampling",
+        "family": "optimization",
+        "cohort": "training",
+        "parameters": "[10, 64, 20]",
+        "checkpoint": "",
+        "capability_passed": "True",
+        "safety_capability_rate": "Historical authoritative manifest",
+        "no_repair_needed": "False",
+        "recipe": "nonflow_TT_native_v1"
+      },
+      {
+        "controller": "gradient_mpc0",
+        "type": "梯度下降模型预测控制",
+        "type_code": "gradient_mpc",
+        "family": "optimization",
+        "cohort": "unseen",
+        "parameters": "[10, 20, 0.05]",
+        "checkpoint": "",
+        "capability_passed": "True",
+        "safety_capability_rate": "1.0",
+        "no_repair_needed": "True",
+        "recipe": "crosstype3_gradient_mpc_TT_v1"
+      },
+      {
+        "controller": "DM0",
+        "type": "分布式模型预测控制",
+        "type_code": "distributed_shooting",
+        "family": "optimization",
+        "cohort": "training",
+        "parameters": "[10, 64, 20]",
+        "checkpoint": "",
+        "capability_passed": "True",
+        "safety_capability_rate": "Historical authoritative manifest",
+        "no_repair_needed": "False",
+        "recipe": "nonflow_TT_native_v1"
+      }
+    ]
+  },
+  "xsc_div_time_f20": {
+    "all_three_passed": true,
+    "geometry_all_states_eligible": true,
+    "test_applicable": true,
+    "status": "可测试",
+    "controllers": [
+      {
+        "controller": "centralized_sampling0",
+        "type": "集中式随机采样模型预测控制",
+        "type_code": "centralized_sampling",
+        "family": "optimization",
+        "cohort": "training",
+        "parameters": "[10, 64, 20]",
+        "checkpoint": "",
+        "capability_passed": "True",
+        "safety_capability_rate": "Historical authoritative manifest",
+        "no_repair_needed": "False",
+        "recipe": "nonflow_TT_native_v1"
+      },
+      {
+        "controller": "gradient_mpc0",
+        "type": "梯度下降模型预测控制",
+        "type_code": "gradient_mpc",
+        "family": "optimization",
+        "cohort": "unseen",
+        "parameters": "[10, 20, 0.05]",
+        "checkpoint": "",
+        "capability_passed": "True",
+        "safety_capability_rate": "1.0",
+        "no_repair_needed": "True",
+        "recipe": "crosstype3_gradient_mpc_TT_v1"
+      },
+      {
+        "controller": "DM0",
+        "type": "分布式模型预测控制",
+        "type_code": "distributed_shooting",
+        "family": "optimization",
+        "cohort": "training",
+        "parameters": "[10, 64, 20]",
+        "checkpoint": "",
+        "capability_passed": "True",
+        "safety_capability_rate": "Historical authoritative manifest",
+        "no_repair_needed": "False",
+        "recipe": "nonflow_TT_native_v1"
+      }
+    ]
+  },
+  "xsc_div_center_s024": {
+    "all_three_passed": false,
+    "geometry_all_states_eligible": true,
+    "test_applicable": false,
+    "status": "控制器不适用",
+    "controllers": []
+  },
+  "xsc_div_offset_dx030": {
+    "all_three_passed": false,
+    "geometry_all_states_eligible": true,
+    "test_applicable": false,
+    "status": "控制器不适用",
+    "controllers": []
+  }
+}

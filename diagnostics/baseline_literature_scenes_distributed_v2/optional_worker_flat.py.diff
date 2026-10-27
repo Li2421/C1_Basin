@@ -1,0 +1,27 @@
+--- optional_worker_fine.py
++++ optional_worker_flat.py
+@@ -3,6 +3,8 @@
+ from registry import verify_receipt,save,save_alias,repair_journal
+ import time
+ import signal
++from flat_geometry_backend import install
++CACHE_BACKEND=install()
+ STOP=False
+ 
+ def stop(*args):
+@@ -42,6 +44,7 @@
+             if c['seed']==1 and kind in ('gradient_mpc','prioritized_astar','conflict_based_search','goal_reference') and source.exists():result=save_alias(stage,c,source)
+             else:
+                 result,arrays=run(c)
++                result['pure_geometry_cache_backend']=CACHE_BACKEND
+                 result['jax_enable_x64']=bool(jax.config.x64_enabled)
+                 result['optional_implementation_receipt_sha256']=sha(HERE/'OPTIONAL_DELIVERY_READY.receipt.json')
+                 result['reservation_equivalence_receipt_sha256']=sha(HERE/'RESERVATION_V2_EQUIVALENCE.receipt.json')
+@@ -52,6 +55,6 @@
+                 save(stage,c,result,arrays)
+             print(c['state']['scene'],c['controller_payload']['nominal']['controller'],c['method'],c['seed'],result['outcome'],round(result['elapsed_seconds'],3),flush=True)
+         write(claim/'COMPLETE.json',dict(utc=utc()));groups+=1
+-        if groups>=512:os.execv(sys.executable,[sys.executable,'-B',str(HERE/'optional_worker_fine.py'),stage])
++        if groups>=512:os.execv(sys.executable,[sys.executable,'-B',str(HERE/'optional_worker_flat.py'),stage])
+ 
+ if __name__=='__main__':main(sys.argv[1])

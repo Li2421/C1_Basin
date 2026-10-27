@@ -1,0 +1,22 @@
+--- statistics_header_reader_20261023.py
++++ statistics_bootstrap_memo_reader_20261022.py
+@@ -9,7 +9,7 @@
+ FIXED=('safety','fixed_eta10','fixed_eta13','human_progress')
+ LAYERS=('central','distributed')
+ 
+-def bootstrap(M,types,iterations=5000):
++def bootstrap_uncached(M,types,iterations=5000):
+     groups=[np.flatnonzero(types==t) for t in sorted(set(types))]
+     point=np.mean([np.mean([np.nanmean(M[i],axis=0) for i in group],axis=0) for group in groups],axis=0)
+     rng=np.random.default_rng(2026102003);out=[]
+@@ -23,6 +23,10 @@
+             ts.append(np.mean(cs,axis=0))
+         out.append(np.mean(ts,axis=0))
+     return point,np.asarray(out)
++
++def bootstrap(M,types,iterations=5000):
++    from bootstrap_exact_memo_20261022 import memoized_bootstrap
++    return memoized_bootstrap(M,types,iterations,bootstrap_uncached)
+ 
+ def contrast(point,draws,arms,coefficients):
+     lower=[];upper=[];ordinary=[]

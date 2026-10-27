@@ -1,0 +1,11 @@
+--- /home/zhihan/research/Basin_C1/diagnostics/cross_scene_pipeline_v2/select_lambdas_v2.py
++++ /home/zhihan/research/Basin_C1/diagnostics/hetero_scene_pipeline_v1/select_lambdas_v2.py
+@@ -6,7 +6,7 @@
+ 
+ def main():
+     assert(HERE/'train_inner_COMPLETE.json').exists()
+-    inputs=read(HERE/'INPUTS_V2.json');etas=np.asarray(inputs['etas']);tables=read_evidence(ROOT/'diagnostics/cross_scene_correction_v1/LABEL_TABLES.json')
++    inputs=read(HERE/'INPUTS_V2.json');etas=np.asarray(inputs['etas']);tables=read(HERE/'LABEL_TABLES.json')
+     cache={};summaries={}
+     for fold in read(HERE/'FOLDS.json'):
+         result={}

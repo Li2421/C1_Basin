@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-17T10:08:49.979197+00:00",
+  "files": {
+    "/home/zhihan/research/Basin_C1/diagnostics/decentralized_fix_selection_v1/RETAINED_TEACHER_HISTORICAL_R5.npz": "0db57507b11aa37933d256dc52b9a64ace34788a590c2c28d6b066711e727491",
+    "/home/zhihan/research/Basin_C1/diagnostics/decentralized_fix_selection_v1/RETAINED_TEACHER_HISTORICAL_CRITIC.json": "c37849272a381b4a4b9314998fbba1d855dc548d2bd4bf1bbb04a6825231d148"
+  },
+  "before_any_selector": true,
+  "new_probes": 0,
+  "new_predictions": 0,
+  "guard": {
+    "package": "/home/zhihan/research/Basin_C1/shared_rollout_db/__init__.py",
+    "journals": "/home/zhihan/research/Basin_C1/shared_rollout_db/journals",
+    "jax_enable_x64": false
+  }
+}

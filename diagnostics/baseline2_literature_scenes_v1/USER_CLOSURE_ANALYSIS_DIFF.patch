@@ -1,0 +1,254 @@
+--- aggregate_results.py before user closure
++++ aggregate_results.py three-scene closure
+@@ -1,4 +1,5 @@
+ from experiment import *
++from closure_scope import FLOW_NAMES
+ from result_inventory import logical,qualification
+ from migration_statistics_complete import paired,METHOD_NAMES
+ from pooled_statistics import pooled_paired
+@@ -22,7 +23,7 @@
+ 
+ def main():
+     allrows=[];per_scene={};details={};sources=[]
+-    for scene in NAMES:
++    for scene in FLOW_NAMES:
+         path=HERE/f'MIGRATION_RESULTS_{scene}.json';assert path.exists(),scene;per_scene[scene]=read(path)
+         rows=[]
+         for stage in ('safety_'+scene,'fixed_'+scene):rr,ss=logical(stage);rows+=rr;sources+=ss
+@@ -39,8 +40,8 @@
+             details[scene]=dict(fixed_full_inventory=metrics(rows,qualification(scene),scene,FIXED),learned_evaluation=metrics(subset,qualification(scene),scene,methods))
+         else:details[scene]=dict(fixed_full_inventory=metrics(rows,qualification(scene),scene,FIXED),learned_evaluation=None)
+         allrows+=rows
+-    pp,qq=pooled([r for r in allrows if r['case']['method'] in FIXED],list(NAMES));combined=pooled_paired(pp,qq,'pooled_scenes',FIXED);combined_details=metrics(pp,qq,'pooled_scenes',FIXED)
+-    learned_scenes=[s for s in NAMES if per_scene[s]['learned_evaluation'] is not None]
++    pp,qq=pooled([r for r in allrows if r['case']['method'] in FIXED],list(FLOW_NAMES));combined=pooled_paired(pp,qq,'pooled_scenes',FIXED);combined_details=metrics(pp,qq,'pooled_scenes',FIXED)
++    learned_scenes=[s for s in FLOW_NAMES if per_scene[s]['learned_evaluation'] is not None]
+     supported=None
+     if learned_scenes:
+         learnrows=[]
+@@ -48,14 +49,14 @@
+             keys={(r['case']['state']['N'],r['case']['state']['index']) for r in allrows if r['case']['state']['scene']==scene and r['case']['method']=='learned_scene'}
+             learnrows+=[r for r in allrows if r['case']['state']['scene']==scene and (r['case']['state']['N'],r['case']['state']['index']) in keys]
+         pp,qq=pooled(learnrows,learned_scenes);supported=pooled_paired(pp,qq,'pooled_scenes',FIXED+['learned_scene'])
+-    result=dict(evidence='DEVELOPMENT',per_scene=per_scene,endpoint_details=details,four_scene_fixed_combined=combined,four_scene_fixed_endpoint_details=combined_details,learned_supported_subset_combined=supported,learned_supported_scenes=learned_scenes,four_scene_learned_combined=None if len(learned_scenes)<4 else supported,aggregation='Pool geometry-valid state clusters (scene,N,index); resample type, controller, state, keeping seed twins together. Eligibility is applied separately in each scene. Scenes are not forced to equal weights.',bootstrap_iterations=5000)
++    result=dict(evidence='DEVELOPMENT',per_scene=per_scene,endpoint_details=details,three_scene_fixed_combined=combined,three_scene_fixed_endpoint_details=combined_details,learned_supported_subset_combined=supported,learned_supported_scenes=learned_scenes,three_scene_learned_combined=None if len(learned_scenes)<3 else supported,aggregation='Pool geometry-valid state clusters (scene,N,index); resample type, controller, state, keeping seed twins together. Eligibility is applied separately in each scene. Scenes are not forced to equal weights.',bootstrap_iterations=5000)
+     result['paper_evidence_labels']=LABELS
+     write(HERE/'MIGRATION_RESULTS.json',result);write(HERE/'results.json',result);write(HERE/'MIGRATION_SOURCES.json',sources)
+     flat=[]
+     for scene,d in per_scene.items():
+         for population in ('fixed_full_inventory','learned_evaluation'):
+             if d[population]:flat += [dict(r,population=population) for r in d[population]['statistics']]
+-    for pop,d in [('four_scene_fixed_combined',combined),('learned_supported_subset_combined',supported)]:
++    for pop,d in [('three_scene_fixed_combined',combined),('learned_supported_subset_combined',supported)]:
+         if d:flat += [dict(r,population=pop) for r in d['statistics']]
+     for r in flat:r['paper_evidence_label']=LABELS[r['scene']]
+     with (HERE/'MIGRATION_RESULTS.csv').open('w') as f:
+@@ -76,9 +77,9 @@
+             row[columns[6]]=cell(lookup.get((t,'learned_scene'))) if data and 'learned_scene' in data['methods'] else '缺口或按可用性仅做固定修正'
+             rows.append(row)
+     for scene,d in per_scene.items():
+-        use=d['learned_evaluation'] or d['fixed_full_inventory'];block(scene,NAMES[scene],use,'独立32评估state；共同配对' if d['learned_evaluation'] else '全部有效state；共同配对')
+-    block('pooled','四场景有效状态池',combined,'固定修正；按场景分别执行能力门')
+-    if supported:block('supported','支持场景内学习的场景子集',supported,'独立32评估state/场景；不冒充完整四场景学习合并')
++        use=d['learned_evaluation'] or d['fixed_full_inventory'];block(scene,FLOW_NAMES[scene],use,'独立32评估state；共同配对' if d['learned_evaluation'] else '全部有效state；共同配对')
++    block('pooled','三个已完成场景有效状态池',combined,'固定修正；按场景分别执行能力门')
++    if supported:block('supported','支持场景内学习的场景子集',supported,'独立32评估state/场景；不冒充完整三场景学习合并')
+     with (HERE/'AXIS_TABLE.csv').open('w') as f:w=csv.DictWriter(f,fieldnames=rows[0]);w.writeheader();w.writerows(rows)
+     text=['# 流程迁移成功率','','单元格为成功率% [配对分簇bootstrap 95% CI]；unknown按下界，完整上界与差值CI见MIGRATION_RESULTS.json。仅纳入对应场景单机能力>=95%的实例；无合格实例保留缺口行。所有结果均为开发证据。','','|'+ '|'.join(rows[0])+'|','|'+'---|'*len(rows[0])]
+     text+=['|'+ '|'.join(map(str,r.values()))+'|' for r in rows]
+
+--- background_results.py before user closure
++++ background_results.py three-scene closure
+@@ -1,4 +1,5 @@
+ from experiment import *
++from closure_scope import FLOW_NAMES
+ from result_inventory import logical,qualification
+ from migration_statistics import paired
+ import collections
+@@ -7,7 +8,7 @@
+ 
+ def main():
+     result={};transitions=[];table=[]
+-    for scene,name in NAMES.items():
++    for scene,name in FLOW_NAMES.items():
+         nominal,_=logical('nominal_'+scene);safety,_=logical('safety_'+scene);whitebox,_=logical('whitebox_'+scene)
+         black=[r for r in nominal if r['case']['controller_payload']['nominal']['type_code']!='goal_reference'];q=qualification(scene)
+         stats=paired(safety+black,q,scene,['safety','nominal_only']);valid={r['controller'] for r in q if r['qualified']}
+
+--- diagnostic_documents.py before user closure
++++ diagnostic_documents.py three-scene closure
+@@ -1,4 +1,5 @@
+ from experiment import *
++from closure_scope import FLOW_NAMES
+ import csv
+ import collections
+ import numpy as np
+@@ -7,14 +8,14 @@
+ 
+ def main():
+     allrows=[];summaries=[];census=[]
+-    for scene in NAMES:
++    for scene in FLOW_NAMES:
+         p=HERE/f'SAFETY_BASELINE_{scene}.csv';assert p.exists(),scene
+         rows=list(csv.DictReader(p.open()));allrows+=rows
+         for population in ('all','qualified'):
+             selected=rows if population=='all' else [r for r in rows if r['qualified']=='True']
+             groups=collections.defaultdict(list)
+             for r in selected:groups[r['type']].append(r)
+-            for typ,rr in sorted(groups.items()):summaries.append(dict(scene=NAMES[scene],population=population,type=typ,robots=len(rr),counts=dict(collections.Counter(r['category'] for r in rr))))
++            for typ,rr in sorted(groups.items()):summaries.append(dict(scene=FLOW_NAMES[scene],population=population,type=typ,robots=len(rr),counts=dict(collections.Counter(r['category'] for r in rr))))
+         census+=read(HERE/f'GEOMETRY_CENSUS_{scene}.json')
+     exported=[]
+     for r in allrows:
+@@ -29,11 +30,11 @@
+     for r in census:groups[(r['scene'],r['type'])].append(r)
+     text=['# 滤波器平衡点事件的描述性几何普查','','只普查满足4a操作条件的事件。按联合投影的起作用约束记录机器人配对/墙组成、连通簇大小、名义输入与法向量夹角及局部坐标修正。以下仅为描述；没有据此宣称不同controller共享死锁几何。没有事件的类型仍列出。','','|场景|类型|事件局数|记录步数|约束组成|簇大小中位数|夹角中位数|离锥修正下确界中位数|','|---|---|---|---|---|---|---|---|']
+     types={c['type_code']:c['type'] for c in read(HERE/'CONTROLLER_MANIFEST.json')};summ=[]
+-    for scene in NAMES:
++    for scene in FLOW_NAMES:
+         for typ,name in sorted(types.items()):
+             rr=groups[(scene,typ)];components=collections.Counter(k[0] for r in rr for k in r['active_constraints']);sizes=[x for r in rr for x in r['cluster_sizes']];angles=[x for r in rr for x in r['nominal_normal_angles_degrees']];distances=[r['escape']['infimum'] for r in rr if r['escape']['infimum'] is not None]
+             row=dict(scene=scene,type=typ,events=len({r['rollout_uid'] for r in rr}),steps=len(rr),constraint_counts=dict(components),cluster_median=float(np.median(sizes)) if sizes else None,angle_median=float(np.median(angles)) if angles else None,escape_infimum_median=float(np.median(distances)) if distances else None);summ.append(row)
+-            text.append('|'+ '|'.join(map(str,[NAMES[scene],name,row['events'],row['steps'],dict(components),row['cluster_median'],row['angle_median'],row['escape_infimum_median']]))+'|')
++            text.append('|'+ '|'.join(map(str,[FLOW_NAMES[scene],name,row['events'],row['steps'],dict(components),row['cluster_median'],row['angle_median'],row['escape_infimum_median']]))+'|')
+     text+=['','“离开闭锥的最小修正”一般不取到：这里报告到开补集的距离下确界。名义输入已经在锥外时，零修正达到要求、距离为0且方向无定义；名义输入在秩亏锥内时，法向正交方向可以任意小地离开其线性包，下确界为0，不存在唯一非零最小向量。平均约束法向量为0时第一轴未定义，局部方向明确留空；锥等于全空间时不存在离锥方向。完整方向、秩与原因在GEOMETRY_CENSUS.json中。该JSON还保留起作用约束的非零偏置、安全联合速度范数、最大单机安全速度和各机器人二维平均法向坐标；这些量用于区分有限窗口锥候选与精确零速平衡。步级分布存在同局时间相关性，未将记录步数当成独立事件数。']
+     write(HERE/'GEOMETRY_CENSUS.json',census);write(HERE/'GEOMETRY_CENSUS_SUMMARY.json',summ);(HERE/'GEOMETRY_CENSUS.md').write_text('\n'.join(text)+'\n')
+     seal('SAFETY_DIAGNOSTICS.receipt.json',[HERE/'SAFETY_BASELINE.csv',HERE/'FAILURE_DECOMPOSITION.json',HERE/'FAILURE_DECOMPOSITION.md',HERE/'GEOMETRY_CENSUS.json',HERE/'GEOMETRY_CENSUS_SUMMARY.json',HERE/'GEOMETRY_CENSUS.md',HERE/'diagnostic_documents.py',HERE/'failure_analysis.py'],predictions_only=True)
+
+--- training_menu_reference.py before user closure
++++ training_menu_reference.py three-scene closure
+@@ -5,6 +5,7 @@
+ No controller or correction is selected for deployment by this script.
+ """
+ from experiment import *
++from closure_scope import FLOW_NAMES
+ import numpy as np
+ import csv
+ 
+@@ -42,7 +43,7 @@
+     rows = []
+     gaps = {}
+     inputs = []
+-    for scene in NAMES:
++    for scene in FLOW_NAMES:
+         path = HERE / f'LEARNING_BUNDLE_{scene}.npz'
+         if not path.exists():
+             gap = HERE / f'LEARNING_GAP_{scene}.json'
+@@ -62,7 +63,7 @@
+     summary = []
+     fields = ('crossfit_lower', 'crossfit_same_choice_upper',
+               'in_sample_best_lower', 'in_sample_best_upper')
+-    for scene in NAMES:
++    for scene in FLOW_NAMES:
+         rr = [r for r in rows if r['scene'] == scene and r['qualified']]
+         for typ in [*sorted({r['type'] for r in rr}), 'type_equal']:
+             selected = [r for r in rr if typ == 'type_equal' or r['type'] == typ]
+@@ -92,7 +93,7 @@
+     names = {c['type_code']:c['type'] for c in read(HERE / 'CONTROLLER_MANIFEST.json')}
+     names['type_equal'] = '类型等权合并'
+     for r in summary:
+-        text.append('|' + '|'.join([NAMES[r['scene']], names[r['type']],
++        text.append('|' + '|'.join([FLOW_NAMES[r['scene']], names[r['type']],
+             str(r['controllers']), *[f'{100*r[f]:.2f}' for f in fields]]) + '|')
+     text += ['', '独立32个评估状态没有完整十二动作结果矩阵，完整菜单oracle及平均/最大遗憾仍不可识别。这里的训练标签不能填补这个缺口；未为事后oracle增加评估rollout。逐实例及未知上下界见CSV/JSON。']
+     (HERE / 'TRAINING_MENU_REFERENCE.md').write_text('\n'.join(text) + '\n')
+
+--- pilot_results.py before user closure
++++ pilot_results.py three-scene closure
+@@ -1,4 +1,5 @@
+ from experiment import *
++from closure_scope import FLOW_NAMES
+ from migration_statistics_complete import paired
+ from result_inventory import logical,qualification
+ from endpoint_metrics import metrics
+@@ -18,7 +19,7 @@
+ 
+ def main():
+     result={};sources=[];flat=[]
+-    for scene in NAMES:
++    for scene in FLOW_NAMES:
+         gap=HERE/f'PILOT_GAP_{scene}.json'
+         if gap.exists():result[scene]=dict(gap=read(gap));continue
+         q=read(HERE/f'pilot_capability_{scene}_QUALIFICATION.json');rows=[]
+@@ -47,11 +48,11 @@
+     else:(HERE/'PILOT_RESULTS.csv').write_text('scene,type,method,population,success_rate\n')
+     text=['# 学习型controller试点','','确定性行为克隆策略、混合密度行为克隆策略各两个训练seed。只复用封存训练状态中既有成功冲突搜索多机规划轨迹，不新生成专家rollout。第一个5000步global配方的结构、损失与训练规则保持；新几何/N输入和归一化说明见预注册补充四。所有结果为开发证据。','','|场景|controller|单机成功率下界|合格|只加安全投影成功率|全程η10|全程η13|人定双η进度切换|','|---|---|---|---|---|---|---|---|']
+     for scene,d in result.items():
+-        if 'gap' in d:text.append(f"|{NAMES[scene]}|缺口：{d['gap']['reason']}|—|—|—|—|—|—|");continue
++        if 'gap' in d:text.append(f"|{FLOW_NAMES[scene]}|缺口：{d['gap']['reason']}|—|—|—|—|—|—|");continue
+         names={c['controller']:c['type'] for c in read(HERE/f'PILOT_CONTROLLER_MANIFEST_{scene}.json')};rr={r['controller']:r for r in d['all_checkpoints_descriptive']}
+         for q in d['qualification']:
+-            rates=rr[q['controller']]['rates'];text.append('|'+ '|'.join([NAMES[scene],f"{names[q['controller']]}（{q['controller']}）",f"{100*q['rate_lower']:.2f}%",'是' if q['qualified'] else '否',*[f"{100*rates[m]['success']:.2f}%" for m in FIXED]])+'|')
+-    text+=['','不合格checkpoint的完整数据如实保留，但不进入迁移主要比较。没有合格checkpoint时不训练无从解释的试点迁移critic。十类型补充只有在能力门与场景可用性满足时运行，保持原八类型结果/模型/选择独立不覆盖；新的源类型集合并不使旧执行标签失效。其配对CI、unknown上下界、碰撞/超时/伤害与相对固定修正差值见JSON/CSV。二维拥挤随机场景的8机、14机几何缺口不能用其他N代替；完整四场景试点合并因此不成立。']
++            rates=rr[q['controller']]['rates'];text.append('|'+ '|'.join([FLOW_NAMES[scene],f"{names[q['controller']]}（{q['controller']}）",f"{100*q['rate_lower']:.2f}%",'是' if q['qualified'] else '否',*[f"{100*rates[m]['success']:.2f}%" for m in FIXED]])+'|')
++    text+=['','不合格checkpoint的完整数据如实保留，但不进入迁移主要比较。没有合格checkpoint时不训练无从解释的试点迁移critic。十类型补充只有在能力门与场景可用性满足时运行，保持原八类型结果/模型/选择独立不覆盖；新的源类型集合并不使旧执行标签失效。其配对CI、unknown上下界、碰撞/超时/伤害与相对固定修正差值见JSON/CSV。二维拥挤随机场景的8机、14机几何缺口不能用其他N代替；两类学习型试点按用户决定均未启动；没有试点迁移合并。']
+     (HERE/'PILOT_RESULTS.md').write_text('\n'.join(text)+'\n')
+     seal('PILOT_RESULTS.receipt.json',[HERE/'PILOT_RESULTS.json',HERE/'PILOT_RESULTS.csv',HERE/'PILOT_RESULTS.md',HERE/'PILOT_RESULT_SOURCES.json',HERE/'pilot_results.py'],qualified_checkpoints_only_for_migration=True,original_eight_type_branch_retained=True)
+ 
+
+--- reference_endpoints.py before user closure
++++ reference_endpoints.py three-scene closure
+@@ -1,4 +1,5 @@
+ from experiment import *
++from closure_scope import FLOW_NAMES
+ from result_inventory import logical,qualification
+ from pilot_results import resolve
+ from migration_statistics_complete import paired,METHOD_NAMES
+@@ -8,7 +9,7 @@
+ 
+ def main():
+     grouped=collections.defaultdict(list);original=[];stat=[];sources=[]
+-    for scene in NAMES:
++    for scene in FLOW_NAMES:
+         rows=[]
+         stages=['safety_'+scene,'fixed_'+scene]
+         if (HERE/f'learning_eval_{scene}_CASES.json').exists():stages.append('learning_eval_'+scene)
+@@ -26,19 +27,19 @@
+         if pq.exists():eligible|={x['controller'] for x in read(pq) if x['qualified']}
+         for r in rows:
+             c=r['case'];ctl=c['controller_payload']['nominal'];isunknown=bool(r['numerical_failure']);position=bool(r.get('paper_position_convergence',False));velocity=bool(r.get('paper_velocity_convergence',False));reference=bool(position and (velocity if scene=='lit_circle_five' else True)) and not isunknown
+-            row=dict(scene=NAMES[scene],scene_code=scene,N=c['state']['N'],state=c['state']['index'],controller=f"{ctl['type']}（{ctl['controller']}）",type=ctl['type'],type_code=ctl['type_code'],method=METHOD_NAMES[c['method']],method_code=c['method'],seed=c['seed'],qualified=ctl['controller'] in eligible,success=r['success'],collision=r['collision'],timeout=r['timeout'],unknown=int(isunknown),reference_arrival_lower=int(reference),reference_arrival_upper=int(reference or isunknown),reference_definition='all distance<.1 AND all speed<.1' if scene=='lit_circle_five' else 'all distance<.1; physical reference, not IMPC predicted cost_index' if scene in ('lit_narrow_passage','lit_crowded_random') else 'all distance<.1',rollout_uid=r['rollout_uid'])
++            row=dict(scene=FLOW_NAMES[scene],scene_code=scene,N=c['state']['N'],state=c['state']['index'],controller=f"{ctl['type']}（{ctl['controller']}）",type=ctl['type'],type_code=ctl['type_code'],method=METHOD_NAMES[c['method']],method_code=c['method'],seed=c['seed'],qualified=ctl['controller'] in eligible,success=r['success'],collision=r['collision'],timeout=r['timeout'],unknown=int(isunknown),reference_arrival_lower=int(reference),reference_arrival_upper=int(reference or isunknown),reference_definition='all distance<.1 AND all speed<.1' if scene=='lit_circle_five' else 'all distance<.1; physical reference, not IMPC predicted cost_index' if scene in ('lit_narrow_passage','lit_crowded_random') else 'all distance<.1',rollout_uid=r['rollout_uid'])
+             grouped[(scene,ctl['type'],c['method'],ctl['controller'] in eligible)].append(row)
+             if scene in ('lit_narrow_passage','lit_doorway') and c['state']['index']==0:original.append(row)
+     summaries=[]
+     for (scene,typ,method,qualified),rows in sorted(grouped.items()):
+-        n=len(rows);summaries.append(dict(scene=NAMES[scene],scene_code=scene,type=typ,method=METHOD_NAMES[method],qualified=qualified,episodes=n,task_success=sum(r['success'] for r in rows),reference_arrival_lower=sum(r['reference_arrival_lower'] for r in rows),reference_arrival_upper=sum(r['reference_arrival_upper'] for r in rows),unknown=sum(r['unknown'] for r in rows),definition=rows[0]['reference_definition']))
++        n=len(rows);summaries.append(dict(scene=FLOW_NAMES[scene],scene_code=scene,type=typ,method=METHOD_NAMES[method],qualified=qualified,episodes=n,task_success=sum(r['success'] for r in rows),reference_arrival_lower=sum(r['reference_arrival_lower'] for r in rows),reference_arrival_upper=sum(r['reference_arrival_upper'] for r in rows),unknown=sum(r['unknown'] for r in rows),definition=rows[0]['reference_definition']))
+     for name,rows in [('REFERENCE_ENDPOINTS.csv',summaries),('ORIGINAL_INSTANCE_RESULTS.csv',original)]:
+         with (HERE/name).open('w') as f:w=csv.DictWriter(f,fieldnames=rows[0]);w.writeheader();w.writerows(rows)
+     for r in stat:r['paper_evidence_label']=LABELS[r['scene']]
+     write(HERE/'ORIGINAL_INSTANCE_RESULTS.json',stat);write(HERE/'REFERENCE_ENDPOINT_SOURCES.json',sources)
+     types={r['type_code']:r['type'] for r in read(HERE/'CONTROLLER_MANIFEST.json')};types['type_equal']='类型等权合并'
+     text=['# 文献原始实例state0的流程版结果','','窄通道场景state0是图8在1.8秒的声明reset假设，不是可验证真实t0；门口场景state0按代码原坐标。它们与扰动集合分开报告。下表仅为通过能力门的八类非训练controller；逐实例/seed与行为克隆试点原始实例均在CSV中，后者不混入八类型主比较。','','|场景|类型|做法|无碰撞成功率% [95% CI]|','|---|---|---|---|']
+-    for r in stat:text.append(f"|{NAMES[r['scene']]}|{types[r['type']]}|{METHOD_NAMES[r['method']]}|{100*r['success_rate']:.2f} [{100*r['ci95'][0]:.2f}, {100*r['ci95'][1]:.2f}]|")
++    for r in stat:text.append(f"|{FLOW_NAMES[r['scene']]}|{types[r['type']]}|{METHOD_NAMES[r['method']]}|{100*r['success_rate']:.2f} [{100*r['ci95'][0]:.2f}, {100*r['ci95'][1]:.2f}]|")
+     text+=['','原论文判据参照见REFERENCE_ENDPOINTS.csv。圆形围场五机随机场景使用距离<.1且速度<.1，区别于流程版.08到达停止。门口场景列最终位置<.1。无限时域模型预测控制与死锁解除的预测cost_index无法定义于所有新controller，因此窄通道/拥挤随机仅提供明确标注的物理位置<.1参照，不冒充原预测终止判据。']
+     (HERE/'ORIGINAL_INSTANCE_RESULTS.md').write_text('\n'.join(text)+'\n')
+     seal('REFERENCE_ENDPOINTS.receipt.json',[HERE/'REFERENCE_ENDPOINTS.csv',HERE/'ORIGINAL_INSTANCE_RESULTS.csv',HERE/'ORIGINAL_INSTANCE_RESULTS.json',HERE/'ORIGINAL_INSTANCE_RESULTS.md',HERE/'REFERENCE_ENDPOINT_SOURCES.json',HERE/'reference_endpoints.py'],saved_predictions_only=True)
+
+--- switching_diagnostics.py before user closure
++++ switching_diagnostics.py three-scene closure
+@@ -1,5 +1,6 @@
+ """Read stored traces to distinguish progress and budget fallback switches."""
+ from experiment import *
++from closure_scope import FLOW_NAMES
+ from pilot_results import resolve
+ import numpy as np
+ import collections
+@@ -24,13 +25,13 @@
+                 with np.load(r['trace_path']) as z:value=progress(z['positions'][step],g,d0,cfg['goal_tolerance'])
+                 byprogress=value>=c['theta'];bybudget=step>=fallback;assert byprogress or bybudget,(stage,c['rollout_uid'],step,value)
+                 trigger='both' if byprogress and bybudget else 'progress_only' if byprogress else 'budget_fallback_only'
+-            ctl=c['controller_payload']['nominal'];row=dict(stage=stage,scene=NAMES[s['scene']],scene_code=s['scene'],state=s['index'],N=s['N'],controller=f"{ctl['type']}（{ctl['controller']}）",type=ctl['type'],method=c['method'],seed=c['seed'],theta=c['theta'],initial_exact_zero_goal_distance=int((d0==0).sum()),initially_within_arrival_tolerance=int((d0<=cfg['goal_tolerance']).sum()),initial_progress=progress(p0,g,d0,cfg['goal_tolerance']),switch_step=step,progress_at_switch=value,budget_fallback_step=fallback,trigger=trigger,success=r['success'],unknown=r['numerical_failure'],rollout_uid=r['rollout_uid']);rows.append(row);groups[(stage,s['scene'],ctl['type'],s['index']==0)].append(row)
++            ctl=c['controller_payload']['nominal'];row=dict(stage=stage,scene=FLOW_NAMES[s['scene']],scene_code=s['scene'],state=s['index'],N=s['N'],controller=f"{ctl['type']}（{ctl['controller']}）",type=ctl['type'],method=c['method'],seed=c['seed'],theta=c['theta'],initial_exact_zero_goal_distance=int((d0==0).sum()),initially_within_arrival_tolerance=int((d0<=cfg['goal_tolerance']).sum()),initial_progress=progress(p0,g,d0,cfg['goal_tolerance']),switch_step=step,progress_at_switch=value,budget_fallback_step=fallback,trigger=trigger,success=r['success'],unknown=r['numerical_failure'],rollout_uid=r['rollout_uid']);rows.append(row);groups[(stage,s['scene'],ctl['type'],s['index']==0)].append(row)
+     with (HERE/'SWITCHING_DIAGNOSTICS.csv').open('w') as f:w=csv.DictWriter(f,fieldnames=rows[0]);w.writeheader();w.writerows(rows)
+     summaries=[]
+     for (stage,scene,typ,state0),rr in sorted(groups.items()):summaries.append(dict(stage=stage,scene=scene,type=typ,state0=state0,episodes=len(rr),trigger_counts=dict(collections.Counter(r['trigger'] for r in rr)),mean_initial_progress=float(np.mean([r['initial_progress'] for r in rr]))))
+     write(HERE/'SWITCHING_DIAGNOSTICS.json',summaries)
+     text=['# 进度切换与预算回退诊断','','只读取既有位置、switch_step与封存阈值，未生成新rollout，未改切换定义。真正触发发生在动作执行前；最后一步到达后已终止而没有再次检查进度的局数单列为未切换。恰在预算点同时满足进度时记both，不猜测原因。','','|批次|场景|类型|state0|局数|触发计数|初始平均进度|','|---|---|---|---|---|---|---|']
+-    for r in summaries:text.append('|'+ '|'.join(map(str,[r['stage'],NAMES[r['scene']],r['type'],r['state0'],r['episodes'],r['trigger_counts'],r['mean_initial_progress']]))+'|')
++    for r in summaries:text.append('|'+ '|'.join(map(str,[r['stage'],FLOW_NAMES[r['scene']],r['type'],r['state0'],r['episodes'],r['trigger_counts'],r['mean_initial_progress']]))+'|')
+     text+=['','窄通道扰动最多sqrt(2)*.05=.07071米，小于原到达容差.08米，因此两台挡路机器人初始即在到达区。其扰动距离非零时，原clip(1−distance/d0)初始为0；到达停止并不把这个值自动设为1。仅精确d0=0时使用预注册的未定义处扩展。state0与扰动state的进度结构因此不同，阈值切换可能主要依赖6/7预算回退。保留原定义，不在观察结果后把“已在容差内”强制改为进度1。此表是解释性诊断，不作新的效果估计。']
+     (HERE/'SWITCHING_DIAGNOSTICS.md').write_text('\n'.join(text)+'\n')
+     seal('SWITCHING_DIAGNOSTICS.receipt.json',[HERE/'SWITCHING_DIAGNOSTICS.csv',HERE/'SWITCHING_DIAGNOSTICS.json',HERE/'SWITCHING_DIAGNOSTICS.md',HERE/'switching_diagnostics.py'],predictions_only=True,no_switch_rule_change=True)

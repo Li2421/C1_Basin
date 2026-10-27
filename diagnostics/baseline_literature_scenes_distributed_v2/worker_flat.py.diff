@@ -1,0 +1,28 @@
+--- worker_fine.py
++++ worker_flat.py
+@@ -3,6 +3,8 @@
+ from registry import verify_receipt,save,save_alias,repair_journal
+ import signal
+ import time
++from flat_geometry_backend import install
++CACHE_BACKEND=install()
+ STOP=False
+ 
+ def stop(*args):
+@@ -37,6 +39,7 @@
+             else:
+                 run=historical_run if c['safety_layer']=='central' and c['state']['scene']!='lit_crowded_random' else distributed_run
+                 result,arrays=run(c)
++                result['pure_geometry_cache_backend']=CACHE_BACKEND
+                 result['execution_backend']=dict(actual='central_reservation_reference_v2.py' if run is historical_run else 'runtime_reservation_v2.py',implementation_receipt_sha256=sha(HERE/'IMPLEMENTATION_FROZEN.receipt.json'))
+                 result["reservation_equivalence_receipt_sha256"]=sha(HERE/"RESERVATION_V2_EQUIVALENCE.receipt.json");result["central_fixed_equivalence_receipt_sha256"]=sha(HERE/"CENTRAL_FIXED_CERTIFICATE_REPLAY.receipt.json");save(stage,c,result,arrays)
+             count+=1
+@@ -45,7 +48,7 @@
+         write(claim/'COMPLETE.json',dict(utc=utc()));groups+=1
+         write(HERE/stage/f"worker_{os.environ['SLURM_JOB_ID']}.json",dict(utc=utc(),completed_in_process=count,groups=groups,last=entry['group']))
+         if groups>=512:
+-            os.execv(sys.executable,[sys.executable,'-B',str(HERE/'worker_fine.py'),stage])
++            os.execv(sys.executable,[sys.executable,'-B',str(HERE/'worker_flat.py'),stage])
+     write(HERE/stage/f"worker_{os.environ['SLURM_JOB_ID']}_EXIT.json",dict(utc=utc(),graceful_stop=STOP,completed_in_process=count))
+ 
+ if __name__=='__main__':main(sys.argv[1])
