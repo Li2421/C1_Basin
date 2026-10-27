@@ -227,6 +227,150 @@
       "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/LAYOUT_REVISION_DESIGN.json",
       "source_sha256": "7f5fb60407a6eb1de535cbed5b4cf9c06d5bff50fef8e7090a3593ea8f7670da",
       "target_sha256": "7f5fb60407a6eb1de535cbed5b4cf9c06d5bff50fef8e7090a3593ea8f7670da"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_time_index.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/cbs_kernel_time_index.so",
+      "source_sha256": "53fd48b0e139b0ef92b970ead58f27391f57631ad9bff3cf3c8afdd94a6642f2",
+      "target_sha256": "53fd48b0e139b0ef92b970ead58f27391f57631ad9bff3cf3c8afdd94a6642f2"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/bootstrap_fp_control_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/bootstrap_fp_control_20261022.so",
+      "source_sha256": "3acc6be0d07349cb653d5319993d9c29e7a7c4ffad5588fde67c071b5393300f",
+      "target_sha256": "3acc6be0d07349cb653d5319993d9c29e7a7c4ffad5588fde67c071b5393300f"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_start_signature_v2_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/cbs_kernel_start_signature_v2_candidate_20261022.so",
+      "source_sha256": "5d09d1a3c388efa22ea4c23c4817979879417bf364807458cbf990beba457c08",
+      "target_sha256": "5d09d1a3c388efa22ea4c23c4817979879417bf364807458cbf990beba457c08"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel_tiled.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/astar_kernel_tiled.so",
+      "source_sha256": "118ea0c0452edbd94cf5e912e2f445e22896d8deae25a736dd92f31c9df656b1",
+      "target_sha256": "118ea0c0452edbd94cf5e912e2f445e22896d8deae25a736dd92f31c9df656b1"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/pa_query_memo_facts_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/pa_query_memo_facts_candidate_20261022.so",
+      "source_sha256": "49d74b7d545a76f395d6c12d7a22e37211f3eba997d406e86a5bdfe23410a1ed",
+      "target_sha256": "49d74b7d545a76f395d6c12d7a22e37211f3eba997d406e86a5bdfe23410a1ed"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/astar_kernel.so",
+      "source_sha256": "910c2c7d865f4d0a6f3fb19e9f0c744bd9590b899f81e9fa3495c6d52e1bb639",
+      "target_sha256": "910c2c7d865f4d0a6f3fb19e9f0c744bd9590b899f81e9fa3495c6d52e1bb639"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/pa_query_reuse_facts_probe_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/pa_query_reuse_facts_probe_20261022.so",
+      "source_sha256": "55f12f5f940dcc050cb0df9265739d8d6323d33701ba6badcda6231b933fe64c",
+      "target_sha256": "55f12f5f940dcc050cb0df9265739d8d6323d33701ba6badcda6231b933fe64c"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel_spatial_mask_cap4_test_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/astar_kernel_spatial_mask_cap4_test_20261022.so",
+      "source_sha256": "f2c508c9838c7d8de3de3ac97e74d55e7406fd61e9c398d9e5e1121da29e838d",
+      "target_sha256": "f2c508c9838c7d8de3de3ac97e74d55e7406fd61e9c398d9e5e1121da29e838d"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel_stationary_edge_cap4_test_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/astar_kernel_stationary_edge_cap4_test_20261022.so",
+      "source_sha256": "b1c3459e9e8446396c9f67361863c846f004ad30ede8199b67c41400f059bdd8",
+      "target_sha256": "b1c3459e9e8446396c9f67361863c846f004ad30ede8199b67c41400f059bdd8"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel_certified.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/astar_kernel_certified.so",
+      "source_sha256": "4c0eba973fa6311213afea1d6ff4da82dd7fd9130375de215285517e7f4d52b7",
+      "target_sha256": "4c0eba973fa6311213afea1d6ff4da82dd7fd9130375de215285517e7f4d52b7"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_start_signature_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/cbs_kernel_start_signature_candidate_20261022.so",
+      "source_sha256": "bb4dbc1b29100c4597bdd932ed0955d53704827d8717132d265f460a10161193",
+      "target_sha256": "bb4dbc1b29100c4597bdd932ed0955d53704827d8717132d265f460a10161193"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_heuristic_cache.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/cbs_kernel_heuristic_cache.so",
+      "source_sha256": "27b01d9ed217b7d9afddd0060b5686af4c73991f90daf56fbd8f3486d20c90b6",
+      "target_sha256": "27b01d9ed217b7d9afddd0060b5686af4c73991f90daf56fbd8f3486d20c90b6"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel_stationary_edge_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/astar_kernel_stationary_edge_candidate_20261022.so",
+      "source_sha256": "0ff3bc971b59a62b0c082aa0ebda7812c59f3085f7ebefc964d7b0fe2d6174da",
+      "target_sha256": "0ff3bc971b59a62b0c082aa0ebda7812c59f3085f7ebefc964d7b0fe2d6174da"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/cbs_kernel.so",
+      "source_sha256": "1f3b2c4b0581f73ff198a6a735d786175e4a730c5ab5f3c51d922a0dff80ccfe",
+      "target_sha256": "1f3b2c4b0581f73ff198a6a735d786175e4a730c5ab5f3c51d922a0dff80ccfe"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_tiled.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/cbs_kernel_tiled.so",
+      "source_sha256": "f8e14d5598af69c8c9ee797b69363750f2bf9f20b5352423593b490439d9bf1a",
+      "target_sha256": "f8e14d5598af69c8c9ee797b69363750f2bf9f20b5352423593b490439d9bf1a"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_flat_cache.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/cbs_kernel_flat_cache.so",
+      "source_sha256": "8bbc83944ede5cfa88235d2709d4cac78b80f47e26d2650cccffc4bd03df68b2",
+      "target_sha256": "8bbc83944ede5cfa88235d2709d4cac78b80f47e26d2650cccffc4bd03df68b2"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_certified.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/cbs_kernel_certified.so",
+      "source_sha256": "696e700f687f910f2f0ad57216f45f0233138c4a399f20d4a05a11b2bc546df0",
+      "target_sha256": "696e700f687f910f2f0ad57216f45f0233138c4a399f20d4a05a11b2bc546df0"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel_spatial_mask_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/astar_kernel_spatial_mask_candidate_20261022.so",
+      "source_sha256": "0ea3decf345496d64fffd8ae34c12a81e36c2f7bc7e6df9ecd3add7bea6017b0",
+      "target_sha256": "0ea3decf345496d64fffd8ae34c12a81e36c2f7bc7e6df9ecd3add7bea6017b0"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/native_resume/cbs_start_signature_cache_20261022.hpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/native_resume/cbs_start_signature_cache_20261022.hpp",
+      "source_sha256": "9676093cd68c8f32d46b1ef0e129b0be2009d63e1b538b609525fa945324b25a",
+      "target_sha256": "9676093cd68c8f32d46b1ef0e129b0be2009d63e1b538b609525fa945324b25a"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/native_resume/cbs_query_disk_memo_candidate_20261022.hpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/native_resume/cbs_query_disk_memo_candidate_20261022.hpp",
+      "source_sha256": "357c36606637ee8556cafcd0ffecc48e416264028484f9c807a285e6841d8070",
+      "target_sha256": "357c36606637ee8556cafcd0ffecc48e416264028484f9c807a285e6841d8070"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/native_resume/tiled_parent_store.hpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/native_resume/tiled_parent_store.hpp",
+      "source_sha256": "fb7c71341d76061df2c6ec8432734cf096c951b9fb512aea9525f0b2112d988b",
+      "target_sha256": "fb7c71341d76061df2c6ec8432734cf096c951b9fb512aea9525f0b2112d988b"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/native_resume/cbs_start_signature_cache_v2_20261022.hpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/native_resume/cbs_start_signature_cache_v2_20261022.hpp",
+      "source_sha256": "108517a571bfd3c498cf9f8288597f847241dc8b835747823c4acd6293000da8",
+      "target_sha256": "108517a571bfd3c498cf9f8288597f847241dc8b835747823c4acd6293000da8"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/native_resume/cbs_kernel_query_disk_candidate_20261022.cpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/native_resume/cbs_kernel_query_disk_candidate_20261022.cpp",
+      "source_sha256": "02d8017b313e468bca819e15dfc76e4697833cf17b84cfdfa9d115790c15e5c5",
+      "target_sha256": "02d8017b313e468bca819e15dfc76e4697833cf17b84cfdfa9d115790c15e5c5"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/native_resume/cbs_kernel_resume.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/generated/native_resume/cbs_kernel_resume.so",
+      "source_sha256": "13f07a32922a6a1b170f89366a4a2087a47bf21e3b6e2b75a22e5e02ac03834c",
+      "target_sha256": "13f07a32922a6a1b170f89366a4a2087a47bf21e3b6e2b75a22e5e02ac03834c"
     }
   ],
   "changes": "Byte-identical copies; HERE now resolves under this experiment. No old module imported to perform this preparation."

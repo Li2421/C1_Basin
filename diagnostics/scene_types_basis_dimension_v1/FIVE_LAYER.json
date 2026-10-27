@@ -1,0 +1,458 @@
+{
+  "1": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "constructive_success"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "2": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 32,
+        "success": 32,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 32,
+        "success": 32,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "constructive_success",
+      "1": "constructive_success",
+      "2": "constructive_success",
+      "3": "constructive_success"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "3": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "4": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "constructive_success",
+      "2": "constructive_success",
+      "3": "constructive_success"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": true
+  },
+  "5": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 32,
+        "success": 32,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 32,
+        "success": 32,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "6": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 32,
+        "success": 32,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 32,
+        "success": 32,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "constructive_success",
+      "1": "constructive_success",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "7": {
+    "geometry_valid": false,
+    "single_agent_paths": false,
+    "joint_feasible": "not_evaluated",
+    "controller_gate": "not_applicable",
+    "deadlock_resolution": "not_evaluated",
+    "gap": "Geometrically impossible requested forest: disjoint obstacle dilations area 7.03619449019 > enclosure 6.25; 0.3m blocks, 0.5m wall/pair gaps, 3m box. No rollout."
+  },
+  "8": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "9": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "10": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "11": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 8,
+        "success": 8,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 8,
+        "success": 8,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "12": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 16,
+        "success": 16,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 16,
+        "success": 16,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "13": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "14": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 16,
+        "success": 16,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 16,
+        "success": 16,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "15": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "16": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  },
+  "17": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "constructive_success",
+      "1": "constructive_success",
+      "2": "constructive_success",
+      "3": "constructive_success"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false
+  }
+}

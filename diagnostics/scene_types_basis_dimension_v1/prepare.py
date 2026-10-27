@@ -12,6 +12,8 @@ def main():
     records=[]
     files=list((SOURCE/'backend').glob('*.py'))
     files += [SOURCE/n for n in ('bootstrap.py','experiment.py','common.py','scene_environment.py','controllers_new.py','runtime_new.py','LAYOUT_REVISION_DESIGN.json')]
+    files += list(SOURCE.glob('*.so'))
+    files += [p for p in (SOURCE/'native_resume').rglob('*') if p.suffix in ('.so','.py','.cpp','.hpp','.h')]
     for source in files:
         target=dest/source.relative_to(SOURCE);target.parent.mkdir(parents=True,exist_ok=True)
         data=source.read_bytes()

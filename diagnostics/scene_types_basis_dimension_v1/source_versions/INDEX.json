@@ -1,0 +1,13 @@
+{
+  "versions": [
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/runtime.py",
+      "historical_sha256": "d7a8fbb89b790707d90c87528d8c5bf2eabc8b661c43ecb54819c27a5365d59d",
+      "archive": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/source_versions/d7a8fbb89b790707d90c87528d8c5bf2eabc8b661c43ecb54819c27a5365d59d.py",
+      "change": "Only final-route diagnostic error handling, made before calibration; no control calculation changed.",
+      "used_by": [
+        "route_equivalence"
+      ]
+    }
+  ]
+}
