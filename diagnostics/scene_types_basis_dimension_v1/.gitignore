@@ -1,0 +1,19 @@
+# Retained local evidence and reproducible generated inputs; never deleted here.
+/raw/
+/traces/
+/attempts/
+/queues/
+/slurm/
+/import_manifests/
+/generated/
+/tmp/
+/cache/
+/mplconfig/
+/cuda_cache/
+/geometry_proposals/
+/scene_revisions/
+/incidents/
+*.pid
+*.log
+/worker.sbatch
+/RESOURCE_WATCH_STOP

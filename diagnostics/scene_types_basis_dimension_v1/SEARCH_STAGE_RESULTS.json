@@ -1,0 +1,143 @@
+{
+  "stages": [
+    {
+      "stage": "S1",
+      "plan": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/S1_valid15_v2_planned.json",
+      "requests": 5520,
+      "unique_planned": 5520,
+      "completed": 5520,
+      "candidate_outcomes": {
+        "n": 5520,
+        "success": 1382,
+        "success_rate": 0.2503623188405797,
+        "success_mean_time": 15.954232995658469,
+        "all_cohort_truncated_mean": 24.59233695652174,
+        "collision": 0,
+        "timeout": 4138,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.23911009356568955,
+          0.261961756423939
+        ],
+        "compute_seconds_total": 33116.273008449934,
+        "compute_seconds_mean": 5.999324820371365,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 5520,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "covered_cases": 82,
+      "new_covered_cases": 82,
+      "cumulative_covered_cases": 82
+    },
+    {
+      "stage": "S2",
+      "plan": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/S2_valid15_v2_planned.json",
+      "requests": 3150,
+      "unique_planned": 3150,
+      "completed": 3150,
+      "candidate_outcomes": {
+        "n": 3150,
+        "success": 803,
+        "success_rate": 0.25492063492063494,
+        "success_mean_time": 17.574221668742215,
+        "all_cohort_truncated_mean": 25.051285714285715,
+        "collision": 0,
+        "timeout": 2347,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.2400061238083154,
+          0.2704321717877661
+        ],
+        "compute_seconds_total": 20113.633517781273,
+        "compute_seconds_mean": 6.385280481835324,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 3150,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "covered_cases": 20,
+      "new_covered_cases": 0,
+      "cumulative_covered_cases": 82
+    },
+    {
+      "stage": "S3",
+      "plan": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/S3_valid15_v2_planned.json",
+      "requests": 4560,
+      "unique_planned": 4560,
+      "completed": 4560,
+      "candidate_outcomes": {
+        "n": 4560,
+        "success": 20,
+        "success_rate": 0.0043859649122807015,
+        "success_mean_time": 15.77,
+        "all_cohort_truncated_mean": 31.188201754385968,
+        "collision": 0,
+        "timeout": 4523,
+        "numerical_unknown": 17,
+        "unknown_exception_types": {
+          "ValueError": 17
+        },
+        "case_wilson95": [
+          0.0028410983060896448,
+          0.006765164141077581
+        ],
+        "compute_seconds_total": 55314.929491418414,
+        "compute_seconds_mean": 12.130466993732108,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 4560,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "covered_cases": 4,
+      "new_covered_cases": 4,
+      "cumulative_covered_cases": 86
+    },
+    {
+      "stage": "S4",
+      "plan": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/S4_valid15_v2_planned.json",
+      "requests": 2000,
+      "unique_planned": 2000,
+      "completed": 2000,
+      "candidate_outcomes": {
+        "n": 2000,
+        "success": 311,
+        "success_rate": 0.1555,
+        "success_mean_time": 17.06623794212219,
+        "all_cohort_truncated_mean": 26.489150000000002,
+        "collision": 0,
+        "timeout": 1689,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.140280173169077,
+          0.17204067240770624
+        ],
+        "compute_seconds_total": 13024.589846170973,
+        "compute_seconds_mean": 6.512294923085486,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 2000,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "covered_cases": 75,
+      "new_covered_cases": 1,
+      "cumulative_covered_cases": 87
+    }
+  ],
+  "note": "Coverage of the current valid-scope S1-S4 manifests only. Calibration safety and matched-midpoint controls are separately reused by support closure. New coverage counts are relative to earlier listed search stages, not a continuous-family optimum."
+}

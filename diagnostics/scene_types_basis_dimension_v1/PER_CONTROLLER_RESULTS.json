@@ -1,0 +1,716 @@
+{
+  "0": {
+    "centralized_sampling": {
+      "oracle": {
+        "n": 60,
+        "success": 28,
+        "success_rate": 0.4666666666666667,
+        "success_mean_time": 19.108928571428574,
+        "all_cohort_truncated_mean": 23.230833333333337,
+        "collision": 0,
+        "timeout": 32,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.34627906041438494,
+          0.5910657297284211
+        ],
+        "compute_seconds_total": 345.6194867491722,
+        "compute_seconds_mean": 5.76032477915287,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 16,
+        "success_rate": 0.26666666666666666,
+        "success_mean_time": 17.484375,
+        "all_cohort_truncated_mean": 24.435833333333335,
+        "collision": 0,
+        "timeout": 44,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.17132640003280553,
+          0.39008713096683645
+        ],
+        "compute_seconds_total": 361.62674277834594,
+        "compute_seconds_mean": 6.027112379639099,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    },
+    "gradient_mpc": {
+      "oracle": {
+        "n": 60,
+        "success": 34,
+        "success_rate": 0.5666666666666667,
+        "success_mean_time": 16.81470588235294,
+        "all_cohort_truncated_mean": 22.850000000000005,
+        "collision": 0,
+        "timeout": 26,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.44103438776125564,
+          0.6842760319531324
+        ],
+        "compute_seconds_total": 290.5484334048815,
+        "compute_seconds_mean": 4.842473890081359,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 27,
+        "success_rate": 0.45,
+        "success_mean_time": 15.96111111111111,
+        "all_cohort_truncated_mean": 23.28083333333334,
+        "collision": 0,
+        "timeout": 33,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.3309365440675524,
+          0.5750806411466566
+        ],
+        "compute_seconds_total": 294.66121537424624,
+        "compute_seconds_mean": 4.911020256237437,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    }
+  },
+  "1": {
+    "centralized_sampling": {
+      "oracle": {
+        "n": 60,
+        "success": 36,
+        "success_rate": 0.6,
+        "success_mean_time": 18.63888888888889,
+        "all_cohort_truncated_mean": 22.427500000000006,
+        "collision": 0,
+        "timeout": 24,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.4736605349204075,
+          0.7143050946511744
+        ],
+        "compute_seconds_total": 292.95422500371933,
+        "compute_seconds_mean": 4.882570416728655,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 8,
+        "success_rate": 0.13333333333333333,
+        "success_mean_time": 14.45625,
+        "all_cohort_truncated_mean": 25.43416666666667,
+        "collision": 0,
+        "timeout": 52,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.06914109480586972,
+          0.24165159676499615
+        ],
+        "compute_seconds_total": 342.7750598285347,
+        "compute_seconds_mean": 5.712917663808912,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    },
+    "gradient_mpc": {
+      "oracle": {
+        "n": 60,
+        "success": 34,
+        "success_rate": 0.5666666666666667,
+        "success_mean_time": 15.391176470588235,
+        "all_cohort_truncated_mean": 22.448333333333334,
+        "collision": 0,
+        "timeout": 26,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.44103438776125564,
+          0.6842760319531324
+        ],
+        "compute_seconds_total": 272.8439367711544,
+        "compute_seconds_mean": 4.547398946185907,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 21,
+        "success_rate": 0.35,
+        "success_mean_time": 15.235714285714288,
+        "all_cohort_truncated_mean": 23.78166666666667,
+        "collision": 0,
+        "timeout": 39,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.24167774406017556,
+          0.47637381158245135
+        ],
+        "compute_seconds_total": 278.7218104931526,
+        "compute_seconds_mean": 4.6453635082192095,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    }
+  },
+  "2": {
+    "centralized_sampling": {
+      "oracle": {
+        "n": 60,
+        "success": 40,
+        "success_rate": 0.6666666666666666,
+        "success_mean_time": 17.4,
+        "all_cohort_truncated_mean": 21.920833333333338,
+        "collision": 0,
+        "timeout": 20,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.5405686645211968,
+          0.7727073847647731
+        ],
+        "compute_seconds_total": 291.17918541422114,
+        "compute_seconds_mean": 4.852986423570353,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 8,
+        "success_rate": 0.13333333333333333,
+        "success_mean_time": 14.45625,
+        "all_cohort_truncated_mean": 25.43416666666667,
+        "collision": 0,
+        "timeout": 52,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.06914109480586972,
+          0.24165159676499615
+        ],
+        "compute_seconds_total": 342.7750598285347,
+        "compute_seconds_mean": 5.712917663808912,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    },
+    "gradient_mpc": {
+      "oracle": {
+        "n": 60,
+        "success": 35,
+        "success_rate": 0.5833333333333334,
+        "success_mean_time": 15.692857142857143,
+        "all_cohort_truncated_mean": 22.049166666666665,
+        "collision": 0,
+        "timeout": 25,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.45728081022640116,
+          0.6993572144165838
+        ],
+        "compute_seconds_total": 270.5558057632297,
+        "compute_seconds_mean": 4.509263429387162,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 21,
+        "success_rate": 0.35,
+        "success_mean_time": 15.235714285714288,
+        "all_cohort_truncated_mean": 23.78166666666667,
+        "collision": 0,
+        "timeout": 39,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.24167774406017556,
+          0.47637381158245135
+        ],
+        "compute_seconds_total": 278.7218104931526,
+        "compute_seconds_mean": 4.6453635082192095,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    }
+  },
+  "3": {
+    "centralized_sampling": {
+      "oracle": {
+        "n": 60,
+        "success": 38,
+        "success_rate": 0.6333333333333333,
+        "success_mean_time": 18.069736842105264,
+        "all_cohort_truncated_mean": 21.923333333333336,
+        "collision": 0,
+        "timeout": 22,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.5068300063010303,
+          0.7437908331277456
+        ],
+        "compute_seconds_total": 284.7648277343251,
+        "compute_seconds_mean": 4.746080462238751,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 8,
+        "success_rate": 0.13333333333333333,
+        "success_mean_time": 14.45625,
+        "all_cohort_truncated_mean": 25.43416666666667,
+        "collision": 0,
+        "timeout": 52,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.06914109480586972,
+          0.24165159676499615
+        ],
+        "compute_seconds_total": 342.7750598285347,
+        "compute_seconds_mean": 5.712917663808912,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    },
+    "gradient_mpc": {
+      "oracle": {
+        "n": 60,
+        "success": 34,
+        "success_rate": 0.5666666666666667,
+        "success_mean_time": 15.261764705882353,
+        "all_cohort_truncated_mean": 21.873333333333335,
+        "collision": 0,
+        "timeout": 26,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.44103438776125564,
+          0.6842760319531324
+        ],
+        "compute_seconds_total": 271.0778331211768,
+        "compute_seconds_mean": 4.5179638853529465,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 21,
+        "success_rate": 0.35,
+        "success_mean_time": 15.235714285714288,
+        "all_cohort_truncated_mean": 23.78166666666667,
+        "collision": 0,
+        "timeout": 39,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.24167774406017556,
+          0.47637381158245135
+        ],
+        "compute_seconds_total": 278.7218104931526,
+        "compute_seconds_mean": 4.6453635082192095,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    }
+  },
+  "4": {
+    "centralized_sampling": {
+      "oracle": {
+        "n": 60,
+        "success": 37,
+        "success_rate": 0.6166666666666667,
+        "success_mean_time": 16.328378378378385,
+        "all_cohort_truncated_mean": 21.09333333333334,
+        "collision": 0,
+        "timeout": 23,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.49017595824099924,
+          0.7291172762591798
+        ],
+        "compute_seconds_total": 315.87563200108707,
+        "compute_seconds_mean": 5.264593866684785,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 22,
+        "success_rate": 0.36666666666666664,
+        "success_mean_time": 14.218181818181819,
+        "all_cohort_truncated_mean": 23.42166666666667,
+        "collision": 0,
+        "timeout": 38,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.25620916687225426,
+          0.49316999369896963
+        ],
+        "compute_seconds_total": 331.39789617806673,
+        "compute_seconds_mean": 5.523298269634446,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    },
+    "gradient_mpc": {
+      "oracle": {
+        "n": 60,
+        "success": 40,
+        "success_rate": 0.6666666666666666,
+        "success_mean_time": 15.086250000000001,
+        "all_cohort_truncated_mean": 20.355,
+        "collision": 0,
+        "timeout": 20,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.5405686645211968,
+          0.7727073847647731
+        ],
+        "compute_seconds_total": 267.25166337005794,
+        "compute_seconds_mean": 4.454194389500966,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 25,
+        "success_rate": 0.4166666666666667,
+        "success_mean_time": 13.410000000000002,
+        "all_cohort_truncated_mean": 22.29166666666667,
+        "collision": 0,
+        "timeout": 35,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.30064278558341617,
+          0.5427191897735989
+        ],
+        "compute_seconds_total": 279.50495373783633,
+        "compute_seconds_mean": 4.658415895630606,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    }
+  },
+  "5": {
+    "centralized_sampling": {
+      "oracle": {
+        "n": 60,
+        "success": 39,
+        "success_rate": 0.65,
+        "success_mean_time": 16.225641025641032,
+        "all_cohort_truncated_mean": 21.027500000000007,
+        "collision": 0,
+        "timeout": 21,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.5236261884175486,
+          0.7583222559398244
+        ],
+        "compute_seconds_total": 316.02768688928336,
+        "compute_seconds_mean": 5.267128114821389,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 22,
+        "success_rate": 0.36666666666666664,
+        "success_mean_time": 14.218181818181819,
+        "all_cohort_truncated_mean": 23.42166666666667,
+        "collision": 0,
+        "timeout": 38,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.25620916687225426,
+          0.49316999369896963
+        ],
+        "compute_seconds_total": 331.39789617806673,
+        "compute_seconds_mean": 5.523298269634446,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    },
+    "gradient_mpc": {
+      "oracle": {
+        "n": 60,
+        "success": 40,
+        "success_rate": 0.6666666666666666,
+        "success_mean_time": 15.080000000000002,
+        "all_cohort_truncated_mean": 20.350833333333334,
+        "collision": 0,
+        "timeout": 20,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.5405686645211968,
+          0.7727073847647731
+        ],
+        "compute_seconds_total": 269.3574972390197,
+        "compute_seconds_mean": 4.489291620650329,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 25,
+        "success_rate": 0.4166666666666667,
+        "success_mean_time": 13.410000000000002,
+        "all_cohort_truncated_mean": 22.29166666666667,
+        "collision": 0,
+        "timeout": 35,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.30064278558341617,
+          0.5427191897735989
+        ],
+        "compute_seconds_total": 279.50495373783633,
+        "compute_seconds_mean": 4.658415895630606,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    }
+  },
+  "6": {
+    "centralized_sampling": {
+      "oracle": {
+        "n": 60,
+        "success": 33,
+        "success_rate": 0.55,
+        "success_mean_time": 17.915151515151518,
+        "all_cohort_truncated_mean": 22.487500000000004,
+        "collision": 0,
+        "timeout": 27,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.4249193588533434,
+          0.6690634559324476
+        ],
+        "compute_seconds_total": 328.1633567260578,
+        "compute_seconds_mean": 5.469389278767631,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 13,
+        "success_rate": 0.21666666666666667,
+        "success_mean_time": 16.049999999999997,
+        "all_cohort_truncated_mean": 25.257500000000004,
+        "collision": 0,
+        "timeout": 47,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.13123044048190308,
+          0.33620027573194783
+        ],
+        "compute_seconds_total": 340.66384814307094,
+        "compute_seconds_mean": 5.677730802384516,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    },
+    "gradient_mpc": {
+      "oracle": {
+        "n": 60,
+        "success": 35,
+        "success_rate": 0.5833333333333334,
+        "success_mean_time": 15.844285714285716,
+        "all_cohort_truncated_mean": 21.811666666666667,
+        "collision": 0,
+        "timeout": 25,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.45728081022640116,
+          0.6993572144165838
+        ],
+        "compute_seconds_total": 310.78501256741583,
+        "compute_seconds_mean": 5.17975020945693,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "fixed": {
+        "n": 60,
+        "success": 20,
+        "success_rate": 0.3333333333333333,
+        "success_mean_time": 15.334999999999999,
+        "all_cohort_truncated_mean": 24.119166666666665,
+        "collision": 0,
+        "timeout": 40,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.2272926152352268,
+          0.4594313354788031
+        ],
+        "compute_seconds_total": 326.7650611535646,
+        "compute_seconds_mean": 5.44608435255941,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 60,
+        "static_collision_without_reported_constraint_violation": 0
+      }
+    }
+  }
+}

@@ -24,3 +24,9 @@
 科学比较边界：论文端口保留各自controller/safety，未接入C1外部路线引导，也没有两个冻结MPC同等的全队列单机能力门；大量unknown及原生动力学适配限制，使其结果不足以用于原论文死锁能力排名。原始异常及不重跑的原因见PAPER_FAILURE_ANALYSIS.md。搜索中87个已解决案例的并集未找到单一合法参数盒全覆盖族，最大合法覆盖85；不将这解释成连续空间不可能。固定参数选取使用不均匀开发子集，仍缺同预算统一校准后的部署确认。
 
 Slurm成本附表不可用：CalledProcessError(1, ['sacct', '-j', '29428,29452,29476,29500,29524,29548,29572,29740,29765,29789,29813,29837,29861,29870,29894,29919,29943,29968,29992', '--noheader', '--parsable2', '--format=JobIDRaw,JobName,State,AllocCPUS,ElapsedRaw,TotalCPU,CPUTimeRAW,MaxRSS,Start,End,AllocTRES'])
+
+Slurm成本附表不可用：CalledProcessError(1, ['sacct', '-j', '29428,29452,29476,29500,29524,29548,29572,29740,29765,29789,29813,29837,29861,29870,29894,29919,29943,29968,29992', '--noheader', '--parsable2', '--format=JobIDRaw,JobName,State,AllocCPUS,ElapsedRaw,TotalCPU,CPUTimeRAW,MaxRSS,Start,End,AllocTRES'])
+
+测量覆盖：论文端口未采集原C1约束违反指标，统计值为null。原C1重试链没有逐事件计数，因此其内部重试总量不可恢复；最终unknown、恢复分支及原约束残差已保留，不把未测量指标写0。
+
+Slurm成本附表不可用：CalledProcessError(1, ['sacct', '-j', '29428,29452,29476,29500,29524,29548,29572,29740,29765,29789,29813,29837,29861,29870,29894,29919,29943,29968,29992', '--noheader', '--parsable2', '--format=JobIDRaw,JobName,State,AllocCPUS,ElapsedRaw,TotalCPU,CPUTimeRAW,MaxRSS,Start,End,AllocTRES'])

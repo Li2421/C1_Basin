@@ -1,0 +1,606 @@
+{
+  "1": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "constructive_success"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {
+      "0": "roll_fea4e84df617fb8c4bbedfe5c66a2f140dcee83500f21724c672763bb894c790",
+      "6": "roll_dbc7541fb537d33bf9343fd47b90e5d37a15e453872fcbe8d1c5ab2bd9ead188",
+      "4": "roll_5b84fcffb45f3454445dfe8be811bc721f9b2a0b8d78d1edf44951e4fa071f3c",
+      "7": "roll_b88d47fa1d1ccc28f9082803696bf127e0f2e22a6e039ba99e2c12d4986035d5",
+      "5": "roll_d0fc6ebda2c8c59222c5c1454500b24ab034a563a7b9eddd563b522839a46e6d",
+      "2": "roll_a3acc1503287907f29d81fb5e96d77fd847d8c353501f4116c55daa843d75a1a",
+      "3": "roll_5bd76508ed914963c53fa3f25ca6803e305fcbe7e14740f89d137ffd47c21efa",
+      "1": "roll_07ab62b25502ee55373c1ad38cc3ff193b3f3caf77aaf55e7b969c43a6e1fbde"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": []
+  },
+  "2": {
+    "geometry_valid": false,
+    "single_agent_paths": "requested longitudinal prototype not instantiated",
+    "joint_feasible": "not_certified",
+    "controller_gate": "not_assessed_on_requested_geometry",
+    "deadlock_resolution": "not_evaluated",
+    "gap": "The prototype used transverse lines instead of longitudinal queues. With its adopted radius0.1m, the requested3m field cannot contain one-sided4–6-agent queues at2.5diameter spacing. Radius/extent clarification is pending; neither proposed relaxation has been executed. Invalid prototype data are retained but excluded."
+  },
+  "3": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {
+      "4": "roll_03c565d112dd1179b5586bd0d2bf9b72280f57360e161478102317fcd52416a0",
+      "3": "roll_4925374943593aa91db4c924e83b0c0d712f736825544115c127350e4c404bf4",
+      "6": "roll_bea24de12aec154aaf0aaa220cb8f7ac78b34fd2c498811b37cf791ea6116719",
+      "7": "roll_7705ad087e87ea6a54ff982dda72ce43617cdc42ef185be6d998e9c2d122c0ad",
+      "1": "roll_5187f41ba3145594465423e6d3f8cfeb61e6569890cf4e8236f91476608932fc",
+      "2": "roll_46bb5dbc4c0d5b7002849575002b1ee088303fb2c8a8e4a6b6017b2c57b5dad8",
+      "0": "roll_808ebf5dd18b653cb0f5ba8daf06e0bae76ae471990291d5f47032f2fe384550",
+      "5": "roll_ceb3e3ac4cfdceb8d2984e15a59194d1c0d4c50430ad7e12c2aa2a4c6def36d7"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": []
+  },
+  "4": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "constructive_success",
+      "2": "constructive_success",
+      "3": "constructive_success"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": true,
+    "constructive_rollout_witnesses": {
+      "5": "roll_c52ec7264c5a50cbb75aa2123e6eb09108284e3149a44aea5ac1cff770c1ca8d",
+      "7": "roll_5591f68cc9f8de2f679c3ff7d60e04489829a424e02d328276f72acc3de8ac31",
+      "1": "roll_f42773ce793f5ba0c4072263f6b751ba9ee95f86a95bfcf92be95140eb5768b8",
+      "2": "roll_388d94d8563dd19c83a8d87316a9807a1a232dbd342a8119a42397d65b2c8cf5",
+      "4": "roll_c30f3ef42f2958ae7f3cb9119150e389478f71e44bc98dc0587b29760d7fde10",
+      "3": "roll_65fceda7e6f3657ff8bdd47740650509fe259dc81c0d4f1657eea9ee96ee46d7",
+      "0": "roll_1e26919b9ac0fe06e4d7d09252facf1cf1c2b8453fa23096c0c3b89ae0189766",
+      "6": "roll_a92ba4aab6199f6e6609bf6c4b6b7ee5888cef2a80c4a0fd54998f98a9eb7500"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": []
+  },
+  "5": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 32,
+        "success": 32,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 32,
+        "success": 32,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {
+      "4": "roll_992f9c26042b179f9f87449aec4b2662c176b5596e58e8404900f213de2580dc",
+      "7": "roll_41a6500ca2c27dea29f1b531ac6529541894fc431474d7391933f9f04565e61f",
+      "6": "roll_b3092a7cf8348446356fa09d2e34a3219c8f394891458e5955271077bd0af2db",
+      "2": "roll_eadef1dafc163a8dd2eb31e98fbcb475540adfa82165e72a6dd9dbaa27f82cdb",
+      "1": "roll_ebeeb9142d2bace42be2879de6249e81de3a29aabb595a5e1565e864a8d90c51",
+      "5": "roll_72a00a0f196e8dba67c7d06360a231afad3461a54842f0943e37f8f3d56b05d8"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": [
+      0,
+      3
+    ]
+  },
+  "6": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 32,
+        "success": 32,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 32,
+        "success": 32,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "constructive_success",
+      "1": "constructive_success",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {
+      "4": "roll_6f1136a5014cabce65e5cdb17a783def4c42910ab6911e795924dc5cf5315053",
+      "1": "roll_46371f3737ae5eab88698e3209265f499bcaec008babcb38198baba13f7fb660",
+      "5": "roll_8ffb362e92469c82eb890d26e8c23416a8090fac87b55c04b7ffcf24694c4e1e",
+      "7": "roll_0ab058501f7264c5f8bcb41198d757375bcd5e6d95eed42f8bb053dd5287b6ff",
+      "6": "roll_95f8020f57230b378566fbf4c475a3f7a10d80857b88c0818fbd6a67c8af8b4b",
+      "3": "roll_7e90d828b7eeadda203f3a1ab6ec40709e4c66efbfb019e202598ef318ea8023",
+      "0": "roll_3c9b75ca571f5c47f392e1713968ef91624e064566137555af3f71ca8ac9e844",
+      "2": "roll_0f165f21ed2ad840fb68cfb8bf40f1373a8b08a980311665f6d4502f5d4cf038"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": []
+  },
+  "7": {
+    "geometry_valid": false,
+    "single_agent_paths": false,
+    "joint_feasible": "not_evaluated",
+    "controller_gate": "not_applicable",
+    "deadlock_resolution": "not_evaluated",
+    "gap": "Geometrically impossible requested forest: disjoint obstacle dilations area 7.03619449019 > enclosure 6.25; 0.3m blocks, 0.5m wall/pair gaps, 3m box. No rollout."
+  },
+  "8": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {},
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "9": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {
+      "7": "roll_8cb0f770dba293dcdc4f8a516d223a51313b1dd21447518912f14681cf34f31d",
+      "4": "roll_4ba4250716cae2e44ec139c9e5d70c5c68d72f8de9280f3f0d6eab539edce34d",
+      "6": "roll_fdf5f1492a8f3b8b9f8535823f71fa4f6a67715851139c49785ab0355f211e57",
+      "0": "roll_7246062e3188bbb84a9245091edb892e9286454d3bf849d6339c24cafc53b848",
+      "3": "roll_82a8a21546eb4a0f3a78aaee44ff11fcb568ceb199bf50aafb2752ab38ab3833",
+      "1": "roll_e5d3f163add094ff4ffeb467f45dc131fe11a0c594d276f13f68fdc876a1ba99",
+      "2": "roll_63f60ff8f826a9d0cb78bdfd1bb483ada4a08816c44cdc434f1779f61d603389"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": []
+  },
+  "10": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {},
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "11": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 8,
+        "success": 8,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 8,
+        "success": 8,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {
+      "2": "roll_2f6f853f2fba5132f4c5a4fbc432981ccda03e61dc476f155241b603430ae990",
+      "6": "roll_8c85a00be839a4f092987e69f0b72204b9576f1e005f9561acb9a01ed267d007",
+      "3": "roll_35c3d9838e03499da79bc36658a63f609cb0e759b97ac043fb0218e416037df3",
+      "4": "roll_fa9c326118f23765ad3513254a1e54863c97ef9221a61e5b91d5aa5764856d4a",
+      "7": "roll_ea8759ab3b13ec2a41f5735641663f7f9c309737226dce16e9b5c94f2d1f8525",
+      "1": "roll_0d322d6393fbe1e855992ae362645469ced33259401e9ca0fc7f200584f6c40b",
+      "5": "roll_41918e6eaa91546e2a207901014a5b84a79d1cd9c1787299587e198f1b186f49",
+      "0": "roll_3562a21da5b4443b8a80b01c473e2e4e16eb580883806271cd4a2217fcf7944f"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": []
+  },
+  "12": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 16,
+        "success": 16,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 16,
+        "success": 16,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {
+      "4": "roll_07830f89956f030cbcedd76053ae6ee00139b2536c4cdbf268e9643a873253f4",
+      "5": "roll_7f585c9c5cf4b8015a5643ab415cc4ea90a71a479e08c60057b9e0db39e4e00e",
+      "3": "roll_12f18b3a17b4c91629b399333b0689bd3c8d5639fe5fe4da3cc229e7ad944afc",
+      "6": "roll_36d39f8c975cf1363337b36375683d7623d218a98a62a023f1f04e2e1bde5415",
+      "1": "roll_ab51c8a9a210483353c9ddf09f730378041672c4887d68ae4d39eb45ca4dd837",
+      "0": "roll_0e6ffbc12c864c0eb4424bc8d71d41920078b74a3a2434678ff0dee1601b1917",
+      "7": "roll_d82a9f9df36bd51656918384465b323962b251903ac44dd740fca595f39f3a28",
+      "2": "roll_af2f53104dcafb0d70fedc61bebae3f85260b73a4101619167c198bf502bd975"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": []
+  },
+  "13": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 24,
+        "success": 24,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {
+      "6": "roll_afbba4f5b353f6190e4f5ba4e93ab1da538bb01d91586c9c8650442c0ff2475b",
+      "4": "roll_41898610147bfec77754ed4f4cbecda390df5e093928234244ed0240c1656d7a",
+      "1": "roll_459532befda177fc3272eb18001d6fe90ff26915c09cd6fe521c48d6c7416a31",
+      "0": "roll_9f17eb6c42d2c1819fb32f2094a33910ecffa2560efccf1899a8f61824f83509",
+      "2": "roll_7c1b2b88d03cdad81266687bb2d49f1812f43073d2227c17444fda53d610cb9a",
+      "5": "roll_597f87c91f156f15cbd3d1b37fc4ee76919c023eb13a2ebf156880381ebf5478",
+      "3": "roll_91757547fd7d6036d62aff4d4a92fefe19fb3fc486c82ee4b19893722aaf98bc",
+      "7": "roll_0a95d613df1aea02bcf271af613a960797116a3c92456dd6462b4201df7d1e8f"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": []
+  },
+  "14": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 16,
+        "success": 16,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 16,
+        "success": 16,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {
+      "5": "roll_08d082bb71dd02522c8b4bd7d2b019fd57f247ef0e93d5582ea8d67cbce6c842",
+      "1": "roll_8c079ee0f11a91ddd1279bdf88996e8be904a992b328de164917c41e398084c1",
+      "7": "roll_2b0c300aee03e6768f891b88fe7fe891acfe3fd09e761c3aa29bbe893d53b63a",
+      "3": "roll_c48b4ea693890674198826731d21586ca4cb05a9a2c6dceb40e59cfeeb24ddac",
+      "2": "roll_125396974729038477f0d64a0d733e2135ab256eeb962f5c923923c5ff3b6917",
+      "4": "roll_8a899aa6a1b41c6eba60d3c21c00bacd0cc9ee0211bd8c25be00bf2057ec1d93",
+      "6": "roll_bd1ca043d4c5578be4793a441b02b1dae23f630d644d70e69ad3a5a093df6ed9",
+      "0": "roll_6c1e68814aa48f5e484c3f91c76c8c19f795a79963678a4f704382d18acc0e47"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": []
+  },
+  "15": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {
+      "5": "roll_948cec1fde17c82be91840d954456f1928a0c677f51617314a14ae4f8f0f7797"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "16": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "uncertified",
+      "1": "uncertified",
+      "2": "uncertified",
+      "3": "uncertified"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {
+      "5": "roll_387f6cfc078d2238f6a5c646b65f12759df1661d721dbcbadc12f9c90a7974bd",
+      "2": "roll_35f66f9c3d6e4fb0b7f8f41578167e58b202e495dba61726a25052cf10fa77af",
+      "3": "roll_223bc8cbe75ea8efa06edb6274fd9d20ccc5b7ea9bd0bdf742f41af5fefa8d5b"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": [
+      0,
+      1
+    ]
+  },
+  "17": {
+    "geometry_valid": true,
+    "single_agent_paths": true,
+    "controller_gate": {
+      "centralized_sampling": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      },
+      "gradient_mpc": {
+        "n": 40,
+        "success": 40,
+        "rate": 1.0,
+        "passed": true,
+        "numerical_unknown": 0
+      }
+    },
+    "joint_feasible": {
+      "0": "constructive_success",
+      "1": "constructive_success",
+      "2": "constructive_success",
+      "3": "constructive_success"
+    },
+    "deadlock_resolution": "not_evaluated",
+    "all_calibration_conditions": false,
+    "constructive_rollout_witnesses": {
+      "4": "roll_49153d91f43e8f005d451db4b97f79716e6542dc337f1c940d0a79f4a2b40dfe",
+      "7": "roll_ccf45ff68d9dce8c4712cd96d5f80f1f99f60d1ac443985397af3764b35ee24b",
+      "6": "roll_51d9fc413df877887ea97f85d7ff31675b019c1717dd7d889b9a668ff8e22fe6",
+      "2": "roll_f840c91fbe77c4b13a3655e28987c62878e0118e2c5f1be89d1be0f4ccf680b8",
+      "5": "roll_d186d3724e975c9c5a70e4093e8d61b65805e8c9d79a26136b7fa6ec8b2a1319",
+      "0": "roll_eb469de1de8110f9b6aaf05d8a8037d605013f747e5a2501a313dc1b6d9767d3",
+      "1": "roll_847308f2d290518b9c6cc208f2030e70d3571c0627552df1851bad2f2cefb437",
+      "3": "roll_81f2f6b102aa93322782df3bf1547a5566b1ce170b113db98f8c089810b51824"
+    },
+    "pipeline_success_with_reported_original_constraint_or_speed_violation": {},
+    "unwitnessed_search_states": []
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "status": "completed_valid_subset_with_gaps",
+  "all_planned_batches_complete": true,
+  "new_rollout_records": 36688,
+  "attempts": 36832,
+  "geometry_types_evaluable": 15,
+  "requested_types": 17,
+  "geometry_gap_types": [
+    2,
+    7
+  ],
+  "verdict_sha256": "d878137e0005ab83230c4c1a8802d62fb9db681690853654d9d7bd7cf44a67a3",
+  "report_sha256": "717f993dceab2a76ca1e5f7c1c4c67e593af6a1b98cabbc4370b3045e641ef15",
+  "execution_status": {
+    "accel_reference_execution": true,
+    "B3_equivalence_execution": true,
+    "S2_valid15_v2_execution": true,
+    "impc_v2_development_other15_execution": true,
+    "S3_valid15_v2_execution": true,
+    "S4_valid15_v2_execution": true,
+    "calibration_0_execution": true,
+    "calibration_1_execution": true,
+    "matched_midpoint_execution": true,
+    "calibration_2_execution": true,
+    "S1_valid15_v2_execution": true,
+    "goal_range_holdout_execution": true,
+    "impc_v2_smoke_execution": true,
+    "S2_execution": true,
+    "paper_smoke_execution": true,
+    "paper_holdout_execution": true,
+    "S1_execution": true,
+    "paper_development_other15_execution": true,
+    "accel_paired_execution": true,
+    "route_equivalence_execution": true,
+    "holdout_execution": true
+  },
+  "integrity_passed": true,
+  "scientific_scope": "Finite Oracle@16 on the explicit valid subset. Geometry/implementation gaps are not controller failures; no continuous optimum or impossibility proof.",
+  "remaining_scientific_limitations": [
+    "Requested longitudinal crossing geometry unresolved; requested forest impossible at specified dimensions.",
+    "No single legal primary parameter-box family covers all observed search witnesses.",
+    "Paper ports have different native control/safety and no external C1 route guidance or equivalent complete single-agent gate; unknowns limit paper-method ranking.",
+    "Fixed-parameter selection observed unequal development subsets; no deployment superiority or Generator necessity follows from the Oracle gap.",
+    "Finite pools and numerical normal-cone residuals do not certify continuous-basis minimality or impossibility."
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "families": [
+    {
+      "index": 0,
+      "columns": [
+        "G",
+        "P",
+        "R"
+      ],
+      "all_candidate_compute_seconds": 10509.129250564147,
+      "unique_executed_candidates": 1920
+    },
+    {
+      "index": 1,
+      "columns": [
+        "T5"
+      ],
+      "all_candidate_compute_seconds": 9984.077589657623,
+      "unique_executed_candidates": 1920
+    },
+    {
+      "index": 2,
+      "columns": [
+        "T1",
+        "T5"
+      ],
+      "all_candidate_compute_seconds": 10515.500108733773,
+      "unique_executed_candidates": 1920
+    },
+    {
+      "index": 3,
+      "columns": [
+        "R",
+        "T1",
+        "T5"
+      ],
+      "all_candidate_compute_seconds": 10753.959667928517,
+      "unique_executed_candidates": 1920
+    },
+    {
+      "index": 4,
+      "columns": [
+        "G",
+        "R",
+        "T1",
+        "C2"
+      ],
+      "all_candidate_compute_seconds": 10433.175762907602,
+      "unique_executed_candidates": 1920
+    },
+    {
+      "index": 5,
+      "columns": [
+        "G",
+        "R",
+        "T1",
+        "Y1",
+        "C2"
+      ],
+      "all_candidate_compute_seconds": 10469.76040780684,
+      "unique_executed_candidates": 1920
+    },
+    {
+      "index": 6,
+      "columns": [
+        "G",
+        "C2"
+      ],
+      "all_candidate_compute_seconds": 10813.719586429186,
+      "unique_executed_candidates": 1920
+    }
+  ],
+  "all_unique_rollout_compute_seconds": 241166.00493580895,
+  "attempts": 36832,
+  "complete_unique_records": 36688,
+  "worker_affinity_counts": {
+    "1": 36688
+  },
+  "svd_seconds": 396.1304705962539,
+  "study_wall_seconds": 16005.19986486435,
+  "stage_elapsed_seconds": {
+    "accel_reference_execution": 51.69362530019134,
+    "B3_equivalence_execution": 10.873550567310303,
+    "S2_valid15_v2_execution": 0.11236260877922177,
+    "impc_v2_development_other15_execution": 1002.4546652990393,
+    "S3_valid15_v2_execution": 2636.5899058980867,
+    "S4_valid15_v2_execution": 678.8849574206397,
+    "calibration_0_execution": 104.01089782221243,
+    "calibration_1_execution": 94.00284725986421,
+    "matched_midpoint_execution": 40.484814698342234,
+    "calibration_2_execution": 113.70374769065529,
+    "S1_valid15_v2_execution": 0.18818025616928935,
+    "goal_range_holdout_execution": 884.9013547659852,
+    "impc_v2_smoke_execution": 100.20371522102505,
+    "S2_execution": 996.0124977068044,
+    "paper_smoke_execution": 30.150689534842968,
+    "paper_holdout_execution": 473.6762165040709,
+    "S1_execution": 1567.7286435039714,
+    "paper_development_other15_execution": 1338.01452507684,
+    "accel_paired_execution": 80.84242418501526,
+    "route_equivalence_execution": 10.348370372783393,
+    "holdout_execution": 3089.7125309486873
+  },
+  "slurm_accounting": null,
+  "cancelled_incomplete_cpu_seconds": null,
+  "note": "Pool sums overlap across families. Per-record wall_seconds measures runner.work, including episode/trace I/O but excluding fresh-interpreter module-import startup; per-step times are also saved. Stage elapsed includes dispatch/startup/merging, and some development stages overlapped, so do not sum them as study wall time. This server disables Slurm accounting storage; cancelled/incomplete allocation consumption is unavailable rather than zero."
+}

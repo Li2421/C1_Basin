@@ -1,0 +1,7578 @@
+{
+  "all_archived_counts": [
+    {
+      "type_id": 2,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 429
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 615
+    },
+    {
+      "type_id": 16,
+      "controller": "dac_author_si",
+      "outcome": "unknown",
+      "n": 9
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 752
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 651
+    },
+    {
+      "type_id": 13,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 24
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 932
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 976
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 1318
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 387
+    },
+    {
+      "type_id": 10,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 1377
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 552
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 824
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 840
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 1104
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 197
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 485
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 441
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 1119
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 540
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 1303
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 205
+    },
+    {
+      "type_id": 8,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 1377
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 1328
+    },
+    {
+      "type_id": 4,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 11
+    },
+    {
+      "type_id": 10,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 1377
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 523
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 490
+    },
+    {
+      "type_id": 8,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 1377
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 841
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 1328
+    },
+    {
+      "type_id": 14,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 20
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 132
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 133
+    },
+    {
+      "type_id": 2,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 429
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 548
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 366
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 25
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "timeout",
+      "n": 23
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 505
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 445
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 586
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 331
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 574
+    },
+    {
+      "type_id": 12,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 24
+    },
+    {
+      "type_id": 1,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 28
+    },
+    {
+      "type_id": 4,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 27
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 474
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 788
+    },
+    {
+      "type_id": 3,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 27
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 369
+    },
+    {
+      "type_id": 1,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 28
+    },
+    {
+      "type_id": 8,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 96
+    },
+    {
+      "type_id": 6,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "success",
+      "n": 10
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 419
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 94
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 166
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 442
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 451
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "n": 105
+    },
+    {
+      "type_id": 14,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 88
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 587
+    },
+    {
+      "type_id": 13,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "collision",
+      "n": 15
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 353
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 314
+    },
+    {
+      "type_id": 13,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 8
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "n": 346
+    },
+    {
+      "type_id": 9,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 137
+    },
+    {
+      "type_id": 17,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 4,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 16
+    },
+    {
+      "type_id": 1,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "success",
+      "n": 11
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 109
+    },
+    {
+      "type_id": 6,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 447
+    },
+    {
+      "type_id": 16,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "unknown",
+      "n": 17
+    },
+    {
+      "type_id": 6,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 16
+    },
+    {
+      "type_id": 6,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 28
+    },
+    {
+      "type_id": 1,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 28
+    },
+    {
+      "type_id": 5,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 28
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 109
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 13
+    },
+    {
+      "type_id": 10,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 10,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 72
+    },
+    {
+      "type_id": 1,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 26
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "timeout",
+      "n": 15
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "success",
+      "n": 12
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "collision",
+      "n": 13
+    },
+    {
+      "type_id": 8,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 96
+    },
+    {
+      "type_id": 17,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "success",
+      "n": 14
+    },
+    {
+      "type_id": 3,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "success",
+      "n": 18
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "timeout",
+      "n": 15
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "n": 141
+    },
+    {
+      "type_id": 6,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "success",
+      "n": 11
+    },
+    {
+      "type_id": 12,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 34
+    },
+    {
+      "type_id": 6,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 143
+    },
+    {
+      "type_id": 10,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "dac_author_si",
+      "outcome": "unknown",
+      "n": 8
+    },
+    {
+      "type_id": 16,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 10
+    },
+    {
+      "type_id": 4,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 27
+    },
+    {
+      "type_id": 3,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 28
+    },
+    {
+      "type_id": 9,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "unknown",
+      "n": 16
+    },
+    {
+      "type_id": 6,
+      "controller": "zhang2025_risk_si",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 14
+    },
+    {
+      "type_id": 13,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "collision",
+      "n": 15
+    },
+    {
+      "type_id": 8,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "unknown",
+      "n": 16
+    },
+    {
+      "type_id": 3,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 18
+    },
+    {
+      "type_id": 15,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "collision",
+      "n": 7
+    },
+    {
+      "type_id": 9,
+      "controller": "zhang2025_risk_si",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 15,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 11
+    },
+    {
+      "type_id": 4,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 19
+    },
+    {
+      "type_id": 9,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 10,
+      "controller": "zhang2025_risk_si",
+      "outcome": "collision",
+      "n": 25
+    },
+    {
+      "type_id": 14,
+      "controller": "zhang2025_risk_si",
+      "outcome": "timeout",
+      "n": 26
+    },
+    {
+      "type_id": 10,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 12,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 16
+    },
+    {
+      "type_id": 8,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 10,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 5,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 36
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 23
+    },
+    {
+      "type_id": 11,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 10,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "n": 72
+    },
+    {
+      "type_id": 8,
+      "controller": "zhang2025_risk_si",
+      "outcome": "collision",
+      "n": 14
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "collision",
+      "n": 3
+    },
+    {
+      "type_id": 16,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 28
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "timeout",
+      "n": 23
+    },
+    {
+      "type_id": 17,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 21
+    },
+    {
+      "type_id": 1,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 5,
+      "controller": "dac_author_si",
+      "outcome": "unknown",
+      "n": 8
+    },
+    {
+      "type_id": 17,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 9
+    },
+    {
+      "type_id": 15,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 21
+    },
+    {
+      "type_id": 12,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 24
+    },
+    {
+      "type_id": 3,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 13
+    },
+    {
+      "type_id": 17,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 13,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 6,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 28
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 10,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "collision",
+      "n": 13
+    },
+    {
+      "type_id": 11,
+      "controller": "zhang2025_risk_si",
+      "outcome": "collision",
+      "n": 22
+    },
+    {
+      "type_id": 15,
+      "controller": "dac_author_si",
+      "outcome": "unknown",
+      "n": 9
+    },
+    {
+      "type_id": 3,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "timeout",
+      "n": 16
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "timeout",
+      "n": 16
+    },
+    {
+      "type_id": 11,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "outcome": "unknown",
+      "n": 9
+    },
+    {
+      "type_id": 15,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 13,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 13
+    },
+    {
+      "type_id": 8,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 17
+    },
+    {
+      "type_id": 4,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 14
+    },
+    {
+      "type_id": 8,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 14
+    },
+    {
+      "type_id": 6,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 6,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "zhang2025_risk_si",
+      "outcome": "collision",
+      "n": 6
+    },
+    {
+      "type_id": 5,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 11
+    },
+    {
+      "type_id": 6,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 16,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 3,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 25
+    },
+    {
+      "type_id": 5,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 15
+    },
+    {
+      "type_id": 3,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 28
+    },
+    {
+      "type_id": 4,
+      "controller": "prioritized_astar",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 2,
+      "controller": "prioritized_astar",
+      "outcome": "success",
+      "n": 12
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 14
+    },
+    {
+      "type_id": 8,
+      "controller": "dac_author_si",
+      "outcome": "unknown",
+      "n": 9
+    },
+    {
+      "type_id": 13,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 15,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "collision",
+      "n": 5
+    },
+    {
+      "type_id": 10,
+      "controller": "dac_author_si",
+      "outcome": "unknown",
+      "n": 9
+    },
+    {
+      "type_id": 17,
+      "controller": "prioritized_astar",
+      "outcome": "success",
+      "n": 8
+    },
+    {
+      "type_id": 13,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 10,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 33
+    },
+    {
+      "type_id": 14,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 5,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 16
+    },
+    {
+      "type_id": 13,
+      "controller": "zhang2025_risk_si",
+      "outcome": "timeout",
+      "n": 14
+    },
+    {
+      "type_id": 12,
+      "controller": "zhang2025_risk_si",
+      "outcome": "collision",
+      "n": 11
+    },
+    {
+      "type_id": 16,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "zhang2025_risk_si",
+      "outcome": "collision",
+      "n": 18
+    },
+    {
+      "type_id": 13,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 15,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 14
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 14,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 16
+    },
+    {
+      "type_id": 4,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 4,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 20
+    },
+    {
+      "type_id": 5,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 4,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 10
+    },
+    {
+      "type_id": 9,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 12,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 17
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 13
+    },
+    {
+      "type_id": 5,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 28
+    },
+    {
+      "type_id": 15,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 21
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "unknown",
+      "n": 23
+    },
+    {
+      "type_id": 15,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 28
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "outcome": "unknown",
+      "n": 8
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 17,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 16,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 3,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 1,
+      "controller": "dac_author_si",
+      "outcome": "success",
+      "n": 11
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 15,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "collision",
+      "n": 7
+    },
+    {
+      "type_id": 1,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 11
+    },
+    {
+      "type_id": 15,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 5,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 17,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 16
+    },
+    {
+      "type_id": 5,
+      "controller": "zhang2025_risk_si",
+      "outcome": "collision",
+      "n": 11
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "zhang2025_risk_si",
+      "outcome": "collision",
+      "n": 4
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 12,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "collision",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "zhang2025_risk_si",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 12,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 15,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 20
+    },
+    {
+      "type_id": 11,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "collision",
+      "n": 5
+    },
+    {
+      "type_id": 11,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 36
+    },
+    {
+      "type_id": 17,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 6,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 21
+    },
+    {
+      "type_id": 12,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 4,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 5
+    },
+    {
+      "type_id": 12,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "timeout",
+      "n": 9
+    },
+    {
+      "type_id": 8,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "success",
+      "n": 12
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 11,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 6,
+      "controller": "dac_author_si",
+      "outcome": "success",
+      "n": 5
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 5,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 15,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "dac_author_si",
+      "outcome": "unknown",
+      "n": 10
+    },
+    {
+      "type_id": 14,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "collision",
+      "n": 3
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 4,
+      "controller": "zhang2025_risk_si",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 1,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 11,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 6
+    },
+    {
+      "type_id": 9,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "zhang2025_risk_si",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 17,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 16,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 5,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 1,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "dac_author_si",
+      "outcome": "unknown",
+      "n": 8
+    },
+    {
+      "type_id": 13,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "zhang2025_risk_si",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 17,
+      "controller": "dac_author_si",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 9,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 4,
+      "controller": "dac_author_si",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 9,
+      "controller": "dac_author_si",
+      "outcome": "unknown",
+      "n": 5
+    },
+    {
+      "type_id": 11,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 6,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 10
+    },
+    {
+      "type_id": 15,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 15,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 16,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 1,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 10,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 17,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 9,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 15,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 4,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 8,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 13,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 17,
+      "controller": "zhang2025_risk_si",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 3,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 17,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 1,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 3,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 3,
+      "controller": "zhang2025_risk_si",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 15,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 4,
+      "controller": "zhang2025_risk_si",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 10,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 14,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "dac_author_si",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 14,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "collision",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "wang2017_full_di_tracking",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 17,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "collision",
+      "n": 3
+    },
+    {
+      "type_id": 3,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 10,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 17,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 10,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 10,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 1,
+      "controller": "mgr_author_unicycle_tracking",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 8,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 1,
+      "controller": "prioritized_astar",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 5,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 8,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "collision",
+      "n": 3
+    },
+    {
+      "type_id": 6,
+      "controller": "prioritized_astar",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 12,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "prioritized_astar",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "dac_author_si",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 4,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 4,
+      "controller": "chen_impc_ob_si_tracking",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "dac_author_si__development_selected",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "zhang2025_risk_si__development_selected",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "outcome": "timeout",
+      "n": 1
+    }
+  ],
+  "active_primary_scenario_counts": [
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 139
+    },
+    {
+      "type_id": 16,
+      "controller": "dac_author_si",
+      "purpose": "paper_smoke",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 328
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 203
+    },
+    {
+      "type_id": 13,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 24
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 436
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 340
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 344
+    },
+    {
+      "type_id": 10,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 857
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 85
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 340
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 328
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 78
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 193
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 315
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 71
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 214
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 22
+    },
+    {
+      "type_id": 8,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 857
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 835
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 323
+    },
+    {
+      "type_id": 4,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 10,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 857
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 178
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 74
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 608
+    },
+    {
+      "type_id": 8,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 352
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 88
+    },
+    {
+      "type_id": 8,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 857
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 103
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 346
+    },
+    {
+      "type_id": 14,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 613
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 242
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 94
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 148
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 824
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 20
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 235
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 123
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 50
+    },
+    {
+      "type_id": 10,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 104
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 185
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 234
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 343
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 18
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 20
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 275
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 70
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 103
+    },
+    {
+      "type_id": 12,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 1,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 24
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 10,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 352
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 235
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 232
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 225
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 167
+    },
+    {
+      "type_id": 4,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 23
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 192
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 310
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 297
+    },
+    {
+      "type_id": 3,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 24
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 285
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 7
+    },
+    {
+      "type_id": 1,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 23
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 315
+    },
+    {
+      "type_id": 6,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 7
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 123
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 820
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 167
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 152
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 143
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 202
+    },
+    {
+      "type_id": 8,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 352
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 835
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 192
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 176
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 188
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 37
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 310
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 348
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 59
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 345
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 98
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 55
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 103
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 204
+    },
+    {
+      "type_id": 13,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 11
+    },
+    {
+      "type_id": 10,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 352
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 274
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 213
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 215
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 56
+    },
+    {
+      "type_id": 8,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 21
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 69
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 233
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 87
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 13,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 7
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 30
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 184
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 86
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 100
+    },
+    {
+      "type_id": 8,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 104
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 116
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 101
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 100
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 346
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 4,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 478
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 34
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 54
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 21
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 103
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 48
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 51
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 209
+    },
+    {
+      "type_id": 8,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 1,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 119
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 43
+    },
+    {
+      "type_id": 6,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 167
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 264
+    },
+    {
+      "type_id": 16,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 15
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 250
+    },
+    {
+      "type_id": 6,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 15
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 108
+    },
+    {
+      "type_id": 6,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 24
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 92
+    },
+    {
+      "type_id": 1,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 23
+    },
+    {
+      "type_id": 10,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 104
+    },
+    {
+      "type_id": 8,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 24
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 236
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 127
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 62
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 13
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 88
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 63
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 12
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 10,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 149
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 21
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 11
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 110
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 9
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 14
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 11
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 9
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 185
+    },
+    {
+      "type_id": 17,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 3,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 14
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 60
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "timeout",
+      "n": 159
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 137
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 11
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 150
+    },
+    {
+      "type_id": 8,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 104
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 95
+    },
+    {
+      "type_id": 6,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 8
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 23
+    },
+    {
+      "type_id": 12,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 30
+    },
+    {
+      "type_id": 6,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 97
+    },
+    {
+      "type_id": 8,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 10,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 112
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 60
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 21
+    },
+    {
+      "type_id": 13,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 10
+    },
+    {
+      "type_id": 4,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 23
+    },
+    {
+      "type_id": 3,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 24
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 12
+    },
+    {
+      "type_id": 9,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 16
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 5
+    },
+    {
+      "type_id": 6,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 5
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 29
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 12
+    },
+    {
+      "type_id": 10,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 13,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 15
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 23
+    },
+    {
+      "type_id": 3,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 18
+    },
+    {
+      "type_id": 10,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 117
+    },
+    {
+      "type_id": 15,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 6
+    },
+    {
+      "type_id": 9,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 15,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 42
+    },
+    {
+      "type_id": 4,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 16
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 44
+    },
+    {
+      "type_id": 9,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 10,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 23
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 14,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 22
+    },
+    {
+      "type_id": 10,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 100
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 88
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 11
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 103
+    },
+    {
+      "type_id": 12,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 9
+    },
+    {
+      "type_id": 10,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 15
+    },
+    {
+      "type_id": 10,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 18
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 5,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 32
+    },
+    {
+      "type_id": 10,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 20
+    },
+    {
+      "type_id": 8,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 8,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 12
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 17
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 90
+    },
+    {
+      "type_id": 11,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 45
+    },
+    {
+      "type_id": 16,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 23
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 20
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 5
+    },
+    {
+      "type_id": 8,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 12
+    },
+    {
+      "type_id": 17,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 33
+    },
+    {
+      "type_id": 5,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 10,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 17,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 5
+    },
+    {
+      "type_id": 15,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 18
+    },
+    {
+      "type_id": 1,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 12,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 5
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 8
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 12
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 33
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 15,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 3,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 13,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 13
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 22
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 71
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 17,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 5
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 17,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 10
+    },
+    {
+      "type_id": 4,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 41
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 13,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 8
+    },
+    {
+      "type_id": 6,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 24
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 10,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 14,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 11,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 19
+    },
+    {
+      "type_id": 15,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 14
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 14
+    },
+    {
+      "type_id": 11,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "unknown",
+      "n": 9
+    },
+    {
+      "type_id": 14,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 15
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 15,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "route_equivalence",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 16
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 13,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 10
+    },
+    {
+      "type_id": 13,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 13
+    },
+    {
+      "type_id": 8,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 13
+    },
+    {
+      "type_id": 4,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 10
+    },
+    {
+      "type_id": 8,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 11
+    },
+    {
+      "type_id": 6,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 6,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "B3_equivalence",
+      "outcome": "timeout",
+      "n": 16
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 13,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 6
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 5,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 6,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 17
+    },
+    {
+      "type_id": 12,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 21
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 22
+    },
+    {
+      "type_id": 3,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 17,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 12
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 21
+    },
+    {
+      "type_id": 5,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 13
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 19
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "timeout",
+      "n": 20
+    },
+    {
+      "type_id": 3,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 24
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 4,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 9,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 12
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 14
+    },
+    {
+      "type_id": 8,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 3,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 11
+    },
+    {
+      "type_id": 15,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 8,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 7
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 4
+    },
+    {
+      "type_id": 10,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 5
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 13,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 9
+    },
+    {
+      "type_id": 13,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 4
+    },
+    {
+      "type_id": 10,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 29
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "B3_equivalence",
+      "outcome": "timeout",
+      "n": 16
+    },
+    {
+      "type_id": 1,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 5,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 15
+    },
+    {
+      "type_id": 1,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 13,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 11
+    },
+    {
+      "type_id": 12,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 10
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 16,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 17
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 9
+    },
+    {
+      "type_id": 15,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 14
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 9
+    },
+    {
+      "type_id": 13,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 12
+    },
+    {
+      "type_id": 14,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 16
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 22
+    },
+    {
+      "type_id": 4,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 16
+    },
+    {
+      "type_id": 4,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 20
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 5,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 10,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 4,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 7
+    },
+    {
+      "type_id": 9,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 12,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 14
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 12
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 11
+    },
+    {
+      "type_id": 12,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 21
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 5,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 24
+    },
+    {
+      "type_id": 4,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 15,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 18
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 20
+    },
+    {
+      "type_id": 15,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "unknown",
+      "n": 8
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 17,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 24
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 10,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 24
+    },
+    {
+      "type_id": 16,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 7
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 8
+    },
+    {
+      "type_id": 3,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 7
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 5
+    },
+    {
+      "type_id": 6,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 3,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 3,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 15
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 15,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 6
+    },
+    {
+      "type_id": 15,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 15,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 24
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 11
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 12
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 17,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 16
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 5,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 9
+    },
+    {
+      "type_id": 14,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 4
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 1,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 3
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 10,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 10
+    },
+    {
+      "type_id": 15,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 16
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 11
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 10,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 11,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 4
+    },
+    {
+      "type_id": 10,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 32
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 17,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 6,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 20
+    },
+    {
+      "type_id": 12,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 4,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 4,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 5
+    },
+    {
+      "type_id": 10,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 18
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 6,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 8,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 16,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 15,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 14,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 8,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 12
+    },
+    {
+      "type_id": 11,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 10
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 8,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_smoke",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 6,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 5
+    },
+    {
+      "type_id": 5,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 11,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 15,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 17,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 17,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 17
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 10
+    },
+    {
+      "type_id": 8,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 9,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 6
+    },
+    {
+      "type_id": 14,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 10,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 11,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 3
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 8,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 7
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "route_equivalence",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 11,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 15,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 9
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 9
+    },
+    {
+      "type_id": 4,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 1,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 11,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 5
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 9,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 4
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 17,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 6,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 16,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 13,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 12
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 1,
+      "controller": "dac_author_si",
+      "purpose": "paper_smoke",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 6
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 8
+    },
+    {
+      "type_id": 13,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 15,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 5
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 5
+    },
+    {
+      "type_id": 17,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 9,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 4,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 8,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 13,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 11,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 5
+    },
+    {
+      "type_id": 11,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 1,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 14,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_smoke",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 15,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 6
+    },
+    {
+      "type_id": 14,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 13,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 15,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 9
+    },
+    {
+      "type_id": 17,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 13,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 1,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 5
+    },
+    {
+      "type_id": 10,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 17,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 12,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "purpose": "holdout",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 3,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 10,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 12,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 15,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 4,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 8,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 13,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 5
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 8,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 17,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 4,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 17,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 3,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 17,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 7
+    },
+    {
+      "type_id": 1,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 5,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 6,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 10,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 6,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 9,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 5
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 6,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 3,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 3,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 8,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 5
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 7
+    },
+    {
+      "type_id": 3,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 15,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 17,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 13,
+      "controller": "centralized_sampling",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 10,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 11,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 3
+    },
+    {
+      "type_id": 15,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 14,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 12,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 3,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 3,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 15,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 8,
+      "controller": "dac_author_si",
+      "purpose": "paper_smoke",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 13,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 15,
+      "controller": "gradient_mpc",
+      "purpose": "holdout_reference",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 15,
+      "controller": "centralized_sampling",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "matched_midpoint_control",
+      "outcome": "success",
+      "n": 4
+    },
+    {
+      "type_id": 4,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 3,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 13,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 14,
+      "controller": "dac_author_si",
+      "purpose": "paper_smoke",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 11,
+      "controller": "gradient_mpc",
+      "purpose": "acceleration_certificate",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 9,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "centralized_sampling",
+      "purpose": "search",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 17,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 1,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 3,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 10,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 17,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 9,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 10,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 14,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 3
+    },
+    {
+      "type_id": 10,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 3,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 3
+    },
+    {
+      "type_id": 1,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 13,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 1,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "success",
+      "n": 3
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "calibration_safety",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 8,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 8,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 1,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 17,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 1,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 4
+    },
+    {
+      "type_id": 5,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 2
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 8,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "collision",
+      "n": 3
+    },
+    {
+      "type_id": 6,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 12,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 4,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 6,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 5,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 12,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "prioritized_astar",
+      "purpose": "joint_feasibility_witness",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "dac_author_si",
+      "purpose": "paper_development",
+      "outcome": "unknown",
+      "n": 2
+    },
+    {
+      "type_id": 1,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 10,
+      "controller": "gradient_mpc",
+      "purpose": "calibration_safety",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 1,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_smoke",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 4,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 2
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "centralized_sampling",
+      "purpose": "matched_midpoint_control",
+      "outcome": "timeout",
+      "n": 4
+    },
+    {
+      "type_id": 17,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 3
+    },
+    {
+      "type_id": 4,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_development",
+      "outcome": "success",
+      "n": 2
+    },
+    {
+      "type_id": 6,
+      "controller": "dac_author_si",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "gradient_mpc",
+      "purpose": "goal_zero_face_holdout",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_smoke",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 1,
+      "controller": "gradient_mpc",
+      "purpose": "route_equivalence",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 10,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 14,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 1,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 12,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 14,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 1,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 17,
+      "controller": "centralized_sampling",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 9,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 14,
+      "controller": "mgr_author_unicycle_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 5,
+      "controller": "gradient_mpc",
+      "purpose": "goal_range_followup_holdout",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_full_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "centralized_sampling",
+      "purpose": "acceleration_certificate",
+      "outcome": "success",
+      "n": 1
+    },
+    {
+      "type_id": 6,
+      "controller": "dac_author_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 11,
+      "controller": "zhang2025_risk_si__development_selected",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    },
+    {
+      "type_id": 8,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_smoke",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 15,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "wang2017_consistent_perturbation_di_tracking",
+      "purpose": "paper_development",
+      "outcome": "timeout",
+      "n": 1
+    },
+    {
+      "type_id": 9,
+      "controller": "zhang2025_risk_si",
+      "purpose": "paper_holdout",
+      "outcome": "collision",
+      "n": 1
+    },
+    {
+      "type_id": 16,
+      "controller": "chen_impc_ob_si_tracking",
+      "purpose": "paper_holdout",
+      "outcome": "unknown",
+      "n": 1
+    }
+  ],
+  "interpretation": "All-archive counts include superseded prototypes, calibration ladders and obsolete IMPC adapter identities; they are not formal performance denominators. Formal heldout performance uses frozen family/profile labels. Timeout is not deadlock. Unwitnessed cases remain jointly uncertified. Solver exceptions and internal nonoptimal status counts are separate. Geometry-rejected forest has zero rollouts."
+}

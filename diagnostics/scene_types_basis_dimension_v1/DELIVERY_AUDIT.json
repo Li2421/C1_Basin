@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "complete_records": 36688,
+  "attempts": 36832,
+  "hard_cap": 45000,
+  "official_db_raw_mismatches": [],
+  "missing_trace_files": [],
+  "reserved_state_rollouts": [],
+  "invalid_geometry_primary_holdout": [],
+  "completed_unknown_later_attempts": [],
+  "family_freeze_sha256": "ec3ba06e1eee654c75ca5cb690c642312a01236f213f476869d6c12936a251cf",
+  "family_freeze_mtime": 1793131719.7257478,
+  "earliest_heldout_attempt": 1793131747.6230998,
+  "earliest_paper_heldout_attempt": 1793134832.496418,
+  "unchanged_valid_scene_types": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "source_scene_freeze_time": "2026-10-28T01:34:17.248120+08:00",
+  "physical_split_note": "Only states0..3 tune/select. States4..7 heldout after frozen families. States8..11 unused. Exact initial-state RNG key certification uses input-only arithmetic and creates no labels.",
+  "scope": "All local raw records have matching official indexed outcomes and trace files. Existing per-record trace hashes were computed at write time; this audit does not rehash every large trace.",
+  "supplementary_range_freeze_timeline": {
+    "protocol_freeze": 1793132421.411348,
+    "first_additional_candidate_attempt": 1793135314.5014005
+  }
+}

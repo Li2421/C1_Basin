@@ -13,14 +13,18 @@ def wilson(k,n):
 
 def stats(rows):
     success=[r for r in rows if r['success']];unknown=sum(r['numerical_failure']for r in rows)
+    def measured_total(field):
+        values=[r[field]for r in rows if field in r]
+        return sum(values)if values else None
     return dict(n=len(rows),success=len(success),success_rate=len(success)/len(rows)if rows else None,
         success_mean_time=mean([r['completion_time']for r in success]),all_cohort_truncated_mean=mean([r['truncated_time']for r in rows]),
         collision=sum(r['collision']for r in rows),timeout=sum(r['timeout']for r in rows),numerical_unknown=unknown,
         unknown_exception_types=dict(collections.Counter((r.get('error')or{}).get('type','unspecified')for r in rows if r['numerical_failure'])),
         case_wilson95=wilson(len(success),len(rows)),compute_seconds_total=sum(r.get('wall_seconds',0.)for r in rows),compute_seconds_mean=mean([r.get('wall_seconds',0.)for r in rows]),
-        solver_internal_failure_events=sum(r.get('solver_failure_count',0)for r in rows),
-        restoration_steps=sum(r.get('restoration_steps',0)for r in rows),sampled_speed_violation_steps=sum(r.get('sampled_speed_violation_steps',0)for r in rows),paper_action_speed_clipped_steps=sum(r.get('speed_clipped_steps',0)for r in rows),constraint_violation_steps=sum(r.get('constraint_violation_steps',0)for r in rows),
-        static_collision_without_reported_constraint_violation=sum(bool(r.get('collision_types',{}).get('static'))and 'constraint_violation_steps'in r and r['constraint_violation_steps']==0 for r in rows))
+        solver_internal_failure_events=measured_total('solver_failure_count'),
+        restoration_steps=measured_total('restoration_steps'),sampled_speed_violation_steps=measured_total('sampled_speed_violation_steps'),paper_action_speed_clipped_steps=measured_total('speed_clipped_steps'),constraint_violation_steps=measured_total('constraint_violation_steps'),
+        original_constraint_metric_cases=sum('constraint_violation_steps'in r for r in rows),
+        static_collision_without_reported_constraint_violation=sum(bool(r.get('collision_types',{}).get('static'))and r['constraint_violation_steps']==0 for r in rows if'constraint_violation_steps'in r)if any('constraint_violation_steps'in r for r in rows)else None)
 
 def csv_write(path,rows):
     if not rows:return
@@ -121,10 +125,11 @@ def final_integrity():
     # distinct imported read-only input rather than only the execution entrypoints.
     from guard import save_imports
     save_imports()
-    imported={};manifest_paths=list((HERE/'import_manifests').glob('*.json'))
+    imported={};external_cache={};manifest_paths=list((HERE/'import_manifests').glob('*.json'))
     for p in manifest_paths:
         for filename,h in read(p).items():
-            if not Path(filename).resolve().is_relative_to(HERE):imported.setdefault(filename,set()).add(h)
+            if filename not in external_cache:external_cache[filename]=not Path(filename).resolve().is_relative_to(HERE)
+            if external_cache[filename]:imported.setdefault(filename,set()).add(h)
     imported_changes=[]
     for filename,hashes in imported.items():
         if not Path(filename).is_file()or hashes!={sha(filename)}:imported_changes.append(filename)
@@ -406,7 +411,7 @@ def main():
         '## 时间、置信区间与计算成本\n\n[物理初态分块置信区间](CONFIDENCE_INTERVALS.json) 对每个冻结地图内的4个初态分层重采样，把同一初态的两个 nominal 作为同一块；不把8个案例视为独立样本。成功条件均值只包含成功局；[配对成功时间](PAIRED_SUCCESS_TIMES.json)只在两方法均成功的同一 controller×state 上比较；失败局的截断时间使用完整任务时限。Oracle 完成时间取冻结顺序中第一个成功候选的时间，不把最短成功候选时间充作部署速度。Oracle 的计算成本应累加全部 16 候选，不能只算被选成功局。[计算成本](COMPUTE_COSTS.json)和[局部进展代理时间](LOCAL_PROGRESS_TIMES.json)另存，逐候选 wall_seconds 与完整轨迹均保留。Wilson 95% 区间是案例层描述区间，两个 nominal 的成败相关、每类仅四个独立物理初态，不能解释为八个独立样本的严格总体置信区间。\n\n',
         '## 正确性与限制\n\n[真实流水线审计](PIPELINE_AUDIT.md)记录名义控制器、三列真实尺度、原阶段接口、solver与恢复分支；[真实安全域与机制解释](MECHANISM_NOTES.md)说明原逐机器人责任分摊域严格强于单一相对速度约束，协调刚性旋转并不自动可行。静态数值检查见 [STATIC_MECHANISMS.json](STATIC_MECHANISMS.json) 与 [逐列静态摘要](STATIC_MECHANISM_SUMMARY.json)。整局成功可能来自提前预防，不能自动解释为同一死锁态恢复。\n\n[路线引导等价](ROUTE_EQUIVALENCE.json) 为 50 对完整局；[原三列集成回归](B3_EQUIVALENCE.json) 为两组非零历史参数、4 个初态×2个 nominal；[工程加速认证](ACCELERATION_CERTIFICATE.json) 明确列出启用项、200 对逐字节比较、随机键与稀疏数组检查。原安全 solver、重试、恢复、速度上限、物理 step 与成功判据沿用生产实现。T1 使用 prompt 的名称“目标右侧旋转”，但原代码正系数是逆时针 J，负系数才是顺时针；本轮保持该原定义。\n\n',
         f"加速启用同一稀疏矩阵直接构造、NumPy随机键折叠、远墙代价裁剪和局部远墙约束预筛。200对认证局的原版耗时合计 {acceleration_certificate.get('original_seconds')}s，加速版 {acceleration_certificate.get('accelerated_seconds')}s，差值 {acceleration_certificate.get('original_seconds',0)-acceleration_certificate.get('accelerated_seconds',0)}s；这是一批认证局的测量，含认证检查开销，不是所有场景的统一加速比。额外535632个实际输入链随机键比较没有生成留出任务标签。服务器未启用Slurm accounting，因此取消或未完成尝试的完整CPU消耗无法恢复；逐局成本也不含新解释器的模块导入，不能当作总资源账单。\n\n",
-        '超时、碰撞、solver unknown 与内部非最优事件分别统计。某状态没有成功见证，只能说有限搜索未解决；尚不能区分搜索不足、时序不足、Basis 不足或联合不可解。原冻结 16 候选本轮不做阶段切换，不能据此排除时序收益。\n\n',
+        '超时、碰撞、最终unknown与已采集的内部非最优事件分别统计。没有采集的指标用null，不填成零：论文端口没有原C1约束违反计数；C1原重试链没有逐事件计数，所以内部solver重试总量未恢复，已保存最终异常、恢复分支与原约束残差。某状态没有成功见证，只能说有限搜索未解决；尚不能区分搜索不足、时序不足、Basis 不足或联合不可解。原冻结16候选本轮不做阶段切换，不能据此排除时序收益。\n\n',
         '## 本轮未包括\n\n学习型规划器、Generator/Critic 训练、人机互动、非完整约束原生动力学、大地图、50 台以上、可选移动障碍与视频均未纳入。森林需用户修改几何规格后另开实验，不能在本轮偷偷缩小间距或方块。原始数据与 SQLite 保留本地，Git 提交小型代码和报告不等于大型轨迹已异地备份。\n']
     (HERE/'REPORT.md').write_text(''.join(text))
     try:

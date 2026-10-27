@@ -1,0 +1,4 @@
+{
+  "cases": [],
+  "meaning": "Same C1 safety pipeline succeeds with a stuck-triggered reference where none of the tested fixed linear-correction candidate points succeeded. References also differ in normalization, magnitude and G=0 policy, so this is not a timing-only ablation. It is not proof that the basis cannot represent a successful untested fixed coefficient. Native-paper safety successes are never used as witnesses for the C1 feasible domain."
+}

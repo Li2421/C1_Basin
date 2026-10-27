@@ -1,0 +1,395 @@
+{
+  "family_0_oracle": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.5166666666666667,
+    "bootstrap95": [
+      0.4583333333333333,
+      0.575
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_1_oracle": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.5833333333333334,
+    "bootstrap95": [
+      0.55,
+      0.625
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_2_oracle": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.625,
+    "bootstrap95": [
+      0.5833333333333334,
+      0.6666666666666666
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_3_oracle": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.6,
+    "bootstrap95": [
+      0.5583333333333333,
+      0.65
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_4_oracle": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.6416666666666667,
+    "bootstrap95": [
+      0.6166666666666667,
+      0.6666666666666666
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_5_oracle": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.6583333333333333,
+    "bootstrap95": [
+      0.625,
+      0.6916666666666667
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_6_oracle": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.5666666666666667,
+    "bootstrap95": [
+      0.5333333333333333,
+      0.6083333333333333
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_0_fixed": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.35833333333333334,
+    "bootstrap95": [
+      0.30833333333333335,
+      0.4083333333333333
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_1_fixed": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.24166666666666667,
+    "bootstrap95": [
+      0.19166666666666668,
+      0.2916666666666667
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_2_fixed": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.24166666666666667,
+    "bootstrap95": [
+      0.19166666666666668,
+      0.2916666666666667
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_3_fixed": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.24166666666666667,
+    "bootstrap95": [
+      0.19166666666666668,
+      0.2916666666666667
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_4_fixed": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.39166666666666666,
+    "bootstrap95": [
+      0.3333333333333333,
+      0.45
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_5_fixed": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.39166666666666666,
+    "bootstrap95": [
+      0.3333333333333333,
+      0.45
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_6_fixed": {
+    "physical_blocks": 60,
+    "cases": 120,
+    "mean": 0.275,
+    "bootstrap95": [
+      0.23333333333333334,
+      0.31666666666666665
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "dac_author_si": {
+    "physical_blocks": 60,
+    "cases": 60,
+    "mean": 0.11666666666666667,
+    "bootstrap95": [
+      0.08333333333333333,
+      0.13333333333333333
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "chen_impc_ob_si_tracking": {
+    "physical_blocks": 60,
+    "cases": 60,
+    "mean": 0.15,
+    "bootstrap95": [
+      0.1,
+      0.18333333333333332
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "wang2017_consistent_perturbation_di_tracking": {
+    "physical_blocks": 60,
+    "cases": 60,
+    "mean": 0.06666666666666667,
+    "bootstrap95": [
+      0.03333333333333333,
+      0.1
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "mgr_author_unicycle_tracking__development_selected": {
+    "physical_blocks": 60,
+    "cases": 60,
+    "mean": 0.2,
+    "bootstrap95": [
+      0.15,
+      0.25
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "mgr_author_unicycle_tracking": {
+    "physical_blocks": 60,
+    "cases": 60,
+    "mean": 0.16666666666666666,
+    "bootstrap95": [
+      0.11666666666666667,
+      0.21666666666666667
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "zhang2025_risk_si__development_selected": {
+    "physical_blocks": 60,
+    "cases": 60,
+    "mean": 0.0,
+    "bootstrap95": [
+      0.0,
+      0.0
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "wang2017_full_di_tracking": {
+    "physical_blocks": 60,
+    "cases": 60,
+    "mean": 0.06666666666666667,
+    "bootstrap95": [
+      0.03333333333333333,
+      0.1
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "zhang2025_risk_si": {
+    "physical_blocks": 60,
+    "cases": 60,
+    "mean": 0.0,
+    "bootstrap95": [
+      0.0,
+      0.0
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "dac_author_si__development_selected": {
+    "physical_blocks": 60,
+    "cases": 60,
+    "mean": 0.2,
+    "bootstrap95": [
+      0.15,
+      0.25
+    ],
+    "replicates": 5000,
+    "scope": "Resample physical states within each frozen scene; nominal-controller outcomes for the same state stay in one block. Conditional on these maps and the frozen candidate pools. Four blocks per type do not establish new-map generalization."
+  },
+  "family_0_oracle_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": 0.0,
+    "paired_block_bootstrap95": [
+      0.0,
+      0.0
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_1_oracle_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": 0.06666666666666667,
+    "paired_block_bootstrap95": [
+      0.016666666666666666,
+      0.11666666666666667
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_2_oracle_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": 0.10833333333333334,
+    "paired_block_bootstrap95": [
+      0.058333333333333334,
+      0.15833333333333333
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_3_oracle_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": 0.08333333333333333,
+    "paired_block_bootstrap95": [
+      0.041666666666666664,
+      0.125
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_4_oracle_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": 0.125,
+    "paired_block_bootstrap95": [
+      0.06666666666666667,
+      0.175
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_5_oracle_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": 0.14166666666666666,
+    "paired_block_bootstrap95": [
+      0.08333333333333333,
+      0.2
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_6_oracle_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": 0.05,
+    "paired_block_bootstrap95": [
+      0.008333333333333333,
+      0.09166666666666666
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_0_fixed_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": 0.0,
+    "paired_block_bootstrap95": [
+      0.0,
+      0.0
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_1_fixed_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": -0.11666666666666667,
+    "paired_block_bootstrap95": [
+      -0.16666666666666666,
+      -0.06666666666666667
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_2_fixed_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": -0.11666666666666667,
+    "paired_block_bootstrap95": [
+      -0.16666666666666666,
+      -0.06666666666666667
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_3_fixed_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": -0.11666666666666667,
+    "paired_block_bootstrap95": [
+      -0.16666666666666666,
+      -0.06666666666666667
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_4_fixed_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": 0.03333333333333333,
+    "paired_block_bootstrap95": [
+      -0.041666666666666664,
+      0.1
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_5_fixed_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": 0.03333333333333333,
+    "paired_block_bootstrap95": [
+      -0.041666666666666664,
+      0.1
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  },
+  "family_6_fixed_minus_B3": {
+    "paired_cases": 120,
+    "success_rate_difference": -0.08333333333333333,
+    "paired_block_bootstrap95": [
+      -0.15,
+      -0.016666666666666666
+    ],
+    "replicates": 5000,
+    "scope": "Matched controller/state differences; physical states resampled within maps, both nominal outcomes stay together. Conditional finite-pool comparison, not a new-map claim."
+  }
+}

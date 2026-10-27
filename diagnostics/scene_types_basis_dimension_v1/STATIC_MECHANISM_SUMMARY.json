@@ -1,0 +1,120 @@
+{
+  "n_states": 30,
+  "B3_all16_failed_cases": 20,
+  "B3_rank_counts": {
+    "3": 28,
+    "2": 2
+  },
+  "unfinished_B3_rank_counts": {
+    "3": 25,
+    "2": 5
+  },
+  "columns": {
+    "T1": {
+      "states": 30,
+      "zero_column_states": 0,
+      "rank_gain_states": 30,
+      "projection_retained_ratio_median": 0.4918607723823182,
+      "projection_probe_unknowns": 0
+    },
+    "T2": {
+      "states": 30,
+      "zero_column_states": 1,
+      "rank_gain_states": 29,
+      "projection_retained_ratio_median": 0.7105193694536669,
+      "projection_probe_unknowns": 0
+    },
+    "T3": {
+      "states": 30,
+      "zero_column_states": 0,
+      "rank_gain_states": 30,
+      "projection_retained_ratio_median": 0.7071067811855215,
+      "projection_probe_unknowns": 0
+    },
+    "T4": {
+      "states": 30,
+      "zero_column_states": 12,
+      "rank_gain_states": 18,
+      "projection_retained_ratio_median": 0.5194846081788532,
+      "projection_probe_unknowns": 0
+    },
+    "T5": {
+      "states": 30,
+      "zero_column_states": 7,
+      "rank_gain_states": 23,
+      "projection_retained_ratio_median": 1.0,
+      "projection_probe_unknowns": 0
+    },
+    "P2": {
+      "states": 30,
+      "zero_column_states": 10,
+      "rank_gain_states": 18,
+      "projection_retained_ratio_median": 0.6370869417616771,
+      "projection_probe_unknowns": 0
+    },
+    "R2": {
+      "states": 30,
+      "zero_column_states": 0,
+      "rank_gain_states": 28,
+      "projection_retained_ratio_median": 0.9292620585290837,
+      "projection_probe_unknowns": 0
+    },
+    "R3": {
+      "states": 30,
+      "zero_column_states": 0,
+      "rank_gain_states": 28,
+      "projection_retained_ratio_median": 0.8246964938347654,
+      "projection_probe_unknowns": 0
+    },
+    "Y1": {
+      "states": 30,
+      "zero_column_states": 0,
+      "rank_gain_states": 30,
+      "projection_retained_ratio_median": 0.9506559091837934,
+      "projection_probe_unknowns": 0
+    },
+    "Y2": {
+      "states": 30,
+      "zero_column_states": 0,
+      "rank_gain_states": 30,
+      "projection_retained_ratio_median": 0.19335572480169094,
+      "projection_probe_unknowns": 0
+    },
+    "Y3": {
+      "states": 30,
+      "zero_column_states": 0,
+      "rank_gain_states": 30,
+      "projection_retained_ratio_median": 0.5612379694987883,
+      "projection_probe_unknowns": 0
+    },
+    "Y4": {
+      "states": 30,
+      "zero_column_states": 5,
+      "rank_gain_states": 25,
+      "projection_retained_ratio_median": 1.0,
+      "projection_probe_unknowns": 0
+    },
+    "S1": {
+      "states": 30,
+      "zero_column_states": 0,
+      "rank_gain_states": 30,
+      "projection_retained_ratio_median": 0.4463144625873789,
+      "projection_probe_unknowns": 0
+    },
+    "C1": {
+      "states": 30,
+      "zero_column_states": 18,
+      "rank_gain_states": 12,
+      "projection_retained_ratio_median": 0.3446337399584073,
+      "projection_probe_unknowns": 0
+    },
+    "C2": {
+      "states": 30,
+      "zero_column_states": 0,
+      "rank_gain_states": 30,
+      "projection_retained_ratio_median": 0.8684184282648633,
+      "projection_probe_unknowns": 0
+    }
+  },
+  "meaning": "Selected actual failed-trajectory states, one per type/controller; not a prevalence estimate of certified deadlocks. Rank and per-column projection retention are local numerical diagnostics only. Retention is relative to the original safe action, and other active constraints can couple the projected change."
+}

@@ -1,0 +1,100 @@
+{
+  "0": {
+    "fixed": {
+      "paired_success_n": 43,
+      "method_mean": 16.527906976744184,
+      "reference_mean": 16.527906976744184,
+      "mean_time_difference": 0.0
+    },
+    "oracle_first_success": {
+      "paired_success_n": 62,
+      "method_mean": 17.850806451612907,
+      "reference_mean": 17.850806451612907,
+      "mean_time_difference": 0.0
+    }
+  },
+  "1": {
+    "fixed": {
+      "paired_success_n": 25,
+      "method_mean": 15.31,
+      "reference_mean": 14.172,
+      "mean_time_difference": 1.1379999999999995
+    },
+    "oracle_first_success": {
+      "paired_success_n": 56,
+      "method_mean": 16.93482142857143,
+      "reference_mean": 17.3875,
+      "mean_time_difference": -0.4526785714285717
+    }
+  },
+  "2": {
+    "fixed": {
+      "paired_success_n": 25,
+      "method_mean": 15.31,
+      "reference_mean": 14.172,
+      "mean_time_difference": 1.1379999999999995
+    },
+    "oracle_first_success": {
+      "paired_success_n": 56,
+      "method_mean": 16.511607142857144,
+      "reference_mean": 17.244642857142857,
+      "mean_time_difference": -0.7330357142857145
+    }
+  },
+  "3": {
+    "fixed": {
+      "paired_success_n": 25,
+      "method_mean": 15.31,
+      "reference_mean": 14.172,
+      "mean_time_difference": 1.1379999999999995
+    },
+    "oracle_first_success": {
+      "paired_success_n": 58,
+      "method_mean": 16.52586206896552,
+      "reference_mean": 17.31293103448276,
+      "mean_time_difference": -0.7870689655172415
+    }
+  },
+  "4": {
+    "fixed": {
+      "paired_success_n": 29,
+      "method_mean": 13.529310344827588,
+      "reference_mean": 15.71206896551724,
+      "mean_time_difference": -2.1827586206896554
+    },
+    "oracle_first_success": {
+      "paired_success_n": 57,
+      "method_mean": 14.828070175438596,
+      "reference_mean": 17.444736842105264,
+      "mean_time_difference": -2.6166666666666667
+    }
+  },
+  "5": {
+    "fixed": {
+      "paired_success_n": 29,
+      "method_mean": 13.529310344827588,
+      "reference_mean": 15.71206896551724,
+      "mean_time_difference": -2.1827586206896554
+    },
+    "oracle_first_success": {
+      "paired_success_n": 57,
+      "method_mean": 14.828070175438596,
+      "reference_mean": 17.444736842105264,
+      "mean_time_difference": -2.6166666666666667
+    }
+  },
+  "6": {
+    "fixed": {
+      "paired_success_n": 24,
+      "method_mean": 13.808333333333332,
+      "reference_mean": 15.164583333333335,
+      "mean_time_difference": -1.3562500000000002
+    },
+    "oracle_first_success": {
+      "paired_success_n": 59,
+      "method_mean": 16.585593220338982,
+      "reference_mean": 17.477966101694918,
+      "mean_time_difference": -0.8923728813559323
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "definition": "First cumulative remaining-route reduction >=0.1m; before-action samples at dt0.05. Diagnostic initial-progress proxy, not a deadlock escape certificate. Conditional mean excludes censored episodes.",
+  "methods": {
+    "family_0_fixed": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06333333333333334
+    },
+    "family_0_oracle_first_success": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06333333333333334
+    },
+    "family_1_fixed": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06000000000000001
+    },
+    "family_1_oracle_first_success": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06166666666666668
+    },
+    "family_2_fixed": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06000000000000001
+    },
+    "family_2_oracle_first_success": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06375000000000001
+    },
+    "family_3_fixed": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06000000000000001
+    },
+    "family_3_oracle_first_success": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06166666666666668
+    },
+    "family_4_fixed": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06333333333333334
+    },
+    "family_4_oracle_first_success": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06333333333333334
+    },
+    "family_5_fixed": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06333333333333334
+    },
+    "family_5_oracle_first_success": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06333333333333334
+    },
+    "family_6_fixed": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06333333333333334
+    },
+    "family_6_oracle_first_success": {
+      "n_with_progress": 120,
+      "n": 120,
+      "conditional_mean_seconds": 0.06333333333333334
+    }
+  },
+  "paper_methods": "Native full-mechanism ports do not save route_remaining. Leave local metric unavailable rather than silently substituting another distance."
+}

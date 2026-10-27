@@ -1,0 +1,58 @@
+{
+  "safety": {
+    "recommended_fixed": {
+      "paired_success_n": 19,
+      "method_mean": 12.23421052631579,
+      "reference_mean": 15.552631578947372,
+      "mean_time_difference": -3.318421052631579
+    },
+    "recommended_oracle_first_success": {
+      "paired_success_n": 29,
+      "method_mean": 12.520689655172417,
+      "reference_mean": 15.020689655172415,
+      "mean_time_difference": -2.5
+    }
+  },
+  "right_goal_reference": {
+    "recommended_fixed": {
+      "paired_success_n": 28,
+      "method_mean": 12.205357142857142,
+      "reference_mean": 16.985714285714288,
+      "mean_time_difference": -4.7803571428571425
+    },
+    "recommended_oracle_first_success": {
+      "paired_success_n": 36,
+      "method_mean": 12.322222222222225,
+      "reference_mean": 16.479166666666668,
+      "mean_time_difference": -4.156944444444445
+    }
+  },
+  "centre_rotation_reference": {
+    "recommended_fixed": {
+      "paired_success_n": 31,
+      "method_mean": 13.337096774193546,
+      "reference_mean": 17.537096774193554,
+      "mean_time_difference": -4.199999999999999
+    },
+    "recommended_oracle_first_success": {
+      "paired_success_n": 47,
+      "method_mean": 14.18936170212766,
+      "reference_mean": 17.57446808510639,
+      "mean_time_difference": -3.3851063829787247
+    }
+  },
+  "historical_GC2_fixed": {
+    "recommended_fixed": {
+      "paired_success_n": 22,
+      "method_mean": 10.665909090909093,
+      "reference_mean": 12.95,
+      "mean_time_difference": -2.2840909090909096
+    },
+    "recommended_oracle_first_success": {
+      "paired_success_n": 31,
+      "method_mean": 11.429032258064515,
+      "reference_mean": 12.453225806451615,
+      "mean_time_difference": -1.0241935483870968
+    }
+  }
+}

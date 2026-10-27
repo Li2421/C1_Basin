@@ -1,0 +1,1731 @@
+{
+  "protocol_sha256": "935eed9b84df2e8529b0abc7f7d01dc9f5f00e7f83bffcdd8ad4f493ccd82cd6",
+  "complete": true,
+  "results": {
+    "narrow32": {
+      "K": 32,
+      "overall": {
+        "n": 120,
+        "success": 66,
+        "success_rate": 0.55,
+        "success_mean_time": 17.99621212121212,
+        "all_cohort_truncated_mean": 22.95625,
+        "collision": 0,
+        "timeout": 54,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.4608154341968757,
+          0.6360826491612539
+        ],
+        "compute_seconds_total": 634.176890491508,
+        "compute_seconds_mean": 5.284807420762566,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 120,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "by_type": {
+        "1": {
+          "n": 8,
+          "success": 5,
+          "success_rate": 0.625,
+          "success_mean_time": 16.44,
+          "all_cohort_truncated_mean": 17.94375,
+          "collision": 0,
+          "timeout": 3,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.30574239460262737,
+            0.8631557141764026
+          ],
+          "compute_seconds_total": 17.331718171946704,
+          "compute_seconds_mean": 2.166464771493338,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "2": {
+          "n": 0,
+          "success": 0,
+          "success_rate": null,
+          "success_mean_time": null,
+          "all_cohort_truncated_mean": null,
+          "collision": 0,
+          "timeout": 0,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": null,
+          "compute_seconds_total": 0,
+          "compute_seconds_mean": null,
+          "solver_internal_failure_events": null,
+          "restoration_steps": null,
+          "sampled_speed_violation_steps": null,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": null,
+          "original_constraint_metric_cases": 0,
+          "static_collision_without_reported_constraint_violation": null
+        },
+        "3": {
+          "n": 8,
+          "success": 6,
+          "success_rate": 0.75,
+          "success_mean_time": 25.28333333333333,
+          "all_cohort_truncated_mean": 25.9,
+          "collision": 0,
+          "timeout": 2,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.40927543031016883,
+            0.9285207872478909
+          ],
+          "compute_seconds_total": 14.684749880805612,
+          "compute_seconds_mean": 1.8355937351007015,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "4": {
+          "n": 8,
+          "success": 8,
+          "success_rate": 1.0,
+          "success_mean_time": 14.2125,
+          "all_cohort_truncated_mean": 14.2125,
+          "collision": 0,
+          "timeout": 0,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.6755924351161198,
+            1.0
+          ],
+          "compute_seconds_total": 11.210936618037522,
+          "compute_seconds_mean": 1.4013670772546902,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "5": {
+          "n": 8,
+          "success": 2,
+          "success_rate": 0.25,
+          "success_mean_time": 21.175,
+          "all_cohort_truncated_mean": 24.04375,
+          "collision": 0,
+          "timeout": 6,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.071479212752109,
+            0.5907245696898311
+          ],
+          "compute_seconds_total": 81.83648524340242,
+          "compute_seconds_mean": 10.229560655425303,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "6": {
+          "n": 8,
+          "success": 6,
+          "success_rate": 0.75,
+          "success_mean_time": 17.333333333333332,
+          "all_cohort_truncated_mean": 18.7125,
+          "collision": 0,
+          "timeout": 2,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.40927543031016883,
+            0.9285207872478909
+          ],
+          "compute_seconds_total": 23.27453473256901,
+          "compute_seconds_mean": 2.909316841571126,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "7": {
+          "n": 0,
+          "success": 0,
+          "success_rate": null,
+          "success_mean_time": null,
+          "all_cohort_truncated_mean": null,
+          "collision": 0,
+          "timeout": 0,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": null,
+          "compute_seconds_total": 0,
+          "compute_seconds_mean": null,
+          "solver_internal_failure_events": null,
+          "restoration_steps": null,
+          "sampled_speed_violation_steps": null,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": null,
+          "original_constraint_metric_cases": 0,
+          "static_collision_without_reported_constraint_violation": null
+        },
+        "8": {
+          "n": 8,
+          "success": 0,
+          "success_rate": 0.0,
+          "success_mean_time": null,
+          "all_cohort_truncated_mean": 28.450000000000003,
+          "collision": 0,
+          "timeout": 8,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.0,
+            0.32440756488388023
+          ],
+          "compute_seconds_total": 40.50630246754736,
+          "compute_seconds_mean": 5.06328780844342,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "9": {
+          "n": 8,
+          "success": 3,
+          "success_rate": 0.375,
+          "success_mean_time": 23.066666666666666,
+          "all_cohort_truncated_mean": 23.99375,
+          "collision": 0,
+          "timeout": 5,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.13684428582359742,
+            0.6942576053973727
+          ],
+          "compute_seconds_total": 32.36459036543965,
+          "compute_seconds_mean": 4.045573795679957,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "10": {
+          "n": 8,
+          "success": 0,
+          "success_rate": 0.0,
+          "success_mean_time": null,
+          "all_cohort_truncated_mean": 41.75,
+          "collision": 0,
+          "timeout": 8,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.0,
+            0.32440756488388023
+          ],
+          "compute_seconds_total": 92.72272656299174,
+          "compute_seconds_mean": 11.590340820373967,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "11": {
+          "n": 8,
+          "success": 6,
+          "success_rate": 0.75,
+          "success_mean_time": 18.758333333333336,
+          "all_cohort_truncated_mean": 25.743750000000002,
+          "collision": 0,
+          "timeout": 2,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.40927543031016883,
+            0.9285207872478909
+          ],
+          "compute_seconds_total": 18.53018233086914,
+          "compute_seconds_mean": 2.3162727913586423,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "12": {
+          "n": 8,
+          "success": 8,
+          "success_rate": 1.0,
+          "success_mean_time": 21.53125,
+          "all_cohort_truncated_mean": 21.53125,
+          "collision": 0,
+          "timeout": 0,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.6755924351161198,
+            1.0
+          ],
+          "compute_seconds_total": 35.095427374355495,
+          "compute_seconds_mean": 4.386928421794437,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "13": {
+          "n": 8,
+          "success": 8,
+          "success_rate": 1.0,
+          "success_mean_time": 19.2125,
+          "all_cohort_truncated_mean": 19.2125,
+          "collision": 0,
+          "timeout": 0,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.6755924351161198,
+            1.0
+          ],
+          "compute_seconds_total": 17.659558256156743,
+          "compute_seconds_mean": 2.207444782019593,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "14": {
+          "n": 8,
+          "success": 3,
+          "success_rate": 0.375,
+          "success_mean_time": 11.600000000000001,
+          "all_cohort_truncated_mean": 14.537500000000001,
+          "collision": 0,
+          "timeout": 5,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.13684428582359742,
+            0.6942576053973727
+          ],
+          "compute_seconds_total": 7.810609721578658,
+          "compute_seconds_mean": 0.9763262151973322,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "15": {
+          "n": 8,
+          "success": 2,
+          "success_rate": 0.25,
+          "success_mean_time": 16.85,
+          "all_cohort_truncated_mean": 25.175000000000004,
+          "collision": 0,
+          "timeout": 6,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.071479212752109,
+            0.5907245696898311
+          ],
+          "compute_seconds_total": 120.22950214566663,
+          "compute_seconds_mean": 15.028687768208329,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "16": {
+          "n": 8,
+          "success": 1,
+          "success_rate": 0.125,
+          "success_mean_time": 30.200000000000003,
+          "all_cohort_truncated_mean": 32.2125,
+          "collision": 0,
+          "timeout": 7,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.02241749145005667,
+            0.4708881822128535
+          ],
+          "compute_seconds_total": 113.27294422499835,
+          "compute_seconds_mean": 14.159118028124794,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "17": {
+          "n": 8,
+          "success": 8,
+          "success_rate": 1.0,
+          "success_mean_time": 10.925,
+          "all_cohort_truncated_mean": 10.925,
+          "collision": 0,
+          "timeout": 0,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.6755924351161198,
+            1.0
+          ],
+          "compute_seconds_total": 7.646622395142913,
+          "compute_seconds_mean": 0.9558277993928641,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        }
+      },
+      "all_candidate_outcomes": {
+        "n": 3840,
+        "success": 1020,
+        "success_rate": 0.265625,
+        "success_mean_time": 16.07936274509804,
+        "all_cohort_truncated_mean": 24.3608203125,
+        "collision": 0,
+        "timeout": 2820,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.2518949070324554,
+          0.2798235524088331
+        ],
+        "compute_seconds_total": 21144.41426978307,
+        "compute_seconds_mean": 5.506357882756007,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 3840,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "unique_saved_candidates": 3840,
+      "all_pool_compute_seconds": 21144.41426978307,
+      "scope": "Supplementary equal-budget original-three-column control; common first16 are exactly the primary B3 frozen pool. Not included in the primary dimension verdict.",
+      "enough_types": 7,
+      "predefined_topup_only16": {
+        "overall": {
+          "n": 120,
+          "success": 65,
+          "success_rate": 0.5416666666666666,
+          "success_mean_time": 18.07076923076923,
+          "all_cohort_truncated_mean": 23.051249999999996,
+          "collision": 0,
+          "timeout": 55,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.4526096906236998,
+            0.6281387121747415
+          ],
+          "compute_seconds_total": 636.3075173767284,
+          "compute_seconds_mean": 5.30256264480607,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 120,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "enough_types": 7,
+        "scope": "Descriptive fixed-index16..31 subpool, all points frozen before their outcomes. It is not a refit or a replacement primary family; the originalB3 fallback16 is excluded here."
+      }
+    },
+    "wide32": {
+      "K": 32,
+      "overall": {
+        "n": 120,
+        "success": 72,
+        "success_rate": 0.6,
+        "success_mean_time": 18.230555555555554,
+        "all_cohort_truncated_mean": 22.885416666666668,
+        "collision": 0,
+        "timeout": 48,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.5105602479246307,
+          0.6832359187916286
+        ],
+        "compute_seconds_total": 627.1119847064838,
+        "compute_seconds_mean": 5.225933205887364,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 120,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "by_type": {
+        "1": {
+          "n": 8,
+          "success": 6,
+          "success_rate": 0.75,
+          "success_mean_time": 17.400000000000002,
+          "all_cohort_truncated_mean": 18.1625,
+          "collision": 0,
+          "timeout": 2,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.40927543031016883,
+            0.9285207872478909
+          ],
+          "compute_seconds_total": 17.5230724895373,
+          "compute_seconds_mean": 2.1903840611921623,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "2": {
+          "n": 0,
+          "success": 0,
+          "success_rate": null,
+          "success_mean_time": null,
+          "all_cohort_truncated_mean": null,
+          "collision": 0,
+          "timeout": 0,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": null,
+          "compute_seconds_total": 0,
+          "compute_seconds_mean": null,
+          "solver_internal_failure_events": null,
+          "restoration_steps": null,
+          "sampled_speed_violation_steps": null,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": null,
+          "original_constraint_metric_cases": 0,
+          "static_collision_without_reported_constraint_violation": null
+        },
+        "3": {
+          "n": 8,
+          "success": 6,
+          "success_rate": 0.75,
+          "success_mean_time": 25.28333333333333,
+          "all_cohort_truncated_mean": 25.9,
+          "collision": 0,
+          "timeout": 2,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.40927543031016883,
+            0.9285207872478909
+          ],
+          "compute_seconds_total": 14.684749880805612,
+          "compute_seconds_mean": 1.8355937351007015,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "4": {
+          "n": 8,
+          "success": 8,
+          "success_rate": 1.0,
+          "success_mean_time": 14.2125,
+          "all_cohort_truncated_mean": 14.2125,
+          "collision": 0,
+          "timeout": 0,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.6755924351161198,
+            1.0
+          ],
+          "compute_seconds_total": 11.210936618037522,
+          "compute_seconds_mean": 1.4013670772546902,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "5": {
+          "n": 8,
+          "success": 0,
+          "success_rate": 0.0,
+          "success_mean_time": null,
+          "all_cohort_truncated_mean": 25.0,
+          "collision": 0,
+          "timeout": 8,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.0,
+            0.32440756488388023
+          ],
+          "compute_seconds_total": 83.39190662745386,
+          "compute_seconds_mean": 10.423988328431733,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "6": {
+          "n": 8,
+          "success": 7,
+          "success_rate": 0.875,
+          "success_mean_time": 17.964285714285715,
+          "all_cohort_truncated_mean": 18.575000000000003,
+          "collision": 0,
+          "timeout": 1,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.5291118177871464,
+            0.9775825085499433
+          ],
+          "compute_seconds_total": 21.6210261778906,
+          "compute_seconds_mean": 2.702628272236325,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "7": {
+          "n": 0,
+          "success": 0,
+          "success_rate": null,
+          "success_mean_time": null,
+          "all_cohort_truncated_mean": null,
+          "collision": 0,
+          "timeout": 0,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": null,
+          "compute_seconds_total": 0,
+          "compute_seconds_mean": null,
+          "solver_internal_failure_events": null,
+          "restoration_steps": null,
+          "sampled_speed_violation_steps": null,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": null,
+          "original_constraint_metric_cases": 0,
+          "static_collision_without_reported_constraint_violation": null
+        },
+        "8": {
+          "n": 8,
+          "success": 0,
+          "success_rate": 0.0,
+          "success_mean_time": null,
+          "all_cohort_truncated_mean": 28.450000000000003,
+          "collision": 0,
+          "timeout": 8,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.0,
+            0.32440756488388023
+          ],
+          "compute_seconds_total": 40.50630246754736,
+          "compute_seconds_mean": 5.06328780844342,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "9": {
+          "n": 8,
+          "success": 3,
+          "success_rate": 0.375,
+          "success_mean_time": 23.066666666666666,
+          "all_cohort_truncated_mean": 23.99375,
+          "collision": 0,
+          "timeout": 5,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.13684428582359742,
+            0.6942576053973727
+          ],
+          "compute_seconds_total": 32.36459036543965,
+          "compute_seconds_mean": 4.045573795679957,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "10": {
+          "n": 8,
+          "success": 0,
+          "success_rate": 0.0,
+          "success_mean_time": null,
+          "all_cohort_truncated_mean": 41.75,
+          "collision": 0,
+          "timeout": 8,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.0,
+            0.32440756488388023
+          ],
+          "compute_seconds_total": 92.72272656299174,
+          "compute_seconds_mean": 11.590340820373967,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "11": {
+          "n": 8,
+          "success": 7,
+          "success_rate": 0.875,
+          "success_mean_time": 22.571428571428573,
+          "all_cohort_truncated_mean": 25.587500000000002,
+          "collision": 0,
+          "timeout": 1,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.5291118177871464,
+            0.9775825085499433
+          ],
+          "compute_seconds_total": 18.451087712775916,
+          "compute_seconds_mean": 2.3063859640969895,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "12": {
+          "n": 8,
+          "success": 8,
+          "success_rate": 1.0,
+          "success_mean_time": 21.53125,
+          "all_cohort_truncated_mean": 21.53125,
+          "collision": 0,
+          "timeout": 0,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.6755924351161198,
+            1.0
+          ],
+          "compute_seconds_total": 35.095427374355495,
+          "compute_seconds_mean": 4.386928421794437,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "13": {
+          "n": 8,
+          "success": 7,
+          "success_rate": 0.875,
+          "success_mean_time": 19.1,
+          "all_cohort_truncated_mean": 19.293750000000003,
+          "collision": 0,
+          "timeout": 1,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.5291118177871464,
+            0.9775825085499433
+          ],
+          "compute_seconds_total": 17.059478245675564,
+          "compute_seconds_mean": 2.1324347807094455,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "14": {
+          "n": 8,
+          "success": 8,
+          "success_rate": 1.0,
+          "success_mean_time": 13.475000000000001,
+          "all_cohort_truncated_mean": 13.475000000000001,
+          "collision": 0,
+          "timeout": 0,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.6755924351161198,
+            1.0
+          ],
+          "compute_seconds_total": 6.673920001834631,
+          "compute_seconds_mean": 0.8342400002293289,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "15": {
+          "n": 8,
+          "success": 2,
+          "success_rate": 0.25,
+          "success_mean_time": 16.85,
+          "all_cohort_truncated_mean": 25.175000000000004,
+          "collision": 0,
+          "timeout": 6,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.071479212752109,
+            0.5907245696898311
+          ],
+          "compute_seconds_total": 120.22950214566663,
+          "compute_seconds_mean": 15.028687768208329,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "16": {
+          "n": 8,
+          "success": 2,
+          "success_rate": 0.25,
+          "success_mean_time": 27.5,
+          "all_cohort_truncated_mean": 31.25,
+          "collision": 0,
+          "timeout": 6,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.071479212752109,
+            0.5907245696898311
+          ],
+          "compute_seconds_total": 107.93063564132899,
+          "compute_seconds_mean": 13.491329455166124,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "17": {
+          "n": 8,
+          "success": 8,
+          "success_rate": 1.0,
+          "success_mean_time": 10.925,
+          "all_cohort_truncated_mean": 10.925,
+          "collision": 0,
+          "timeout": 0,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.6755924351161198,
+            1.0
+          ],
+          "compute_seconds_total": 7.646622395142913,
+          "compute_seconds_mean": 0.9558277993928641,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 8,
+          "static_collision_without_reported_constraint_violation": 0
+        }
+      },
+      "all_candidate_outcomes": {
+        "n": 3840,
+        "success": 1004,
+        "success_rate": 0.26145833333333335,
+        "success_mean_time": 16.26533864541833,
+        "all_cohort_truncated_mean": 24.4964453125,
+        "collision": 0,
+        "timeout": 2836,
+        "numerical_unknown": 0,
+        "unknown_exception_types": {},
+        "case_wilson95": [
+          0.24780302311429614,
+          0.27559043116150417
+        ],
+        "compute_seconds_total": 21111.653148310725,
+        "compute_seconds_mean": 5.497826340705918,
+        "solver_internal_failure_events": null,
+        "restoration_steps": 0,
+        "sampled_speed_violation_steps": 0,
+        "paper_action_speed_clipped_steps": null,
+        "constraint_violation_steps": 0,
+        "original_constraint_metric_cases": 3840,
+        "static_collision_without_reported_constraint_violation": 0
+      },
+      "unique_saved_candidates": 3840,
+      "all_pool_compute_seconds": 21111.653148310725,
+      "scope": "Supplementary equal-budget original-three-column control; common first16 are exactly the primary B3 frozen pool. Not included in the primary dimension verdict.",
+      "enough_types": 9,
+      "predefined_topup_only16": {
+        "overall": {
+          "n": 120,
+          "success": 67,
+          "success_rate": 0.5583333333333333,
+          "success_mean_time": 18.971641791044775,
+          "all_cohort_truncated_mean": 23.554583333333333,
+          "collision": 0,
+          "timeout": 53,
+          "numerical_unknown": 0,
+          "unknown_exception_types": {},
+          "case_wilson95": [
+            0.4690452309131966,
+            0.6440025330046214
+          ],
+          "compute_seconds_total": 606.7086974661797,
+          "compute_seconds_mean": 5.055905812218165,
+          "solver_internal_failure_events": null,
+          "restoration_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "paper_action_speed_clipped_steps": null,
+          "constraint_violation_steps": 0,
+          "original_constraint_metric_cases": 120,
+          "static_collision_without_reported_constraint_violation": 0
+        },
+        "enough_types": 7,
+        "scope": "Descriptive fixed-index16..31 subpool, all points frozen before their outcomes. It is not a refit or a replacement primary family; the originalB3 fallback16 is excluded here."
+      }
+    }
+  },
+  "paired_point_wide_rescues": 105,
+  "paired_point_narrow_rescues": 121,
+  "oracle_success_difference": 6,
+  "paired_physical_block_rate_difference_bootstrap95": [
+    0.008333333333333333,
+    0.09166666666666666
+  ],
+  "family_rescues_over_widened_B3_32": {
+    "0": {
+      "family_succeeds_wide_B3_fails": [],
+      "wide_B3_succeeds_family_fails": [
+        [
+          1,
+          "centralized_sampling",
+          5
+        ],
+        [
+          1,
+          "centralized_sampling",
+          7
+        ],
+        [
+          6,
+          "centralized_sampling",
+          5
+        ],
+        [
+          11,
+          "gradient_mpc",
+          4
+        ],
+        [
+          14,
+          "centralized_sampling",
+          4
+        ],
+        [
+          14,
+          "centralized_sampling",
+          5
+        ],
+        [
+          14,
+          "centralized_sampling",
+          6
+        ],
+        [
+          14,
+          "centralized_sampling",
+          7
+        ],
+        [
+          14,
+          "gradient_mpc",
+          4
+        ],
+        [
+          16,
+          "centralized_sampling",
+          5
+        ]
+      ],
+      "paired_comparison": {
+        "paired_cases": 120,
+        "success_rate_difference": -0.08333333333333333,
+        "paired_physical_block_bootstrap95": [
+          -0.11666666666666667,
+          -0.05
+        ]
+      },
+      "scope": "Primary family Oracle@16 versus more generously budgeted widened B3@32; finite pools only, no continuous-family impossibility assertion."
+    },
+    "1": {
+      "family_succeeds_wide_B3_fails": [
+        [
+          1,
+          "centralized_sampling",
+          4
+        ],
+        [
+          1,
+          "centralized_sampling",
+          6
+        ],
+        [
+          5,
+          "centralized_sampling",
+          4
+        ],
+        [
+          5,
+          "centralized_sampling",
+          5
+        ],
+        [
+          5,
+          "centralized_sampling",
+          6
+        ],
+        [
+          5,
+          "centralized_sampling",
+          7
+        ],
+        [
+          6,
+          "gradient_mpc",
+          5
+        ],
+        [
+          9,
+          "gradient_mpc",
+          6
+        ],
+        [
+          13,
+          "centralized_sampling",
+          6
+        ]
+      ],
+      "wide_B3_succeeds_family_fails": [
+        [
+          3,
+          "gradient_mpc",
+          6
+        ],
+        [
+          3,
+          "gradient_mpc",
+          7
+        ],
+        [
+          6,
+          "centralized_sampling",
+          4
+        ],
+        [
+          6,
+          "centralized_sampling",
+          6
+        ],
+        [
+          11,
+          "gradient_mpc",
+          4
+        ],
+        [
+          14,
+          "centralized_sampling",
+          4
+        ],
+        [
+          14,
+          "centralized_sampling",
+          5
+        ],
+        [
+          14,
+          "centralized_sampling",
+          6
+        ],
+        [
+          14,
+          "centralized_sampling",
+          7
+        ],
+        [
+          15,
+          "centralized_sampling",
+          5
+        ],
+        [
+          16,
+          "gradient_mpc",
+          5
+        ]
+      ],
+      "paired_comparison": {
+        "paired_cases": 120,
+        "success_rate_difference": -0.016666666666666666,
+        "paired_physical_block_bootstrap95": [
+          -0.06666666666666667,
+          0.03333333333333333
+        ]
+      },
+      "scope": "Primary family Oracle@16 versus more generously budgeted widened B3@32; finite pools only, no continuous-family impossibility assertion."
+    },
+    "2": {
+      "family_succeeds_wide_B3_fails": [
+        [
+          1,
+          "centralized_sampling",
+          4
+        ],
+        [
+          1,
+          "centralized_sampling",
+          6
+        ],
+        [
+          5,
+          "centralized_sampling",
+          4
+        ],
+        [
+          5,
+          "centralized_sampling",
+          5
+        ],
+        [
+          5,
+          "centralized_sampling",
+          6
+        ],
+        [
+          5,
+          "centralized_sampling",
+          7
+        ],
+        [
+          6,
+          "gradient_mpc",
+          5
+        ],
+        [
+          9,
+          "gradient_mpc",
+          6
+        ],
+        [
+          11,
+          "gradient_mpc",
+          5
+        ],
+        [
+          13,
+          "centralized_sampling",
+          6
+        ]
+      ],
+      "wide_B3_succeeds_family_fails": [
+        [
+          3,
+          "centralized_sampling",
+          5
+        ],
+        [
+          3,
+          "centralized_sampling",
+          7
+        ],
+        [
+          3,
+          "gradient_mpc",
+          7
+        ],
+        [
+          9,
+          "gradient_mpc",
+          7
+        ],
+        [
+          11,
+          "gradient_mpc",
+          4
+        ],
+        [
+          15,
+          "centralized_sampling",
+          5
+        ],
+        [
+          16,
+          "gradient_mpc",
+          5
+        ]
+      ],
+      "paired_comparison": {
+        "paired_cases": 120,
+        "success_rate_difference": 0.025,
+        "paired_physical_block_bootstrap95": [
+          -0.025,
+          0.075
+        ]
+      },
+      "scope": "Primary family Oracle@16 versus more generously budgeted widened B3@32; finite pools only, no continuous-family impossibility assertion."
+    },
+    "3": {
+      "family_succeeds_wide_B3_fails": [
+        [
+          1,
+          "centralized_sampling",
+          4
+        ],
+        [
+          1,
+          "centralized_sampling",
+          6
+        ],
+        [
+          5,
+          "centralized_sampling",
+          4
+        ],
+        [
+          5,
+          "centralized_sampling",
+          5
+        ],
+        [
+          5,
+          "centralized_sampling",
+          6
+        ],
+        [
+          5,
+          "centralized_sampling",
+          7
+        ],
+        [
+          6,
+          "gradient_mpc",
+          5
+        ],
+        [
+          11,
+          "gradient_mpc",
+          5
+        ],
+        [
+          13,
+          "centralized_sampling",
+          6
+        ]
+      ],
+      "wide_B3_succeeds_family_fails": [
+        [
+          3,
+          "centralized_sampling",
+          5
+        ],
+        [
+          3,
+          "gradient_mpc",
+          6
+        ],
+        [
+          3,
+          "gradient_mpc",
+          7
+        ],
+        [
+          9,
+          "gradient_mpc",
+          7
+        ],
+        [
+          11,
+          "gradient_mpc",
+          4
+        ],
+        [
+          14,
+          "centralized_sampling",
+          4
+        ],
+        [
+          14,
+          "centralized_sampling",
+          5
+        ],
+        [
+          14,
+          "centralized_sampling",
+          6
+        ],
+        [
+          14,
+          "centralized_sampling",
+          7
+        ]
+      ],
+      "paired_comparison": {
+        "paired_cases": 120,
+        "success_rate_difference": 0.0,
+        "paired_physical_block_bootstrap95": [
+          -0.041666666666666664,
+          0.041666666666666664
+        ]
+      },
+      "scope": "Primary family Oracle@16 versus more generously budgeted widened B3@32; finite pools only, no continuous-family impossibility assertion."
+    },
+    "4": {
+      "family_succeeds_wide_B3_fails": [
+        [
+          1,
+          "centralized_sampling",
+          4
+        ],
+        [
+          1,
+          "centralized_sampling",
+          6
+        ],
+        [
+          3,
+          "gradient_mpc",
+          4
+        ],
+        [
+          3,
+          "gradient_mpc",
+          5
+        ],
+        [
+          5,
+          "centralized_sampling",
+          4
+        ],
+        [
+          5,
+          "centralized_sampling",
+          5
+        ],
+        [
+          5,
+          "centralized_sampling",
+          6
+        ],
+        [
+          5,
+          "centralized_sampling",
+          7
+        ],
+        [
+          5,
+          "gradient_mpc",
+          4
+        ],
+        [
+          5,
+          "gradient_mpc",
+          5
+        ],
+        [
+          5,
+          "gradient_mpc",
+          7
+        ],
+        [
+          6,
+          "gradient_mpc",
+          5
+        ],
+        [
+          9,
+          "centralized_sampling",
+          4
+        ],
+        [
+          11,
+          "gradient_mpc",
+          5
+        ],
+        [
+          13,
+          "centralized_sampling",
+          6
+        ]
+      ],
+      "wide_B3_succeeds_family_fails": [
+        [
+          9,
+          "centralized_sampling",
+          7
+        ],
+        [
+          9,
+          "gradient_mpc",
+          4
+        ],
+        [
+          9,
+          "gradient_mpc",
+          7
+        ],
+        [
+          14,
+          "centralized_sampling",
+          4
+        ],
+        [
+          14,
+          "centralized_sampling",
+          5
+        ],
+        [
+          14,
+          "centralized_sampling",
+          6
+        ],
+        [
+          14,
+          "centralized_sampling",
+          7
+        ],
+        [
+          15,
+          "centralized_sampling",
+          5
+        ],
+        [
+          16,
+          "centralized_sampling",
+          5
+        ],
+        [
+          16,
+          "gradient_mpc",
+          5
+        ]
+      ],
+      "paired_comparison": {
+        "paired_cases": 120,
+        "success_rate_difference": 0.041666666666666664,
+        "paired_physical_block_bootstrap95": [
+          -0.016666666666666666,
+          0.1
+        ]
+      },
+      "scope": "Primary family Oracle@16 versus more generously budgeted widened B3@32; finite pools only, no continuous-family impossibility assertion."
+    },
+    "5": {
+      "family_succeeds_wide_B3_fails": [
+        [
+          1,
+          "centralized_sampling",
+          4
+        ],
+        [
+          1,
+          "centralized_sampling",
+          6
+        ],
+        [
+          3,
+          "gradient_mpc",
+          4
+        ],
+        [
+          3,
+          "gradient_mpc",
+          5
+        ],
+        [
+          5,
+          "centralized_sampling",
+          4
+        ],
+        [
+          5,
+          "centralized_sampling",
+          5
+        ],
+        [
+          5,
+          "centralized_sampling",
+          6
+        ],
+        [
+          5,
+          "centralized_sampling",
+          7
+        ],
+        [
+          5,
+          "gradient_mpc",
+          4
+        ],
+        [
+          5,
+          "gradient_mpc",
+          5
+        ],
+        [
+          5,
+          "gradient_mpc",
+          7
+        ],
+        [
+          6,
+          "gradient_mpc",
+          5
+        ],
+        [
+          9,
+          "centralized_sampling",
+          4
+        ],
+        [
+          11,
+          "gradient_mpc",
+          5
+        ],
+        [
+          13,
+          "centralized_sampling",
+          6
+        ]
+      ],
+      "wide_B3_succeeds_family_fails": [
+        [
+          9,
+          "centralized_sampling",
+          7
+        ],
+        [
+          9,
+          "gradient_mpc",
+          4
+        ],
+        [
+          9,
+          "gradient_mpc",
+          7
+        ],
+        [
+          14,
+          "centralized_sampling",
+          6
+        ],
+        [
+          14,
+          "centralized_sampling",
+          7
+        ],
+        [
+          15,
+          "centralized_sampling",
+          5
+        ],
+        [
+          16,
+          "centralized_sampling",
+          5
+        ],
+        [
+          16,
+          "gradient_mpc",
+          5
+        ]
+      ],
+      "paired_comparison": {
+        "paired_cases": 120,
+        "success_rate_difference": 0.058333333333333334,
+        "paired_physical_block_bootstrap95": [
+          0.0,
+          0.11666666666666667
+        ]
+      },
+      "scope": "Primary family Oracle@16 versus more generously budgeted widened B3@32; finite pools only, no continuous-family impossibility assertion."
+    },
+    "6": {
+      "family_succeeds_wide_B3_fails": [
+        [
+          1,
+          "centralized_sampling",
+          4
+        ],
+        [
+          1,
+          "centralized_sampling",
+          6
+        ],
+        [
+          3,
+          "gradient_mpc",
+          4
+        ],
+        [
+          3,
+          "gradient_mpc",
+          5
+        ],
+        [
+          13,
+          "centralized_sampling",
+          6
+        ]
+      ],
+      "wide_B3_succeeds_family_fails": [
+        [
+          9,
+          "centralized_sampling",
+          7
+        ],
+        [
+          9,
+          "gradient_mpc",
+          7
+        ],
+        [
+          14,
+          "centralized_sampling",
+          4
+        ],
+        [
+          14,
+          "centralized_sampling",
+          5
+        ],
+        [
+          14,
+          "centralized_sampling",
+          6
+        ],
+        [
+          14,
+          "centralized_sampling",
+          7
+        ],
+        [
+          14,
+          "gradient_mpc",
+          4
+        ],
+        [
+          16,
+          "centralized_sampling",
+          5
+        ],
+        [
+          16,
+          "gradient_mpc",
+          5
+        ]
+      ],
+      "paired_comparison": {
+        "paired_cases": 120,
+        "success_rate_difference": -0.03333333333333333,
+        "paired_physical_block_bootstrap95": [
+          -0.08333333333333333,
+          0.016666666666666666
+        ]
+      },
+      "scope": "Primary family Oracle@16 versus more generously budgeted widened B3@32; finite pools only, no continuous-family impossibility assertion."
+    }
+  },
+  "interpretation": "Pools were frozen without primary heldout outcome inspection, after primary execution had begun. This is a supplementary Goal-coordinate experiment, not a change to the preregistered seven-family verdict. Matched per-point changes vary only G; pool coverage remains finite candidate evidence.",
+  "full_paired_records_file": "GOAL_RANGE_ABLATION_RESULTS.json",
+  "full_file_sha256": "c62f448749c8ba0c8fe3d151d7908a21cdb405b18e9a14290816b68d7ffb08b3"
+}

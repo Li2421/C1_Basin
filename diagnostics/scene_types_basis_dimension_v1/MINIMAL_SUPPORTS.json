@@ -111,13 +111,12 @@
     },
     "8": {
       "covered_cases": 0,
-      "dimension": 0,
-      "minimal_supports": [
-        []
-      ],
-      "required_columns": [],
+      "dimension": null,
+      "minimal_supports": [],
+      "required_columns": null,
       "not_possible_proof": false,
-      "box_compatible_single_family_cover_found": true
+      "box_compatible_single_family_cover_found": false,
+      "no_success_witness": true
     },
     "9": {
       "covered_cases": 8,
@@ -129,13 +128,12 @@
     },
     "10": {
       "covered_cases": 0,
-      "dimension": 0,
-      "minimal_supports": [
-        []
-      ],
-      "required_columns": [],
+      "dimension": null,
+      "minimal_supports": [],
+      "required_columns": null,
       "not_possible_proof": false,
-      "box_compatible_single_family_cover_found": true
+      "box_compatible_single_family_cover_found": false,
+      "no_success_witness": true
     },
     "11": {
       "covered_cases": 8,
@@ -202,13 +200,12 @@
     },
     "15": {
       "covered_cases": 0,
-      "dimension": 0,
-      "minimal_supports": [
-        []
-      ],
-      "required_columns": [],
+      "dimension": null,
+      "minimal_supports": [],
+      "required_columns": null,
       "not_possible_proof": false,
-      "box_compatible_single_family_cover_found": true
+      "box_compatible_single_family_cover_found": false,
+      "no_success_witness": true
     },
     "16": {
       "covered_cases": 3,

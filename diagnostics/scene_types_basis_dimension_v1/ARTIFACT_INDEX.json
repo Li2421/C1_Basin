@@ -1,0 +1,227 @@
+{
+  "created": "2026-10-28T05:41:36.425380+08:00",
+  "status": "completed_valid_subset_with_gaps",
+  "authoritative_report": "REPORT.md",
+  "authoritative_verdict": "VERDICT.json",
+  "complete_records": 36688,
+  "attempts": 36832,
+  "valid_types": 15,
+  "requested_types": 17,
+  "files": {
+    "REPORT.md": {
+      "bytes": 24491,
+      "sha256": "717f993dceab2a76ca1e5f7c1c4c67e593af6a1b98cabbc4370b3045e641ef15"
+    },
+    "VERDICT.json": {
+      "bytes": 258115,
+      "sha256": "d878137e0005ab83230c4c1a8802d62fb9db681690853654d9d7bd7cf44a67a3"
+    },
+    "COMPLETE.json": {
+      "bytes": 2123,
+      "sha256": "5e66c7b28ac2d78301abb58b11951077fd99b96a28b038c221c6cdd529bf90ca"
+    },
+    "SCENES_FROZEN.json": {
+      "bytes": 1232656,
+      "sha256": "f74192515896cd36496ee71d409b7c569fd92f58f4d675c9ed406049d31308e0"
+    },
+    "FAMILIES_FROZEN.json": {
+      "bytes": 28497,
+      "sha256": "ec3ba06e1eee654c75ca5cb690c642312a01236f213f476869d6c12936a251cf"
+    },
+    "MINIMAL_SUPPORTS.json": {
+      "bytes": 5181,
+      "sha256": "ad9ca9b4ae2a830919e11b246022b6946b1f05135ae53d0d18bf495738c956f2"
+    },
+    "CALIBRATION.json": {
+      "bytes": 4157519,
+      "sha256": "e23c774ecb858a58298d1a86146c9ce892c26cafc60dbfad85129f6f7527cf88"
+    },
+    "FIVE_LAYER_FINAL.json": {
+      "bytes": 20599,
+      "sha256": "cdb88a87c095e3f048bad0002397d0280ab734679788fd085c483f8c0113b86d"
+    },
+    "SCENE_DESCRIPTORS.json": {
+      "bytes": 23000,
+      "sha256": "2d40ba0d83004b89420f35d84d0a014ed0ae85b23ec50acf437eb7e0ba72ef5f"
+    },
+    "GEOMETRY_CONSISTENCY.json": {
+      "bytes": 4969,
+      "sha256": "8c46607cbc9e117172c5e031df9de2185d7de7105e0768bdf96bb1f210d81c89"
+    },
+    "PAPER_RESULTS.json": {
+      "bytes": 134184,
+      "sha256": "daa7bfad1abebb20236f69573c0c0552b2095a6b3e7f723563ba8e0deda6b08a"
+    },
+    "REFERENCE_RESULTS.json": {
+      "bytes": 107060,
+      "sha256": "687848de06bf493d418582bc5f1f88075b14f795af48e46e5c0d01157b97843c"
+    },
+    "GOAL_RANGE_ABLATION_RESULTS.json": {
+      "bytes": 853059,
+      "sha256": "c62f448749c8ba0c8fe3d151d7908a21cdb405b18e9a14290816b68d7ffb08b3"
+    },
+    "CONFIDENCE_INTERVALS.json": {
+      "bytes": 16009,
+      "sha256": "f48b884b9b56cf0888eb4f016cae2b2302d52e6579b23246205e407445e5ce5c"
+    },
+    "COMPUTE_COSTS.json": {
+      "bytes": 3283,
+      "sha256": "96e93514849243f48e66b24e7cbdb2b382946038e4d38bc17a429e55df17902c"
+    },
+    "PAIRED_SUCCESS_TIMES.json": {
+      "bytes": 2691,
+      "sha256": "426369156505b7c3d4f603f252ea24d29ee2558d60470ec639230c226e0d2066"
+    },
+    "PAIRED_REFERENCE_TIMES.json": {
+      "bytes": 1740,
+      "sha256": "2b2cbde82496d3e2d6e76a169a9e7dd9da9ba9b29e06895f432d6043a83dc2f9"
+    },
+    "PER_CONTROLLER_RESULTS.json": {
+      "bytes": 24644,
+      "sha256": "ebde3cd46946ce12cc9d750ffc760e8e3bbb39bfcf2518b657e50c74a73374c1"
+    },
+    "FIXED_SELECTION_COVERAGE.json": {
+      "bytes": 24344,
+      "sha256": "db42940beff566278bbbd36046d7694d5a61295f2305876a3041a4734bb906cc"
+    },
+    "FAILURE_TYPES.json": {
+      "bytes": 168376,
+      "sha256": "c5fa56dd8d31562b9dcb96c14c9b6d1de8d2e381be47a0f0f7b16945387fe4b6"
+    },
+    "FAILURE_PROGRESS_DIAGNOSTICS.json": {
+      "bytes": 468029,
+      "sha256": "c7af0e99a9692e2923ccb223969b57eb5ab7fbe06746451d7f1f99291a6b4a14"
+    },
+    "EFFECTIVE_DIMENSION_WITNESSES.json": {
+      "bytes": 862989,
+      "sha256": "02ff32c3b950ab7754727cd756915bc18ac84d6eb21baba2cfa1ce8789803da8"
+    },
+    "TIMING_REFERENCE_WITNESSES.json": {
+      "bytes": 458,
+      "sha256": "87fde225036598e4761e5b9d0929d85f967f23df194ac620276f573234589d25"
+    },
+    "STATIC_MECHANISMS.json": {
+      "bytes": 9827527,
+      "sha256": "5b10dfd93b1e881c74567a7679fe54cea9843e3582aa1362fa029c9fdb8b897a"
+    },
+    "STATIC_MECHANISMS_INPUTS.json": {
+      "bytes": 23271,
+      "sha256": "57178247327d57af49eb5ef02a3760300e7962da182556c0f77e83f37dee3765"
+    },
+    "STATIC_MECHANISM_SUMMARY.json": {
+      "bytes": 3468,
+      "sha256": "8559c08247dffc5faeebd434e4fa708956fc547ad4f507b794a44c1ab6a99907"
+    },
+    "ROUTE_UNKNOWN_DIAGNOSTICS.json": {
+      "bytes": 170255,
+      "sha256": "fe2068dd46b534f74ee92366e85e0766f4ce437a026238fb3eaae17eb326a7d1"
+    },
+    "DELIVERY_AUDIT.json": {
+      "bytes": 1299,
+      "sha256": "b2299051a3f3c87d9e1fdde8af37e2d8c95136cd8286da36cc95696a4b339bf0"
+    },
+    "INTEGRITY_END.json": {
+      "bytes": 29579,
+      "sha256": "88ea078eac443654b4a1b510f44ff4fbda018ae98bfb85ae99e8f28ba1ffdc52"
+    },
+    "IMPORTED_INPUTS_END.json": {
+      "bytes": 656248,
+      "sha256": "cea2d50358753c94086ade6eb7ce5253f119833d1cebb6f220fbe3baeee5b844"
+    },
+    "FINAL_REBUILD_CHECK.json": {
+      "bytes": 165,
+      "sha256": "53aa847dde420d8cfa0f031854bb04dd53e8118e31324373adac0df67618ecef"
+    },
+    "ANALYSIS_INVARIANTS.json": {
+      "bytes": 2217,
+      "sha256": "19359d606bf988c1eea03f6f0cbf290c46c3c72a6e83af078a66f8960bdb9352"
+    },
+    "ROUTE_EQUIVALENCE.json": {
+      "bytes": 43109,
+      "sha256": "39609fb905b3462450589d465654504d4df17e1870c21afb835d73f23206b8b3"
+    },
+    "B3_EQUIVALENCE.json": {
+      "bytes": 13975,
+      "sha256": "fb9fae4d845ea167c9a3e86326fd0bd1c5575a4b4613368591e11d3f1f79e103"
+    },
+    "ACCELERATION_CERTIFICATE.json": {
+      "bytes": 185847,
+      "sha256": "f61d56cf078d96065f208a57f684d5504c79d5d0b8718bf8e8291c737e5a3dea"
+    },
+    "PAPER_PARAMETERS_FROZEN.json": {
+      "bytes": 7414,
+      "sha256": "07fcaf1954408bf5d881c5a501db6e0528157a0b0d7c58943981434567973520"
+    },
+    "GOAL_RANGE_FROZEN.json": {
+      "bytes": 12443,
+      "sha256": "935eed9b84df2e8529b0abc7f7d01dc9f5f00e7f83bffcdd8ad4f493ccd82cd6"
+    },
+    "candidates.jsonl": {
+      "bytes": 147185927,
+      "sha256": "67e52e74c0e8326b0984a2fbd1d6beaf729219b768b09839c67b4e61e94e8e5f"
+    },
+    "candidates_unique.jsonl": {
+      "bytes": 27745100,
+      "sha256": "daeec36cd5469867d9961110a21dfb4e6a6a47427b3a9cfd2473cd61f828944d"
+    },
+    "per_type_results.csv": {
+      "bytes": 12267,
+      "sha256": "d0600d07008578d62fd7aa5f21c146e8b96b0ad7cdf5f0f28983f186128839d0"
+    },
+    "baseline_per_type_results.csv": {
+      "bytes": 45763,
+      "sha256": "b2a8afd49edc25b9feddbdb6cd800a17ddf31d32bf37b211a14ba336cab17059"
+    },
+    "budget_curves.csv": {
+      "bytes": 710,
+      "sha256": "234bad4cc9d352203cdc3e8068dc5c0032e34876d5a9aa68e3ef9fbe825fd84b"
+    },
+    "scene_overview.svg": {
+      "bytes": 310417,
+      "sha256": "7a8440814d56da37586db567c718fa281590d42d3d218fb725dcbe79daedf470"
+    },
+    "scene_overview.png": {
+      "bytes": 660688,
+      "sha256": "2655cc4ef1899df9548c7692c17d7bfaab140f1d02acfe8a580c7be9db4dbcd7"
+    },
+    "scene_distances.svg": {
+      "bytes": 28960,
+      "sha256": "4b5aee92f05a23d39231b5d98d63ac4a187ebd7cae88973ab3aeaad866fd8fe4"
+    },
+    "basis_dimension_results.svg": {
+      "bytes": 24073,
+      "sha256": "c7dbf87344eda36e3f955df0d50d39d08a0878e886949a53fee957e6113285b4"
+    },
+    "basis_dimension_results.png": {
+      "bytes": 202068,
+      "sha256": "cdffb37f83cb77703f9113f5132826af9fa855c1bdabc6d7ef238b32c350aa8f"
+    },
+    "paper_baseline_results.svg": {
+      "bytes": 18504,
+      "sha256": "2f1ef65046684a506a7a4748c39947e82a7c21b2f6b3fab3fac2c7c361594f36"
+    },
+    "paper_baseline_results.png": {
+      "bytes": 173511,
+      "sha256": "4539a8cc3807c1beab7f546011a97600775a9a927eebe3d1df851d7fc0357406"
+    },
+    "DELIVERY.md": {
+      "bytes": 3098,
+      "sha256": "7facbd3a31f2fa796c13333fff82a43ee9f24d2f55434400423e33ac8b93a68b"
+    },
+    "resume.sh": {
+      "bytes": 927,
+      "sha256": "56f56e465bc97bcbb849bc5f213c0f3548d85b5afcfb3c25704bb5a3edcf6ff4"
+    }
+  },
+  "raw_evidence_directories": [
+    "raw",
+    "traces",
+    "attempts"
+  ],
+  "official_journal": "shared_rollout_db/journals/exp_scene_types_basis_20261028",
+  "historical_previews": {
+    "PRIMARY_PREVIEW.json": "superseded_by_VERDICT.json",
+    "PAPER_PREVIEW.json": "superseded_by_PAPER_RESULTS.json"
+  },
+  "backup_scope": "Large raw files, SQLite and traces remain local. Git tracks code, documents, small frozen/result artifacts and an evidence hash index; it is not an off-site data backup."
+}
