@@ -1,3 +1,0 @@
-完整性审计未完全通过（精确差异清单附后）。AC1 GAP：source N=None，无符合门槛的迁移目标。AC2 GAP：同一P2跨N迁移的平均遗憾=N/App，目标N=[]。五层证据首次观测到的失败或缺口：N=2、第4层，Prespecified three-arm controller capability gate not passed; not universal eta impossibility；互惠基线另在N2起存在第4层资产/复现接口缺口，不能当作性能失败。第5层正式deadlock解决在所有N均未建立。
-
-五轮已按顺序执行。36轮完成以NUMERICAL_COMPLETE.receipt.json和INDEPENDENT_DELIVERY_REVIEW为准；源码审计另看首段，不冒充通过。入口advance.py可按已完成stage续接，但完成后不要重交任何任务或unknown。runtime.py/controllers.py为冻结执行；check_gate.py使用旧artifact原dtype字节，旧失败checker留档。Source选择在target前冻结；ASSET_AUDIT更新了旧prompt较早的模型状态。RCP/A3/A0/G_E接口缺口、N专用Flow不同checkpoint、只P2清洁N迁移、各HN预算、未认证deadlock必须保留。全部表、轨迹、登记/预检/后检、审计与证据级别在本目录；只有官方DB允许外写。Python为/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python -B。

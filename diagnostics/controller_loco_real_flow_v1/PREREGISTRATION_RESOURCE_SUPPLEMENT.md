@@ -1,3 +1,0 @@
-# Resource allocation supplement
-
-The user changed the resource allocation after the Stage A preregistration receipt and before any new outcome: use **19 single-CPU rollout workers** and **5 GPU shards** for fits. This supplements the worker allocation only. The original cost gate remains the preregistered prediction at 22 CPUs: if the roughly 100-case timing implies over 10 wall hours at 22 CPUs, reduce S_test from 64 to 48 states. Actual elapsed time at 19 CPU workers will be reported separately. All endpoint definitions, split, candidate set, branch gates, unknown treatment and maximum rollout counts remain as in `PREREGISTRATION_STAGE_A.md`.

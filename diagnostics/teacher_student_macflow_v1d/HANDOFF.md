@@ -1,7 +1,0 @@
-本轮执行 docs/prompt_round30d_controls_fair_rhr_k16_headroom_20261015.md。
-
-完整性审计与 Basin_C1 DB/journal 路径断言均通过。D-local 的 Z/G+S500 成功率分别为 28.12%/21.88%，学生参考为 94.20%；集中式 TT 的 Z/G+S500 为 9.38%/37.50%，教师参考为 93.08%。公平 RHR 学生组选择 {'mode': 'progress', 'steps': 40, 'speed': 0.25}，成功率 11.27%；G 组选择 {'mode': 'always', 'steps': 0, 'speed': 0.1}，成功率 100.00%。学生 S500−RHR 为 82.92%，保守 95%CI [0.6606863839285714, 0.9564732142857143]。K16∪S300/S500 的按 controller/按 state 交叉拟合空间分别为 4.13%/-4.58%；在所测 Ring 分布与 K16 菜单中，固定 S500 已接近最优，生成器与 critic 无已证实的发挥空间。 阶段A在两条管线都支持学习策略与修正存在协同；但经典 G+CBF+RHR 已在所测32个state全部成功，不能据学生内部比较宣称整体优于经典控制方案。 资源审计存在例外：旧20CPU上限期间监测到总21CPU，随后监测中断，该时段峰值与持续时间未知；记录未删除。
-
-报告入口 REPORT.md；机读 results.json。预注册 PREREGISTRATION.md 与收据先于任何新rollout。A/Tune/fair/C各有 CASES、MISSING_CASES、官方 CACHE_PREFLIGHT/POSTFLIGHT、DB_ROWS、MERGE_RECEIPT；registration/记录只追加身份及所有旧行哈希保护。原始仿真位于各phase/raw与traces，不得重跑unknown或覆盖既有文件。7个旧C分片的FAILED是预期的执行前输出保护退出；1817条未开始试验由17个新分片接管，无重复，见HANDOFF_PLAN/HANDOFF_COMPLETION/JOURNAL_ONCE_AUDIT.json。当前实际收尾入口为complete_handoff.py，早期协调器停止记录保留以便审计。RHR_GRID_RESULTS.json 为完整两池网格，RHR_SELECTED.json 与RHR_FROZEN收据为冻结选择。K16_AUDIT.json 精确核对16候选及0基索引10/13。源码与DB保护是最高约束。无本轮critic训练；下一步依 C_RESULTS.json 决策，并需新一轮授权/协议。
-
-所有保护路径只读；不得修改旧源码或使用PoC旧DB副本；任何新worker先加载core.py校验Basin DB及默认journal。Slurm CPU空闲时可按2026-10-16新增授权使用全机24核，其他任务存在时协调资源；GPU shard上限2；本轮只用CPU。orchestrate.py按A->tune->freeze->fair->C一次执行，绝不直接重新启动；请先检查RUN_STATUS、已有raw/DB与预检证据以免重复。

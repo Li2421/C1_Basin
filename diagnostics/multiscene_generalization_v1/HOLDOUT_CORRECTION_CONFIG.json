@@ -1,9 +1,0 @@
-{
-  "geometry_base": 202610500000,
-  "family_offset": 100000,
-  "map_stride": 1000,
-  "task_base": 202611500000,
-  "rejection_limit": 10000,
-  "training_geometry_seeds": "unchanged from original validated catalog",
-  "reason": "Original map stride100 spans1500 seeds, while original evaluation start differs by1000; some evaluation maps duplicate training maps. Correct only evaluation cohort, preserve all frozen policies, weights, normalization, thresholds, menu and training settings."
-}

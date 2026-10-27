@@ -1,3 +1,0 @@
-完整性审计未完全通过（差异清单附后）。XS1 INCONCLUSIVE：可评估3/4场景的critic−源均值遗憾差CI=[-17.62152777777778, 7.291666666666669]pp（可用子集判定REJECTED，不代替四场景终点）；XS2 REJECTED：确定≤5pp场景数0，含缺失场景可能数1，门槛3。toy_give_way：精度复现门未通过，前瞻评估缺口；double_bottleneck：LOSO遗憾[71.875, 71.875]pp，最佳修正−safety CI=[83.33333333333334, 98.4375]pp；four_way_intersection：LOSO遗憾[42.1875, 42.96875]pp，最佳修正−safety CI=[76.82291666666666, 95.57291666666666]pp；ring_exchange：LOSO遗憾[21.354166666666664, 25.520833333333332]pp，最佳修正−safety CI=[6.25, 29.166666666666668]pp。
-
-指定Python与工作根目录见PREREGISTRATION。数值完成须NUMERICAL_COMPLETE.receipt.json存在且机械review通过；严格源码清单审计另看首段，不能与机械核验混淆。复现v2与train_v2为有效入口；原train.py请求整GPU仅作归档，勿执行。已完成rollout与unknown不重跑。三scene可评估、Toy精度缺口、源Toy3/5特征和Four源缺臂必须在论文中保留。全部数据留在本目录，只有官方DB例外。下一步完整读取round35并按顺序执行，不并行未完成轮次。

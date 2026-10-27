@@ -1,1 +1,0 @@
-This run is invalid for Round14A confirmation: default256x3 architecture differs from historicalwide512x4. Preserved unchanged. Never used for probes or target-success rollouts. Correct preregistered replacement: repaired_new_flows/base_u_plus_w_v4_wide_macflow. See PREREGISTRATION_RECIPE_REPAIR and receipt.

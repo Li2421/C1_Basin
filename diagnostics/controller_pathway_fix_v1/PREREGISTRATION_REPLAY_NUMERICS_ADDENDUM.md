@@ -1,5 +1,0 @@
-# 重放数值补充：主复现门与辅助逐值门
-
-原预注册自主追加logit绝对误差2e-5的辅助门过严：38任务所有argmax和原success完全一致，但14个任务辅助logit误差最高0.0016608238。原用户要求的argmax/success复现门均通过；不修改原receipt。源归一化重算逐值完全一致；独立numpy float32推理与历史CUDA推理max logit差0.00356，sigmoid Q差0.000429，argmax同样一致。这些支持float32/CUDA矩阵运算差异的解释，未证明具体autotune kernel是唯一原因。
-
-此次补充只区分两种门：主复现门PASS、辅助逐值门NOT BITWISE REPRODUCED。保留初次FAIL日志和receipt。本轮F3基线使用原冻结prediction cache，以免微小logit差影响阈值；F2的R0重放逐值完全一致。所有新修复训练尚未启动，没有根据新终点调参或更改任何选择门。详细证据见REPLAY_PRECISION_DIAGNOSIS.json和STAGE0_REPRODUCTION.json。

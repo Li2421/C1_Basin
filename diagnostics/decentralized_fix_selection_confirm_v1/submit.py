@@ -1,6 +1,0 @@
-from support import *
-import subprocess,shlex,re
-G=guard()
-def main():
- phase=sys.argv[1];want=int(sys.argv[2]);prereg();q=subprocess.check_output(['squeue','-h','-r','-u','zhihan','-o','%i|%j|%T|%C|%b'],text=True);cpu=sum(int(l.split('|')[3]) for l in q.splitlines() if 'shard' not in l.split('|')[4]);slots=min(want,18-cpu,len(read(HERE/f'{phase}_MISSING_CASES.json')));assert slots>0,(cpu,q);assert read(HERE/'REPLAY_GATE.json')['passed'];script='r5_worker.py' if phase=='probe' else 'run.py';args_tail='$SLURM_ARRAY_TASK_ID' if phase=='probe' else phase+' $SLURM_ARRAY_TASK_ID';cmd=f'PYTHONDONTWRITEBYTECODE=1 JAX_PLATFORMS=cpu {shlex.quote(sys.executable)} -B {shlex.quote(str(HERE/script))} {args_tail}';args=['sbatch','--parsable','-p','cpu','--cpus-per-task=1','--mem=6G','--time=48:00:00','--array',f'0-{slots-1}%{slots}','-J','r30i_'+phase,'-o',str(HERE/(phase+'_%A_%a.log')),'--wrap',cmd];seal(f'{phase}_SUBMISSION_PREFLIGHT.receipt.json',[HERE/f'{phase}_PREFLIGHT.receipt.json',HERE/script],squeue=q,other_CPU_reserved=cpu,slots=slots,before_submission=True,guard=guard());job=subprocess.check_output(args,text=True).strip();write(HERE/f'{phase}_SUBMISSION.json',dict(utc=utc(),job=job,slots=slots,argv=args,queue=q));print(phase,job,slots,flush=True)
-if __name__=='__main__':main()

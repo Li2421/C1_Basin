@@ -1,9 +1,0 @@
-LONG-Q NOISE-COUPLING SOURCE SCREEN
-DoNOTlaunchQfits/other-scenerollouts: predeclaredlong-Qvariance/powergatefailed.
-{'interaction': 'state_eta', 'physical_states': 32, 'known_cells': 505, 'total_cells': 512, 'common_variance': 0.0001739992547641861, 'independent_variance': 0.00017982140956031086, 'expected_reduction': 0.03237742830712298, 'conditional_CI95': [-2.220446049250313e-16, 0.08195121951219486], 'undefined_ratio_bootstrap_fraction': 0.13019999999999998, 'absolute_variance_reduction_CI95': [-2.710505431213761e-20, 3.473937747035569e-05]}
-{'interaction': 'state_controller_eta_pairs', 'physical_states': 32, 'known_cells': 747, 'total_cells': 768, 'common_variance': 0.0003516796624339274, 'independent_variance': 0.0003640928432651565, 'expected_reduction': 0.03409344913211865, 'conditional_CI95': [-2.220446049250313e-16, 0.08588158750813324], 'undefined_ratio_bootstrap_fraction': 0.13019999999999998, 'absolute_variance_reduction_CI95': [-5.421010862427522e-20, 7.304277643260717e-05]}
-{'interaction': 'state_eta', 'independent_original_UID_noise': True, 'point_bounds': [0.0065822601318359375, 0.007544517517089844], 'censor_CI95': [0.0024394989013671875, 0.010951995849609375]}
-{'interaction': 'state_controller_eta', 'independent_original_UID_noise': True, 'point_bounds': [0.004827961325645447, 0.005797147750854492], 'censor_CI95': [0.0017810091376304626, 0.00839853286743164]}
-newrollouts=2048;collisions=0;numericalunknown=7;noQfits.
-Ratio CI excludes undefined zero/zero draws; absolute variance CI retains all draws.
-See ANALYSIS_CORRECTION.json; no new fits, simulations or bootstrap draws.

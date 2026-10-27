@@ -1,7 +1,0 @@
-# Outcome-blind worker rebalance
-
-UTC date 2026-10-12. The first full Stage A Slurm array (19364; 19 one-CPU workers) used contiguous slices of `MISSING_CASES.json`, which is sorted by controller. The frozen 98-case pilot gave controller means from 1.74 to 6.44 seconds. Combining those timing values with the slice assignment predicted worker spans of 2.18–8.10 hours, even though the same total work evenly spread across 19 CPUs predicts about 6.03 hours. This is a scheduling imbalance only. No success outcome, Q label, controller preference, or held seed statistic was inspected for this decision.
-
-The first array and dependent jobs 19383/19384/19385 were cancelled after 3,297 immutable raw JSON files existed (including 98 pilot cases). `run.worker` now assigns the unchanged frozen case list by `rows[index::19]`. Every existing raw file is checked against its exact case and skipped, then journaled for the new worker; no completed rollout is generated again. Raw and old journals remain as provenance. The experiment UID, controller profiles, state/η/seed identities, cost gate, model, endpoints and statistical thresholds remain unchanged. New Slurm IDs and final duplicate counts are recorded in the run log and postflight.
-
-Replacement Slurm chain: balanced rollout array **19386**, single-process merge/postflight/labels/gate **19405**, five-shard training array **19406**, independent-seed analysis **19407**.

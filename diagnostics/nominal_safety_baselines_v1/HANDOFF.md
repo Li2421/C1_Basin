@@ -1,9 +1,0 @@
-Round29 nominal/safety baseline evaluation
-
-MPC：相对 nominal only +90.10pp（95% CI [83.59, 95.83]），相对 safety baseline +22.92pp（95% CI [2.34, 46.35]）；势场：相对 nominal only +84.38pp（95% CI [70.31, 94.79]），相对 safety baseline +27.08pp（95% CI [7.29, 48.44]）；Flow：相对 nominal only +66.41pp（95% CI [33.98, 96.88]），相对 safety baseline +66.41pp（95% CI [33.98, 96.88]）。以上是与 round27 一致的已确认成功占比差；unknown 单列，完整成功率的识别范围及 CI 包络见 results.json。
-
-Authority: docs/prompt_round29_nominal_safety_baselines_20261015.md. Read PREREGISTRATION.md/receipt, FROZEN_INPUTS.json and HISTORY_AUDIT.json. Frozen controller code lives unchanged in ../other_controller_classes_v1; runtime.py loads it directly. 8-case consistency gate must PASS before run.py main. 2048 baseline records, exact round27 states/seed keys, no_safety/native nominal and hard_safety/native one projection. x64=False after imports and lazy constructions.
-
-Evidence: main/raw + main/traces; UNKNOWN_CASES.json retained without reruns. All 6144 legacy labels/choices reused, original class values asserted. Analyze without rollout: python -B analyze.py from this directory (use specified .venv-c1 Python). Outputs results.json, PAPER_TABLE.md/csv, METHOD_METRICS.csv. Bootstrap is paired controller then state, 5000; point fractions are confirmed success lower bounds to match round27, unknown envelopes and known-only rates included.
-
-Only this directory was writable. rollout.sqlite is a read-only-source SQLite backup with new exact chain identities and official local preflight/journal/single-process merger/postflight. Global shared DB remains unchanged and requires separately authorized ingestion. All journal records and hashes are retained here for that purpose. No training/video/commit. Oracle is per-controller aggregate retrospective max, not per-rollout best and not deployable.

@@ -1,61 +1,30 @@
-# Basin C1：四场景实验
+# Basin C1：异构场景流水线（hetero set）
 
-当前维护四个场景，共享 Flow-BC、安全投影、rollout 缓存和研究工具：
+当前流水线使用 3 个种子的 generator 组合，为每个场景提出 16 个 η；critic 在菜单标签与留一 generator 提案标签上重训，只在这 16 个提案中选一个。
 
-| 目录 | 职责 |
+## 当前代码与结果
+
+| 目录 | 内容 |
 |---|---|
-| `toy_giveway/` | 双机器人 Give-Way；兼容入口复用 `single_integrator/` 的实现 |
-| `double_bottleneck/` | 四机器人双瓶颈 |
-| `four_way_intersection/` | 四向交叉路口 |
-| `ring_exchange/` | 环形交换 |
-| `single_integrator/`、`flowbc/`、`shared_control/` | 共享/历史兼容的物理、策略和控制实现，仍被使用 |
-| `bottleneck_family/` | 可变 N 的 Gap/双瓶颈母版，几何与动力学已实现；大规模解锁待验证 |
-| `new_benchmark_common/` | 共享数据、训练、评估和完整仿真视频工具 |
-| `shared_rollout_db/` | 跨实验 rollout 索引与去重；运行前遵守其 README |
-| `diagnostics/` | 实验脚本、研究报告及本地生成证据 |
-| `datasets/`、`results/` | 本地数据和历史结果，大型资产不进普通 Git |
-| `docs/`、`tests/`、`scripts/` | 协议、审查记录、测试与启动入口 |
+| `diagnostics/hetero_set_critic_selfcheck_v1/` | 场景、标签、冻结选择、验证/测试结果；完整工作区快照也在这里 |
+| `diagnostics/hetero_set_learned_planners_v1/` | 学习型规划器代码、checkpoint 和评估 |
+| `diagnostics/hetero_set_test_videos_20261027/` | 测试视频与对应证据 |
 
-可扩展母版的选型依据和四场景审查见 [母版审查](docs/scalable_scene_audit_20261007.md)，
-使用入口见 [bottleneck_family](bottleneck_family/README.md)。
-2/10/50-agent 的 Joint Flow Matching 训练与完整视频进度见
-[Gap 1 规模试验](docs/gap_flow_scaling_20261007.md)。
+完整源码和运行说明见 [工作区快照](diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/README.md)。
+两批冻结文件位于快照的 `hetset/FINAL_FROZEN.json`（8 个验证场景及第一批 12 个测试场景）和 `hetset/FROZEN_T2.json`（第二批 12 个测试场景）。
+快照中的脚本仍使用原任务临时目录绝对路径；临时目录失效后，按快照 README 重定位路径再运行。快照和冻结结果在本次清理中保持逐文件不变。
 
-## 大 batch 必须交付视频
+## 共享依赖
 
-每场景至少 3 个完整仿真视频：2 个死锁解决案例（其中 1 个用于 show）+ 1 个
-safety 成功案例，共至少 12 个。从初态播放到终态，必须能看到整个过程。
-仓库级规则见 [AGENTS.md](AGENTS.md)，trace 导出和验收见
-[视频交付协议](docs/batch_videos.md)。无合格案例必须报告缺口，不能伪造或用截图代替。
+`shared_control/`、`single_integrator/`、`bottleneck_family/`、`new_benchmark_common/` 及旧场景兼容模块继续保留。`shared_rollout_db/` 包含共享代码和其他实验线使用的数据，本次不改数据库。
 
-```bash
-# 命令应等待计算完成并导出 video_plan.json 及完整 traces。
-# sbatch 必须使用 --wait，或在所有 shard 完成后的最终汇总 job 中执行验收。
-bash scripts/run_batch_with_videos.sh \
-  diagnostics/MY_BATCH/video_plan.json diagnostics/MY_BATCH/videos \
-  -- bash path/to/experiment.sh
-```
+`diagnostics/` 中保留的旧版目录用于控制器与 η 菜单、复放轨迹、哈希审计或兼容入口，保留它们不表示继续使用旧版学习方法。具体依赖和保留理由见 [清理记录](docs/cleanup_hetero_set_20261027.md) 与 [路径清单](docs/cleanup_hetero_set_20261027.json)。
 
-准备视频环境：`python3 -m venv .venv-video`，然后
-`.venv-video/bin/python -m pip install -r requirements-video.txt`。
-系统另需 `ffmpeg`、`ffprobe`。历史实验 launcher 尚未逐个改造，需通过上述入口
-运行或在完成后显式执行视频验收命令。
+## 历史资料与验证
 
-## 测试和历史
+2026-10-27 清理前的源码、文档和选定小型配置快照已推送：`db959cb`。
+336 个旧实验目录及其他过时内容已移出工作区，保留于 `/home/zhihan/research/Basin_C1_retired_20261027/`，原位置不留链接。
+这是同磁盘归档，不是独立灾备；大型数据和 checkpoint 没有通过 Git 备份。恢复旧实验时，按清单恢复其原相对路径。
 
-```bash
-bash scripts/test.sh
-.venv-video/bin/python -m unittest discover -s tests -p test_batch_videos.py
-```
-
-共享基线测试可通过 `C1_PYTHON` 指定带 numpy/scipy/jax 的解释器。
-历史分支 `direction-a-stochastic`、`direction-r-risk` 的职责保留在 Git 历史中；
-当前 `main` 已包含四场景研究代码，不能再按旧 README 当作纯 Give-Way 基线。
-
-2026-10-07 清理前快照已推送：`43b5264`。旧实现副本 `archive/legacy_pre_git_split/`
-已移除，可从该提交恢复。清理范围、保留项和 Git 备份边界见
-[本次目录审查](docs/workspace_cleanup_20261007.md)。
-
-2026-10-20 的 HDD 归档位置、预测缓存链接和重复轨迹清理记录见
-[HDD 分类迁移记录](docs/hdd_migration_20261020.md)。归档根目录为
-`/mnt/hdd/zhihan/Basin_C1/archive_20261020/`，原路径保留符号链接。
+共享实现的回归检查入口为 `bash scripts/test.sh`；可用 `C1_PYTHON` 指定现有环境。
+实验、证据复用与视频要求以 [AGENTS.md](AGENTS.md) 为准；[视频默认可选](docs/video_delivery_optional.md)。

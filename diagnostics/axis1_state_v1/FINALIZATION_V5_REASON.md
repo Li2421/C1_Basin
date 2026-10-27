@@ -1,1 +1,0 @@
-主结果打开前，按checkpoint及已有参数哈希审计，确认prompt的原14 controller在R15训练这一前提错误：A3用56个新seed，精确controller重合0/14，配方重合14/14。必须保留数值ST端点原定义，但将纯State轴结论记为设计缺口。仅修改报告的范围与缺口说明，不改科学参数、选择、模型、labels、预注册端点、bootstrap或rollout。原错误表述及收据均保留以便追溯；不额外训练或rollout。

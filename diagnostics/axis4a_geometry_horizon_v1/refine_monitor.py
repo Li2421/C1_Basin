@@ -1,2 +1,0 @@
-from core import *
-p=HERE/'resource_monitor.py';s=p.read_text().replace("paused=set();events=[];started=False","paused=set(read(HERE/'RESOURCE_STATUS.json').get('paused_groups',[])) if (HERE/'RESOURCE_STATUS.json').exists() else set();events=read(HERE/'RESOURCE_STATUS.json').get('events',[]) if (HERE/'RESOURCE_STATUS.json').exists() else [];started=False").replace("['run.py','advance.py']","['run.py']");p.write_text(s)

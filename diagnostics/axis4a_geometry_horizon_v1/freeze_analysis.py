@@ -1,2 +1,0 @@
-from common import *
-seal('ANALYSIS_IMPLEMENTATION_FROZEN.receipt.json',[HERE/'statistics.py',HERE/'PREREGISTRATION.md',HERE/'FROZEN_REFERENCE_CHOICES.json'],before_factor_evaluation_labels=True,scope='Menus exclude nominal/safety from correction oracle; state parity crossfit; controller then state clustered paired bootstrap5000, unknown lower/upper. Sprog/HZ3 GAP absent explicit clarification; HZ4 available-menu conditional, complete protocol menu unavailable.')

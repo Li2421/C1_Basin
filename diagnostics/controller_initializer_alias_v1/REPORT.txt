@@ -1,6 +1,0 @@
-EXACT SINGLE-KEY INITIALIZER ALIAS — STATIC ONLY
-{'scene': 'double_bottleneck', 'states': 8, 'controller_cases': 32, 'descriptor_max_error': 4.76837158203125e-07, 'actions': 512, 'changed': 512, 'action_max_difference_vmax': 0.13330417471262776, 'numerical_unknown': 0}
-{'scene': 'four_way_intersection', 'states': 8, 'controller_cases': 32, 'descriptor_max_error': 4.76837158203125e-07, 'actions': 512, 'changed': 512, 'action_max_difference_vmax': 0.17242147788082154, 'numerical_unknown': 0}
-{'scene': 'ring_exchange', 'states': 8, 'controller_cases': 32, 'descriptor_max_error': 4.76837158203125e-07, 'actions': 512, 'changed': 512, 'action_max_difference_vmax': 0.4341525448892836, 'numerical_unknown': 0}
-{'scene': 'toy_give_way', 'states': 8, 'controller_cases': 32, 'descriptor_max_error': 0.0, 'actions': 512, 'changed': 498, 'action_max_difference_vmax': 0.1092761238487776, 'numerical_unknown': 0}
-Analytic identity plus numerical verification: nominal endpoint/M remain fixed; mean+scale*z_descriptor fixed while Gaussian law changes. 2034/2048 static FF actions differ above1e-5*vmax,0numerical failures. No physical step or terminal Q observation. Broader controller class counterexample; does not prove current native-dataset collisions or explain LOSO failure. Exact initializer augmentation already tried in Stage16, not a new repair.
