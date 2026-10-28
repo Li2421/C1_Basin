@@ -11,6 +11,12 @@ HERE = Path(__file__).resolve().parent
 DEADLINE = dt.datetime.fromisoformat('2026-10-28T09:00:00+08:00')
 
 def allowance(now=None):
+    override = HERE / 'CPU_LIMIT_OVERRIDE.json'
+    if override.exists():
+        value = json.loads(override.read_text())['user_total_cpu_limit']
+        if type(value) is not int or value < 1:
+            raise ValueError('Invalid explicit CPU allocation')
+        return value
     return 24 if (now or dt.datetime.now(dt.timezone.utc)) < DEADLINE else 18
 
 def jobs():
