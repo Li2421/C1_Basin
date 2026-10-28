@@ -153,13 +153,26 @@ def main():
         if family['distribution']['incomplete']:gaps.append(f"{family['name']}：{family['distribution']['incomplete']} 个案例未完成。")
     if changed:gaps.append('导入文件发生变化，见 INTEGRITY_END.json。')
     (HERE/'GAPS.md').write_text('# 证据缺口\n\n'+('\n'.join('- '+g for g in gaps)if gaps else'规定的有限候选覆盖搜索已完成。未找到不构成连续参数空间不可解证明。')+'\n\n本轮不执行论文方法、重新标定、选族或维度推荐。\n')
-    with(HERE/'REPORT.md').open('a')as out:
+    report=HERE/'REPORT.md';report.write_text(report.read_text().replace('None','—'))
+    with report.open('a')as out:
         out.write('\n\n每档8个物理初态分别接入集中式随机采样模型预测控制和梯度下降模型预测控制，合计16个案例；两控制器使用匹配的物理初态与随机流。\n')
         out.write('\n代码分支：'+subprocess.check_output(['git','branch','--show-current'],text=True).strip()+'；记录时提交：'+subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()+'。新代码与结果仅在 diagnostics/scene_types_oracle_coverage_v3/。\n')
         out.write('\n\n逐候选原始记录见 candidates.jsonl；每个旧结局的显式迁移见 REUSE_MANIFEST.json；时间口径见 TIMING.json；全部搜索曲线见 budget_curves.csv。\n')
         out.write('\n| 修正族 | 成功条件平均完成时间（秒） | 全队列截断平均时间（秒） |\n|---|---:|---:|\n')
         for row in analysis:out.write(f"| {row['name']} | {row['success_condition_mean_time']} | {row['full_cohort_truncated_mean_time']} |\n")
         out.write('\n共同成功案例的配对时间另见 TIMING.json，不与成功条件均值混合。\n')
+        names=[f['name']for f in coverage['families']]
+        out.write('\n\n## 逐类型合计覆盖\n\n| 类型 | 案例数 | '+' | '.join(names)+' |\n|---|---:|'+'---:|'*7+'\n')
+        for t in coverage['by_type']:out.write('| '+t['name']+' | '+str(t['denominator'])+' | '+' | '.join(map(str,t['coverage64']))+' |\n')
+        out.write('\n\n## 首次成功序号与搜索成本\n\n| 修正族 | 中位数 | 四分位 | 成功案例平均搜索数 | 完整案例平均搜索数 | 64次未找到 | 尚未完成 |\n|---|---:|---|---:|---:|---:|---:|\n')
+        for f in coverage['families']:
+            d=f['distribution']
+            out.write(f"| {f['name']} | {d['median']} | {d['quartiles']} | {d['average_queries_success']} | {d['average_queries_completed']} | {d['not_found_in64']} | {d['incomplete']} |\n")
+        out.write('\n完整案例平均搜索数包含64次未找到的案例；成功案例均值只对找到解的案例计算，两者不混用。\n')
+        out.write('\n\n## 逐场景四倍与六倍时限\n\n下表各格为四倍时限成功数→六倍时限成功数，分母均为16。沿用六倍时限首次成功即停；未运行的候选不作为四倍时限失败证据。\n\n| 场景 | 只加安全投影 | '+' | '.join(names)+' |\n|---|---:|'+'---:|'*7+'\n')
+        for e in coverage['scenes']:
+            values=[f"{v['coverage_4x']['64']}→{v['coverage']['64']}"for v in e['families']]
+            out.write('| '+e['name']+f" | {e['baseline_success_4x']}→{e['baseline_success']} | "+' | '.join(values)+' |\n')
         if not plot_error:
             out.write('\n每族总体与逐类型搜索曲线见 figures/（14张独立矢量图），图像只读取冻结结果。\n')
     state.update(complete=coverage['complete']and not(HERE/'PROTECTION_VIOLATION.jsonl').exists(),
@@ -167,6 +180,8 @@ def main():
         integrity_passed=not changed and integrity['external_diff_unchanged'])
     if not state['integrity_passed']:state['complete']=False
     write(HERE/'COMPLETE.json',state)
+    # Normalize empty statistics in user-facing tables without changing JSON nulls.
+    report.write_text(report.read_text().replace('None','—'))
     print('FINALIZED',state,flush=True)
 
 if __name__=='__main__':main()
