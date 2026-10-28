@@ -1,0 +1,22 @@
+{
+  "user_required": true,
+  "source_grounding_required": true,
+  "allowed_basis": [
+    "Fixed author code commit with file/line evidence",
+    "Paper equation/algorithm/text with location"
+  ],
+  "not_authorized": [
+    "Outcome-driven heuristic fixes",
+    "Unsourced parameter choices",
+    "Constraint relaxation or collision-rule changes",
+    "Treating increased solver iteration limits as an author-backed fix without evidence"
+  ],
+  "pending": [
+    "Full parameter and adaptation provenance audit",
+    "Reproduce errors from saved traces before new rollouts",
+    "Apply only evidenced fixes and version affected methods",
+    "Retest changed methods on frozen17 scenes via official cache workflow",
+    "Analyze matched success times and finish remaining B families"
+  ],
+  "prior_results_retained": true
+}

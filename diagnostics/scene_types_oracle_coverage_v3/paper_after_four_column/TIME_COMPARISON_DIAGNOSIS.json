@@ -1,0 +1,128 @@
+{
+  "source": "COMPLETED_COMPARISON.json",
+  "matched_common_success_comparisons": [
+    {
+      "paper": "Wang 2017 完整死锁消解",
+      "C1": "centralized_sampling_oracle64",
+      "common_success": 35,
+      "C1_only_success": 67,
+      "paper_only_success": 0,
+      "common_success_C1_mean_time": 13.607142857142858,
+      "common_success_paper_mean_time": 18.005714285714287,
+      "paired_mean_time_C1_minus_paper": -4.3985714285714295
+    },
+    {
+      "paper": "Wang 2017 完整死锁消解",
+      "C1": "gradient_mpc_oracle64",
+      "common_success": 35,
+      "C1_only_success": 74,
+      "paper_only_success": 0,
+      "common_success_C1_mean_time": 13.715714285714286,
+      "common_success_paper_mean_time": 18.005714285714287,
+      "paired_mean_time_C1_minus_paper": -4.29
+    },
+    {
+      "paper": "Wang 2017 一致扰动",
+      "C1": "centralized_sampling_oracle64",
+      "common_success": 35,
+      "C1_only_success": 67,
+      "paper_only_success": 0,
+      "common_success_C1_mean_time": 13.607142857142858,
+      "common_success_paper_mean_time": 18.005714285714287,
+      "paired_mean_time_C1_minus_paper": -4.3985714285714295
+    },
+    {
+      "paper": "Wang 2017 一致扰动",
+      "C1": "gradient_mpc_oracle64",
+      "common_success": 35,
+      "C1_only_success": 74,
+      "paper_only_success": 0,
+      "common_success_C1_mean_time": 13.715714285714286,
+      "common_success_paper_mean_time": 18.005714285714287,
+      "paired_mean_time_C1_minus_paper": -4.29
+    },
+    {
+      "paper": "Zhang 2025 自适应风险死锁规避",
+      "C1": "centralized_sampling_oracle64",
+      "common_success": 10,
+      "C1_only_success": 92,
+      "paper_only_success": 0,
+      "common_success_C1_mean_time": 11.115,
+      "common_success_paper_mean_time": 26.830000000000002,
+      "paired_mean_time_C1_minus_paper": -15.715
+    },
+    {
+      "paper": "Zhang 2025 自适应风险死锁规避",
+      "C1": "gradient_mpc_oracle64",
+      "common_success": 10,
+      "C1_only_success": 99,
+      "paper_only_success": 0,
+      "common_success_C1_mean_time": 12.155000000000001,
+      "common_success_paper_mean_time": 26.830000000000002,
+      "paired_mean_time_C1_minus_paper": -14.675
+    },
+    {
+      "paper": "Zhang 2025 死锁感知控制",
+      "C1": "centralized_sampling_oracle64",
+      "common_success": 18,
+      "C1_only_success": 84,
+      "paper_only_success": 0,
+      "common_success_C1_mean_time": 10.127777777777778,
+      "common_success_paper_mean_time": 13.466666666666667,
+      "paired_mean_time_C1_minus_paper": -3.338888888888889
+    },
+    {
+      "paper": "Zhang 2025 死锁感知控制",
+      "C1": "gradient_mpc_oracle64",
+      "common_success": 18,
+      "C1_only_success": 91,
+      "paper_only_success": 0,
+      "common_success_C1_mean_time": 10.097222222222223,
+      "common_success_paper_mean_time": 13.466666666666667,
+      "paired_mean_time_C1_minus_paper": -3.3694444444444445
+    },
+    {
+      "paper": "Lee 2025 旋转木马",
+      "C1": "centralized_sampling_oracle64",
+      "common_success": 32,
+      "C1_only_success": 70,
+      "paper_only_success": 0,
+      "common_success_C1_mean_time": 13.64375,
+      "common_success_paper_mean_time": 19.4765625,
+      "paired_mean_time_C1_minus_paper": -5.832812500000001
+    },
+    {
+      "paper": "Lee 2025 旋转木马",
+      "C1": "gradient_mpc_oracle64",
+      "common_success": 32,
+      "C1_only_success": 77,
+      "paper_only_success": 0,
+      "common_success_C1_mean_time": 13.540625,
+      "common_success_paper_mean_time": 19.4765625,
+      "paired_mean_time_C1_minus_paper": -5.9359375000000005
+    },
+    {
+      "paper": "Chen 2023 动态优先级＋右手规则＋安全走廊",
+      "C1": "centralized_sampling_oracle64",
+      "common_success": 5,
+      "C1_only_success": 97,
+      "paper_only_success": 0,
+      "common_success_C1_mean_time": 8.41,
+      "common_success_paper_mean_time": 9.2,
+      "paired_mean_time_C1_minus_paper": -0.79
+    },
+    {
+      "paper": "Chen 2023 动态优先级＋右手规则＋安全走廊",
+      "C1": "gradient_mpc_oracle64",
+      "common_success": 5,
+      "C1_only_success": 104,
+      "paper_only_success": 0,
+      "common_success_C1_mean_time": 9.74,
+      "common_success_paper_mean_time": 9.2,
+      "paired_mean_time_C1_minus_paper": 0.5400000000000004
+    }
+  ],
+  "conclusion": "The larger overall Oracle success-conditional mean is substantially affected by different success cohorts; paired comparisons do not support a blanket claim that C1 takes much longer. Current paper ports need source-based repair before final performance conclusions.",
+  "examples": "MGR reference: same32 successful cases, C1 sampling13.64s/gradient13.54s vs MGR19.48s. DAC same18: C1~10.1s vs13.47s. Wang old selected has C1~1.1s slower, so not universally faster either.",
+  "environment_steps": 0
+}

@@ -5,7 +5,7 @@ from representative_scope import selected_scenes
 import csv
 
 OUT=HERE/'paper_after_four_column'
-PROFILE_NAMES={'reference_default':'参考默认参数','v1_selected':'旧冻结选参','v1_metric_scaling_reference':'旧菜单物理长度映射'}
+PROFILE_NAMES={'reference_default':'已跑参照配置（来源见参数审计）','v1_selected':'v1开发集选参','v1_metric_scaling_reference':'历史端口长度缩放配置'}
 
 def metrics(rows,expected):
     success=[r for r in rows if r['success']]
