@@ -21,6 +21,9 @@ def reconcile_completed_frontier():
     for p in HERE.glob('oracle_f*_k*_reuse.json'):
         stage=p.name[:-len('_reuse.json')]
         if not(HERE/f'{stage}_labels.json').exists():pending.append(stage)
+    for p in HERE.glob('oracle_f*_r*_frontier.json'):
+        stage=p.name[:-len('_frontier.json')]
+        if not(HERE/f'{stage}_labels.json').exists():pending.append(stage)
     if not pending:return
     from runner import case,controllers
     from acceleration import accelerated_case
@@ -30,11 +33,19 @@ def reconcile_completed_frontier():
     ctls={c['type_code']:c for c in controllers()}
     menus=read(HERE/'FAMILIES_64.json')['families'];reuse=read(HERE/'REUSE_MANIFEST.json')['records']
     for stage in pending:
-        match=re.fullmatch(r'oracle_f(\d+)_k(\d+)',stage)
-        if not match:continue
-        fi,ki=map(int,match.groups());sp=menus[fi]['candidate_pool'][ki-1]
-        for g in groups:
-            if g['family']!=fi or g['success']or g['skipped']or g['searched']!=ki-1:continue
+        frontier_path=HERE/f'{stage}_frontier.json'
+        if frontier_path.exists():
+            todo=read(frontier_path)
+        else:
+            match=re.fullmatch(r'oracle_f(\d+)_k(\d+)',stage)
+            if not match:continue
+            fi,ki=map(int,match.groups())
+            todo=[dict(family=fi,type_id=g['type_id'],level=g['level'],controller=g['controller'],state_index=g['state_index'],candidate_index=ki)for g in groups if g['family']==fi]
+        group_map={(g['family'],g['type_id'],g['level'],g['controller'],g['state_index']):g for g in groups}
+        for item in todo:
+            fi,ki=item['family'],item['candidate_index'];sp=menus[fi]['candidate_pool'][ki-1]
+            g=group_map[(fi,item['type_id'],item['level'],item['controller'],item['state_index'])]
+            if g['success']or g['skipped']or g['searched']!=ki-1:continue
             c=make(scenes[(g['type_id'],g['level'])],ctls[g['controller']],g['state_index'],sp,purpose='v3_oracle_coverage')
             uid=c['rollout_uid'];p=HERE/'raw'/f'{uid}.json';r=None
             if p.exists():r=read(p)
