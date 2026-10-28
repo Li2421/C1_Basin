@@ -1,0 +1,30 @@
+{
+  "user_added": true,
+  "after_four_column": true,
+  "physical_scenes": 49,
+  "physical_initial_states": 392,
+  "common_plant": {
+    "dt": 0.05,
+    "max_speed": 0.5,
+    "radius": "scene-specific frozen value",
+    "walls": "SCENES exact segments",
+    "horizon": "same6x scene max_steps",
+    "success": "original all-goals and no collision"
+  },
+  "c1_nominal_and_safety_frozen": true,
+  "paper_own_controllers_and_safety": true,
+  "routes": "Same1m route guidance for methods without global planner; Chen keeps own planner and true goals.",
+  "parameter_policy": "Pre-existing fixed defaults/selected references; no new tuning or per-case profile selection.",
+  "comparison": "C1 first frozen point as a deployment policy; C1 finite64 Oracle upper envelope separately. Papers each have their own controller and run once per physical initial state.",
+  "errors": "Known failed robot stops one step then calls normal algorithm; shared coordination errors without a single affected robot stop the joint step and are separately logged. First unhandled-error alternative from the same episode.",
+  "single_robot_check": "All robots separately in state0 of every scene/profile; diagnostic only, not full four-state applicability certification. Failures retained and not called deadlock.",
+  "native_source_protection": "Vendor/deps read-only; modifications restricted to versioned local adapters; native solver/control/dynamics ports explicitly documented.",
+  "root_fixes": {
+    "Wang": "Remove only port-added next-velocity speed SOC; retain paper acceleration/CBF constraints; common speed clip after QP.",
+    "Risk": "Restore installed Clarabel default tolerances; no arbitrary solver relaxation.",
+    "DeadlockAware": "Empty-cone semantics not assumed absent a paper justification; use common error recovery.",
+    "Chen": "Retain occupancy-domain revision2; fixed400 termination-condition polls per original0.04 retry budget, source-defined retry scaling and fixed seed.",
+    "MerryGoRound": "Full author circle/obstacle/CBF mechanism, native actuation endpoint mapped to common SI plant, arrival tolerance and true physical wall margins matched."
+  },
+  "limitations": "These are common-plant ports, not original paper experiments or native nonholonomic guarantees. Constructor failures/solo inability/solver errors prevent inferring intrinsic task difficulty from low success."
+}

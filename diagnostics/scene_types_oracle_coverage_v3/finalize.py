@@ -101,6 +101,12 @@ def main():
         from coverage import write as coverage_write
         search=read(HERE/'SEARCH_STATE.json');coverage_write(search['groups'],search['baseline'])
     state=read(HERE/'COMPLETE.json');coverage=read(HERE/'COVERAGE.json')
+    paper_required=(HERE/'BASELINE_AFTER_FAMILY4.json').exists()
+    paper_path=HERE/'paper_after_four_column/COMPLETE.json'
+    paper_complete=read(paper_path).get('complete',False)if paper_path.exists()else not paper_required
+    if paper_required:
+        from baseline_analysis import analyze as paper_analyze
+        paper_analyze()
     for family in coverage['families']:
         for g in family['cases_detail']:
             assert [q['index']for q in g['queries']]==list(range(1,g['searched']+1))
@@ -200,8 +206,9 @@ def main():
     for family in coverage['families']:
         if family['distribution']['incomplete']:gaps.append(f"{family['name']}：{family['distribution']['incomplete']} 个案例未完成。")
     if changed:gaps.append('导入文件发生变化，见 INTEGRITY_END.json。')
+    if paper_required and not paper_complete:gaps.append('用户追加的论文固定参数对照存在未完成项，见 paper_after_four_column/EXECUTION_STATUS.json。')
     if not controller_unchanged:gaps.append('控制器配置源发生变化，见 CONTROLLERS_FROZEN.json 与 INTEGRITY_END.json。')
-    (HERE/'GAPS.md').write_text('# 证据缺口\n\n'+('\n'.join('- '+g for g in gaps)if gaps else'规定的有限候选覆盖搜索已完成。未找到不构成连续参数空间不可解证明。')+'\n\n本轮不执行论文方法、重新标定、选族或维度推荐。\n')
+    (HERE/'GAPS.md').write_text('# 证据缺口\n\n'+('\n'.join('- '+g for g in gaps)if gaps else'规定的有限候选覆盖与追加固定论文对照已完成。未找到不构成连续参数空间不可解证明。')+'\n\n不重新标定、选族或推荐维度。论文固定参数对照由用户后续追加，与C1 Oracle上限分开报告。\n')
     report=HERE/'REPORT.md';report.write_text(report.read_text().replace('None','—'))
     with report.open('a')as out:
         out.write('\n\n每档8个物理初态分别接入集中式随机采样模型预测控制和梯度下降模型预测控制，合计16个案例；两控制器使用匹配的物理初态与随机流。\n')
@@ -224,8 +231,10 @@ def main():
             out.write('| '+e['name']+f" | {e['baseline_success_4x']}→{e['baseline_success']} | "+' | '.join(values)+' |\n')
         if not plot_error:
             out.write('\n每族总体与逐类型搜索曲线见 figures/（14张独立矢量图），图像只读取冻结结果。\n')
-    state.update(complete=coverage['complete']and not(HERE/'PROTECTION_VIOLATION.jsonl').exists(),
+        if paper_required:out.write('\n\n用户追加的五篇论文六版本固定参数对照见 [单独报告](paper_after_four_column/REPORT.md)。每个参数profile392个物理初态，不把同一论文控制器重复成两个nominal。该对照和本轮C1 Oracle上限分别解释。\n')
+    state.update(complete=coverage['complete']and paper_complete and not(HERE/'PROTECTION_VIOLATION.jsonl').exists(),
         delivery_analysis_complete=True,official_rows_verified=len(raw),
+        paper_comparison_required=paper_required,paper_comparison_complete=paper_complete,
         integrity_passed=not changed and integrity['external_diff_unchanged']and controller_unchanged)
     if not state['integrity_passed']:state['complete']=False
     write(HERE/'COMPLETE.json',state)

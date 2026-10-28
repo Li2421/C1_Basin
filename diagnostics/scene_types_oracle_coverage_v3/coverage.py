@@ -65,7 +65,7 @@ def write(groups,baseline):
             curves={str(fi):[sum(g['success']and g['first_success']<=k for g in groups if g['type_id']==t and g['family']==fi)for k in range(1,65)]for fi in range(7)}))
     result=dict(scene_count=49,case_count=784,K=64,families=families,scenes=scene_rows,by_type=by_type,
         complete=all(e['complete']for e in scene_rows),
-        scope='Finite frozen candidate pool; no generator, no family/dimension selection, no paper methods.',
+        scope='Finite frozen candidate pool; no generator or family/dimension selection. User-added fixed paper comparisons are reported separately.',
         short_horizon_policy='4x reports only executed trajectories under the 6x-first-success stopping rule; unexecuted candidates remain unknown.')
     dump(HERE/'COVERAGE.json',result)
     header=['场景','仅安全投影 /16']+[f'{name} @16/@32/@64'for name in FAMILY_NAMES]+['原三列首次成功中位数','既有四列首次成功中位数','任一族成功 /16','状态']
@@ -83,7 +83,7 @@ def write(groups,baseline):
         '本轮'+('已完成'if result['complete']else'尚未完成')+'。49 个场景、784 个案例，各族当前 64 次内覆盖：'+
         '；'.join(f"{f['name']} {f['coverage']['64']}/784（从16到64增加{f['coverage']['64']-f['coverage']['16']}）"for f in families)+'。未运行完的案例不算作64次失败。\n',
         '64次内各族都未覆盖的完整场景：'+('；'.join(e['name']for e in scene_rows if e['complete']and e['any_family_success']==0)or'当前尚无已完成搜索且零覆盖的场景；未完成场景不作结论。')+'\n',
-        '每个案例按冻结顺序搜索，第一次成功即停，最多64次；不训练或调用生成器。本轮不选族、不推荐维度、不运行论文方法。\n',
+        '每个案例按冻结顺序搜索，第一次成功即停，最多64次；不训练或调用生成器，不选族、不推荐维度。用户后续追加的论文固定参数对照在四列阶段后运行，单独写入 paper_after_four_column/。\n',
         '四倍时限结果来自同一次六倍时限搜索实际执行的轨迹，不追加候选搜索，不能把未执行的短时限候选当作失败。\n',
         '| '+' | '.join(header)+' |','| '+' | '.join(['---']*len(header))+' |']
     paragraphs.extend('| '+' | '.join(row)+' |'for row in table)

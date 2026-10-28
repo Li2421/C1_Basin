@@ -154,9 +154,16 @@ def run():
                    f'缺失候选批次 {batch+1}/64；当前找到成功 {sum(g["success"]for g in members)}/784；实际新运行 {used()}/90000。')
             print('COVERAGE',fi,batch+1,'success',sum(g['success']for g in members),'actual_new',used(),flush=True)
         dump(HERE/f'family_{fi}_complete.json',dict(family=fi,complete=all(g['success']or g['searched']==64 or g['skipped']for g in members)))
+        if fi==4 and(HERE/'BASELINE_AFTER_FAMILY4.json').exists():
+            from baseline_screen import main as paper_screen
+            paper_screen()
     result=write(groups,baseline)
-    dump(HERE/'COMPLETE.json',dict(complete=result['complete'],actual_new_rollouts=used(),hard_limit=90000,
-        family_order=ORDER,report=str(HERE/'REPORT.md'),no_dimension_selection=True,no_paper_methods=True))
+    paper_required=(HERE/'BASELINE_AFTER_FAMILY4.json').exists()
+    paper_result=read(HERE/'paper_after_four_column/COMPLETE.json')if(HERE/'paper_after_four_column/COMPLETE.json').exists()else{}
+    dump(HERE/'COMPLETE.json',dict(complete=result['complete']and(not paper_required or paper_result.get('complete',False)),
+        correction_search_complete=result['complete'],actual_new_rollouts=used(),hard_limit=90000,
+        family_order=ORDER,report=str(HERE/'REPORT.md'),no_dimension_selection=True,
+        paper_methods_after_four_column=(HERE/'BASELINE_AFTER_FAMILY4.json').exists()))
 
 def main():
     try:

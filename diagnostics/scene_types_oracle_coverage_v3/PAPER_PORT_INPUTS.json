@@ -1,0 +1,92 @@
+{
+  "files": [
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/ports/paper_adapters.py",
+      "source_sha256": "906507f9b81cf116e637fe650b12008463ff30f6efa42f5b7f246e655b4b43fe",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/ports/paper_adapters.py",
+      "target_sha256": "906507f9b81cf116e637fe650b12008463ff30f6efa42f5b7f246e655b4b43fe",
+      "byte_identical": true
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/ports/formula_baselines.py",
+      "source_sha256": "c1a11061cb2798c9a30206f2126e9dc479bea947866d25dee88e6bc4c53c3e54",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/ports/formula_baselines.py",
+      "target_sha256": "c1a11061cb2798c9a30206f2126e9dc479bea947866d25dee88e6bc4c53c3e54",
+      "byte_identical": true
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/ports/mgr_geometry.py",
+      "source_sha256": "8b68137a1bfef66aabe0bdabf1aaeea69113bf2bf6c9066ad79651a3a7616132",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/ports/mgr_geometry.py",
+      "target_sha256": "8b68137a1bfef66aabe0bdabf1aaeea69113bf2bf6c9066ad79651a3a7616132",
+      "byte_identical": true
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/ports/impc_adapter.py",
+      "source_sha256": "b106450cf6c0b81543828773a02330b9161c85c3e091eec19a265222c42d4f2c",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/ports/impc_adapter.py",
+      "target_sha256": "b106450cf6c0b81543828773a02330b9161c85c3e091eec19a265222c42d4f2c",
+      "byte_identical": true
+    }
+  ],
+  "pins": {
+    "vendor": {
+      "dac": {
+        "url": "https://github.com/Parker-Zhang/Shaping-CLF-MCBF.git",
+        "commit": "b6cf71fdce404d98ce5c7ea687cf984b963d7b6e"
+      },
+      "mgr": {
+        "url": "https://github.com/Aiden-wjLee/merry-go-round.git",
+        "commit": "84aaefd705ab61748010ad3dd6a8e018a46e7713"
+      },
+      "impc_ob": {
+        "url": "https://github.com/PKU-MACDLab/IMPC-OB.git",
+        "commit": "952335e501389609df57d7e927d3fd82eea6e37d"
+      },
+      "qpswift": {
+        "url": "https://github.com/qpSWIFT/qpSWIFT.git",
+        "commit": "24608b671d0e7ecde4d14ee8530d1656d6940fd1"
+      }
+    },
+    "dependencies": {
+      "cvxopt": "1.3.3",
+      "cycler": "0.12.1",
+      "kiwisolver": "1.5.1",
+      "contourpy": "1.3.3",
+      "rtree": "1.4.1",
+      "PyQt5-Qt5": "5.15.19",
+      "PyQt5": "5.15.11",
+      "PyQt5_sip": "12.20.0",
+      "fonttools": "4.67.0",
+      "ompl": "1.7.0",
+      "python-dateutil": "3.0.0",
+      "matplotlib": "3.11.2",
+      "shapely": "2.2.0",
+      "pyparsing": "3.3.3",
+      "pillow": "13.0.0",
+      "qpsolvers": "4.13.0",
+      "six": "1.17.0"
+    },
+    "python": "/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python"
+  },
+  "inherited_occupancy_fix": {
+    "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/ports/impc_adapter.py",
+    "original_sha256": "8e0786084df4ed167c27b920f3267c7a3288d44663fae2601fa751ee2a4c7386",
+    "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/ports/impc_adapter_v2.py",
+    "target_sha256": "b106450cf6c0b81543828773a02330b9161c85c3e091eec19a265222c42d4f2c",
+    "changes": [
+      "Restore all four corner rows of the original geometry.grid_width occupancy rule.",
+      "Reject query indices outside the original allocated occupancy grid, including non-grid-aligned upper-bound slivers."
+    ],
+    "unchanged": [
+      "Author ABITstar planner",
+      "Dynamic priority",
+      "Right-hand penalty",
+      "Safe-corridor construction and constraints",
+      "Physical walls/radius/dynamics/success",
+      "Frozen parameter options"
+    ],
+    "reason": "Original author ValidityChecker checks continuous bounds but then indexes a floor-sized grid. New metric map extents need the missing grid-domain guard. Old index exceptions remain archived under their original exact controller IDs."
+  },
+  "changes": "Read-only reuse of v1 base ports and v2 local root/error adapters; no author source writes."
+}

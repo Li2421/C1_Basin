@@ -1,0 +1,159 @@
+{
+  "profiles": [
+    {
+      "id": "wang2017_full_di_tracking__reference_default",
+      "method": "wang2017_full_di_tracking",
+      "options": {
+        "alpha": 1.0,
+        "gamma": 1.0
+      },
+      "labels": [
+        "reference_default"
+      ],
+      "default_origin": "v1_equation_reference_not_author_defaults"
+    },
+    {
+      "id": "wang2017_full_di_tracking__v1_selected",
+      "method": "wang2017_full_di_tracking",
+      "options": {
+        "alpha": 5.0,
+        "gamma": 1.0
+      },
+      "labels": [
+        "v1_selected"
+      ],
+      "default_origin": "v1_equation_reference_not_author_defaults"
+    },
+    {
+      "id": "wang2017_consistent_perturbation_di_tracking__reference_default",
+      "method": "wang2017_consistent_perturbation_di_tracking",
+      "options": {
+        "alpha": 1.0,
+        "gamma": 1.0
+      },
+      "labels": [
+        "reference_default"
+      ],
+      "default_origin": "v1_equation_reference_not_author_defaults"
+    },
+    {
+      "id": "wang2017_consistent_perturbation_di_tracking__v1_selected",
+      "method": "wang2017_consistent_perturbation_di_tracking",
+      "options": {
+        "alpha": 5.0,
+        "gamma": 1.0
+      },
+      "labels": [
+        "v1_selected"
+      ],
+      "default_origin": "v1_equation_reference_not_author_defaults"
+    },
+    {
+      "id": "zhang2025_risk_si__reference_default",
+      "method": "zhang2025_risk_si",
+      "options": {
+        "gamma": 1.0,
+        "q": 1.0,
+        "c": 9.75
+      },
+      "labels": [
+        "reference_default"
+      ],
+      "default_origin": "v1_equation_reference_not_author_defaults"
+    },
+    {
+      "id": "zhang2025_risk_si__v1_selected",
+      "method": "zhang2025_risk_si",
+      "options": {
+        "gamma": 1.0,
+        "q": 0.01,
+        "c": 9.75
+      },
+      "labels": [
+        "v1_selected"
+      ],
+      "default_origin": "v1_equation_reference_not_author_defaults"
+    },
+    {
+      "id": "dac_author_si__reference_default",
+      "method": "dac_author_si",
+      "options": {
+        "alpha": 2.0,
+        "agent_threshold": 0.1,
+        "obstacle_threshold": 0.1
+      },
+      "labels": [
+        "reference_default",
+        "v1_selected"
+      ],
+      "default_origin": "author_code_defaults_with_common_plant_mapping"
+    },
+    {
+      "id": "mgr_author_unicycle_tracking__reference_default",
+      "method": "mgr_author_unicycle_tracking",
+      "options": {
+        "tau": 0.5,
+        "kp": 0.05
+      },
+      "labels": [
+        "reference_default"
+      ],
+      "default_origin": "author_code_defaults_with_common_plant_mapping"
+    },
+    {
+      "id": "mgr_author_unicycle_tracking__v1_selected",
+      "method": "mgr_author_unicycle_tracking",
+      "options": {
+        "tau": 1.0,
+        "kp": 0.05
+      },
+      "labels": [
+        "v1_selected"
+      ],
+      "default_origin": "author_code_defaults_with_common_plant_mapping"
+    },
+    {
+      "id": "chen_impc_ob_si_tracking__reference_default",
+      "method": "chen_impc_ob_si_tracking",
+      "options": {
+        "K": 8,
+        "scale_lengths": false,
+        "epsilon_gain": 1.0
+      },
+      "labels": [
+        "reference_default",
+        "v1_selected"
+      ],
+      "default_origin": "author_code_defaults_with_common_plant_mapping"
+    },
+    {
+      "id": "chen_impc_ob_si_tracking__v1_metric_scaling_reference",
+      "method": "chen_impc_ob_si_tracking",
+      "options": {
+        "K": 8,
+        "scale_lengths": true,
+        "epsilon_gain": 1.0
+      },
+      "labels": [
+        "v1_metric_scaling_reference"
+      ],
+      "default_origin": "Existing v1 menu option; uniform physical-length mapping, no current success label used."
+    }
+  ],
+  "aliases": {
+    "dac_author_si__v1_selected": "dac_author_si__reference_default",
+    "chen_impc_ob_si_tracking__v1_selected": "chen_impc_ob_si_tracking__reference_default"
+  },
+  "physical_states": 392,
+  "coupled_requests_upper": 4312,
+  "single_robot_diagnostic_requests_upper": 4642,
+  "single_robot_diagnostic_states": [
+    0
+  ],
+  "no_new_parameter_selection": true,
+  "previous_selection_source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/PAPER_PARAMETERS_FROZEN.json",
+  "previous_selection_sha256": "07fcaf1954408bf5d881c5a501db6e0528157a0b0d7c58943981434567973520",
+  "freeze_time": "2026-10-28T15:39:29.327119+08:00",
+  "comparison": "Fixed parameter paper policies; separate from C1 finite-pool Oracle upper bounds. Both C1 nominal controllers reported individually, paper method uses its own controller once per physical state.",
+  "additional_predeclared_profile_reason": "The existing Chen length-scaling option is shown as a separate fixed metric-adaptation profile because its planner adds a physical-length margin; do not mistake a single-agent discretization/clearance failure for multi-robot difficulty. No per-case winning profile selection."
+}

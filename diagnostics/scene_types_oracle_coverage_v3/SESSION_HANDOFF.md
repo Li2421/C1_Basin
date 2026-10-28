@@ -1,3 +1,7 @@
+## 最新用户追加优先级（覆盖下文旧的“不跑论文”说明）
+
+用户要求：四列族跑完784案例后先跑之前指定的五篇论文六版本，检查场景是否太简单，再继续其他修正族。当前正在准备11个唯一固定参数profile，共4312个联合请求、4642个状态0单机诊断请求上界；pilot是联合队列子集，精确复用。没有训练，也不对论文跑新64组调参。原v3只覆盖规则除论文禁令和执行顺序被新指令覆盖，其余冻结、18CPU、90k总硬上限保持。见BASELINE_AFTER_FAMILY4.json、PAPER_HISTORY_CHECK.md、PAPER_FAIRNESS.json、baseline_screen.py。当前尚未实际构造论文controller或运行paper rollout；必须等family_4_complete.json出现。main.py已经加hook，但需要一次仅协调程序的恢复切换使当前进程加载该hook；worker原计划不变，已完成数据可官方回收。
+
 # 当前执行状态与恢复注意事项
 
 当前用户要求严格执行 `docs/prompt_scene_types_oracle_coverage_v3_20261028.md`，已完整阅读。此前 v2 和代表17实例筛查均已停止，旧目录只读。当前只做七个冻结修正族覆盖：全部49档、状态0–7、两个冻结nominal，共784案例；不做重新标定、选族、维度推荐、论文方法或学习训练。

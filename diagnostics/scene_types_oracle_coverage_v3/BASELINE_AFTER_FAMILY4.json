@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "requested_after": "family4_oracle_phase",
+  "user_instruction": "这个四列族跑完784就跑一下其他的baseline，看会不会是场景太简单",
+  "methods": "Five specified papers, six versions; reference-default and previous frozen selected options, identical options deduplicated.",
+  "scope_override": "Supersedes the v3 default prohibition on paper baselines only; scene family, dynamics, C1 nominal/safety, candidates, seeds and other v3 protections remain frozen.",
+  "no_paper_rollout_before_family4": true,
+  "overall_new_rollout_cap": 90000,
+  "created": "2026-10-28T15:39:29.327284+08:00"
+}

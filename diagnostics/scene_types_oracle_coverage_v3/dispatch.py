@@ -13,7 +13,7 @@ def status(stage,complete,total,extra=''):
     dump(HERE/'LIVE_STATUS.json',dict(time=current,stage=stage,stage_complete=complete,stage_total=total,new_complete=len(rows),resource_limit=allowance(),extra=extra))
     eta=read(HERE/'ETA.json')if(HERE/'ETA.json').exists()else{}
     estimate=eta.get('description','预计剩余时间：等待主线吞吐样本；成功即停使实际运行量尚未确定。')
-    (HERE/'STATUS.md').write_text(f'# 当前状态\n\n{current}：{stage}，完成 {complete}/{total}，本轮已有 {len(rows)} 局完整结果。CPU 用户总上限 {allowance()}，GPU 0。\n\n{extra}\n\n{estimate}\n\n旧实验目录只读。数值 unknown 保留，不自动重跑；基础设施失败仅补交未完成 UID，每阶段最多三次。本轮只测覆盖，不选族、不判维度、不跑论文方法。\n')
+    (HERE/'STATUS.md').write_text(f'# 当前状态\n\n{current}：{stage}，完成 {complete}/{total}，本轮已有 {len(rows)} 局完整结果。CPU 用户总上限 {allowance()}，GPU 0。\n\n{extra}\n\n{estimate}\n\n旧实验目录只读。数值 unknown 保留，不自动重跑；基础设施失败仅补交未完成 UID，每阶段最多三次。不选族、不判维度；用户追加的论文对照排在四列阶段之后。\n')
 
 def execute(cases,stage,worker_entry='worker_recorded.py'):
     if (HERE/'PROTECTION_VIOLATION.jsonl').exists():raise RuntimeError('HARD_STOP protection event')
@@ -26,6 +26,12 @@ def execute(cases,stage,worker_entry='worker_recorded.py'):
     if used()>=90000 and todo:raise RuntimeError('HARD_STOP actual new rollout budget exhausted (90000)')
     t0=time.monotonic();attempts=[]
     for retry in range(4):
+        if retry:
+            # Recover a completed journal even if the worker died before its
+            # final raw-file rename. Never spend another rollout on that label.
+            merge(stage+'_infra_recovery',cases)
+            cases,new_todo,new_done=register(cases,stage)
+            done.update(new_done);todo=new_todo
         todo=[c for c in todo if not(HERE/'raw'/f"{c['rollout_uid']}.json").exists()]
         if not todo:break
         remaining=90000-used()
@@ -36,7 +42,11 @@ def execute(cases,stage,worker_entry='worker_recorded.py'):
         other=sum(j['cpus']for j in jobs()if j['state']in('RUNNING','CONFIGURING','COMPLETING'))
         workers=min(len(submission_todo),max(0,allowance()-other))
         if not workers:
-            status(stage,len(cases)-len(todo),len(cases),'等待用户总 CPU 额度释放；其他作业不撤销。');time.sleep(30);continue
+            while not workers:
+                status(stage,len(cases)-len(todo),len(cases),'等待用户总 CPU 额度释放；其他作业不撤销；等待不计为基础设施重试。')
+                time.sleep(30)
+                other=sum(j['cpus']for j in jobs()if j['state']in('RUNNING','CONFIGURING','COMPLETING'))
+                workers=min(len(submission_todo),max(0,allowance()-other))
         shards=[[]for _ in range(workers)];load=[0.]*workers
         ordered=sorted(submission_todo,key=lambda c:(-c['scenario_payload']['config']['max_steps']*c['state']['N']**1.5,c['rollout_uid']))
         for c in ordered:
