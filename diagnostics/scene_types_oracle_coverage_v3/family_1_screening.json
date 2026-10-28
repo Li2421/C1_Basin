@@ -1,0 +1,47 @@
+{
+  "family": 1,
+  "policy": {
+    "version": 2,
+    "reference_selection": "best fully observed matched prefix",
+    "protected_families": [
+      0,
+      4
+    ],
+    "checkpoints": [
+      16,
+      32
+    ],
+    "coverage_deficit_fraction": {
+      "16": 0.1,
+      "32": 0.08
+    },
+    "require_lower_coverage_on_both_controllers": true,
+    "interpretation": "Adaptive development screening, not independent validation or mathematical exclusion. Unrun candidates remain unknown."
+  },
+  "reviews": [
+    {
+      "checkpoint": 16,
+      "cases": 272,
+      "found": 151,
+      "reference_found": 183,
+      "deficit_fraction": 0.11764705882352941,
+      "novel_vs_reference_same_budget": 10,
+      "gain_since16": 0,
+      "per_controller": {
+        "centralized_sampling": {
+          "candidate": 71,
+          "reference": 85
+        },
+        "gradient_mpc": {
+          "candidate": 80,
+          "reference": 98
+        }
+      },
+      "prune": true,
+      "evidence": "Matched finite prefixes; heuristic resource allocation only.",
+      "reference_family": 4
+    }
+  ],
+  "stopped": true,
+  "unrun_candidates": 5808
+}
