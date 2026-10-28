@@ -4,6 +4,7 @@ from papers import NAMES
 import csv
 
 OUT=HERE/'paper_after_four_column'
+PROFILE_NAMES={'reference_default':'参考默认参数','v1_selected':'旧冻结选参','v1_metric_scaling_reference':'旧菜单物理长度映射'}
 
 def metrics(rows,expected):
     success=[r for r in rows if r['success']]
@@ -48,7 +49,7 @@ def analyze():
         profiles.append(entry)
         checked=sum(s['single_robot_diagnostic']['completed']==s['single_robot_diagnostic']['expected']for s in per_scene)
         passed=sum(s['single_robot_diagnostic_passed']for s in per_scene)
-        row=entry['overall'];table.append([entry['name']+'（'+','.join(profile['labels'])+'）',f"{row['success']}/392",str(row['completed']),
+        row=entry['overall'];table.append([entry['name']+'（'+'／'.join(PROFILE_NAMES.get(s,s)for s in profile['labels'])+'）',f"{row['success']}/392",str(row['completed']),
             str(row['collision']),str(row['timeout']),str(row['terminal_unknown']),str(row['original_first_error_unknown']),
             str(row['success_mean_time']),str(row['full_completed_cohort_truncated_mean_time']),f'{passed}/{checked}'])
     result=dict(profiles=profiles,physical_states=392,scene_count=49,

@@ -19,3 +19,5 @@ finalize.py会重建原始候选流、全部总体/逐类曲线、时间与配�
 故障检查：先看PIPELINE_ERROR.json、PROTECTION_VIOLATION.jsonl、最新Slurm日志；已保存unknown不要重跑。只处理本轮stb3_，不撤销其他前缀。主线worker基础设施仅补 genuinely_missing，最多三次重试。原数值代码保持冻结；不要随便修改core.py/runner.py/runtime.py/routes.py/guard.py/budget.py/recording_fix.py或共享数值源，它们参与controller_uid，改变会造成不必要的执行身份分叉。调度/分析源可在本目录修复，但要记录。
 
 旧v1全部阶段语义兼容索引33848条，HISTORY_INDEX.json较大、忽略于Git。非精确跨时限复用逐条记REUSE_MANIFEST，不写假新UID精确标签。原始数据、轨迹、SQLite和journal都仍在本地；Git不代表大数据已远程备份。原仓库其他未提交变更已核对保留，PARALLEL_DIRECTORIES登记旧n20监视任务。
+
+最新协调程序作业：31272（批次记账修正已加载，旧worker继续原请求）。论文对照仍未实际启动。
