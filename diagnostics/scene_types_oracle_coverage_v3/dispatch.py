@@ -11,7 +11,9 @@ def status(stage,complete,total,extra=''):
     current=datetime.datetime.now().astimezone().isoformat()
     rows=list((HERE/'raw').glob('*.json'))if(HERE/'raw').exists()else[]
     dump(HERE/'LIVE_STATUS.json',dict(time=current,stage=stage,stage_complete=complete,stage_total=total,new_complete=len(rows),resource_limit=allowance(),extra=extra))
-    (HERE/'STATUS.md').write_text(f'# 当前状态\n\n{current}：{stage}，完成 {complete}/{total}，本轮已有 {len(rows)} 局完整结果。CPU 用户总上限 {allowance()}，GPU 0。\n\n{extra}\n\n旧实验目录只读。数值 unknown 保留，不自动重跑；基础设施失败仅补交未完成 UID，每阶段最多三次。未完成留出前不推荐维度。\n')
+    eta=read(HERE/'ETA.json')if(HERE/'ETA.json').exists()else{}
+    estimate=eta.get('description','预计剩余时间：等待主线吞吐样本；成功即停使实际运行量尚未确定。')
+    (HERE/'STATUS.md').write_text(f'# 当前状态\n\n{current}：{stage}，完成 {complete}/{total}，本轮已有 {len(rows)} 局完整结果。CPU 用户总上限 {allowance()}，GPU 0。\n\n{extra}\n\n{estimate}\n\n旧实验目录只读。数值 unknown 保留，不自动重跑；基础设施失败仅补交未完成 UID，每阶段最多三次。本轮只测覆盖，不选族、不判维度、不跑论文方法。\n')
 
 def execute(cases,stage,worker_entry='worker_recorded.py'):
     if (HERE/'PROTECTION_VIOLATION.jsonl').exists():raise RuntimeError('HARD_STOP protection event')
@@ -63,7 +65,13 @@ def execute(cases,stage,worker_entry='worker_recorded.py'):
             if running and not observed_running:
                 print(stage,'RUNNING',running,'CPUs',flush=True);observed_running=True
             if time.monotonic()-last_status>60:
-                status(stage,complete,len(cases),f'作业 {jobid}：运行 {running} CPU，重试 {retry}/3；尚未形成维度结论。')
+                new_complete=max(0,complete-len(done));elapsed=time.monotonic()-t0
+                if new_complete>=20 and elapsed>=30:
+                    rate=new_complete/elapsed
+                    budget_hours=max(0,90000-used())/rate/3600
+                    dump(HERE/'ETA.json',dict(stage=stage,new_per_second=rate,hours_to_budget_at_current_rate=budget_hours,
+                        description=f'预计本批剩余约{(len(cases)-complete)/rate/60:.1f}分钟；按本批吞吐耗尽剩余新rollout预算约{budget_hours:.1f}小时。后续场景成本不同，成功即停与旧证据复用会改变实际总量，完整交付时间尚待收敛。'))
+                status(stage,complete,len(cases),f'作业 {jobid}：运行 {running} CPU，重试 {retry}/3；覆盖数据随搜索更新，尚未完成项不算64次失败。')
                 print(stage,'progress',complete,'/',len(cases),'running',running,'elapsed',round(time.monotonic()-t0),flush=True);last_status=time.monotonic()
             if not current:break
             if not observed_running and time.monotonic()-pending_since>900:
