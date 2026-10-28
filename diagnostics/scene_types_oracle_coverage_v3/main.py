@@ -105,7 +105,15 @@ def run():
         family_order=ORDER,report=str(HERE/'REPORT.md'),no_dimension_selection=True,no_paper_methods=True))
 
 def main():
-    try:run()
+    try:
+        # A killed coordinator can leave independent array workers running.
+        # Drain those workers before the single official merger recovers them.
+        own=os.environ.get('SLURM_JOB_ID')
+        while any(j['name'].startswith('stb3_')and j['job_id']!=own for j in jobs()):
+            time.sleep(10)
+        if any((HERE/'raw').glob('*.json')):
+            merge('resume_recovery',[dict(rollout_uid=p.stem)for p in(HERE/'raw').glob('*.json')])
+        run()
     except Exception as exc:
         if(HERE/'SEARCH_STATE.json').exists():
             state=read(HERE/'SEARCH_STATE.json');write(state['groups'],state['baseline'])
@@ -115,6 +123,8 @@ def main():
         active=[j for j in jobs()if j['name'].startswith('stb3_')and j['name']not in ('stb3_pipeline',)]
         for j in active:
             if 'rngchains'not in j['name']:subprocess.run(['scancel',j['job_id']],check=True)
+        while any(j['name'].startswith('stb3_')and j['name']!='stb3_pipeline'for j in jobs()):
+            time.sleep(5)
         raw_cases=[dict(rollout_uid=p.stem)for p in(HERE/'raw').glob('*.json')]
         merge('pipeline_stop',raw_cases)
         dump(HERE/'COMPLETE.json',dict(complete=False,error=repr(exc),actual_new_rollouts=used(),resume='bash diagnostics/scene_types_oracle_coverage_v3/resume.sh'))
