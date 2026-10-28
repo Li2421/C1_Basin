@@ -18,5 +18,16 @@
     "Retest changed methods on frozen17 scenes via official cache workflow",
     "Analyze matched success times and finish remaining B families"
   ],
-  "prior_results_retained": true
+  "prior_results_retained": true,
+  "status": "deferred_by_user",
+  "user_instruction": "如果你现在不知道怎么修，旧暂时先别管，参数也先别管。我之后处理",
+  "deferred_at": "2026-10-28T19:56:23.720526+08:00",
+  "paper_controller_edits_authorized_now": false,
+  "paper_parameter_edits_authorized_now": false,
+  "paper_repair_retests_authorized_now": false,
+  "remaining_active_work": [
+    "Finish remaining correction-family Oracle searches on frozen17 geometry-selected scenes",
+    "Compare coverage and dimensionality within tested finite candidate pools",
+    "Analyze completion times on matched common-success cases"
+  ]
 }
