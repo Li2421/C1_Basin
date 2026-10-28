@@ -1,0 +1,29 @@
+{
+  "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/scenes.py",
+  "source_sha256": "30f15513c78a4f185c59ce7cc741859c633c81372c2c21540968f1243fee002b",
+  "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/generated/scenes_v2_impl.py",
+  "target_sha256": "e0010b073c140df1924a098344cd705b68d468f4cc363a3f95eb525ed29d4f1a",
+  "literal_replacements": [
+    {
+      "old": "7:[12,15,18]",
+      "new": "7:[6,8,10]"
+    },
+    {
+      "old": "17:[.5,.44,.4]",
+      "new": "17:[12,16,20]"
+    },
+    {
+      "old": "mintrip=1. if type_id==4 else 0.",
+      "new": "mintrip=1.5 if type_id==7 else 1. if type_id==4 else 0."
+    },
+    {
+      "old": "math.ceil(4*longest/.5/.05)",
+      "new": "math.ceil(6*longest/.5/.05)"
+    }
+  ],
+  "block_changes": [
+    "forest layout",
+    "uniform warehouse x-end/internal aisle widths",
+    "circle-to-compact-grid gathering"
+  ]
+}

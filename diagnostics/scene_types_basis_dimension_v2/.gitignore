@@ -1,0 +1,16 @@
+generated/
+accel_inputs/
+scene_design/
+forest_layouts/
+tmp/
+mplconfig/
+cache/
+cuda_cache/
+import_manifests/
+raw/
+traces/
+slurm/
+attempts/
+queues/
+*.sbatch
+!core.py

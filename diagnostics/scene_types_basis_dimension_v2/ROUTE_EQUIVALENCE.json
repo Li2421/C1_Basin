@@ -1,0 +1,1406 @@
+{
+  "passed": true,
+  "pairs": 50,
+  "comparisons": [
+    {
+      "off": "roll_586be868d5317be8940ebe92cc3232293793973b9744fcc8231e6700046eafa7",
+      "on": "roll_16217f7ad1798272678133d5d8b78ab8ecfa729a8a022ce8160eda283e4f45a0",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_ddc2f9e2ab21bf8dc5e117d6d0fcba4dbc72122d5236e504c55fc6bc1cef57e7",
+      "on": "roll_6fa1600769a7f6cab00f952ce72fa24c2eaadcf9c3bf8d53be9bb06b47865741",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_ec6494cc275d0bdab6f90d30375d74d5a2e7e606a6c6166390b54d542e65ff7a",
+      "on": "roll_299c9d77bc27bc44d7417e139502afbb0c8a1526c2c74aaf17284d332cdf5a40",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_e9c513045a15f647ad0b0fd6fe1e9dd9159783a2e4f485ad8affe38a313667b1",
+      "on": "roll_b94b4bf4665ed5a247885aaeba71e903b4976a4495d05e5633eeb8fa3f15b516",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_192c8a7a570a9fac67632505343df836f3d15423a3bca84b7aa0d539c12fef6d",
+      "on": "roll_bf7355a48005cc83d2d1c0985cf05220d01bb592f1317fb615f78742a03ef19a",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_8b2d9cbb87a6322531383c4bc744d56e9c3357c8b5574dbe548d138500f27126",
+      "on": "roll_506df2ef9f65dc5657054ad7ee67ecf68368e04d0b8ce183628cffb4d28389ac",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_cfd32e6c2aa8becfd7143445c86d058b6438cee2f5b5f6ea7848a6941759889b",
+      "on": "roll_01a95f72e5082c114d0eb953c83065fe00baca5b2f6e56967387f344af800318",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_3bd9bb84f62698c9a7f96b83c302c0bdfb647462d4a397cdba4c29f70c721465",
+      "on": "roll_2f5e0162f34819a7186da1bc996ca72b9bdd6e53e7562bd147663346a6b4cf9f",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_85c062de0af92504f03ca3cb78364a112e686584b17f19b470c43519c6a3ec93",
+      "on": "roll_666bb55a7508bf95772ec51291c57263032082562094dab0bb240637f7351643",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_db7984cd0b8d5e6432cfef23dacf5ab13ce233d57b11aa8b8a3edf4900349439",
+      "on": "roll_0027207e19da3416d4d0b590264a2837b467e96d573e31b3ac1c0df5f40eb1b4",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_8bf4bc5aaec9120a14d59a65e6bda1c5f9e1cba7c14f5f2b0d4a3c0be3adf223",
+      "on": "roll_0bffac0d7bb183737fab6f55624c8a6e3be5904fc16d896e352fb13d82fcd2f8",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_fbbf0c5105b59c73558710c531e7e66799baf8795d19a1d4c19d162b0a1e5e33",
+      "on": "roll_f3a167a549ba6558fad631d3e7eb1eac628afb6368d248061b2ea81572d076b9",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_4aabdf89954187ef4dc84dbe980b6750ed779fbf9b36df5f32f74175b61ca9b8",
+      "on": "roll_afaf986a5b087885e552a1e7b55169c404297468fdd3faad9e24322908efd25c",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_a5cc7607f1ca603f0009a8d973abdf1d79a0c4476dfb9ee0a5dd2c40ec0d765b",
+      "on": "roll_4c8e29abbff222367bdc7d2aca81c867ea64268bea13a9ab4abeafc313993011",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_a0800cd716b5c349c3ac2a9124aceb5f41c7bd9cc035d14faf03fe3a232e95c9",
+      "on": "roll_afc2204229567ebfd67c512610ea9dec438af49788129d10f5ea6c8e46c08e32",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_1e648b04878efd52f567ea02e6846cfea2d4276e7c968e8aa7992e93261b794f",
+      "on": "roll_8ff5c0e5a1b52cd306c99601c1f767ae3f74b37e72a043367cbf3d445ce508dc",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_c0de3ff8f50b24b415f7e5688d8260fbd551d7699ff2650b7809f740433da7e2",
+      "on": "roll_6743c8270a011f4673a06445e3dea4214c5625966bfce3eac5287485b34241de",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_a44a881fe007dbfa0a75eb4fd85b4c329ae9e3a6f9423ee59eeeec557a048686",
+      "on": "roll_27e7c6b6794ccec8262a9f350f28f5205e6486ec3cc082d5fb70ad7782a36e33",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_360aaf3a75a83d5a82c270ba0a668633f0a62e01fb3ca4c47a622f4d21fe1599",
+      "on": "roll_e4f92ac0359044bb51e3d7813539797bd2f7e9493d89ec859f505f05ab373f43",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_ef02e7162607cdd0d69a4814f00cba637b639009b5f8278eab5139fe11e62565",
+      "on": "roll_19ec2814073155c849e6617ab7464653ad741a059723edc96db82cf8c74e9fff",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_2600d3c141653895bdc2079ec2d20c506535178a8876def54ece178d3c0da194",
+      "on": "roll_ee3a3b0e2473e42a69826e41244d217eb7766b6fda326ab3d2becf5757b67ded",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_dd7d66254777d811c07b5681f6ac521a65d8fad2ae421a119d2c475f79d67624",
+      "on": "roll_23cf3f059a0f85c58e57bf1c9812a0eb4ca95ba3a595af35632450256b3480b8",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_e70013dfc0003a3aeac90e4a23729cd98b95c4fecc14f58c0b1bc18906f1a683",
+      "on": "roll_a14662f8e94b02aed0577df25da2f285dcc4405821325128db3bb7620a4a79e7",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_4c49e955385df06f5a8a55c124f0f9391bbb9aeb19846b6687fef7a681e81f6f",
+      "on": "roll_15a49cf063bd9ec24492265bfe6769b8805b78c3046bf17ea0eab65e06897d0d",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_33258e18f2b5e8cd5a68e93e0ba1e1e6b4316accaecfb729b3b9e47c2571ef30",
+      "on": "roll_a8980bdfa9c38dbdd443a317927b71c2e2c1f289ca40133ace689392c9439e72",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_a230f1f6e200c70392e955c2fe518238c5c77e614078250e572ae80e1f9c6ad1",
+      "on": "roll_3f46c7127c834d394185095c49dc8083406a88128f542fe4b80c806122dcb043",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_b8234581dc58c92e2090c6c229a05935e4013c4789e2723d4e92c05cdd06dba6",
+      "on": "roll_e6a932014eda5d4ff2b7e4cd6e362d636ebb6b46e2ddc646212a87a4b358cb6c",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_a780047602284ce489f1f23a6ae0d8f4c06feb7e394c8c952b96890de379e384",
+      "on": "roll_f70ed72fee74953fdd07e289426bee0c484197885f34afa419fe6e574dc388ec",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_e49a5784557956141c241af39502b356d15ab8ae487f244511109b81085e6ccd",
+      "on": "roll_78b3d599613307fda8595aeb54a4cb60a9e5adda22e3330bfbcd534c8c00c825",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_7c283f31f962b8bd6dd668ba5ebafe79f29570d8fbd386225888aeaaded0d01b",
+      "on": "roll_04d6613f915aa0ab003d7eeb104b3b252edf62235501f1334b666e50ede099c9",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_d6fbea1f560a2b986cbc9e766ae369519a0d49243a2fd307d3d5ac7fda696aba",
+      "on": "roll_2254d526063e2fd0173fd66098a444392fda0c6fd0e2c597db82682de29a1b70",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_d7ae755064ba6e91931fe91a3f22938ab4ecdc9a6155ad93f5a981c9e7274867",
+      "on": "roll_7310e8a511e21b43775066621ca462f0aae633171f0943603b9f2078f2da6794",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_f1caee0f4e6f1d53f9ce85596c6cebbf21f3b2e5c69fba631fb34be1df0ce544",
+      "on": "roll_90cb76a5b2af006d9ae9a7c3c6ef1da99558ac4ab85ea07e9074385f533516d5",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_7793e649b683420aa3011844bf0d1f09f9b1b706b6e4584e4be9276c54557ac8",
+      "on": "roll_072caf7f334d106eff006d0628b816806400377b7bcacc47940f5cda3aa8ed41",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_86d3be623c68a8ac0564fb10c90d50ec478821b07adeacf23e1071492a1e2ee3",
+      "on": "roll_54d1949725b8c2ebffb6ba36a0320fa68b803d255385cd8a9c5ef79c61b15f8c",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_fdd0279053fb05ab69f088babaccccaabda113e4a0c820921a0c865fdbfe38d5",
+      "on": "roll_afe212d03dde2b002162b22c3c093a2b704bc015dd135c6bb633ed68dbf2e192",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_5c6cce773ce88d26da6b7e7abc5ef893bd4d5db69d56d7ad66fc7938a51a3b6f",
+      "on": "roll_905afd1556efaa33e1369eebab51481764a0729ac98a267f8384755911477fc3",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_fd0ca7d0e8216129afdebac2154a8fff00e52e306412530c9c422ea1e6847be5",
+      "on": "roll_c6edb949d9c0bc1aeec8b1b720c1b85f9c0155e02f54660e81ce38cb0dbd84ed",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_cac1650ef8676a3955d76466fa321e6871c55186939fed4fcd49d52da57d6f31",
+      "on": "roll_2c158e1e1daa1bee5f5ccf7d40ffb887082329e7cca02aa0c6835bf849dc8303",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_6999aa9bd8712f45810a19330981464e4fd7b04c956f001457108f345088bd10",
+      "on": "roll_41b92c2849f90a427e777280ae20a2ad413cba14c5b249e3ada94e1d73f04542",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_12ac0e130bb1d69b166196afeb302490ae8716002e3b5c189d68fe54c1e69052",
+      "on": "roll_945b6d2d850926568cd0e1f73b236d6b6e4907c620537936247a2aea7ae71a21",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_c521accd6de5a975d75d557e29ac0f25badb70cd7c71bb0cbb00deb304a10a1b",
+      "on": "roll_d6bc4466e70bef1edd0f1913a023c43551f7ad8a246172b457bd9f587c431670",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_9d2910636465e47f344030c1cf8a6d9e593a5a40bd198e51940e7da6058e36ad",
+      "on": "roll_4dcbdbcbe944cd6c6ec67e02245112c1c478f54a4981a38949b3e31643acb8c4",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_511f4841c05e97c71ef3700477a7215102f653485ed89fafcaef1a572fb71b4a",
+      "on": "roll_28a1d6b3525df56b5062380b033357f5e427e19fb3628b74b714d86acef430eb",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_e840e5f612977c48051b923b2f1f07e9c888918567e1d4aa0e504f8d14261efb",
+      "on": "roll_6b708e58d8b22d15285ec7d937deae9a8e111ef7dbea3b9cd01d3a099be5b121",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_461c1f3406078a7206d50e66406b3a445cac859d03982fce2cf014fea9238487",
+      "on": "roll_3bf25970e488d957e649bf62430333f336952775d8a5271a7173c1e1379a6b08",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_c86e1ef59a9d3c5af256c7694ff852a1798c71bf6e61ebdb6ef521a7e82f740a",
+      "on": "roll_e76b7663594ca67b8d14d3782974bc1f50a852a69291e3e4953593fd760e343a",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_7c0d46e879e5489469434bd361c8d1b7f9b8b648ec246f4ed27f2483a8c7d3ff",
+      "on": "roll_5769e076d9b0e6a8a79d5ad0617989d640c890fe231626c5978882ad477a2f87",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_4dbd8446419b47e76eb2412a4633a371d17fa18c0ec083c14ba0f56d0138408a",
+      "on": "roll_f837a8660cda42a96a6a553ac555cf5d513ad6b4689054c39dee9746af08eca1",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    },
+    {
+      "off": "roll_c599f24ec151f7e0c6986deefdaedcb4232e07a2f9bfd090bd25f2c0a8e0dc51",
+      "on": "roll_18b7a48dc5ca1d8dd47cba0c8b16198dd10fdaf2f885a65174a7ca397bea8dab",
+      "equal": true,
+      "arrays": {
+        "positions": true,
+        "velocities": true,
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "projection_rewrite": true,
+        "swept_clearance": true,
+        "clearance_types": true
+      },
+      "outcomes": {
+        "success": true,
+        "collision": true,
+        "timeout": true,
+        "numerical_failure": true,
+        "outcome": true,
+        "episode_length": true,
+        "constraint_violation_steps": true,
+        "sampled_speed_violation_steps": true,
+        "restoration_steps": true,
+        "minimum_swept_clearance": true,
+        "final_goal_distances": true
+      }
+    }
+  ]
+}
