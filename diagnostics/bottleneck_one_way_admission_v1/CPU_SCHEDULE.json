@@ -1,0 +1,9 @@
+{
+  "timezone": "Asia/Singapore",
+  "before_deadline": 24,
+  "deadline": "2026-10-29T09:00:00+08:00",
+  "after_deadline": 18,
+  "source": "用户最新要求：今天早上9点释放6个cpu",
+  "scope": "用户全部Slurm任务合计；只撤销本线程两个研究任务的超额worker，不撤销无关任务",
+  "resume_policy": "已完成journal保留；未完成请求通过原清单和官方preflight补交"
+}

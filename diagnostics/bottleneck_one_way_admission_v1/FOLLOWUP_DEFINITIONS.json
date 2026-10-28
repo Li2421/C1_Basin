@@ -1,0 +1,13 @@
+{
+  "source": "inputs/prompt_bottleneck_one_way_admission_v1_followup_20261029.md",
+  "source_sha256": "48e2e849e7d29d433d2dc59d2f9893e5bb1adcf810be934246cb543069c44c19",
+  "candidate_menu_sha256": "ade51d7faabcd8ea3b6ffd8c1a5956991ea2361c31d06cfc15b9b6ebfc69f4ba",
+  "runtime_sha256": "a66889ef690c295a7602016d59390d30ce9f29c984ae9dbe2ebc1708610cd471",
+  "interpretations": {
+    "reservation_expiry": "Planned leave time expires the reservation; missed entry expires after enter+2s and cannot rebook until next step. Encounter means current inside/request relation to the same passage.",
+    "waiting_grid": "Global 0.05m lattice; robots pick nearest point to their current location, tie by exit distance then coordinates.",
+    "head_on_role": "Only selection is filtered by heading cosine; original inactivity rule controls reassignment.",
+    "signal_request_distance": "Default admission request distance 0.8m."
+  },
+  "zero_new_rollouts_at_freeze": true
+}

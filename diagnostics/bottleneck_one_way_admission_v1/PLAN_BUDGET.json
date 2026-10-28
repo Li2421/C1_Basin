@@ -1,0 +1,7 @@
+{
+  "original_hard_limit": 15000,
+  "followup_hard_limit": 35000,
+  "original_conservative_upper_bound": 11344,
+  "original_bound_explanation": "816 fixed,320 certificates,272 main@16,61 hard extra48,61 three ablations@16; actual hard count freezes after v3 and cache reduces work.",
+  "followup_policy": "Separate counter; hard-case six schemes then threshold-triggered all49 within remaining budget; no dimension selection."
+}

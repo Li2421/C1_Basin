@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "definition_version": 2,
+  "environment_steps": 0,
+  "checks": [
+    "no-passage bit identity",
+    "FCFS tie robot ID",
+    "waiting target cancellation",
+    "entry count",
+    "quota opposite turn",
+    "inverse inside c1=c3=1 produces exact exit vector",
+    "no geometric-inside robot receives clearance including arrived agents",
+    "arrived outside exit blocker clearance",
+    "finite route lookahead",
+    "inactive role resets only in explicit ablation"
+  ]
+}

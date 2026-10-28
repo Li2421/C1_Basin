@@ -1,0 +1,19 @@
+{
+  "files": {
+    "admission.py": "144d8828ef0b3e3f8ba10312b7e6a159a85a1903be14c117164188433b7fa350",
+    "passages.py": "77c993a189c1dfdb87b0558f37d15043d359458ee39c15469fcca919842535c7",
+    "runtime.py": "d00db4ba6a8d82ab4aea73afd4eb54b1d6c75ffa0eef23332c4a80624a4214f1",
+    "PASSAGES.json": "4a7011e9aafc301ebaf0e2133708e2d9a185166814bc63bf197411a731d722e3",
+    "ONE_WAY_MENU.json": "5da49a138f141a1e69117d908b28c0e5b3cc9cb31cc4960d3f24895602adfbc2",
+    "FAMILIES_THIS_ROUND.json": "70db4c7c24d7a4a304d0e085c9c74b8fffa7c40924427035fa2184de8ffc38eb"
+  },
+  "rule": "Only implementation corrections relative to prompt after this point; affected outcomes must be invalidated explicitly.",
+  "implementation_correction": "Before any rollout: FCFS inside priority uses Euclidean distance to own directional exit, including expanded-end positions, as specified. Previous signed axial distance could misorder robots beyond the unexpanded exit.",
+  "definition_version": 2,
+  "authority": "规划方追加的定义修正",
+  "followup_source_sha256": "48e2e849e7d29d433d2dc59d2f9893e5bb1adcf810be934246cb543069c44c19",
+  "formal_new_column_rollouts_before_change": 0,
+  "invalidated_rollouts": [],
+  "time": "2026-10-29T01:36:15.019094+08:00",
+  "runtime_extension": "Frozen lazy followup dispatch; original path unchanged when coordination is absent. No new rollout existed before this final implementation snapshot."
+}

@@ -1,0 +1,12 @@
+{
+  "files": {
+    "admission.py": "185bed3c22cfc00c6dee57b5b3474052fae9dde3013ee62ae06f6eb1402600f5",
+    "passages.py": "77c993a189c1dfdb87b0558f37d15043d359458ee39c15469fcca919842535c7",
+    "runtime.py": "35ff120202099573d6595575ae14caa0778008cc3a8d6a22cd1351300217ffa6",
+    "PASSAGES.json": "4a7011e9aafc301ebaf0e2133708e2d9a185166814bc63bf197411a731d722e3",
+    "ONE_WAY_MENU.json": "5da49a138f141a1e69117d908b28c0e5b3cc9cb31cc4960d3f24895602adfbc2",
+    "FAMILIES_THIS_ROUND.json": "70db4c7c24d7a4a304d0e085c9c74b8fffa7c40924427035fa2184de8ffc38eb"
+  },
+  "rule": "Only implementation corrections relative to prompt after this point; affected outcomes must be invalidated explicitly.",
+  "implementation_correction": "Before any rollout: FCFS inside priority uses Euclidean distance to own directional exit, including expanded-end positions, as specified. Previous signed axial distance could misorder robots beyond the unexpanded exit."
+}

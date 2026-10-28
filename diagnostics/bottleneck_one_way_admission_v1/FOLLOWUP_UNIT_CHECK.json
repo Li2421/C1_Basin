@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "environment_steps": 0,
+  "schemes": [
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+  ],
+  "checks": [
+    "wall-dependent no-passage bit identity",
+    "composite inverse exit vector",
+    "outside-only slowdown excludes inside agents",
+    "signal clearing preserves inside inputs then alternates",
+    "head-on team and shorter route passer",
+    "opposite reservations and missed-entry rebooking",
+    "valid separated waiting waypoint"
+  ]
+}
