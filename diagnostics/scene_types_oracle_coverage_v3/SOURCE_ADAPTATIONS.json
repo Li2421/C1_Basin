@@ -5,18 +5,21 @@
     "diagnostics/scene_types_oracle_coverage_v3/freeze_menus.py": "e0bea81140c7a22224501ea299e9b7b8b884f720417c468557a0d7c9bb3d74c7",
     "diagnostics/scene_types_oracle_coverage_v3/coverage.py": "1a4166acfba0956733e4584c05b8d25f1554a6d50cf73c6001e317409d221aa4",
     "diagnostics/scene_types_oracle_coverage_v3/runtime.py": "32d21bb26a276c7ba9506820e3fee52dde9791d8c06a4fa3674ebedb825e4e71",
-    "diagnostics/scene_types_oracle_coverage_v3/worker_accel.py": "570492a379c4a4c1d6a35b850f3027c6c12a6c637fd7511250478539c4329657",
+    "diagnostics/scene_types_oracle_coverage_v3/worker_accel.py": "df45d3d4cd41faa4a672d2fd9539d3639e44a3f3ee23ce6107daff59e04adae9",
     "diagnostics/scene_types_oracle_coverage_v3/gates.py": "c1b76d79d65951d5e69f75e7bc6e540d5f9ac8041e796bad0f015192beb37554",
     "diagnostics/scene_types_oracle_coverage_v3/key_chain_extension.py": "293393e1d7f8f5213740aa6bc160b6c4b7f59571dd844da99fcbc5e52665d1cb",
     "diagnostics/scene_types_oracle_coverage_v3/reuse.py": "7f4811d128542d383131b20b608e0c723336eb6c142816a0e8029c13802c269a",
-    "diagnostics/scene_types_oracle_coverage_v3/dispatch.py": "ccfb4b41147cf17f234b0de607d801479e6cd666aae4230e08502b01f19fd5fc",
+    "diagnostics/scene_types_oracle_coverage_v3/dispatch.py": "d66e90be3ee453c368676fb958601092128e19548ce50840b0da0a86182b92cf",
     "diagnostics/scene_types_oracle_coverage_v3/acceleration.py": "dc2563fcc9a6d039e8f9f606e7bc850370c58f4804004c058d96350a0784fec5",
     "diagnostics/scene_types_oracle_coverage_v3/prefix.py": "189584c790eaf63f73e2766418ae3a1ccf2444d8f7320476e3fdb3e23ad3fecc",
     "diagnostics/scene_types_oracle_coverage_v3/core.py": "7b33e6783079a227c212b9899978cd05bf0b625031a8573b84184d1f669b43d4",
+    "diagnostics/scene_types_oracle_coverage_v3/finalize.py": "da66d8285cc68c7d2339fe38690c7b9812d362dc59390e92528ec62ac29932e1",
     "diagnostics/scene_types_oracle_coverage_v3/guard.py": "78a64eb57f6bd9987e2e679803998ff12541417dc1ab0664a90f80719e908a3c",
     "diagnostics/scene_types_oracle_coverage_v3/resource_watch.py": "d1359b1b2a082f8cf5db1f02a8e0594ca9cc8ab8c055228b968399f99642aea9",
     "diagnostics/scene_types_oracle_coverage_v3/routes.py": "ea5b2b4c52fb48dac2f8dd35face2e1bbe8ea119dd28dfe44fb9f4f1e9a7ea61",
     "diagnostics/scene_types_oracle_coverage_v3/legacy_parameters.py": "846234404d750127bc62a6f931a1f846a2481b72b5bf831dc98d53cfc976a027",
+    "diagnostics/scene_types_oracle_coverage_v3/plot.py": "d5d9de72237c61423b8758e94a2a33c2a61653b8b89237252a5081a60ec391dc",
+    "diagnostics/scene_types_oracle_coverage_v3/finish_when_ready.py": "8b090b6676bdbf04c6f2bf3464d7489e48eb9e3f4f06145e21b2883a9105d08c",
     "diagnostics/scene_types_oracle_coverage_v3/scene_helpers.py": "658ff5c6404bb776a323683a2e38fa61af46e9a57009af6fb8df301eddff1bb9",
     "diagnostics/scene_types_oracle_coverage_v3/scenes.py": "f92752a99305dc7c10ee90ff6e998f626d7eb13a4a43b8c8341d8d69c668b4f6",
     "diagnostics/scene_types_oracle_coverage_v3/equivalence.py": "92b5e62781f195f97aa6ae6c3d2cc8f3bd9f347528ac54a1572aa9fcb8d7b749",
@@ -24,9 +27,10 @@
     "diagnostics/scene_types_oracle_coverage_v3/certify.py": "7bddd8b11bd290a0975effa27037052afe62adec4b64192a3d52b31396c8b27e",
     "diagnostics/scene_types_oracle_coverage_v3/prepare.py": "d7d82e7372e54c0e7349a926ff9d06e916f34b2e2b57c8152860955891e39e58",
     "diagnostics/scene_types_oracle_coverage_v3/runner.py": "8dea1249d0e84c09ed5e1b08f45d148f2803f56da29b3ef2617b583dbd0212e6",
-    "diagnostics/scene_types_oracle_coverage_v3/worker_recorded.py": "d0f90ebc212963c4a9ceb24871c69e0c0009dba40d7fb0aa47afa6fa86f9ddd4",
+    "diagnostics/scene_types_oracle_coverage_v3/flexible_worker.py": "fcdb48b757bb367d0240934f093a40fcc67a460c2440ca0e4bdfa842204954ab",
+    "diagnostics/scene_types_oracle_coverage_v3/worker_recorded.py": "412860fd59e99fb8c948d1ebc2611d035370b52553cc49d53b42b9eea18f7f85",
     "diagnostics/scene_types_oracle_coverage_v3/recording_fix.py": "876081056a289cfc8c5ca89be35b9efbe981efe83408f1d22427c5859623a006",
-    "diagnostics/scene_types_oracle_coverage_v3/main.py": "b69ff0490efb2640e7f84d0cf6382fd92ac4f5cad79b0699f7994d16d3f1322f"
+    "diagnostics/scene_types_oracle_coverage_v3/main.py": "e56ac7435b8365a054a1ffb121cc4d7f06b450065ec21193640743ecebd2a620"
   },
   "changes": [
     "v3 namespace / experiment / journals / Slurm prefix",
@@ -34,7 +38,8 @@
     "diagnostic JSON adapter on original and accelerated workers",
     "atomic 90000 actual-attempt cap",
     "all-phase v1 semantic index and explicit prefix-certified horizon transfer",
-    "sequential frozen candidate search with first-success stopping; no selector or dimension recommendation"
+    "sequential frozen candidate search with first-success stopping; no selector or dimension recommendation",
+    "Mechanical cross-shard scheduling with exclusive UID locks; no changes to numerical work(c) calls."
   ],
   "shared_numeric_source_changed": false
 }

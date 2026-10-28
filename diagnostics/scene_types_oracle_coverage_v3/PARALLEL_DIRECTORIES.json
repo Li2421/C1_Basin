@@ -1,0 +1,16 @@
+{
+  "directories": [
+    {
+      "path": "/home/zhihan/research/Basin_C1/diagnostics/gap_flow_scale_20261007",
+      "reason": "Existing n20_cpu_priority_governor.py process predates v3; unrelated task, observed by stat only",
+      "mtime_ns": 1792488799960313666
+    }
+  ],
+  "docs_new_prompts": [
+    "docs/prompt_scene_types_oracle_coverage_v3_20261028.md",
+    "docs/prompt_scene_types_v2_paper_baselines_20261028.md",
+    "docs/prompt_eta_diverse_scene_test_v1_20261026.md",
+    "docs/prompt_learned_controller_baselines_v1_20261027.md",
+    "docs/prompt_scene_types_basis_dimension_v1_20261028.md"
+  ]
+}

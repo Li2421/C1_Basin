@@ -3,7 +3,7 @@ import guard
 from guard import HERE,ROOT
 import sys
 sys.path.insert(0,str(ROOT))
-import json,hashlib,subprocess,datetime,os,time
+import json,hashlib,subprocess,datetime,os,time,re
 from pathlib import Path
 from shared_rollout_db.src import rollout_db as db
 
@@ -12,7 +12,45 @@ def write(p,x):
     p=Path(p);tmp=p.with_suffix(p.suffix+'.tmp');tmp.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n');tmp.replace(p)
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
+def reconcile_completed_frontier():
+    """A hard cap can interrupt a batch after some real results were saved."""
+    state_path=HERE/'SEARCH_STATE.json'
+    if not state_path.exists():return
+    state=read(state_path);groups=state['groups'];changed=False
+    pending=[]
+    for p in HERE.glob('oracle_f*_k*_reuse.json'):
+        stage=p.name[:-len('_reuse.json')]
+        if not(HERE/f'{stage}_labels.json').exists():pending.append(stage)
+    if not pending:return
+    from runner import case,controllers
+    from acceleration import accelerated_case
+    from coverage import write as coverage_write
+    make=accelerated_case if read(HERE/'ACCELERATION_CERTIFICATE.json')['passed']and read(HERE/'ACCELERATION_KEY_CHAIN_EXTENSION.json')['passed']else case
+    scenes={(e['type_id'],e['level']):e['scene']for e in read(HERE/'SCENES.json')['entries']}
+    ctls={c['type_code']:c for c in controllers()}
+    menus=read(HERE/'FAMILIES_64.json')['families'];reuse=read(HERE/'REUSE_MANIFEST.json')['records']
+    for stage in pending:
+        match=re.fullmatch(r'oracle_f(\d+)_k(\d+)',stage)
+        if not match:continue
+        fi,ki=map(int,match.groups());sp=menus[fi]['candidate_pool'][ki-1]
+        for g in groups:
+            if g['family']!=fi or g['success']or g['skipped']or g['searched']!=ki-1:continue
+            c=make(scenes[(g['type_id'],g['level'])],ctls[g['controller']],g['state_index'],sp,purpose='v3_oracle_coverage')
+            uid=c['rollout_uid'];p=HERE/'raw'/f'{uid}.json';r=None
+            if p.exists():r=read(p)
+            elif uid in reuse and reuse[uid]['action']=='reuse_terminal_outcome_after_prefix_certificate':r=read(reuse[uid]['v1_path'])
+            if r is None:continue
+            query=dict(index=ki,target_query_uid=uid,rollout_uid=r['rollout_uid'],success=r['success'],
+                       outcome=r['outcome'],source=r['source'],completion_time=r['completion_time'],
+                       episode_length=r['episode_length'],trace=r['trace'])
+            g['queries'].append(query);g['searched']=ki;changed=True
+            if r['success']:g['success']=True;g['first_success']=ki;g['solution']=dict(query,spec=sp)
+    if changed:
+        write(state_path,state);coverage_write(groups,state['baseline'])
+        with(HERE/'ITERATION_LOG.md').open('a')as f:f.write('\n最终只读重算：把硬上限/异常发生时最后一批已保存的真实结局纳入覆盖表；没有启动任何新rollout或跳过候选顺序。\n')
+
 def main():
+    reconcile_completed_frontier()
     state=read(HERE/'COMPLETE.json');coverage=read(HERE/'COVERAGE.json')
     raw=list((HERE/'raw').glob('*.json'));m=read(HERE/'REUSE_MANIFEST.json')
     seen={};counters=dict(success=0,collision=0,timeout=0,numerical_failure=0)
@@ -61,6 +99,12 @@ def main():
             original_three_mean=sum(p[1]for p in pairs)/len(pairs)if pairs else None))
     write(HERE/'TIMING.json',dict(families=analysis,paired_success=paired,
         distinction='Success-conditional time, paired common-success time and full-cohort truncated time are separate. No fastest-eta selection after first success.'))
+    write(HERE/'COMPUTE_COSTS.json',dict(new_complete_unique=len(seen),
+        actual_attempts=read(HERE/'BUDGET.json')['actual_attempts'],
+        total_new_rollout_wall_seconds=sum(r['wall_seconds']for r in seen.values()),
+        dictionary_seconds=sum(r.get('dictionary',{}).get('seconds',0.)for r in seen.values()),
+        matrix_decomposition_seconds=sum(r.get('dictionary',{}).get('svd_seconds',0.)for r in seen.values()),
+        note='Unique new requests only; shared/reused requests are not charged as new computation. Worker import/startup, coordinator, calibration and queue elapsed differ from rollout wall time.'))
     plot_error=None
     try:
         subprocess.run(['/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1-plots/bin/python',str(HERE/'plot.py')],
@@ -99,13 +143,16 @@ def main():
     if changed:gaps.append('导入文件发生变化，见 INTEGRITY_END.json。')
     (HERE/'GAPS.md').write_text('# 证据缺口\n\n'+('\n'.join('- '+g for g in gaps)if gaps else'规定的有限候选覆盖搜索已完成。未找到不构成连续参数空间不可解证明。')+'\n\n本轮不执行论文方法、重新标定、选族或维度推荐。\n')
     with(HERE/'REPORT.md').open('a')as out:
+        out.write('\n\n每档8个物理初态分别接入集中式随机采样模型预测控制和梯度下降模型预测控制，合计16个案例；两控制器使用匹配的物理初态与随机流。\n')
+        out.write('\n代码分支：'+subprocess.check_output(['git','branch','--show-current'],text=True).strip()+'；记录时提交：'+subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()+'。新代码与结果仅在 diagnostics/scene_types_oracle_coverage_v3/。\n')
         out.write('\n\n逐候选原始记录见 candidates.jsonl；每个旧结局的显式迁移见 REUSE_MANIFEST.json；时间口径见 TIMING.json；全部搜索曲线见 budget_curves.csv。\n')
         out.write('\n| 修正族 | 成功条件平均完成时间（秒） | 全队列截断平均时间（秒） |\n|---|---:|---:|\n')
         for row in analysis:out.write(f"| {row['name']} | {row['success_condition_mean_time']} | {row['full_cohort_truncated_mean_time']} |\n")
         out.write('\n共同成功案例的配对时间另见 TIMING.json，不与成功条件均值混合。\n')
         if not plot_error:
             out.write('\n每族总体与逐类型搜索曲线见 figures/（14张独立矢量图），图像只读取冻结结果。\n')
-    state.update(delivery_analysis_complete=True,official_rows_verified=len(raw),
+    state.update(complete=coverage['complete']and not(HERE/'PROTECTION_VIOLATION.jsonl').exists(),
+        delivery_analysis_complete=True,official_rows_verified=len(raw),
         integrity_passed=not changed and integrity['external_diff_unchanged'])
     if not state['integrity_passed']:state['complete']=False
     write(HERE/'COMPLETE.json',state)
