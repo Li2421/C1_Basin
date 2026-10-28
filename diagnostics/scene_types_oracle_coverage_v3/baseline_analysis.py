@@ -46,14 +46,16 @@ def analyze():
             overall=metrics(joint,392),scenes=per_scene,
             note='Fixed pre-existing parameters; one paper controller episode per physical state. Single-robot check uses all robots of state0 only; it is a diagnostic, not a full four-state applicability certificate.')
         profiles.append(entry)
+        checked=sum(s['single_robot_diagnostic']['completed']==s['single_robot_diagnostic']['expected']for s in per_scene)
+        passed=sum(s['single_robot_diagnostic_passed']for s in per_scene)
         row=entry['overall'];table.append([entry['name']+'（'+','.join(profile['labels'])+'）',f"{row['success']}/392",str(row['completed']),
             str(row['collision']),str(row['timeout']),str(row['terminal_unknown']),str(row['original_first_error_unknown']),
-            str(row['success_mean_time']),str(row['full_completed_cohort_truncated_mean_time'])])
+            str(row['success_mean_time']),str(row['full_completed_cohort_truncated_mean_time']),f'{passed}/{checked}'])
     result=dict(profiles=profiles,physical_states=392,scene_count=49,
         comparison='Fixed paper profiles are separate from the C1 Oracle envelope; paper failures with bad single-agent diagnostics or implementation/solver errors are not evidence of multi-robot deadlock.',
         no_new_parameter_selection=True)
     dump(OUT/'RESULTS.json',result)
-    header=['论文方法与冻结参数','成功 /392','已完成','碰撞','超时','终局unknown','曾未处理异常','成功平均时间','已完成队列截断均时']
+    header=['论文方法与冻结参数','成功 /392','已完成','碰撞','超时','终局unknown','曾未处理异常','成功平均时间','已完成队列截断均时','单机初筛通过/已检查场景']
     with(OUT/'overall.csv').open('w',newline='')as f:
         w=csv.writer(f);w.writerow(header);w.writerows(table)
     text=['# 四列族之后的论文固定参数对照\n',

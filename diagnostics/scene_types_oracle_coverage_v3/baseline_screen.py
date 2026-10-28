@@ -40,6 +40,8 @@ def main():
             rows=execute(pilot,prefix+'_pilot',worker_entry='worker_papers.py')
             setup=[r for r in rows if r.get('setup_error')]
             dump(OUT/f"pilot_{profile['id']}_{tag}.json",dict(requests=len(pilot),complete=len(rows)==len(pilot),
+                 success=sum(r['success']for r in rows),collision=sum(r['collision']for r in rows),
+                 timeout=sum(r['timeout']for r in rows),terminal_unknown=sum(r['numerical_failure']for r in rows),
                  setup_errors=[dict(uid=r['rollout_uid'],error=r['setup_error'])for r in setup],
                  numeric_or_action_errors=sum(bool(r.get('paper_error_events'))for r in rows)))
             # Missing optional runtime interfaces are implementation gaps, not
