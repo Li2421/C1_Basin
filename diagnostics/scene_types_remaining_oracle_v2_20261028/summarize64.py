@@ -74,10 +74,16 @@ def main(partial=False):
     for f in protocol['families']:
         rr=[r for r in case_records if r['family']==f['index']];s=summary(rr)
         s.update(family=f['index'],columns=f['columns'],dimension=f['dimension'],physical_block_success_rate_bootstrap95=block_ci(rr,'success64'),physical_block_improvement16_to64_bootstrap95=block_ci(rr,'success64','success16'))
+        s['enough_types64']=sum(sum(r['success64'] for r in rr if r['type_id']==t)>=6 for t in {r['type_id'] for r in rr})
         summaries.append(s)
         for t in sorted({r['type_id']for r in rr}):type_rows.append(dict(family=f['index'],columns='+'.join(f['columns']),type_id=t,**summary([r for r in rr if r['type_id']==t])))
         for ctl in sorted({r['controller']for r in rr}):nominal_rows.append(dict(family=f['index'],columns='+'.join(f['columns']),controller=ctl,**summary([r for r in rr if r['controller']==ctl])))
     dump('ORACLE64_RESULTS.json',summaries);csv_write('oracle64_per_type.csv',type_rows);csv_write('oracle64_per_controller.csv',nominal_rows)
+    primary=[s for s in summaries if s['family']!='B3_wide']
+    maximum=max(s['enough_types64']for s in primary)
+    eligible=[s for s in primary if s['enough_types64']>=maximum-1]
+    chosen=min(eligible,key=lambda s:(s['dimension'],-s['enough_types64'],-s['success64']))
+    dump('ORACLE64_DIMENSION_VERDICT.json',dict(recommended=chosen,M=maximum,threshold=maximum-1,rule='Posthoc application of original smallest-dimension rule: type enough>=6/8; primary family enough-types>=M-1. Widened-G control separately reported, not mixed into original primary box.',scope='Finite eight-pool screen, not continuous minimum dimension or new independent validation.'))
     csv_write('oracle64_budget_curve.csv',[dict(family=f['index'],K=k,covered=sum(r['family']==f['index']and r['first_success']is not None and r['first_success']<=k for r in case_records),n=120)for f in protocol['families']for k in range(1,65)])
     paper=selected_papers();dump('PAPER_BASELINES.json',[{k:v for k,v in p.items()if k!='rows'}for p in paper])
     paired=[]
@@ -104,6 +110,8 @@ def main(partial=False):
 def write_report(summaries,cases,papers,candidates,cache):
     # Kept separate so the final report is rebuilt only from completed evidence.
     report=['# Correction Oracle@64 与论文基线\n\n无 Generator、无训练。按用户要求，将原16点未成功案例扩至最多64点；成功即停，64点无成功就结束为本轮搜索失败。前16点保持不变，B随状态按固定规则更新，η整局固定，原nominal/安全层/动力学/任务判据未改。原留出结果已看过，本轮是事后预算扩展。旧目录只读，旧报告和维度结论不覆盖。\n\n']
+    verdict=read(HERE/'ORACLE64_DIMENSION_VERDICT.json');chosen=verdict['recommended']
+    report.append(f"按原最小维度规则事后应用于64点结果：推荐{'/'.join(chosen['columns'])}，维度{chosen['dimension']}，达到6/8覆盖的场景类型{chosen['enough_types64']}个。这里只比较已冻结候选族，不能称为全连续空间最小维度。\n\n")
     report.append('## 内部修正族：是否找到成功η\n\n每项120个controller×初态案例，15个有效场景类型×4留出初态×2个冻结nominal。另两类几何缺口沿用旧报告，不计为控制失败。三/四/五列是内部消融。\n\n|B|维度|@16|@32|@64|成功首次序号均值|全队列查询均值|成功任务均时(s)|全队列截断任务均时(s)|\n|---|---:|---:|---:|---:|---:|---:|---:|---:|\n')
     for s in summaries:report.append(f"|{'+'.join(s['columns'])}{'，G≥0' if s['family']=='B3_wide' else ''}|{s['dimension']}|{s['success16']}/120|{s['success32']}/120|{s['success64']}/120|{fmt(s['first_success_index_mean'])}|{fmt(s['all_cohort_restricted_query_mean'])}|{fmt(s['success_mean_completion_time'])}|{fmt(s['all_cohort_truncated_task_time'])}|\n")
     report.append('\n首次成功序号按冻结池顺序从1开始；成功均值只含成功案例，全队列查询均值对失败记64。旧16点当时全部跑过，首次序号是本顺序下找到解需要的查询数，不是当时实际rollout消耗。新候选逐个执行并早停；`oracle64_visited_candidates.csv`区分缓存与新rollout，保留每个η和成本。`oracle64_per_type.csv`与`oracle64_per_controller.csv`给出分解；`ORACLE64_RESULTS.json`含按共同物理初态分块的区间。\n\n')
