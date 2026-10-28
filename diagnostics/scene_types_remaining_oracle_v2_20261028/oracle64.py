@@ -56,7 +56,13 @@ def build():
         # discovering newly completed raw files must not rewrite the plan.
         groups=read(HERE/'ORACLE64_GROUPS.json')['groups']
         planned=read(HERE/'ORACLE64_ALL_planned.json')['exact_configs']
-        runner.register(planned,'ORACLE64_ALL')
+        _,_,known_results=runner.register(planned,'ORACLE64_ALL')
+        for c in planned:
+            target=HERE/'raw'/f"{c['rollout_uid']}.json"
+            if c['rollout_uid']in known_results and not target.exists():
+                # A worker can be interrupted between journal append and raw
+                # write. Recover the already-complete official result.
+                dump(target,known_results[c['rollout_uid']])
         return protocol,groups,{c['rollout_uid']:c for c in planned}
     uidset={x['uid'] for rows in list(labels.values())+list(ranges.values()) for x in rows}
     old_rows={uid:read(OLD/'raw'/f'{uid}.json') for uid in uidset}

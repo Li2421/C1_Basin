@@ -11,6 +11,12 @@ def execute_groups(protocol,groups,requests):
     assert os.environ.get('STB_COORDINATOR')=='1'
     start=time.monotonic();attempts=[];errors=0
     for retry in range(4):
+        if retry:
+            from runner import register
+            _,_,known=register(list(requests.values()),'ORACLE64_ALL')
+            for uid,r in known.items():
+                target=HERE/'raw'/f'{uid}.json'
+                if not target.exists():dump(target,r)
         pending=[g for g in groups if not result_path(g).exists()]
         if not pending:break
         other=sum(j['cpus'] for j in jobs() if not j['name'].startswith('str_') and j['state'] in ('RUNNING','CONFIGURING','COMPLETING'))

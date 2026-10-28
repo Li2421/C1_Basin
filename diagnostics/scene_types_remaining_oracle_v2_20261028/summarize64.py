@@ -66,6 +66,13 @@ def main(partial=False):
             p=points[v['candidate']];r=row(p)
             candidate_rows.append(dict(family=g['family'],type_id=g['type_id'],controller=g['controller'],state_index=g['state_index'],candidate=v['candidate'],uid=v['uid'],outcome=r['outcome'],completion_time=r.get('completion_time'),wall_seconds=r['wall_seconds'],source=p['source'],path=p['path'],spec=json.dumps(r['spec'],sort_keys=True)))
     dump('ORACLE64_CASE_RESULTS.json',case_records);dump('ORACLE64_NEW_RESCUES.json',rescues)
+    audit=read(HERE/'HISTORY_AUDIT.json')
+    original43={(r['type_id'],r['controller'],r['state_index'])for r in audit['cases']}
+    legacy_rescued={(r['type_id'],r['controller'],r['state_index'])for r in audit['cases']if r['rescued_by_existing_pool']}
+    transfer={(r['type_id'],r['controller'],r['state_index'])for r in read(HERE/'TRANSFER56_SUMMARY.json')['rescues']}
+    fresh={(r['type_id'],r['controller'],r['state_index'])for r in case_records if r['success64']}
+    resolved=(legacy_rescued|transfer|fresh)&original43
+    dump('ORIGINAL43_UNION_STATUS.json',dict(original43=43,legacy_other_pool_rescued=len(legacy_rescued),transfer56_new_cases=len(transfer-legacy_rescued),oracle64_additional_over_all_previous=len((fresh&original43)-legacy_rescued-transfer),covered_by_any_tested_linear_pool=len(resolved),remaining_count=len(original43-resolved),remaining_keys=[list(k)for k in sorted(original43-resolved)],scope='Union of tested families/configurations. Not coverage of one fixed family and not a native-paper safety-feasibility certificate.'))
     csv_write('oracle64_visited_candidates.csv',candidate_rows)
     summaries=[];type_rows=[];nominal_rows=[]
     def summary(rr):
@@ -123,6 +130,8 @@ def write_report(summaries,cases,papers,candidates,cache):
     b4=[r for r in cases if r['family']=='4'and(r['type_id'],r['controller'],r['state_index'])in remaining]
     rescue=[r for r in b4 if r['success64']]
     report.append(f"## 原四列失败43例\n\n同一四列64点新覆盖其中{len(rescue)}例；其余{43-len(rescue)}例在该四列64点池中未找到成功η，不再扩搜。另有旧其他线性池的11例补救和56点跨开发初态筛选的1例成功；这些属于其他候选配置，不能累计冒充原四列的Oracle@64。逐例参数和来源见`ORACLE64_NEW_RESCUES.json`及`TRANSFER56_SUMMARY.json`。\n\n")
+    union=read(HERE/'ORIGINAL43_UNION_STATUS.json')
+    report.append(f"综合所有已测线性池去重：原43例中共{union['covered_by_any_tested_linear_pool']}例存在已测成功参数，剩{union['remaining_count']}例未找到；64点扩展相对旧池和56点补查额外新增{union['oracle64_additional_over_all_previous']}例。完整未覆盖清单见`ORIGINAL43_UNION_STATUS.json`，不再为这些案例追加64点以外预算。\n\n")
     new=[read(p)for p in(HERE/'raw').glob('*.json')];count=collections.Counter(r['outcome']for r in new)
     report.append(f"## 计算与可恢复性\n\n本目录当前完整新rollout {len(new)}，结局{dict(count)}；新rollout循环墙钟合计{sum(r['wall_seconds']for r in new):.3f}秒（并行前求和，非整轮实际等待时间）。Slurm每worker1CPU、BLAS1、GPU0，实际占用≤18。`ORACLE64_EXECUTION.json`记录整阶段等待时间，`ORACLE64_JOBS.json`记录作业。所有worker写journal，唯一协调者官方合并并读回。旧36832次尝试独立保留，不并入本轮新耗费。\n\n")
     report.append('64点未找到解按要求停止为有限搜索失败，不追加预算。timeout单独保留，不自动称为deadlock；求解/接口unknown另列。候选参数、raw、trace和正式数据库UID均保留。复现命令、参数盒和缓存规则见`ORACLE64_PROTOCOL.md`；旧首步回放64/64逐字节一致、旧200局完整加速认证复用，数值执行模块逐字节不变。\n')
