@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "profiles": [
+    {
+      "profile": "wang2017_full_di_tracking__reference_default",
+      "version": "a7dde2b6db99",
+      "loaded": true
+    },
+    {
+      "profile": "wang2017_full_di_tracking__v1_selected",
+      "version": "6d8ada9757aa",
+      "loaded": true
+    },
+    {
+      "profile": "wang2017_consistent_perturbation_di_tracking__reference_default",
+      "version": "a7dde2b6db99",
+      "loaded": true
+    },
+    {
+      "profile": "wang2017_consistent_perturbation_di_tracking__v1_selected",
+      "version": "6d8ada9757aa",
+      "loaded": true
+    },
+    {
+      "profile": "zhang2025_risk_si__reference_default",
+      "version": "f06b423e7bd4",
+      "loaded": true
+    },
+    {
+      "profile": "zhang2025_risk_si__v1_selected",
+      "version": "6c68676c530b",
+      "loaded": true
+    },
+    {
+      "profile": "dac_author_si__reference_default",
+      "version": "3aa88356ba4f",
+      "loaded": true
+    },
+    {
+      "profile": "mgr_author_unicycle_tracking__reference_default",
+      "version": "4faecff26403",
+      "loaded": true
+    },
+    {
+      "profile": "mgr_author_unicycle_tracking__v1_selected",
+      "version": "d957cc64b4e0",
+      "loaded": true
+    },
+    {
+      "profile": "chen_impc_ob_si_tracking__reference_default",
+      "version": "d75225c09afd",
+      "loaded": true
+    },
+    {
+      "profile": "chen_impc_ob_si_tracking__v1_metric_scaling_reference",
+      "version": "3c2223d9fd4d",
+      "loaded": true
+    }
+  ],
+  "controllers_constructed": 0,
+  "environment_steps": 0,
+  "paper_rollouts": 0
+}

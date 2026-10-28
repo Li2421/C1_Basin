@@ -21,6 +21,18 @@ def main():
         profile=prepare(profile)
         method=profile['method'];tag=version(profile);prefix=f'papers_{ordinal:02d}_{tag}'
         try:
+            first=next(e for e in scenes if e['type_id']==1 and e['level']==0)
+            probe=[make(first['scene'],0,profile,'paper_interface_probe')]
+            save_labels(probe,profile,'probe')
+            probe_rows=execute(probe,prefix+'_probe',worker_entry='worker_papers.py')
+            fatal_types={'ImportError','ModuleNotFoundError','AttributeError','NameError','TypeError','SyntaxError','NotImplementedError'}
+            if not probe_rows or any(r.get('setup_error',{}).get('type')in fatal_types for r in probe_rows if r.get('setup_error')):
+                item=dict(profile=profile['id'],version=tag,complete=False,
+                          gap='Native port interface probe incomplete or setup API error; not scene difficulty evidence.',
+                          probe_errors=[r.get('setup_error')for r in probe_rows])
+                statuses.append(item);dump(OUT/'EXECUTION_STATUS.json',statuses)
+                dump(OUT/f'implementation_alert_{ordinal:02d}_{tag}.json',item)
+                analyze();continue
             # Base ladder/state0 pilots are an exact subset of the full joint
             # cohort, not a different benchmark or an extra tuning set.
             pilot=[make(e['scene'],0,profile,'paper_fixed_profile_pilot')for e in scenes if e['level']==0]
@@ -34,6 +46,7 @@ def main():
             # hard-scene evidence. Other methods and C1 families still proceed.
             if rows and all(r.get('setup_error')and r['setup_error']['type']in ('ImportError','ModuleNotFoundError','AttributeError','NameError')for r in rows):
                 statuses.append(dict(profile=profile['id'],complete=False,gap='All pilots fail to construct the port; inspect saved setup errors.'))
+                dump(OUT/'EXECUTION_STATUS.json',statuses)
                 analyze();continue
             solo=[]
             for e in scenes:
