@@ -63,6 +63,12 @@ def reconcile_completed_frontier():
 def main():
     reconcile_completed_frontier()
     state=read(HERE/'COMPLETE.json');coverage=read(HERE/'COVERAGE.json')
+    for family in coverage['families']:
+        for g in family['cases_detail']:
+            assert [q['index']for q in g['queries']]==list(range(1,g['searched']+1))
+            assert 0<=g['searched']<=64
+            assert not any(q['success']for q in g['queries'][:-1])
+            assert bool(g['success'])==bool(g['queries']and g['queries'][-1]['success'])
     raw=list((HERE/'raw').glob('*.json'));m=read(HERE/'REUSE_MANIFEST.json')
     seen={};counters=dict(success=0,collision=0,timeout=0,numerical_failure=0)
     with db.connect(True)as con:
@@ -136,22 +142,27 @@ def main():
     diff=subprocess.check_output(['git','diff','--binary','--','.',':(exclude)diagnostics/scene_types_oracle_coverage_v3'])
     status=subprocess.check_output(['git','status','--porcelain','--untracked-files=normal'])
     initial=read(HERE/'INTEGRITY_START.json')
+    pins=read(HERE/'CONTROLLERS_FROZEN.json')
+    controller_unchanged=sha(pins['source'])==pins['sha256']
     integrity=dict(time=datetime.datetime.now().astimezone().isoformat(),status=status.decode(),
         status_sha256=hashlib.sha256(status).hexdigest(),external_diff_sha256=hashlib.sha256(diff).hexdigest(),
         initial_diff_sha256=initial['diff_sha256'],external_diff_unchanged=hashlib.sha256(diff).hexdigest()==initial['diff_sha256'],
+        controller_profile_unchanged=controller_unchanged,
         imported_files_sha256=imports,changed_imports=changed,
         head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
         scope='No writes to old experiment directories; first-observed worker import hashes checked against current files. Git metadata and official journals/SQLite are authorized writes.')
     write(HERE/'INTEGRITY_END.json',integrity)
     write(HERE/'DELIVERY_AUDIT.json',dict(official_rows_verified=len(raw),raw_outcomes=counters,
         actual_attempts=read(HERE/'BUDGET.json')['actual_attempts'],horizon_transfer_records=len(m['records']),
-        candidates_sha256=sha(target),integrity_passed=not changed and integrity['external_diff_unchanged']))
+        candidates_sha256=sha(target),integrity_passed=not changed and integrity['external_diff_unchanged']and controller_unchanged,
+        candidate_order_verified=True,no_queries_after_first_success=True))
     gaps=[]
     if plot_error:gaps.append('曲线绘图失败（非主线，覆盖数保存在JSON/CSV）：'+plot_error)
     if not coverage['complete']:gaps.append('搜索未全部完成；未运行候选与基础设施缺失均单列，不能当作64次失败。')
     for family in coverage['families']:
         if family['distribution']['incomplete']:gaps.append(f"{family['name']}：{family['distribution']['incomplete']} 个案例未完成。")
     if changed:gaps.append('导入文件发生变化，见 INTEGRITY_END.json。')
+    if not controller_unchanged:gaps.append('控制器配置源发生变化，见 CONTROLLERS_FROZEN.json 与 INTEGRITY_END.json。')
     (HERE/'GAPS.md').write_text('# 证据缺口\n\n'+('\n'.join('- '+g for g in gaps)if gaps else'规定的有限候选覆盖搜索已完成。未找到不构成连续参数空间不可解证明。')+'\n\n本轮不执行论文方法、重新标定、选族或维度推荐。\n')
     report=HERE/'REPORT.md';report.write_text(report.read_text().replace('None','—'))
     with report.open('a')as out:
@@ -177,11 +188,16 @@ def main():
             out.write('\n每族总体与逐类型搜索曲线见 figures/（14张独立矢量图），图像只读取冻结结果。\n')
     state.update(complete=coverage['complete']and not(HERE/'PROTECTION_VIOLATION.jsonl').exists(),
         delivery_analysis_complete=True,official_rows_verified=len(raw),
-        integrity_passed=not changed and integrity['external_diff_unchanged'])
+        integrity_passed=not changed and integrity['external_diff_unchanged']and controller_unchanged)
     if not state['integrity_passed']:state['complete']=False
     write(HERE/'COMPLETE.json',state)
     # Normalize empty statistics in user-facing tables without changing JSON nulls.
     report.write_text(report.read_text().replace('None','—'))
+    (HERE/'STATUS.md').write_text('# 当前状态\n\n'+datetime.datetime.now().astimezone().isoformat()+'：'+
+        ('有限候选覆盖与交付分析已全部完成，预计剩余时间0。'if state['complete']else'已停止并保存部分交付；未完成项见 GAPS.md，不能记作64次失败。')+
+        f"\n\n实际新rollout尝试 {state['actual_new_rollouts']}/90000；官方索引核验 {len(raw)} 条。\n\n"+
+        '；'.join(f"{f['name']} {f['coverage']['64']}/784"for f in coverage['families'])+'。\n')
+    (HERE/'RESOURCE_WATCH_STOP').write_text('Numerical pipeline and final provenance analysis finished.\n')
     print('FINALIZED',state,flush=True)
 
 if __name__=='__main__':main()
