@@ -17,7 +17,7 @@ def main():
         fi=family['index'];name=family['name']
         fig,ax=plt.subplots(figsize=(9,4.5),constrained_layout=True)
         ax.plot([x['K']for x in family['curve']],[x['covered']for x in family['curve']],linewidth=2)
-        ax.set(xlabel='实际搜索候选数上限',ylabel='已找到成功的案例数（总计784）',xlim=(1,64),ylim=(0,784),title=name)
+        ax.set(xlabel='实际搜索候选数上限',ylabel='已找到成功的案例数（总计784）',xlim=(1,64),ylim=(0,784),title=name+(''if data['complete']else'（已验证覆盖下界，搜索未完成）'))
         ax.grid(alpha=.25)
         p=folder/f'family_{fi}_all.svg';fig.savefig(p);files.append(str(p));plt.close(fig)
         fig,axes=plt.subplots(5,4,figsize=(15,15),constrained_layout=True)

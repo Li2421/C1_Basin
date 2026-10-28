@@ -6,6 +6,7 @@ sys.path.insert(0,str(ROOT))
 import json,hashlib,subprocess,datetime,os,time,re
 from pathlib import Path
 from shared_rollout_db.src import rollout_db as db
+os.sched_setaffinity(0,{min(os.sched_getaffinity(0))})
 
 def read(p):return json.loads(Path(p).read_text())
 def write(p,x):
@@ -62,6 +63,10 @@ def reconcile_completed_frontier():
 
 def main():
     reconcile_completed_frontier()
+    # Rebuild presentation from actual query records, including pending counts.
+    if(HERE/'SEARCH_STATE.json').exists():
+        from coverage import write as coverage_write
+        search=read(HERE/'SEARCH_STATE.json');coverage_write(search['groups'],search['baseline'])
     state=read(HERE/'COMPLETE.json');coverage=read(HERE/'COVERAGE.json')
     for family in coverage['families']:
         for g in family['cases_detail']:

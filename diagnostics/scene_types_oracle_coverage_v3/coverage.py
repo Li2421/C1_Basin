@@ -71,7 +71,12 @@ def write(groups,baseline):
     header=['场景','仅安全投影 /16']+[f'{name} @16/@32/@64'for name in FAMILY_NAMES]+['原三列首次成功中位数','既有四列首次成功中位数','任一族成功 /16','状态']
     table=[]
     for e in scene_rows:
-        table.append([e['name'],f"{e['baseline_success']}/16"]+['/'.join(str(v['coverage'][str(k)])for k in (16,32,64))for v in e['families']]+[str(e['families'][fi]['distribution']['median'])for fi in (0,4)]+[str(e['any_family_success']),e['status']])
+        cells=[]
+        for v in e['families']:
+            value='/'.join(str(v['coverage'][str(k)])for k in (16,32,64))
+            if v['distribution']['incomplete']:value+=f"（待{v['distribution']['incomplete']}）"
+            cells.append(value)
+        table.append([e['name'],f"{e['baseline_success']}/16"]+cells+[str(e['families'][fi]['distribution']['median'])for fi in (0,4)]+[str(e['any_family_success']),e['status']])
     with(HERE/'coverage_scenes.csv').open('w',newline='')as f:
         writer=csv.writer(f);writer.writerow(header);writer.writerows(table)
     paragraphs=['# 十七类场景各修正族有限候选覆盖\n',
