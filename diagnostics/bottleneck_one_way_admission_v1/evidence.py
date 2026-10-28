@@ -15,10 +15,10 @@ def exact_old(c,stage):
     _,todo,done=register([c],stage)
     return done.get(c['rollout_uid'])
 
-def alias(target,old,record,reason):
+def alias(target,old,record,reason,certificate=None):
     path=HERE/'REUSE_MANIFEST.json';m=read(path)if path.exists()else dict(records={})
     m['records'][target['rollout_uid']]=dict(target_query_uid=target['rollout_uid'],source_rollout_uid=old['rollout_uid'],
-        source_trace=record['trace'],reason=reason,certificate=str(HERE/('NO_PASSAGE_EQUIVALENCE.json'if reason=='no_passage_certified'else'EQUIVALENCE.json')))
+        source_trace=record['trace'],reason=reason,certificate=str(HERE/(certificate or('NO_PASSAGE_EQUIVALENCE.json'if reason=='no_passage_certified'else'EQUIVALENCE.json'))))
     dump(path,m)
     return dict(record,logical_query_uid=target['rollout_uid'],reuse_reason=reason)
 
@@ -29,15 +29,18 @@ def run_requests(cases,stage,allow_no_passage=True):
     no_pass=(HERE/'NO_PASSAGE_EQUIVALENCE.json').exists()and read(HERE/'NO_PASSAGE_EQUIVALENCE.json')['passed']
     eq=(HERE/'EQUIVALENCE.json').exists()and read(HERE/'EQUIVALENCE.json')['passed']
     for i,c in enumerate(cases):
-        sp=c['spec'];eligible=not sp.get('role_reselection')and (not sp.get('one_way')or(allow_no_passage and no_pass and not passages[c['scene']]['passages']))
+        sp=c['spec'];scheme=sp.get('coordination',{}).get('scheme')
+        certificate=f'NO_PASSAGE_{scheme}.json'if scheme else None
+        coordinated_no_pass=bool(scheme and scheme!='E'and(HERE/certificate).exists()and read(HERE/certificate)['passed']and allow_no_passage and not passages[c['scene']]['passages'])
+        eligible=not sp.get('role_reselection')and (coordinated_no_pass if scheme else(not sp.get('one_way')or(allow_no_passage and no_pass and not passages[c['scene']]['passages'])))
         if eq and eligible:
-            base={k:v for k,v in sp.items()if k!='one_way'}
+            base={k:v for k,v in sp.items()if k not in('one_way','coordination')}
             old=legacy_case(scenes[c['scene']],c['controller_payload']['nominal'],c['state_index'],base)
             # Register/preflight the exact old identity. Its existence never
             # implies the new identity is an official exact DB cache hit.
             r=exact_old(old,f'{stage}_old_{i:04d}')
             if r is not None:
-                rows[c['rollout_uid']]=alias(c,old,r,'no_passage_certified'if sp.get('one_way')else'old_execution_certified');continue
+                rows[c['rollout_uid']]=alias(c,old,r,'followup_no_passage_certified'if scheme else'no_passage_certified'if sp.get('one_way')else'old_execution_certified',certificate);continue
         missing.append(c)
     if missing:
         for r in execute(missing,stage):rows[r['rollout_uid']]=r

@@ -1,0 +1,377 @@
+{
+  "sources": [
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/states.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/states.py",
+      "source_sha256": "c65d4d427e65820c91457d00d2f4375d83a2de7188e667b4e6f2f2d5cee359c3",
+      "target_sha256": "c65d4d427e65820c91457d00d2f4375d83a2de7188e667b4e6f2f2d5cee359c3"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/correction_revision_20261021.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/correction_revision_20261021.py",
+      "source_sha256": "2d05ebfdd6f684ea615afb101de487aef0320f10f65ac266ccbba9edd9634224",
+      "target_sha256": "2d05ebfdd6f684ea615afb101de487aef0320f10f65ac266ccbba9edd9634224"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/dynamics_safety.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/dynamics_safety.py",
+      "source_sha256": "3d9242fd9d4cea845d7a882add6cd1c3bbfd035c0432b0ba7efd787b26a965eb",
+      "target_sha256": "3d9242fd9d4cea845d7a882add6cd1c3bbfd035c0432b0ba7efd787b26a965eb"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/nominal_geometry_user_fix_20261023.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/nominal_geometry_user_fix_20261023.py",
+      "source_sha256": "420eb218703b3fd864d8e8dfbb1670455849f66119012393d71e8e6b4da58844",
+      "target_sha256": "420eb218703b3fd864d8e8dfbb1670455849f66119012393d71e8e6b4da58844"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/planning.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/planning.py",
+      "source_sha256": "400d0a573f8a90b0bab3d6d61f70f88ccf7535c3bcc3a8ad67e371334110308e",
+      "target_sha256": "400d0a573f8a90b0bab3d6d61f70f88ccf7535c3bcc3a8ad67e371334110308e"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/projection_memo.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/projection_memo.py",
+      "source_sha256": "f3a5e7e85e2dfbfa4e94821c1aa61ddc72a70c611a1b2550faf1294ff7179c65",
+      "target_sha256": "f3a5e7e85e2dfbfa4e94821c1aa61ddc72a70c611a1b2550faf1294ff7179c65"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/swap_geometry_user_fix_20261023.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/swap_geometry_user_fix_20261023.py",
+      "source_sha256": "250a3a64616f13488a052a0f17488f89b5737b7a9507af68a9537cf4446e2876",
+      "target_sha256": "250a3a64616f13488a052a0f17488f89b5737b7a9507af68a9537cf4446e2876"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/controllers_layout_user_fix_20261023.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/controllers_layout_user_fix_20261023.py",
+      "source_sha256": "53bf220c97ee57f8dd6b4e2e466210d39752c550f6b8a8227f4dd749809493f8",
+      "target_sha256": "53bf220c97ee57f8dd6b4e2e466210d39752c550f6b8a8227f4dd749809493f8"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/swap_runtime_user_fix_20261023.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/swap_runtime_user_fix_20261023.py",
+      "source_sha256": "a60bb43a1471b0e454b5d8d7e131f3ac666540a94a201fc35ac4c10e3c5abd4d",
+      "target_sha256": "a60bb43a1471b0e454b5d8d7e131f3ac666540a94a201fc35ac4c10e3c5abd4d"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/reservation_certificate_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/reservation_certificate_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "source_sha256": "750d56881d04cc18d587f3832bea6b1d52869e56f06d141e9267559ec10c6d97",
+      "target_sha256": "750d56881d04cc18d587f3832bea6b1d52869e56f06d141e9267559ec10c6d97"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/tiled_planning_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/tiled_planning_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "source_sha256": "bb1397cfa3941332b4172cb3294cd9dcc9b7e5a90c04ca6360d7e302ea30f553",
+      "target_sha256": "bb1397cfa3941332b4172cb3294cd9dcc9b7e5a90c04ca6360d7e302ea30f553"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/central_reference.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/central_reference.py",
+      "source_sha256": "260edee9ac99794119bda055f3e090e79b15a4f5183e1cca75cea91a841325de",
+      "target_sha256": "260edee9ac99794119bda055f3e090e79b15a4f5183e1cca75cea91a841325de"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/swap_geometry.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/swap_geometry.py",
+      "source_sha256": "7802d847d07432afc2faa594e0cbbacd9a93a766868ea9c10280d19495bb7544",
+      "target_sha256": "7802d847d07432afc2faa594e0cbbacd9a93a766868ea9c10280d19495bb7544"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/projection_adapter.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/projection_adapter.py",
+      "source_sha256": "32a934d1539dd2452b5892a3c58a8d7c5f586a7501ee11b92970e8daba2f62dc",
+      "target_sha256": "32a934d1539dd2452b5892a3c58a8d7c5f586a7501ee11b92970e8daba2f62dc"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/controllers.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/controllers.py",
+      "source_sha256": "8ec232aec19944809178c0f8dce59d72c31ca98df817d44bbfe10d6608c0486a",
+      "target_sha256": "8ec232aec19944809178c0f8dce59d72c31ca98df817d44bbfe10d6608c0486a"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/official_sampler.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/official_sampler.py",
+      "source_sha256": "0cb58c81b76c92e8eba9cceab8e6fb3169940c4c0b1421334da9260ff56a79ef",
+      "target_sha256": "0cb58c81b76c92e8eba9cceab8e6fb3169940c4c0b1421334da9260ff56a79ef"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/swap_safety_user_fix_20261023.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/swap_safety_user_fix_20261023.py",
+      "source_sha256": "42bb80649e1d70f37c285fa1bb24950d6b6b9bc3fa94c00a78bb8ea994f52d63",
+      "target_sha256": "42bb80649e1d70f37c285fa1bb24950d6b6b9bc3fa94c00a78bb8ea994f52d63"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/legacy_states.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/legacy_states.py",
+      "source_sha256": "3dfd11e5b0d63bda69ffce473b55f8dbdf9226581a13c3fd4aa51ec450752ae4",
+      "target_sha256": "3dfd11e5b0d63bda69ffce473b55f8dbdf9226581a13c3fd4aa51ec450752ae4"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/flow_scene.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/flow_scene.py",
+      "source_sha256": "cf74ed5718a70d2ef707fc3fee50321502ab9afdc1b624d68c8503bc6552aa3b",
+      "target_sha256": "cf74ed5718a70d2ef707fc3fee50321502ab9afdc1b624d68c8503bc6552aa3b"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/tiled_planning.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/tiled_planning.py",
+      "source_sha256": "f7edba33a80f9d94b21bff4c72e5878e8abe4cc944de103bf36d1cdbafd94b89",
+      "target_sha256": "f7edba33a80f9d94b21bff4c72e5878e8abe4cc944de103bf36d1cdbafd94b89"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/reservation_certificate_v2_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/reservation_certificate_v2_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "source_sha256": "1474a94d0f33c21a06aaa7af141636cea507c3b4dd26adcb6bcf6b12fb1e9e5c",
+      "target_sha256": "1474a94d0f33c21a06aaa7af141636cea507c3b4dd26adcb6bcf6b12fb1e9e5c"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/tiled_nominal.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/tiled_nominal.py",
+      "source_sha256": "53c192658d3933fb228e582474f6aeb9bbc6fcde95571319c68baef42d11f952",
+      "target_sha256": "53c192658d3933fb228e582474f6aeb9bbc6fcde95571319c68baef42d11f952"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/legacy_flow_scene.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/legacy_flow_scene.py",
+      "source_sha256": "df6ac14af4770f17233783a063fab5ec01e9275dc464c57f84c739602c01de0b",
+      "target_sha256": "df6ac14af4770f17233783a063fab5ec01e9275dc464c57f84c739602c01de0b"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/runtime_correction_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/runtime_correction_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "source_sha256": "8ce4d099bc18c3116253e158308b6f91ecfc7b2168e4c09c71821b1b77627372",
+      "target_sha256": "8ce4d099bc18c3116253e158308b6f91ecfc7b2168e4c09c71821b1b77627372"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/nominal_adapter.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/nominal_adapter.py",
+      "source_sha256": "b1b0a6b0d75bbd6456bf302aaad67cb8feb1730a92258a99b6ecd1057a25f238",
+      "target_sha256": "b1b0a6b0d75bbd6456bf302aaad67cb8feb1730a92258a99b6ecd1057a25f238"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/swap_safety.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/swap_safety.py",
+      "source_sha256": "57ff6d55ca8d725930a036e0193ae133fed9403afbe740c0893916b9af12d9f4",
+      "target_sha256": "57ff6d55ca8d725930a036e0193ae133fed9403afbe740c0893916b9af12d9f4"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/swap_runtime.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/swap_runtime.py",
+      "source_sha256": "8ae19c5d9ffa2197361727fb463d21821ac7d558616fefebf564dcb5c756e3b4",
+      "target_sha256": "8ae19c5d9ffa2197361727fb463d21821ac7d558616fefebf564dcb5c756e3b4"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/poc_field_controller.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/poc_field_controller.py",
+      "source_sha256": "20edb3fb680e18b4882b06a667f6d4db0d55e2f8ea1035c4e3fec55bb335603f",
+      "target_sha256": "20edb3fb680e18b4882b06a667f6d4db0d55e2f8ea1035c4e3fec55bb335603f"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/distributed_safety.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/distributed_safety.py",
+      "source_sha256": "8644e8adc2c5ce46be3af820008082d10a38f3a8fc4c9fe7baff18abbe8a767b",
+      "target_sha256": "8644e8adc2c5ce46be3af820008082d10a38f3a8fc4c9fe7baff18abbe8a767b"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/pa_query_memo_candidate_20261022.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/pa_query_memo_candidate_20261022.py",
+      "source_sha256": "c717e58ee1c30a14c0e9c51a0a658cb4d08688be0ac7084c46d5d0cb844777ed",
+      "target_sha256": "c717e58ee1c30a14c0e9c51a0a658cb4d08688be0ac7084c46d5d0cb844777ed"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/backend/controllers_interior.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/controllers_interior.py",
+      "source_sha256": "f088be1e7e092a2f2e7dfd20d4916c68e63048732e5dc5aef6b408be658cf25e",
+      "target_sha256": "f088be1e7e092a2f2e7dfd20d4916c68e63048732e5dc5aef6b408be658cf25e"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/bootstrap.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/bootstrap.py",
+      "source_sha256": "ef6a9fd06da924d4043b94ca76452d7ef32794785e88e73c18cc0aca381b9f50",
+      "target_sha256": "ef6a9fd06da924d4043b94ca76452d7ef32794785e88e73c18cc0aca381b9f50"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/experiment.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/experiment.py",
+      "source_sha256": "cc32a9f6c15ece0529e8de2d24246b1254c557ede718ce8b019599116cadd209",
+      "target_sha256": "cc32a9f6c15ece0529e8de2d24246b1254c557ede718ce8b019599116cadd209"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/common.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/common.py",
+      "source_sha256": "3f28283e65e7934422b02c73acac88c4f70196d8804b65055b60b217dfe6e47d",
+      "target_sha256": "3f28283e65e7934422b02c73acac88c4f70196d8804b65055b60b217dfe6e47d"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/scene_environment.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/scene_environment.py",
+      "source_sha256": "398b0ab568f382616a7c299b12357b85f2b20cfdd4539562c447678685dc18c9",
+      "target_sha256": "398b0ab568f382616a7c299b12357b85f2b20cfdd4539562c447678685dc18c9"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/controllers_new.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/controllers_new.py",
+      "source_sha256": "2f00b267108186f2100e11178815d57357d8ea80e3816dcbcbfce98a7826d735",
+      "target_sha256": "2f00b267108186f2100e11178815d57357d8ea80e3816dcbcbfce98a7826d735"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/runtime_new.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/runtime_new.py",
+      "source_sha256": "0210001b6d4cca172c8857e13ca932fca62e98cf702d66a415f3adfa2b3a64fa",
+      "target_sha256": "0210001b6d4cca172c8857e13ca932fca62e98cf702d66a415f3adfa2b3a64fa"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/LAYOUT_REVISION_DESIGN.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/LAYOUT_REVISION_DESIGN.json",
+      "source_sha256": "7f5fb60407a6eb1de535cbed5b4cf9c06d5bff50fef8e7090a3593ea8f7670da",
+      "target_sha256": "7f5fb60407a6eb1de535cbed5b4cf9c06d5bff50fef8e7090a3593ea8f7670da"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_time_index.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/cbs_kernel_time_index.so",
+      "source_sha256": "53fd48b0e139b0ef92b970ead58f27391f57631ad9bff3cf3c8afdd94a6642f2",
+      "target_sha256": "53fd48b0e139b0ef92b970ead58f27391f57631ad9bff3cf3c8afdd94a6642f2"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/bootstrap_fp_control_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/bootstrap_fp_control_20261022.so",
+      "source_sha256": "3acc6be0d07349cb653d5319993d9c29e7a7c4ffad5588fde67c071b5393300f",
+      "target_sha256": "3acc6be0d07349cb653d5319993d9c29e7a7c4ffad5588fde67c071b5393300f"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_start_signature_v2_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/cbs_kernel_start_signature_v2_candidate_20261022.so",
+      "source_sha256": "5d09d1a3c388efa22ea4c23c4817979879417bf364807458cbf990beba457c08",
+      "target_sha256": "5d09d1a3c388efa22ea4c23c4817979879417bf364807458cbf990beba457c08"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel_tiled.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/astar_kernel_tiled.so",
+      "source_sha256": "118ea0c0452edbd94cf5e912e2f445e22896d8deae25a736dd92f31c9df656b1",
+      "target_sha256": "118ea0c0452edbd94cf5e912e2f445e22896d8deae25a736dd92f31c9df656b1"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/pa_query_memo_facts_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/pa_query_memo_facts_candidate_20261022.so",
+      "source_sha256": "49d74b7d545a76f395d6c12d7a22e37211f3eba997d406e86a5bdfe23410a1ed",
+      "target_sha256": "49d74b7d545a76f395d6c12d7a22e37211f3eba997d406e86a5bdfe23410a1ed"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/astar_kernel.so",
+      "source_sha256": "910c2c7d865f4d0a6f3fb19e9f0c744bd9590b899f81e9fa3495c6d52e1bb639",
+      "target_sha256": "910c2c7d865f4d0a6f3fb19e9f0c744bd9590b899f81e9fa3495c6d52e1bb639"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/pa_query_reuse_facts_probe_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/pa_query_reuse_facts_probe_20261022.so",
+      "source_sha256": "55f12f5f940dcc050cb0df9265739d8d6323d33701ba6badcda6231b933fe64c",
+      "target_sha256": "55f12f5f940dcc050cb0df9265739d8d6323d33701ba6badcda6231b933fe64c"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel_spatial_mask_cap4_test_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/astar_kernel_spatial_mask_cap4_test_20261022.so",
+      "source_sha256": "f2c508c9838c7d8de3de3ac97e74d55e7406fd61e9c398d9e5e1121da29e838d",
+      "target_sha256": "f2c508c9838c7d8de3de3ac97e74d55e7406fd61e9c398d9e5e1121da29e838d"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel_stationary_edge_cap4_test_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/astar_kernel_stationary_edge_cap4_test_20261022.so",
+      "source_sha256": "b1c3459e9e8446396c9f67361863c846f004ad30ede8199b67c41400f059bdd8",
+      "target_sha256": "b1c3459e9e8446396c9f67361863c846f004ad30ede8199b67c41400f059bdd8"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel_certified.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/astar_kernel_certified.so",
+      "source_sha256": "4c0eba973fa6311213afea1d6ff4da82dd7fd9130375de215285517e7f4d52b7",
+      "target_sha256": "4c0eba973fa6311213afea1d6ff4da82dd7fd9130375de215285517e7f4d52b7"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_start_signature_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/cbs_kernel_start_signature_candidate_20261022.so",
+      "source_sha256": "bb4dbc1b29100c4597bdd932ed0955d53704827d8717132d265f460a10161193",
+      "target_sha256": "bb4dbc1b29100c4597bdd932ed0955d53704827d8717132d265f460a10161193"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_heuristic_cache.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/cbs_kernel_heuristic_cache.so",
+      "source_sha256": "27b01d9ed217b7d9afddd0060b5686af4c73991f90daf56fbd8f3486d20c90b6",
+      "target_sha256": "27b01d9ed217b7d9afddd0060b5686af4c73991f90daf56fbd8f3486d20c90b6"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel_stationary_edge_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/astar_kernel_stationary_edge_candidate_20261022.so",
+      "source_sha256": "0ff3bc971b59a62b0c082aa0ebda7812c59f3085f7ebefc964d7b0fe2d6174da",
+      "target_sha256": "0ff3bc971b59a62b0c082aa0ebda7812c59f3085f7ebefc964d7b0fe2d6174da"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/cbs_kernel.so",
+      "source_sha256": "1f3b2c4b0581f73ff198a6a735d786175e4a730c5ab5f3c51d922a0dff80ccfe",
+      "target_sha256": "1f3b2c4b0581f73ff198a6a735d786175e4a730c5ab5f3c51d922a0dff80ccfe"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_tiled.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/cbs_kernel_tiled.so",
+      "source_sha256": "f8e14d5598af69c8c9ee797b69363750f2bf9f20b5352423593b490439d9bf1a",
+      "target_sha256": "f8e14d5598af69c8c9ee797b69363750f2bf9f20b5352423593b490439d9bf1a"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_flat_cache.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/cbs_kernel_flat_cache.so",
+      "source_sha256": "8bbc83944ede5cfa88235d2709d4cac78b80f47e26d2650cccffc4bd03df68b2",
+      "target_sha256": "8bbc83944ede5cfa88235d2709d4cac78b80f47e26d2650cccffc4bd03df68b2"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/cbs_kernel_certified.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/cbs_kernel_certified.so",
+      "source_sha256": "696e700f687f910f2f0ad57216f45f0233138c4a399f20d4a05a11b2bc546df0",
+      "target_sha256": "696e700f687f910f2f0ad57216f45f0233138c4a399f20d4a05a11b2bc546df0"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/astar_kernel_spatial_mask_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/astar_kernel_spatial_mask_candidate_20261022.so",
+      "source_sha256": "0ea3decf345496d64fffd8ae34c12a81e36c2f7bc7e6df9ecd3add7bea6017b0",
+      "target_sha256": "0ea3decf345496d64fffd8ae34c12a81e36c2f7bc7e6df9ecd3add7bea6017b0"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/native_resume/cbs_start_signature_cache_20261022.hpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/native_resume/cbs_start_signature_cache_20261022.hpp",
+      "source_sha256": "9676093cd68c8f32d46b1ef0e129b0be2009d63e1b538b609525fa945324b25a",
+      "target_sha256": "9676093cd68c8f32d46b1ef0e129b0be2009d63e1b538b609525fa945324b25a"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/native_resume/cbs_query_disk_memo_candidate_20261022.hpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/native_resume/cbs_query_disk_memo_candidate_20261022.hpp",
+      "source_sha256": "357c36606637ee8556cafcd0ffecc48e416264028484f9c807a285e6841d8070",
+      "target_sha256": "357c36606637ee8556cafcd0ffecc48e416264028484f9c807a285e6841d8070"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/native_resume/tiled_parent_store.hpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/native_resume/tiled_parent_store.hpp",
+      "source_sha256": "fb7c71341d76061df2c6ec8432734cf096c951b9fb512aea9525f0b2112d988b",
+      "target_sha256": "fb7c71341d76061df2c6ec8432734cf096c951b9fb512aea9525f0b2112d988b"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/native_resume/cbs_start_signature_cache_v2_20261022.hpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/native_resume/cbs_start_signature_cache_v2_20261022.hpp",
+      "source_sha256": "108517a571bfd3c498cf9f8288597f847241dc8b835747823c4acd6293000da8",
+      "target_sha256": "108517a571bfd3c498cf9f8288597f847241dc8b835747823c4acd6293000da8"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/native_resume/cbs_kernel_query_disk_candidate_20261022.cpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/native_resume/cbs_kernel_query_disk_candidate_20261022.cpp",
+      "source_sha256": "02d8017b313e468bca819e15dfc76e4697833cf17b84cfdfa9d115790c15e5c5",
+      "target_sha256": "02d8017b313e468bca819e15dfc76e4697833cf17b84cfdfa9d115790c15e5c5"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness/native_resume/cbs_kernel_resume.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/native_resume/cbs_kernel_resume.so",
+      "source_sha256": "13f07a32922a6a1b170f89366a4a2087a47bf21e3b6e2b75a22e5e02ac03834c",
+      "target_sha256": "13f07a32922a6a1b170f89366a4a2087a47bf21e3b6e2b75a22e5e02ac03834c"
+    }
+  ],
+  "changes": "Byte-identical copies; HERE now resolves under this experiment. No old module imported to perform this preparation."
+}
