@@ -2,6 +2,7 @@
 from dispatch import *
 from papers import make,version,prepare,NAMES
 from baseline_analysis import analyze
+from representative_scope import selected_scenes
 import traceback
 
 OUT=HERE/'paper_after_four_column'
@@ -19,13 +20,13 @@ def main():
     registry['no_paper_rollouts_started']=False
     registry['paper_screen_phase_entered']=datetime.datetime.now().astimezone().isoformat()
     dump(HERE/'PAPER_REGISTRY.json',registry)
-    protocol=read(OUT/'PROFILES_FROZEN.json');scenes=read(HERE/'SCENES.json')['entries']
+    protocol=read(OUT/'PROFILES_FROZEN.json');scenes=selected_scenes()
     statuses=[]
     for ordinal,profile in enumerate(protocol['profiles']):
         profile=prepare(profile)
         method=profile['method'];tag=version(profile);prefix=f'papers_{ordinal:02d}_{tag}'
         try:
-            first=next(e for e in scenes if e['type_id']==1 and e['level']==0)
+            first=next(e for e in scenes if e['type_id']==1)
             probe=[make(first['scene'],0,profile,'paper_interface_probe')]
             save_labels(probe,profile,'probe')
             probe_rows=execute(probe,prefix+'_probe',worker_entry='worker_papers.py')
@@ -37,9 +38,9 @@ def main():
                 statuses.append(item);dump(OUT/'EXECUTION_STATUS.json',statuses)
                 dump(OUT/f'implementation_alert_{ordinal:02d}_{tag}.json',item)
                 analyze();continue
-            # Base ladder/state0 pilots are an exact subset of the full joint
+            # Selected ladder/state0 pilots are an exact subset of the full joint
             # cohort, not a different benchmark or an extra tuning set.
-            pilot=[make(e['scene'],0,profile,'paper_fixed_profile_pilot')for e in scenes if e['level']==0]
+            pilot=[make(e['scene'],0,profile,'paper_fixed_profile_pilot')for e in scenes]
             save_labels(pilot,profile,'pilot')
             rows=execute(pilot,prefix+'_pilot',worker_entry='worker_papers.py')
             setup=[r for r in rows if r.get('setup_error')]

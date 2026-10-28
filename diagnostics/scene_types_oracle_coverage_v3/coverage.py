@@ -1,6 +1,7 @@
 """Descriptive finite-pool coverage, with pending cases kept separate from failures."""
 from core import *
 import csv
+from representative_scope import in_requested_scope,scope_keys,PATH as SCOPE_PATH
 
 FAMILY_NAMES=[
  '原三列族（朝目标、横向放大、互斥分离）',
@@ -34,6 +35,9 @@ def distribution(rows):
 
 def write(groups,baseline):
     scenes=read(HERE/'SCENES.json')['entries'];families=[];scene_rows=[]
+    # Retain full49 four-column evidence. Later families use the user-selected
+    # geometry-only17-scene cohort; unselected cases are outside scope, not failures.
+    groups=[g for g in groups if in_requested_scope(g)]
     for fi,name in enumerate(FAMILY_NAMES):
         rr=[g for g in groups if g['family']==fi]
         families.append(dict(index=fi,name=name,cases=len(rr),coverage={str(k):sum(g['success']and g['first_success']<=k for g in rr)for k in (16,32,64)},
@@ -48,10 +52,12 @@ def write(groups,baseline):
         for fi in range(7):
             rows=[g for g in rr if g['family']==fi]
             values.append(dict(family=fi,coverage={str(k):sum(g['success']and g['first_success']<=k for g in rows)for k in (16,32,64)},
+                denominator=len(rows),out_of_scope=not rows,
                 coverage_4x={str(k):sum(g['success']and g['first_success']<=k and g['solution']['episode_length']<=e['scene']['time_limits']['4']['max_steps']for g in rows)for k in (16,32,64)},
                 distribution=distribution(rows),computed_cases=sum(g['success']or g['searched']==64 for g in rows)))
         identities={(g['controller'],g['state_index'])for g in rr if g['success']}
-        complete=all(g['success']or g['searched']==64 or g.get('skipped')for g in rr)and len(rr)==112
+        expected=112 if not SCOPE_PATH.exists()or key in scope_keys()else 16
+        complete=all(g['success']or g['searched']==64 or g.get('skipped')for g in rr)and len(rr)==expected
         scene_rows.append(dict(type_id=e['type_id'],level=e['level'],name=scene_title(e),denominator=16,
             baseline_success=sum(b['success']for b in base),baseline_completed=len(base),families=values,
             any_family_success=len(identities),complete=complete,
@@ -62,8 +68,11 @@ def write(groups,baseline):
         items=[e for e in scene_rows if e['type_id']==t]
         by_type.append(dict(type_id=t,name=next(e['title']for e in scenes if e['type_id']==t),
             denominator=16*len(items),coverage64=[sum(e['families'][fi]['coverage']['64']for e in items)for fi in range(7)],
+            denominator_by_family={str(fi):sum(e['families'][fi]['denominator']for e in items)for fi in range(7)},
             curves={str(fi):[sum(g['success']and g['first_success']<=k for g in groups if g['type_id']==t and g['family']==fi)for k in range(1,65)]for fi in range(7)}))
     result=dict(scene_count=49,case_count=784,K=64,families=families,scenes=scene_rows,by_type=by_type,
+        representative_scope_file=str(SCOPE_PATH)if SCOPE_PATH.exists()else None,
+        family_case_counts={str(f['index']):f['cases']for f in families},
         complete=all(e['complete']for e in scene_rows),
         scope='Finite frozen candidate pool; no generator or family/dimension selection. User-added fixed paper comparisons are reported separately.',
         short_horizon_policy='4x reports only executed trajectories under the 6x-first-success stopping rule; unexecuted candidates remain unknown.')
@@ -73,6 +82,7 @@ def write(groups,baseline):
     for e in scene_rows:
         cells=[]
         for v in e['families']:
+            if v['out_of_scope']:cells.append('—（后续不运行此档）');continue
             value='/'.join(str(v['coverage'][str(k)])for k in (16,32,64))
             if v['distribution']['incomplete']:value+=f"（待{v['distribution']['incomplete']}）"
             cells.append(value)
@@ -80,13 +90,24 @@ def write(groups,baseline):
     with(HERE/'coverage_scenes.csv').open('w',newline='')as f:
         writer=csv.writer(f);writer.writerow(header);writer.writerows(table)
     paragraphs=['# 十七类场景各修正族有限候选覆盖\n',
-        '本轮'+('已完成'if result['complete']else'尚未完成')+'。49 个场景、784 个案例，各族当前 64 次内覆盖：'+
-        '；'.join(f"{f['name']} {f['coverage']['64']}/784（从16到64增加{f['coverage']['64']-f['coverage']['16']}）"for f in families)+'。未运行完的案例不算作64次失败。\n',
+        '本轮'+('已完成'if result['complete']else'尚未完成')+'。四列族保留49个场景784案例；用户后续要求每类一个物理参数中档场景，其余族使用17场景272案例。各族当前64次内覆盖：'+
+        '；'.join(f"{f['name']} {f['coverage']['64']}/{f['cases']}（从16到64增加{f['coverage']['64']-f['coverage']['16']}）"for f in families)+'。未运行完的案例不算作64次失败；后续不运行的档位不算失败。\n',
         '64次内各族都未覆盖的完整场景：'+('；'.join(e['name']for e in scene_rows if e['complete']and e['any_family_success']==0)or'当前尚无已完成搜索且零覆盖的场景；未完成场景不作结论。')+'\n',
         '每个案例按冻结顺序搜索，第一次成功即停，最多64次；不训练或调用生成器，不选族、不推荐维度。用户后续追加的论文固定参数对照在四列阶段后运行，单独写入 paper_after_four_column/。\n',
         '四倍时限结果来自同一次六倍时限搜索实际执行的轨迹，不追加候选搜索，不能把未执行的短时限候选当作失败。\n',
         '| '+' | '.join(header)+' |','| '+' | '.join(['---']*len(header))+' |']
     paragraphs.extend('| '+' | '.join(row)+' |'for row in table)
     paragraphs.append('\n首次成功序号的中位数、四分位、未找到数、搜索次数均值与成功条件平均完成时间保存在 COVERAGE.json。曲线同时保存总体和逐类型数据；未完成时只给当前已验证覆盖，不假定后续结果。\n')
+    if SCOPE_PATH.exists():
+        matched=[]
+        for f in families:
+            rows=[g for g in f['cases_detail']if(g['type_id'],g['level'])in scope_keys()]
+            matched.append(dict(index=f['index'],name=f['name'],cases=len(rows),
+                coverage={str(k):sum(g['success']and g['first_success']<=k for g in rows)for k in(16,32,64)},
+                distribution=distribution(rows),
+                success_mean_completion_time=float(np.mean([g['solution']['completion_time']for g in rows if g['success']]))if any(g['success']for g in rows)else None))
+        dump(HERE/'REPRESENTATIVE17_COMPARISON.json',dict(scene_count=17,cases_per_family=272,families=matched,
+            selection_file=str(SCOPE_PATH),note='All families restricted to the identical selected17 scenes; full49 four-column results retained separately.'))
+        paragraphs.append('\n相同17场景的公平子集比较见 [REPRESENTATIVE17_COMPARISON.json](REPRESENTATIVE17_COMPARISON.json)，场景及纯几何选档规则见 [REPRESENTATIVE17.md](REPRESENTATIVE17.md)。四列族的784分母不能直接与其他族的272分母比成功数。\n')
     (HERE/'REPORT.md').write_text('\n\n'.join(paragraphs)+'\n')
     return result

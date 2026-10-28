@@ -26,5 +26,16 @@
     "Chen": "Retain occupancy-domain revision2; fixed400 termination-condition polls per original0.04 retry budget, source-defined retry scaling and fixed seed.",
     "MerryGoRound": "Full author circle/obstacle/CBF mechanism, native actuation endpoint mapped to common SI plant, arrival tolerance and true physical wall margins matched."
   },
-  "limitations": "These are common-plant ports, not original paper experiments or native nonholonomic guarantees. Constructor failures/solo inability/solver errors prevent inferring intrinsic task difficulty from low success."
+  "limitations": "These are common-plant ports, not original paper experiments or native nonholonomic guarantees. Constructor failures/solo inability/solver errors prevent inferring intrinsic task difficulty from low success.",
+  "representative17_user_scope_override": {
+    "selection_file": "diagnostics/scene_types_oracle_coverage_v3/REPRESENTATIVE17_FROZEN.json",
+    "current_four_column_scene_count": 49,
+    "later_paper_scene_count": 17,
+    "later_paper_physical_states_per_profile": 136,
+    "later_C1_scene_count": 17,
+    "later_C1_cases_per_family": 272,
+    "selection": "physical parameter median only; no method success used",
+    "previous49_scene_planned_counts_superseded": true,
+    "time": "2026-10-28T17:53:13.736267+08:00"
+  }
 }

@@ -71,6 +71,7 @@ def consume_available_without_rollouts():
     from acceleration import accelerated_case
     from reuse import cached,flush
     from main import consume
+    from representative_scope import in_requested_scope
     planned=read(HERE/'safety_only_planned.json')['exact_configs']
     if not planned or sources()!=planned[0]['controller_payload']['execution_sources']:
         with(HERE/'GAPS.md').open('a')as f:f.write('\n执行源码指纹变化，跳过最终缓存推进，保留原始已执行记录。\n')
@@ -81,6 +82,7 @@ def consume_available_without_rollouts():
     menus=read(HERE/'FAMILIES_64.json')['families'];extra=[]
     with db.connect(True)as con:
         for g in state['groups']:
+            if not in_requested_scope(g):continue
             while not g['success']and not g['skipped']and g['searched']<64:
                 ki=g['searched'];sp=menus[g['family']]['candidate_pool'][ki]
                 c=make(scenes[(g['type_id'],g['level'])],ctls[g['controller']],g['state_index'],sp,purpose='v3_oracle_coverage')
@@ -136,10 +138,10 @@ def main():
     with(HERE/'budget_curves.csv').open('w')as out:
         out.write('family,type_id,K,covered,denominator\n')
         for family in coverage['families']:
-            for point in family['curve']:out.write(f"{family['index']},all,{point['K']},{point['covered']},784\n")
+            for point in family['curve']:out.write(f"{family['index']},all,{point['K']},{point['covered']},{family['cases']}\n")
         for t in coverage['by_type']:
             for fi,curve in t['curves'].items():
-                for k,value in enumerate(curve,1):out.write(f"{fi},{t['type_id']},{k},{value},{t['denominator']}\n")
+                for k,value in enumerate(curve,1):out.write(f"{fi},{t['type_id']},{k},{value},{t.get('denominator_by_family',{}).get(fi,t['denominator'])}\n")
     analysis=[]
     for family in coverage['families']:
         cases=family['cases_detail'];success=[g for g in cases if g['success']]
@@ -155,7 +157,8 @@ def main():
     for family in coverage['families'][1:]:
         pairs=[]
         for g in family['cases_detail']:
-            other=base[(g['type_id'],g['level'],g['controller'],g['state_index'])]
+            other=base.get((g['type_id'],g['level'],g['controller'],g['state_index']))
+            if other is None:continue
             if g['success']and other['success']:pairs.append([g['solution']['completion_time'],other['solution']['completion_time']])
         paired.append(dict(family=family['index'],paired_success_n=len(pairs),
             method_mean=sum(p[0]for p in pairs)/len(pairs)if pairs else None,
@@ -221,7 +224,7 @@ def main():
         out.write('\n共同成功案例的配对时间另见 TIMING.json，不与成功条件均值混合。\n')
         names=[f['name']for f in coverage['families']]
         out.write('\n\n## 逐类型合计覆盖\n\n| 类型 | 案例数 | '+' | '.join(names)+' |\n|---|---:|'+'---:|'*7+'\n')
-        for t in coverage['by_type']:out.write('| '+t['name']+' | '+str(t['denominator'])+' | '+' | '.join(map(str,t['coverage64']))+' |\n')
+        for t in coverage['by_type']:out.write('| '+t['name']+' | 按族分母 | '+' | '.join(f"{v}/{t.get('denominator_by_family',{}).get(str(fi),t['denominator'])}"for fi,v in enumerate(t['coverage64']))+' |\n')
         out.write('\n\n## 首次成功序号与搜索成本\n\n| 修正族 | 中位数 | 四分位 | 成功案例平均搜索数 | 完整案例平均搜索数 | 64次未找到 | 尚未完成 |\n|---|---:|---|---:|---:|---:|---:|\n')
         for f in coverage['families']:
             d=f['distribution']
@@ -229,11 +232,15 @@ def main():
         out.write('\n完整案例平均搜索数包含64次未找到的案例；成功案例均值只对找到解的案例计算，两者不混用。\n')
         out.write('\n\n## 逐场景四倍与六倍时限\n\n下表各格为四倍时限成功数→六倍时限成功数，分母均为16。沿用六倍时限首次成功即停；未运行的候选不作为四倍时限失败证据。\n\n| 场景 | 只加安全投影 | '+' | '.join(names)+' |\n|---|---:|'+'---:|'*7+'\n')
         for e in coverage['scenes']:
-            values=[f"{v['coverage_4x']['64']}→{v['coverage']['64']}"for v in e['families']]
+            values=['—（后续不运行此档）'if v.get('out_of_scope')else f"{v['coverage_4x']['64']}→{v['coverage']['64']}"for v in e['families']]
             out.write('| '+e['name']+f" | {e['baseline_success_4x']}→{e['baseline_success']} | "+' | '.join(values)+' |\n')
         if not plot_error:
             out.write('\n每族总体与逐类型搜索曲线见 figures/（14张独立矢量图），图像只读取冻结结果。\n')
-        if paper_required:out.write('\n\n用户追加的五篇论文六版本固定参数对照见 [单独报告](paper_after_four_column/REPORT.md)。每个参数profile392个物理初态，不把同一论文控制器重复成两个nominal。该对照和本轮C1 Oracle上限分别解释。\n')
+        if paper_required:
+            from representative_scope import selected_scenes
+            out.write(f'\n\n用户追加的五篇论文六版本固定参数对照见 [单独报告](paper_after_four_column/REPORT.md)。每个参数profile{len(selected_scenes())*8}个物理初态，不把同一论文控制器重复成两个nominal。该对照和本轮C1 Oracle上限分别解释。\n')
+        if(HERE/'REPRESENTATIVE17_FROZEN.json').exists():out.write('\n按用户最新要求，四列族完整49场景收尾后，其余族与论文方法仅运行纯几何参数中档的17代表场景。相同272案例的族间比较见 REPRESENTATIVE17_COMPARISON.json；未运行的其他档位不算失败。\n')
+        if(HERE/'zero_coverage_audit/REPORT.md').exists():out.write('\n零覆盖场景的几何与原CBF联合可行轨迹核验见 [补充审计](zero_coverage_audit/REPORT.md)，诊断轨迹不混入Oracle或论文方法成功率。\n')
     state.update(complete=coverage['complete']and paper_complete and not(HERE/'PROTECTION_VIOLATION.jsonl').exists(),
         delivery_analysis_complete=True,official_rows_verified=len(raw),
         paper_comparison_required=paper_required,paper_comparison_complete=paper_complete,
@@ -245,7 +252,7 @@ def main():
     (HERE/'STATUS.md').write_text('# 当前状态\n\n'+datetime.datetime.now().astimezone().isoformat()+'：'+
         ('有限候选覆盖与交付分析已全部完成，预计剩余时间0。'if state['complete']else'已停止并保存部分交付；未完成项见 GAPS.md，不能记作64次失败。')+
         f"\n\n实际新rollout尝试 {state['actual_new_rollouts']}/90000；官方索引核验 {len(raw)} 条。\n\n"+
-        '；'.join(f"{f['name']} {f['coverage']['64']}/784"for f in coverage['families'])+'。\n')
+        '；'.join(f"{f['name']} {f['coverage']['64']}/{f['cases']}"for f in coverage['families'])+'。\n')
     (HERE/'RESOURCE_WATCH_STOP').write_text('Numerical pipeline and final provenance analysis finished.\n')
     print('FINALIZED',state,flush=True)
 

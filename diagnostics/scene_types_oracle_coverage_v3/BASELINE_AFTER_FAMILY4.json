@@ -6,5 +6,16 @@
   "scope_override": "Supersedes the v3 default prohibition on paper baselines only; scene family, dynamics, C1 nominal/safety, candidates, seeds and other v3 protections remain frozen.",
   "no_paper_rollout_before_family4": true,
   "overall_new_rollout_cap": 90000,
-  "created": "2026-10-28T15:39:29.327284+08:00"
+  "created": "2026-10-28T15:39:29.327284+08:00",
+  "representative17_user_scope_override": {
+    "selection_file": "diagnostics/scene_types_oracle_coverage_v3/REPRESENTATIVE17_FROZEN.json",
+    "current_four_column_scene_count": 49,
+    "later_paper_scene_count": 17,
+    "later_paper_physical_states_per_profile": 136,
+    "later_C1_scene_count": 17,
+    "later_C1_cases_per_family": 272,
+    "selection": "physical parameter median only; no method success used",
+    "previous49_scene_planned_counts_superseded": true,
+    "time": "2026-10-28T17:53:13.736388+08:00"
+  }
 }

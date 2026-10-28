@@ -4,6 +4,7 @@ from acceleration import accelerated_case
 from reuse import requests,cached,flush
 from coverage import write,FAMILY_NAMES
 from budget import used
+from representative_scope import in_requested_scope
 import traceback
 
 ORDER=[4,0,1,2,3,5,6]
@@ -109,7 +110,7 @@ def run():
         dump(HERE/'SEARCH_STATE.json',dict(groups=groups,baseline=baseline,active_family=fi,
              completed_batches=progress,pending_stage=None))
     for fi in ORDER:
-        members=[g for g in groups if g['family']==fi]
+        members=[g for g in groups if g['family']==fi and in_requested_scope(g)]
         for batch in range(progress.get(str(fi),0),64):
             active=[g for g in members if not g['success']and not g['skipped']and not g['gap']and g['searched']<64]
             if not active:break
@@ -151,7 +152,7 @@ def run():
                  completed_batches=progress,pending_stage=None))
             result=write(groups,baseline)
             status(FAMILY_NAMES[fi],sum(g['success']or g['searched']==64 or g['skipped']for g in members),len(members),
-                   f'缺失候选批次 {batch+1}/64；当前找到成功 {sum(g["success"]for g in members)}/784；实际新运行 {used()}/90000。')
+                   f'缺失候选批次 {batch+1}/64；当前找到成功 {sum(g["success"]for g in members)}/{len(members)}；实际新运行 {used()}/90000。')
             print('COVERAGE',fi,batch+1,'success',sum(g['success']for g in members),'actual_new',used(),flush=True)
         dump(HERE/f'family_{fi}_complete.json',dict(family=fi,complete=all(g['success']or g['searched']==64 or g['skipped']for g in members)))
         if fi==4 and(HERE/'BASELINE_AFTER_FAMILY4.json').exists():
