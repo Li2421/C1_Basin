@@ -61,8 +61,41 @@ def reconcile_completed_frontier():
         write(state_path,state);coverage_write(groups,state['baseline'])
         with(HERE/'ITERATION_LOG.md').open('a')as f:f.write('\n最终只读重算：把硬上限/异常发生时最后一批已保存的真实结局纳入覆盖表；没有启动任何新rollout或跳过候选顺序。\n')
 
+def consume_available_without_rollouts():
+    """A numerical budget limit does not discard already existing exact evidence."""
+    p=HERE/'SEARCH_STATE.json'
+    if not p.exists()or(HERE/'PROTECTION_VIOLATION.jsonl').exists():return
+    state=read(p)
+    if all(g['success']or g['searched']==64 or g['skipped']for g in state['groups']):return
+    from runner import case,sources
+    from acceleration import accelerated_case
+    from reuse import cached,flush
+    from main import consume
+    planned=read(HERE/'safety_only_planned.json')['exact_configs']
+    if not planned or sources()!=planned[0]['controller_payload']['execution_sources']:
+        with(HERE/'GAPS.md').open('a')as f:f.write('\n执行源码指纹变化，跳过最终缓存推进，保留原始已执行记录。\n')
+        return
+    make=accelerated_case if read(HERE/'ACCELERATION_CERTIFICATE.json')['passed']and read(HERE/'ACCELERATION_KEY_CHAIN_EXTENSION.json')['passed']else case
+    scenes={(e['type_id'],e['level']):e['scene']for e in read(HERE/'SCENES.json')['entries']}
+    ctls={c['type_code']:c for c in read(HERE/'CONTROLLERS_FROZEN.json')['controllers']}
+    menus=read(HERE/'FAMILIES_64.json')['families'];extra=[]
+    with db.connect(True)as con:
+        for g in state['groups']:
+            while not g['success']and not g['skipped']and g['searched']<64:
+                ki=g['searched'];sp=menus[g['family']]['candidate_pool'][ki]
+                c=make(scenes[(g['type_id'],g['level'])],ctls[g['controller']],g['state_index'],sp,purpose='v3_oracle_coverage')
+                r=cached(c,'final_cache_only_no_rollouts',con)
+                if r is None:break
+                extra.append(consume(g,c,r,ki+1))
+            if g['success']or g['searched']==64:g['gap']=None
+    flush()
+    if extra:
+        write(p,state);write(HERE/'FINAL_CACHE_CONSUMPTION.json',dict(environment_steps=0,queries=extra))
+        with(HERE/'ITERATION_LOG.md').open('a')as f:f.write(f'\n数值运行停止后的只读补全：按原候选顺序消化{len(extra)}条已有精确/前缀认证标签，遇首个缺失即停；没有新增rollout，未跳过旧超时，也未越过首次成功。\n')
+
 def main():
     reconcile_completed_frontier()
+    consume_available_without_rollouts()
     # Rebuild presentation from actual query records, including pending counts.
     if(HERE/'SEARCH_STATE.json').exists():
         from coverage import write as coverage_write
