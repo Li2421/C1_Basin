@@ -110,6 +110,9 @@ def run():
         progress[str(fi)]=round_number
         dump(HERE/'SEARCH_STATE.json',dict(groups=groups,baseline=baseline,active_family=fi,
              completed_batches=progress,pending_stage=None))
+    if (HERE/'PRIORITY_RESCUE_REQUEST.json').exists():
+        from priority_rescue import run as run_priority_rescue
+        run_priority_rescue(groups,make,scene_map,ctl_map,menus,consume)
     for fi in ORDER:
         members=[g for g in groups if g['family']==fi and in_requested_scope(g)]
         for batch in range(progress.get(str(fi),0),64):

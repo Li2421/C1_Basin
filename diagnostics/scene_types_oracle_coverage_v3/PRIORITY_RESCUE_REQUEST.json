@@ -1,0 +1,13 @@
+{
+  "requested_on": "2026-10-29",
+  "reason": "User requests pausing the three-column search, prioritizing four-column failures, then resuming the three-column search.",
+  "cohort": "61 failed cases within the frozen representative17 cohort",
+  "family_order_per_candidate": [5, 6, 1],
+  "candidate_cap_per_family": 64,
+  "stop_case_after_any_success": true,
+  "keep_main_three_column_progress": true,
+  "auto_resume_main_after_priority": true,
+  "cpu_limit": 24,
+  "history_check": "Existing exact main-search outcomes and historical certified cache reused first; no changes to candidates, controller, safety, geometry or horizon.",
+  "scope": "Frozen existing candidate families only. Targeted T5 extension does not reopen its full-cohort screening. Separate rescue report; not an unbiased global ranking."
+}
