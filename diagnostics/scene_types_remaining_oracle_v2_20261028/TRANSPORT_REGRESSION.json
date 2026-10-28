@@ -1,0 +1,778 @@
+{
+  "passed": true,
+  "actual_env_steps": 0,
+  "matched_initial_actions": 64,
+  "skipped_historical_unknowns": [],
+  "results": [
+    {
+      "uid": "roll_05fc90e0e964827c629d4d2d13d4133dab51902217cecc263d4553ef3ccc5076",
+      "controller": "gradient_mpc",
+      "type_id": 16,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_06c296eefefc2dce61df021c71248420789cf8f15476078c50117fd17a751a5d",
+      "controller": "gradient_mpc",
+      "type_id": 16,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_0bb69b0cb3d328bf3666a43f2cb709c3da3579ea9c7202d7bf85531336e599b3",
+      "controller": "gradient_mpc",
+      "type_id": 10,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_0bc169b987c5fedc17f31b79e006ca29aa50a067af9f058135ca7eba20e6cf34",
+      "controller": "gradient_mpc",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_109b2d10089db57421820cd7f832a2164cd6e0995bf8dd6d9604234fff59487c",
+      "controller": "gradient_mpc",
+      "type_id": 16,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_124df13fa796ec9054d6f8c876b88e01ccf190449a331fd6d6735ce2e0c848b1",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_1399aa099aecf5ac96e5477c565245cda3df41c42a0b73409739dcdec6539d9b",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_1c7afe3dc4105fc52d214a3d4e3c2963b97757843def91b3c18f1295a46e207e",
+      "controller": "gradient_mpc",
+      "type_id": 8,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_1e6a0807e4b443d841b5b04dd16e0cbf1d21353c27daed9f562ee3587f81eb7e",
+      "controller": "gradient_mpc",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_223bc8cbe75ea8efa06edb6274fd9d20ccc5b7ea9bd0bdf742f41af5fefa8d5b",
+      "controller": "gradient_mpc",
+      "type_id": 16,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_2c00fe9056ac1905b3977f77684d855b97afa20e23011527534220f3d537b818",
+      "controller": "gradient_mpc",
+      "type_id": 5,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_2ca517b9082d8c51b26a3e047b0b6b5e60d5a146857d24ab8f6b0f08f917ebb1",
+      "controller": "gradient_mpc",
+      "type_id": 8,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_32199f6a312e95bb0bae9a7f04cd3fab1e5c31c1971e7446e7a278703e7a5218",
+      "controller": "centralized_sampling",
+      "type_id": 8,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_32fc4bc7662098180e4a8e204c3e591a35c9ff72a411e05a6b6a8ed80261902a",
+      "controller": "gradient_mpc",
+      "type_id": 15,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_3414cf4bfaedbddb95522839c6424ed620118713a3613a7369b3e94cf85f3854",
+      "controller": "gradient_mpc",
+      "type_id": 16,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_386a33dff91081892721ab5a584a60456f7061da2cd0e77d1c4e2dda8fee2700",
+      "controller": "gradient_mpc",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_38f83dfffa6abb00aff069b519bf2dcba86c3d897a913986ee8cb756c317f341",
+      "controller": "gradient_mpc",
+      "type_id": 16,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_3cab6b369a8bdb54e5057af473756f66c8a8ecadc0f170fe7597ed7803ed89a8",
+      "controller": "gradient_mpc",
+      "type_id": 16,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_3cca360625f7ce89c3f19e3b57274df67dfc084b7b4f9f6426e05f08d2791cbd",
+      "controller": "gradient_mpc",
+      "type_id": 5,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_3e6fc6f2aa171b9c030890cb45a7ef6ec1642967d23a84f1ccff6f580f0f23a9",
+      "controller": "gradient_mpc",
+      "type_id": 15,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_440620950a124e03065d819165f9221e81f48f16863419e0ed69d0dc43bf778c",
+      "controller": "centralized_sampling",
+      "type_id": 10,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_4569f8cf8aed360e2861bb6658144891d32b96d4035702eb3bc8b52de2a6e15d",
+      "controller": "gradient_mpc",
+      "type_id": 10,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_4be5b84e53fbe4c7d13e7968e5a69daa32a10518bc399cb91ef92c9b0999968f",
+      "controller": "gradient_mpc",
+      "type_id": 8,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_529f8b9fd8d9e34ec7c469fd9d27e986de5964606c3898ed3338f59eddfc5cd9",
+      "controller": "gradient_mpc",
+      "type_id": 5,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_556b64f85c6d4c8f734b1f879304c6b9db50385d262b96a518e7bac9dfed000d",
+      "controller": "gradient_mpc",
+      "type_id": 10,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_5b2b0b1d7f0b676f4e940e62df14f08193b6da41bc30d52f8fcc09f36bb15a9a",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_605fcdb25f90bad1480abbc4dc0609a25f26330cc01728ed5cdcdc8d96306634",
+      "controller": "gradient_mpc",
+      "type_id": 5,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_62862846c2e27b223c5854b896844f513225cfeae966f9e9d54bb756cdbe1621",
+      "controller": "centralized_sampling",
+      "type_id": 10,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_63f60ff8f826a9d0cb78bdfd1bb483ada4a08816c44cdc434f1779f61d603389",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_687aafe42a488583030f8b7b3d57159b3b06f03cc0394610e759e9a57f9916e9",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_6a8f9b97edf16c0e0c004604e55a1ef1c35a79b1b1fb2246f8bdcbfe6ae08643",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_6e6a13421455cf2eb80408659ec42ace906206d48be73891e6181c1fc75bff7a",
+      "controller": "centralized_sampling",
+      "type_id": 10,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_797f3aea2283972c719682b045012bb9ff6d3564b8ea5e1121f15971bd842987",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_79cbf35c791193475ffdbc5a08bbd51e7eb4269057cd756bf5c29dd66e2ca186",
+      "controller": "gradient_mpc",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_7af162542c8fe3c078059a0355b1bb61199e065bb75d038cff4a6627bcf26dcf",
+      "controller": "centralized_sampling",
+      "type_id": 16,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_7d9279050291d283cbb5b5897361ed7ab40082e248c5628b1d8cea4e5abf335f",
+      "controller": "centralized_sampling",
+      "type_id": 8,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_7eddd50858332dd5511710379fcdb6284bf69bc44a03417bb592f5bc46d504ab",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_82a8a21546eb4a0f3a78aaee44ff11fcb568ceb199bf50aafb2752ab38ab3833",
+      "controller": "gradient_mpc",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_8d062cc0fc88691111188b4e6286f27f0607f368e4fd25634bbd20667a495375",
+      "controller": "gradient_mpc",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_924bcbd1a4c812b14599ad8280eaee11ff6335ddac3fd4b634e878ad51524aa2",
+      "controller": "gradient_mpc",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_9361bbcce6dc376b58237a4d02e5bc4a4b3ead335d6c24ba57f891855d73e6ea",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_943ef7c710245a361d08a453298fe021d25f99ff044b88f3f9b9ae6f0a56e7e7",
+      "controller": "gradient_mpc",
+      "type_id": 16,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_9cfc5b134aefd40a39eb6c32e9f27febdb6162ad367ec82b820824ee817883bb",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_9e70858f94d719d024ada03452d9fb7bac11860656721a1c9a4aafcae85c6ddf",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_a243cc70d0a015fedd53614bd1670cacc8eb9de442c9f84a6646850887e582b3",
+      "controller": "centralized_sampling",
+      "type_id": 16,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_aa64e9b9b557747a64bcfc423fe2f0dd179108fc0bd15bff2da3f1240c7679a8",
+      "controller": "gradient_mpc",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_af92a42743b43190af8e7fbf65e3961e1be7dde6d0c6a9515d9bcf9cf07dd1ac",
+      "controller": "centralized_sampling",
+      "type_id": 8,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_b240442567a217bf83eeac669b4f2ac6c7fc73baef0e7ecbd5f763f088d94d2e",
+      "controller": "centralized_sampling",
+      "type_id": 15,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_b8dc64bf24c569cfc99fcf28e831a737e240bf949537584bcc9bcb5e8740b661",
+      "controller": "centralized_sampling",
+      "type_id": 10,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_c557018e646779841c3f14518ba8b7c50c201eb17e7c2a0797dfe6a7bec80986",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_cd37b78b956c9ae3300a62f8709edbf97d8bf46de18276aac1f8f61795c7b89f",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_cf7d11383a9bdf76424045e88d96eebb5b08e86ebcb8c40af591b1c4ef3bb69d",
+      "controller": "centralized_sampling",
+      "type_id": 16,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_d5e59a50aecf5475ac704394907b96c99070b5471463c62b86cbfd36cb01a4b7",
+      "controller": "centralized_sampling",
+      "type_id": 15,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_d879c7f10027a2c68225ea1389f3a9fb30dabb2c1439968c120e5db615285328",
+      "controller": "gradient_mpc",
+      "type_id": 15,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_da220252238e729d607e9664f0cb1b66a00e81a38539be2c31d3de7deb5cf0de",
+      "controller": "centralized_sampling",
+      "type_id": 16,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_ddd90bb73a425a055090575dee77540c3417346dfac3eefb5abb70d55609c75a",
+      "controller": "centralized_sampling",
+      "type_id": 8,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_e15a0d3083952e59578877208bbd0271ec4b01d90302ea5b092acdcb633cc735",
+      "controller": "gradient_mpc",
+      "type_id": 8,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_ea773de672f32164fa6dc66928cf5c29a75ee6e7588a0041d9f4ced894f5c661",
+      "controller": "gradient_mpc",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_ebdba984d6b36ceff96c14cf3bdb30bb190972455a4e39d01562310f9ae1d32f",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_ebeeb9142d2bace42be2879de6249e81de3a29aabb595a5e1565e864a8d90c51",
+      "controller": "gradient_mpc",
+      "type_id": 5,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_ed1159bceff9b748c628262ac061aed2d1f10f0d2c7e6fee9adf7c43b342f775",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_eeece36762a012308c0ea6c9d97c1667237be833356908c47b655b4b4d85dcff",
+      "controller": "gradient_mpc",
+      "type_id": 10,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_f4d78e3d533923bef091c3195f3644a06a93079696069018cbe7d7803c5fcf6b",
+      "controller": "centralized_sampling",
+      "type_id": 15,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    },
+    {
+      "uid": "roll_fee65124cb31b26f02cdea09fa9a64a967c76d78a673e235838b9105f0e8a45b",
+      "controller": "centralized_sampling",
+      "type_id": 9,
+      "checks": {
+        "nominal": true,
+        "safe": true,
+        "actions": true,
+        "route_guides": true,
+        "route_remaining": true
+      }
+    }
+  ],
+  "reused_full_episode_certificate": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/ACCELERATION_CERTIFICATE.json",
+  "scope": "Byte-identical numerical modules; metadata-only namespace/paths/cache changes. Initial action replay is not a new whole-episode equivalence certificate."
+}

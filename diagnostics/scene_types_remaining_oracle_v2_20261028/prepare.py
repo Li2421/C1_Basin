@@ -1,0 +1,34 @@
+"""Build a private harness before any import with historical side effects."""
+import guard
+from guard import HERE,ROOT
+import hashlib
+import json
+from pathlib import Path
+
+SOURCE=ROOT/'diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/scene_search/harness'
+
+def main():
+    dest=HERE/'generated';dest.mkdir(exist_ok=True)
+    records=[]
+    files=list((SOURCE/'backend').glob('*.py'))
+    files += [SOURCE/n for n in ('bootstrap.py','experiment.py','common.py','scene_environment.py','controllers_new.py','runtime_new.py','LAYOUT_REVISION_DESIGN.json')]
+    files += list(SOURCE.glob('*.so'))
+    files += [p for p in (SOURCE/'native_resume').rglob('*') if p.suffix in ('.so','.py','.cpp','.hpp','.h')]
+    for source in files:
+        target=dest/source.relative_to(SOURCE);target.parent.mkdir(parents=True,exist_ok=True)
+        data=source.read_bytes()
+        if target.exists(): assert target.read_bytes()==data, target
+        else: target.write_bytes(data)
+        records.append(dict(source=str(source),target=str(target),source_sha256=hashlib.sha256(data).hexdigest(),target_sha256=hashlib.sha256(target.read_bytes()).hexdigest()))
+    (HERE/'BACKEND_BUILD.json').write_text(json.dumps(dict(sources=records,changes='Byte-identical copies; HERE now resolves under this experiment. No old module imported to perform this preparation.'),indent=2)+'\n')
+    (HERE/'IMPORT_WRITE_AUDIT.md').write_text('''# Import 写入边界审计
+
+旧 harness 的 experiment.py 在 import 时 mkdir TMPDIR/MPLCONFIGDIR/XDG_CACHE_HOME/CUDA_CACHE_PATH；common.evidence 在调用时追加 HERE/EVIDENCE_INPUTS.jsonl。二者与 bootstrap 先复制到本轮 generated/，内容逐字节不变，HERE 自然指向本轮目录。backend 中的结果写入函数通过 experiment.write 进入同一边界。旧 runner/oracle/basis_select 的顶层路径修改与 mkdir 不直接 import。
+
+guard.py 在任何研究模块之前启用：禁用 pycache，CPU-only、BLAS 单线程，重定向缓存和临时路径；审计 Python open、目录/文件变更、SQLite 连接。写入仅放行本轮目录与本实验的官方 journal；仅协调进程可连接官方 SQLite 写入。审计钩子不能拦截第三方本地库自行执行的系统调用，故也记录导入文件哈希与结束完整性核对，不能把 Python 钩子称为完整 OS 沙箱。
+
+复用上一轮200局逐位认证；数值函数逐字节复制，新增命名空间另做初步动作回放核对。旧实验结果只读，已有运行时/名义控制器/安全层定义通过 SHA256 留痕复用。
+''')
+    print('Prepared',len(records),'private, byte-identical inputs',flush=True)
+
+if __name__=='__main__': main()

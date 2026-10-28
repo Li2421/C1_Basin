@@ -1,0 +1,30 @@
+{
+  "complete": true,
+  "new_candidates": 56,
+  "new_successful_candidates": 1,
+  "rescues": [
+    {
+      "type_id": 9,
+      "controller": "centralized_sampling",
+      "state_index": 6,
+      "spec": {
+        "eta": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "coefficients": {
+          "T3": -0.9778857994824648,
+          "P2": 0.22705783881247044
+        }
+      },
+      "time": 23.85,
+      "uid": "roll_6ca7cc6826854331ec1e8e663412853c3a5f1745da333cb4246066dd2cbdf4da"
+    }
+  ],
+  "original_failures": 43,
+  "existing_other_pool_rescues": 11,
+  "new_rescued_cases": 1,
+  "remaining": 31,
+  "scope": "Posthoc transfer only. Original77/120 unchanged; Oracle64 is a separate user-requested followup."
+}

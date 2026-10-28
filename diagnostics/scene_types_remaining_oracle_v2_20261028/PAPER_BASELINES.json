@@ -1,0 +1,180 @@
+[
+  {
+    "method": "Wang 2017 Consistent Perturbation",
+    "profile": "wang2017_consistent_perturbation_di_tracking",
+    "statistics": {
+      "n": 60,
+      "success": 4,
+      "success_rate": 0.06666666666666667,
+      "success_mean_time": 11.1125,
+      "all_cohort_truncated_mean": 26.668333333333337,
+      "collision": 10,
+      "timeout": 9,
+      "numerical_unknown": 37,
+      "unknown_exception_types": {
+        "NumericalUnknown": 37
+      },
+      "case_wilson95": [
+        0.026228698724506214,
+        0.1592535731319717
+      ],
+      "compute_seconds_total": 25.946155983954668,
+      "compute_seconds_mean": 0.43243593306591116,
+      "solver_internal_failure_events": 37,
+      "restoration_steps": null,
+      "sampled_speed_violation_steps": null,
+      "paper_action_speed_clipped_steps": 0,
+      "constraint_violation_steps": null,
+      "original_constraint_metric_cases": 0,
+      "static_collision_without_reported_constraint_violation": null
+    }
+  },
+  {
+    "method": "Wang 2017完整Deadlock Resolution",
+    "profile": "wang2017_full_di_tracking",
+    "statistics": {
+      "n": 60,
+      "success": 4,
+      "success_rate": 0.06666666666666667,
+      "success_mean_time": 11.1125,
+      "all_cohort_truncated_mean": 26.668333333333337,
+      "collision": 10,
+      "timeout": 9,
+      "numerical_unknown": 37,
+      "unknown_exception_types": {
+        "NumericalUnknown": 37
+      },
+      "case_wilson95": [
+        0.026228698724506214,
+        0.1592535731319717
+      ],
+      "compute_seconds_total": 26.582488551270217,
+      "compute_seconds_mean": 0.4430414758545036,
+      "solver_internal_failure_events": 37,
+      "restoration_steps": null,
+      "sampled_speed_violation_steps": null,
+      "paper_action_speed_clipped_steps": 0,
+      "constraint_violation_steps": null,
+      "original_constraint_metric_cases": 0,
+      "static_collision_without_reported_constraint_violation": null
+    }
+  },
+  {
+    "method": "Chen 2023 Dynamic Priority+RHR+Safe Corridor",
+    "profile": "chen_impc_ob_si_tracking",
+    "statistics": {
+      "n": 60,
+      "success": 9,
+      "success_rate": 0.15,
+      "success_mean_time": 9.866666666666667,
+      "all_cohort_truncated_mean": 24.90583333333333,
+      "collision": 5,
+      "timeout": 45,
+      "numerical_unknown": 1,
+      "unknown_exception_types": {
+        "AttributeError": 1
+      },
+      "case_wilson95": [
+        0.08097440580167739,
+        0.2611458906977855
+      ],
+      "compute_seconds_total": 2671.0004661749117,
+      "compute_seconds_mean": 44.51667443624853,
+      "solver_internal_failure_events": 2418,
+      "restoration_steps": null,
+      "sampled_speed_violation_steps": null,
+      "paper_action_speed_clipped_steps": 0,
+      "constraint_violation_steps": null,
+      "original_constraint_metric_cases": 0,
+      "static_collision_without_reported_constraint_violation": null
+    }
+  },
+  {
+    "method": "Zhang ICRA2025 Adaptive CLF–CBF",
+    "profile": "zhang2025_risk_si__development_selected",
+    "statistics": {
+      "n": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "success_mean_time": null,
+      "all_cohort_truncated_mean": 27.06666666666667,
+      "collision": 11,
+      "timeout": 11,
+      "numerical_unknown": 38,
+      "unknown_exception_types": {
+        "NumericalUnknown": 38
+      },
+      "case_wilson95": [
+        0.0,
+        0.06017185214208986
+      ],
+      "compute_seconds_total": 99.27319632750005,
+      "compute_seconds_mean": 1.6545532721250007,
+      "solver_internal_failure_events": 40,
+      "restoration_steps": null,
+      "sampled_speed_violation_steps": null,
+      "paper_action_speed_clipped_steps": 0,
+      "constraint_violation_steps": null,
+      "original_constraint_metric_cases": 0,
+      "static_collision_without_reported_constraint_violation": null
+    }
+  },
+  {
+    "method": "Zhang T-RO2025 DAC",
+    "profile": "dac_author_si__development_selected",
+    "statistics": {
+      "n": 60,
+      "success": 12,
+      "success_rate": 0.2,
+      "success_mean_time": 13.06666666666667,
+      "all_cohort_truncated_mean": 25.549999999999997,
+      "collision": 0,
+      "timeout": 39,
+      "numerical_unknown": 9,
+      "unknown_exception_types": {
+        "ValueError": 9
+      },
+      "case_wilson95": [
+        0.11828505322897494,
+        0.317818058056279
+      ],
+      "compute_seconds_total": 485.7100287601352,
+      "compute_seconds_mean": 8.095167146002252,
+      "solver_internal_failure_events": 42269,
+      "restoration_steps": null,
+      "sampled_speed_violation_steps": null,
+      "paper_action_speed_clipped_steps": 0,
+      "constraint_violation_steps": null,
+      "original_constraint_metric_cases": 0,
+      "static_collision_without_reported_constraint_violation": null
+    }
+  },
+  {
+    "method": "Lee IROS2025 MGR",
+    "profile": "mgr_author_unicycle_tracking__development_selected",
+    "statistics": {
+      "n": 60,
+      "success": 12,
+      "success_rate": 0.2,
+      "success_mean_time": 15.395833333333334,
+      "all_cohort_truncated_mean": 26.067500000000003,
+      "collision": 2,
+      "timeout": 46,
+      "numerical_unknown": 0,
+      "unknown_exception_types": {},
+      "case_wilson95": [
+        0.11828505322897494,
+        0.317818058056279
+      ],
+      "compute_seconds_total": 698.609814801719,
+      "compute_seconds_mean": 11.643496913361984,
+      "solver_internal_failure_events": 25225,
+      "restoration_steps": null,
+      "sampled_speed_violation_steps": null,
+      "paper_action_speed_clipped_steps": 0,
+      "constraint_violation_steps": null,
+      "original_constraint_metric_cases": 0,
+      "static_collision_without_reported_constraint_violation": null
+    }
+  }
+]

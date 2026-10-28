@@ -1,0 +1,21 @@
+{
+  "files": [
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset/fastproj.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_remaining_oracle_v2_20261028/accel_inputs/fastproj.py",
+      "sha256": "c52f4ab69d0a2b5e72292d2e65f8ec9ff7ff9180a2b658351b10041efd426c51"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset/accel.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_remaining_oracle_v2_20261028/accel_inputs/accel.py",
+      "sha256": "6d5741b9757bab240d7d3ba98d19b1fe113fff40b6bf95d38b56209be93f03ae"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/speed/np_threefry.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_remaining_oracle_v2_20261028/accel_inputs/np_threefry.py",
+      "sha256": "7c82f22c6207dd79753e9cf7b67efcc65498834944c8773f6c6822cca2da7fce"
+    }
+  ],
+  "loader_sha256": "dc2563fcc9a6d039e8f9f606e7bc850370c58f4804004c058d96350a0784fec5",
+  "load": "Literal function ASTs from byte-identical archived modules; obsolete top-level imports/path injections excluded. Numeric statements unchanged; private runtime modules only."
+}
