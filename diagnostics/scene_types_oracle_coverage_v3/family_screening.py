@@ -7,10 +7,9 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 POLICY = {
-    'version': 1, 'reference_family': 4, 'protected_families': [0, 4],
-    'checkpoints': [16, 32], 'maximum_novel_successes_to_prune': 2,
+    'version': 2, 'reference_selection': 'best fully observed matched prefix', 'protected_families': [0, 4],
+    'checkpoints': [16, 32],
     'coverage_deficit_fraction': {'16': .10, '32': .08},
-    'maximum_16_to_32_gain_fraction': .03,
     'require_lower_coverage_on_both_controllers': True,
     'interpretation': 'Adaptive development screening, not independent validation or mathematical exclusion. Unrun candidates remain unknown.',
 }
@@ -29,12 +28,13 @@ def decision(members, reference, k):
     if any(g.get('gap') or g.get('skipped') or
            not (g['success'] or g['searched'] >= k) for g in members):
         return None
-    if any(not (refs[key(g)]['success'] or refs[key(g)]['searched'] == 64) for g in members):
+    if any(refs[key(g)].get('gap') or refs[key(g)].get('skipped') or
+           not (refs[key(g)]['success'] or refs[key(g)]['searched'] >= k) for g in members):
         return None
     n = len(members)
     found = sum(covered(g, k) for g in members)
     ref_found = sum(covered(refs[key(g)], k) for g in members)
-    novel = sum(covered(g, k) and not refs[key(g)]['success'] for g in members)
+    novel = sum(covered(g, k) and not covered(refs[key(g)], k) for g in members)
     gain = found - sum(covered(g, 16) for g in members)
     per_controller = {}
     for ctl in sorted({g['controller'] for g in members}):
@@ -42,11 +42,9 @@ def decision(members, reference, k):
         per_controller[ctl] = dict(candidate=sum(covered(g, k) for g in rows),
                                   reference=sum(covered(refs[key(g)], k) for g in rows))
     prune = ((ref_found-found)/n >= POLICY['coverage_deficit_fraction'][str(k)]
-             and novel <= POLICY['maximum_novel_successes_to_prune']
-             and all(v['candidate'] < v['reference'] for v in per_controller.values())
-             and (k == 16 or gain/n <= POLICY['maximum_16_to_32_gain_fraction']))
+             and all(v['candidate'] < v['reference'] for v in per_controller.values()))
     return dict(checkpoint=k, cases=n, found=found, reference_found=ref_found,
-                deficit_fraction=(ref_found-found)/n, novel_vs_reference64=novel,
+                deficit_fraction=(ref_found-found)/n, novel_vs_reference_same_budget=novel,
                 gain_since16=gain, per_controller=per_controller, prune=prune,
                 evidence='Matched finite prefixes; heuristic resource allocation only.')
 
@@ -57,13 +55,19 @@ def review(fi, members, groups):
         return True
     path = HERE / f'family_{fi}_screening.json'
     history = json.loads(path.read_text()) if path.exists() else dict(family=fi, policy=POLICY, reviews=[])
-    reference = [g for g in groups if g['family'] == 4]
     for k in POLICY['checkpoints']:
         if any(r['checkpoint'] == k for r in history['reviews']):
             continue
-        result = decision(members, reference, k)
-        if result is None:
+        alternatives = []
+        for candidate in sorted({g['family'] for g in groups} - {fi}):
+            result = decision(members, [g for g in groups if g['family'] == candidate], k)
+            if result is not None:
+                result['reference_family'] = candidate
+                alternatives.append(result)
+        if not alternatives:
             continue
+        dimensions = [3, 1, 2, 3, 4, 5, 2]
+        result = max(alternatives, key=lambda r: (r['reference_found'], -dimensions[r['reference_family']]))
         history['reviews'].append(result)
         if result['prune']:
             for g in members:

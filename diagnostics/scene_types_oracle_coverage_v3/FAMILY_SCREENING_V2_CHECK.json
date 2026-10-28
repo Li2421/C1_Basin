@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "policy_version": 2,
+  "environment_steps": 0,
+  "checks": [
+    "equal-budget reference only",
+    "future reference successes excluded",
+    "incomplete candidate prefix cannot prune",
+    "novelty is diagnostic not a pruning exemption"
+  ]
+}
