@@ -24,8 +24,13 @@ def execute(cases,stage,worker_entry='worker_recorded.py'):
         return [read(HERE/'raw'/f"{c['rollout_uid']}.json")if(HERE/'raw'/f"{c['rollout_uid']}.json").exists()else done[c['rollout_uid']]for c in cases]
     from budget import used
     if used()>=90000 and todo:raise RuntimeError('HARD_STOP actual new rollout budget exhausted (90000)')
-    t0=time.monotonic();attempts=[]
-    for retry in range(4):
+    jobs_path=HERE/f'{stage}_jobs.json'
+    previous=read(jobs_path)if jobs_path.exists()else[]
+    first_new=previous[0]['missing']if previous else len(todo)
+    invocation_new=len(todo)
+    t0=time.monotonic();attempts=list(previous)
+    for retry in range(len(previous),4):
+        if not todo:break
         if retry:
             # Recover a completed journal even if the worker died before its
             # final raw-file rename. Never spend another rollout on that label.
@@ -90,7 +95,10 @@ def execute(cases,stage,worker_entry='worker_recorded.py'):
             time.sleep(10)
     merge(stage,cases)
     missing=[c['rollout_uid']for c in cases if not(HERE/'raw'/f"{c['rollout_uid']}.json").exists()and c['rollout_uid']not in done]
-    dump(execution,dict(complete=not missing,requests=len(cases),new=len(cases)-len(done),elapsed=time.monotonic()-t0,missing=missing,attempts=attempts))
+    dump(execution,dict(complete=not missing,requests=len(cases),new=first_new,
+        new_requested_at_first_submission=first_new,new_unique_completed=max(0,first_new-len(missing)),
+        new_requested_this_invocation=invocation_new,
+        elapsed=time.monotonic()-t0,missing=missing,attempts=attempts))
     rows=[read(HERE/'raw'/f"{c['rollout_uid']}.json")if(HERE/'raw'/f"{c['rollout_uid']}.json").exists()else done[c['rollout_uid']]for c in cases if c['rollout_uid']not in missing]
     with(HERE/'candidates.jsonl').open('a')as f:
         seen=set()
