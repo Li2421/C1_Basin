@@ -28,7 +28,8 @@ def distribution(rows):
     return dict(median=float(np.median(vals))if vals else None,
         quartiles=np.quantile(vals,[.25,.75]).tolist()if vals else None,
         found=len(vals),not_found_in64=sum(r['searched']==64 and not r['success']for r in rows),
-        incomplete=sum(not r['success']and r['searched']<64 and not r.get('skipped')for r in rows),
+        incomplete=sum(not r['success']and r['searched']<64 and not r.get('skipped')and not r.get('screened_out')for r in rows),
+        screened_out=sum(bool(r.get('screened_out'))for r in rows),
         skipped=sum(bool(r.get('skipped'))for r in rows),
         average_queries_success=float(np.mean(vals))if vals else None,
         average_queries_completed=float(np.mean([r['searched']for r in rows if r['success']or r['searched']==64]))if any(r['success']or r['searched']==64 for r in rows)else None)
@@ -57,7 +58,7 @@ def write(groups,baseline):
                 distribution=distribution(rows),computed_cases=sum(g['success']or g['searched']==64 for g in rows)))
         identities={(g['controller'],g['state_index'])for g in rr if g['success']}
         expected=112 if not SCOPE_PATH.exists()or key in scope_keys()else 16
-        complete=all(g['success']or g['searched']==64 or g.get('skipped')for g in rr)and len(rr)==expected
+        complete=all(g['success']or g['searched']==64 or g.get('skipped')or g.get('screened_out')for g in rr)and len(rr)==expected
         scene_rows.append(dict(type_id=e['type_id'],level=e['level'],name=scene_title(e),denominator=16,
             baseline_success=sum(b['success']for b in base),baseline_completed=len(base),families=values,
             any_family_success=len(identities),complete=complete,
@@ -74,7 +75,10 @@ def write(groups,baseline):
         representative_scope_file=str(SCOPE_PATH)if SCOPE_PATH.exists()else None,
         family_case_counts={str(f['index']):f['cases']for f in families},
         complete=all(e['complete']for e in scene_rows),
-        scope='Finite frozen candidate pool; no generator or family/dimension selection. User-added fixed paper comparisons are reported separately.',
+        full_search_complete=all(g['success']or g['searched']==64 or g.get('skipped')for g in groups),
+        adaptive_screening=True,
+        coverage_interpretation='Observed lower bounds; screened families have unknown unrun suffixes, not completed Oracle@64.',
+        scope='Finite frozen candidate pool with user-authorized adaptive family screening; no generator. User-added fixed paper comparisons are reported separately.',
         short_horizon_policy='4x reports only executed trajectories under the 6x-first-success stopping rule; unexecuted candidates remain unknown.')
     dump(HERE/'COVERAGE.json',result)
     header=['场景','仅安全投影 /16']+[f'{name} @16/@32/@64'for name in FAMILY_NAMES]+['原三列首次成功中位数','既有四列首次成功中位数','任一族成功 /16','状态']
@@ -84,6 +88,7 @@ def write(groups,baseline):
         for v in e['families']:
             if v['out_of_scope']:cells.append('—（后续不运行此档）');continue
             value='/'.join(str(v['coverage'][str(k)])for k in (16,32,64))
+            if v['distribution']['screened_out']:value+=f"（筛选停{v['distribution']['screened_out']}，后续未知）"
             if v['distribution']['incomplete']:value+=f"（待{v['distribution']['incomplete']}）"
             cells.append(value)
         table.append([e['name'],f"{e['baseline_success']}/16"]+cells+[str(e['families'][fi]['distribution']['median'])for fi in (0,4)]+[str(e['any_family_success']),e['status']])
@@ -91,12 +96,13 @@ def write(groups,baseline):
         writer=csv.writer(f);writer.writerow(header);writer.writerows(table)
     paragraphs=['# 十七类场景各修正族有限候选覆盖\n',
         '本轮'+('已完成'if result['complete']else'尚未完成')+'。四列族保留49个场景784案例；用户后续要求每类一个物理参数中档场景，其余族使用17场景272案例。各族当前64次内覆盖：'+
-        '；'.join(f"{f['name']} {f['coverage']['64']}/{f['cases']}（从16到64增加{f['coverage']['64']-f['coverage']['16']}）"for f in families)+'。未运行完的案例不算作64次失败；后续不运行的档位不算失败。\n',
+        '；'.join(f"{f['name']} {f['coverage']['64']}/{f['cases']}（从16到64增加{f['coverage']['64']-f['coverage']['16']}）"for f in families)+'。筛选停止与未运行完的案例不算作64次失败；后续不运行的档位不算失败。\n',
         '64次内各族都未覆盖的完整场景：'+('；'.join(e['name']for e in scene_rows if e['complete']and e['any_family_success']==0)or'当前尚无已完成搜索且零覆盖的场景；未完成场景不作结论。')+'\n',
-        '每个案例按冻结顺序搜索，第一次成功即停，最多64次；不训练或调用生成器，不选族、不推荐维度。用户后续追加的论文固定参数对照在四列阶段后运行，单独写入 paper_after_four_column/。\n',
+        '每个案例按冻结顺序搜索，第一次成功即停，最多64次；不训练或调用生成器，按用户追加要求，在16/32组进行启发式族筛选；淘汰后的候选未知，不计64组失败。用户后续追加的论文固定参数对照在四列阶段后运行，单独写入 paper_after_four_column/。\n',
         '四倍时限结果来自同一次六倍时限搜索实际执行的轨迹，不追加候选搜索，不能把未执行的短时限候选当作失败。\n',
         '| '+' | '.join(header)+' |','| '+' | '.join(['---']*len(header))+' |']
     paragraphs.extend('| '+' | '.join(row)+' |'for row in table)
+    paragraphs.append('\n分阶段审核规则和逐族审核见 [FAMILY_SCREENING_POLICY.md](FAMILY_SCREENING_POLICY.md) 与 family_*_screening.json。筛选淘汰后的@32/@64数值仅是已观察覆盖下界，曲线平台不代表搜完无收益。')
     paragraphs.append('\n首次成功序号的中位数、四分位、未找到数、搜索次数均值与成功条件平均完成时间保存在 COVERAGE.json。曲线同时保存总体和逐类型数据；未完成时只给当前已验证覆盖，不假定后续结果。\n')
     if SCOPE_PATH.exists():
         matched=[]

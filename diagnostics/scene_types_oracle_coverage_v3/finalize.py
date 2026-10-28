@@ -46,7 +46,7 @@ def reconcile_completed_frontier():
         for item in todo:
             fi,ki=item['family'],item['candidate_index'];sp=menus[fi]['candidate_pool'][ki-1]
             g=group_map[(fi,item['type_id'],item['level'],item['controller'],item['state_index'])]
-            if g['success']or g['skipped']or g['searched']!=ki-1:continue
+            if g['success']or g['skipped']or g.get('screened_out')or g['searched']!=ki-1:continue
             c=make(scenes[(g['type_id'],g['level'])],ctls[g['controller']],g['state_index'],sp,purpose='v3_oracle_coverage')
             uid=c['rollout_uid'];p=HERE/'raw'/f'{uid}.json';r=None
             if p.exists():r=read(p)
@@ -82,7 +82,7 @@ def consume_available_without_rollouts():
     menus=read(HERE/'FAMILIES_64.json')['families'];extra=[]
     with db.connect(True)as con:
         for g in state['groups']:
-            if not in_requested_scope(g):continue
+            if not in_requested_scope(g)or g.get('screened_out'):continue
             while not g['success']and not g['skipped']and g['searched']<64:
                 ki=g['searched'];sp=menus[g['family']]['candidate_pool'][ki]
                 c=make(scenes[(g['type_id'],g['level'])],ctls[g['controller']],g['state_index'],sp,purpose='v3_oracle_coverage')
@@ -209,11 +209,12 @@ def main():
     if plot_error:gaps.append('曲线绘图失败（非主线，覆盖数保存在JSON/CSV）：'+plot_error)
     if not coverage['complete']:gaps.append('搜索未全部完成；未运行候选与基础设施缺失均单列，不能当作64次失败。')
     for family in coverage['families']:
+        if family['distribution'].get('screened_out'):gaps.append(f"{family['name']}：{family['distribution']['screened_out']} 个案例因族筛选提前停止，未运行候选仍未知，不算64组失败。")
         if family['distribution']['incomplete']:gaps.append(f"{family['name']}：{family['distribution']['incomplete']} 个案例未完成。")
     if changed:gaps.append('导入文件发生变化，见 INTEGRITY_END.json。')
     if paper_required and not paper_complete:gaps.append('用户追加的论文固定参数对照存在未完成项，见 paper_after_four_column/EXECUTION_STATUS.json。')
     if not controller_unchanged:gaps.append('控制器配置源发生变化，见 CONTROLLERS_FROZEN.json 与 INTEGRITY_END.json。')
-    (HERE/'GAPS.md').write_text('# 证据缺口\n\n'+('\n'.join('- '+g for g in gaps)if gaps else'规定的有限候选覆盖与追加固定论文对照已完成。未找到不构成连续参数空间不可解证明。')+'\n\n不重新标定、选族或推荐维度。论文固定参数对照由用户后续追加，与C1 Oracle上限分开报告。\n')
+    (HERE/'GAPS.md').write_text('# 证据缺口\n\n'+('\n'.join('- '+g for g in gaps)if gaps else'规定的有限候选覆盖与追加固定论文对照已完成。未找到不构成连续参数空间不可解证明。')+'\n\n不重新标定；按用户追加要求筛选候选族，结果用于开发集选族，不作为独立验证。论文固定参数对照由用户后续追加，与C1 Oracle上限分开报告。\n')
     report=HERE/'REPORT.md';report.write_text(report.read_text().replace('None','—'))
     with report.open('a')as out:
         out.write('\n\n每档8个物理初态分别接入集中式随机采样模型预测控制和梯度下降模型预测控制，合计16个案例；两控制器使用匹配的物理初态与随机流。\n')
@@ -225,10 +226,10 @@ def main():
         names=[f['name']for f in coverage['families']]
         out.write('\n\n## 逐类型合计覆盖\n\n| 类型 | 案例数 | '+' | '.join(names)+' |\n|---|---:|'+'---:|'*7+'\n')
         for t in coverage['by_type']:out.write('| '+t['name']+' | 按族分母 | '+' | '.join(f"{v}/{t.get('denominator_by_family',{}).get(str(fi),t['denominator'])}"for fi,v in enumerate(t['coverage64']))+' |\n')
-        out.write('\n\n## 首次成功序号与搜索成本\n\n| 修正族 | 中位数 | 四分位 | 成功案例平均搜索数 | 完整案例平均搜索数 | 64次未找到 | 尚未完成 |\n|---|---:|---|---:|---:|---:|---:|\n')
+        out.write('\n\n## 首次成功序号与搜索成本\n\n| 修正族 | 中位数 | 四分位 | 成功案例平均搜索数 | 完整案例平均搜索数 | 64次未找到 | 尚未完成 | 筛选停止 |\n|---|---:|---|---:|---:|---:|---:|---:|\n')
         for f in coverage['families']:
             d=f['distribution']
-            out.write(f"| {f['name']} | {d['median']} | {d['quartiles']} | {d['average_queries_success']} | {d['average_queries_completed']} | {d['not_found_in64']} | {d['incomplete']} |\n")
+            out.write(f"| {f['name']} | {d['median']} | {d['quartiles']} | {d['average_queries_success']} | {d['average_queries_completed']} | {d['not_found_in64']} | {d['incomplete']} | {d.get('screened_out',0)} |\n")
         out.write('\n完整案例平均搜索数包含64次未找到的案例；成功案例均值只对找到解的案例计算，两者不混用。\n')
         out.write('\n\n## 逐场景四倍与六倍时限\n\n下表各格为四倍时限成功数→六倍时限成功数，分母均为16。沿用六倍时限首次成功即停；未运行的候选不作为四倍时限失败证据。\n\n| 场景 | 只加安全投影 | '+' | '.join(names)+' |\n|---|---:|'+'---:|'*7+'\n')
         for e in coverage['scenes']:
@@ -242,6 +243,7 @@ def main():
         if(HERE/'REPRESENTATIVE17_FROZEN.json').exists():out.write('\n按用户最新要求，四列族完整49场景收尾后，其余族与论文方法仅运行纯几何参数中档的17代表场景。相同272案例的族间比较见 REPRESENTATIVE17_COMPARISON.json；未运行的其他档位不算失败。\n')
         if(HERE/'zero_coverage_audit/REPORT.md').exists():out.write('\n零覆盖场景的几何与原CBF联合可行轨迹核验见 [补充审计](zero_coverage_audit/REPORT.md)，诊断轨迹不混入Oracle或论文方法成功率。\n')
     state.update(complete=coverage['complete']and paper_complete and not(HERE/'PROTECTION_VIOLATION.jsonl').exists(),
+        full_search_complete=coverage['full_search_complete'],adaptive_screening=True,
         delivery_analysis_complete=True,official_rows_verified=len(raw),
         paper_comparison_required=paper_required,paper_comparison_complete=paper_complete,
         integrity_passed=not changed and integrity['external_diff_unchanged']and controller_unchanged)

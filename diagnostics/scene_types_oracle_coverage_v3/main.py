@@ -5,6 +5,7 @@ from reuse import requests,cached,flush
 from coverage import write,FAMILY_NAMES
 from budget import used
 from representative_scope import in_requested_scope
+from family_screening import review
 import traceback
 
 ORDER=[4,0,1,2,3,5,6]
@@ -112,6 +113,12 @@ def run():
     for fi in ORDER:
         members=[g for g in groups if g['family']==fi and in_requested_scope(g)]
         for batch in range(progress.get(str(fi),0),64):
+            if review(fi,members,groups):
+                dump(HERE/'SEARCH_STATE.json',dict(groups=groups,baseline=baseline,active_family=fi,
+                     completed_batches=progress,pending_stage=None))
+                write(groups,baseline)
+                print('SCREENED_OUT',fi,'see family screening audit',flush=True)
+                break
             active=[g for g in members if not g['success']and not g['skipped']and not g['gap']and g['searched']<64]
             if not active:break
             stage=f'oracle_f{fi}_r{batch+1:02d}'
@@ -154,7 +161,10 @@ def run():
             status(FAMILY_NAMES[fi],sum(g['success']or g['searched']==64 or g['skipped']for g in members),len(members),
                    f'缺失候选批次 {batch+1}/64；当前找到成功 {sum(g["success"]for g in members)}/{len(members)}；实际新运行 {used()}/90000。')
             print('COVERAGE',fi,batch+1,'success',sum(g['success']for g in members),'actual_new',used(),flush=True)
-        dump(HERE/f'family_{fi}_complete.json',dict(family=fi,complete=all(g['success']or g['searched']==64 or g['skipped']for g in members)))
+        dump(HERE/f'family_{fi}_complete.json',dict(family=fi,
+             complete=all(g['success']or g['searched']==64 or g['skipped']or g.get('screened_out')for g in members),
+             full_search_complete=all(g['success']or g['searched']==64 or g['skipped']for g in members),
+             screened_out_cases=sum(bool(g.get('screened_out'))for g in members)))
         if fi==4 and(HERE/'BASELINE_AFTER_FAMILY4.json').exists():
             from baseline_screen import main as paper_screen
             paper_screen()
@@ -163,7 +173,8 @@ def run():
     paper_result=read(HERE/'paper_after_four_column/COMPLETE.json')if(HERE/'paper_after_four_column/COMPLETE.json').exists()else{}
     dump(HERE/'COMPLETE.json',dict(complete=result['complete']and(not paper_required or paper_result.get('complete',False)),
         correction_search_complete=result['complete'],actual_new_rollouts=used(),hard_limit=90000,
-        family_order=ORDER,report=str(HERE/'REPORT.md'),no_dimension_selection=True,
+        full_search_complete=result['full_search_complete'],
+        family_order=ORDER,report=str(HERE/'REPORT.md'),no_dimension_selection=False,adaptive_screening=True,
         paper_methods_after_four_column=(HERE/'BASELINE_AFTER_FAMILY4.json').exists()))
 
 def main():

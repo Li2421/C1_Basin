@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "environment_steps": 0,
+  "checks": [
+    "syntax",
+    "weak matched prefix prunes",
+    "incomplete prefix cannot prune",
+    "three novel rescues retained",
+    "32-prefix low gain prunes",
+    "32-prefix high gain retained",
+    "screened distinct from pending and 64-failure",
+    "frozen numerical source fingerprints unchanged"
+  ]
+}

@@ -15,14 +15,17 @@ def main():
     files=[]
     for family in data['families']:
         fi=family['index'];name=family['name']
+        stopped=[g for g in family['cases_detail']if g.get('screened_out')]
+        end=min(g['searched']for g in stopped)if stopped else 64
+        if stopped:name+='（提前筛选停止；后续覆盖未知）'
         fig,ax=plt.subplots(figsize=(9,4.5),constrained_layout=True)
-        ax.plot([x['K']for x in family['curve']],[x['covered']for x in family['curve']],linewidth=2)
+        ax.plot([x['K']for x in family['curve'][:end]],[x['covered']for x in family['curve'][:end]],linewidth=2)
         ax.set(xlabel='实际搜索候选数上限',ylabel=f"已找到成功的案例数（总计{family['cases']}）",xlim=(1,64),ylim=(0,family['cases']),title=name+(''if data['complete']else'（已验证覆盖下界，搜索未完成）'))
         ax.grid(alpha=.25)
         p=folder/f'family_{fi}_all.svg';fig.savefig(p);files.append(str(p));plt.close(fig)
         fig,axes=plt.subplots(5,4,figsize=(15,15),constrained_layout=True)
         for ax,t in zip(axes.flat,data['by_type']):
-            ax.plot(range(1,65),t['curves'][str(fi)],linewidth=1.5)
+            ax.plot(range(1,end+1),t['curves'][str(fi)][:end],linewidth=1.5)
             denominator=t.get('denominator_by_family',{}).get(str(fi),t['denominator'])
             ax.set(title=t['name'],xlim=(1,64),ylim=(0,denominator))
             ax.set_xlabel('搜索候选数上限');ax.set_ylabel(f"覆盖数 /{denominator}");ax.grid(alpha=.2)
