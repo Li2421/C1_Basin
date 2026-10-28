@@ -1,0 +1,101 @@
+{
+  "files": [
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/guard.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/guard.py",
+      "source_sha256": "dc8ee12e010c42f7874d984e6c3746384efcf0ecd4c7a17751f83829fe2f94c2",
+      "target_sha256": "78a64eb57f6bd9987e2e679803998ff12541417dc1ab0664a90f80719e908a3c"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/core.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/core.py",
+      "source_sha256": "8caaa052879d2a8556101128c718955bfad10384f847d04481dcd45234b7169f",
+      "target_sha256": "7b33e6783079a227c212b9899978cd05bf0b625031a8573b84184d1f669b43d4"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/prepare.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/prepare.py",
+      "source_sha256": "d7d82e7372e54c0e7349a926ff9d06e916f34b2e2b57c8152860955891e39e58",
+      "target_sha256": "d7d82e7372e54c0e7349a926ff9d06e916f34b2e2b57c8152860955891e39e58"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/runtime.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/runtime.py",
+      "source_sha256": "32d21bb26a276c7ba9506820e3fee52dde9791d8c06a4fa3674ebedb825e4e71",
+      "target_sha256": "32d21bb26a276c7ba9506820e3fee52dde9791d8c06a4fa3674ebedb825e4e71"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/routes.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/routes.py",
+      "source_sha256": "ea5b2b4c52fb48dac2f8dd35face2e1bbe8ea119dd28dfe44fb9f4f1e9a7ea61",
+      "target_sha256": "ea5b2b4c52fb48dac2f8dd35face2e1bbe8ea119dd28dfe44fb9f4f1e9a7ea61"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/runner.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/runner.py",
+      "source_sha256": "9d64821e4da8b8a04382d365b27c38d6fcef061ff67edf4f4ce9c6f97f5e555b",
+      "target_sha256": "3f435cbba8ac1a4b61b70774a56b13df69d81823f128abf97f5221f2503b4ba5"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/dispatch.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/dispatch.py",
+      "source_sha256": "86ec0948b6e855363a17816b4cb69c4b6432a49c95a41ace51cd8a346b175d8f",
+      "target_sha256": "80f9ad74f195f6e30ffb02675ae875448ef1655178cc63e6f6774c3ba1b97819"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/resource_watch.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/resource_watch.py",
+      "source_sha256": "98257061ba4181781662407f7f487e126045a672f7e84113e20c279cc59e9e47",
+      "target_sha256": "d1359b1b2a082f8cf5db1f02a8e0594ca9cc8ab8c055228b968399f99642aea9"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/acceleration.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/acceleration.py",
+      "source_sha256": "dc2563fcc9a6d039e8f9f606e7bc850370c58f4804004c058d96350a0784fec5",
+      "target_sha256": "dc2563fcc9a6d039e8f9f606e7bc850370c58f4804004c058d96350a0784fec5"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/recording_fix.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/recording_fix.py",
+      "source_sha256": "876081056a289cfc8c5ca89be35b9efbe981efe83408f1d22427c5859623a006",
+      "target_sha256": "876081056a289cfc8c5ca89be35b9efbe981efe83408f1d22427c5859623a006"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/worker_accel.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/worker_accel.py",
+      "source_sha256": "570492a379c4a4c1d6a35b850f3027c6c12a6c637fd7511250478539c4329657",
+      "target_sha256": "570492a379c4a4c1d6a35b850f3027c6c12a6c637fd7511250478539c4329657"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/worker_recorded.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/worker_recorded.py",
+      "source_sha256": "d0f90ebc212963c4a9ceb24871c69e0c0009dba40d7fb0aa47afa6fa86f9ddd4",
+      "target_sha256": "d0f90ebc212963c4a9ceb24871c69e0c0009dba40d7fb0aa47afa6fa86f9ddd4"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/equivalence.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/equivalence.py",
+      "source_sha256": "92b5e62781f195f97aa6ae6c3d2cc8f3bd9f347528ac54a1572aa9fcb8d7b749",
+      "target_sha256": "92b5e62781f195f97aa6ae6c3d2cc8f3bd9f347528ac54a1572aa9fcb8d7b749"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/scene_helpers.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/scene_helpers.py",
+      "source_sha256": "658ff5c6404bb776a323683a2e38fa61af46e9a57009af6fb8df301eddff1bb9",
+      "target_sha256": "658ff5c6404bb776a323683a2e38fa61af46e9a57009af6fb8df301eddff1bb9"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/prepare_scenes.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/prepare_scenes.py",
+      "source_sha256": "b9f178bed5182afee0eb7483459605961aa96046760332ed64b200ed9ad3dd0d",
+      "target_sha256": "b1ed63605ecb4df17c948cd7d7192c6f5d0594dd6cffa2149f8c0de7258094d0"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v2/legacy_parameters.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/legacy_parameters.py",
+      "source_sha256": "846234404d750127bc62a6f931a1f846a2481b72b5bf831dc98d53cfc976a027",
+      "target_sha256": "846234404d750127bc62a6f931a1f846a2481b72b5bf831dc98d53cfc976a027"
+    }
+  ],
+  "namespace_changes": "new directory / experiment / job prefix; budget 90000; original worker uses diagnostic JSON adapter"
+}

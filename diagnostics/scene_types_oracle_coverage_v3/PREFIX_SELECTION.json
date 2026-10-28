@@ -1,0 +1,605 @@
+{
+  "labels": [
+    {
+      "new_uid": "roll_bc95e5b69ac2573155dcc45c89542aefc4deccc285d6ccf36a63fa74331e048a",
+      "old_uid": "roll_015251b11d751d01070d0a9ca5ce7c804953a41c77741101584cf6c31305dd87",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_015251b11d751d01070d0a9ca5ce7c804953a41c77741101584cf6c31305dd87.npz",
+      "type_id": 1,
+      "level": 1,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_f3e775b2e10df5650f2b3027536d8efb13e61ff538f08ad67d849a9b88bac9a8",
+      "old_uid": "roll_004931d8766750820079bd149275bcae3149c5c853be17e9e8f72abf51920dcb",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_004931d8766750820079bd149275bcae3149c5c853be17e9e8f72abf51920dcb.npz",
+      "type_id": 1,
+      "level": 1,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_8e727cc7ff17dd6c83a83d586a92e59cd0941309da4cf06a2791bce957a3a7b6",
+      "old_uid": "roll_01b3873dec14341213fee001e0a76be900540ca92109d6ab29c436fd16b29750",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_01b3873dec14341213fee001e0a76be900540ca92109d6ab29c436fd16b29750.npz",
+      "type_id": 1,
+      "level": 1,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_2099a0e5193855400633f798ac330dc88e2489c88e63e8c97c380a21a2c3ce34",
+      "old_uid": "roll_002d86b370d2fa5d2c95bff838cea94adb2197d3b7760d8eeb425cd07a81d7dd",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_002d86b370d2fa5d2c95bff838cea94adb2197d3b7760d8eeb425cd07a81d7dd.npz",
+      "type_id": 1,
+      "level": 1,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_2a8caa926c6642553865bd4d206e37045dbfbe44379e84a80ccd7e413a234c35",
+      "old_uid": "roll_0042f63114c33985a679f227b914b48423ef545ef19c72e58a1b07eff8b842c6",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0042f63114c33985a679f227b914b48423ef545ef19c72e58a1b07eff8b842c6.npz",
+      "type_id": 3,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_3786a9cb0392f1d5a30dafde5232d1405d8ac53ba5422c588ebf65be61c0a845",
+      "old_uid": "roll_0026afd1d3811668ee6300db74e0e62d944152369f32b8f8ad75bdb97874e258",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0026afd1d3811668ee6300db74e0e62d944152369f32b8f8ad75bdb97874e258.npz",
+      "type_id": 3,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_3fdd452549cced0df7eff16b71d4587b8dde308d196a07e3c5793cd638b7103f",
+      "old_uid": "roll_00622b827171c2c6907ad77e50a035c082815dfc2ced9a537ae003cc45abc350",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00622b827171c2c6907ad77e50a035c082815dfc2ced9a537ae003cc45abc350.npz",
+      "type_id": 3,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_882c3df56ac9313dab34b3a12031bfcf1f0645044eb41db359789984ba88d4d0",
+      "old_uid": "roll_0011f891d02be123b7f31b5d4d71134692f6a5792670fa0c143152df86625bd0",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0011f891d02be123b7f31b5d4d71134692f6a5792670fa0c143152df86625bd0.npz",
+      "type_id": 3,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_cb00fee162a9b5d96fd5013adc49546dfaf162b7538db8845cdb8ae51bb73e29",
+      "old_uid": "roll_01355c78b0b708d8ba7ad0b81aa9cd6ef854f4f541d1919ceb236effe08c643a",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_01355c78b0b708d8ba7ad0b81aa9cd6ef854f4f541d1919ceb236effe08c643a.npz",
+      "type_id": 4,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_044dd1f312030b22b3164e335c639dcc4b53d1ee947b67de1d5183ac67184066",
+      "old_uid": "roll_0012fd939d72dfafbafaf45b349ffa141593f5eb30628548cf59b6347f0a234f",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0012fd939d72dfafbafaf45b349ffa141593f5eb30628548cf59b6347f0a234f.npz",
+      "type_id": 4,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_8cbb5b888ee44285c1f5f37f241df9d959677318eb136d58f75fb767584bf101",
+      "old_uid": "roll_009f9342f545b9854304262f216d5c93cfc26408f6048f9416115b26f196f061",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_009f9342f545b9854304262f216d5c93cfc26408f6048f9416115b26f196f061.npz",
+      "type_id": 4,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_cef264cdc797bb197e6668a1a169efaf8cecf02e50a5c35e6c8d52eb4239b1e4",
+      "old_uid": "roll_00c59d05da9d740924f907193058ba20099ba7bc041b80088b3bc7309cc0d983",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00c59d05da9d740924f907193058ba20099ba7bc041b80088b3bc7309cc0d983.npz",
+      "type_id": 4,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_4de324bc6d54acb3baecb3879ae2d8ecdf8422810d4c361f76323f686bf3156c",
+      "old_uid": "roll_149a87f517823b9f112ca6d7470b07c1a51ddb3cbe36c15b278e78adb4fcb59f",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_149a87f517823b9f112ca6d7470b07c1a51ddb3cbe36c15b278e78adb4fcb59f.npz",
+      "type_id": 5,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": true
+    },
+    {
+      "new_uid": "roll_42e86b6bb2106827d5d23371ab976f5f7f3651ed4e495757645367899f7172db",
+      "old_uid": "roll_005d66a0ca7ed66ad6ae6ea4d6fd820530c810da23781e92e84ac694e296d454",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_005d66a0ca7ed66ad6ae6ea4d6fd820530c810da23781e92e84ac694e296d454.npz",
+      "type_id": 5,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_13ea808bbea5370ae14be44251b59c9e6116e9794ebda4cfa8ec1e5a5d9dc709",
+      "old_uid": "roll_05ff8e7dc0fd0d88768479c47e96308628e9346e3b02ed4733f041e206b788aa",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_05ff8e7dc0fd0d88768479c47e96308628e9346e3b02ed4733f041e206b788aa.npz",
+      "type_id": 5,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": true
+    },
+    {
+      "new_uid": "roll_2e5624aff0265d890aa2c7633daca06bb1c474d069015a300afb4744d86321b8",
+      "old_uid": "roll_002ed1f7c63321ce4d22452e3a8dab2439163f49e267e4f0bc17ae6f51cb54db",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_002ed1f7c63321ce4d22452e3a8dab2439163f49e267e4f0bc17ae6f51cb54db.npz",
+      "type_id": 5,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_76b4581d2a1abde782af828fef2d7b136e687f5da066eac3e0d1f758d6eeb162",
+      "old_uid": "roll_0051176b7c20e02fc99e20b6c52220c20ce1261f21f2abdad3d4fcc1c1a6e14f",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0051176b7c20e02fc99e20b6c52220c20ce1261f21f2abdad3d4fcc1c1a6e14f.npz",
+      "type_id": 6,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_02b0b5ded0ffb11c4de90d6fb673e5ba4e657c4e21f4751e1883577301c3de4c",
+      "old_uid": "roll_0004203abc40cf9cc3956035eda4e0a8426af234883c88a9dfe790b954c61b85",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0004203abc40cf9cc3956035eda4e0a8426af234883c88a9dfe790b954c61b85.npz",
+      "type_id": 6,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_60a0523c0184940ce336eccba4a686fffda9f79073db358928c93a17f962b1bc",
+      "old_uid": "roll_00ffaf85976970e799a92e6fd28374b610ff7ae6444c90b424ac5c5c93f9f58f",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00ffaf85976970e799a92e6fd28374b610ff7ae6444c90b424ac5c5c93f9f58f.npz",
+      "type_id": 6,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_97ab0d18c7d2ef07135c90b083faf40d37035c3ca607a889bfb112a0ce20bb83",
+      "old_uid": "roll_006b7babe11d37745562c838840913ddbe21cf393318b55a7ae9456007922801",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_006b7babe11d37745562c838840913ddbe21cf393318b55a7ae9456007922801.npz",
+      "type_id": 6,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_165f79f431fcd49f0f3886d9cd942d7ff4c42b6aa936707ed126aaf9c43b3ed6",
+      "old_uid": "roll_001ad917bec84a1e954644f234d5afe745f594098f1bce2a617e6c7f9feb1cd6",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_001ad917bec84a1e954644f234d5afe745f594098f1bce2a617e6c7f9feb1cd6.npz",
+      "type_id": 8,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_7004644039e5b7fa9ffad5c5066c5cbe6c39e634a22684377d6bc8032239e152",
+      "old_uid": "roll_0009c10ecf59d03112ec84a1f237981d5ab10055b2bfc41fa961a87c74a77ae2",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0009c10ecf59d03112ec84a1f237981d5ab10055b2bfc41fa961a87c74a77ae2.npz",
+      "type_id": 8,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_c5c7d8ec620bf79d872b82f6821ab34fa0e25a87c651273191065c8cc6078b4f",
+      "old_uid": "roll_03139b0029ff72bbb8393c5ba4f2275bc0bdf4e60181e317da4dd709a25d39ae",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_03139b0029ff72bbb8393c5ba4f2275bc0bdf4e60181e317da4dd709a25d39ae.npz",
+      "type_id": 9,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": true
+    },
+    {
+      "new_uid": "roll_7afcf43989afc8e6d2a7a2e987bda7c6bf1615dc8add74e13039876a755fb278",
+      "old_uid": "roll_0013bf59d1e88e71074a7583988b67a805348f06551fc2cd9b1e389dab74bdd9",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0013bf59d1e88e71074a7583988b67a805348f06551fc2cd9b1e389dab74bdd9.npz",
+      "type_id": 9,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_b00c9ed4ff0b02489bcd26622495ba3639f98d6c9b1128b6c6e089ae0d63df3c",
+      "old_uid": "roll_0504a86dc8905cb09beeeae5c1c74c88a18387e62abce3b64f2d3a1d40e6b90c",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0504a86dc8905cb09beeeae5c1c74c88a18387e62abce3b64f2d3a1d40e6b90c.npz",
+      "type_id": 9,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": true
+    },
+    {
+      "new_uid": "roll_c7943303bf6ddc53794aca312e297ee79a675d6512e6067f4aff4ea6dfc7814c",
+      "old_uid": "roll_0046b05f1b0f072fc8b20430b8a143b79764c70e1ca83d3f322a944369e2c47e",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0046b05f1b0f072fc8b20430b8a143b79764c70e1ca83d3f322a944369e2c47e.npz",
+      "type_id": 9,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_38805f0ab52fa981e29afa0414c0e9a27cd5df31536d22ff65c866dc8088ac57",
+      "old_uid": "roll_000a942757fefde291397a07562f5c2c3410d3aaa9adb8864a3c1ba8e215962a",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_000a942757fefde291397a07562f5c2c3410d3aaa9adb8864a3c1ba8e215962a.npz",
+      "type_id": 10,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_925dd958b3bded7da06b20274bd284bc4b9a34a50aee27fcaff692230c9de8fd",
+      "old_uid": "roll_0011d85ef14a12a0c290896578093ba8ff7e56bc75fbe4e378d590730da737b9",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0011d85ef14a12a0c290896578093ba8ff7e56bc75fbe4e378d590730da737b9.npz",
+      "type_id": 10,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_c758872b39c467ee5c424b94930d2103f9d35655ac29306bb92ff553176fbada",
+      "old_uid": "roll_0042f85b2440303cc13dbac14b4ff473b75b0d13a9d26da70a805a183be913da",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0042f85b2440303cc13dbac14b4ff473b75b0d13a9d26da70a805a183be913da.npz",
+      "type_id": 11,
+      "level": 2,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": true
+    },
+    {
+      "new_uid": "roll_d0d714a1d8302c9009abe9583753f5732f6d79c8cc4bcc286a7beecdb1b13297",
+      "old_uid": "roll_001fe26a80ca4e207e675f1d8acebad743f4a284ab72b488e87011f8d68aae62",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_001fe26a80ca4e207e675f1d8acebad743f4a284ab72b488e87011f8d68aae62.npz",
+      "type_id": 11,
+      "level": 2,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_2638db6b07add0b4a6003ccde06718b3947fb0cfa360aefb2c611ff7f11fa0e4",
+      "old_uid": "roll_0025b8dabcc336913e6233fbf5fde7f7c66cf0b0d8628d3f72bca8fbabcc2e3a",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0025b8dabcc336913e6233fbf5fde7f7c66cf0b0d8628d3f72bca8fbabcc2e3a.npz",
+      "type_id": 11,
+      "level": 2,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": true
+    },
+    {
+      "new_uid": "roll_01df734dcaf4182a3026cb9bbfa9c747100c3438a12cf6d8bfbe06a2204be2a1",
+      "old_uid": "roll_006c2d8a8317b9560edb4c751f3c2dd1686ee84eb07add9274c1f1acd986793f",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_006c2d8a8317b9560edb4c751f3c2dd1686ee84eb07add9274c1f1acd986793f.npz",
+      "type_id": 11,
+      "level": 2,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_2e513a5bcc9863f91ae9fe3d24c1d0aab8bf4e56cb310731171e96106b2a5578",
+      "old_uid": "roll_0237f3a21d2d643d4394a72b81bb5eddd00780e2dfa9fc00197cef574210ff37",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0237f3a21d2d643d4394a72b81bb5eddd00780e2dfa9fc00197cef574210ff37.npz",
+      "type_id": 12,
+      "level": 2,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": true
+    },
+    {
+      "new_uid": "roll_3714f7a9d8328ed2cb03e0a04399ed8e5b28baa97450ac2ee1bea26a21c65988",
+      "old_uid": "roll_00ec446117267b806d590b5201933dd3b33d6a32402f1e7cc5e9d1d5a1424921",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00ec446117267b806d590b5201933dd3b33d6a32402f1e7cc5e9d1d5a1424921.npz",
+      "type_id": 12,
+      "level": 2,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_5d68db28246122b58535bac1dc25d90de385a4975e63752e27506baf4a3a62f0",
+      "old_uid": "roll_007b4e700aa0ba01a9cab9248820dee1ff9da000c9dc2519599994f4664c0f4f",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_007b4e700aa0ba01a9cab9248820dee1ff9da000c9dc2519599994f4664c0f4f.npz",
+      "type_id": 12,
+      "level": 2,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": true
+    },
+    {
+      "new_uid": "roll_15ac9c43dc6542dcc8bb661f38bdaf357a2d123a794e81913969a446a051b943",
+      "old_uid": "roll_0004876218882e3a76d64b31957c29dfa92316a19da9ca55c94890c697db0d4e",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0004876218882e3a76d64b31957c29dfa92316a19da9ca55c94890c697db0d4e.npz",
+      "type_id": 12,
+      "level": 2,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_8353d8b98af7776d5150c360a5a80ac01470d10cd01b6a4b6c2a9c43e80bbf51",
+      "old_uid": "roll_01a2309c7711ca5d618d4f7a47cf3f7558c05d92b436734719f1674c47617308",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_01a2309c7711ca5d618d4f7a47cf3f7558c05d92b436734719f1674c47617308.npz",
+      "type_id": 13,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": true
+    },
+    {
+      "new_uid": "roll_063bdda2866f4b656d052f89b5ce5b4aca2a83d4029c41ed1ae5f64e43846095",
+      "old_uid": "roll_00ff4470d8d68b41fc5acae2e2b3b895fe97988acdf3aface411ea59941f8cf2",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00ff4470d8d68b41fc5acae2e2b3b895fe97988acdf3aface411ea59941f8cf2.npz",
+      "type_id": 13,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_6ff10489e1616cf62392ac4f15a29046a9e2ab4f65531902361eb124e499d9ab",
+      "old_uid": "roll_003a2c36f428df19967705cb6564483fa3a856f8924fac51d854d43705fe9c21",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_003a2c36f428df19967705cb6564483fa3a856f8924fac51d854d43705fe9c21.npz",
+      "type_id": 13,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": true
+    },
+    {
+      "new_uid": "roll_3b07052ac759d16539d941301e8bddb5ac48591ea5f40449d5698e1b250fb800",
+      "old_uid": "roll_006a0e3595c222485ae49dbfbdfbd9c34f017900adea527b910fa35c7c7a11a2",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_006a0e3595c222485ae49dbfbdfbd9c34f017900adea527b910fa35c7c7a11a2.npz",
+      "type_id": 13,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_62c2ed8cea9c2cca82eaeb31295b9da69b9fa7c3ce8ef3ae908563fc88992a9f",
+      "old_uid": "roll_0aa7653df7447297bc953fb7690da7e07fcaad7c2e9dde1dc8f97ffe3296d61b",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0aa7653df7447297bc953fb7690da7e07fcaad7c2e9dde1dc8f97ffe3296d61b.npz",
+      "type_id": 14,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_1173f2b2e6114da5b6dce183e3f39e2ce4a985f1ce598d71b4fcedb894f21bae",
+      "old_uid": "roll_00270f086a98d614da7209c21cda347bdcef013c5c2ed40ccef0e89103622b5d",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00270f086a98d614da7209c21cda347bdcef013c5c2ed40ccef0e89103622b5d.npz",
+      "type_id": 14,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_4aecd36f86cc6b317d751969913df166625d6a2bac75667930f8ee496b4c115d",
+      "old_uid": "roll_01dd4206adf209861aef002ae05557432f8612b911f14acd560b2d9de37e6a33",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_01dd4206adf209861aef002ae05557432f8612b911f14acd560b2d9de37e6a33.npz",
+      "type_id": 14,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_5e771148498b8d4bc4aa9b1472a5f0660d177c844e40310f413ed17dedfa3e8c",
+      "old_uid": "roll_0023a24e96ea46716c46699dd65549ed0eb99bc6bd56cd803f73a8a5d48948a3",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0023a24e96ea46716c46699dd65549ed0eb99bc6bd56cd803f73a8a5d48948a3.npz",
+      "type_id": 14,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_80832f54ca23fe13ac9de9efce20911674b81731dddea45cc471e355a761469e",
+      "old_uid": "roll_00121968cf636a3ef63ad79c208371472d1917c2999c03e6fa774e0b7cfbfc38",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00121968cf636a3ef63ad79c208371472d1917c2999c03e6fa774e0b7cfbfc38.npz",
+      "type_id": 15,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": true
+    },
+    {
+      "new_uid": "roll_58408f37121cbf0b2afded8abd87e20771fbf4e2eb3cef4834f8eee767630419",
+      "old_uid": "roll_002452034e8ec293f063f746ed7d81a05b6dc010a6d85a4f253986e3577df6de",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_002452034e8ec293f063f746ed7d81a05b6dc010a6d85a4f253986e3577df6de.npz",
+      "type_id": 15,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_c08b27d4c2c39f54ca27a309830e3a01c745b945d058fc9bdf43a3b49294dfaf",
+      "old_uid": "roll_04d3cfaec1d1a5181c2f204dc59bb1a1225a8a2520d410b69d1fb336c24966e4",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_04d3cfaec1d1a5181c2f204dc59bb1a1225a8a2520d410b69d1fb336c24966e4.npz",
+      "type_id": 15,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": true
+    },
+    {
+      "new_uid": "roll_d05d2ce272c824f31d7aecddf2e6f3a00fb636cc509475fa958bd50016fe504c",
+      "old_uid": "roll_00093e59fba372385e1701af1f95f3ef5247f755755643e33b5fb63bfcf96331",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00093e59fba372385e1701af1f95f3ef5247f755755643e33b5fb63bfcf96331.npz",
+      "type_id": 15,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": true
+    },
+    {
+      "new_uid": "roll_0756dc92b4c25653fcc94861fbef9422f99d0f9445d2c14051b7d5a4f502992c",
+      "old_uid": "roll_01c919b2d030ba8fc18ed340c46d5112d383e11e9550efc919f2696a4fb7de0a",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_01c919b2d030ba8fc18ed340c46d5112d383e11e9550efc919f2696a4fb7de0a.npz",
+      "type_id": 1,
+      "level": 1,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_a99133dd535b842ce0cb7914ca73048595790a45cb382304093e5c54079ca8a0",
+      "old_uid": "roll_00e9e30b59e38e1b8bc65a1cc826fe478fe3954fafd930a46a77cdb1fbb0ffd5",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00e9e30b59e38e1b8bc65a1cc826fe478fe3954fafd930a46a77cdb1fbb0ffd5.npz",
+      "type_id": 1,
+      "level": 1,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_18e6cefb0734bf835788f5068bc1d8939c8db5773c241a889b533de014888e27",
+      "old_uid": "roll_0294970cc154989b484576cf574fbfb6751eb5a6ce3025d6044bd4736057ff92",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0294970cc154989b484576cf574fbfb6751eb5a6ce3025d6044bd4736057ff92.npz",
+      "type_id": 1,
+      "level": 1,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_61b4be639e0f34db3e26adc5ac88191238db838f59d3b11664d5339da60ed316",
+      "old_uid": "roll_007d3251ab3fd4cbbf542c1f6a02797d9a85a41613e685e5c7bd015aca22ea66",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_007d3251ab3fd4cbbf542c1f6a02797d9a85a41613e685e5c7bd015aca22ea66.npz",
+      "type_id": 1,
+      "level": 1,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_4376ca1f3fe0da9644889b0e14e4568d6cfffe91a9240174af3f931bb089dbac",
+      "old_uid": "roll_00994ee06fc2df0809bcfa43f061d9afc6e1d6d0402863b617458d050b4bc70b",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00994ee06fc2df0809bcfa43f061d9afc6e1d6d0402863b617458d050b4bc70b.npz",
+      "type_id": 3,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_ec76dce9fa64244653aa00eec800c1f13e2e3d13a4260219f50b4bd7e862d299",
+      "old_uid": "roll_00d69e79fd7cab4d80d480a3ee29005a8ee5fbc931c1a543dc083144400038fa",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00d69e79fd7cab4d80d480a3ee29005a8ee5fbc931c1a543dc083144400038fa.npz",
+      "type_id": 3,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_b5b8bef9ae7b3b550d908bf445fc877abece2a51dbf61681461e31dc710ea865",
+      "old_uid": "roll_0292454166277d7f5320fa13f4fb5f9631356e8d736b720d121f4367b5b45521",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0292454166277d7f5320fa13f4fb5f9631356e8d736b720d121f4367b5b45521.npz",
+      "type_id": 3,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_6671d473eaa361c39bd0af1d025040a48570a7c35f4cd4ecc20a490af75c8943",
+      "old_uid": "roll_0048767d10a1875e42a8ab6e97a9676134e289396a053af9c0f7331733905b48",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0048767d10a1875e42a8ab6e97a9676134e289396a053af9c0f7331733905b48.npz",
+      "type_id": 3,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_416c44f3671bb21428e535e339d7da3ac994027d724997653f4c63abcc9d992d",
+      "old_uid": "roll_038c9734d5eb52bdfce227b1548d54c3e4cf31b15f64827de63851be09948bea",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_038c9734d5eb52bdfce227b1548d54c3e4cf31b15f64827de63851be09948bea.npz",
+      "type_id": 4,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_15f26e7f95fbe3ceabf3d3b9501ac5432d469477fcd5324ec5962027da29ee04",
+      "old_uid": "roll_00391e03d1906a87daa26fbf7800c08f9892738b0234986c5c0afe392fe631ba",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00391e03d1906a87daa26fbf7800c08f9892738b0234986c5c0afe392fe631ba.npz",
+      "type_id": 4,
+      "level": 0,
+      "controller": "centralized_sampling",
+      "outcome": "timeout",
+      "route": false
+    },
+    {
+      "new_uid": "roll_03614172cc7eaf20c8acd379bf1d6b0713cb81270da484b042b0aed381e3e956",
+      "old_uid": "roll_0182e1152fec366f44e3b285a8f10032351083708d9aee4e189ee8916f199ce0",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_0182e1152fec366f44e3b285a8f10032351083708d9aee4e189ee8916f199ce0.npz",
+      "type_id": 4,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "success",
+      "route": false
+    },
+    {
+      "new_uid": "roll_db6fe0d77c5868745eefb1ae2f55fff4bb126107bd1e4bb4e7de8c4d0cb69b9c",
+      "old_uid": "roll_00c716f45b666194c0ff029f6ff7e96dd8fe51470b0dda43ed9c3f287306f22c",
+      "old_trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/traces/roll_00c716f45b666194c0ff029f6ff7e96dd8fe51470b0dda43ed9c3f287306f22c.npz",
+      "type_id": 4,
+      "level": 0,
+      "controller": "gradient_mpc",
+      "outcome": "timeout",
+      "route": false
+    }
+  ],
+  "rule": "60 stratified v1 episodes, success/timeout, both controllers, route on/off; fixed before rerunning."
+}
