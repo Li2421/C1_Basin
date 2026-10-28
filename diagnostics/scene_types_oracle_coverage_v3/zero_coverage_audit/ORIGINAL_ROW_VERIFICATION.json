@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "type_id": 8,
+      "level": 0,
+      "state_index": 3,
+      "scene": "xsc_stb_t08_l0_w000",
+      "original_row_factory": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/generated/backend/swap_safety_user_fix_20261023.py",
+      "row_factory_sha256": "42bb80649e1d70f37c285fa1bb24950d6b6b9bc3fa94c00a78bb8ea994f52d63",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/zero_coverage_audit/clearance_variant/t08_l0_s3_cbf_scheduled.npz",
+      "trace_sha256": "3221ec61a2f2a11b32fc6c297111653188fcf7d4f02305dac071b6abdc3b4a54",
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/zero_coverage_audit/clearance_variant/t08_l0_s3_cbf_scheduled.json",
+      "steps_checked": 793,
+      "original_CBF_minimum_residual": 5.072112277225774e-06,
+      "minimum_swept_pair_clearance": 0.023615274276631598,
+      "minimum_swept_wall_clearance": 0.02018905148189147,
+      "dynamics_maximum_residual": 1.1015494072452725e-16,
+      "maximum_speed": 0.4995000000000001,
+      "first_original_success_predicate_step": 786,
+      "first_original_success_predicate_seconds": 39.300000000000004,
+      "original_horizon_seconds": 42.650000000000006,
+      "passed": true,
+      "environment_steps": 0,
+      "solver_calls": 0,
+      "interpretation": "Numerical constructive joint-feasibility witness: actual production CBF rows, identical swept-geometry formulas/dynamics/goal predicate. No nominal-controller or safety-solver execution, no Oracle success label."
+    }
+  ],
+  "complete": true,
+  "passed": true,
+  "environment_steps": 0,
+  "solver_calls": 0,
+  "frozen_scenes_sha256": "f312c0f3421c09dac4a32736d648d30324cabdad16e9bd8c411fc85c8b074046"
+}

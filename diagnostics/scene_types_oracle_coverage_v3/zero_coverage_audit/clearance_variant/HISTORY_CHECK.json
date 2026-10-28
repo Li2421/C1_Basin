@@ -1,0 +1,7 @@
+{
+  "previous_source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/zero_coverage_audit/CBF_RESULTS.json",
+  "gap": "Previous geometric paths have slow CBF retiming and no time-limit witness. Try explicit 0.02m soft clearance for shortcutting, with fixed-endpoint exception.",
+  "recipe": "Sequential grid paths as before; accepted segments retain min(0.02m added clearance, endpoint clearance minus1e-6). Same exact geometry/CBF/timestep/speed. Existing found states first, stop within each ladder once a certified in-horizon witness exists.",
+  "environment_steps": 0,
+  "solver_calls": 0
+}
