@@ -94,6 +94,8 @@ def consume_available_without_rollouts():
         with(HERE/'ITERATION_LOG.md').open('a')as f:f.write(f'\n数值运行停止后的只读补全：按原候选顺序消化{len(extra)}条已有精确/前缀认证标签，遇首个缺失即停；没有新增rollout，未跳过旧超时，也未越过首次成功。\n')
 
 def main():
+    from repair_stage_counts import main as repair_accounting
+    repair_accounting()
     reconcile_completed_frontier()
     consume_available_without_rollouts()
     # Rebuild presentation from actual query records, including pending counts.

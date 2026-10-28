@@ -15,6 +15,10 @@ def save_labels(cases,profile,phase):
 
 def main():
     assert(HERE/'family_4_complete.json').exists()
+    registry=read(HERE/'PAPER_REGISTRY.json')
+    registry['no_paper_rollouts_started']=False
+    registry['paper_screen_phase_entered']=datetime.datetime.now().astimezone().isoformat()
+    dump(HERE/'PAPER_REGISTRY.json',registry)
     protocol=read(OUT/'PROFILES_FROZEN.json');scenes=read(HERE/'SCENES.json')['entries']
     statuses=[]
     for ordinal,profile in enumerate(protocol['profiles']):
