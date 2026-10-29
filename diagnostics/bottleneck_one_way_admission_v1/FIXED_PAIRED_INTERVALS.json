@@ -1,0 +1,85 @@
+{
+  "records": [
+    {
+      "scope": "全部",
+      "states": [
+        0,
+        7
+      ],
+      "physical_blocks": 136,
+      "paired_difference": 0.13970588235294118,
+      "ci95": [
+        0.08455882352941177,
+        0.19852941176470587
+      ]
+    },
+    {
+      "scope": "困难五类",
+      "states": [
+        0,
+        7
+      ],
+      "physical_blocks": 40,
+      "paired_difference": 0.375,
+      "ci95": [
+        0.25,
+        0.5125
+      ]
+    },
+    {
+      "scope": "其余类型",
+      "states": [
+        0,
+        7
+      ],
+      "physical_blocks": 96,
+      "paired_difference": 0.041666666666666664,
+      "ci95": [
+        0.0,
+        0.08854166666666667
+      ]
+    },
+    {
+      "scope": "全部",
+      "states": [
+        8,
+        11
+      ],
+      "physical_blocks": 68,
+      "paired_difference": 0.09558823529411764,
+      "ci95": [
+        0.04411764705882353,
+        0.16176470588235295
+      ]
+    },
+    {
+      "scope": "困难五类",
+      "states": [
+        8,
+        11
+      ],
+      "physical_blocks": 20,
+      "paired_difference": 0.3,
+      "ci95": [
+        0.15,
+        0.475
+      ]
+    },
+    {
+      "scope": "其余类型",
+      "states": [
+        8,
+        11
+      ],
+      "physical_blocks": 48,
+      "paired_difference": 0.010416666666666666,
+      "ci95": [
+        0.0,
+        0.03125
+      ]
+    }
+  ],
+  "seed": 2026102902,
+  "bootstrap_samples": 10000,
+  "unit": "physical scene/state, both controllers in same block"
+}

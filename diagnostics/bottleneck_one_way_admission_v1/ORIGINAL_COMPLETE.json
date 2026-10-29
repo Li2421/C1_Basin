@@ -1,0 +1,285 @@
+{
+  "complete": true,
+  "required_numeric_work_complete": true,
+  "actual_new_attempts": 4094,
+  "hard_limit": 15000,
+  "optional_sensitivity": {
+    "complete": true,
+    "cases": 1,
+    "checks": [
+      {
+        "identity": [
+          16,
+          0,
+          "centralized_sampling",
+          1
+        ],
+        "prefix_equal": true,
+        "arrays": {
+          "positions": true,
+          "velocities": true,
+          "nominal": true,
+          "safe": true,
+          "actions": true,
+          "projection_rewrite": true,
+          "swept_clearance": true,
+          "clearance_types": true,
+          "route_guides": true,
+          "route_remaining": true
+        },
+        "old_outcome": "timeout",
+        "new_result": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 1,
+          "numerical_failure": 0,
+          "outcome": "timeout",
+          "episode_length": 1436,
+          "error": null,
+          "elapsed_seconds": 19.994343186728656,
+          "switch_step": null,
+          "minimum_swept_clearance": 0.00010000000007916177,
+          "final_goal_distances": [
+            1.5240471983392057,
+            6.713178136967714e-16,
+            0.21638847437741102,
+            0.032165202019191354,
+            0.8502496401635833,
+            9.550499576785472e-16,
+            9.930136612989092e-16,
+            1.897149936107019e-15,
+            2.4424906541753444e-15,
+            0.08041303034560604
+          ],
+          "final_route_distances": [
+            1.6454127088870765,
+            6.713178136967714e-16,
+            0.21638847437741102,
+            0.032165202019191354,
+            0.8502496401635833,
+            9.550499576785472e-16,
+            9.930136612989092e-16,
+            1.897149936107019e-15,
+            2.4424906541753444e-15,
+            0.08041303034560604
+          ],
+          "final_route_error": null,
+          "jax_enable_x64": false,
+          "safety_layer": "distributed",
+          "responsibility": 0.5,
+          "collision_types": {
+            "agent": false,
+            "static": false,
+            "moving": false
+          },
+          "constraint_violation_steps": 0,
+          "sampled_speed_violation_steps": 0,
+          "restoration_steps": 0,
+          "completion_time": null,
+          "truncated_time": 71.8,
+          "horizon_time": 71.8,
+          "dictionary": {
+            "seconds": 0.16220694780349731,
+            "svd_seconds": 0.0,
+            "unavailable_steps": {
+              "T1": 0
+            },
+            "role": {
+              "pair": [
+                7,
+                9
+              ],
+              "yielder": 7,
+              "passer": 9,
+              "activation_step": 0
+            }
+          },
+          "reservation_no_goal_certificates": [],
+          "diagnostic_encoding_adapter": {
+            "path": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/recording_fix.py",
+            "sha256": "876081056a289cfc8c5ca89be35b9efbe981efe83408f1d22427c5859623a006",
+            "scope": "Convert NumPy diagnostic scalar types to JSON primitives; columns and control arithmetic unchanged."
+          },
+          "scenario_uid": "scenario_da3cd0d5ec2994dd2440e00bcad04dd5cfa2b9f9308ccaff29e6f8e9def08752",
+          "state_uid": "state_b88c85f800426081eeae5b8485236e2d8f0ce22a50674a7e2b384b82f22efeb3",
+          "controller_uid": "ctl_205376940dfd44715477483ad1efc0bf161d0aa4d0ebeeae3073723056c6c337",
+          "eta_uid": "eta_ddeade11b087d061b3007b7349d1bd18a74329f16971c1be7412a8823ead6c64",
+          "seed_key": "{\"future_index\":0}",
+          "rollout_uid": "roll_140660b76c1664b0751adff8788157f939b0e46212eb73594db731350648a307",
+          "scene": "xsc_stb3_t16_l0_w000",
+          "type_id": 16,
+          "state_index": 1,
+          "seed": 0,
+          "spec": {
+            "eta": [
+              0.875,
+              0.0,
+              0.375
+            ],
+            "coefficients": {
+              "T1": -0.75
+            },
+            "one_way": {
+              "R_e": 0.8,
+              "R_c": 0.5,
+              "rho": "fcfs",
+              "K": null,
+              "c1": 1.0,
+              "c2": 0.5,
+              "c3": 1.0
+            }
+          },
+          "purpose": "optional_eight_times_horizon",
+          "solo": null,
+          "controller": "centralized_sampling",
+          "eta": [
+            0.875,
+            0.0,
+            0.375
+          ],
+          "future_index": 0,
+          "cache_identity_schema": "registered_exact_uid_v1",
+          "initial_positions": [
+            [
+              -1.0067684935081997,
+              -0.8311130430668945
+            ],
+            [
+              -1.4257259049873752,
+              -0.026600318797703526
+            ],
+            [
+              -1.8366733983280406,
+              -0.4050250299320829
+            ],
+            [
+              1.0475688995870196,
+              -0.8356353459396659
+            ],
+            [
+              1.812056282845644,
+              -0.9006960374714252
+            ],
+            [
+              -0.30783209101456954,
+              0.8346244739279005
+            ],
+            [
+              0.10000796789009048,
+              -0.8936290384187071
+            ],
+            [
+              -1.0241310964795534,
+              1.0211618540730776
+            ],
+            [
+              -0.8365549377987112,
+              -0.06255609572500664
+            ],
+            [
+              -1.1983109502300318,
+              0.7840070597581343
+            ]
+          ],
+          "initial_velocities": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "goals": [
+            [
+              -1.505438838885257,
+              0.8704847904129915
+            ],
+            [
+              0.6713311590190236,
+              -0.23535024675677807
+            ],
+            [
+              -1.8860738889851518,
+              0.0698791077147054
+            ],
+            [
+              -0.2386086984541529,
+              -0.0016149333472015304
+            ],
+            [
+              -0.9363403591194062,
+              0.014978520517342941
+            ],
+            [
+              -0.9777356960267154,
+              0.8892599939214085
+            ],
+            [
+              1.8857944190232403,
+              0.982674053839802
+            ],
+            [
+              0.6241552709059981,
+              -1.0463302392243914
+            ],
+            [
+              1.5100954530748973,
+              -1.0453036483644087
+            ],
+            [
+              -0.6668520958993067,
+              -0.3490121567700598
+            ]
+          ],
+          "deadlock": 0,
+          "source": "new_rollout",
+          "trace": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/traces/roll_140660b76c1664b0751adff8788157f939b0e46212eb73594db731350648a307.npz",
+          "trace_sha256": "06e434f7a808971e4134b3314ea6178bb4c6b949d955753985af3f1f5995ad5d",
+          "worker_cpu": [
+            1
+          ],
+          "wall_seconds": 21.17620595311746
+        }
+      }
+    ],
+    "excluded_from_primary_tables": true,
+    "horizon_definition": "ceil(8 * frozen longest initial route / max speed / dt)"
+  },
+  "report": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/REPORT.md",
+  "integrity_passed": true,
+  "finished": "2026-10-29T03:58:19.723919+08:00"
+}

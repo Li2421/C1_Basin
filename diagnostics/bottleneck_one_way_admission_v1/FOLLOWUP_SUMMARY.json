@@ -1,0 +1,446 @@
+{
+  "families": [
+    {
+      "scheme": "A",
+      "cases": 40,
+      "coverage": {
+        "16": 20,
+        "32": 31,
+        "64": 33
+      },
+      "first_candidate_success": 11,
+      "mean_first_success": 12.818181818181818,
+      "median_first_success": 11.0,
+      "mean_all_queries": 21.775,
+      "complete": true,
+      "queries": 871,
+      "unknown_queries": 0,
+      "by_type": [
+        {
+          "type_id": 8,
+          "cases": 16,
+          "coverage": {
+            "16": 7,
+            "32": 15,
+            "64": 16
+          },
+          "first_candidate_success": 1,
+          "median_first_success": 20.0
+        },
+        {
+          "type_id": 10,
+          "cases": 13,
+          "coverage": {
+            "16": 9,
+            "32": 12,
+            "64": 13
+          },
+          "first_candidate_success": 6,
+          "median_first_success": 2.0
+        },
+        {
+          "type_id": 15,
+          "cases": 4,
+          "coverage": {
+            "16": 4,
+            "32": 4,
+            "64": 4
+          },
+          "first_candidate_success": 4,
+          "median_first_success": 1.0
+        },
+        {
+          "type_id": 16,
+          "cases": 7,
+          "coverage": {
+            "16": 0,
+            "32": 0,
+            "64": 0
+          },
+          "first_candidate_success": 0,
+          "median_first_success": null
+        }
+      ],
+      "qualifies": false
+    },
+    {
+      "scheme": "B",
+      "cases": 40,
+      "coverage": {
+        "16": 26,
+        "32": 32,
+        "64": 32
+      },
+      "first_candidate_success": 13,
+      "mean_first_success": 7.125,
+      "median_first_success": 2.0,
+      "mean_all_queries": 18.5,
+      "complete": true,
+      "queries": 740,
+      "unknown_queries": 0,
+      "by_type": [
+        {
+          "type_id": 8,
+          "cases": 16,
+          "coverage": {
+            "16": 10,
+            "32": 15,
+            "64": 15
+          },
+          "first_candidate_success": 3,
+          "median_first_success": 11.0
+        },
+        {
+          "type_id": 10,
+          "cases": 13,
+          "coverage": {
+            "16": 12,
+            "32": 13,
+            "64": 13
+          },
+          "first_candidate_success": 6,
+          "median_first_success": 2.0
+        },
+        {
+          "type_id": 15,
+          "cases": 4,
+          "coverage": {
+            "16": 4,
+            "32": 4,
+            "64": 4
+          },
+          "first_candidate_success": 4,
+          "median_first_success": 1.0
+        },
+        {
+          "type_id": 16,
+          "cases": 7,
+          "coverage": {
+            "16": 0,
+            "32": 0,
+            "64": 0
+          },
+          "first_candidate_success": 0,
+          "median_first_success": null
+        }
+      ],
+      "qualifies": false
+    },
+    {
+      "scheme": "C",
+      "cases": 40,
+      "coverage": {
+        "16": 11,
+        "32": 21,
+        "64": 23
+      },
+      "first_candidate_success": 8,
+      "mean_first_success": 19.869565217391305,
+      "median_first_success": 20.0,
+      "mean_all_queries": 38.625,
+      "complete": true,
+      "queries": 1545,
+      "unknown_queries": 0,
+      "by_type": [
+        {
+          "type_id": 8,
+          "cases": 16,
+          "coverage": {
+            "16": 3,
+            "32": 11,
+            "64": 11
+          },
+          "first_candidate_success": 1,
+          "median_first_success": 31.0
+        },
+        {
+          "type_id": 10,
+          "cases": 13,
+          "coverage": {
+            "16": 5,
+            "32": 6,
+            "64": 8
+          },
+          "first_candidate_success": 5,
+          "median_first_success": 1.0
+        },
+        {
+          "type_id": 15,
+          "cases": 4,
+          "coverage": {
+            "16": 2,
+            "32": 2,
+            "64": 2
+          },
+          "first_candidate_success": 2,
+          "median_first_success": 1.0
+        },
+        {
+          "type_id": 16,
+          "cases": 7,
+          "coverage": {
+            "16": 1,
+            "32": 2,
+            "64": 2
+          },
+          "first_candidate_success": 0,
+          "median_first_success": 17.0
+        }
+      ],
+      "qualifies": false
+    },
+    {
+      "scheme": "D",
+      "cases": 40,
+      "coverage": {
+        "16": 7,
+        "32": 11,
+        "64": 16
+      },
+      "first_candidate_success": 0,
+      "mean_first_success": 22.5625,
+      "median_first_success": 19.0,
+      "mean_all_queries": 47.425,
+      "complete": true,
+      "queries": 1897,
+      "unknown_queries": 0,
+      "by_type": [
+        {
+          "type_id": 8,
+          "cases": 16,
+          "coverage": {
+            "16": 1,
+            "32": 1,
+            "64": 2
+          },
+          "first_candidate_success": 0,
+          "median_first_success": 25.0
+        },
+        {
+          "type_id": 10,
+          "cases": 13,
+          "coverage": {
+            "16": 3,
+            "32": 7,
+            "64": 10
+          },
+          "first_candidate_success": 0,
+          "median_first_success": 20.5
+        },
+        {
+          "type_id": 15,
+          "cases": 4,
+          "coverage": {
+            "16": 2,
+            "32": 2,
+            "64": 3
+          },
+          "first_candidate_success": 0,
+          "median_first_success": 2.0
+        },
+        {
+          "type_id": 16,
+          "cases": 7,
+          "coverage": {
+            "16": 1,
+            "32": 1,
+            "64": 1
+          },
+          "first_candidate_success": 0,
+          "median_first_success": 11.0
+        }
+      ],
+      "qualifies": false
+    },
+    {
+      "scheme": "E",
+      "cases": 40,
+      "coverage": {
+        "16": 8,
+        "32": 10,
+        "64": 14
+      },
+      "first_candidate_success": 1,
+      "mean_first_success": 20.428571428571427,
+      "median_first_success": 11.0,
+      "mean_all_queries": 48.75,
+      "complete": true,
+      "queries": 1950,
+      "unknown_queries": 0,
+      "by_type": [
+        {
+          "type_id": 8,
+          "cases": 16,
+          "coverage": {
+            "16": 0,
+            "32": 2,
+            "64": 2
+          },
+          "first_candidate_success": 0,
+          "median_first_success": 27.0
+        },
+        {
+          "type_id": 10,
+          "cases": 13,
+          "coverage": {
+            "16": 7,
+            "32": 7,
+            "64": 8
+          },
+          "first_candidate_success": 0,
+          "median_first_success": 10.0
+        },
+        {
+          "type_id": 15,
+          "cases": 4,
+          "coverage": {
+            "16": 1,
+            "32": 1,
+            "64": 2
+          },
+          "first_candidate_success": 1,
+          "median_first_success": 32.5
+        },
+        {
+          "type_id": 16,
+          "cases": 7,
+          "coverage": {
+            "16": 0,
+            "32": 0,
+            "64": 2
+          },
+          "first_candidate_success": 0,
+          "median_first_success": 35.0
+        }
+      ],
+      "qualifies": false
+    },
+    {
+      "scheme": "F",
+      "cases": 40,
+      "coverage": {
+        "16": 0,
+        "32": 0,
+        "64": 1
+      },
+      "first_candidate_success": 0,
+      "mean_first_success": 46.0,
+      "median_first_success": 46.0,
+      "mean_all_queries": 63.55,
+      "complete": true,
+      "queries": 2542,
+      "unknown_queries": 0,
+      "by_type": [
+        {
+          "type_id": 8,
+          "cases": 16,
+          "coverage": {
+            "16": 0,
+            "32": 0,
+            "64": 0
+          },
+          "first_candidate_success": 0,
+          "median_first_success": null
+        },
+        {
+          "type_id": 10,
+          "cases": 13,
+          "coverage": {
+            "16": 0,
+            "32": 0,
+            "64": 1
+          },
+          "first_candidate_success": 0,
+          "median_first_success": 46.0
+        },
+        {
+          "type_id": 15,
+          "cases": 4,
+          "coverage": {
+            "16": 0,
+            "32": 0,
+            "64": 0
+          },
+          "first_candidate_success": 0,
+          "median_first_success": null
+        },
+        {
+          "type_id": 16,
+          "cases": 7,
+          "coverage": {
+            "16": 0,
+            "32": 0,
+            "64": 0
+          },
+          "first_candidate_success": 0,
+          "median_first_success": null
+        }
+      ],
+      "qualifies": false
+    },
+    {
+      "scheme": "G",
+      "cases": 40,
+      "coverage": {
+        "16": 19,
+        "32": 29,
+        "64": 32
+      },
+      "first_candidate_success": 10,
+      "mean_first_success": 15.34375,
+      "median_first_success": 11.0,
+      "mean_all_queries": 25.075,
+      "complete": true,
+      "queries": 1003,
+      "unknown_queries": 0,
+      "by_type": [
+        {
+          "type_id": 8,
+          "cases": 16,
+          "coverage": {
+            "16": 8,
+            "32": 13,
+            "64": 13
+          },
+          "first_candidate_success": 2,
+          "median_first_success": 16.0
+        },
+        {
+          "type_id": 10,
+          "cases": 13,
+          "coverage": {
+            "16": 8,
+            "32": 12,
+            "64": 13
+          },
+          "first_candidate_success": 6,
+          "median_first_success": 2.0
+        },
+        {
+          "type_id": 15,
+          "cases": 4,
+          "coverage": {
+            "16": 3,
+            "32": 4,
+            "64": 4
+          },
+          "first_candidate_success": 2,
+          "median_first_success": 3.5
+        },
+        {
+          "type_id": 16,
+          "cases": 7,
+          "coverage": {
+            "16": 0,
+            "32": 0,
+            "64": 2
+          },
+          "first_candidate_success": 0,
+          "median_first_success": 52.5
+        }
+      ],
+      "qualifies": false
+    }
+  ],
+  "full_schemes": []
+}

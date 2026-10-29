@@ -1,0 +1,31 @@
+{
+  "time": "2026-10-29T02:19:11.974612+08:00",
+  "cancelled_old_jobs": [
+    "35762"
+  ],
+  "authorization": "User: \u8dd1\u5b8c\u8fd9\u4e2a\u5c31\u5148\u505c\u4e0b\u6765\u5427\uff0c\u8dd1\u63a5\u4e0b\u6765\u8fd9\u4e2a",
+  "old_files_modified": false,
+  "snapshots": [
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/PRIORITY_RESCUE_SUMMARY.json",
+      "copy": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/inputs/final_v3/PRIORITY_RESCUE_SUMMARY.json",
+      "sha256": "b200bdaa247ac57916b66cc96e7329fa454c977ec1d0613184c440523d329f17"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/PRIORITY_RESCUE_STATE.json",
+      "copy": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/inputs/final_v3/PRIORITY_RESCUE_STATE.json",
+      "sha256": "037e8e569fac8c1edf345db7a660a3e3e5ff95f1baed66a1537f993e78eb2a12"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/SEARCH_STATE.json",
+      "copy": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/inputs/final_v3/SEARCH_STATE.json",
+      "sha256": "4f2f81c059bb14905e1c6daafa4635d2752c3b3f93be66281a2460fa71bd438c"
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/REPRESENTATIVE17_COMPARISON.json",
+      "copy": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/inputs/final_v3/REPRESENTATIVE17_COMPARISON.json",
+      "sha256": "25b631bd6badb4ed6a5691d0d47dd115f7068cb4a14904f85d41fcb7c568f97b"
+    }
+  ],
+  "hard_cases": 40
+}

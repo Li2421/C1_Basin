@@ -1,0 +1,4017 @@
+{
+  "hard_cases": 40,
+  "hard_main": {
+    "16": 20,
+    "32": 31,
+    "64": 33
+  },
+  "all_main_at16": 217,
+  "all_cases": 272,
+  "four_column_at16": 183,
+  "by_type": [
+    {
+      "type_id": 8,
+      "name": "窄门·两组对向互换，每侧4台",
+      "cases": 16,
+      "main": {
+        "16": 7,
+        "32": 15,
+        "64": 16
+      },
+      "ablations": [
+        5,
+        10,
+        0
+      ],
+      "median": 20.0
+    },
+    {
+      "type_id": 10,
+      "name": "单车道长走廊·两组对向，每侧3台",
+      "cases": 13,
+      "main": {
+        "16": 9,
+        "32": 12,
+        "64": 13
+      },
+      "ablations": [
+        7,
+        6,
+        0
+      ],
+      "median": 2.0
+    },
+    {
+      "type_id": 15,
+      "name": "四房间连通（串联瓶颈），10台",
+      "cases": 4,
+      "main": {
+        "16": 4,
+        "32": 4,
+        "64": 4
+      },
+      "ablations": [
+        1,
+        4,
+        0
+      ],
+      "median": 1.0
+    },
+    {
+      "type_id": 16,
+      "name": "货架仓库·窄巷，10台",
+      "cases": 7,
+      "main": {
+        "16": 0,
+        "32": 0,
+        "64": 0
+      },
+      "ablations": [
+        0,
+        0,
+        0
+      ],
+      "median": null
+    }
+  ],
+  "families": [
+    {
+      "family": 0,
+      "cases": 272,
+      "success": 230,
+      "mean_first_success": 4.1695652173913045,
+      "mean_completion_time": 22.77347826086957,
+      "completed": 272,
+      "unknown_queries": 0
+    },
+    {
+      "family": 1,
+      "cases": 40,
+      "success": 13,
+      "mean_first_success": 5.615384615384615,
+      "mean_completion_time": 35.33461538461538,
+      "completed": 40,
+      "unknown_queries": 0
+    },
+    {
+      "family": 2,
+      "cases": 40,
+      "success": 20,
+      "mean_first_success": 4.8,
+      "mean_completion_time": 36.720000000000006,
+      "completed": 40,
+      "unknown_queries": 0
+    },
+    {
+      "family": 3,
+      "cases": 40,
+      "success": 0,
+      "mean_first_success": null,
+      "mean_completion_time": null,
+      "completed": 40,
+      "unknown_queries": 0
+    }
+  ],
+  "full_search_complete": true,
+  "short_horizon_policy": "4x from executed 6x-first-success trajectories only; no search of skipped candidates.",
+  "scope": "Finite candidate coverage; no family/dimension selection, no training, no paper-controller runs.",
+  "horizon_comparison": [
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "centralized_sampling",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "centralized_sampling",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "centralized_sampling",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "gradient_mpc",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "centralized_sampling",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "centralized_sampling",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "gradient_mpc",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "centralized_sampling",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "centralized_sampling",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        1,
+        1,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "centralized_sampling",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "centralized_sampling",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "centralized_sampling",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "gradient_mpc",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "centralized_sampling",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "centralized_sampling",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "gradient_mpc",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "centralized_sampling",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "centralized_sampling",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        2,
+        1,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "centralized_sampling",
+        0
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "centralized_sampling",
+        2
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "centralized_sampling",
+        3
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "gradient_mpc",
+        3
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "centralized_sampling",
+        4
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "centralized_sampling",
+        5
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "gradient_mpc",
+        5
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "centralized_sampling",
+        6
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "centralized_sampling",
+        7
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        3,
+        1,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "centralized_sampling",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "centralized_sampling",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "centralized_sampling",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "gradient_mpc",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "centralized_sampling",
+        4
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "centralized_sampling",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "gradient_mpc",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "centralized_sampling",
+        6
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "centralized_sampling",
+        7
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        4,
+        1,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "centralized_sampling",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "centralized_sampling",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "gradient_mpc",
+        3
+      ],
+      "hard": false,
+      "first_success": 4,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "centralized_sampling",
+        4
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "gradient_mpc",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "centralized_sampling",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        5,
+        0,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "centralized_sampling",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "centralized_sampling",
+        2
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 7,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "centralized_sampling",
+        3
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "gradient_mpc",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "centralized_sampling",
+        4
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 5,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "centralized_sampling",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "gradient_mpc",
+        5
+      ],
+      "hard": false,
+      "first_success": 7,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "centralized_sampling",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 4,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "centralized_sampling",
+        7
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        6,
+        1,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 6,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "centralized_sampling",
+        0
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      "hard": false,
+      "first_success": 5,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "centralized_sampling",
+        3
+      ],
+      "hard": false,
+      "first_success": 5,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "gradient_mpc",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "centralized_sampling",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "centralized_sampling",
+        5
+      ],
+      "hard": false,
+      "first_success": 14,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "gradient_mpc",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "centralized_sampling",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "centralized_sampling",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        7,
+        1,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        0
+      ],
+      "hard": true,
+      "first_success": 20,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        0
+      ],
+      "hard": true,
+      "first_success": 16,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      "hard": true,
+      "first_success": 11,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        1
+      ],
+      "hard": true,
+      "first_success": 28,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        2
+      ],
+      "hard": true,
+      "first_success": 11,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        2
+      ],
+      "hard": true,
+      "first_success": 11,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        3
+      ],
+      "hard": true,
+      "first_success": 20,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        3
+      ],
+      "hard": true,
+      "first_success": 31,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        4
+      ],
+      "hard": true,
+      "first_success": 20,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        4
+      ],
+      "hard": true,
+      "first_success": 9,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        5
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        5
+      ],
+      "hard": true,
+      "first_success": 20,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        6
+      ],
+      "hard": true,
+      "first_success": 41,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        6
+      ],
+      "hard": true,
+      "first_success": 20,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        7
+      ],
+      "hard": true,
+      "first_success": 20,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        7
+      ],
+      "hard": true,
+      "first_success": 5,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        9,
+        1,
+        "centralized_sampling",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        9,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      "hard": false,
+      "first_success": 11,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        9,
+        1,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        9,
+        1,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 14,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        9,
+        1,
+        "centralized_sampling",
+        3
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        9,
+        1,
+        "centralized_sampling",
+        4
+      ],
+      "hard": false,
+      "first_success": 11,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        9,
+        1,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 11,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        9,
+        1,
+        "centralized_sampling",
+        5
+      ],
+      "hard": false,
+      "first_success": 11,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        9,
+        1,
+        "centralized_sampling",
+        6
+      ],
+      "hard": false,
+      "first_success": 16,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        9,
+        1,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 16,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        0
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        1
+      ],
+      "hard": true,
+      "first_success": 21,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        1
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        2
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        3
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        4
+      ],
+      "hard": true,
+      "first_success": 20,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        4
+      ],
+      "hard": true,
+      "first_success": 9,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      "hard": true,
+      "first_success": 20,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        5
+      ],
+      "hard": true,
+      "first_success": 51,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        7
+      ],
+      "hard": true,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        7
+      ],
+      "hard": true,
+      "first_success": 6,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        11,
+        0,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 13,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        11,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 14,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        11,
+        0,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 13,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "centralized_sampling",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "centralized_sampling",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "centralized_sampling",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "centralized_sampling",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "gradient_mpc",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "centralized_sampling",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "gradient_mpc",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "centralized_sampling",
+        7
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        12,
+        0,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "centralized_sampling",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "centralized_sampling",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "centralized_sampling",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "centralized_sampling",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "gradient_mpc",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "centralized_sampling",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "gradient_mpc",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "centralized_sampling",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        13,
+        0,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        14,
+        0,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        14,
+        0,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 7,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        14,
+        0,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        14,
+        0,
+        "gradient_mpc",
+        3
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        14,
+        0,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 7,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        14,
+        0,
+        "gradient_mpc",
+        5
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        14,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        14,
+        0,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 3,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "centralized_sampling",
+        0
+      ],
+      "hard": false,
+      "first_success": 5,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "centralized_sampling",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "centralized_sampling",
+        2
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "gradient_mpc",
+        2
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "centralized_sampling",
+        3
+      ],
+      "hard": false,
+      "first_success": 5,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "gradient_mpc",
+        3
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "centralized_sampling",
+        4
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "gradient_mpc",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "centralized_sampling",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        15,
+        0,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        0
+      ],
+      "hard": false,
+      "first_success": 14,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 14,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        2
+      ],
+      "hard": false,
+      "first_success": 14,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 14,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        4
+      ],
+      "hard": false,
+      "first_success": 14,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 14,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "centralized_sampling",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "gradient_mpc",
+        0
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "gradient_mpc",
+        1
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "centralized_sampling",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "gradient_mpc",
+        2
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "centralized_sampling",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "gradient_mpc",
+        3
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "centralized_sampling",
+        4
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "gradient_mpc",
+        4
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "centralized_sampling",
+        5
+      ],
+      "hard": false,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "gradient_mpc",
+        5
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "centralized_sampling",
+        6
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "gradient_mpc",
+        6
+      ],
+      "hard": false,
+      "first_success": 5,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "centralized_sampling",
+        7
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 0,
+      "identity": [
+        17,
+        1,
+        "gradient_mpc",
+        7
+      ],
+      "hard": false,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        2
+      ],
+      "hard": true,
+      "first_success": 11,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        2
+      ],
+      "hard": true,
+      "first_success": 11,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        4
+      ],
+      "hard": true,
+      "first_success": 16,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        5
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        7
+      ],
+      "hard": true,
+      "first_success": 5,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        0
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        1
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        2
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        3
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "hard": true,
+      "first_success": 11,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "hard": true,
+      "first_success": 11,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        7
+      ],
+      "hard": true,
+      "first_success": 2,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 1,
+      "identity": [
+        15,
+        0,
+        "centralized_sampling",
+        4
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        0
+      ],
+      "hard": true,
+      "first_success": 4,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        0
+      ],
+      "hard": true,
+      "first_success": 6,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        1
+      ],
+      "hard": true,
+      "first_success": 16,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        2
+      ],
+      "hard": true,
+      "first_success": 6,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        3
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        4
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        5
+      ],
+      "hard": true,
+      "first_success": 6,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        6
+      ],
+      "hard": true,
+      "first_success": 16,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        6
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        8,
+        1,
+        "gradient_mpc",
+        7
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        1
+      ],
+      "hard": true,
+      "first_success": 16,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        4
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "hard": true,
+      "first_success": 2,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "hard": true,
+      "first_success": 4,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        10,
+        0,
+        "centralized_sampling",
+        7
+      ],
+      "hard": true,
+      "first_success": 6,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        10,
+        0,
+        "gradient_mpc",
+        7
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        15,
+        0,
+        "centralized_sampling",
+        2
+      ],
+      "hard": true,
+      "first_success": 4,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        15,
+        0,
+        "gradient_mpc",
+        2
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        15,
+        0,
+        "gradient_mpc",
+        3
+      ],
+      "hard": true,
+      "first_success": 2,
+      "success_4x": false,
+      "success_6x": true
+    },
+    {
+      "family": 2,
+      "identity": [
+        15,
+        0,
+        "centralized_sampling",
+        4
+      ],
+      "hard": true,
+      "first_success": 1,
+      "success_4x": true,
+      "success_6x": true
+    }
+  ],
+  "fixed_table": [
+    {
+      "type_id": 1,
+      "name": "开阔·圆周对穿，10台",
+      "four_column_fixed": {
+        "0": {
+          "success": 16,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 8,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 16,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 8,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 2,
+      "name": "开阔·两股垂直交叉流，10台",
+      "four_column_fixed": {
+        "0": {
+          "success": 16,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 8,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 16,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 8,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 3,
+      "name": "宽走廊·同向换道，8台",
+      "four_column_fixed": {
+        "0": {
+          "success": 0,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 0,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 4,
+      "name": "封闭方形场地·随机起终点（拥挤），11台",
+      "four_column_fixed": {
+        "0": {
+          "success": 12,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 5,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 12,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 5,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 5,
+      "name": "方岛环岛·四向，8台",
+      "four_column_fixed": {
+        "0": {
+          "success": 10,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 8,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 10,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 8,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 6,
+      "name": "带障碍的圆圈对穿，8台",
+      "four_column_fixed": {
+        "0": {
+          "success": 1,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 1,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 1,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 1,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 7,
+      "name": "散布障碍森林·随机起终点，10台",
+      "four_column_fixed": {
+        "0": {
+          "success": 3,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 8,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 1,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 8,
+      "name": "窄门·两组对向互换，每侧4台",
+      "four_column_fixed": {
+        "0": {
+          "success": 0,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 8,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 3,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 9,
+      "name": "单向挤门（疏散），8台",
+      "four_column_fixed": {
+        "0": {
+          "success": 0,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 3,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 3,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 3,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 10,
+      "name": "单车道长走廊·两组对向，每侧3台",
+      "four_column_fixed": {
+        "0": {
+          "success": 0,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 8,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 5,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 11,
+      "name": "单车道走廊 + 中间让行湾，每侧2台",
+      "four_column_fixed": {
+        "0": {
+          "success": 0,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 0,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 12,
+      "name": "L 形盲角·对向，6台",
+      "four_column_fixed": {
+        "0": {
+          "success": 15,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 5,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 15,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 5,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 13,
+      "name": "T 形路口·三向，6台",
+      "four_column_fixed": {
+        "0": {
+          "success": 1,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 1,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 14,
+      "name": "窄十字路口·四向对穿，4台",
+      "four_column_fixed": {
+        "0": {
+          "success": 0,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 0,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 15,
+      "name": "四房间连通（串联瓶颈），10台",
+      "four_column_fixed": {
+        "0": {
+          "success": 0,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 2,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 14,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 6,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 16,
+      "name": "货架仓库·窄巷，10台",
+      "four_column_fixed": {
+        "0": {
+          "success": 0,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 0,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 0,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    },
+    {
+      "type_id": 17,
+      "name": "集结到小区域，16台",
+      "four_column_fixed": {
+        "0": {
+          "success": 8,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 5,
+          "observed": 8,
+          "cases": 8
+        }
+      },
+      "admission_fixed": {
+        "0": {
+          "success": 8,
+          "observed": 16,
+          "cases": 16
+        },
+        "8": {
+          "success": 5,
+          "observed": 8,
+          "cases": 8
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,303 @@
+{
+  "cases": [
+    {
+      "identity": [
+        5,
+        0,
+        "centralized_sampling",
+        0
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 20
+    },
+    {
+      "identity": [
+        5,
+        0,
+        "centralized_sampling",
+        3
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 18
+    },
+    {
+      "identity": [
+        7,
+        1,
+        "gradient_mpc",
+        2
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 2
+    },
+    {
+      "identity": [
+        9,
+        1,
+        "gradient_mpc",
+        0
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 21
+    },
+    {
+      "identity": [
+        9,
+        1,
+        "gradient_mpc",
+        3
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 20
+    },
+    {
+      "identity": [
+        9,
+        1,
+        "gradient_mpc",
+        5
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 1
+    },
+    {
+      "identity": [
+        9,
+        1,
+        "centralized_sampling",
+        7
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 20
+    },
+    {
+      "identity": [
+        9,
+        1,
+        "gradient_mpc",
+        7
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 48
+    },
+    {
+      "identity": [
+        11,
+        0,
+        "centralized_sampling",
+        0
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 14
+    },
+    {
+      "identity": [
+        11,
+        0,
+        "gradient_mpc",
+        0
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 14
+    },
+    {
+      "identity": [
+        11,
+        0,
+        "centralized_sampling",
+        1
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 57
+    },
+    {
+      "identity": [
+        11,
+        0,
+        "gradient_mpc",
+        2
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 14
+    },
+    {
+      "identity": [
+        11,
+        0,
+        "centralized_sampling",
+        3
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 6
+    },
+    {
+      "identity": [
+        11,
+        0,
+        "gradient_mpc",
+        3
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 14
+    },
+    {
+      "identity": [
+        11,
+        0,
+        "gradient_mpc",
+        4
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 8
+    },
+    {
+      "identity": [
+        11,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 41
+    },
+    {
+      "identity": [
+        11,
+        0,
+        "gradient_mpc",
+        5
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 21
+    },
+    {
+      "identity": [
+        11,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 14
+    },
+    {
+      "identity": [
+        11,
+        0,
+        "centralized_sampling",
+        7
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 11
+    },
+    {
+      "identity": [
+        14,
+        0,
+        "centralized_sampling",
+        0
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 24
+    },
+    {
+      "identity": [
+        14,
+        0,
+        "centralized_sampling",
+        1
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 24
+    },
+    {
+      "identity": [
+        14,
+        0,
+        "centralized_sampling",
+        2
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 24
+    },
+    {
+      "identity": [
+        14,
+        0,
+        "centralized_sampling",
+        3
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 24
+    },
+    {
+      "identity": [
+        14,
+        0,
+        "centralized_sampling",
+        4
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 24
+    },
+    {
+      "identity": [
+        14,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 24
+    },
+    {
+      "identity": [
+        14,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 24
+    },
+    {
+      "identity": [
+        14,
+        0,
+        "centralized_sampling",
+        7
+      ],
+      "new_queries": 16,
+      "gap": null,
+      "old_first_success": 24
+    }
+  ],
+  "count": 27,
+  "reference": "four-column covered within64, new main not covered within16, as requested; unequal-budget comparator explicitly retained"
+}

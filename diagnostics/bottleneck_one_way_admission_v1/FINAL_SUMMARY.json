@@ -1,0 +1,300 @@
+{
+  "created": "2026-10-29T10:27:24.778476+08:00",
+  "families": [
+    {
+      "scheme": "A",
+      "name": "通道单向放行·三列版",
+      "cases": 40,
+      "success": 33,
+      "success_fraction": 0.825,
+      "mean_first_success": 12.818181818181818,
+      "mean_all_queries": 21.775,
+      "success_mean_completion_seconds": 36.95454545454545,
+      "search_complete": true
+    },
+    {
+      "scheme": "B",
+      "name": "通道单向放行·合成一列",
+      "cases": 40,
+      "success": 32,
+      "success_fraction": 0.8,
+      "mean_first_success": 7.125,
+      "mean_all_queries": 18.5,
+      "success_mean_completion_seconds": 36.9828125,
+      "search_complete": true
+    },
+    {
+      "scheme": "C",
+      "name": "只让等待方减速·一列",
+      "cases": 40,
+      "success": 23,
+      "success_fraction": 0.575,
+      "mean_first_success": 19.869565217391305,
+      "mean_all_queries": 38.625,
+      "success_mean_completion_seconds": 37.35,
+      "search_complete": true
+    },
+    {
+      "scheme": "D",
+      "name": "定时交替放行",
+      "cases": 40,
+      "success": 16,
+      "success_fraction": 0.4,
+      "mean_first_success": 22.5625,
+      "mean_all_queries": 47.425,
+      "success_mean_completion_seconds": 39.884375,
+      "search_complete": true
+    },
+    {
+      "scheme": "E",
+      "name": "整队让行",
+      "cases": 40,
+      "success": 14,
+      "success_fraction": 0.35,
+      "mean_first_success": 20.428571428571427,
+      "mean_all_queries": 48.75,
+      "success_mean_completion_seconds": 49.44285714285714,
+      "search_complete": true
+    },
+    {
+      "scheme": "F",
+      "name": "预约到达时间",
+      "cases": 40,
+      "success": 1,
+      "success_fraction": 0.025,
+      "mean_first_success": 46,
+      "mean_all_queries": 63.55,
+      "success_mean_completion_seconds": 56.35,
+      "search_complete": true
+    },
+    {
+      "scheme": "G",
+      "name": "去等候点",
+      "cases": 40,
+      "success": 32,
+      "success_fraction": 0.8,
+      "mean_first_success": 15.34375,
+      "mean_all_queries": 25.075,
+      "success_mean_completion_seconds": 36.885937500000004,
+      "search_complete": true
+    }
+  ],
+  "fixed": [
+    {
+      "states": [
+        0,
+        7
+      ],
+      "cases": 272,
+      "new_only": 41,
+      "old_only": 3,
+      "common_success": 79,
+      "four_column": {
+        "success": 82,
+        "success_mean_completion_seconds": 17.3640243902439,
+        "paired_common_success_mean_seconds": 17.30126582278481,
+        "whole_cohort_truncated_mean_seconds": 35.12058823529412
+      },
+      "admission": {
+        "success": 120,
+        "success_mean_completion_seconds": 20.71125,
+        "paired_common_success_mean_seconds": 17.30126582278481,
+        "whole_cohort_truncated_mean_seconds": 32.60386029411765
+      }
+    },
+    {
+      "states": [
+        8,
+        11
+      ],
+      "cases": 136,
+      "new_only": 13,
+      "old_only": 0,
+      "common_success": 45,
+      "four_column": {
+        "success": 45,
+        "success_mean_completion_seconds": 17.304444444444446,
+        "paired_common_success_mean_seconds": 17.304444444444446,
+        "whole_cohort_truncated_mean_seconds": 34.59632352941177
+      },
+      "admission": {
+        "success": 58,
+        "success_mean_completion_seconds": 20.11551724137931,
+        "paired_common_success_mean_seconds": 17.28666666666667,
+        "whole_cohort_truncated_mean_seconds": 32.67095588235294
+      }
+    }
+  ],
+  "paired_intervals": {
+    "records": [
+      {
+        "scope": "全部",
+        "states": [
+          0,
+          7
+        ],
+        "physical_blocks": 136,
+        "paired_difference": 0.13970588235294118,
+        "ci95": [
+          0.08455882352941177,
+          0.19852941176470587
+        ]
+      },
+      {
+        "scope": "困难五类",
+        "states": [
+          0,
+          7
+        ],
+        "physical_blocks": 40,
+        "paired_difference": 0.375,
+        "ci95": [
+          0.25,
+          0.5125
+        ]
+      },
+      {
+        "scope": "其余类型",
+        "states": [
+          0,
+          7
+        ],
+        "physical_blocks": 96,
+        "paired_difference": 0.041666666666666664,
+        "ci95": [
+          0.0,
+          0.08854166666666667
+        ]
+      },
+      {
+        "scope": "全部",
+        "states": [
+          8,
+          11
+        ],
+        "physical_blocks": 68,
+        "paired_difference": 0.09558823529411764,
+        "ci95": [
+          0.04411764705882353,
+          0.16176470588235295
+        ]
+      },
+      {
+        "scope": "困难五类",
+        "states": [
+          8,
+          11
+        ],
+        "physical_blocks": 20,
+        "paired_difference": 0.3,
+        "ci95": [
+          0.15,
+          0.475
+        ]
+      },
+      {
+        "scope": "其余类型",
+        "states": [
+          8,
+          11
+        ],
+        "physical_blocks": 48,
+        "paired_difference": 0.010416666666666666,
+        "ci95": [
+          0.0,
+          0.03125
+        ]
+      }
+    ],
+    "seed": 2026102902,
+    "bootstrap_samples": 10000,
+    "unit": "physical scene/state, both controllers in same block"
+  },
+  "cross_family_union": {
+    "covered": 38,
+    "cases": 40,
+    "not_a_single_frozen_method": true,
+    "uncovered": [
+      [
+        16,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      [
+        16,
+        0,
+        "gradient_mpc",
+        5
+      ]
+    ]
+  },
+  "unique_vs_three_term": {
+    "A": [],
+    "B": [],
+    "C": [
+      [
+        16,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      [
+        16,
+        0,
+        "gradient_mpc",
+        6
+      ]
+    ],
+    "D": [
+      [
+        16,
+        0,
+        "centralized_sampling",
+        6
+      ]
+    ],
+    "E": [
+      [
+        16,
+        0,
+        "centralized_sampling",
+        1
+      ],
+      [
+        16,
+        0,
+        "centralized_sampling",
+        3
+      ]
+    ],
+    "F": [],
+    "G": [
+      [
+        16,
+        0,
+        "gradient_mpc",
+        3
+      ],
+      [
+        16,
+        0,
+        "gradient_mpc",
+        6
+      ]
+    ]
+  },
+  "budget": {
+    "actual_attempts": 14420,
+    "by_phase": {
+      "original": 4095,
+      "followup": 10325
+    },
+    "hard_limits": {
+      "original": 15000,
+      "followup": 35000
+    }
+  },
+  "no_full49_reason": "No single scheme reached36of40; all49 testing was conditional on90percent coverage.",
+  "oracle_scope": "Finite frozen candidate menus; no Generator or Critic; times are conditional on each scheme own successful cases unless explicitly paired."
+}

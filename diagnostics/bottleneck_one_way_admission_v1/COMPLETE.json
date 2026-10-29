@@ -1,0 +1,36 @@
+{
+  "complete": true,
+  "original_complete": true,
+  "followup_complete": true,
+  "integrity_passed": true,
+  "actual_attempts": {
+    "actual_attempts": 14420,
+    "by_phase": {
+      "original": 4095,
+      "followup": 10325
+    },
+    "hard_limits": {
+      "original": 15000,
+      "followup": 35000
+    }
+  },
+  "progress": {
+    "screened": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G"
+    ],
+    "qualifiers": [],
+    "full_complete": [],
+    "deferred": [],
+    "budget_exhausted": false
+  },
+  "finished": "2026-10-29T08:36:22.791763+08:00",
+  "report": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/REPORT.md",
+  "final_summary": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/FINAL_SUMMARY.json",
+  "monitoring_process_deviation": "Interactive agent check interval exceeded30min; automatic coordinator monitoring remained active."
+}
