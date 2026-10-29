@@ -134,6 +134,12 @@ def write_report(final=False):
  if witness:
   wa,wb=witness['reference'],witness['bound']
   lines+=['\n## 参数范围与方向贡献的区分\n',f"货架仓库10台、初态3、集中式随机采样模型预测控制的已执行配对：其余四项系数、初态和种子完全相同，放行强度{wa['q']}时超时，强度{wb['q']:.9f}时在{wb['completion_time']}秒完成。初始位置、速度、目标及首次动作分歧前的名义输入、安全参考动作均逐位相同。该低强度由目标侧转绝对值绑定产生，落在五项参照[0.5,1]盒之外；此见证不能单独计为较少维数增加表达能力，也不能推出整个原参数盒数学上无解。原始UID与轨迹见[范围敏感性见证](DOMAIN_WITNESSES.json)。"]
+ if final:
+  from coverage_complementarity import audit
+  complement=audit();leader=complement['leader']
+  lines+=['\n## 已完成组合的互补性\n',f"按总覆盖展示的单族最高为{leader['name']}，{leader['coverage']}/272；本节不替代开头的最少自由系数判据。全部完整64次搜索族的成功并集为{complement['diagnostics_only_union']}/272，仅用于定位互补案例，不计为一个固定族的成绩。逐例补救组合、首次成功序号及参数保存在[COVERAGE_COMPLEMENTARITY.json](COVERAGE_COMPLEMENTARITY.json)。",'\n| 最高覆盖族的未覆盖场景 | 未覆盖案例 | 其他完整搜索族补回 | 仍未覆盖 |','|---|---|---|---|']
+  for row in complement['by_type']:lines.append(f"| {row['title']} | {row['uncovered']} | {row['rescued']} | {row['still_uncovered']} |")
+  if(HERE/'failure_examples.png').exists():lines.append('\n[阶段性四自由系数组合失败示例](failure_examples.png)：读取已保存的第64候选轨迹绘图，不改变控制器、物理或判据。示例不推广为全部失败候选的机制证书。')
  failure=load('FAILURE_ANALYSIS.json')
  if failure:
   lines+=['\n## 困难案例的失败轨迹分型\n','以下只分型64次内未找到成功的案例所执行的末次候选，不把其诊断推广成整个修正族的数学缺陷。首次候选和独立标志同时保存在JSON。','\n| 组合 | 末次候选分类计数 |','|---|---|']

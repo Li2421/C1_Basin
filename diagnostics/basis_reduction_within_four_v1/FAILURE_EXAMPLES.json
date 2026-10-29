@@ -1,0 +1,48 @@
+{
+  "examples": [
+    {
+      "identity": [
+        7,
+        1,
+        "centralized_sampling",
+        2
+      ],
+      "candidate": 64,
+      "rollout_uid": "roll_2c33cf81e0f94dddecf7a0c381889653963118f20e864f997e2d438f5ae14b27",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_2c33cf81e0f94dddecf7a0c381889653963118f20e864f997e2d438f5ae14b27.npz",
+      "trace_sha256": "881da3e2de2c762d78cc80b38e4e4284845a7393691d4fb27665084ed9877e77",
+      "scene_definition_sha256": "47e03ac37aebecd7891cb736dde4eb2256a17e829a554cad226981fa1d545173",
+      "outcome": "timeout"
+    },
+    {
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      "candidate": 64,
+      "rollout_uid": "roll_a6196f9a5aaef909305b2ac142e9f857cfafc1067db4d0ab5f900384bbd7db0e",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_a6196f9a5aaef909305b2ac142e9f857cfafc1067db4d0ab5f900384bbd7db0e.npz",
+      "trace_sha256": "646b9aa929895de4c08bb21096d2ffd906b99f7b105a366b9877e7914d899d54",
+      "scene_definition_sha256": "13f02e19b34b61765e47464f5f9b00da8d325a9e85fc362b75aabe18225a02cb",
+      "outcome": "timeout"
+    },
+    {
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      "candidate": 64,
+      "rollout_uid": "roll_a555a9fb15f66a44287a19b9a2669eb24c296e2377bef704920b13d04b27eb60",
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_a555a9fb15f66a44287a19b9a2669eb24c296e2377bef704920b13d04b27eb60.npz",
+      "trace_sha256": "ad06bee701c6900ae4702838911de90af30e5a0d8e09a35820dca27c268d53e1",
+      "scene_definition_sha256": "34aef3524f76b8d9cf6b2492f3fb35bb533035150e0736a45611a42fe85d4e6b",
+      "outcome": "timeout"
+    }
+  ],
+  "new_rollouts": 0,
+  "selection": "One observed failure per type; forest and door use first failed state, warehouse uses state5 where both frozen nominals remain uncovered by completed families."
+}
