@@ -1,8 +1,8 @@
 {
-  "version": 1,
-  "time": "2026-10-29T10:54:08.358334+08:00",
+  "version": 2,
+  "time": "2026-10-29T11:05:41.859669+08:00",
   "numerical_files": {
-    "admission.py": "e08e15a7f1ada06acc1d043b956a19b67459f7b4834549f28ddd143fcedcf582",
+    "admission.py": "ddabfc6df4f04fed16b2e661e5866dddfbbbde9f0255f28db4f4b5815714f8a0",
     "admission_legacy.py": "144d8828ef0b3e3f8ba10312b7e6a159a85a1903be14c117164188433b7fa350",
     "runtime.py": "4c81f3114a3a7784b2a1084f104590f47f144d7e68e7dac9dd0e1a705f44992c",
     "passages.py": "77c993a189c1dfdb87b0558f37d15043d359458ee39c15469fcca919842535c7",
@@ -18838,5 +18838,8 @@
     "mouth_zero_perpendicular": "Inherited route-right fallback for a completed robot, relative to selected endpoint direction.",
     "deduplication": "Replace duplicate at its original candidate position with next unique scrambled Sobol point, not reorder successful candidates."
   },
-  "formal_rollouts_before_freeze": 0
+  "formal_rollouts_before_freeze": 0,
+  "implementation_correction": "按第二节结束条件：让路角色不会因离开终点容差而取消；持续到不再满足阻挡请求条件，且不把自己当作阻挡请求者。修正前新定义覆盖结果未用于修改规则。",
+  "authority_quote": "结束：不再有这样的r时，这一项为0，f由朝目标拉回终点。",
+  "previous_freeze": "inputs/revision1/DESIGN_FREEZE.json"
 }

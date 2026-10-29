@@ -24,8 +24,15 @@ def main():
  assert meta[0]['reverse'][1]and np.array_equal(out[1],[.5,0.])
  # Completed agent inside must move away from the incoming route end.
  p=np.array([[0.,0.],[-.5,0.]]);g=np.array([[0.,0.],[1.,0.]])
- out,meta=apply(base,p,g,np.array([0.,1.5]),None,cfg,[gate],AdmissionState(1),menu)
+ yield_state=AdmissionState(1)
+ out,meta=apply(base,p,g,np.array([0.,1.5]),None,cfg,[gate],yield_state,menu)
  assert meta[0]['goal_yield'][0]and np.array_equal(out[0],[.5,0.])
+ # Leaving goal tolerance is the intended action, not an end condition.
+ p_next=np.array([[.1,0.],[-.5,0.]])
+ out,meta=apply(base,p_next,g,np.array([.1,1.5]),None,cfg,[gate],yield_state,menu)
+ assert meta[0]['goal_yield'][0]and np.array_equal(out[0],[.5,0.])
+ out,meta=apply(base,p_next,g,np.array([.1,0.]),None,cfg,[gate],yield_state,menu)
+ assert not meta[0]['goal_yield'][0]and not yield_state.goal_yielders[0]
  p=np.array([[0.,0.],[.5,0.]]);g=np.array([[0.,0.],[-1.,0.]])
  out,meta=apply(base,p,g,np.array([0.,1.5]),None,cfg,[gate],AdmissionState(1),menu)
  assert np.array_equal(out[0],[-.5,0.])

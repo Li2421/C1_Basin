@@ -12,6 +12,7 @@ def compare(a,b,new=False):
  return dict(equal=all(arrays.values())and all(outcomes.values()),arrays=arrays,outcomes=outcomes,a=a['rollout_uid'],b=b['rollout_uid'])
 
 def certify():
+ from evidence import run_requests
  from unit_checks import main as units
  units();scenes={e['scene']['name']:e['scene']for e in read(HERE/'SCENES.json')['entries']}
  old=read(HERE/'inputs/previous/REPLAY_INPUTS.json')['records'];records=[]
@@ -30,14 +31,14 @@ def certify():
  if(HERE/'ACCELERATION_CERTIFICATE.json').exists():return read(HERE/'ACCELERATION_CERTIFICATE.json')['passed']
  combos=read(HERE/'COMBINATIONS.json')['combinations'];selected=[e['scene']for e in read(HERE/'SCENES.json')['entries']if e['type_id']in(8,10,11,15,16)and read(HERE/'PASSAGES.json')['by_scene'][e['scene']['name']]['representative']]
  pairs=[]
- for si in range(4):
+ for si in range(5):
   for sc in selected:
    for ctl in controllers():
     sp=combos[len(pairs)%len(combos)]['candidate_pool'][len(pairs)%3]
     pairs.append((case(sc,ctl,si,sp,purpose='new_pair'),accelerated_case(sc,ctl,si,sp,purpose='new_pair')))
  pairs=pairs[:50];assert len(pairs)==50
- a={r['rollout_uid']:r for r in execute([a for a,b in pairs],'new_original50',worker_entry='worker_recorded.py')}
- b={r['rollout_uid']:r for r in execute([b for a,b in pairs],'accel_paired_new50',worker_entry='worker_accel.py')}
+ a=run_requests([a for a,b in pairs],'new_original50',worker_entry='worker_recorded.py')
+ b=run_requests([b for a,b in pairs],'accel_paired_new50',worker_entry='worker_accel.py')
  checks=[compare(a[x['rollout_uid']],b[y['rollout_uid']],new=True)for x,y in pairs if x['rollout_uid']in a and y['rollout_uid']in b]
  hashes=all(sha(HERE/'accel_inputs'/Path(x['target']).name)==x['sha256']for x in read(HERE/'inputs/previous_acceleration_inputs.json')['files'])
  passed=len(checks)==50 and all(x['equal']for x in checks)and hashes
@@ -47,10 +48,11 @@ def certify():
  return passed
 
 def no_passage(make):
+ from evidence import run_requests
  path=HERE/'NO_PASSAGE_EQUIVALENCE.json'
  if path.exists():return read(path)['passed']
  ps=read(HERE/'PASSAGES.json')['by_scene'];refs=[x for x in read(HERE/'REPLAY_INPUTS.json')['records']if not ps[x['case']['scene']]['passages']][:20]
  scenes={e['scene']['name']:e['scene']for e in read(HERE/'SCENES.json')['entries']};menu=read(HERE/'COMBINATIONS.json')['combinations'][0]['candidate_pool'][0]['one_way']
  cases=[make(scenes[x['case']['scene']],x['case']['controller_payload']['nominal'],x['case']['state_index'],dict(x['case']['spec'],one_way=menu),purpose='no_passage20')for x in refs]
- rows={r['rollout_uid']:r for r in execute(cases,'no_passage20')};checks=[compare(x['reference'],rows[c['rollout_uid']])for c,x in zip(cases,refs)if c['rollout_uid']in rows];passed=len(checks)==20 and all(x['equal']for x in checks)
+ rows=run_requests(cases,'no_passage20');checks=[compare(x['reference'],rows[c['rollout_uid']])for c,x in zip(cases,refs)if c['rollout_uid']in rows];passed=len(checks)==20 and all(x['equal']for x in checks)
  dump(path,dict(passed=passed,pairs=len(checks),checks=checks));return passed

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "environment_steps": 0,
+  "db_writes": 0,
+  "fixture_directory": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/tmp/scheduler_contract_dz1kpy2v",
+  "checks": [
+    "deterministic bounded child dedup",
+    "binding removal projection",
+    "pending resume without duplicate query",
+    "first success stop2",
+    "64-only exhaustion",
+    "completed stage idempotence"
+  ]
+}

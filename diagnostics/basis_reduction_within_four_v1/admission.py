@@ -5,6 +5,7 @@ from passages import entry
 class AdmissionState:
     def __init__(self,count):
         self.states=[dict(direction=0,count=0,previous_inside=None,prefer=0)for _ in range(count)]
+        self.goal_yielders=[set()for _ in range(count)]
 
 def apply(target,positions,guides,remaining,paths,cfg,passages,state,menu):
     p=np.asarray(positions);out=target.copy();metadata=[];plans=[]
@@ -68,15 +69,19 @@ def apply(target,positions,guides,remaining,paths,cfg,passages,state,menu):
     # New goal-yield term follows the inherited global three-term order.
     # Passages and robot IDs retain their frozen order if regions overlap.
     q=menu['c1']
-    for passage,record in zip(passages,metadata):
+    for gate_index,(passage,record) in enumerate(zip(passages,metadata)):
         u=np.asarray(passage['axis']);n=np.array([-u[1],u[0]]);center=np.asarray(passage['centre'])
         ends={s:center+s*passage['half_length']*u for s in(-1,1)}
-        for f in np.flatnonzero(~unfinished):
+        continuing=state.goal_yielders[gate_index];next_yielders=set()
+        candidates=(~unfinished).copy()
+        for f in continuing:candidates[f]=True
+        for f in np.flatnonzero(candidates):
             inside_f=record['geometry_inside'][f]
             nearest=min((-1,1),key=lambda s:(np.linalg.norm(p[f]-ends[s]),s))
             if not inside_f and np.linalg.norm(p[f]-ends[nearest])>menu['R_c']:continue
             blockers=[]
             for r in np.flatnonzero(unfinished):
+                if r==f:continue
                 hit=forward_distance(paths[r],p[f],menu['R_e'])
                 if hit>2*cfg.agent_radius+cfg.agent_collision_margin:continue
                 ent=entry(paths[r],passage,cfg.agent_radius,menu['R_e'])
@@ -85,6 +90,7 @@ def apply(target,positions,guides,remaining,paths,cfg,passages,state,menu):
                 direction=ent[1]if ent is not None and ent[1]else-min((-1,1),key=lambda s:(np.linalg.norm(p[r]-ends[s]),s))
                 blockers.append(dict(robot=int(r),direction=int(direction),distance=float(hit)))
             if not blockers:continue
+            next_yielders.add(int(f))
             if inside_f:
                 sides={r['direction']for r in blockers}
                 s=next(iter(sides))if len(sides)==1 else nearest
@@ -96,6 +102,7 @@ def apply(target,positions,guides,remaining,paths,cfg,passages,state,menu):
             out[f]*=1-q;out[f]+=q*cfg.max_speed*vector
             record['goal_yield'][f]=True
             record['goal_yield_details'].append(dict(robot=int(f),inside=bool(inside_f),exit_direction=int(s),vector=vector.tolist(),blockers=blockers))
+        state.goal_yielders[gate_index]=next_yielders
     return out,metadata
 
 def forward_distance(path,point,lookahead):
