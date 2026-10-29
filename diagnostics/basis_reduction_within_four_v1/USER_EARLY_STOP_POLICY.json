@@ -1,0 +1,14 @@
+{
+  "recorded_at": "2026-10-29T21:02:04.583240+08:00",
+  "user_instruction": "删减轮次也是你自己斟酌有没有跑的价值，没有就早停了",
+  "supersedes": "Original instruction to run16for every lower-dimensional family before pruning, and fixed-point runs for user-pruned families.",
+  "incumbent": "four_2",
+  "minimum_prefix": 8,
+  "lag_at_8": 50,
+  "lag_both_8_and_12": 30,
+  "protect": "Any observed success on an incumbent64failure prevents early pruning, including current warehouse hard cases.",
+  "reason_for_not_using4": "Observed three-free family had138/272at4but242/272at16; premature4-candidate pruning would discard a promising family.",
+  "no_changes_to": "Nominal controllers,checkpoints,safety,physical scenes,criteria,candidate values/order and seeds.",
+  "unrun_status": "User-authorized early stop; unexecuted candidates remain unknown, not64failures.",
+  "scope": "Lower-dimensional computational triage; final minimum statement restricted to families actually verified. Whole-level value reviewed again after measured results."
+}

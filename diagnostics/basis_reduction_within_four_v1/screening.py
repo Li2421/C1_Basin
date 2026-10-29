@@ -76,7 +76,17 @@ def search(combo,cap,make,scope='screen',floor=80000):
    labels.append(dict(identity=g['identity'],**q))
   dump(HERE/(pending['stage']+'_labels.json'),labels);state['completed_stages'].append(pending['stage']);state['pending']=None;state['complete64']=all(g['success']or g['searched']==64 for g in state['groups']);dump(path,state)
  if state['pending']:consume()
+ from value_review import review
+ def prune_if_unhelpful():
+  decision=review(state)
+  if decision is None:return False
+  state['user_early_stop']=decision;dump(path,state)
+  dump(HERE/f'SCREENED_{code}.json',dict(reason=decision['reason'],user_authorized_early_stop=True,budget=decision['available_complete_budget'],review=decision))
+  from analysis_results import write_report
+  write_report();return True
+ if prune_if_unhelpful():return state
  for k in range(1,cap+1):
+  if prune_if_unhelpful():return state
   active=[g for g in state['groups']if not g['success']and not g['gap']and g['searched']<k]
   if not active:continue
   frontier=[]
@@ -106,12 +116,18 @@ def run_level(combos,make,floor=80000):
  write_report();reference=metrics('reference');threshold=reference['coverage']['16']-10
  for combo in combos:
   code=combo['code'];m=metrics(code)
+  marker=HERE/f'SCREENED_{code}.json'
+  if marker.exists()and read(marker).get('user_authorized_early_stop'):continue
   if code=='reference'or m['coverage']['16']>=threshold:
    if code!='four_8':search(combo,64,make,floor=floor)
   else:
    dump(HERE/f'SCREENED_{code}.json',dict(reason='16次筛选未通过',coverage16=m['coverage']['16'],threshold=threshold,historical64_retained=code=='four_8'))
  write_report()
- for combo in combos:fixed(combo,make,floor=floor)
+ for combo in combos:
+  marker=HERE/f'SCREENED_{combo["code"]}.json'
+  if marker.exists()and(combo['code'].startswith(('level3_','level2_')))and(HERE/'USER_EARLY_STOP_POLICY.json').exists():
+   dump(HERE/f'FIXED_SKIPPED_USER_{combo["code"]}.json',dict(reason='用户授权价值早停后，不再为该弱候选追加固定参数对局。',retained_results=True))
+  else:fixed(combo,make,floor=floor)
  write_report()
 
 def best_qualified():

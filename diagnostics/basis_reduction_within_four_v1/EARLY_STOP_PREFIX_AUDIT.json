@@ -1,0 +1,88 @@
+{
+  "time": "2026-10-29T21:04:32.349500+08:00",
+  "checks": [
+    {
+      "code": "four_1",
+      "prefix": 8,
+      "pruned": false
+    },
+    {
+      "code": "four_1",
+      "prefix": 12,
+      "pruned": false
+    },
+    {
+      "code": "four_2",
+      "prefix": 8,
+      "pruned": false
+    },
+    {
+      "code": "four_2",
+      "prefix": 12,
+      "pruned": false
+    },
+    {
+      "code": "four_3",
+      "prefix": 8,
+      "pruned": false
+    },
+    {
+      "code": "four_3",
+      "prefix": 12,
+      "pruned": false
+    },
+    {
+      "code": "four_5",
+      "prefix": 8,
+      "pruned": false
+    },
+    {
+      "code": "four_5",
+      "prefix": 12,
+      "pruned": false
+    },
+    {
+      "code": "four_6",
+      "prefix": 8,
+      "pruned": false
+    },
+    {
+      "code": "four_6",
+      "prefix": 12,
+      "pruned": true
+    },
+    {
+      "code": "four_7",
+      "prefix": 8,
+      "pruned": true
+    },
+    {
+      "code": "four_7",
+      "prefix": 12,
+      "pruned": true
+    },
+    {
+      "code": "level3_01",
+      "prefix": 8,
+      "pruned": false
+    },
+    {
+      "code": "level3_01",
+      "prefix": 12,
+      "pruned": false
+    },
+    {
+      "code": "level3_02",
+      "prefix": 8,
+      "pruned": false
+    },
+    {
+      "code": "level3_02",
+      "prefix": 12,
+      "pruned": false
+    }
+  ],
+  "no_rejected_known_qualified_or_promising_family": true,
+  "scope": "Retrospective evidence sanity check for the newly authorized computational screen, not an independent statistical validation.",
+  "new_rollouts": 0
+}

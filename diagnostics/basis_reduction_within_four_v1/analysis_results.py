@@ -33,7 +33,7 @@ def metrics(code,scope='screen'):
  if not state:return dict(coverage={'16':0,'64':0},hard64=0,hard_by_type={},complete16=False,complete64=False,search_stage_finished=False,groups=[],first_success_median=None,unknown_queries=0)
  gs=state['groups'];hard=hard_keys();good=[g for g in gs if g['success']]
  complete16=all(g['success']or g['searched']>=16 for g in gs);complete64=all(g['success']or g['searched']>=64 for g in gs)
- return dict(coverage={str(k):sum(g['success']and g['first_success']<=k for g in gs)for k in(16,64)},hard64=sum(g['success']for g in gs if tuple(g['identity'])in hard),hard_by_type={str(t):sum(g['success']for g in gs if g['identity'][0]==t and tuple(g['identity'])in hard)for t in(8,10,15,16)},complete16=complete16,complete64=complete64,search_stage_finished=complete64 or(complete16 and(HERE/f'SCREENED_{code}.json').exists()),groups=gs,first_success_median=float(np.median([g['first_success']for g in good]))if good else None,mean_first_success=float(np.mean([g['first_success']for g in good]))if good else None,mean_success_time=float(np.mean([g['solution']['result']['completion_time']for g in good]))if good else None,unknown_queries=sum(bool(q['result'].get('numerical_failure'))for g in gs for q in g['queries']),searched=sum(g['searched']for g in gs))
+ return dict(coverage={str(k):sum(g['success']and g['first_success']<=k for g in gs)for k in(16,64)},hard64=sum(g['success']for g in gs if tuple(g['identity'])in hard),hard_by_type={str(t):sum(g['success']for g in gs if g['identity'][0]==t and tuple(g['identity'])in hard)for t in(8,10,15,16)},complete16=complete16,complete64=complete64,search_stage_finished=complete64 or bool(state.get('user_early_stop'))or(complete16 and(HERE/f'SCREENED_{code}.json').exists()),user_early_stop=state.get('user_early_stop'),groups=gs,first_success_median=float(np.median([g['first_success']for g in good]))if good else None,mean_first_success=float(np.mean([g['first_success']for g in good]))if good else None,mean_success_time=float(np.mean([g['solution']['result']['completion_time']for g in good]))if good else None,unknown_queries=sum(bool(q['result'].get('numerical_failure'))for g in gs for q in g['queries']),searched=sum(g['searched']for g in gs))
 
 def qualified(code):
  m=metrics(code);r=metrics('reference')
@@ -160,6 +160,8 @@ def write_report(final=False):
   lines+=['\n## 保持结果不变的工程加速\n',
           '启用四项：复用相同稀疏约束矩阵数组、以NumPy计算相同Threefry随机键折叠、剔除不可能贡献的远墙代价、预筛不可能活跃的远墙约束。加速模块哈希与上一轮一致。',
           f"旧路径{certificate.get('old_replays',0)}局完整轨迹重放、新路径{certificate.get('new_pairs',0)}对原路径与加速路径对跑，逐步数组与结局核对{'通过'if certificate.get('passed')else'未通过'}。认证对跑样本的实测墙钟合计：{saving}。该计时不包含导入、排队与协调开销，也不外推为整轮相同加速比例。详见[加速证书](ACCELERATION_CERTIFICATE.json)。"]
+ if(HERE/'USER_EARLY_STOP_POLICY.json').exists():
+  lines+=['\n## 用户授权的计算价值早停\n','用户在运行中授权对没有继续价值的删减组合提前停止。8组预算明显落后50例，或8组和12组预算均落后30例，且未补救当前最好四参数族的任何失败案例时，可提前结束该组合，并省略其后续固定点对局。策略在已观察的前缀之后制定，详细决策见USER_EARLY_STOP_POLICY.json与value_reviews/。已执行结果保持，未执行候选为未知，不计为16/64次失败。最终最少自由系数结论只覆盖实际验证的族，不能排除提前停止族的连续参数能力。']
  lines+=['\n每个组合的成功任务条件均时、首次成功组数均值、原始候选计算开销另见REDUCTION.json和candidates.jsonl。超时只标为64次内未找到，失败分型是已执行代表轨迹的诊断，不是整个连续修正族的不可能性证书。']
  (HERE/'REPORT.md').write_text('\n'.join(lines).replace('None','—')+'\n');return out
 
@@ -167,7 +169,7 @@ def finalize(budget_exhausted=False):
  out=write_report();rows=out['rows'];gaps=[]
  for row in rows:
   if not row['search_stage_finished']:gaps.append(row['name']+'搜索未完成。')
-  if row['fixed']is None or not row['fixed']['complete']:gaps.append(row['name']+'固定参数未完成。')
+  if not row.get('user_early_stop')and not(HERE/f'FIXED_SKIPPED_USER_{row["code"]}.json').exists()and(row['fixed']is None or not row['fixed']['complete']):gaps.append(row['name']+'固定参数未完成。')
  if budget_exhausted:gaps.append('80000局新运行硬上限耗尽；所有未执行候选保留为缺口。')
  for code in ['reference']+([out['minimum']['code']]if out['minimum']else[]):
   fp=fixed_counts(code,plus=True)
