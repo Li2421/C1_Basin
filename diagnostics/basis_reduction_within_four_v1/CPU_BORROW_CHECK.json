@@ -1,0 +1,26 @@
+{
+  "time": "2026-10-30T01:16:31.049489+08:00",
+  "actual_function_checks": [
+    {
+      "peer_complete": false,
+      "time": "2026-10-30T08:59:59+08:00",
+      "task_cpus": 12
+    },
+    {
+      "peer_complete": false,
+      "time": "2026-10-30T09:00:00+08:00",
+      "task_cpus": 9
+    },
+    {
+      "peer_complete": true,
+      "time": "2026-10-30T08:59:59+08:00",
+      "task_cpus": 24
+    },
+    {
+      "peer_complete": true,
+      "time": "2026-10-30T09:00:00+08:00",
+      "task_cpus": 18
+    }
+  ],
+  "passed": true
+}

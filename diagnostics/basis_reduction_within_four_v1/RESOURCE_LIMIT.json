@@ -1,0 +1,15 @@
+{
+  "total_cpus": 24,
+  "after_release_cpus": 18,
+  "release_at": "2026-10-30T09:00:00+08:00",
+  "authorization": "User2026-10-30: share CPU budget equally with another task. Includes coordinators; total24until09:00then18.",
+  "observed_other_slurm_jobs": 0,
+  "task_fraction": 0.5,
+  "task_cpu_before_release": 12,
+  "task_cpu_after_release": 9,
+  "borrow_after_peer_completion": true,
+  "peer_completion_marker": null,
+  "peer_completion_verified": false,
+  "peer_identity_status": "Awaiting experiment directory or Slurm prefix; idle queue is not completion.",
+  "own_release_marker": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/TASK_CPU_RELEASED"
+}
