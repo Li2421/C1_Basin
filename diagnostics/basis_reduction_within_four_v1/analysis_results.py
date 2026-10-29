@@ -79,7 +79,9 @@ def write_report(final=False):
  late_old=[g for g in r['groups']if g['success']and g['first_success']>16 and old_by_id.get(tuple(g['identity']),{}).get('success')]
  same_index=[g for g in late_old if g['first_success']==old_by_id[tuple(g['identity'])]['first_success']]
  rescued=[g for g in r['groups']if g['success']and tuple(g['identity'])in old_by_id and not old_by_id[tuple(g['identity'])]['success']]
+ lost_old=[g for g in r['groups']if not g['success']and old_by_id.get(tuple(g['identity']),{}).get('success')]
  out['search_budget_diagnosis']=dict(reference_complete64=r['complete64'],historical_complete64=old_four['complete64'],reference_late_success_already_covered_by_historical64=[g['identity']for g in late_old],same_first_success_index=[g['identity']for g in same_index],rescued_vs_historical64=[g['identity']for g in rescued],interpretation='Late successes already covered by historical64 are not independent coverage gains of admission; matching first indices does not by itself establish identical trajectories.')
+ out['search_budget_diagnosis']['lost_vs_historical64']=[g['identity']for g in lost_old]
  qualified_codes={x['code']for x in q};types=[]
  for t in range(1,18):
   selected=next(x for x in load('REPRESENTATIVE17_FROZEN.json')['selected']if x['type_id']==t)
@@ -114,7 +116,7 @@ def write_report(final=False):
  for x in types:lines.append('| '+x['title']+' | '+' | '.join(str(x['combinations'][code]['coverage64'])if x['combinations'][code]['complete64']else'未完成'for code in ['reference','four_8']+sorted(qualified_codes))+' |')
  lines+=['\n## 成功时间与搜索成本\n','下表均值对应各组合实际搜索预算与各自成功子集；不同子集的条件时间不能直接作配对速度排名。','\n| 组合 | 首次成功组数均值 | 成功任务完成均时·秒 | 已完成逻辑查询数 |','|---|---:|---:|---:|']
  for x in rows:lines.append(f"| {x['name']} | {x.get('mean_first_success')} | {x.get('mean_success_time')} | {x.get('searched',0)} |")
- lines+=[f'\n参照在第17项之后才成功、但原四列64项内也已成功的案例目前有{len(late_old)}例，其中{len(same_index)}例首次成功序号也相同；这些不计为通道放行对原四列的独立覆盖补救。目前参照覆盖而原四列64项未覆盖的有{len(rescued)}例。参照完整64项状态为{r["complete64"]}，未完成时上述数量只是当前观察。序号相同本身不证明轨迹逐位相同。']
+ lines+=[f'\n参照在第17项之后才成功、但原四列64项内也已成功的案例目前有{len(late_old)}例，其中{len(same_index)}例首次成功序号也相同；这些不计为通道放行对原四列的独立覆盖补救。目前参照覆盖而原四列64项未覆盖的有{len(rescued)}例；原四列覆盖而参照未覆盖的有{len(lost_old)}例，损失逐例也保存在REDUCTION.json。参照完整64项状态为{r["complete64"]}，未完成时上述数量只是当前观察。序号相同本身不证明轨迹逐位相同。']
  lines+=['\n## 固定点与时限\n','主固定点为朝目标0.875、互斥分离0.375、目标旋转−0.75、净空0、独立放行1，再按组合规则投影。状态8–11未参加搜索。上一轮+0.75点仅作衔接，另列，不参与判据。4倍成败仅截取同次6倍搜索中的首次成功轨迹。','\n| 衔接对象 | +0.75固定点状态0–7/8–11 |','|---|---|']
  for code in ['reference']+([minimum['code']]if minimum else[]):
   f=fixed_counts(code,plus=True)

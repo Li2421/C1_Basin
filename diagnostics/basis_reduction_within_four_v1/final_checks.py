@@ -71,6 +71,11 @@ def finish(out,gaps):
  analysis_results.write_report(final=True)
  with(HERE/'REPORT.md').open('a')as f:f.write('\n结束完整性：'+str(passed)+'。最小组合全场景触发条件为困难案例至少36/40。新运行数：'+str(read(HERE/'BUDGET.json')['actual_attempts'])+'，硬上限80000。\n')
  numeric_complete=not any(not g.startswith('非主线')for g in gaps)
- dump(HERE/'COMPLETE.json',dict(complete=numeric_complete and passed,required_numeric_work_complete=numeric_complete,integrity_passed=passed,finished=datetime.datetime.now().astimezone().isoformat(),actual_attempts=read(HERE/'BUDGET.json')['actual_attempts'],hard_limit=80000,minimum=minimum,report=str(HERE/'REPORT.md'),gaps=gaps))
+ process=read(HERE/'PROCESS_GAPS.json')['events']if(HERE/'PROCESS_GAPS.json').exists()else[]
+ process_passed=not process
+ for event in process:gaps.append('流程：代理复核记录间隔'+str(round(event['recorded_gap_minutes'],2))+'分钟，超过30分钟；见PROCESS_GAPS.json，未补签。')
+ if process:
+  with(HERE/'REPORT.md').open('a')as f:f.write('\n过程要求未完全达成：存在代理复核记录超过30分钟的间隔，逐条见PROCESS_GAPS.json。协调器持续运行；恢复后重新核对冻结源码。该过程缺口不改写既有数值结果，也不通过重复rollout掩盖。\n')
+ dump(HERE/'COMPLETE.json',dict(complete=numeric_complete and passed and process_passed,required_numeric_work_complete=numeric_complete,integrity_passed=passed,process_compliance_passed=process_passed,finished=datetime.datetime.now().astimezone().isoformat(),actual_attempts=read(HERE/'BUDGET.json')['actual_attempts'],hard_limit=80000,minimum=minimum,report=str(HERE/'REPORT.md'),gaps=gaps))
  (HERE/'GAPS.md').write_text('# 证据缺口\n\n'+('\n'.join('- '+g for g in gaps)if gaps else'规定数值实验与交付已完成；有限候选未成功不是连续参数空间不可解证明。')+'\n')
  (HERE/'STATUS.md').write_text('# 当前状态\n\n'+('本轮完成。'if not gaps else'本轮结果已保存，存在证据缺口。')+'详见REPORT.md、REDUCTION.json、COMPLETE.json。\n')

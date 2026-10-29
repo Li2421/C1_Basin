@@ -12,6 +12,9 @@ def run(make):
  from dispatch import execute
  from analysis_results import metrics,write_report
  family=next(f for f in read(HERE/'inputs/previous/FAMILIES_FOLLOWUP.json')['families']if f['scheme']=='B');old=read(HERE/'inputs/previous/FOLLOWUP_B_hard.json')['groups'];pool=[legacy_spec(sp)for sp in family['candidate_pool']]
+ reference_pool=next(c for c in read(HERE/'COMBINATIONS.json')['combinations']if c['code']=='reference')['candidate_pool']
+ assert[{k:v for k,v in sp.items()if k!='legacy_admission'}for sp in pool]==reference_pool,'Old/new composite comparison requires matched coefficients and admission strengths.'
+ dump(HERE/'OLD_COMPOSITE_POOL_MATCH.json',dict(passed=True,candidates=len(pool),reference_pool_sha256=digest(reference_pool),legacy_source_sha256=sha(HERE/'inputs/previous/FAMILIES_FOLLOWUP.json'),scope='Exact same four original coefficients, admission strength, and frozen default role rule; only admission implementation differs.'))
  combo=dict(code='legacy_b',name='上一轮合成一列冻结定义',candidate_pool=pool,no_passage_preserves_four=False)
  scenes={(e['type_id'],e['level']):e['scene']for e in selected_entries()};ctls={c['type_code']:c for c in controllers()}
  certificate=HERE/'LEGACY_COMPOSITE_EQUIVALENCE.json'
