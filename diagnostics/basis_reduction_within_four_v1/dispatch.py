@@ -3,7 +3,7 @@ import os
 os.environ['BRD_COORDINATOR']='1'
 from runner import *
 import datetime
-from resource_watch import allowance,jobs
+from resource_watch import allowance,jobs,available,task_allowance
 
 PYTHON='/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python'
 
@@ -45,13 +45,13 @@ def execute(cases,stage,worker_entry='worker_recorded.py',max_submissions=4,prog
         # Count concurrent stages in this experiment as well as other tasks.
         # This coordinator has no live stage workers at the submission point.
         other=sum(j['cpus']for j in jobs()if j['state']in('RUNNING','CONFIGURING','COMPLETING'))
-        workers=min(len(submission_todo),max(0,allowance()-other))
+        workers=min(len(submission_todo),available())
         if not workers:
             while not workers:
                 status(stage,len(cases)-len(todo),len(cases),'等待用户总 CPU 额度释放；其他作业不撤销；等待不计为基础设施重试。')
                 time.sleep(30)
                 other=sum(j['cpus']for j in jobs()if j['state']in('RUNNING','CONFIGURING','COMPLETING'))
-                workers=min(len(submission_todo),max(0,allowance()-other))
+                workers=min(len(submission_todo),available())
         shards=[[]for _ in range(workers)];load=[0.]*workers
         ordered=sorted(submission_todo,key=lambda c:(-c['scenario_payload']['config']['max_steps']*c['state']['N']**1.5,c['rollout_uid']))
         for c in ordered:
