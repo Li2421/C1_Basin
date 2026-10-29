@@ -125,6 +125,10 @@ def main(make):
  data=read(HERE/'COMBINATIONS.json');level4=[c for c in data['combinations']if c['dimension']>=4]
  try:
   run_level(level4,make)
+  # Definition-effect evidence belongs to the reference/first-level priority,
+  # before lower-dimensional searches can consume the remaining hard budget.
+  from corrections_analysis import run as corrections
+  corrections(make)
   parents=[c for c in level4 if c['dimension']==4 and qualified(c['code'])]
   if parents:
    three=lower(3,parents,{c['code']:metrics(c['code'])['coverage']['64']for c in parents});run_level(three,make)
@@ -154,10 +158,9 @@ def main(make):
    try:run_level([c for c in data['combinations']if c['dimension']==2],make)
    except PriorityPause:pass
   current=best_qualified();final_min=current[0]if current else None
+  if final_min and(not minimum or final_min['code']!=minimum['code']):fixed(final_min,make,plus=True)
   if final_min and metrics(final_min['code'])['hard64']>=36 and final_min['code']not in[c['code']for c in targets]:run_full(final_min,make)
   if len(targets)>1:run_full(targets[1],make)
-  from corrections_analysis import run as corrections
-  corrections(make)
   finalize()
  except RuntimeError as exc:
   if'actual new rollout budget exhausted'not in str(exc):raise

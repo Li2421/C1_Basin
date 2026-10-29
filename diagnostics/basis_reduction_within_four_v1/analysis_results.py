@@ -13,6 +13,19 @@ def load(name):
 
 def scenes():return{(e['type_id'],e['level']):e['scene']for e in load('SCENES.json')['entries']}
 
+def scene_title(sc):
+ t=sc['type_id'];n=sc['config']['num_agents'];w=sc['widen'];r=sc['config']['agent_radius']
+ detail=f'{n}台，半径{r:g}m'
+ if t in(8,10,11):detail=f'每侧{n//2}台，主道宽{.3+w:.2f}m'
+ elif t==9:detail=f'{n}台，门宽{.3+w:.2f}m'
+ elif t==7:detail=f'{n}台，{sc["knob"]}个0.3m障碍'
+ elif t==14:detail=f'{n}台，通道宽{float(sc["knob"])+w:.2f}m'
+ elif t==2:detail=f'每股{n//2}台，半径{r:g}m'
+ elif t==5:detail=f'每向{n//4}台'
+ elif t==12:detail=f'每侧{n//2}台，通道宽{.5+w:.2f}m'
+ elif t==13:detail=f'每向{n//3}台，通道宽{.6+w:.2f}m'
+ return sc['title']+'，'+detail
+
 def hard_keys():return{(g['type_id'],g['level'],g['controller'],g['state_index'])for g in load('inputs/previous/HARD_CASES.json')['cases']}
 
 def metrics(code,scope='screen'):
@@ -58,12 +71,14 @@ def write_report(final=False):
    row['lost_vs_reference']=[list(k)for k in sorted(av)if av[k]and not bv[k]]
    row['gained_vs_reference']=[list(k)for k in sorted(av)if not av[k]and bv[k]]
   row['coverage4x']={str(k):sum(g['success']and g['first_success']<=k and g['solution']['result']['episode_length']<=scenes()[tuple(g['identity'][:2])]['time_limits']['4']['max_steps']for g in m['groups'])for k in(16,64)}
+  row['budget_curve']=[dict(K=k,verified_coverage=sum(g['success']and g['first_success']<=k for g in m['groups']),complete=bool(m['groups'])and all(g['success']or g['searched']>=k for g in m['groups']))for k in range(1,65)]
   rows.append(row)
  q=sorted([x for x in rows if x['dimension']<=4 and x['qualified']],key=lambda x:(x['dimension'],-x['coverage']['64'],x['code']));minimum=q[0]if q else None
  out=dict(time=datetime.datetime.now().astimezone().isoformat(),reference={k:v for k,v in r.items()if k!='groups'},rows=rows,minimum=minimum,criterion=dict(total_tolerance=5,hard_tolerance=1,screen16_tolerance=10),levels=data['levels'],historical_four=next((x for x in rows if x['code']=='four_8'),None),horizon_policy='4x is truncation of executed6x first-success trajectories; no search of skipped candidates for4x.',finite_search_only=True)
  qualified_codes={x['code']for x in q};types=[]
  for t in range(1,18):
-  item=dict(type_id=t,title=next(sc['title']for key,sc in scenes().items()if key[0]==t),combinations={})
+  selected=next(x for x in load('REPRESENTATIVE17_FROZEN.json')['selected']if x['type_id']==t)
+  item=dict(type_id=t,title=scene_title(scenes()[(t,selected['level'])]),combinations={})
   for code in ['reference','four_8']+sorted(qualified_codes):
    gs=[g for g in metrics(code)['groups']if g['identity'][0]==t];item['combinations'][code]=dict(cases=len(gs),coverage16=sum(g['success']and g['first_success']<=16 for g in gs),coverage64=sum(g['success']for g in gs),complete64=bool(gs)and all(g['success']or g['searched']==64 for g in gs))
   types.append(item)
@@ -89,8 +104,11 @@ def write_report(final=False):
   fp=x['fixed'];fix=f"{fp['states']['0']['success']}/{fp['states']['0']['cases']}；{fp['states']['8']['success']}/{fp['states']['8']['cases']}"if fp else'未运行'
   lines.append(f"| {x['name']}（{x['dimension']}） | {parent} | {x['coverage']['16']}/{cov64} | {hard} | {cistr} | {x['qualified']} | {x['first_success_median']} | {fix} |")
  lines+=['\n配对区间按物理场景/初态分块，两个控制器保留在同一块，10000次自助抽样。未补到64次的组合不被当作64次失败；其与参照的16次配对差保存在REDUCTION.json。目标列删除后修正系数为零，原名义安全动作仍存在；保留时系数下界0.5，两个参数域严格分开。达标是规定的总覆盖判据，逐案例新增和损失另存JSON，不能解释成成功集合的包含关系。',
+         '\n独立放行强度的参数盒为[0.5,1]；绑定到目标旋转绝对值后可低于0.5，删除放行项时则为0。这些是说明规定的不同参数域，较少系数的结果不能单独证明一个连续线性基的秩结论。',
          '\n## 逐类替代效果\n','| 场景类型 | '+ ' | '.join(combo_map[c]['name']for c in ['reference','four_8']+sorted(qualified_codes))+' |','|---|'+'---:|'*(2+len(qualified_codes))]
  for x in types:lines.append('| '+x['title']+' | '+' | '.join(str(x['combinations'][code]['coverage64'])if x['combinations'][code]['complete64']else'未完成'for code in ['reference','four_8']+sorted(qualified_codes))+' |')
+ lines+=['\n## 成功时间与搜索成本\n','下表均值对应各组合实际搜索预算与各自成功子集；不同子集的条件时间不能直接作配对速度排名。','\n| 组合 | 首次成功组数均值 | 成功任务完成均时·秒 | 已完成逻辑查询数 |','|---|---:|---:|---:|']
+ for x in rows:lines.append(f"| {x['name']} | {x.get('mean_first_success')} | {x.get('mean_success_time')} | {x.get('searched',0)} |")
  lines+=['\n## 固定点与时限\n','主固定点为朝目标0.875、互斥分离0.375、目标旋转−0.75、净空0、独立放行1，再按组合规则投影。状态8–11未参加搜索。上一轮+0.75点仅作衔接，另列，不参与判据。4倍成败仅截取同次6倍搜索中的首次成功轨迹。','\n| 衔接对象 | +0.75固定点状态0–7/8–11 |','|---|---|']
  for code in ['reference']+([minimum['code']]if minimum else[]):
   f=fixed_counts(code,plus=True)
@@ -119,5 +137,8 @@ def finalize(budget_exhausted=False):
   if not row['search_stage_finished']:gaps.append(row['name']+'搜索未完成。')
   if row['fixed']is None or not row['fixed']['complete']:gaps.append(row['name']+'固定参数未完成。')
  if budget_exhausted:gaps.append('80000局新运行硬上限耗尽；所有未执行候选保留为缺口。')
+ for code in ['reference']+([out['minimum']['code']]if out['minimum']else[]):
+  fp=fixed_counts(code,plus=True)
+  if fp is None or not fp['complete']:gaps.append(code+'的+0.75衔接固定参数结果未完成。')
  from final_checks import finish
  finish(out,gaps)

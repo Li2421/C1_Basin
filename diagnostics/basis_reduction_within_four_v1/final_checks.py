@@ -52,6 +52,10 @@ def finish(out,gaps):
   p=HERE/f'ALLSCENE_{minimum["code"]}.json'
   if not p.exists()or not read(p)['complete']:gaps.append('已触发的最小组合全场景验证未完成。')
  if not(HERE/'CORRECTIONS_ANALYSIS.json').exists():gaps.append('两处修正的旧合成一列对照尚未完成。')
+ if(HERE/'FULL_SCENE_PLAN.json').exists():
+  for i,code in enumerate(read(HERE/'FULL_SCENE_PLAN.json')['targets']):
+   p=HERE/f'ALLSCENE_{code}.json'
+   if not p.exists()or not read(p)['complete']:gaps.append(('非主线：预算条件下第二个全场景未完成：'if i else'已触发的全场景未完成：')+code)
  passed=integrity()
  if not passed:gaps.append('源码与冻结定义完整性检查未通过。')
  try:

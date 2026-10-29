@@ -19,6 +19,8 @@ def run_full(combo,make):
  from screening import search,fixed
  path=HERE/f'ALLSCENE_{combo["code"]}.json'
  if path.exists()and read(path)['complete']:return read(path)
+ plan_path=HERE/'FULL_SCENE_PLAN.json';plan=read(plan_path)if plan_path.exists()else dict(targets=[])
+ if combo['code']not in plan['targets']:plan['targets'].append(combo['code']);dump(plan_path,plan)
  state=search(combo,64,make,scope='all');newfixed=fixed(combo,make,scope='all');original=next(c for c in read(HERE/'COMBINATIONS.json')['combinations']if c['code']=='four_8');oldfixed=fixed(original,make,scope='all')
  historical=read(HERE/'inputs/v3/SEARCH_STATE.json');old={(g['type_id'],g['level'],g['controller'],g['state_index']):g for g in historical['groups']if g['family']==4};safe={(g['type_id'],g['level'],g['controller'],g['state_index']):g for g in historical['baseline']}
  new={tuple(g['identity']):g for g in state['groups']};a={tuple(r['identity']):r['result']for r in oldfixed['records']};b={tuple(r['identity']):r['result']for r in newfixed['records']};rows=[];scene_map=scenes()
