@@ -2,6 +2,27 @@
 from dispatch import *
 from execution_control import PriorityPause
 from budget import used
+_PREFIX_ALIASES=None
+_SOURCE_RECORDS={}
+
+def archived_sources(old_uids,stage):
+ global _PREFIX_ALIASES
+ if _PREFIX_ALIASES is None:
+  _PREFIX_ALIASES={q['target_query_uid']:q['rollout_uid']for g in read(HERE/'inputs/v3/SEARCH_STATE.json')['groups']if g['family']==4 for q in g['queries']if q.get('target_query_uid',q['rollout_uid'])!=q['rollout_uid']and q['success']}
+ selected={uid:_PREFIX_ALIASES[uid]for uid in old_uids if uid in _PREFIX_ALIASES}
+ if not selected:return{}
+ requests=[]
+ with db.connect(True)as con:
+  for uid in sorted(set(selected.values())):
+   row=con.execute('SELECT state_uid,eta_uid,controller_uid,seed_key,success,conflict_quarantined FROM rollout WHERE rollout_uid=?',(uid,)).fetchone()
+   assert row and row['success']and not row['conflict_quarantined'],('Invalid archived prefix source',uid)
+   requests.append({k:row[k]for k in('state_uid','eta_uid','controller_uid','seed_key')})
+   if uid not in _SOURCE_RECORDS:
+    source=con.execute('SELECT sf.path,rs.source_line FROM rollout_source rs JOIN source_file sf ON rs.source_uid=sf.source_uid WHERE rs.rollout_uid=? LIMIT 1',(uid,)).fetchone();assert source
+    with Path(source['path']).open()as f:_SOURCE_RECORDS[uid]=next(json.loads(line)for i,line in enumerate(f,1)if i==source['source_line'])
+ suffix=digest(sorted(selected.items()))[:12];path=HERE/f'{stage}_archived_{suffix}_planned.json';dump(path,dict(requests=requests,v3_target_to_source=selected,certificate='inputs/v3/PREFIX_CHECK.json'))
+ pf=planner.preflight(path);assert pf['summary']['ambiguous']==0;dump(HERE/f'{stage}_archived_{suffix}_preflight.json',pf)
+ return{target:_SOURCE_RECORDS[source]for target,source in selected.items()}
 
 def legacy_case(scene,ctl,si,spec):
  c=case(scene,ctl,si,spec,purpose='v3_historical_lookup');old=read(HERE/'inputs/V3_CONTROLLER_TEMPLATE.json')
@@ -39,13 +60,18 @@ def run_requests(cases,stage,eligible=False,worker_entry='worker_recorded.py',ce
   # Keep each historical subset immutable under its own content identity.
   subset=digest([c['rollout_uid']for c in old_requests])[:12]
   _,_,old_done=register(old_requests,stage+'_historical_'+subset)
+ archived=archived_sources([link['source_rollout_uid']for link in links if link['kind']=='certified_semantic_alias_pending'and link['source_rollout_uid']not in old_done],stage)
  requested={c['rollout_uid']:c for c in cases}
  for link in links:
   if link['kind']!='certified_semantic_alias_pending':continue
   uid=link['target_query_uid'];r=old_done.get(link['source_rollout_uid'])
+  if r is None and link['source_rollout_uid']in archived:
+   link['v3_archived_query_uid']=link['source_rollout_uid'];r=archived[link['source_rollout_uid']];link['source_rollout_uid']=r['rollout_uid'];link['prefix_certificate']='inputs/v3/PREFIX_CHECK.json'
   if r is None:missing.append(requested[uid]);link['kind']='historical_missing_new_execution_required'
   else:
    link['kind']='certified_semantic_alias';link['certificate']=link.get('revision_certificate')or('NO_PASSAGE_EQUIVALENCE.json'if requested[uid]['spec'].get('one_way')else'EQUIVALENCE.json')
+   if requested[uid]['spec'].get('one_way')and not passages[requested[uid]['scene']]['passages']:
+    link['logical_admission_history']=dict(encoding='constant empty state for every step',steps=r['episode_length'],passage_turns=[],goal_yielders=[],reason='Frozen geometry contains no passage; sourceNPZ is immutable and need not contain the later diagnostic field.')
    rows[uid]=dict(r,logical_query_uid=uid,reuse_reason=link['kind'])
  if missing:
   if used()+len(missing)>ceiling:raise PriorityPause('Insufficient new-launch allowance after exact and certified reuse; priority reservation retained')
