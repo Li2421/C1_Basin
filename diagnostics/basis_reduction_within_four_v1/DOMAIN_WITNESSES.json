@@ -1,0 +1,59 @@
+{
+  "identity": [
+    16,
+    0,
+    "centralized_sampling",
+    3
+  ],
+  "candidate": 57,
+  "same_original_coefficients": true,
+  "same_initial_state_and_seed": true,
+  "initial_bitwise_checks": {
+    "positions": true,
+    "velocities": true,
+    "goals": true
+  },
+  "first_different_action_step": 0,
+  "bitwise_checks_through_first_different_action_input": {
+    "positions": true,
+    "nominal": true,
+    "safe": true
+  },
+  "role_counts": {
+    "reference": {
+      "goal_yield_active_steps": 267,
+      "recorded_steps": 1077
+    },
+    "bound": {
+      "goal_yield_active_steps": 226,
+      "recorded_steps": 616
+    }
+  },
+  "reference": {
+    "rollout_uid": "roll_17da11997e13b982f6e1f67f3b81a6dd6dfaca030b754b70293defea76b701fc",
+    "q": 0.5,
+    "outcome": "timeout",
+    "completion_time": null,
+    "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_17da11997e13b982f6e1f67f3b81a6dd6dfaca030b754b70293defea76b701fc.npz"
+  },
+  "bound": {
+    "rollout_uid": "roll_6b93f5a215504f6a5e29bc3bfae1c12bb3e7171c881770ea38aa905c8ed4bf5f",
+    "q": 0.2589107062667608,
+    "outcome": "success",
+    "completion_time": 30.8,
+    "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_6b93f5a215504f6a5e29bc3bfae1c12bb3e7171c881770ea38aa905c8ed4bf5f.npz"
+  },
+  "unchanged_coefficients": {
+    "eta": [
+      0.8515862228814512,
+      0.0,
+      0.7019144233781844
+    ],
+    "coefficients": {
+      "T1": -0.2589107062667608,
+      "C2": 0.11855228431522846
+    }
+  },
+  "interpretation": "This executed pair changes only the common admission strength. The successful strength is below the reference lower bound0.5. It is evidence of parameter-range sensitivity, not an isolated proof of dimension reduction or a new geometric direction.",
+  "new_rollouts": 0
+}

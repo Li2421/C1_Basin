@@ -102,7 +102,7 @@ def write_report(final=False):
   if not x['parents']and x['dimension']==4:replacement.append(combo_map['reference']['name']+' → '+x['name'])
   for parent in x['parents']:replacement.append(combo_map[parent]['name']+' → '+x['name'])
  lines=['# 四系数以内的删减与合并\n',opening,'\n可合并的已验证组合：'+('；'.join(binding_results)if binding_results else'尚无完成证据')+'。可替代关系：'+('；'.join(replacement)if replacement else'尚无完成证据')+'。',
-        '\n名义控制器为集中式随机采样模型预测控制、梯度下降模型预测控制。原两次安全投影、动力学、场景和时限保持冻结。所有Oracle是直接按顺序搜索系数；首次成功即停，不使用生成器或评判器。本轮维度指自由系数数目；通道项包含状态与输入缩放。',
+        '\n名义控制器为集中式随机采样模型预测控制、梯度下降模型预测控制。原两次安全投影、动力学、场景和时限保持冻结。所有Oracle是直接按顺序搜索系数；首次成功即停，不使用生成器或评判器。本轮维度指自由系数数目；通道项包含状态与输入缩放。因此，相对原四列的比较同时引入通行权记忆，覆盖提升不能单独解释为静态修正矩阵增加一列的效果。',
         '\n| 组合（自由系数） | 父组合 | 覆盖16/64·272例 | 困难64：窄门/长走廊/四房间/仓库 | 与参照64配对差及95%区间 | 不比参照差 | 首次成功序号中位数 | 固定参数0–7/8–11 |',
         '|---|---|---|---|---|---|---|---|']
  for x in rows:
@@ -130,6 +130,10 @@ def write_report(final=False):
   lines+=['\n| 让行湾原伤害案例 | 新参照16次 | 新参照64次 | 首次成功序号 |','|---|---|---|---|']
   controller_names={'centralized_sampling':'集中式随机采样模型预测控制','gradient_mpc':'梯度下降模型预测控制'}
   for x in correction['eight_bay_harms']:lines.append(f"| {controller_names[x['identity'][2]]}·初态{x['identity'][3]} | {x['new_success16']} | {x['new_success64']} | {x['new_first_success']} |")
+ witness=load('DOMAIN_WITNESSES.json')
+ if witness:
+  wa,wb=witness['reference'],witness['bound']
+  lines+=['\n## 参数范围与方向贡献的区分\n',f"货架仓库10台、初态3、集中式随机采样模型预测控制的已执行配对：其余四项系数、初态和种子完全相同，放行强度{wa['q']}时超时，强度{wb['q']:.9f}时在{wb['completion_time']}秒完成。初始位置、速度、目标及首次动作分歧前的名义输入、安全参考动作均逐位相同。该低强度由目标侧转绝对值绑定产生，落在五项参照[0.5,1]盒之外；此见证不能单独计为较少维数增加表达能力，也不能推出整个原参数盒数学上无解。原始UID与轨迹见[范围敏感性见证](DOMAIN_WITNESSES.json)。"]
  failure=load('FAILURE_ANALYSIS.json')
  if failure:
   lines+=['\n## 困难案例的失败轨迹分型\n','以下只分型64次内未找到成功的案例所执行的末次候选，不把其诊断推广成整个修正族的数学缺陷。首次候选和独立标志同时保存在JSON。','\n| 组合 | 末次候选分类计数 |','|---|---|']
