@@ -114,8 +114,16 @@ def write_report(final=False):
          '\n独立放行强度的参数盒为[0.5,1]；绑定到目标旋转绝对值后可低于0.5，删除放行项时则为0。这些是说明规定的不同参数域，较少系数的结果不能单独证明一个连续线性基的秩结论。各组合的64点按规定投影、去重和补齐，并非彼此嵌套的完整连续参数域；较小组合的有限搜索覆盖高于五项参照，不表示其连续表达能力更强。',
          '\n## 逐类替代效果\n','| 场景类型 | '+ ' | '.join(combo_map[c]['name']for c in ['reference','four_8']+sorted(qualified_codes))+' |','|---|'+'---:|'*(2+len(qualified_codes))]
  for x in types:lines.append('| '+x['title']+' | '+' | '.join(str(x['combinations'][code]['coverage64'])if x['combinations'][code]['complete64']else'未完成'for code in ['reference','four_8']+sorted(qualified_codes))+' |')
- lines+=['\n## 成功时间与搜索成本\n','下表均值对应各组合实际搜索预算与各自成功子集；不同子集的条件时间不能直接作配对速度排名。','\n| 组合 | 首次成功组数均值 | 成功任务完成均时·秒 | 已完成逻辑查询数 |','|---|---:|---:|---:|']
- for x in rows:lines.append(f"| {x['name']} | {x.get('mean_first_success')} | {x.get('mean_success_time')} | {x.get('searched',0)} |")
+ lines+=['\n## 成功时间与搜索成本\n','首次成功组数只在成功案例上取均值；全队列搜索组数包含失败案例的全部已执行候选。早停或未完成组合的后者只是已执行成本，不代表64组完成成本。不同成功子集的条件完成时间不能直接作配对速度排名。','\n| 组合 | 首次成功组数均值 | 全队列已搜索组数均值 | 成功任务完成均时·秒 | 已完成逻辑查询数 |','|---|---:|---:|---:|---:|']
+ for x in rows:
+  cases=len(metrics(x['code'])['groups']);avg=x.get('searched',0)/cases if cases else None
+  lines.append(f"| {x['name']} | {x.get('mean_first_success')} | {avg} | {x.get('mean_success_time')} | {x.get('searched',0)} |")
+ if final:
+  from search_cost_audit import audit as audit_search_cost
+  costs=audit_search_cost()
+  lines+=['\n最高覆盖的三个四参数组合在相同255个共同成功案例上的任务完成均时，以及含失败案例的搜索成本，另存[配对时间与搜索组数审计](SEARCH_COST_AUDIT.json)。这些时间来自首次成功参数，不是另行优化的最快参数；不据此改变预定最小组合选择规则。','\n| 组合 | 成功首次组数 | 全队列搜索组数 | 共同成功完成均时·秒 | 全队列截断均时·秒 |','|---|---:|---:|---:|---:|']
+  for item in costs['rows']:
+   lines.append(f"| {combo_map[item['code']]['name']} | {item['success_first_index_mean']:.4f} | {item['all_case_searched_mean']:.4f} | {item['common_success_completion_seconds_mean']:.4f} | {item['all_case_capped_seconds_mean']:.4f} |")
  lines+=[f'\n参照在第17项之后才成功、但原四列64项内也已成功的案例目前有{len(late_old)}例，其中{len(same_index)}例首次成功序号也相同；这些不计为通道放行对原四列的独立覆盖补救。目前参照覆盖而原四列64项未覆盖的有{len(rescued)}例；原四列覆盖而参照未覆盖的有{len(lost_old)}例，损失逐例也保存在REDUCTION.json。参照完整64项状态为{r["complete64"]}，未完成时上述数量只是当前观察。序号相同本身不证明轨迹逐位相同。']
  lines+=['\n## 固定点与时限\n','主固定点为朝目标0.875、互斥分离0.375、目标旋转−0.75、净空0、独立放行1，再按组合规则投影。状态8–11未参加搜索。上一轮+0.75点仅作衔接，另列，不参与判据。4倍成败仅截取同次6倍搜索中的首次成功轨迹。','\n| 衔接对象 | +0.75固定点状态0–7/8–11 |','|---|---|']
  for code in ['reference']+([minimum['code']]if minimum else[]):
