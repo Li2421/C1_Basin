@@ -1,0 +1,810 @@
+{
+  "time": "2026-10-29T10:48:24.106234+08:00",
+  "files": [
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/guard.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/guard.py",
+      "sha256": "23ccf849026010231c3a2af979d6162a4a6cb2ab896ccd4d20480b803ab82098",
+      "size": 2964,
+      "mtime_ns": 1793207134160528023
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/core.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/core.py",
+      "sha256": "ed880a84a32ea8ce9ffac2339b1b20dfc98021741841f0a9a2f25311fb48199e",
+      "size": 1377,
+      "mtime_ns": 1793207134161272209
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/runtime.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/runtime.py",
+      "sha256": "d00db4ba6a8d82ab4aea73afd4eb54b1d6c75ffa0eef23332c4a80624a4214f1",
+      "size": 10693,
+      "mtime_ns": 1793209234842658755
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/routes.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/routes.py",
+      "sha256": "ea5b2b4c52fb48dac2f8dd35face2e1bbe8ea119dd28dfe44fb9f4f1e9a7ea61",
+      "size": 2407,
+      "mtime_ns": 1793207134126515203
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/admission.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/admission.py",
+      "sha256": "144d8828ef0b3e3f8ba10312b7e6a159a85a1903be14c117164188433b7fa350",
+      "size": 4460,
+      "mtime_ns": 1793208974991913185
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/passages.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/passages.py",
+      "sha256": "77c993a189c1dfdb87b0558f37d15043d359458ee39c15469fcca919842535c7",
+      "size": 3233,
+      "mtime_ns": 1793207319505881191
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/acceleration.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/acceleration.py",
+      "sha256": "dc2563fcc9a6d039e8f9f606e7bc850370c58f4804004c058d96350a0784fec5",
+      "size": 2630,
+      "mtime_ns": 1793207134126619352
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/recording_fix.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/recording_fix.py",
+      "sha256": "876081056a289cfc8c5ca89be35b9efbe981efe83408f1d22427c5859623a006",
+      "size": 706,
+      "mtime_ns": 1793207134126666767
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/runner.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/runner.py",
+      "sha256": "a2e58b95d6da4cfc1c92b99ad2e7b0ed3a1b98d39e4789b660d311752ba43e37",
+      "size": 9550,
+      "mtime_ns": 1793209431736003035
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/dispatch.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/dispatch.py",
+      "sha256": "d6184753a023cb1800f3db7f76530641fd2b96e340135b23c232aeae38f9fb5f",
+      "size": 8833,
+      "mtime_ns": 1793209234868152352
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/flexible_worker.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/flexible_worker.py",
+      "sha256": "fcdb48b757bb367d0240934f093a40fcc67a460c2440ca0e4bdfa842204954ab",
+      "size": 1361,
+      "mtime_ns": 1793207134126711850
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/worker_recorded.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/worker_recorded.py",
+      "sha256": "412860fd59e99fb8c948d1ebc2611d035370b52553cc49d53b42b9eea18f7f85",
+      "size": 270,
+      "mtime_ns": 1793207134126807790
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/worker_accel.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/worker_accel.py",
+      "sha256": "df45d3d4cd41faa4a672d2fd9539d3639e44a3f3ee23ce6107daff59e04adae9",
+      "size": 269,
+      "mtime_ns": 1793207134126761603
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/cbs_kernel_time_index.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/cbs_kernel_time_index.so",
+      "sha256": "53fd48b0e139b0ef92b970ead58f27391f57631ad9bff3cf3c8afdd94a6642f2",
+      "size": 40152,
+      "mtime_ns": 1793207134127138157
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/experiment.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/experiment.py",
+      "sha256": "cc32a9f6c15ece0529e8de2d24246b1254c557ede718ce8b019599116cadd209",
+      "size": 2702,
+      "mtime_ns": 1793207134127215121
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/bootstrap_fp_control_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/bootstrap_fp_control_20261022.so",
+      "sha256": "3acc6be0d07349cb653d5319993d9c29e7a7c4ffad5588fde67c071b5393300f",
+      "size": 15576,
+      "mtime_ns": 1793207134127280064
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/cbs_kernel_start_signature_v2_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/cbs_kernel_start_signature_v2_candidate_20261022.so",
+      "sha256": "5d09d1a3c388efa22ea4c23c4817979879417bf364807458cbf990beba457c08",
+      "size": 50488,
+      "mtime_ns": 1793207134127362511
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/scene_environment.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/scene_environment.py",
+      "sha256": "398b0ab568f382616a7c299b12357b85f2b20cfdd4539562c447678685dc18c9",
+      "size": 2115,
+      "mtime_ns": 1793207134127434473
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/astar_kernel_tiled.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/astar_kernel_tiled.so",
+      "sha256": "118ea0c0452edbd94cf5e912e2f445e22896d8deae25a736dd92f31c9df656b1",
+      "size": 35912,
+      "mtime_ns": 1793207134127485341
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/pa_query_memo_facts_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/pa_query_memo_facts_candidate_20261022.so",
+      "sha256": "49d74b7d545a76f395d6c12d7a22e37211f3eba997d406e86a5bdfe23410a1ed",
+      "size": 40368,
+      "mtime_ns": 1793207134127546311
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/LAYOUT_REVISION_DESIGN.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/LAYOUT_REVISION_DESIGN.json",
+      "sha256": "7f5fb60407a6eb1de535cbed5b4cf9c06d5bff50fef8e7090a3593ea8f7670da",
+      "size": 73341,
+      "mtime_ns": 1793207134127620503
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/astar_kernel.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/astar_kernel.so",
+      "sha256": "910c2c7d865f4d0a6f3fb19e9f0c744bd9590b899f81e9fa3495c6d52e1bb639",
+      "size": 25800,
+      "mtime_ns": 1793207134127696133
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/pa_query_reuse_facts_probe_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/pa_query_reuse_facts_probe_20261022.so",
+      "sha256": "55f12f5f940dcc050cb0df9265739d8d6323d33701ba6badcda6231b933fe64c",
+      "size": 40368,
+      "mtime_ns": 1793207134127754927
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/astar_kernel_spatial_mask_cap4_test_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/astar_kernel_spatial_mask_cap4_test_20261022.so",
+      "sha256": "f2c508c9838c7d8de3de3ac97e74d55e7406fd61e9c398d9e5e1121da29e838d",
+      "size": 40504,
+      "mtime_ns": 1793207134127818607
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/astar_kernel_stationary_edge_cap4_test_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/astar_kernel_stationary_edge_cap4_test_20261022.so",
+      "sha256": "b1c3459e9e8446396c9f67361863c846f004ad30ede8199b67c41400f059bdd8",
+      "size": 37088,
+      "mtime_ns": 1793207134127881633
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/astar_kernel_certified.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/astar_kernel_certified.so",
+      "sha256": "4c0eba973fa6311213afea1d6ff4da82dd7fd9130375de215285517e7f4d52b7",
+      "size": 34912,
+      "mtime_ns": 1793207134127948994
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/cbs_kernel_start_signature_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/cbs_kernel_start_signature_candidate_20261022.so",
+      "sha256": "bb4dbc1b29100c4597bdd932ed0955d53704827d8717132d265f460a10161193",
+      "size": 50152,
+      "mtime_ns": 1793207134128008005
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/cbs_kernel_heuristic_cache.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/cbs_kernel_heuristic_cache.so",
+      "sha256": "27b01d9ed217b7d9afddd0060b5686af4c73991f90daf56fbd8f3486d20c90b6",
+      "size": 40000,
+      "mtime_ns": 1793207134128072550
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/astar_kernel_stationary_edge_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/astar_kernel_stationary_edge_candidate_20261022.so",
+      "sha256": "0ff3bc971b59a62b0c082aa0ebda7812c59f3085f7ebefc964d7b0fe2d6174da",
+      "size": 37088,
+      "mtime_ns": 1793207134128134759
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/runtime_new.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/runtime_new.py",
+      "sha256": "0210001b6d4cca172c8857e13ca932fca62e98cf702d66a415f3adfa2b3a64fa",
+      "size": 5401,
+      "mtime_ns": 1793207134128193133
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/cbs_kernel.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/cbs_kernel.so",
+      "sha256": "1f3b2c4b0581f73ff198a6a735d786175e4a730c5ab5f3c51d922a0dff80ccfe",
+      "size": 25824,
+      "mtime_ns": 1793207134128537120
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/bootstrap.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/bootstrap.py",
+      "sha256": "ef6a9fd06da924d4043b94ca76452d7ef32794785e88e73c18cc0aca381b9f50",
+      "size": 377,
+      "mtime_ns": 1793207134128596144
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/common.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/common.py",
+      "sha256": "3f28283e65e7934422b02c73acac88c4f70196d8804b65055b60b217dfe6e47d",
+      "size": 8421,
+      "mtime_ns": 1793207134128640290
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/cbs_kernel_tiled.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/cbs_kernel_tiled.so",
+      "sha256": "f8e14d5598af69c8c9ee797b69363750f2bf9f20b5352423593b490439d9bf1a",
+      "size": 40024,
+      "mtime_ns": 1793207134128690054
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/cbs_kernel_flat_cache.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/cbs_kernel_flat_cache.so",
+      "sha256": "8bbc83944ede5cfa88235d2709d4cac78b80f47e26d2650cccffc4bd03df68b2",
+      "size": 39992,
+      "mtime_ns": 1793207134128754079
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/cbs_kernel_certified.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/cbs_kernel_certified.so",
+      "sha256": "696e700f687f910f2f0ad57216f45f0233138c4a399f20d4a05a11b2bc546df0",
+      "size": 34936,
+      "mtime_ns": 1793207134128814385
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/astar_kernel_spatial_mask_candidate_20261022.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/astar_kernel_spatial_mask_candidate_20261022.so",
+      "sha256": "0ea3decf345496d64fffd8ae34c12a81e36c2f7bc7e6df9ecd3add7bea6017b0",
+      "size": 40504,
+      "mtime_ns": 1793207134128876906
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/scenes_v3_impl.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/scenes_v3_impl.py",
+      "sha256": "e0010b073c140df1924a098344cd705b68d468f4cc363a3f95eb525ed29d4f1a",
+      "size": 12713,
+      "mtime_ns": 1793207134128935065
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/route_dictionary_evaluate.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/route_dictionary_evaluate.py",
+      "sha256": "c463a0e96ab60fd3f9f5ea930dcabfac172249c87f72ddfc785a15c22bc6e1d1",
+      "size": 8418,
+      "mtime_ns": 1793207918379932253
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/controllers_new.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/controllers_new.py",
+      "sha256": "2f00b267108186f2100e11178815d57357d8ea80e3816dcbcbfce98a7826d735",
+      "size": 11818,
+      "mtime_ns": 1793207134129045953
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/states.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/states.py",
+      "sha256": "c65d4d427e65820c91457d00d2f4375d83a2de7188e667b4e6f2f2d5cee359c3",
+      "size": 515,
+      "mtime_ns": 1793207134129168492
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/correction_revision_20261021.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/correction_revision_20261021.py",
+      "sha256": "2d05ebfdd6f684ea615afb101de487aef0320f10f65ac266ccbba9edd9634224",
+      "size": 1827,
+      "mtime_ns": 1793207134129221077
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/dynamics_safety.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/dynamics_safety.py",
+      "sha256": "3d9242fd9d4cea845d7a882add6cd1c3bbfd035c0432b0ba7efd787b26a965eb",
+      "size": 7773,
+      "mtime_ns": 1793207134129273973
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/nominal_geometry_user_fix_20261023.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/nominal_geometry_user_fix_20261023.py",
+      "sha256": "420eb218703b3fd864d8e8dfbb1670455849f66119012393d71e8e6b4da58844",
+      "size": 564,
+      "mtime_ns": 1793207134129326198
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/planning.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/planning.py",
+      "sha256": "400d0a573f8a90b0bab3d6d61f70f88ccf7535c3bcc3a8ad67e371334110308e",
+      "size": 6472,
+      "mtime_ns": 1793207134129376076
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/projection_memo.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/projection_memo.py",
+      "sha256": "f3a5e7e85e2dfbfa4e94821c1aa61ddc72a70c611a1b2550faf1294ff7179c65",
+      "size": 4005,
+      "mtime_ns": 1793207134129427721
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/swap_geometry_user_fix_20261023.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/swap_geometry_user_fix_20261023.py",
+      "sha256": "250a3a64616f13488a052a0f17488f89b5737b7a9507af68a9537cf4446e2876",
+      "size": 1707,
+      "mtime_ns": 1793207134129482462
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/controllers_layout_user_fix_20261023.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/controllers_layout_user_fix_20261023.py",
+      "sha256": "53bf220c97ee57f8dd6b4e2e466210d39752c550f6b8a8227f4dd749809493f8",
+      "size": 11268,
+      "mtime_ns": 1793207134129532675
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/swap_runtime_user_fix_20261023.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/swap_runtime_user_fix_20261023.py",
+      "sha256": "a60bb43a1471b0e454b5d8d7e131f3ac666540a94a201fc35ac4c10e3c5abd4d",
+      "size": 5401,
+      "mtime_ns": 1793207134129590166
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/reservation_certificate_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/reservation_certificate_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "sha256": "750d56881d04cc18d587f3832bea6b1d52869e56f06d141e9267559ec10c6d97",
+      "size": 5828,
+      "mtime_ns": 1793207134129650938
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/tiled_planning_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/tiled_planning_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "sha256": "bb1397cfa3941332b4172cb3294cd9dcc9b7e5a90c04ca6360d7e302ea30f553",
+      "size": 7682,
+      "mtime_ns": 1793207134129702860
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/central_reference.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/central_reference.py",
+      "sha256": "260edee9ac99794119bda055f3e090e79b15a4f5183e1cca75cea91a841325de",
+      "size": 4795,
+      "mtime_ns": 1793207134129752034
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/swap_geometry.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/swap_geometry.py",
+      "sha256": "7802d847d07432afc2faa594e0cbbacd9a93a766868ea9c10280d19495bb7544",
+      "size": 5447,
+      "mtime_ns": 1793207134129799331
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/projection_adapter.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/projection_adapter.py",
+      "sha256": "32a934d1539dd2452b5892a3c58a8d7c5f586a7501ee11b92970e8daba2f62dc",
+      "size": 3405,
+      "mtime_ns": 1793207134129847883
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/controllers.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/controllers.py",
+      "sha256": "8ec232aec19944809178c0f8dce59d72c31ca98df817d44bbfe10d6608c0486a",
+      "size": 10827,
+      "mtime_ns": 1793207134129893600
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/official_sampler.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/official_sampler.py",
+      "sha256": "0cb58c81b76c92e8eba9cceab8e6fb3169940c4c0b1421334da9260ff56a79ef",
+      "size": 2760,
+      "mtime_ns": 1793207134129945226
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/swap_safety_user_fix_20261023.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/swap_safety_user_fix_20261023.py",
+      "sha256": "42bb80649e1d70f37c285fa1bb24950d6b6b9bc3fa94c00a78bb8ea994f52d63",
+      "size": 1430,
+      "mtime_ns": 1793207134129990440
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/legacy_states.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/legacy_states.py",
+      "sha256": "3dfd11e5b0d63bda69ffce473b55f8dbdf9226581a13c3fd4aa51ec450752ae4",
+      "size": 4366,
+      "mtime_ns": 1793207134130034390
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/flow_scene.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/flow_scene.py",
+      "sha256": "cf74ed5718a70d2ef707fc3fee50321502ab9afdc1b624d68c8503bc6552aa3b",
+      "size": 2124,
+      "mtime_ns": 1793207134130082728
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/tiled_planning.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/tiled_planning.py",
+      "sha256": "f7edba33a80f9d94b21bff4c72e5878e8abe4cc944de103bf36d1cdbafd94b89",
+      "size": 6832,
+      "mtime_ns": 1793207134130129018
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/reservation_certificate_v2_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/reservation_certificate_v2_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "sha256": "1474a94d0f33c21a06aaa7af141636cea507c3b4dd26adcb6bcf6b12fb1e9e5c",
+      "size": 5353,
+      "mtime_ns": 1793207134130179844
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/tiled_nominal.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/tiled_nominal.py",
+      "sha256": "53c192658d3933fb228e582474f6aeb9bbc6fcde95571319c68baef42d11f952",
+      "size": 472,
+      "mtime_ns": 1793207134130239738
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/legacy_flow_scene.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/legacy_flow_scene.py",
+      "sha256": "df6ac14af4770f17233783a063fab5ec01e9275dc464c57f84c739602c01de0b",
+      "size": 9401,
+      "mtime_ns": 1793207134130290326
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/runtime_correction_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/runtime_correction_pa_memo_query_disk_candidate_spatial_mask_20261022.py",
+      "sha256": "8ce4d099bc18c3116253e158308b6f91ecfc7b2168e4c09c71821b1b77627372",
+      "size": 6465,
+      "mtime_ns": 1793207134130343328
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/nominal_adapter.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/nominal_adapter.py",
+      "sha256": "b1b0a6b0d75bbd6456bf302aaad67cb8feb1730a92258a99b6ecd1057a25f238",
+      "size": 810,
+      "mtime_ns": 1793207134130393456
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/swap_safety.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/swap_safety.py",
+      "sha256": "57ff6d55ca8d725930a036e0193ae133fed9403afbe740c0893916b9af12d9f4",
+      "size": 5505,
+      "mtime_ns": 1793207134130442023
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/swap_runtime.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/swap_runtime.py",
+      "sha256": "8ae19c5d9ffa2197361727fb463d21821ac7d558616fefebf564dcb5c756e3b4",
+      "size": 5389,
+      "mtime_ns": 1793207134130489212
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/poc_field_controller.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/poc_field_controller.py",
+      "sha256": "20edb3fb680e18b4882b06a667f6d4db0d55e2f8ea1035c4e3fec55bb335603f",
+      "size": 14759,
+      "mtime_ns": 1793207134130535220
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/distributed_safety.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/distributed_safety.py",
+      "sha256": "8644e8adc2c5ce46be3af820008082d10a38f3a8fc4c9fe7baff18abbe8a767b",
+      "size": 2868,
+      "mtime_ns": 1793207134130636112
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/pa_query_memo_candidate_20261022.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/pa_query_memo_candidate_20261022.py",
+      "sha256": "c717e58ee1c30a14c0e9c51a0a658cb4d08688be0ac7084c46d5d0cb844777ed",
+      "size": 3613,
+      "mtime_ns": 1793207134130684411
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/backend/controllers_interior.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/controllers_interior.py",
+      "sha256": "f088be1e7e092a2f2e7dfd20d4916c68e63048732e5dc5aef6b408be658cf25e",
+      "size": 11250,
+      "mtime_ns": 1793207134130731945
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/native_resume/cbs_start_signature_cache_20261022.hpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/native_resume/cbs_start_signature_cache_20261022.hpp",
+      "sha256": "9676093cd68c8f32d46b1ef0e129b0be2009d63e1b538b609525fa945324b25a",
+      "size": 3105,
+      "mtime_ns": 1793207134130809138
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/native_resume/cbs_query_disk_memo_candidate_20261022.hpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/native_resume/cbs_query_disk_memo_candidate_20261022.hpp",
+      "sha256": "357c36606637ee8556cafcd0ffecc48e416264028484f9c807a285e6841d8070",
+      "size": 7863,
+      "mtime_ns": 1793207134130859420
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/native_resume/tiled_parent_store.hpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/native_resume/tiled_parent_store.hpp",
+      "sha256": "fb7c71341d76061df2c6ec8432734cf096c951b9fb512aea9525f0b2112d988b",
+      "size": 2322,
+      "mtime_ns": 1793207134130909608
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/native_resume/cbs_start_signature_cache_v2_20261022.hpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/native_resume/cbs_start_signature_cache_v2_20261022.hpp",
+      "sha256": "108517a571bfd3c498cf9f8288597f847241dc8b835747823c4acd6293000da8",
+      "size": 3490,
+      "mtime_ns": 1793207134130954959
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/native_resume/cbs_kernel_query_disk_candidate_20261022.cpp",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/native_resume/cbs_kernel_query_disk_candidate_20261022.cpp",
+      "sha256": "02d8017b313e468bca819e15dfc76e4697833cf17b84cfdfa9d115790c15e5c5",
+      "size": 9177,
+      "mtime_ns": 1793207134131004170
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/native_resume/cbs_kernel_resume.so",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/native_resume/cbs_kernel_resume.so",
+      "sha256": "13f07a32922a6a1b170f89366a4a2087a47bf21e3b6e2b75a22e5e02ac03834c",
+      "size": 68536,
+      "mtime_ns": 1793207134131060025
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/generated/mplconfig/fontlist-v3.11.0.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/mplconfig/fontlist-v3.11.0.json",
+      "sha256": "f79e3c5a1a4d8fff17ef7c5557f3274e2922f363b815655d075ee12cb773f770",
+      "size": 173002,
+      "mtime_ns": 1793207134131177496
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/accel_inputs/accel.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/accel_inputs/accel.py",
+      "sha256": "6d5741b9757bab240d7d3ba98d19b1fe113fff40b6bf95d38b56209be93f03ae",
+      "size": 3093,
+      "mtime_ns": 1793207134131369043
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/accel_inputs/fastproj.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/accel_inputs/fastproj.py",
+      "sha256": "c52f4ab69d0a2b5e72292d2e65f8ec9ff7ff9180a2b658351b10041efd426c51",
+      "size": 4597,
+      "mtime_ns": 1793207134131417216
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/accel_inputs/np_threefry.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/accel_inputs/np_threefry.py",
+      "sha256": "7c82f22c6207dd79753e9cf7b67efcc65498834944c8773f6c6822cca2da7fce",
+      "size": 893,
+      "mtime_ns": 1793207134131463206
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/SCENES.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/SCENES.json",
+      "sha256": "f312c0f3421c09dac4a32736d648d30324cabdad16e9bd8c411fc85c8b074046",
+      "size": 4254468,
+      "mtime_ns": 1793207134161340657
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/PASSAGES.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/PASSAGES.json",
+      "sha256": "4a7011e9aafc301ebaf0e2133708e2d9a185166814bc63bf197411a731d722e3",
+      "size": 140871,
+      "mtime_ns": 1793207403110067560
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/FAMILIES_64.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/FAMILIES_64.json",
+      "sha256": "84ea39e863ebe5bb4d6979b6fffb8df2b845cbc976bb35061c923d4702536e7f",
+      "size": 97719,
+      "mtime_ns": 1793207134162178242
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/REPRESENTATIVE17_FROZEN.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/REPRESENTATIVE17_FROZEN.json",
+      "sha256": "8afbc8f1ad15d46dab93a68cd02fad28ad902b84f2ea2b8a5b8450e01b77a6ec",
+      "size": 24670,
+      "mtime_ns": 1793207134162140293
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/CONTROLLERS_FROZEN.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/CONTROLLERS_FROZEN.json",
+      "sha256": "3fc37bc41f0bfe0854aa0307dc0209aa814a5250353abe9006d45cc386e95077",
+      "size": 1128,
+      "mtime_ns": 1793207134162233398
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/BACKEND_BUILD.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/BACKEND_BUILD.json",
+      "sha256": "7c9853a15edb72c0e40591d6217bdaac3003b22a55dc947ee55c7167b76618f4",
+      "size": 31754,
+      "mtime_ns": 1793207134162260782
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/ACCELERATION_INPUTS.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/ACCELERATION_INPUTS.json",
+      "sha256": "1e8dad301eab826081ad8fca0f316af257918e7532b34d3c353839e975af103c",
+      "size": 1354,
+      "mtime_ns": 1793207134162296113
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/CONTROLLERS_FROZEN.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/CONTROLLERS_FROZEN.json",
+      "sha256": "3fc37bc41f0bfe0854aa0307dc0209aa814a5250353abe9006d45cc386e95077",
+      "size": 1128,
+      "mtime_ns": 1793207134162233398
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/ACCELERATION_CERTIFICATE.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/ACCELERATION_CERTIFICATE.json",
+      "sha256": "6fc3977eda8b85abe9faf6eda68f4039a3a6321fb3925684a9991d24b8c8848e",
+      "size": 46539,
+      "mtime_ns": 1793211767058402048
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/ACCELERATION_UNITS.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/ACCELERATION_UNITS.json",
+      "sha256": "ed53b42e062f512c9c0ee6b693e2886efdba66bef80d772fbfeb4b67228b9e78",
+      "size": 162,
+      "mtime_ns": 1793211572339631572
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/EQUIVALENCE.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/EQUIVALENCE.json",
+      "sha256": "1ae91698771c604f98a12150f713be77e0e7e6fd3addb9092c914a426a0d7f03",
+      "size": 196406,
+      "mtime_ns": 1793211665767355674
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/DESIGN_FREEZE_v2.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/DESIGN_FREEZE_v2.json",
+      "sha256": "3bbf7e90f6ee9fc17be16fa1ed434684de16b6fc0de4ea9ed99407a9bfb874c8",
+      "size": 1421,
+      "mtime_ns": 1793209545274878913
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/FINAL_SUMMARY.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/FINAL_SUMMARY.json",
+      "sha256": "a3565ee3285abee6722cd8328c6617a89b3a2f39f95d0df30944819a726d740f",
+      "size": 6635,
+      "mtime_ns": 1793240844778782189
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/HARD_CASES.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/HARD_CASES.json",
+      "sha256": "6266f3464acc5105da8b4940151ba330bdab8dba43798391554bfccf67dd9985",
+      "size": 1498916,
+      "mtime_ns": 1793211551973441230
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/ORACLE_STATE.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/ORACLE_STATE.json",
+      "sha256": "2b9b79df65c2ad3141b38db04cef1e250c9964793fd347b59f0aa586f439b7a7",
+      "size": 26023541,
+      "mtime_ns": 1793217282569371010
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/FIXED_RESULTS.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/FIXED_RESULTS.json",
+      "sha256": "b72416a59e6407e6c925fd2e3ceee1bed21873ea606e55c4b028a0ef17ea0ab2",
+      "size": 5989122,
+      "mtime_ns": 1793212051090071807
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/REGRESSIONS.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/REGRESSIONS.json",
+      "sha256": "9359927c0ca863c431a200e33e64bce07cda656140dfeea5701ccc60c4beb176",
+      "size": 4969,
+      "mtime_ns": 1793217417013283007
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/REPLAY_INPUTS.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/REPLAY_INPUTS.json",
+      "sha256": "5332bb0f588b934f13aa18874f3e784ca5bf2d926bb33c928e37cb913207eff9",
+      "size": 4536858,
+      "mtime_ns": 1793209546126221395
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/FAMILIES_THIS_ROUND.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/FAMILIES_THIS_ROUND.json",
+      "sha256": "70db4c7c24d7a4a304d0e085c9c74b8fffa7c40924427035fa2184de8ffc38eb",
+      "size": 45453,
+      "mtime_ns": 1793207403121901780
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/FOLLOWUP_B_hard.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/FOLLOWUP_B_hard.json",
+      "sha256": "5c762ac2de10ff9ba50bfcf1a3cf17220fccba8fe858fc6e3d82f63a3ac340a1",
+      "size": 5563609,
+      "mtime_ns": 1793220080836021693
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/FAMILIES_FOLLOWUP.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/FAMILIES_FOLLOWUP.json",
+      "sha256": "ade51d7faabcd8ea3b6ffd8c1a5956991ea2361c31d06cfc15b9b6ebfc69f4ba",
+      "size": 140031,
+      "mtime_ns": 1793209431886590160
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/bottleneck_one_way_admission_v1/REPORT.md",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/previous/REPORT.md",
+      "sha256": "0327ab8d1ba515fceefbda3499812c509c5ac609b7cb3b09ab4d198ebb14b586",
+      "size": 14166,
+      "mtime_ns": 1793240844778897487
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/SEARCH_STATE.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/v3/SEARCH_STATE.json",
+      "sha256": "4f2f81c059bb14905e1c6daafa4635d2752c3b3f93be66281a2460fa71bd438c",
+      "size": 23801042,
+      "mtime_ns": 1793203567720362061
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/FAMILIES_64.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/v3/FAMILIES_64.json",
+      "sha256": "84ea39e863ebe5bb4d6979b6fffb8df2b845cbc976bb35061c923d4702536e7f",
+      "size": 97719,
+      "mtime_ns": 1793167267794942912
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/REPRESENTATIVE17_COMPARISON.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/v3/REPRESENTATIVE17_COMPARISON.json",
+      "sha256": "25b631bd6badb4ed6a5691d0d47dd115f7068cb4a14904f85d41fcb7c568f97b",
+      "size": 4494,
+      "mtime_ns": 1793203695959711135
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/COVERAGE.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/v3/COVERAGE.json",
+      "sha256": "d5b65c848239600d09c511af98d9e4d02cdc87ec5d3d919b4b03f63377d61034",
+      "size": 24879492,
+      "mtime_ns": 1793203695941347338
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_oracle_coverage_v3/freeze_menus.py",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/v3/freeze_menus.py",
+      "sha256": "e0bea81140c7a22224501ea299e9b7b8b884f720417c468557a0d7c9bb3d74c7",
+      "size": 1744,
+      "mtime_ns": 1793167265961430542
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/REPORT.md",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/v1/REPORT.md",
+      "sha256": "717f993dceab2a76ca1e5f7c1c4c67e593af6a1b98cabbc4370b3045e641ef15",
+      "size": 24491,
+      "mtime_ns": 1793137081653796727
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/FAMILIES_FROZEN.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/v1/FAMILIES_FROZEN.json",
+      "sha256": "ec3ba06e1eee654c75ca5cb690c642312a01236f213f476869d6c12936a251cf",
+      "size": 28497,
+      "mtime_ns": 1793131719725747868
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/SEARCH_STAGE_RESULTS.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/v1/SEARCH_STAGE_RESULTS.json",
+      "sha256": "e26311a10b40db18e11d36c790685e95e4087152012513997e43680f4aed17b1",
+      "size": 5146,
+      "mtime_ns": 1793137074947401149
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/S4_SUPPORT_SELECTION.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/v1/S4_SUPPORT_SELECTION.json",
+      "sha256": "09212ecdb263b2cf5a7a1111a9660fa7b0955412db4775edd3263e83d2c18b5d",
+      "size": 881,
+      "mtime_ns": 1793131030122193228
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/scene_types_basis_dimension_v1/MINIMAL_SUPPORTS.json",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/v1/MINIMAL_SUPPORTS.json",
+      "sha256": "ad9ca9b4ae2a830919e11b246022b6946b1f05135ae53d0d18bf495738c956f2",
+      "size": 5181,
+      "mtime_ns": 1793137079333840083
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/docs/prompt_basis_reduction_within_four_v1_20261029.md",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/prompt_basis_reduction_within_four_v1_20261029.md",
+      "sha256": "49c60ad97f2e6c946703a4ff8077eea73da4b5b44abcdf809d39f229ba73b6ec",
+      "size": 18390,
+      "mtime_ns": 1793242009467148175
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/docs/exact_engineering_acceleration_20261026.md",
+      "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/inputs/exact_engineering_acceleration_20261026.md",
+      "sha256": "239e7ab2c5dfef9f99e3f959257f1d69df81daa5c981a38e157eebff2dc4ad8f",
+      "size": 14348,
+      "mtime_ns": 1792996787402730920
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "source": "/home/zhihan/research/Basin_C1/diagnostics/cross_scene_correction_v1/SELECTED_CONTROLLERS.json",
+  "sha256": "24247c7a426337be1c3db968371cd7d2ba39e7326e253b1ab53cce429fb04354",
+  "controllers": [
+    {
+      "controller": "centralized_sampling0",
+      "type": "集中式随机采样模型预测控制",
+      "type_code": "centralized_sampling",
+      "family": "optimization",
+      "cohort": "training",
+      "parameters": "[10, 64, 20]",
+      "checkpoint": "",
+      "capability_passed": "True",
+      "safety_capability_rate": "Historical authoritative manifest",
+      "no_repair_needed": "False",
+      "recipe": "nonflow_TT_native_v1"
+    },
+    {
+      "controller": "gradient_mpc0",
+      "type": "梯度下降模型预测控制",
+      "type_code": "gradient_mpc",
+      "family": "optimization",
+      "cohort": "unseen",
+      "parameters": "[10, 20, 0.05]",
+      "checkpoint": "",
+      "capability_passed": "True",
+      "safety_capability_rate": "1.0",
+      "no_repair_needed": "True",
+      "recipe": "crosstype3_gradient_mpc_TT_v1"
+    }
+  ],
+  "checkpoint_and_parameters_unchanged": true
+}
