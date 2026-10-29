@@ -128,6 +128,13 @@ def write_report(final=False):
   for code,counts in failure['counts'].items():lines.append('| '+combo_map[code]['name']+' | '+json.dumps(counts['final_candidate'],ensure_ascii=False)+' |')
  for path in sorted(HERE.glob('ALLSCENE_*.json')):
   full=read(path);lines+=full.get('report_lines',[])
+ context=load('PAPER_CONTEXT.json')
+ if context:
+  combo_names={c['code']:c['name']for c in data['combinations']}
+  paper_lines=context.get('report_lines',[])
+  for line in paper_lines:
+   for code,name in sorted(combo_names.items(),key=lambda kv:-len(kv[0])):line=line.replace('| '+code+' |','| '+name+' |')
+   lines.append(line.replace('# 论文端口历史对照','## 论文端口历史对照'))
  lines+=['\n每个组合的成功任务条件均时、首次成功组数均值、原始候选计算开销另见REDUCTION.json和candidates.jsonl。超时只标为64次内未找到，失败分型是已执行代表轨迹的诊断，不是整个连续修正族的不可能性证书。']
  (HERE/'REPORT.md').write_text('\n'.join(lines).replace('None','—')+'\n');return out
 

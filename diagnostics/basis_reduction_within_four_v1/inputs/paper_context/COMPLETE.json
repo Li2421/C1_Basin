@@ -1,0 +1,107 @@
+{
+  "complete": true,
+  "phase_finished": true,
+  "profiles": [
+    {
+      "profile": "wang2017_full_di_tracking__reference_default",
+      "version": "a7dde2b6db99",
+      "complete": true,
+      "joint_complete": 136,
+      "joint_expected": 136,
+      "solo_complete": 143,
+      "solo_expected": 143
+    },
+    {
+      "profile": "wang2017_full_di_tracking__v1_selected",
+      "version": "6d8ada9757aa",
+      "complete": true,
+      "joint_complete": 136,
+      "joint_expected": 136,
+      "solo_complete": 143,
+      "solo_expected": 143
+    },
+    {
+      "profile": "wang2017_consistent_perturbation_di_tracking__reference_default",
+      "version": "a7dde2b6db99",
+      "complete": true,
+      "joint_complete": 136,
+      "joint_expected": 136,
+      "solo_complete": 143,
+      "solo_expected": 143
+    },
+    {
+      "profile": "wang2017_consistent_perturbation_di_tracking__v1_selected",
+      "version": "6d8ada9757aa",
+      "complete": true,
+      "joint_complete": 136,
+      "joint_expected": 136,
+      "solo_complete": 143,
+      "solo_expected": 143
+    },
+    {
+      "profile": "zhang2025_risk_si__reference_default",
+      "version": "f06b423e7bd4",
+      "complete": true,
+      "joint_complete": 136,
+      "joint_expected": 136,
+      "solo_complete": 143,
+      "solo_expected": 143
+    },
+    {
+      "profile": "zhang2025_risk_si__v1_selected",
+      "version": "6c68676c530b",
+      "complete": true,
+      "joint_complete": 136,
+      "joint_expected": 136,
+      "solo_complete": 143,
+      "solo_expected": 143
+    },
+    {
+      "profile": "dac_author_si__reference_default",
+      "version": "3aa88356ba4f",
+      "complete": true,
+      "joint_complete": 136,
+      "joint_expected": 136,
+      "solo_complete": 143,
+      "solo_expected": 143
+    },
+    {
+      "profile": "mgr_author_unicycle_tracking__reference_default",
+      "version": "4faecff26403",
+      "complete": true,
+      "joint_complete": 136,
+      "joint_expected": 136,
+      "solo_complete": 143,
+      "solo_expected": 143
+    },
+    {
+      "profile": "mgr_author_unicycle_tracking__v1_selected",
+      "version": "d957cc64b4e0",
+      "complete": true,
+      "joint_complete": 136,
+      "joint_expected": 136,
+      "solo_complete": 143,
+      "solo_expected": 143
+    },
+    {
+      "profile": "chen_impc_ob_si_tracking__reference_default",
+      "version": "d75225c09afd",
+      "complete": true,
+      "joint_complete": 136,
+      "joint_expected": 136,
+      "solo_complete": 143,
+      "solo_expected": 143
+    },
+    {
+      "profile": "chen_impc_ob_si_tracking__v1_metric_scaling_reference",
+      "version": "3c2223d9fd4d",
+      "complete": true,
+      "joint_complete": 136,
+      "joint_expected": 136,
+      "solo_complete": 143,
+      "solo_expected": 143
+    }
+  ],
+  "parameter_search": false,
+  "after_family4": true
+}

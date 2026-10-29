@@ -1,0 +1,168 @@
+{
+  "time": "2026-10-29T12:38:38.350049+08:00",
+  "source": "inputs/paper_context/COMPLETED_COMPARISON.json",
+  "historical_profiles": [
+    {
+      "id": "wang2017_full_di_tracking__reference_default",
+      "name": "Wang 2017 完整死锁消解",
+      "options": {
+        "alpha": 1.0,
+        "gamma": 1.0
+      },
+      "overall": {
+        "expected": 136,
+        "completed": 136,
+        "success": 35,
+        "collision": 20,
+        "timeout": 81,
+        "terminal_unknown": 0,
+        "original_first_error_unknown": 119,
+        "error_stop_robot_steps": 14174,
+        "success_mean_time": 18.00571428571429,
+        "full_completed_cohort_truncated_mean_time": 36.83639705882353,
+        "rate": 0.25735294117647056
+      },
+      "single_robot_passed_scenes": 7
+    },
+    {
+      "id": "wang2017_consistent_perturbation_di_tracking__reference_default",
+      "name": "Wang 2017 一致扰动",
+      "options": {
+        "alpha": 1.0,
+        "gamma": 1.0
+      },
+      "overall": {
+        "expected": 136,
+        "completed": 136,
+        "success": 35,
+        "collision": 20,
+        "timeout": 81,
+        "terminal_unknown": 0,
+        "original_first_error_unknown": 119,
+        "error_stop_robot_steps": 14174,
+        "success_mean_time": 18.00571428571429,
+        "full_completed_cohort_truncated_mean_time": 36.83639705882353,
+        "rate": 0.25735294117647056
+      },
+      "single_robot_passed_scenes": 7
+    },
+    {
+      "id": "zhang2025_risk_si__reference_default",
+      "name": "Zhang 2025 自适应风险死锁规避",
+      "options": {
+        "gamma": 1.0,
+        "q": 1.0,
+        "c": 9.75
+      },
+      "overall": {
+        "expected": 136,
+        "completed": 136,
+        "success": 10,
+        "collision": 53,
+        "timeout": 73,
+        "terminal_unknown": 0,
+        "original_first_error_unknown": 118,
+        "error_stop_robot_steps": 16765,
+        "success_mean_time": 26.830000000000002,
+        "full_completed_cohort_truncated_mean_time": 39.843382352941184,
+        "rate": 0.07352941176470588
+      },
+      "single_robot_passed_scenes": 1
+    },
+    {
+      "id": "dac_author_si__reference_default",
+      "name": "Zhang 2025 死锁感知控制",
+      "options": {
+        "alpha": 2.0,
+        "agent_threshold": 0.1,
+        "obstacle_threshold": 0.1
+      },
+      "overall": {
+        "expected": 136,
+        "completed": 136,
+        "success": 18,
+        "collision": 12,
+        "timeout": 106,
+        "terminal_unknown": 0,
+        "original_first_error_unknown": 126,
+        "error_stop_robot_steps": 327965,
+        "success_mean_time": 13.466666666666667,
+        "full_completed_cohort_truncated_mean_time": 37.87279411764706,
+        "rate": 0.1323529411764706
+      },
+      "single_robot_passed_scenes": 6
+    },
+    {
+      "id": "mgr_author_unicycle_tracking__reference_default",
+      "name": "Lee 2025 旋转木马",
+      "options": {
+        "tau": 0.5,
+        "kp": 0.05
+      },
+      "overall": {
+        "expected": 136,
+        "completed": 136,
+        "success": 32,
+        "collision": 0,
+        "timeout": 104,
+        "terminal_unknown": 0,
+        "original_first_error_unknown": 0,
+        "error_stop_robot_steps": 0,
+        "success_mean_time": 19.476562500000004,
+        "full_completed_cohort_truncated_mean_time": 37.14632352941176,
+        "rate": 0.23529411764705882
+      },
+      "single_robot_passed_scenes": 7
+    },
+    {
+      "id": "chen_impc_ob_si_tracking__reference_default",
+      "name": "Chen 2023 动态优先级＋右手规则＋安全走廊",
+      "options": {
+        "K": 8,
+        "scale_lengths": false,
+        "epsilon_gain": 1.0
+      },
+      "overall": {
+        "expected": 136,
+        "completed": 136,
+        "success": 5,
+        "collision": 16,
+        "timeout": 115,
+        "terminal_unknown": 0,
+        "original_first_error_unknown": 51,
+        "error_stop_robot_steps": 61308,
+        "success_mean_time": 9.2,
+        "full_completed_cohort_truncated_mean_time": 39.32169117647059,
+        "rate": 0.03676470588235294
+      },
+      "single_robot_passed_scenes": 7
+    }
+  ],
+  "current_fixed_policies": [],
+  "scope": "Same136 physical scene/state0..7; each C1 nominal compared separately to paper native fixed policy. Does not cover independent states8..11. Oracle results are excluded from fixed-policy ranking.",
+  "limitations": [
+    "Paper exceptions use affected-robot one-step stop and recovery; solver/action errors and poor single-agent diagnostics prevent attributing low success to the original paper mechanisms.",
+    "Success-conditional means, common-success paired means, and full-cohort truncated means are distinct. Earlier successful Oracle candidates are retained rather than picking fastest.",
+    "The C1 fixed first point has C2=0; it does not establish necessity of all four columns."
+  ],
+  "used_for_basis_selection": false,
+  "new_rollouts": 0,
+  "report_lines": [
+    "# 论文端口历史对照（只读复用）\n",
+    "同17个场景、状态0–7共136个物理初态；初始位置、速度、目标、半径、墙体、速度上限、步长和时限已逐条核验一致。论文使用自己的控制器与安全求解器；C1两个名义控制器分别比较。\n",
+    "下列为此前已跑的参照配置，不把所有数值冒称作者默认。已知端口异常和单机诊断限制尚未修复；本表不用于宣称原论文方法优劣，也不参与本轮删减判据。\n",
+    "| 论文方法 | 成功/136 | 成功条件均时·秒 | 全队列截断均时·秒 | 原生异常局数 | 单机通过/17 |",
+    "|---|---:|---:|---:|---:|---:|",
+    "| Wang 2017 完整死锁消解 | 35 | 18.01 | 36.84 | 119 | 7 |",
+    "| Wang 2017 一致扰动 | 35 | 18.01 | 36.84 | 119 | 7 |",
+    "| Zhang 2025 自适应风险死锁规避 | 10 | 26.83 | 39.84 | 118 | 1 |",
+    "| Zhang 2025 死锁感知控制 | 18 | 13.47 | 37.87 | 126 | 6 |",
+    "| Lee 2025 旋转木马 | 32 | 19.48 | 37.15 | 0 | 7 |",
+    "| Chen 2023 动态优先级＋右手规则＋安全走廊 | 5 | 9.20 | 39.32 | 51 | 7 |",
+    "\n新组合的Oracle是逐案例有限搜索上限，不能与上述固定参数策略混称部署成功率。下面只列已完成的C1固定参数；共同成功案例的配对时间和逐配置参数保存在PAPER_CONTEXT.json。",
+    "\n| C1组合编号 | 名义控制器 | 固定参数成功/136 | 成功条件均时·秒 |",
+    "|---|---|---:|---:|",
+    "| 尚未完成新组合固定参数 | — | — | — |",
+    "\n本表不覆盖独立状态8–11；它们虽然与两个控制器合计也为136例，却不是这里的136个物理初态。论文端口保持原参数、原实现，本轮没有新增论文rollout。"
+  ]
+}

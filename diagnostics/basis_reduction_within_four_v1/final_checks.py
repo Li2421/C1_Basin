@@ -63,6 +63,9 @@ def finish(out,gaps):
  except Exception as exc:gaps.append('非主线删减路径图未完成：'+repr(exc))
  from rebuild_candidates import rebuild
  rebuild()
+ if(HERE/'inputs/paper_context/COMPLETED_COMPARISON.json').exists():
+  from paper_context import refresh
+  refresh()
  import importlib,analysis_results
  importlib.reload(analysis_results)
  analysis_results.write_report(final=True)
