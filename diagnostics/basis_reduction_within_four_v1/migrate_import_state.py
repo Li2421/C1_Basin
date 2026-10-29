@@ -2,10 +2,9 @@
 from core import *
 from acceleration import accelerated_case
 
-def main():
- old=HERE/'inputs/import_relocation/SEARCH_reference_screen.json'
+def migrate(old):
  if not old.exists():return
- data=read(old);entries=read(HERE/'SCENES.json')['entries'];scenes={(e['type_id'],e['level']):e['scene']for e in entries};ctls={c['type_code']:c for c in controllers()};pool=read(HERE/'COMBINATIONS.json')['combinations'][0]['candidate_pool'];bridge=read(HERE/'REVISION_EQUIVALENT.json')['records'];manifest=read(HERE/'REUSE_MANIFEST.json');passages=read(HERE/'PASSAGES.json')['by_scene']
+ data=read(old);entries=read(HERE/'SCENES.json')['entries'];scenes={(e['type_id'],e['level']):e['scene']for e in entries};ctls={c['type_code']:c for c in controllers()};pool=next(c for c in read(HERE/'COMBINATIONS.json')['combinations']if c['code']==data['code'])['candidate_pool'];bridge=read(HERE/'REVISION_EQUIVALENT.json')['records'];manifest=read(HERE/'REUSE_MANIFEST.json');passages=read(HERE/'PASSAGES.json')['by_scene']
  def request(identity,index):
   t,l,ctl,si=identity;return accelerated_case(scenes[(t,l)],ctls[ctl],si,pool[index-1],purpose='basis_reduction_screen')
  for g in data['groups']:
@@ -16,7 +15,13 @@ def main():
   if g['success']:g['solution']=g['queries'][g['first_success']-1]
  if data['pending']:
   for item in data['pending']['frontier']:item['query_uid']=request(item['identity'],item['index'])['rollout_uid']
- dump(HERE/'SEARCH_reference_screen.json',data);dump(HERE/'REUSE_MANIFEST.json',manifest)
- print('Preserved reference search frontier and',sum(g['searched']for g in data['groups']),'logical query results; no new trajectory generated')
+ dump(HERE/old.name,data);dump(HERE/'REUSE_MANIFEST.json',manifest)
+ print('Preserved',data['code'],'frontier and',sum(g['searched']for g in data['groups']),'logical query results; no new trajectory generated')
+
+def main():
+ folder=HERE/'inputs/utils_relocation'
+ if not folder.exists():folder=HERE/'inputs/import_relocation'
+ for path in sorted(folder.glob('SEARCH_*.json')):
+  if path.name!='SEARCH_four_8_screen.json':migrate(path)
 
 if __name__=='__main__':main()

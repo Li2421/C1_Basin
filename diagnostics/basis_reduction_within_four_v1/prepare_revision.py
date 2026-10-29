@@ -4,7 +4,7 @@ from runner import sources
 
 def main():
  cases={}
- for folder in [HERE,HERE/'inputs/revision1',HERE/'inputs/import_relocation']:
+ for folder in [HERE,HERE/'inputs/revision1',HERE/'inputs/import_relocation',HERE/'inputs/utils_relocation']:
   for path in folder.glob('*_planned.json'):
    for c in read(path).get('exact_configs',[]):cases[c['rollout_uid']]=c
  valid={};invalid=[];unmapped=[]
@@ -12,11 +12,13 @@ def main():
   r=read(path);uid=r['rollout_uid'];c=cases.get(uid)
   if c is None:unmapped.append(uid);continue
   current=sources(c['spec']);prior=c['controller_payload']['execution_sources'];differences={k for k in current.keys()|prior.keys()if current.get(k)!=prior.get(k)}
-  allowed={str(HERE/name)for name in ['admission.py','core.py','runner.py','generated/backend/exact_projection_retry.py']}
+  allowed={str(HERE/name)for name in ['admission.py','core.py','runner.py','generated/backend/exact_projection_retry.py']}|{'private_utils'}
   assert differences and differences<=allowed,(uid,differences)
-  with np.load(r['trace'])as tr:history=json.loads(str(tr['admission_json']))
-  activated=any(any(m.get('goal_yield',[]))for step in history for m in step)
   admission_changed=prior.get(str(HERE/'admission.py'))!=current.get(str(HERE/'admission.py'))
+  activated=False
+  if admission_changed and c['spec'].get('one_way')and not c['spec'].get('legacy_admission'):
+   with np.load(r['trace'])as tr:history=json.loads(str(tr['admission_json']))
+   activated=any(any(m.get('goal_yield',[]))for step in history for m in step)
   if activated and admission_changed:
    invalid.append(dict(rollout_uid=uid,purpose=r['purpose'],reason='Goal-yield branch activated; conservatively rerun under corrected end condition.',trace=r['trace']));continue
   target=json.loads(json.dumps(c));target['controller_payload']['execution_sources']=current

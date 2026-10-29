@@ -31,7 +31,9 @@ def certify():
  if(HERE/'IMPORT_RELOCATION.json').exists()and not(HERE/'IMPORT_RELOCATION_CERT.json').exists():
   dep=read(HERE/'IMPORT_RELOCATION.json')['dependency']
   assert sha(dep['source'])==sha(dep['target'])==dep['sha256']
-  dump(HERE/'IMPORT_RELOCATION_CERT.json',dict(passed=True,episodes=200,full_trajectory_certificate='EQUIVALENCE.json',dependency=dep,canonical_module_name_preserved=True,numerical_statements_byte_identical=True))
+  utilities=read(HERE/'IMPORT_RELOCATION.json').get('utility_package',{})
+  assert all(sha(row['source'])==sha(row['target'])==row['sha256']for row in utilities.get('files',[]))
+  dump(HERE/'IMPORT_RELOCATION_CERT.json',dict(passed=True,episodes=200,full_trajectory_certificate='EQUIVALENCE.json',dependency=dep,utilities=utilities,canonical_module_name_preserved=True,numerical_statements_byte_identical=True))
  if(HERE/'ACCELERATION_CERTIFICATE.json').exists():return read(HERE/'ACCELERATION_CERTIFICATE.json')['passed']
  combos=read(HERE/'COMBINATIONS.json')['combinations'];selected=[e['scene']for e in read(HERE/'SCENES.json')['entries']if e['type_id']in(8,10,11,15,16)and read(HERE/'PASSAGES.json')['by_scene'][e['scene']['name']]['representative']]
  pairs=[]

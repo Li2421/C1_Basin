@@ -7,7 +7,7 @@ def sources(spec=None):
     paths += [ROOT/'shared_control/basis_dictionary.py',ROOT/'shared_control/hard_projection.py',ROOT/'shared_control/basis_families.py',ROOT/'shared_control/correction_b5.py']
     paths.append(HERE/'generated/backend/exact_projection_retry.py')
     
-    return {str(p):sha(p)for p in paths}|{'private_harness':digest(read(HERE/'BACKEND_BUILD.json')), 'passages':sha(HERE/'PASSAGES.json')}
+    return {str(p):sha(p)for p in paths}|{'private_harness':digest(read(HERE/'BACKEND_BUILD.json')), 'passages':sha(HERE/'PASSAGES.json'),'private_utils':digest({str(p.relative_to(HERE)):sha(p)for p in sorted((HERE/'generated/utils').rglob('*.py'))})}
 
 def case(scene,controller,index,spec=None,solo=None,force_route=None,purpose='main'):
     state=json.loads(json.dumps(scene['states'][index]));spec=spec or dict(eta=[0.,0.,0.],coefficients={})

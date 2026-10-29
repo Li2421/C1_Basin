@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "episodes": 200,
+  "full_trajectory_certificate": "EQUIVALENCE.json",
+  "dependency": {
+    "source": "/home/zhihan/research/Basin_C1/diagnostics/double_bottleneck_eta3_basin/tools/exact_projection_retry.py",
+    "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/exact_projection_retry.py",
+    "sha256": "94a478f7b1dc1897e1e3113a78fe4c4afa134cbb02ce924f4bc19befc6ce2f94",
+    "size": 9221,
+    "mtime_ns": 1790241517920781984
+  },
+  "utilities": {
+    "canonical_name": "utils",
+    "files": [
+      {
+        "source": "/home/zhihan/research/01_MACFlow_Baseline_Reproduction/MACFlow_Official/utils/scheduler.py",
+        "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/utils/scheduler.py",
+        "sha256": "75dc8893ae21606fc8cc9eb8c7e67140361faad5a5f4d68d3015797a599eeb58",
+        "size": 4062,
+        "mtime_ns": 1787553988270729342
+      },
+      {
+        "source": "/home/zhihan/research/01_MACFlow_Baseline_Reproduction/MACFlow_Official/utils/diffuser_helpers.py",
+        "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/utils/diffuser_helpers.py",
+        "sha256": "ca2e757d175ef87842e17d81b0f3e68875fbbe8e69198029c71fab2e72c79121",
+        "size": 3395,
+        "mtime_ns": 1787553988270729342
+      },
+      {
+        "source": "/home/zhihan/research/01_MACFlow_Baseline_Reproduction/MACFlow_Official/utils/__init__.py",
+        "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/utils/__init__.py",
+        "sha256": "e3c6ff9b5d0fba3c56bf3ab14b4cebd7a2b817c04191d90fd5340c6c69d45713",
+        "size": 72,
+        "mtime_ns": 1787553988266953788
+      },
+      {
+        "source": "/home/zhihan/research/01_MACFlow_Baseline_Reproduction/MACFlow_Official/utils/networks.py",
+        "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/utils/networks.py",
+        "sha256": "e60a4975964adc4c67a813c01d52ce17edd4ec3311b273b10697e15c3341b8a1",
+        "size": 16192,
+        "mtime_ns": 1787553988270729342
+      },
+      {
+        "source": "/home/zhihan/research/01_MACFlow_Baseline_Reproduction/MACFlow_Official/utils/temporal.py",
+        "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/utils/temporal.py",
+        "sha256": "a3bcc270c13aee3587a9032f0935f23c6fa32e3ef52edcd8414cf2d2f9f23bde",
+        "size": 8431,
+        "mtime_ns": 1787553988270729342
+      },
+      {
+        "source": "/home/zhihan/research/01_MACFlow_Baseline_Reproduction/MACFlow_Official/utils/replay_buffers.py",
+        "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/utils/replay_buffers.py",
+        "sha256": "eac2d2aec8ab5bbb0e7fd6aa4e8f3f487d88729c6047d248087cab41c2122a5e",
+        "size": 4517,
+        "mtime_ns": 1787553988270729342
+      },
+      {
+        "source": "/home/zhihan/research/01_MACFlow_Baseline_Reproduction/MACFlow_Official/utils/flax_utils.py",
+        "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/utils/flax_utils.py",
+        "sha256": "8a1e0a19d7fff0293bcbf1fb0c91dcf1d91ff87b52d6fab1324a70d090d260b3",
+        "size": 6693,
+        "mtime_ns": 1787553988270729342
+      },
+      {
+        "source": "/home/zhihan/research/01_MACFlow_Baseline_Reproduction/MACFlow_Official/utils/encoders.py",
+        "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/utils/encoders.py",
+        "sha256": "5e6acaa1b4cddf811c84a0ff7ec7ef9bdb84805242aae7fdd34a42a2aed65c6a",
+        "size": 3057,
+        "mtime_ns": 1787553988270729342
+      },
+      {
+        "source": "/home/zhihan/research/01_MACFlow_Baseline_Reproduction/MACFlow_Official/utils/loggers.py",
+        "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/utils/loggers.py",
+        "sha256": "111797523b539c1c3f4dcf4b86b4a1242d63fd1121dbe58fc8ebfc1a316d1bc3",
+        "size": 5170,
+        "mtime_ns": 1787561590815992857
+      }
+    ],
+    "parent_init": "docstring only, preloaded without importing numeric submodules; submodules load at their original point with unchanged source bytes"
+  },
+  "canonical_module_name_preserved": true,
+  "numerical_statements_byte_identical": true
+}
