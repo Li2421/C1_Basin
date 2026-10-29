@@ -20,9 +20,10 @@ def run_requests(cases,stage,eligible=False,worker_entry='worker_recorded.py',ce
  # will eliminate actual execution; a certified alias is never an exact hit.
  _,_,new_done=register(cases,stage+'_new_preflight')
  revision=read(HERE/'REVISION_EQUIVALENT.json')['records']if(HERE/'REVISION_EQUIVALENT.json').exists()else{}
+ import_cert=(HERE/'IMPORT_RELOCATION_CERT.json').exists()and read(HERE/'IMPORT_RELOCATION_CERT.json')['passed']
  for c in cases:
   if c['rollout_uid']in new_done:rows[c['rollout_uid']]=new_done[c['rollout_uid']];links.append(dict(target_query_uid=c['rollout_uid'],source_rollout_uid=c['rollout_uid'],kind='official_exact_reuse'));continue
-  if c['rollout_uid']in revision:
+  if c['rollout_uid']in revision and(not revision[c['rollout_uid']].get('requires_import_certificate')or import_cert):
    bridge=revision[c['rollout_uid']];old_requests.append(bridge['source_case']);links.append(dict(target_query_uid=c['rollout_uid'],source_rollout_uid=bridge['source_case']['rollout_uid'],kind='certified_semantic_alias_pending',revision_certificate='REVISION_EQUIVALENT.json'));continue
   sp=c['spec'];can_alias=eligible and certified and(not sp.get('one_way')or(no_pass and not passages[c['scene']]['passages']))and not sp.get('legacy_admission')
   if can_alias:

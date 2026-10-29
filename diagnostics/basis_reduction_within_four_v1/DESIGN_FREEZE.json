@@ -1,19 +1,20 @@
 {
-  "version": 2,
-  "time": "2026-10-29T11:05:41.859669+08:00",
+  "version": 3,
+  "time": "2026-10-29T11:25:14.211405+08:00",
   "numerical_files": {
     "admission.py": "ddabfc6df4f04fed16b2e661e5866dddfbbbde9f0255f28db4f4b5815714f8a0",
     "admission_legacy.py": "144d8828ef0b3e3f8ba10312b7e6a159a85a1903be14c117164188433b7fa350",
     "runtime.py": "4c81f3114a3a7784b2a1084f104590f47f144d7e68e7dac9dd0e1a705f44992c",
     "passages.py": "77c993a189c1dfdb87b0558f37d15043d359458ee39c15469fcca919842535c7",
-    "core.py": "62bf18fe6ef37c7c4cc561c51d4f95d0d0791da4031714fcb64fc67e6cc2f052",
-    "runner.py": "ca72295338453f6329927558a516604b7c8ffb4e98825fd53d88c4a1e61bc3e9",
+    "core.py": "c750a29e0bb1dc4982d55b64705a5f51b59763272520854d72dc164d8d01434e",
+    "runner.py": "0fca6e217e2b1eaae85c0b55bd68e0674ef3aa87276f582cee6e42a5e1f8a026",
     "budget.py": "275de8b91f3df7fe3fb6fada54c69f19bbcd8766b0af6db90fcc863de4c558c4",
     "guard.py": "53c73dc2bc74f3557e3f7320116cb34ae0cbe0a3bc3e1c8461a0af077bd9340f",
     "routes.py": "ea5b2b4c52fb48dac2f8dd35face2e1bbe8ea119dd28dfe44fb9f4f1e9a7ea61",
     "recording_fix.py": "876081056a289cfc8c5ca89be35b9efbe981efe83408f1d22427c5859623a006",
     "PASSAGES.json": "4a7011e9aafc301ebaf0e2133708e2d9a185166814bc63bf197411a731d722e3",
-    "CONTROLLERS_FROZEN.json": "3fc37bc41f0bfe0854aa0307dc0209aa814a5250353abe9006d45cc386e95077"
+    "CONTROLLERS_FROZEN.json": "3fc37bc41f0bfe0854aa0307dc0209aa814a5250353abe9006d45cc386e95077",
+    "generated/backend/exact_projection_retry.py": "94a478f7b1dc1897e1e3113a78fe4c4afa134cbb02ce924f4bc19befc6ce2f94"
   },
   "combination_generator_sha256": "896c520b93575706db9f57566611a6b533ed009b1ead60cae7b858150baabdbd",
   "initial_combinations": {
@@ -18841,5 +18842,7 @@
   "formal_rollouts_before_freeze": 0,
   "implementation_correction": "按第二节结束条件：让路角色不会因离开终点容差而取消；持续到不再满足阻挡请求条件，且不把自己当作阻挡请求者。修正前新定义覆盖结果未用于修改规则。",
   "authority_quote": "结束：不再有这样的r时，这一项为0，f由朝目标拉回终点。",
-  "previous_freeze": "inputs/revision1/DESIGN_FREEZE.json"
+  "previous_freeze": "inputs/revision1/DESIGN_FREEZE.json",
+  "private_import_cutoff_ns": 1793244314211420944,
+  "import_relocation": "Byte-identical production numerical retry dependency privately loaded under the identical canonical module name; no tolerance, solver, constraint, or retry statement changed. Prior freeze preserved ininputs/import_relocation."
 }

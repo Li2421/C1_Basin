@@ -1,0 +1,14 @@
+{
+  "time": "2026-10-29T11:24:05.902132+08:00",
+  "dependency": {
+    "source": "/home/zhihan/research/Basin_C1/diagnostics/double_bottleneck_eta3_basin/tools/exact_projection_retry.py",
+    "target": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/generated/backend/exact_projection_retry.py",
+    "sha256": "94a478f7b1dc1897e1e3113a78fe4c4afa134cbb02ce924f4bc19befc6ce2f94",
+    "size": 9221,
+    "mtime_ns": 1790241517920781984
+  },
+  "canonical_module_name": "diagnostics.double_bottleneck_eta3_basin.tools.exact_projection_retry",
+  "method": "Preload byte-identical private module under the same canonical module name, before the private production harness imports it.",
+  "numerical_code_changes": false,
+  "requires200trajectory_replays": true
+}

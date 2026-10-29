@@ -5,6 +5,7 @@ import os,time,subprocess
 def sources(spec=None):
     paths=[HERE/n for n in ('runtime.py','routes.py','core.py','runner.py','guard.py','budget.py','recording_fix.py','admission.py','admission_legacy.py','passages.py')]
     paths += [ROOT/'shared_control/basis_dictionary.py',ROOT/'shared_control/hard_projection.py',ROOT/'shared_control/basis_families.py',ROOT/'shared_control/correction_b5.py']
+    paths.append(HERE/'generated/backend/exact_projection_retry.py')
     
     return {str(p):sha(p)for p in paths}|{'private_harness':digest(read(HERE/'BACKEND_BUILD.json')), 'passages':sha(HERE/'PASSAGES.json')}
 

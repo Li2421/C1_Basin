@@ -4,6 +4,14 @@ from guard import HERE,ROOT
 import sys
 sys.path.insert(0,str(ROOT))
 sys.path.insert(0,str(HERE/'generated'))
+# Preserve the production module identity while loading its byte-identical
+# retry implementation exclusively from this experiment's private copy.
+import importlib.util
+_retry_name='diagnostics.double_bottleneck_eta3_basin.tools.exact_projection_retry'
+_retry_spec=importlib.util.spec_from_file_location(_retry_name,HERE/'generated/backend/exact_projection_retry.py')
+_retry_module=importlib.util.module_from_spec(_retry_spec)
+sys.modules[_retry_name]=_retry_module
+_retry_spec.loader.exec_module(_retry_module)
 import bootstrap
 import runtime_new as RN
 import hashlib,json,math

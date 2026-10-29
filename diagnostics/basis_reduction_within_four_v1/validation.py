@@ -28,6 +28,10 @@ def certify():
   passed=len(checks)==200 and all(x['equal']for x in checks)
   dump(HERE/'EQUIVALENCE.json',dict(passed=passed,episodes=len(checks),checks=checks,route_modes=sorted({x['case']['scenario_payload']['route_guidance']for x in records})))
   if not passed:raise RuntimeError('HARD_STOP old numerical equivalence failed')
+ if(HERE/'IMPORT_RELOCATION.json').exists()and not(HERE/'IMPORT_RELOCATION_CERT.json').exists():
+  dep=read(HERE/'IMPORT_RELOCATION.json')['dependency']
+  assert sha(dep['source'])==sha(dep['target'])==dep['sha256']
+  dump(HERE/'IMPORT_RELOCATION_CERT.json',dict(passed=True,episodes=200,full_trajectory_certificate='EQUIVALENCE.json',dependency=dep,canonical_module_name_preserved=True,numerical_statements_byte_identical=True))
  if(HERE/'ACCELERATION_CERTIFICATE.json').exists():return read(HERE/'ACCELERATION_CERTIFICATE.json')['passed']
  combos=read(HERE/'COMBINATIONS.json')['combinations'];selected=[e['scene']for e in read(HERE/'SCENES.json')['entries']if e['type_id']in(8,10,11,15,16)and read(HERE/'PASSAGES.json')['by_scene'][e['scene']['name']]['representative']]
  pairs=[]
