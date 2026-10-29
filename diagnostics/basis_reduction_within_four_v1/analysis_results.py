@@ -109,8 +109,9 @@ def write_report(final=False):
   parent='；'.join(combo_map[n]['name']for n in x['parents'])or(combo_map['reference']['name']if x['dimension']==4 else'五项参照');cov64=str(x['coverage']['64'])if x['complete64']else('未补搜'if x['screening']else'未完成')
   ci=x.get('paired64');cistr=f"{ci['difference']:.4f} {ci['ci95']}"if ci else'待完整64次证据';hard='/'.join(str(x['hard_by_type'].get(str(t),0))for t in(8,10,15,16))if x['complete64']else'未完成'
   fp=x['fixed'];fix=f"{fp['states']['0']['success']}/{fp['states']['0']['cases']}；{fp['states']['8']['success']}/{fp['states']['8']['cases']}"if fp else'未运行'
-  lines.append(f"| {x['name']}（{x['dimension']}） | {parent} | {x['coverage']['16']}/{cov64} | {hard} | {cistr} | {x['qualified']} | {x['first_success_median']} | {fix} |")
- lines+=['\n配对区间按物理场景/初态分块，两个控制器保留在同一块，10000次自助抽样。未补到64次的组合不被当作64次失败；其与参照的16次配对差保存在REDUCTION.json。目标列删除后修正系数为零，原名义安全动作仍存在；保留时系数下界0.5，两个参数域严格分开。达标是规定的总覆盖判据，逐案例新增和损失另存JSON，不能解释成成功集合的包含关系。',
+  cov16=str(x['coverage']['16'])if x['complete16']else(f"已覆盖{x['coverage']['16']}·提前停"if x.get('user_early_stop')else'未完成')
+  lines.append(f"| {x['name']}（{x['dimension']}） | {parent} | {cov16}/{cov64} | {hard} | {cistr} | {x['qualified']} | {x['first_success_median']} | {fix} |")
+ lines+=['\n配对区间按物理场景/初态分块，两个控制器保留在同一块，10000次自助抽样。未补到64次的组合不被当作64次失败；其与参照的完整16次配对差保存在REDUCTION.json。提前停止的16次覆盖只报告已执行下界，不冒充完整Oracle@16。“不比参照差”沿用说明中的经验容差判据（总覆盖少至多5例、困难案例少至多1例），不是统计非劣效检验的结论。目标列删除后修正系数为零，原名义安全动作仍存在；保留时系数下界0.5，两个参数域严格分开。达标是规定的总覆盖判据，逐案例新增和损失另存JSON，不能解释成成功集合的包含关系。',
          '\n独立放行强度的参数盒为[0.5,1]；绑定到目标旋转绝对值后可低于0.5，删除放行项时则为0。这些是说明规定的不同参数域，较少系数的结果不能单独证明一个连续线性基的秩结论。各组合的64点按规定投影、去重和补齐，并非彼此嵌套的完整连续参数域；较小组合的有限搜索覆盖高于五项参照，不表示其连续表达能力更强。',
          '\n## 逐类替代效果\n','| 场景类型 | '+ ' | '.join(combo_map[c]['name']for c in ['reference','four_8']+sorted(qualified_codes))+' |','|---|'+'---:|'*(2+len(qualified_codes))]
  for x in types:lines.append('| '+x['title']+' | '+' | '.join(str(x['combinations'][code]['coverage64'])if x['combinations'][code]['complete64']else'未完成'for code in ['reference','four_8']+sorted(qualified_codes))+' |')
