@@ -104,7 +104,7 @@ def write_report(final=False):
   fp=x['fixed'];fix=f"{fp['states']['0']['success']}/{fp['states']['0']['cases']}；{fp['states']['8']['success']}/{fp['states']['8']['cases']}"if fp else'未运行'
   lines.append(f"| {x['name']}（{x['dimension']}） | {parent} | {x['coverage']['16']}/{cov64} | {hard} | {cistr} | {x['qualified']} | {x['first_success_median']} | {fix} |")
  lines+=['\n配对区间按物理场景/初态分块，两个控制器保留在同一块，10000次自助抽样。未补到64次的组合不被当作64次失败；其与参照的16次配对差保存在REDUCTION.json。目标列删除后修正系数为零，原名义安全动作仍存在；保留时系数下界0.5，两个参数域严格分开。达标是规定的总覆盖判据，逐案例新增和损失另存JSON，不能解释成成功集合的包含关系。',
-         '\n独立放行强度的参数盒为[0.5,1]；绑定到目标旋转绝对值后可低于0.5，删除放行项时则为0。这些是说明规定的不同参数域，较少系数的结果不能单独证明一个连续线性基的秩结论。',
+         '\n独立放行强度的参数盒为[0.5,1]；绑定到目标旋转绝对值后可低于0.5，删除放行项时则为0。这些是说明规定的不同参数域，较少系数的结果不能单独证明一个连续线性基的秩结论。各组合的64点按规定投影、去重和补齐，并非彼此嵌套的完整连续参数域；较小组合的有限搜索覆盖高于五项参照，不表示其连续表达能力更强。',
          '\n## 逐类替代效果\n','| 场景类型 | '+ ' | '.join(combo_map[c]['name']for c in ['reference','four_8']+sorted(qualified_codes))+' |','|---|'+'---:|'*(2+len(qualified_codes))]
  for x in types:lines.append('| '+x['title']+' | '+' | '.join(str(x['combinations'][code]['coverage64'])if x['combinations'][code]['complete64']else'未完成'for code in ['reference','four_8']+sorted(qualified_codes))+' |')
  lines+=['\n## 成功时间与搜索成本\n','下表均值对应各组合实际搜索预算与各自成功子集；不同子集的条件时间不能直接作配对速度排名。','\n| 组合 | 首次成功组数均值 | 成功任务完成均时·秒 | 已完成逻辑查询数 |','|---|---:|---:|---:|']
@@ -135,6 +135,13 @@ def write_report(final=False):
   for line in paper_lines:
    for code,name in sorted(combo_names.items(),key=lambda kv:-len(kv[0])):line=line.replace('| '+code+' |','| '+name+' |')
    lines.append(line.replace('# 论文端口历史对照','## 论文端口历史对照'))
+ certificate=load('ACCELERATION_CERTIFICATE.json')
+ if certificate:
+  original=certificate.get('original_seconds');fast=certificate.get('fast_seconds')
+  saving=f'原路径{original:.2f}秒，加速路径{fast:.2f}秒，节省{original-fast:.2f}秒（{100*(original-fast)/original:.2f}%）'if original and fast is not None else'计时见证书'
+  lines+=['\n## 保持结果不变的工程加速\n',
+          '启用四项：复用相同稀疏约束矩阵数组、以NumPy计算相同Threefry随机键折叠、剔除不可能贡献的远墙代价、预筛不可能活跃的远墙约束。加速模块哈希与上一轮一致。',
+          f"旧路径{certificate.get('old_replays',0)}局完整轨迹重放、新路径{certificate.get('new_pairs',0)}对原路径与加速路径对跑，逐步数组与结局核对{'通过'if certificate.get('passed')else'未通过'}。认证对跑样本的实测墙钟合计：{saving}。该计时不包含导入、排队与协调开销，也不外推为整轮相同加速比例。详见[加速证书](ACCELERATION_CERTIFICATE.json)。"]
  lines+=['\n每个组合的成功任务条件均时、首次成功组数均值、原始候选计算开销另见REDUCTION.json和candidates.jsonl。超时只标为64次内未找到，失败分型是已执行代表轨迹的诊断，不是整个连续修正族的不可能性证书。']
  (HERE/'REPORT.md').write_text('\n'.join(lines).replace('None','—')+'\n');return out
 

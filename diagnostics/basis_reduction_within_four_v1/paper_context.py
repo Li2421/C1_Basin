@@ -36,6 +36,7 @@ def historical():
 
 def refresh():
  history=historical();policies=[]
+ combo_names={c['code']:c['name']for c in read(HERE/'COMBINATIONS.json')['combinations']}
  for file in sorted(HERE.glob('FIXED_*_screen.json')):
   data=read(file);code=data['code']
   for controller,label in [('centralized_sampling','集中式随机采样模型预测控制'),('gradient_mpc','梯度下降模型预测控制')]:
@@ -50,8 +51,9 @@ def refresh():
  lines=['# 论文端口历史对照（只读复用）\n','同17个场景、状态0–7共136个物理初态；初始位置、速度、目标、半径、墙体、速度上限、步长和时限已逐条核验一致。论文使用自己的控制器与安全求解器；C1两个名义控制器分别比较。\n','下列为此前已跑的参照配置，不把所有数值冒称作者默认。已知端口异常和单机诊断限制尚未修复；本表不用于宣称原论文方法优劣，也不参与本轮删减判据。\n','| 论文方法 | 成功/136 | 成功条件均时·秒 | 全队列截断均时·秒 | 原生异常局数 | 单机通过/17 |','|---|---:|---:|---:|---:|---:|']
  for p in out['historical_profiles']:
   x=p['overall'];lines.append(f"| {p['name']} | {x['success']} | {x['success_mean_time']:.2f} | {x['full_completed_cohort_truncated_mean_time']:.2f} | {x['original_first_error_unknown']} | {p['single_robot_passed_scenes']} |")
- lines+=['\n新组合的Oracle是逐案例有限搜索上限，不能与上述固定参数策略混称部署成功率。下面只列已完成的C1固定参数；共同成功案例的配对时间和逐配置参数保存在PAPER_CONTEXT.json。','\n| C1组合编号 | 名义控制器 | 固定参数成功/136 | 成功条件均时·秒 |','|---|---|---:|---:|']
- for p in policies:lines.append(f"| {p['code']} | {p['nominal_name']} | {p['success']} | {p['success_mean_time']} |")
+ lines+=['\n表中成功数采用此前统一异常处理协议：受影响机器人在出错当步动作置零，后续步骤重新尝试；原生首错即未知的局数另列。一次对局可能既出现原生异常又在继续运行后成功，因此两列不能相加划分结局。',
+         '\n新组合的Oracle是逐案例有限搜索上限，不能与上述固定参数策略混称部署成功率。下面只列已完成的C1固定参数；共同成功案例的配对时间和逐配置参数保存在PAPER_CONTEXT.json。','\n| C1组合 | 名义控制器 | 固定参数成功/136 | 成功条件均时·秒 |','|---|---|---:|---:|']
+ for p in policies:lines.append(f"| {combo_names.get(p['code'],p['code'])} | {p['nominal_name']} | {p['success']} | {p['success_mean_time']} |")
  if not policies:lines.append('| 尚未完成新组合固定参数 | — | — | — |')
  lines+=['\n本表不覆盖独立状态8–11；它们虽然与两个控制器合计也为136例，却不是这里的136个物理初态。论文端口保持原参数、原实现，本轮没有新增论文rollout。']
  out['report_lines']=lines;dump(HERE/'PAPER_CONTEXT.json',out);(HERE/'PAPER_CONTEXT.md').write_text('\n'.join(lines)+'\n');return out
