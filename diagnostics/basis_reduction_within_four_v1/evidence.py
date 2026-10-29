@@ -32,7 +32,7 @@ def legacy_case(scene,ctl,si,spec):
  c['rollout_uid']=db.uid('roll',dict(state=c['state_uid'],eta=c['eta_uid'],controller=c['controller_uid'],seed=c['seed_key']))
  return c
 
-def run_requests(cases,stage,eligible=False,worker_entry='worker_recorded.py',ceiling=80000):
+def run_requests(cases,stage,eligible=False,worker_entry='worker_recorded.py',ceiling=80000,resolve_only=False):
  cases=list({c['rollout_uid']:c for c in cases}.values());rows={};missing=[];old_requests=[];links=[]
  certified=(HERE/'EQUIVALENCE.json').exists()and read(HERE/'EQUIVALENCE.json')['passed']
  no_pass=(HERE/'NO_PASSAGE_EQUIVALENCE.json').exists()and read(HERE/'NO_PASSAGE_EQUIVALENCE.json')['passed']
@@ -73,11 +73,11 @@ def run_requests(cases,stage,eligible=False,worker_entry='worker_recorded.py',ce
    if requested[uid]['spec'].get('one_way')and not passages[requested[uid]['scene']]['passages']:
     link['logical_admission_history']=dict(encoding='constant empty state for every step',steps=r['episode_length'],passage_turns=[],goal_yielders=[],reason='Frozen geometry contains no passage; sourceNPZ is immutable and need not contain the later diagnostic field.')
    rows[uid]=dict(r,logical_query_uid=uid,reuse_reason=link['kind'])
- if missing:
+ if missing and not resolve_only:
   if used()+len(missing)>ceiling:raise PriorityPause('Insufficient new-launch allowance after exact and certified reuse; priority reservation retained')
   for r in execute(missing,stage,worker_entry=worker_entry):rows[r['rollout_uid']]=r
  manifest=HERE/'REUSE_MANIFEST.json';m=read(manifest)if manifest.exists()else dict(records={})
  for link in links:
   if link['kind']in('official_exact_reuse','certified_semantic_alias'):m['records'][link['target_query_uid']]=dict(link,stage=stage)
  dump(manifest,m);dump(HERE/f'{stage}_all_requests.json',dict(exact_configs=cases,records=links))
- return rows
+ return (rows,missing)if resolve_only else rows

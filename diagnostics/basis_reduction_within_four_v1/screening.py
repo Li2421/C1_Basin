@@ -85,6 +85,13 @@ def search(combo,cap,make,scope='screen',floor=80000):
   from analysis_results import write_report
   write_report();return True
  if prune_if_unhelpful():return state
+ if code.startswith(('level3_','level2_'))and(HERE/'CHAIN_SCHEDULING_POLICY.json').exists():
+  from chain_search import run as run_chain
+  checkpoints=[8,12,16]if cap==16 else[cap]
+  for checkpoint in checkpoints:
+   run_chain(state,path,request,combo,checkpoint,floor)
+   if prune_if_unhelpful():return state
+  return state
  for k in range(1,cap+1):
   if prune_if_unhelpful():return state
   active=[g for g in state['groups']if not g['success']and not g['gap']and g['searched']<k]

@@ -1,0 +1,19 @@
+{
+  "time": "2026-10-29T23:35:34.821681+08:00",
+  "passed": true,
+  "archived_state_prefix_replays": 13056,
+  "datasets": [
+    "SEARCH_four_1_screen.json",
+    "SEARCH_four_2_screen.json",
+    "SEARCH_four_3_screen.json",
+    "SEARCH_four_4_screen.json",
+    "SEARCH_four_5_screen.json",
+    "SEARCH_four_8_screen.json",
+    "SEARCH_level3_01_screen.json",
+    "SEARCH_reference_screen.json"
+  ],
+  "extra_unknown_and_stop_checks": 2,
+  "numerical_sources_unchanged": 22,
+  "new_rollouts": 0,
+  "scope": "Bookkeeping/scheduling contract only. The numerical runner, nominal, solver, scene, seed, coefficient pool and per-case candidate order remain unchanged."
+}

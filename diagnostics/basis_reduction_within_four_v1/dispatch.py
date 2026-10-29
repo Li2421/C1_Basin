@@ -15,7 +15,7 @@ def status(stage,complete,total,extra=''):
     estimate=eta.get('description','预计剩余时间：等待主线吞吐样本；成功即停使实际运行量尚未确定。')
     (HERE/'STATUS.md').write_text(f'# 当前状态\n\n{current}：{stage}，完成 {complete}/{total}，本轮已有 {len(rows)} 局完整结果。CPU 用户总上限 {allowance()}，GPU 0。\n\n{extra}\n\n{estimate}\n\n旧实验目录只读。数值 unknown 保留，不自动重跑；基础设施失败仅补交未完成 UID，每阶段最多三次。本轮研究五项删减与三种预定绑定；自由系数不超过四个，固定规则筛选。\n')
 
-def execute(cases,stage,worker_entry='worker_recorded.py'):
+def execute(cases,stage,worker_entry='worker_recorded.py',max_submissions=4,progress_callback=None):
     if (HERE/'PROTECTION_VIOLATION.jsonl').exists():raise RuntimeError('HARD_STOP protection event')
     cases,todo,done=register(cases,stage)
     if worker_entry in ('runner.py','worker_recorded.py') and cases and all(c['controller_payload'].get('exact_acceleration') for c in cases):worker_entry='worker_accel.py'
@@ -29,7 +29,7 @@ def execute(cases,stage,worker_entry='worker_recorded.py'):
     first_new=previous[0]['missing']if previous else len(todo)
     invocation_new=len(todo)
     t0=time.monotonic();attempts=list(previous)
-    for retry in range(len(previous),4):
+    for retry in range(len(previous),max_submissions):
         if not todo:break
         if retry:
             # Recover a completed journal even if the worker died before its
@@ -72,6 +72,7 @@ def execute(cases,stage,worker_entry='worker_recorded.py'):
         dump(HERE/f'{stage}_jobs.json',attempts);print(stage,'SUBMITTED',jobid,'workers',workers,'missing',len(todo),flush=True)
         pending_since=time.monotonic();observed_running=False;last_status=0.
         while True:
+            if progress_callback is not None:progress_callback()
             if(HERE/'PROTECTION_VIOLATION.jsonl').exists():
                 subprocess.run(['scancel','--name',name],check=True);raise RuntimeError('HARD_STOP protection event')
             current=subprocess.check_output(['squeue','-h','-j',jobid,'-o','%T|%C'],text=True).splitlines()

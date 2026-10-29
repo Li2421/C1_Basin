@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "cache_only": true,
+      "passed": true,
+      "groups": 2,
+      "new_rollouts": 0
+    },
+    {
+      "cache_only": false,
+      "passed": true,
+      "groups": 2,
+      "new_rollouts": 0
+    }
+  ],
+  "new_rollouts": 0,
+  "scope": "Coordinator-only fixtures; no simulator, official database or worker process invoked."
+}

@@ -10,7 +10,7 @@ def observe():
  names={c['code']:c['name']for c in load('COMBINATIONS.json').get('combinations',[])}
  states=[]
  for p in sorted(HERE.glob('SEARCH_*_screen.json')):
-  d=json.loads(p.read_text());gs=d['groups'];states.append(dict(code=d['code'],name=names.get(d['code'],'旧合成一列对照'if d['code']=='legacy_b'else d['code']),covered16=sum(g['success']and g['first_success']<=16 for g in gs),covered64_lower_bound=sum(g['success']for g in gs),hard_covered=sum(g['success']for g in gs if tuple(g['identity'])in hard),searched=sum(g['searched']for g in gs),pending=(d.get('pending')or{}).get('stage'),complete64=bool(gs)and all(g['success']or g['searched']==64 for g in gs)))
+  d=json.loads(p.read_text());gs=d['groups'];states.append(dict(code=d['code'],name=names.get(d['code'],'旧合成一列对照'if d['code']=='legacy_b'else d['code']),covered16=sum(g['success']and g['first_success']<=16 for g in gs),covered64_lower_bound=sum(g['success']for g in gs),hard_covered=sum(g['success']for g in gs if tuple(g['identity'])in hard),searched=sum(g['searched']for g in gs),pending=(d.get('pending')or{}).get('stage')or d.get('chain_pending'),complete64=bool(gs)and all(g['success']or g['searched']==64 for g in gs)))
  data=dict(time=datetime.datetime.now().astimezone().isoformat(),stage=live.get('stage'),stage_complete=live.get('stage_complete'),stage_total=live.get('stage_total'),actual_attempts=budget.get('actual_attempts',0),active_cpus=sum(int(r[3])for r in active),cpu_limit=18,protection_event=(HERE/'PROTECTION_VIOLATION.jsonl').exists(),completion=load('COMPLETE.json').get('complete'),searches=states)
  with(HERE/'automatic_observations.jsonl').open('a')as f:f.write(json.dumps(data)+'\n')
  return data

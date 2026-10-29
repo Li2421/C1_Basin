@@ -1,0 +1,25 @@
+{
+  "time": "2026-10-29T23:45:23.777390+08:00",
+  "scope": "Lower-dimensional Oracle scheduling only, including conditional full-scene runs.",
+  "authorization": "User asks faster execution without changing effects/task; discretionary early stopping remains separate.",
+  "checkpoints_for_initial_screen": [
+    8,
+    12,
+    16
+  ],
+  "cap_for_extension": 64,
+  "request_order": "Same frozen pool index per case; stop immediately at first success. No speculative later candidate execution.",
+  "numerical_entrypoint": "The unchanged runner.work(request), original acceleration loader and recording-only adapter.",
+  "known_results": "Resolve official exact and already-certified semantic reuse before scheduling. Register/preflight potential candidates; unexecuted potential candidates remain unknown.",
+  "parallelism": "One CPU per worker; global18CPU including coordinator; UID and group locks prevent duplicate work.",
+  "merger": "Only coordinator invokes official merger after workers exit; every consumed source row is read back.",
+  "infra_retries": "At most4array submissions per cap, initial plus3retries; completed UIDs retained.",
+  "checks": [
+    "CHAIN_BOOKKEEPING_CHECK.json",
+    "CHAIN_COORDINATOR_CHECK.json"
+  ],
+  "unchanged_numeric_sources": 22,
+  "kernel_or_controller_changes": 0,
+  "new_rollouts_for_scheduling_checks": 0,
+  "expected_benefit": "Avoid a separate Slurm startup/barrier per eta frontier; actual saving measured after execution, not inferred as an already observed speedup."
+}
