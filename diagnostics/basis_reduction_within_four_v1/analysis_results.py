@@ -48,12 +48,15 @@ def fixed_counts(code,scope='screen',plus=False):
   result[str(start)]=dict(cases=len(rr),observed=len(known),success=len(success),mean_success_time=float(np.mean([r['completion_time']for r in success]))if success else None,mean_truncated_time=float(np.mean([r['truncated_time']for r in known]))if known else None)
  return dict(complete=data['complete'],states=result)
 
-def write_report():
+def write_report(final=False):
  data=load('COMBINATIONS.json');r=metrics('reference');rows=[]
  for c in data['combinations']:
   m=metrics(c['code']);row={k:v for k,v in m.items()if k!='groups'};row.update(code=c['code'],name=c['name'],dimension=c['dimension'],parents=c['parents'],qualified=qualified(c['code']),fixed=fixed_counts(c['code']),screening=load(f'SCREENED_{c["code"]}.json'))
   if r['complete16']and m['complete16']:row['paired16']=paired(vector(r,16),vector(m,16))
-  if r['complete64']and m['complete64']:row['paired64']=paired(vector(r,64),vector(m,64))
+  if r['complete64']and m['complete64']:
+   av,bv=vector(r,64),vector(m,64);row['paired64']=paired(av,bv)
+   row['lost_vs_reference']=[list(k)for k in sorted(av)if av[k]and not bv[k]]
+   row['gained_vs_reference']=[list(k)for k in sorted(av)if not av[k]and bv[k]]
   row['coverage4x']={str(k):sum(g['success']and g['first_success']<=k and g['solution']['result']['episode_length']<=scenes()[tuple(g['identity'][:2])]['time_limits']['4']['max_steps']for g in m['groups'])for k in(16,64)}
   rows.append(row)
  q=sorted([x for x in rows if x['dimension']<=4 and x['qualified']],key=lambda x:(x['dimension'],-x['coverage']['64'],x['code']));minimum=q[0]if q else None
@@ -67,23 +70,25 @@ def write_report():
  out['by_type']=types;dump(HERE/'REDUCTION.json',out)
  if minimum:
   opening=f"当前完成的有限候选中，最少自由系数为{minimum['dimension']}，组合是{minimum['name']}；覆盖{minimum['coverage']['64']}/272、困难案例{minimum['hard64']}/40。参照为{r['coverage']['64']}/272、{r['hard64']}/40；原四列为{metrics('four_8')['coverage']['64']}/272、{metrics('four_8')['hard64']}/40。尚未完成的下一级不能据此排除。"
- else:opening='当前尚未验证出满足判据的四系数以内组合；只有已完成规定搜索的组合才能作删减结论。'
+ else:opening=('本轮冻结规则筛选的候选中未找到满足判据的四系数以内组合。'if final else'当前尚未验证出满足判据的四系数以内组合；只有已完成规定搜索的组合才能作删减结论。')
+ if final and minimum:opening=opening.replace('尚未完成的下一级不能据此排除。','结论限于按预定规则实际完成的组合与有限候选；未完成部分见证据缺口。')
  binding_results=[];replacement=[]
  combo_map={c['code']:c for c in data['combinations']}
  for x in q:
   c=combo_map[x['code']]
   if c['bindings']:binding_results.append(x['name'])
+  if not x['parents']and x['dimension']==4:replacement.append(combo_map['reference']['name']+' → '+x['name'])
   for parent in x['parents']:replacement.append(combo_map[parent]['name']+' → '+x['name'])
  lines=['# 四系数以内的删减与合并\n',opening,'\n可合并的已验证组合：'+('；'.join(binding_results)if binding_results else'尚无完成证据')+'。可替代关系：'+('；'.join(replacement)if replacement else'尚无完成证据')+'。',
-        '\n名义控制器为集中式随机采样模型预测控制、梯度下降模型预测控制。原两次安全投影、动力学、场景和时限保持冻结。所有Oracle是直接按顺序搜索系数；首次成功即停，不使用生成器或评判器。',
+        '\n名义控制器为集中式随机采样模型预测控制、梯度下降模型预测控制。原两次安全投影、动力学、场景和时限保持冻结。所有Oracle是直接按顺序搜索系数；首次成功即停，不使用生成器或评判器。本轮维度指自由系数数目；通道项包含状态与输入缩放。',
         '\n| 组合（自由系数） | 父组合 | 覆盖16/64·272例 | 困难64：窄门/长走廊/四房间/仓库 | 与参照64配对差及95%区间 | 不比参照差 | 首次成功序号中位数 | 固定参数0–7/8–11 |',
         '|---|---|---|---|---|---|---|---|']
  for x in rows:
-  parent='；'.join(combo_map[n]['name']for n in x['parents'])or'第一级预定组合';cov64=str(x['coverage']['64'])if x['complete64']else('未补搜'if x['screening']else'未完成')
+  parent='；'.join(combo_map[n]['name']for n in x['parents'])or(combo_map['reference']['name']if x['dimension']==4 else'五项参照');cov64=str(x['coverage']['64'])if x['complete64']else('未补搜'if x['screening']else'未完成')
   ci=x.get('paired64');cistr=f"{ci['difference']:.4f} {ci['ci95']}"if ci else'待完整64次证据';hard='/'.join(str(x['hard_by_type'].get(str(t),0))for t in(8,10,15,16))if x['complete64']else'未完成'
   fp=x['fixed'];fix=f"{fp['states']['0']['success']}/{fp['states']['0']['cases']}；{fp['states']['8']['success']}/{fp['states']['8']['cases']}"if fp else'未运行'
   lines.append(f"| {x['name']}（{x['dimension']}） | {parent} | {x['coverage']['16']}/{cov64} | {hard} | {cistr} | {x['qualified']} | {x['first_success_median']} | {fix} |")
- lines+=['\n配对区间按物理场景/初态分块，两个控制器保留在同一块，10000次自助抽样。未补到64次的组合不被当作64次失败；其与参照的16次配对差保存在REDUCTION.json。目标列删除后为零，保留时系数下界0.5，两个参数域严格分开。',
+ lines+=['\n配对区间按物理场景/初态分块，两个控制器保留在同一块，10000次自助抽样。未补到64次的组合不被当作64次失败；其与参照的16次配对差保存在REDUCTION.json。目标列删除后修正系数为零，原名义安全动作仍存在；保留时系数下界0.5，两个参数域严格分开。达标是规定的总覆盖判据，逐案例新增和损失另存JSON，不能解释成成功集合的包含关系。',
          '\n## 逐类替代效果\n','| 场景类型 | '+ ' | '.join(combo_map[c]['name']for c in ['reference','four_8']+sorted(qualified_codes))+' |','|---|'+'---:|'*(2+len(qualified_codes))]
  for x in types:lines.append('| '+x['title']+' | '+' | '.join(str(x['combinations'][code]['coverage64'])if x['combinations'][code]['complete64']else'未完成'for code in ['reference','four_8']+sorted(qualified_codes))+' |')
  lines+=['\n## 固定点与时限\n','主固定点为朝目标0.875、互斥分离0.375、目标旋转−0.75、净空0、独立放行1，再按组合规则投影。状态8–11未参加搜索。上一轮+0.75点仅作衔接，另列，不参与判据。4倍成败仅截取同次6倍搜索中的首次成功轨迹。','\n| 衔接对象 | +0.75固定点状态0–7/8–11 |','|---|---|']
@@ -92,6 +97,17 @@ def write_report():
   if f:lines.append('| '+combo_map[code]['name']+' | '+ '/'.join(str(f['states'][str(k)]['success'])for k in(0,8))+' |')
  for name,title in [('CORRECTIONS_ANALYSIS.json','两处定义修正与旧伤害案例'),('FAILURE_ANALYSIS.json','失败分型')]:
   if(HERE/name).exists():lines.append(f'\n[{title}]({name})\n')
+ correction=load('CORRECTIONS_ANALYSIS.json')
+ if correction:
+  lines+=['\n## 两处定义修正的实测效果\n','旧合成一列与修正后五项参照使用相同的四项系数和放行强度，比较限于该冻结有限池。历史8个让行湾伤害来自旧三项菜单，单列保留，不能与旧合成一列混称。','\n| 场景 | 旧合成一列16/64 | 新参照16/64 |','|---|---|---|']
+  for x in correction['by_type']:lines.append(f"| {x['title']} | {x['old']['16']}/{x['old']['64']} | {x['new']['16']}/{x['new']['64']} |")
+  lines+=['\n| 让行湾原伤害案例 | 新参照16次 | 新参照64次 | 首次成功序号 |','|---|---|---|---|']
+  controller_names={'centralized_sampling':'集中式随机采样模型预测控制','gradient_mpc':'梯度下降模型预测控制'}
+  for x in correction['eight_bay_harms']:lines.append(f"| {controller_names[x['identity'][2]]}·初态{x['identity'][3]} | {x['new_success16']} | {x['new_success64']} | {x['new_first_success']} |")
+ failure=load('FAILURE_ANALYSIS.json')
+ if failure:
+  lines+=['\n## 困难案例的失败轨迹分型\n','以下只分型64次内未找到成功的案例所执行的末次候选，不把其诊断推广成整个修正族的数学缺陷。首次候选和独立标志同时保存在JSON。','\n| 组合 | 末次候选分类计数 |','|---|---|']
+  for code,counts in failure['counts'].items():lines.append('| '+combo_map[code]['name']+' | '+json.dumps(counts['final_candidate'],ensure_ascii=False)+' |')
  for path in sorted(HERE.glob('ALLSCENE_*.json')):
   full=read(path);lines+=full.get('report_lines',[])
  lines+=['\n每个组合的成功任务条件均时、首次成功组数均值、原始候选计算开销另见REDUCTION.json和candidates.jsonl。超时只标为64次内未找到，失败分型是已执行代表轨迹的诊断，不是整个连续修正族的不可能性证书。']

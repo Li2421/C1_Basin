@@ -15,7 +15,7 @@ def main():
    x=i-(len(items)-1)/2;y=dim;positions[c['code']]=(x,y);r=rows[c['code']];color='#2a9d8f'if r['qualified']else'#aaaaaa'
    ax.scatter(x,y,c=color,s=180,zorder=3);ax.text(x,y+.1,f"{c['code']}\n{r['coverage']['64']}/272",ha='center',fontsize=8)
  for c in cs:
-  for p in c['parents']:
+  for p in(c['parents']or(['reference']if c['dimension']==4 else[])):
    if p in positions:ax.annotate('',xy=positions[c['code']],xytext=positions[p],arrowprops=dict(arrowstyle='->',color='#bbbbbb',lw=.8))
  ax.set_yticks([2,3,4,5]);ax.set_ylabel('Free coefficients');ax.set_xticks([]);ax.set_title('Frozen reduction paths (green: meets coverage criterion)');ax.grid(axis='y',alpha=.2)
  fig.tight_layout();fig.savefig(HERE/'reduction_paths.png',dpi=180);fig.savefig(HERE/'reduction_paths.svg')

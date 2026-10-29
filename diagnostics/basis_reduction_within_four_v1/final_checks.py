@@ -57,9 +57,13 @@ def finish(out,gaps):
  try:
   subprocess.run(['/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1-plots/bin/python',str(HERE/'plot_reduction.py')],check=True)
  except Exception as exc:gaps.append('非主线删减路径图未完成：'+repr(exc))
- from analysis_results import write_report
- write_report()
+ from rebuild_candidates import rebuild
+ rebuild()
+ import importlib,analysis_results
+ importlib.reload(analysis_results)
+ analysis_results.write_report(final=True)
  with(HERE/'REPORT.md').open('a')as f:f.write('\n结束完整性：'+str(passed)+'。最小组合全场景触发条件为困难案例至少36/40。新运行数：'+str(read(HERE/'BUDGET.json')['actual_attempts'])+'，硬上限80000。\n')
- dump(HERE/'COMPLETE.json',dict(complete=not gaps,required_numeric_work_complete=not any(not g.startswith('非主线')for g in gaps),integrity_passed=passed,finished=datetime.datetime.now().astimezone().isoformat(),actual_attempts=read(HERE/'BUDGET.json')['actual_attempts'],hard_limit=80000,minimum=minimum,report=str(HERE/'REPORT.md'),gaps=gaps))
+ numeric_complete=not any(not g.startswith('非主线')for g in gaps)
+ dump(HERE/'COMPLETE.json',dict(complete=numeric_complete and passed,required_numeric_work_complete=numeric_complete,integrity_passed=passed,finished=datetime.datetime.now().astimezone().isoformat(),actual_attempts=read(HERE/'BUDGET.json')['actual_attempts'],hard_limit=80000,minimum=minimum,report=str(HERE/'REPORT.md'),gaps=gaps))
  (HERE/'GAPS.md').write_text('# 证据缺口\n\n'+('\n'.join('- '+g for g in gaps)if gaps else'规定数值实验与交付已完成；有限候选未成功不是连续参数空间不可解证明。')+'\n')
  (HERE/'STATUS.md').write_text('# 当前状态\n\n'+('本轮完成。'if not gaps else'本轮结果已保存，存在证据缺口。')+'详见REPORT.md、REDUCTION.json、COMPLETE.json。\n')
