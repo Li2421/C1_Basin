@@ -1,0 +1,105 @@
+{
+  "time": "2026-10-30T13:45:01.763823+08:00",
+  "changes": [
+    {
+      "scene": "xsc_hs_plus_w022",
+      "old_display": "十字路口·路宽 0.22 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.44 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.22,
+      "full_width": 0.44
+    },
+    {
+      "scene": "xsc_hs_plus_w025",
+      "old_display": "十字路口·路宽 0.25 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.5 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.25,
+      "full_width": 0.5
+    },
+    {
+      "scene": "xsc_hs_plus_w028",
+      "old_display": "十字路口·路宽 0.28 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.56 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.28,
+      "full_width": 0.56
+    },
+    {
+      "scene": "xsc_hs_plus_w040",
+      "old_display": "十字路口·路宽 0.4 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.8 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.4,
+      "full_width": 0.8
+    },
+    {
+      "scene": "xsc_hs_plus_w045",
+      "old_display": "十字路口·路宽 0.45 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.9 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.45,
+      "full_width": 0.9
+    },
+    {
+      "scene": "xsc_hs_plus_w050",
+      "old_display": "十字路口·路宽 0.5 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 1 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.5,
+      "full_width": 1.0
+    },
+    {
+      "scene": "xsc_hs_plus_w018",
+      "old_display": "十字路口·路宽 0.18 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.36 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.18,
+      "full_width": 0.36
+    },
+    {
+      "scene": "xsc_hs_plus_w035",
+      "old_display": "十字路口·路宽 0.35 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.7 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.35,
+      "full_width": 0.7
+    },
+    {
+      "scene": "xsc_hs_plus_w020_te",
+      "old_display": "十字路口·路宽 0.2 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.4 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.2,
+      "full_width": 0.4
+    },
+    {
+      "scene": "xsc_hs_plus_w030_te",
+      "old_display": "十字路口·路宽 0.3 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.6 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.3,
+      "full_width": 0.6
+    },
+    {
+      "scene": "xsc_hs_plus_w038_te",
+      "old_display": "十字路口·路宽 0.38 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.76 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.38,
+      "full_width": 0.76
+    },
+    {
+      "scene": "xsc_hs_plus_w019_t2_te",
+      "old_display": "十字路口·路宽 0.19 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.38 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.19,
+      "full_width": 0.38
+    },
+    {
+      "scene": "xsc_hs_plus_w023_t2_te",
+      "old_display": "十字路口·路宽 0.23 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.46 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.23,
+      "full_width": 0.46
+    },
+    {
+      "scene": "xsc_hs_plus_w033_t2_te",
+      "old_display": "十字路口·路宽 0.33 m，4台，机器人半径 0.05 m",
+      "new_display": "十字路口·路宽 0.66 m，4台，机器人半径 0.05 m",
+      "source_half_width": 0.33,
+      "full_width": 0.66
+    }
+  ],
+  "numerical_scene_changes": false,
+  "source": "Archived plus geometry parameterw is half-width; historical all32_classic.py also labels road width2*w. Display metadata corrected only."
+}

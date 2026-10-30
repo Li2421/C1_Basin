@@ -16,8 +16,14 @@ def update():
                 timestamp=value.get('time'),modified_ns=path.stat().st_mtime_ns)
         else:phases[name]=dict(present=False)
     budget=json.loads((HERE/'BUDGET.json').read_text())if(HERE/'BUDGET.json').exists()else{}
+    tuning=json.loads((HERE/'TUNING_PROGRESS.json').read_text()).get('results',{})if(HERE/'TUNING_PROGRESS.json').exists()else{}
+    selections={key:dict(complete=row.get('complete'),available=row.get('available'),index=row.get('global_index'),
+        expanded=row.get('saturation',{}).get('expand'),selected_training_score=row.get('final_ranking',[None])[0])for key,row in tuning.items()}
+    live=json.loads((HERE/'LIVE_STATUS.json').read_text())if(HERE/'LIVE_STATUS.json').exists()else{}
     value=dict(time=datetime.datetime.now().astimezone().isoformat(),phases=phases,budget=budget,
-               final_report_complete=False,no_static_artifact_claimed_as_rollout_result=True)
+               training_selections=selections,completed_training_methods=sum(row.get('complete')is True for row in selections.values()),
+               planned_training_methods=6,live=live,
+               final_report_complete=(HERE/'COMPLETE.json').is_file(),no_static_artifact_claimed_as_rollout_result=True)
     (HERE/'PROGRESS_RESULTS.json').write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
     if not(HERE/'SUMMARY_TABLES.json').exists():
         (HERE/'RESULTS.json').write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
@@ -27,6 +33,15 @@ def update():
             '正式调参和测试以冻结文件及下表为准；不把单机诊断当作正式成功率。','',
             '| 阶段文件 | 已产生 | 完成标记 |','|---|---|---|']
         for name,row in phases.items():lines.append(f"| {name} | {row['present']} | {row.get('complete','—')} |")
+        if selections:
+            lines+=['','## 训练集选参进度（非独立测试成绩）','', '| 基准与方法 | 完成 | 选中组 | 扩到32组 | 选中组训练成功率 |','|---|---|---:|---|---:|']
+            for key,row in selections.items():
+                score=row.get('selected_training_score')or{}
+                from method_names import NAMES
+                benchmark,method=key.split('::')
+                name=('基准甲'if benchmark=='A'else'基准乙')+'：'+NAMES.get(method,method)
+                lines.append(f"| {name} | {row['complete']} | {row['index']} | {row['expanded']} | {score.get('scene_equal_success','缺失')} |")
+            lines+=['',f"当前批次：{live.get('stage','未知')}，{live.get('stage_complete','—')}/{live.get('stage_total','—')}；CPU实际{live.get('active_user_cpus','—')}、上限{live.get('cpu_limit','—')}。"]
         path=HERE/'PORT_FIX_BEFORE_AFTER.json'
         if path.exists():
             data=json.loads(path.read_text());lines+=['','## 返回值修复训练单机对照','', '| 方法 | 基准 | 修复前成功/总数 | 修复后成功/总数 | 前/后未处理异常 |','|---|---|---:|---:|---:|']

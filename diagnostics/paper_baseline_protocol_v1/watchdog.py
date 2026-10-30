@@ -14,7 +14,12 @@ def main():
             enforce();update()
             live=jobs();coordinator=any(r['name']=='pbp1_pipeline'for r in live)
             if(HERE/'COMPLETE.json').exists()and not any(r['ours']for r in live):
-                (HERE/'TASK_CPU_RELEASED').write_text(datetime.datetime.now().astimezone().isoformat()+'\n')
+                now=datetime.datetime.now().astimezone().isoformat()
+                delivered=json.loads((HERE/'COMPLETE.json').read_text())
+                (HERE/'PIPELINE_STATE.json').write_text(json.dumps(dict(time=now,stage='delivered',
+                    main_numeric_work_complete=delivered.get('main_numeric_work_complete'),complete=delivered.get('complete'),
+                    receipt='COMPLETE.json'),ensure_ascii=False,indent=2)+'\n')
+                (HERE/'TASK_CPU_RELEASED').write_text(now+'\n')
                 break
             if not coordinator:
                 state=json.loads((HERE/'PIPELINE_STATE.json').read_text())if(HERE/'PIPELINE_STATE.json').exists()else{}

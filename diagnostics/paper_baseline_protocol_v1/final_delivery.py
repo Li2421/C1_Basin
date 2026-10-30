@@ -33,6 +33,9 @@ def import_integrity():
         for name,value in json.loads(receipt.read_text()).items():observed.setdefault(name,set()).add(value)
     release=json.loads((HERE/'EXECUTION_FROZEN.json').read_text())
     immutable={str(HERE/name):value for name,value in release['files'].items()}
+    for manifest in (HERE/'execution_revisions').glob('*/MANIFEST.json'):
+        archive=json.loads(manifest.read_text())
+        for name,value in archive['files'].items():immutable[str(manifest.parent/'source'/name)]=value
     for name,value in json.loads((HERE/'INPUT_SNAPSHOT.json').read_text())['files'].items():
         expected=value.get('target_sha256',value.get('source_sha256'))
         if expected:immutable.setdefault(str(HERE/name),expected)
@@ -56,6 +59,12 @@ def integrity():
     for name,expected in release['files'].items():
         path=HERE/name;actual=sha(path)if path.exists()else None
         if actual!=expected:changed[name]=dict(expected=expected,actual=actual)
+    archive_changes={}
+    for manifest in (HERE/'execution_revisions').glob('*/MANIFEST.json'):
+        archive=json.loads(manifest.read_text())
+        for name,expected in archive['files'].items():
+            path=manifest.parent/'source'/name;actual=sha(path)if path.is_file()else None
+            if actual!=expected:archive_changes[str(path.relative_to(HERE))]=dict(expected=expected,actual=actual)
     copied=json.loads((HERE/'INPUT_SNAPSHOT.json').read_text())['files'];bad_inputs={}
     for name,value in copied.items():
         path=HERE/name
@@ -75,12 +84,15 @@ def integrity():
                        ('splits_sha256','SPLITS_FROZEN.json'),('native_reproduction_sha256','NATIVE_REPRODUCTION_RESULTS.json'),
                        ('method_policy_sha256','METHOD_EXECUTION_POLICY.json')]:
         if sha(HERE/name)!=analysis[field]:freeze_changes[name]=dict(expected=analysis[field],actual=sha(HERE/name))
+    if analysis.get('scene_names_sha256')!=sha(HERE/'SCENE_NAMES.json'):
+        freeze_changes['SCENE_NAMES.json']='Scene display mapping changed after analysis freeze.'
     if analysis.get('relaxed_scenes_sha256')!=sha(HERE/'RELAXED_SCENES_FROZEN.json'):
         freeze_changes['RELAXED_SCENES_FROZEN.json']='Historical sensitivity scene selection changed after analysis freeze.'
     for name,expected in analysis['analysis_sources_sha256'].items():
         if sha(HERE/name)!=expected:freeze_changes[name]=dict(expected=expected,actual=sha(HERE/name))
-    passed=not changed and not bad_inputs and external_same and imports['passed']and not freeze_changes and not(HERE/'PROTECTION_VIOLATION.jsonl').exists()
+    passed=not changed and not archive_changes and not bad_inputs and external_same and imports['passed']and not freeze_changes and not(HERE/'PROTECTION_VIOLATION.jsonl').exists()
     value=dict(passed=passed,numerical_source_changes=changed,copied_input_changes=bad_inputs,
+               archived_numerical_source_changes=archive_changes,
                protected_external_git_diff_unchanged=external_same,copied_inputs_checked=len(copied),
                import_integrity_passed=imports['passed'],imported_files_checked=imports['unique_imported_files'],
                test_freeze_changes=freeze_changes,

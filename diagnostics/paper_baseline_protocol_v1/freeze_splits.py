@@ -27,7 +27,7 @@ def a_name(scene):
     robots, radius = config['num_agents'], config['agent_radius']
     factor = scene['factor']
     if factor == 'plus':
-        text = f"十字路口·路宽 {params['w']:g} m"
+        text = f"十字路口·路宽 {2*params['w']:g} m"
     elif factor == 'box':
         text = '方形场地'
     elif factor == 'obst':

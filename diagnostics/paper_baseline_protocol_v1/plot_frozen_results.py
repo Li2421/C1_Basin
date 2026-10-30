@@ -5,8 +5,11 @@ import json
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from method_names import NAMES
 
-LABELS={'ours_main':'C1 main','ours_four':'C1 four','dac_author_si':'DAC','mgr_author_unicycle_tracking':'MGR'}
+LABELS=NAMES
+plt.rcParams['font.family']=['Noto Serif CJK SC','DejaVu Serif']
+plt.rcParams['axes.unicode_minus']=False
 
 
 def run():

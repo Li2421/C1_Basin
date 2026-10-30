@@ -1,7 +1,7 @@
 {
   "xsc_hs_plus_w022": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.22 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.44 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.22
@@ -10,7 +10,7 @@
   },
   "xsc_hs_plus_w025": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.25 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.5 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.25
@@ -19,7 +19,7 @@
   },
   "xsc_hs_plus_w028": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.28 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.56 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.28
@@ -28,7 +28,7 @@
   },
   "xsc_hs_plus_w040": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.4 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.8 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.4
@@ -37,7 +37,7 @@
   },
   "xsc_hs_plus_w045": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.45 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.9 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.45
@@ -46,7 +46,7 @@
   },
   "xsc_hs_plus_w050": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.5 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 1 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.5
@@ -294,7 +294,7 @@
   },
   "xsc_hs_plus_w018": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.18 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.36 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.18
@@ -303,7 +303,7 @@
   },
   "xsc_hs_plus_w035": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.35 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.7 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.35
@@ -376,7 +376,7 @@
   },
   "xsc_hs_plus_w020_te": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.2 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.4 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.2
@@ -385,7 +385,7 @@
   },
   "xsc_hs_plus_w030_te": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.3 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.6 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.3
@@ -394,7 +394,7 @@
   },
   "xsc_hs_plus_w038_te": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.38 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.76 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.38
@@ -499,7 +499,7 @@
   },
   "xsc_hs_plus_w019_t2_te": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.19 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.38 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.19
@@ -508,7 +508,7 @@
   },
   "xsc_hs_plus_w023_t2_te": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.23 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.46 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.23
@@ -517,7 +517,7 @@
   },
   "xsc_hs_plus_w033_t2_te": {
     "benchmark": "异质场景集",
-    "display": "十字路口·路宽 0.33 m，4台，机器人半径 0.05 m",
+    "display": "十字路口·路宽 0.66 m，4台，机器人半径 0.05 m",
     "category": "plus",
     "parameters": {
       "w": 0.33

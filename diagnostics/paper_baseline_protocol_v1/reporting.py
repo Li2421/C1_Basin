@@ -277,7 +277,7 @@ def supplementary(rows,grouped):
 def opening(stats,paired,gate):
     def pct(value):return '缺失'if value is None else f'{100*value:.1f}%'
     active=[m for m,v in paired['methods'].items()if not v['excluded']]
-    pieces=['作者原环境复现后保留DAC与MGR；Chen因原生轨迹帧间连续碰撞退出，另三个无作者代码/参数的方法退出。']
+    pieces=['作者原环境复现后保留Zhang T-RO 2025 死锁感知控制与Lee IROS 2025 旋转木马；Chen RA-L 2023 动态优先级＋右手规则＋安全走廊因原生轨迹帧间连续碰撞退出，另三个无作者代码/参数的方法退出。']
     for method in active:
         applicable=[r for r in gate['applicability']if r['benchmark']=='A'and r['method']==method]
         row=next((r for r in stats if(r['benchmark'],r['part'],r['method'],r['variant'])==('A','test',method,'global_tuned')),None)
@@ -302,6 +302,7 @@ def opening(stats,paired,gate):
 
 def run():
     analysis=read('ANALYSIS_PLAN_FROZEN.json')
+    assert hashlib.sha256((HERE/'SCENE_NAMES.json').read_bytes()).hexdigest()==analysis['scene_names_sha256'],'HARD_STOP: scene display mapping changed after analysis freeze'
     for name,expected in analysis['analysis_sources_sha256'].items():
         assert hashlib.sha256((HERE/name).read_bytes()).hexdigest()==expected,('HARD_STOP: frozen analysis source changed',name)
     rows=collect();grouped=collections.defaultdict(list)
@@ -320,10 +321,14 @@ def run():
         flat.append({k:json.dumps(v,ensure_ascii=False)if isinstance(v,(dict,list))else v for k,v in row.items()})
     write_csv('MAIN_AND_SUPPLEMENT_TABLES.csv',flat)
     by_category=[];by_nominal=[]
+    scene_names=read('SCENE_NAMES.json')
+    category_names={'plus':'十字路口（各路宽）','box':'拥挤方形场地（各半径与密度）','obst':'带障碍圆圈对穿','swap':'开阔圆圈对穿'}
     for (benchmark,part,method,variant),group in sorted(grouped.items()):
         for category in sorted({str(r['category'])for r in group}):
             subset=[r for r in group if str(r['category'])==category]
+            category_display=category_names.get(category,category)if benchmark=='A'else'；'.join(sorted({scene_names[r['scene']]['display']for r in subset}))
             by_category.append(dict(benchmark=benchmark,part=part,method=display(method),variant=VARIANTS.get(variant,variant),category=category,
+                category_display=category_display,
                 **port_context(benchmark,method,{r['scene']for r in subset}),**summary(subset,interval=True)))
         if benchmark=='A'and method in INTERNAL:
             for nominal in sorted({r['nominal']for r in group}):
@@ -360,6 +365,18 @@ def run():
         '| 方法 | 口径 | 物理状态 | 成功率与95%区间 | 未处理异常 | 端口状态 | 成功条件均时·秒 | 全队列截断均时·秒 |','|---|---|---:|---|---:|---|---:|---:|']
     for r in stats:
         if r['benchmark']=='B':lines.append(f"| {r['method_display']} | {r['variant_display']} | {r['physical_states']} | {number(r['success_rate'])} {r['success_interval']['ci95']} | {r['unhandled_episodes']} | {r['port_status']} | {number(r['success_conditional_seconds'])} | {number(r['all_queue_capped_seconds'])} |")
+    breadth=[r for r in by_category if r['benchmark']=='B'and r['part']=='test'and r['variant']==VARIANTS['global_tuned']]
+    methods=[display(m)for m in ('ours_main','ours_four','dac_author_si','mgr_author_unicycle_tracking')]
+    cells={(r['category'],r['method']):r for r in breadth}
+    lines+=['','## 十七类逐类固定参数对照','',
+        '每格为成功率（物理初态数；成功条件均时·秒）；置信区间、缺失与其余口径详见CATEGORY_TABLES.csv。所有外部方法的端口状态同上表。','',
+        '| 场景与几何 | '+' | '.join(methods)+' |','|---|'+'---:|'*len(methods)]
+    for category in sorted({r['category']for r in breadth},key=int):
+        label=next(r['category_display']for r in breadth if r['category']==category);values=[]
+        for method in methods:
+            row=cells.get((category,method))
+            values.append('缺失'if row is None else f"{number(row['success_rate'])}（{row['physical_states']}；{number(row['success_conditional_seconds'])}）")
+        lines.append('| '+label+' | '+' | '.join(values)+' |')
     if(HERE/'ORACLE16_RESULTS.json').exists():
         oracle=read('ORACLE16_RESULTS.json');lines+=['','## 可选有限池Oracle@16','',
             '| 方法 | 完整搜索 | 成功/案例 | 成功首次组数均值 | 全案例搜索组数均值 |','|---|---|---:|---:|---:|']
@@ -370,7 +387,7 @@ def run():
         '', '## 计算与时间限制','',
         '成功条件均时仅在全部成功回合的时间已知时给出；否则记缺失并另存已知时间子集均值，不能拿子集冒充全队列。非成功回合按冻结时限计入截断时间，不用失败提前终止时间替代；共同成功的配对时间见PRIMARY_PAIRED_DIFFERENCES.json。历史生成器/critic一次性计算时间未记录，冻结参数查表不被当作已测零开销。',
         '', '## 局限','',
-        '代表17场景参与过通道项设计，存在场景层面设计泄漏；新测试初态不消除该限制。验证集参与过原学习方法设计，只描述。较少自由参数的Oracle结果不等于线性基秩最优，也不等于部署性能。外部原生算法与共同环境端口的信息、动力学适配和适用性不同，逐项见INFORMATION_PARITY.md与PORT_FIXES.md。论文图号缺口、连续与离散安全差异、旧时间缺失和实际流程问题均保留在GAPS.md。']
+        '代表17场景参与过通道项设计，存在场景层面设计泄漏；新测试初态不消除该限制。基准乙每类只有一张测试地图，区间只描述这些固定地图内初态变异，不能作为地图总体不确定度。验证集参与过原学习方法设计，只描述。较少自由参数的Oracle结果不等于线性基秩最优，也不等于部署性能。外部原生算法与共同环境端口的信息、动力学适配和适用性不同，逐项见INFORMATION_PARITY.md与PORT_FIXES.md。论文图号缺口、连续与离散安全差异、旧时间缺失和实际流程问题均保留在GAPS.md。']
     (HERE/'REPORT.md').write_text('\n'.join(lines)+'\n')
     required=[f'test_A_{v}.json'for v in ('global_tuned','author_default','author_original','type_tuned','mechanism_disabled')]
     required += [f'test_B_{v}.json'for v in ('global_tuned','author_default','author_original','type_tuned','mechanism_disabled','first_point','internal')]
