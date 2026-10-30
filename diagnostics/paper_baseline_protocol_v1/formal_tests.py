@@ -153,6 +153,7 @@ def main():
         report()
         nonmain('relaxed_sensitivity')
         nonmain('time_limit_sensitivity')
+        nonmain('trace_time_diagnostic')
         try:nonmain_plots()
         except Exception as exc:
             if isinstance(exc,PermissionError)or(HERE/'PROTECTION_VIOLATION.jsonl').exists():raise

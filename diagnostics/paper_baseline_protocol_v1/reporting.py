@@ -9,6 +9,7 @@ from method_names import NAMES
 
 LEARNED='学习选修正参数'
 INTERNAL={LEARNED,'只加安全投影','不加安全投影','经典目标右侧规则'}
+_PORT_GATES=None
 VARIANTS={'frozen':'冻结学习流水线/内部参照','global_tuned':'训练集调参','author_default':'作者默认·物理对齐',
           'author_original':'按原文安全距离','type_tuned':'按类型调参','mechanism_disabled':'去掉死锁机制',
           'first_point':'冻结首组','internal':'内部参照','legacy_geometry':'原墙体模型·补充',
@@ -45,6 +46,20 @@ def write(name,value):
 
 
 def display(method):return NAMES.get(method,method)
+
+
+def port_context(benchmark,method,names):
+    global _PORT_GATES
+    names=set(names)
+    if method in INTERNAL or method.startswith(('ours_','internal_')):
+        return dict(planned_scenes=len(names),applicable_scenes=None,port_status='冻结C1流水线/内部参照',port_problem_not_fully_resolved=None)
+    if _PORT_GATES is None:_PORT_GATES=read('PORT_GATES.json')
+    gates=_PORT_GATES
+    warnings=sorted({r['benchmark']for r in gates['pilots']if r['method']==method and r['port_problem_not_fully_resolved']})
+    applicable={r['scene']for r in gates['applicability']if r['benchmark']==benchmark and r['method']==method and r['applicable']is True}
+    return dict(planned_scenes=len(names),applicable_scenes=len(names&applicable),
+        port_status='端口问题未完全解决（'+','.join(warnings)+'训练试跑）'if warnings else'作者代码移植；原环境复现通过',
+        port_problem_not_fully_resolved=bool(warnings))
 
 
 def collect():
@@ -296,7 +311,8 @@ def run():
         timing=cpu_summary(group)
         stats.append(dict(benchmark=benchmark,part=part,method=method,method_display=display(method),variant=variant,variant_display=VARIANTS.get(variant,variant),
                           cpu_step_median_seconds=timing['per_step_median_seconds'],cpu_step_p95_seconds=timing['per_step_p95_seconds'],
-                          cpu_observed_episodes=timing['observed_episodes'],cpu_missing_trace_episodes=timing['missing_trace_episodes'],**summary(group)))
+                          cpu_observed_episodes=timing['observed_episodes'],cpu_missing_trace_episodes=timing['missing_trace_episodes'],
+                          **port_context(benchmark,method,{r['scene']for r in group}),**summary(group)))
     paired=comparisons(rows)
     write('SUMMARY_TABLES.json',dict(rows=stats));write('PRIMARY_PAIRED_DIFFERENCES.json',paired)
     flat=[]
@@ -306,8 +322,9 @@ def run():
     by_category=[];by_nominal=[]
     for (benchmark,part,method,variant),group in sorted(grouped.items()):
         for category in sorted({str(r['category'])for r in group}):
+            subset=[r for r in group if str(r['category'])==category]
             by_category.append(dict(benchmark=benchmark,part=part,method=display(method),variant=VARIANTS.get(variant,variant),category=category,
-                **summary([r for r in group if str(r['category'])==category],interval=True)))
+                **port_context(benchmark,method,{r['scene']for r in subset}),**summary(subset,interval=True)))
         if benchmark=='A'and method in INTERNAL:
             for nominal in sorted({r['nominal']for r in group}):
                 episode_rows=[r for r in group if r['nominal']==nominal]
@@ -327,21 +344,22 @@ def run():
     lines=['# 论文基线正式比较','',
         opening(stats,paired,gate),
         '', '## 基准甲主表','',
-        '| 方法 | 口径 | 物理状态 | 成功率 | 成功条件均时·秒 | 全队列截断均时·秒 | 单步中位/p95·毫秒 | 缺完成时间的成功回合 |',
-        '|---|---|---:|---:|---:|---:|---:|---:|']
+        '| 方法 | 口径 | 物理状态 | 成功率与95%区间 | 碰撞/超时率 | 未处理异常 | 单机适用/场景 | 端口状态 | 成功条件均时·秒 | 全队列截断均时·秒 | 单步中位/p95·毫秒 | 缺完成时间的成功回合 |',
+        '|---|---|---:|---|---|---:|---|---|---:|---:|---:|---:|']
     def number(x):return '缺失'if x is None else f'{x:.4f}'
     for r in stats:
         if r['benchmark']=='A'and r['part']=='test'and r['variant']not in('legacy_geometry','consistent_sensitivity'):
             cpu='/'.join(number(1000*r[k])if r[k]is not None else'缺失'for k in ('cpu_step_median_seconds','cpu_step_p95_seconds'))
-            lines.append(f"| {r['method_display']} | {r['variant_display']} | {r['physical_states']} | {number(r['success_rate'])} | {number(r['success_conditional_seconds'])} | {number(r['all_queue_capped_seconds'])} | {cpu} | {r['missing_success_times']} |")
+            applicability='未定义'if r['applicable_scenes']is None else str(r['applicable_scenes'])+'/'+str(r['planned_scenes'])
+            lines.append(f"| {r['method_display']} | {r['variant_display']} | {r['physical_states']} | {number(r['success_rate'])} {r['success_interval']['ci95']} | {number(r['collision_rate'])}/{number(r['timeout_rate'])} | {r['unhandled_episodes']} | {applicability} | {r['port_status']} | {number(r['success_conditional_seconds'])} | {number(r['all_queue_capped_seconds'])} | {cpu} | {r['missing_success_times']} |")
     lines+=['','## 主终点配对差','', '| 方法 | 我们减外部成功率差 | 95%区间 | Holm校正p | 判读 |','|---|---:|---|---:|---|']
     for method,r in paired['methods'].items():
         if r['excluded']:lines.append(f'| {display(method)} | 未检验 | 原环境复现未通过 | 缺失 | 退出 |');continue
         ci=r['paired_difference'];lines.append(f"| {display(method)} | {number(ci['mean'])} | {ci['ci95']} | {number(r['holm_p'])} | {r['verdict']} |")
     lines+=['','## 基准乙广度表','',
-        '| 方法 | 口径 | 物理状态 | 成功率 | 成功条件均时·秒 | 全队列截断均时·秒 |','|---|---|---:|---:|---:|---:|']
+        '| 方法 | 口径 | 物理状态 | 成功率与95%区间 | 未处理异常 | 端口状态 | 成功条件均时·秒 | 全队列截断均时·秒 |','|---|---|---:|---|---:|---|---:|---:|']
     for r in stats:
-        if r['benchmark']=='B':lines.append(f"| {r['method_display']} | {r['variant_display']} | {r['physical_states']} | {number(r['success_rate'])} | {number(r['success_conditional_seconds'])} | {number(r['all_queue_capped_seconds'])} |")
+        if r['benchmark']=='B':lines.append(f"| {r['method_display']} | {r['variant_display']} | {r['physical_states']} | {number(r['success_rate'])} {r['success_interval']['ci95']} | {r['unhandled_episodes']} | {r['port_status']} | {number(r['success_conditional_seconds'])} | {number(r['all_queue_capped_seconds'])} |")
     if(HERE/'ORACLE16_RESULTS.json').exists():
         oracle=read('ORACLE16_RESULTS.json');lines+=['','## 可选有限池Oracle@16','',
             '| 方法 | 完整搜索 | 成功/案例 | 成功首次组数均值 | 全案例搜索组数均值 |','|---|---|---:|---:|---:|']

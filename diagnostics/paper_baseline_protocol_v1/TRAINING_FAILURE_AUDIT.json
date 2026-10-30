@@ -1,0 +1,379 @@
+{
+  "time": "2026-10-30T13:30:34.804505+08:00",
+  "training_only": true,
+  "results": [
+    {
+      "benchmark": "A",
+      "method": "dac_author_si",
+      "selected_index": 10,
+      "episodes": 224,
+      "outcomes": {
+        "success": 144,
+        "timeout": 80
+      },
+      "unhandled_episodes": 0,
+      "collision_margin_min": null,
+      "collision_margin_max": null,
+      "negative_clearance_bins": [
+        {
+          "deeper_than_m": 1e-09,
+          "count": 0
+        },
+        {
+          "deeper_than_m": 1e-06,
+          "count": 0
+        },
+        {
+          "deeper_than_m": 0.0001,
+          "count": 0
+        },
+        {
+          "deeper_than_m": 0.001,
+          "count": 0
+        },
+        {
+          "deeper_than_m": 0.01,
+          "count": 0
+        }
+      ],
+      "collision_types": {},
+      "category_counts": {
+        "plus": {
+          "episodes": 48,
+          "outcomes": {
+            "success": 48
+          }
+        },
+        "box": {
+          "episodes": 80,
+          "outcomes": {
+            "timeout": 80
+          }
+        },
+        "obst": {
+          "episodes": 72,
+          "outcomes": {
+            "success": 72
+          }
+        },
+        "swap": {
+          "episodes": 24,
+          "outcomes": {
+            "success": 24
+          }
+        }
+      },
+      "examples": []
+    },
+    {
+      "benchmark": "A",
+      "method": "mgr_author_unicycle_tracking",
+      "selected_index": 25,
+      "episodes": 224,
+      "outcomes": {
+        "success": 52,
+        "timeout": 14,
+        "collision": 158
+      },
+      "unhandled_episodes": 0,
+      "collision_margin_min": -0.0014366167681492126,
+      "collision_margin_max": -1.0268924385062328e-06,
+      "negative_clearance_bins": [
+        {
+          "deeper_than_m": 1e-09,
+          "count": 158
+        },
+        {
+          "deeper_than_m": 1e-06,
+          "count": 158
+        },
+        {
+          "deeper_than_m": 0.0001,
+          "count": 134
+        },
+        {
+          "deeper_than_m": 0.001,
+          "count": 7
+        },
+        {
+          "deeper_than_m": 0.01,
+          "count": 0
+        }
+      ],
+      "collision_types": {
+        "{\"agent\": true, \"moving\": false, \"static\": false}": 86,
+        "{\"agent\": false, \"moving\": false, \"static\": true}": 72
+      },
+      "category_counts": {
+        "plus": {
+          "episodes": 48,
+          "outcomes": {
+            "success": 31,
+            "timeout": 1,
+            "collision": 16
+          }
+        },
+        "box": {
+          "episodes": 80,
+          "outcomes": {
+            "collision": 79,
+            "timeout": 1
+          }
+        },
+        "obst": {
+          "episodes": 72,
+          "outcomes": {
+            "timeout": 12,
+            "collision": 60
+          }
+        },
+        "swap": {
+          "episodes": 24,
+          "outcomes": {
+            "success": 21,
+            "collision": 3
+          }
+        }
+      },
+      "examples": [
+        {
+          "scene": "hs_obst_n08_R130_r005",
+          "state": 5,
+          "nominal": "paper",
+          "query_uid": "roll_d52dc4a6a8eb4894dfd9cc5b85dfadabde30a3c672bdb3b9e71439c7c630888c",
+          "minimum_swept_clearance": -1.0268924385062328e-06,
+          "trace": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/traces/roll_d52dc4a6a8eb4894dfd9cc5b85dfadabde30a3c672bdb3b9e71439c7c630888c.npz"
+        },
+        {
+          "scene": "hs_obst_n08_R130_r005",
+          "state": 7,
+          "nominal": "paper",
+          "query_uid": "roll_4fb08bbe7bd423c5a30c2503056e00050294e0aa7dce44b1672c4c1b9ddcc307",
+          "minimum_swept_clearance": -0.00020051905347241716,
+          "trace": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/traces/roll_4fb08bbe7bd423c5a30c2503056e00050294e0aa7dce44b1672c4c1b9ddcc307.npz"
+        },
+        {
+          "scene": "hs_obst_n08_R135_r050",
+          "state": 2,
+          "nominal": "paper",
+          "query_uid": "roll_097115fe3f4c42e22f9e8aaf4b1d698b8540cbf565fb0b1e20d2f3a42ea7444d",
+          "minimum_swept_clearance": -0.00025264726549584227,
+          "trace": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/traces/roll_097115fe3f4c42e22f9e8aaf4b1d698b8540cbf565fb0b1e20d2f3a42ea7444d.npz"
+        },
+        {
+          "scene": "hs_obst_n08_R135_r050",
+          "state": 3,
+          "nominal": "paper",
+          "query_uid": "roll_41afd0204b6985e3c7c6e9dd7c8247d7c61e48e19c8d520add90cefd3bc4ec2d",
+          "minimum_swept_clearance": -0.00046897924689932174,
+          "trace": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/traces/roll_41afd0204b6985e3c7c6e9dd7c8247d7c61e48e19c8d520add90cefd3bc4ec2d.npz"
+        },
+        {
+          "scene": "hs_obst_n08_R135_r050",
+          "state": 4,
+          "nominal": "paper",
+          "query_uid": "roll_9efa002026a7ee4ebb9cc58a16194b39fb222c1b9db2506bb12f0b92a5e260d3",
+          "minimum_swept_clearance": -1.1489783954557464e-05,
+          "trace": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/traces/roll_9efa002026a7ee4ebb9cc58a16194b39fb222c1b9db2506bb12f0b92a5e260d3.npz"
+        }
+      ]
+    },
+    {
+      "benchmark": "B",
+      "method": "dac_author_si",
+      "selected_index": 12,
+      "episodes": 256,
+      "outcomes": {
+        "success": 65,
+        "timeout": 160,
+        "collision": 31
+      },
+      "unhandled_episodes": 78,
+      "collision_margin_min": -1.6060958396568736e-09,
+      "collision_margin_max": -1.599942400787313e-12,
+      "negative_clearance_bins": [
+        {
+          "deeper_than_m": 1e-09,
+          "count": 2
+        },
+        {
+          "deeper_than_m": 1e-06,
+          "count": 0
+        },
+        {
+          "deeper_than_m": 0.0001,
+          "count": 0
+        },
+        {
+          "deeper_than_m": 0.001,
+          "count": 0
+        },
+        {
+          "deeper_than_m": 0.01,
+          "count": 0
+        }
+      ],
+      "collision_types": {
+        "{\"agent\": true, \"moving\": false, \"static\": false}": 31
+      },
+      "category_counts": {
+        "1": {
+          "episodes": 16,
+          "outcomes": {
+            "success": 16
+          }
+        },
+        "2": {
+          "episodes": 16,
+          "outcomes": {
+            "success": 16
+          }
+        },
+        "3": {
+          "episodes": 16,
+          "outcomes": {
+            "timeout": 16
+          }
+        },
+        "4": {
+          "episodes": 16,
+          "outcomes": {
+            "timeout": 16
+          }
+        },
+        "5": {
+          "episodes": 8,
+          "outcomes": {
+            "collision": 7,
+            "timeout": 1
+          }
+        },
+        "6": {
+          "episodes": 16,
+          "outcomes": {
+            "success": 16
+          }
+        },
+        "7": {
+          "episodes": 16,
+          "outcomes": {
+            "timeout": 14,
+            "collision": 2
+          }
+        },
+        "8": {
+          "episodes": 16,
+          "outcomes": {
+            "timeout": 9,
+            "collision": 7
+          }
+        },
+        "9": {
+          "episodes": 16,
+          "outcomes": {
+            "timeout": 14,
+            "collision": 2
+          }
+        },
+        "10": {
+          "episodes": 16,
+          "outcomes": {
+            "timeout": 9,
+            "collision": 7
+          }
+        },
+        "11": {
+          "episodes": 16,
+          "outcomes": {
+            "timeout": 14,
+            "collision": 2
+          }
+        },
+        "12": {
+          "episodes": 16,
+          "outcomes": {
+            "timeout": 15,
+            "collision": 1
+          }
+        },
+        "13": {
+          "episodes": 8,
+          "outcomes": {
+            "timeout": 8
+          }
+        },
+        "14": {
+          "episodes": 16,
+          "outcomes": {
+            "success": 16
+          }
+        },
+        "15": {
+          "episodes": 16,
+          "outcomes": {
+            "timeout": 14,
+            "collision": 2
+          }
+        },
+        "16": {
+          "episodes": 16,
+          "outcomes": {
+            "timeout": 15,
+            "collision": 1
+          }
+        },
+        "17": {
+          "episodes": 16,
+          "outcomes": {
+            "timeout": 15,
+            "success": 1
+          }
+        }
+      },
+      "examples": [
+        {
+          "scene": "xsc_stb3_t07_l2_w000",
+          "state": 3,
+          "nominal": "paper",
+          "query_uid": "roll_04d22a193aba5779bf293d49dea47439acd91532a74f79356cb8fce3121fe9d0",
+          "minimum_swept_clearance": -3.820979088686727e-10,
+          "trace": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/traces/roll_04d22a193aba5779bf293d49dea47439acd91532a74f79356cb8fce3121fe9d0.npz"
+        },
+        {
+          "scene": "xsc_stb3_t07_l2_w000",
+          "state": 5,
+          "nominal": "paper",
+          "query_uid": "roll_f6119d095c67bbe09e7a4be3b03437f65ea4a24bbc31dd71604ac310dbabb99d",
+          "minimum_swept_clearance": -7.330197560051488e-11,
+          "trace": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/traces/roll_f6119d095c67bbe09e7a4be3b03437f65ea4a24bbc31dd71604ac310dbabb99d.npz"
+        },
+        {
+          "scene": "xsc_stb3_t16_l2_w000",
+          "state": 0,
+          "nominal": "paper",
+          "query_uid": "roll_6b4d51829f49ef0197de2942ef4e3fb4ff3c7e5fd8a29dd81236b73e51219edf",
+          "minimum_swept_clearance": -5.297412231097809e-10,
+          "trace": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/traces/roll_6b4d51829f49ef0197de2942ef4e3fb4ff3c7e5fd8a29dd81236b73e51219edf.npz"
+        },
+        {
+          "scene": "xsc_stb_t05_l1_w000",
+          "state": 0,
+          "nominal": "paper",
+          "query_uid": "roll_eb85adcd0a9d975cb73a111bf22ed4a0d797c05354f35ff466866ae008602365",
+          "minimum_swept_clearance": -1.1987633108390128e-11,
+          "trace": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/traces/roll_eb85adcd0a9d975cb73a111bf22ed4a0d797c05354f35ff466866ae008602365.npz"
+        },
+        {
+          "scene": "xsc_stb_t05_l1_w000",
+          "state": 1,
+          "nominal": "paper",
+          "query_uid": "roll_8c9a007f11bdf0ade8651e8bb58e992dc62b9acea7dece0f49255d4e8a2cccd6",
+          "minimum_swept_clearance": -2.7744989639089113e-10,
+          "trace": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/traces/roll_8c9a007f11bdf0ade8651e8bb58e992dc62b9acea7dece0f49255d4e8a2cccd6.npz"
+        }
+      ]
+    }
+  ],
+  "new_rollouts": 0,
+  "interpretation": "Descriptive selected-training outcomes. Clearance bins diagnose magnitude and do not change the fixed collision threshold. These statistics do not select any new settings or establish a causal explanation; author-original safety-distance rows are a separate fixed reference."
+}

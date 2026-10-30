@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-30T13:35:52.180460+08:00",
+  "passed": true,
+  "synthetic_test_only": true,
+  "checks": "Already-arrived robot excluded;50stationary steps and actual movement separated; distance ratio1; no simulation/controller run.",
+  "features": {
+    "completion_time": 5.0,
+    "travelled_distance": 1.0,
+    "travelled_over_initial_goal_distance": 1.0,
+    "active_robot_steps": 96,
+    "active_wait_fraction": 0.5208333333333334,
+    "mean_active_speed": 0.19166666666666665,
+    "trace": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/tmp/synthetic_trace_features_check.npz"
+  },
+  "new_rollouts": 0
+}

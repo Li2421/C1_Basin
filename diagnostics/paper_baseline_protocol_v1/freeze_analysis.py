@@ -28,7 +28,7 @@ def main():
         execution_release_sha256=sha(HERE/'EXECUTION_FROZEN.json'),
         relaxed_scenes_sha256=sha(HERE/'RELAXED_SCENES_FROZEN.json'),
         analysis_sources_sha256={name:sha(HERE/name)for name in ('statistic_rules.py','reporting.py','oracle.py',
-            'tuning.py','formal_tests.py','time_limit_sensitivity.py','relaxed_sensitivity.py','classical_appendix.py')},
+            'tuning.py','formal_tests.py','time_limit_sensitivity.py','relaxed_sensitivity.py','classical_appendix.py','trace_time_diagnostic.py')},
         primary=dict(benchmark='A',scenes=split['benchmark_A']['test'],states=split['benchmark_A']['test_states'],
             endpoint='Frozen learned correction success averaged over six nominal models, minus external global-training-tuned success, paired by physical initial state.',
             methods=active_methods(),family_size=3,
@@ -45,6 +45,7 @@ def main():
         nonmain_sensitivity=dict(
             relaxed='All archived v1/v2type10corridor and type16warehouse calibration geometries, including positive widening and zero-widening reference,states4–11,literal original horizons; frozen BenchmarkBglobal choices only. Missing frozen admission geometry unavailable, never fabricated.',
             time_limit='All primary-geometry BenchmarkAtest timeout rows, all method variants. For available saved traces: float64 positive least-squares slope of average progress over final20%of samples; use route-remaining if recorded, otherwise true-goal Euclidean distance. Re-run once with2xhorizon and explicit parent RNG identity, same frozen parameters. Missing traces have unknown eligibility. Main table unchanged.'),
+        trajectory_diagnostics='Observed successful traces only: compare matched completion time, waiting fraction(speed<0.01m/s while goal error>0.08m), active speed and travelled/initial goal distance. Fold nominal pairs within physical state. Descriptive association only, no causal claim or extra rollout to fill old traces.',
         times=dict(units='simulated seconds',
             success_conditional='Mean completion time of successful episodes only, with success denominator. Historical missing times remain missing unless authorized full backfill completes.',
             all_queue_capped='Success completion time; every non-success gets frozen scene horizon. Average nominal models within physical state before aggregation.',

@@ -93,6 +93,8 @@ def integrity():
 
 
 def run():
+    from training_failure_audit import run as training_audit
+    training_audit()
     stream=raw_stream();audit=integrity();result=json.loads((HERE/'RESULTS.json').read_text());budget=json.loads((HERE/'BUDGET.json').read_text())
     gaps=[]
     if not audit['passed']:gaps.append('Final source/repository integrity audit did not pass; inspect INTEGRITY_END.json.')

@@ -1,0 +1,27 @@
+{
+  "time": "2026-10-30T13:33:32.696651+08:00",
+  "results": {
+    "main::initial": {
+      "logical_cases": 2048,
+      "historical_signature_matches": 0,
+      "remaining_if_all_compatible": 2048
+    },
+    "main::extension": {
+      "logical_cases": 2048,
+      "historical_signature_matches": 0,
+      "remaining_if_all_compatible": 2048
+    },
+    "four::initial": {
+      "logical_cases": 2048,
+      "historical_signature_matches": 942,
+      "remaining_if_all_compatible": 1106
+    },
+    "four::extension": {
+      "logical_cases": 2048,
+      "historical_signature_matches": 713,
+      "remaining_if_all_compatible": 1335
+    }
+  },
+  "new_rollouts": 0,
+  "limitation": "Forecast from screened archived signatures only. Coordinator still performs exact physical/controller checks and official target preflight; no new rollouts or fabricated official cache hits."
+}
