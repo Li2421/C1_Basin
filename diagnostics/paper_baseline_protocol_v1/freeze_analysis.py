@@ -17,9 +17,10 @@ def main():
     assert not(HERE/'FORMAL_TEST_STARTED.json').exists()
     split=read(HERE/'SPLITS_FROZEN.json');scenes=catalog('A')
     categories=sorted({scenes[name]['factor']for name in split['benchmark_A']['test']})
+    video_nominal=min(row['name']for row in read(HERE/'INPUT_AUDIT.json')['models'])
     videos={category:dict(scene=min(name for name in split['benchmark_A']['test']if scenes[name]['factor']==category),
                           state=min(split['benchmark_A']['test_states']),
-                          nominal='first frozen learned nominal by display-name sort; no outcome-dependent choice')
+                          nominal=video_nominal,nominal_selection='First frozen recorded model name in lexicographic order, before formal outcomes.')
             for category in categories}
     value=dict(frozen_at=datetime.datetime.now().astimezone().isoformat(),
         splits_sha256=sha(HERE/'SPLITS_FROZEN.json'),native_reproduction_sha256=sha(HERE/'NATIVE_REPRODUCTION_RESULTS.json'),
@@ -29,7 +30,8 @@ def main():
         relaxed_scenes_sha256=sha(HERE/'RELAXED_SCENES_FROZEN.json'),
         scene_names_sha256=sha(HERE/'SCENE_NAMES.json'),
         analysis_sources_sha256={name:sha(HERE/name)for name in ('statistic_rules.py','reporting.py','oracle.py',
-            'tuning.py','formal_tests.py','time_limit_sensitivity.py','relaxed_sensitivity.py','classical_appendix.py','trace_time_diagnostic.py')},
+            'tuning.py','formal_tests.py','time_limit_sensitivity.py','relaxed_sensitivity.py','classical_appendix.py','trace_time_diagnostic.py',
+            'video_delivery.py','video_tools/batch_videos_generic.py')},
         primary=dict(benchmark='A',scenes=split['benchmark_A']['test'],states=split['benchmark_A']['test_states'],
             endpoint='Frozen learned correction success averaged over six nominal models, minus external global-training-tuned success, paired by physical initial state.',
             methods=active_methods(),family_size=3,
@@ -67,7 +69,8 @@ def main():
             'Consistent wall-collision variants follow CONSISTENT_BOX_SCENES.json and the predefined90%legal-state rule; learned models trained on original geometry semantics.',
             'Old learned logs omit times/traces; new reference replays and conditional timing backfill do not create historical timestamps.'],
         videos=dict(optional=True,selection=videos,source='Existing raw simulated traces only; unavailable trace is a gap, never synthesized.',
-                    methods='Frozen learned correction plus active paper global-tuned methods; withdrawn methods excluded.'),
+                    methods='Frozen learned correction plus active paper global-tuned methods; withdrawn methods excluded.',
+                    renderer='Private historical shared-renderer copy; generic heterogeneous-scene schema, every saved state once at1/dtFPS, exact frame-count verification. Legacy four-scene/deadlock-role gate is not claimed applicable.'),
         timing_backfill_policy=read(HERE/'USER_TIME_BACKFILL_POLICY.json'))
     dump(path,value)
     with(HERE/'STATUS.md').open('a')as stream:stream.write('\n测试前分析计划SHA256：'+sha(path)+'\n')

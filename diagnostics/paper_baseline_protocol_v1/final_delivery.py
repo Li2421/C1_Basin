@@ -117,7 +117,10 @@ def run():
         if not timing.get('executed'):gaps.append('Historical completion times remain missing under the user1-hour condition; no imputation of successful completion times.')
     # Video is non-mainline in the user protocol; the required shared renderer
     # entry documentation is absent. Never fabricate footage or rerun for it.
-    if not(ROOT/'docs/batch_videos.md').exists():gaps.append('Non-mainline video delivery: docs/batch_videos.md shared entry documentation missing; existing true traces retained, no synthetic videos.')
+    if(HERE/'VIDEO_DELIVERY.json').exists():
+        videos=json.loads((HERE/'VIDEO_DELIVERY.json').read_text())
+        if not videos['complete']:gaps.append('Non-mainline video delivery incomplete: '+str(videos['rendered'])+'/'+str(videos['planned'])+'prespecified full traces rendered; missing traces/cases and exact reasons are in VIDEO_DELIVERY.json.')
+    else:gaps.append('Non-mainline video delivery unavailable; recovered shared entry and any errors are recorded, no fabricated frames or replacement favorable cases.')
     gaps.append('DAC exact journal figure/page unavailable in accessible primary full text; official pinned repository/demo and DOI verified, no invented figure attribution.')
     for path in sorted(HERE.glob('NONMAIN_*_ERROR.json')):gaps.append('Non-mainline supplement incomplete; see '+path.name)
     if(HERE/'RELAXED_SENSITIVITY_RESULTS.json').exists():

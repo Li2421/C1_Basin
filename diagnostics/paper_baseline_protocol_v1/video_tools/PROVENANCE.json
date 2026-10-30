@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-30T13:53:09.789113+08:00",
+  "git_commit": "db959cb7f3c9fa60cdf9a22488fd5b8f70f016c1",
+  "original_entry": "new_benchmark_common/batch_videos.py",
+  "original_sha256": "d972837f1f019c4bd2ccf28db9ba263452f82c7647944fdf2b84297e1e5aa2bf",
+  "adapted_sha256": "c7b569d33afdc0203692cff9612167e7160827b045d5268318d560a911f32bf9",
+  "original_doc_sha256": "617642c49d7711f73f491101b1812449dea59f4e72a90a643cb903afaee220a4",
+  "adaptations": [
+    "Generic heterogeneous_scene validation uses recorded num_agents and allows zero walls.",
+    "Original unknown termination is retained, not relabeled.",
+    "CJK font/full controller labels/checkpoint version/clearance text precision only.",
+    "Study-specific selection/roles are validated separately; legacy mandatory four-scene gate is not claimed passed."
+  ],
+  "simulation_or_controller_edits": false,
+  "rendering": "Every saved state once,1/dtFPS,original shared render loop and frame-count verification retained."
+}

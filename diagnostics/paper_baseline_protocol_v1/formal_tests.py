@@ -137,6 +137,14 @@ def nonmain_plots():
         subprocess.run([str(interpreter),'-B',str(HERE/'plot_frozen_results.py')],stdout=log,stderr=log,check=True,timeout=180)
 
 
+def nonmain_videos():
+    import subprocess
+    begin();status('nonmain_prespecified_videos',0,1,'只渲染已有真实轨迹，不补跑、不换更有利初态；完整状态逐帧保留。')
+    interpreter=Path('/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1-plots/bin/python')
+    with(HERE/'videos.log').open('ab')as log:
+        subprocess.run([str(interpreter),'-B',str(HERE/'video_delivery.py')],stdout=log,stderr=log,check=True,timeout=7200)
+
+
 def main():
     begin()
     from consistent_ours import run as changed_environment
@@ -159,6 +167,11 @@ def main():
             if isinstance(exc,PermissionError)or(HERE/'PROTECTION_VIOLATION.jsonl').exists():raise
             dump(HERE/'NONMAIN_FIGURES_ERROR.json',dict(error=repr(exc)))
             with(HERE/'GAPS.md').open('a')as stream:stream.write('\n非主线绘图未完成：'+repr(exc)+'。\n')
+        try:nonmain_videos()
+        except Exception as exc:
+            if isinstance(exc,PermissionError)or'HARD_STOP'in str(exc)or(HERE/'PROTECTION_VIOLATION.jsonl').exists():raise
+            dump(HERE/'NONMAIN_VIDEOS_ERROR.json',dict(error=repr(exc)))
+            with(HERE/'GAPS.md').open('a')as stream:stream.write('\n非主线完整轨迹视频未完成：'+repr(exc)+'。\n')
     from final_delivery import run as deliver
     deliver()
     return dict(benchmark_A=a,benchmark_B=b)
