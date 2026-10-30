@@ -1,0 +1,33 @@
+{
+  "source_root": "/home/zhihan/research/Basin_C1",
+  "destination_root": "/mnt/ssd/zhihan/Basin_C1",
+  "audit_root": "/mnt/ssd/zhihan/Basin_C1/audits/storage_20261030",
+  "directories": [
+    "diagnostics/scene_types_oracle_coverage_v3/traces",
+    "diagnostics/basis_reduction_within_four_v1/traces",
+    "diagnostics/cross_scene_correction_v1/operational_checkpoints",
+    "diagnostics/scene_types_basis_dimension_v1/traces",
+    "diagnostics/bottleneck_one_way_admission_v1/traces",
+    "diagnostics/network_coordination_candidates_v1/traces",
+    "diagnostics/cross_scene_correction_v1/main/traces",
+    "diagnostics/critic_pool_supplement_v1/main/traces",
+    "diagnostics/hetero_scene_pipeline_v1/main/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/cellcert/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/circle_cellcert/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/circle_global/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/circle_heldout/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/circle_recheck/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/circle_refine/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/circle_schedules/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/ext_global/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/ext_recheck/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/global/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/heldout/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/learn_heldout/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/learn_train/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/recheck/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/refine/traces",
+    "diagnostics/baseline_literature_scenes_supplement_eta_swap8_v1/best_correction_search_v1/schedules/traces"
+  ],
+  "min_age_hours": 1
+}
