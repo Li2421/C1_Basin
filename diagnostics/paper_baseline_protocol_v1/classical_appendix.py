@@ -53,7 +53,7 @@ def run():
         limitation='Historical descriptive appendix, not a matched comparison to new external methods. Existing labels and frozen scene-level choices only; missing times are not zero. No claim of equivalent execution on the new consistent geometry.')
     (HERE/'CLASSICAL_CONTROLLER_APPENDIX.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     with(HERE/'CLASSICAL_CONTROLLER_APPENDIX.csv').open('w',newline='')as stream:
-        writer=csv.DictWriter(stream,fieldnames=list(table[0]));writer.writeheader();writer.writerows(table)
+        writer=csv.DictWriter(stream,fieldnames=list(table[0]),lineterminator='\n');writer.writeheader();writer.writerows(table)
     return result
 
 

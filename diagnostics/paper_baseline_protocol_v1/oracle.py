@@ -7,6 +7,31 @@ from scene_catalog import cohort
 import datetime
 
 
+def summarize(state,scenes):
+    """Preserve partial frontiers without relabeling unsearched cases as failures."""
+    groups=state['groups'];successful=[g['first_success']for g in groups if g['success']]
+    resolved=lambda g:g['success']or len(g['queries'])>=16
+    state['summary']=dict(cases=len(groups),successes=len(successful),
+        not_found=sum(not g['success']and len(g['queries'])>=16 for g in groups),
+        unfinished=sum(not resolved(g)for g in groups),
+        first_success_mean=float(np.mean(successful))if successful else None,
+        first_success_quartiles=np.quantile(successful,[.25,.5,.75]).tolist()if successful else None,
+        all_case_logical_search_mean=float(np.mean([len(g['queries'])for g in groups])),
+        numerical_unknown_queries=sum(bool(q['result'].get('numerical_failure'))for g in groups for q in g['queries']),
+        note='Finite-pool results only. Unfinished cases are separate from exhausted16. Tuned index17–32need not be in this prefix.')
+    from statistic_rules import hierarchical_interval
+    physical={};blocks={}
+    for group in groups:physical.setdefault((group['scene'],group['state']),[]).append(group)
+    for (name,si),values in physical.items():
+        if not all(resolved(g)for g in values):continue
+        blocks.setdefault(str(scenes[name]['type_id']),{}).setdefault(name,[]).append(sum(int(g['success'])for g in values)/len(values))
+    state['summary']['physical_success_interval']=hierarchical_interval(blocks)
+    state['summary']['incomplete_physical_blocks']=len(physical)-sum(len(v)for category in blocks.values()for v in category.values())
+    state['budget_curve']=[dict(k=k,verified_coverage=sum(g['success']and g['first_success']<=k for g in groups),
+        complete=all(g['success']and g['first_success']<=k or len(g['queries'])>=k for g in groups))for k in range(1,17)]
+    return state
+
+
 def run_one(method):
     path=HERE/'oracles'/(method+'.json')
     if path.exists():state=read(path)
@@ -32,36 +57,28 @@ def run_one(method):
                 request=case('B',scene,group['nominal'],group['state'],spec=item['spec'],phase='test',purpose='optional_frozen_prefix_oracle')
             requests.append(request);owners.append((group,request))
         if not requests:break
-        try:results=execute(requests,f'oracle16_{method}_k{index:02d}')
+        stage=f'oracle16_{method}_k{index:02d}';budget_stop=False
+        try:results=execute(requests,stage)
         except BudgetExhausted:
-            state['budget_exhausted']=True;dump(path,state);return state
+            # Dispatch already merged completed results before raising. Read
+            # them back using the original preflighted plan, without a rollout.
+            from runner import register
+            _,_,done=register(requests,stage);results=list(done.values());budget_stop=True
+            state['budget_exhausted']=True
         found={r.get('target_query_uid',r['rollout_uid']):r for r in results}
         for group,request in owners:
             result=found.get(request['rollout_uid'])
-            if result is None:group['infrastructure_missing']=request['rollout_uid'];continue
+            if result is None:
+                group['budget_unsearched'if budget_stop else'infrastructure_missing']=request['rollout_uid'];continue
+            group.pop('infrastructure_missing',None)
+            group.pop('budget_unsearched',None)
             group['queries'].append(dict(index=index,query_uid=request['rollout_uid'],result=result))
             if result['success']:group.update(success=True,first_success=index)
         dump(path,state)
-        if any(g.get('infrastructure_missing')for g in state['groups']):return state
+        if budget_stop or any(g.get('infrastructure_missing')for g in state['groups']):
+            dump(path,summarize(state,scenes));return state
     state.update(complete=all(g['success']or len(g['queries'])==16 for g in state['groups']),time=datetime.datetime.now().astimezone().isoformat())
-    successful=[g['first_success']for g in state['groups']if g['success']]
-    state['summary']=dict(cases=len(state['groups']),successes=len(successful),not_found=sum(not g['success']for g in state['groups']),
-        first_success_mean=float(np.mean(successful))if successful else None,
-        first_success_quartiles=np.quantile(successful,[.25,.5,.75]).tolist()if successful else None,
-        all_case_logical_search_mean=float(np.mean([len(g['queries'])for g in state['groups']])),
-        numerical_unknown_queries=sum(bool(q['result'].get('numerical_failure'))for g in state['groups']for q in g['queries']),
-        note='Failure to find a success is a finite-pool result; tuned index17–32need not be contained in this prefix.')
-    from statistic_rules import hierarchical_interval
-    physical={}
-    for group in state['groups']:
-        physical.setdefault((group['scene'],group['state']),[]).append(int(group['success']))
-    blocks={}
-    for (name,si),values in physical.items():
-        blocks.setdefault(str(scenes[name]['type_id']),{}).setdefault(name,[]).append(sum(values)/len(values))
-    state['summary']['physical_success_interval']=hierarchical_interval(blocks)
-    state['budget_curve']=[dict(k=k,verified_coverage=sum(g['success']and g['first_success']<=k for g in state['groups']),
-        complete=all(g['success']or len(g['queries'])>=k for g in state['groups']))for k in range(1,17)]
-    dump(path,state);return state
+    dump(path,summarize(state,scenes));return state
 
 
 def run():

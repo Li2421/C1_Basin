@@ -176,7 +176,7 @@ def missing_sensitivity(rows,grouped):
 def write_csv(name,rows):
     if not rows:return
     with(HERE/name).open('w',newline='')as stream:
-        writer=csv.DictWriter(stream,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
+        writer=csv.DictWriter(stream,fieldnames=list(rows[0]),lineterminator='\n');writer.writeheader();writer.writerows(rows)
 
 
 def cpu_summary(rows):
