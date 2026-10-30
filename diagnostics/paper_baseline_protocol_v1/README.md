@@ -13,3 +13,7 @@
 当前没有运行中的实验。已完成的外部历史覆盖可通过 coverage_272_resume.sh 精确缓存复用；该脚本不启动内部 B 选参。
 
 验证见 FIXED_B_REMOVAL_CHECK.json；政策见 USER_REMOVED_FIXED_B_WORKFLOW.json。本政策取代本目录旧协议文本中关于内部固定 B 选参及覆盖的要求。
+
+## 只读学习价值诊断
+
+最新最佳B族的逐案例η敏感性、纯旋转符号对照和证据边界见[ETA_LEARNING_VALUE_REPORT.md](ETA_LEARNING_VALUE_REPORT.md)。仅重算旧证据，未恢复固定参数选参，未新增rollout或训练。

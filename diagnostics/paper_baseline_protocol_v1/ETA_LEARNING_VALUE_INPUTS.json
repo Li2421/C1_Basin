@@ -1,0 +1,71 @@
+{
+  "time": "2026-10-30T14:53:32.720666+08:00",
+  "authorization": "User explicitly requested analysis of the best B family on the historical272case cohort; read-only access to the now-completed prior study is necessary and authorized for this analysis.",
+  "previous_study_completed": true,
+  "inputs": [
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/SEARCH_level3_01_screen.json",
+      "copy": "/mnt/ssd/zhihan/Basin_C1/diagnostics/paper_baseline_protocol_v1/eta_learning_value_artifacts/inputs/SEARCH_level3_01_screen.json",
+      "sha256": "280a79fadb2d5f9a56fa0e614348b63ae7c9376fbec4feafb018e39df1b7807f",
+      "bytes": 19085091
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/COMBINATIONS.json",
+      "copy": "/mnt/ssd/zhihan/Basin_C1/diagnostics/paper_baseline_protocol_v1/eta_learning_value_artifacts/inputs/COMBINATIONS.json",
+      "sha256": "1bbfa3b885f899acb28b6215069063d5dd60bc4dec3e7e0a000d2d6513d144e5",
+      "bytes": 1112168
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/FIXED_level3_01_screen.json",
+      "copy": "/mnt/ssd/zhihan/Basin_C1/diagnostics/paper_baseline_protocol_v1/eta_learning_value_artifacts/inputs/FIXED_level3_01_screen.json",
+      "sha256": "5122d9791d9ebc27c70f94acc6310dd34a2fc5f2999bd67c5f88fa87578f3e0e",
+      "bytes": 2691181
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/FIXED_level3_01_screen_plus.json",
+      "copy": "/mnt/ssd/zhihan/Basin_C1/diagnostics/paper_baseline_protocol_v1/eta_learning_value_artifacts/inputs/FIXED_level3_01_screen_plus.json",
+      "sha256": "5c788b666e9156593b718b2ae8700abfba632072ca529a7ca6ae7a40e011c451",
+      "bytes": 2691109
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/REPRESENTATIVE17_FROZEN.json",
+      "copy": "/mnt/ssd/zhihan/Basin_C1/diagnostics/paper_baseline_protocol_v1/eta_learning_value_artifacts/inputs/REPRESENTATIVE17_FROZEN.json",
+      "sha256": "8afbc8f1ad15d46dab93a68cd02fad28ad902b84f2ea2b8a5b8450e01b77a6ec",
+      "bytes": 24670
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/CONTROLLERS_FROZEN.json",
+      "copy": "/mnt/ssd/zhihan/Basin_C1/diagnostics/paper_baseline_protocol_v1/eta_learning_value_artifacts/inputs/CONTROLLERS_FROZEN.json",
+      "sha256": "3fc37bc41f0bfe0854aa0307dc0209aa814a5250353abe9006d45cc386e95077",
+      "bytes": 1128
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/COMPLETE.json",
+      "copy": "/mnt/ssd/zhihan/Basin_C1/diagnostics/paper_baseline_protocol_v1/eta_learning_value_artifacts/inputs/COMPLETE.json",
+      "sha256": "3b6525185d088bc982c13ac4cc4b18ca0ee3f3e28fadfb31d0bdf77035d0faf7",
+      "bytes": 8985
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/fixed_level3_01_screen_all_requests.json",
+      "copy": "/mnt/ssd/zhihan/Basin_C1/diagnostics/paper_baseline_protocol_v1/eta_learning_value_artifacts/inputs/fixed_level3_01_screen_all_requests.json",
+      "sha256": "b0baa5694ea3b8ac50fb9e37b958c951b6cd225f9630abc5a6b87257fa5010c0",
+      "bytes": 6609757
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/fixed_level3_01_screen_plus_all_requests.json",
+      "copy": "/mnt/ssd/zhihan/Basin_C1/diagnostics/paper_baseline_protocol_v1/eta_learning_value_artifacts/inputs/fixed_level3_01_screen_plus_all_requests.json",
+      "sha256": "bb9d400f7f45fa8b99c49f84e30a93b02e1fc67660e48df463ad712567917d16",
+      "bytes": 6594521
+    },
+    {
+      "source": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/runtime.py",
+      "copy": "/mnt/ssd/zhihan/Basin_C1/diagnostics/paper_baseline_protocol_v1/eta_learning_value_artifacts/inputs/runtime.py",
+      "sha256": "4c81f3114a3a7784b2a1084f104590f47f144d7e68e7dac9dd0e1a705f44992c",
+      "bytes": 10878
+    }
+  ],
+  "old_directory_modified": false,
+  "new_rollouts": 0,
+  "training": false,
+  "storage": "Verified mounted SSD; pure artifact subdirectory symlink under current experiment. No home fallback."
+}

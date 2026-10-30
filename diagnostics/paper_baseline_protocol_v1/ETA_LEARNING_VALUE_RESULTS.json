@@ -1,0 +1,200 @@
+{
+  "time": "2026-10-30T14:55:20.729589+08:00",
+  "family_code": "level3_01",
+  "family_name": "朝目标 + 互斥分离·含净空 + 目标右侧旋转·含通道放行",
+  "dimension": 3,
+  "free": [
+    "G",
+    "R",
+    "T"
+  ],
+  "bindings": {
+    "Q": "T",
+    "C": "R"
+  },
+  "cases": 272,
+  "physical_states": 136,
+  "oracle_success": 264,
+  "oracle_queries": 2385,
+  "known_case_candidate_cells": 2461,
+  "possible_cells": 17408,
+  "unobserved_cells": 14947,
+  "numerical_unknown_prefix_queries": 0,
+  "first_success_histogram": {
+    "1": 76,
+    "2": 13,
+    "3": 26,
+    "4": 23,
+    "5": 48,
+    "7": 13,
+    "8": 1,
+    "9": 6,
+    "11": 26,
+    "13": 3,
+    "15": 7,
+    "20": 3,
+    "22": 2,
+    "28": 2,
+    "30": 2,
+    "31": 1,
+    "32": 1,
+    "34": 3,
+    "38": 1,
+    "39": 1,
+    "42": 1,
+    "46": 1,
+    "52": 1,
+    "58": 2,
+    "60": 1
+  },
+  "success_after_at_least_one_failed_eta": 188,
+  "first_success_mean": 7.09469696969697,
+  "first_success_median": 4.0,
+  "successful_candidate_indices_observed_as_first": 25,
+  "cases_with_verified_success_failure_eta_contrast": 208,
+  "cases_with_multiple_verified_successful_etas": 56,
+  "controlled_sign": {
+    "negative_spec": {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "T1": -0.75,
+        "C2": 0.375
+      },
+      "one_way": {
+        "R_e": 0.8,
+        "R_c": 0.5,
+        "rho": "fcfs",
+        "K": null,
+        "c1": 0.75,
+        "c2": 0.75,
+        "c3": 0.75
+      }
+    },
+    "positive_spec": {
+      "eta": [
+        0.875,
+        0.0,
+        0.375
+      ],
+      "coefficients": {
+        "T1": 0.75,
+        "C2": 0.375
+      },
+      "one_way": {
+        "R_e": 0.8,
+        "R_c": 0.5,
+        "rho": "fcfs",
+        "K": null,
+        "c1": 0.75,
+        "c2": 0.75,
+        "c3": 0.75
+      }
+    },
+    "cases": 272,
+    "matched_frozen_nominal_safety_execution_and_rng_root": true,
+    "cells": {
+      "11": 56,
+      "00": 183,
+      "01": 13,
+      "10": 20
+    },
+    "discordant_cases": 33,
+    "types_with_both_direction_preferences": [
+      4,
+      5,
+      6,
+      8,
+      11,
+      15
+    ],
+    "same_type_and_nominal_strata_with_both_preferences": [
+      [
+        4,
+        "gradient_mpc"
+      ],
+      [
+        5,
+        "gradient_mpc"
+      ],
+      [
+        6,
+        "centralized_sampling"
+      ],
+      [
+        8,
+        "gradient_mpc"
+      ],
+      [
+        11,
+        "gradient_mpc"
+      ],
+      [
+        15,
+        "gradient_mpc"
+      ]
+    ],
+    "both_success_cases": 56,
+    "mean_absolute_completion_difference_seconds": 3.910714285714286,
+    "median_absolute_completion_difference_seconds": 2.1250000000000018,
+    "maximum_absolute_completion_difference_seconds": 16.050000000000004,
+    "negative_faster_by_more_than_one_step": 32,
+    "positive_faster_by_more_than_one_step": 20
+  },
+  "evidence_only": true,
+  "new_rollouts": 0,
+  "training": false,
+  "global_parameter_selected": false,
+  "limitations": [
+    "Early-success stopping censors unexecuted candidates. Missing cells are unknown, never failure.",
+    "Observed parameter sensitivity and crossed preferences do not demonstrate learnability/generalization from any particular input encoding.",
+    "First-success parameter distribution is search-order dependent; it is not an optimum or an unbiased sample of all successful eta.",
+    "Three free coefficients include absolute-value coupling and stateful admission; this is not a fixed linear3column matrix.",
+    "The cohort informed earlier family design. This is descriptive evidence, not an independent generalization benchmark.",
+    "Completion-time comparisons use only56same-case successes under both signs; first-success search does not identify the fastest successful eta."
+  ],
+  "artifacts": {
+    "matrix": "/mnt/ssd/zhihan/Basin_C1/diagnostics/paper_baseline_protocol_v1/eta_learning_value_artifacts/case_eta_observed.csv",
+    "matrix_sha256": "145a0f693334d6d7fa5d1337ab8778d86b11d2410235227441d8a4d873776cd2",
+    "snapshot": "/home/zhihan/research/Basin_C1/diagnostics/paper_baseline_protocol_v1/ETA_LEARNING_VALUE_INPUTS.json"
+  },
+  "within_same_map_and_nominal_examples": [
+    {
+      "identity": [
+        4,
+        1,
+        "gradient_mpc",
+        5
+      ],
+      "negative_success": 0,
+      "positive_success": 1,
+      "negative_outcome": "timeout",
+      "positive_outcome": "success",
+      "negative_seconds": null,
+      "positive_seconds": 10.600000000000001,
+      "negative_uid": "roll_460fd0822a1aa594e54b552ff2b6a8b306d6e383e19e3443e80c9cf14c817cdb",
+      "positive_uid": "roll_b8b915dc84636bb9860108c51c94f7937e2daf333096d1fcfb0c5e5314a8bfc4",
+      "state_uid": "state_5e3f83368375e96ee472d44585c5ad872fd30480649d4a4ef0ac37a37594b156"
+    },
+    {
+      "identity": [
+        4,
+        1,
+        "gradient_mpc",
+        7
+      ],
+      "negative_success": 1,
+      "positive_success": 0,
+      "negative_outcome": "success",
+      "positive_outcome": "timeout",
+      "negative_seconds": 9.25,
+      "positive_seconds": null,
+      "negative_uid": "roll_b7c142618b7f5f03e614466d1fca35b122ca594a373a3598aa9af5bc67fecb9b",
+      "positive_uid": "roll_d882aa559ed820b44d1e37a55b699a57421478e6d4289a2c49c1ff9947bf28ab",
+      "state_uid": "state_acf76ed75cb33f45e463f71dfe99833bd8b455a93a6d307dae203628bd0f46e4"
+    }
+  ]
+}

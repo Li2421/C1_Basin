@@ -1,3 +1,7 @@
+# 最新分析：最佳B族存在明确的逐案例η选择信号
+
+详见[ETA_LEARNING_VALUE_REPORT.md](ETA_LEARNING_VALUE_REPORT.md)：208/272例已有同案例成功/失败η对照；纯旋转符号改变使33例成败翻转。只分析旧证据，新增rollout=0、训练=0。独立泛化尚未验证。
+
 # 当前优先结果：已完成旧272案例对应队列的外部固定参数覆盖
 
 详见 [COVERAGE_272_REPORT.md](COVERAGE_272_REPORT.md)。内部 B 的全局/按类型/固定首组选参覆盖已按用户指示删除；旧整体流程与恢复入口已停用，见 README.md。
