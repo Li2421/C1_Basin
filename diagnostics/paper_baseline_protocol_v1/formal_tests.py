@@ -89,6 +89,8 @@ def begin():
     assert analysis['parameters_sha256']==sha(HERE/'PARAMETERS_FROZEN.json')
     assert analysis['ours_fixed_sha256']==sha(HERE/'OURS_FIXED_FROZEN.json')
     assert analysis['execution_release_sha256']==sha(HERE/'EXECUTION_FROZEN.json')
+    for name,expected in analysis['analysis_sources_sha256'].items():
+        assert sha(HERE/name)==expected,('HARD_STOP: frozen analysis source changed',name)
     path=HERE/'FORMAL_TEST_STARTED.json'
     if path.exists():assert read(path)['analysis_sha256']==sha(HERE/'ANALYSIS_PLAN_FROZEN.json')
     else:dump(path,dict(time=datetime.datetime.now().astimezone().isoformat(),analysis_sha256=sha(HERE/'ANALYSIS_PLAN_FROZEN.json'),
@@ -115,6 +117,26 @@ if __name__=='__main__':
     run_a();run_b()
 
 
+def nonmain(module):
+    """Implementation gaps in supplements never swallow a hard-stop condition."""
+    import importlib,sqlite3,traceback
+    try:return importlib.import_module(module).run()
+    except Exception as exc:
+        critical=('HARD_STOP','DB_AMBIGUOUS','DB_IDENTITY_CONFLICT','IMMUTABLE_STAGE_PLAN','QUARANTINED_RESULT','DB_AMBIGUOUS')
+        if isinstance(exc,(PermissionError,sqlite3.Error))or any(word in str(exc)for word in critical):raise
+        if(HERE/'PROTECTION_VIOLATION.jsonl').exists():raise
+        dump(HERE/('NONMAIN_'+module+'_ERROR.json'),dict(error=repr(exc),traceback=traceback.format_exc()))
+        with(HERE/'GAPS.md').open('a')as stream:stream.write('\n非主线'+module+'未完成：'+repr(exc)+'；保留已完成结果，不改变主表。\n')
+
+
+def nonmain_plots():
+    import subprocess
+    interpreter=Path('/home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1-plots/bin/python')
+    if not interpreter.is_file():raise FileNotFoundError(str(interpreter))
+    with(HERE/'figures.log').open('ab')as log:
+        subprocess.run([str(interpreter),'-B',str(HERE/'plot_frozen_results.py')],stdout=log,stderr=log,check=True,timeout=180)
+
+
 def main():
     begin()
     from consistent_ours import run as changed_environment
@@ -129,6 +151,13 @@ def main():
         from oracle import run as finite_oracle
         finite_oracle()
         report()
+        nonmain('relaxed_sensitivity')
+        nonmain('time_limit_sensitivity')
+        try:nonmain_plots()
+        except Exception as exc:
+            if isinstance(exc,PermissionError)or(HERE/'PROTECTION_VIOLATION.jsonl').exists():raise
+            dump(HERE/'NONMAIN_FIGURES_ERROR.json',dict(error=repr(exc)))
+            with(HERE/'GAPS.md').open('a')as stream:stream.write('\n非主线绘图未完成：'+repr(exc)+'。\n')
     from final_delivery import run as deliver
     deliver()
     return dict(benchmark_A=a,benchmark_B=b)

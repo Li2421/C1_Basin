@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-30T13:26:28.243041+08:00",
+  "passed": true,
+  "synthetic_test_only": true,
+  "physical_states": 384,
+  "nominal_models_in_one_block": 6,
+  "python_hash_seeds": [
+    1,
+    987
+  ],
+  "result_sha256": "4dbe1f3e527a10993e93cca008e3fa0160046e2045ef92feb6f7a8392fead4dc",
+  "checks": "Primary paired differences,10000hierarchical resamples,100000scene sign flips and Holm3all byte-identical under distinct interpreter hash randomization.",
+  "new_rollouts": 0,
+  "memoized_result_byte_identical": true,
+  "memoized_hash_seed": 42
+}

@@ -75,6 +75,10 @@ def integrity():
                        ('splits_sha256','SPLITS_FROZEN.json'),('native_reproduction_sha256','NATIVE_REPRODUCTION_RESULTS.json'),
                        ('method_policy_sha256','METHOD_EXECUTION_POLICY.json')]:
         if sha(HERE/name)!=analysis[field]:freeze_changes[name]=dict(expected=analysis[field],actual=sha(HERE/name))
+    if analysis.get('relaxed_scenes_sha256')!=sha(HERE/'RELAXED_SCENES_FROZEN.json'):
+        freeze_changes['RELAXED_SCENES_FROZEN.json']='Historical sensitivity scene selection changed after analysis freeze.'
+    for name,expected in analysis['analysis_sources_sha256'].items():
+        if sha(HERE/name)!=expected:freeze_changes[name]=dict(expected=expected,actual=sha(HERE/name))
     passed=not changed and not bad_inputs and external_same and imports['passed']and not freeze_changes and not(HERE/'PROTECTION_VIOLATION.jsonl').exists()
     value=dict(passed=passed,numerical_source_changes=changed,copied_input_changes=bad_inputs,
                protected_external_git_diff_unchanged=external_same,copied_inputs_checked=len(copied),
@@ -101,6 +105,10 @@ def run():
     # entry documentation is absent. Never fabricate footage or rerun for it.
     if not(ROOT/'docs/batch_videos.md').exists():gaps.append('Non-mainline video delivery: docs/batch_videos.md shared entry documentation missing; existing true traces retained, no synthetic videos.')
     gaps.append('DAC exact journal figure/page unavailable in accessible primary full text; official pinned repository/demo and DOI verified, no invented figure attribution.')
+    for path in sorted(HERE.glob('NONMAIN_*_ERROR.json')):gaps.append('Non-mainline supplement incomplete; see '+path.name)
+    if(HERE/'RELAXED_SENSITIVITY_RESULTS.json').exists():
+        relaxed=json.loads((HERE/'RELAXED_SENSITIVITY_RESULTS.json').read_text())
+        if relaxed['unavailable_logical_rows']:gaps.append(str(relaxed['unavailable_logical_rows'])+'historical sensitivity logical rows lack compatible frozen admission passages/selection; unavailable, not rollout failures.')
     process=[]
     if(HERE/'PROCESS_GAPS.json').exists():process=json.loads((HERE/'PROCESS_GAPS.json').read_text()).get('events',[])
     numeric=bool(result.get('main_fixed_tests_complete'))
@@ -110,6 +118,14 @@ def run():
         candidates=stream,gaps=gaps,process_gaps=process,report=str(HERE/'REPORT.md'))
     assert budget['actual_attempts']<=50000
     (HERE/'COMPLETE.json').write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
+    registry=json.loads((HERE/'PAPER_REGISTRY.json').read_text())
+    native=json.loads((HERE/'NATIVE_REPRODUCTION_RESULTS.json').read_text())['methods']
+    for method,row in native.items():
+        if row['reproducible']:
+            registry['methods'][method]['status']='原环境复现通过；共同环境主线固定策略测试完成'if numeric else'原环境复现通过；共同环境主线有缺失，详见COMPLETE.json'
+            registry['methods'][method]['final_report']='REPORT.md'
+    registry['time']=value['time']
+    (HERE/'PAPER_REGISTRY.json').write_text(json.dumps(registry,ensure_ascii=False,indent=2)+'\n')
     with(HERE/'GAPS.md').open('a')as out:
         for gap in gaps:out.write('\n- '+gap+'\n')
     with(HERE/'REPORT.md').open('a')as out:

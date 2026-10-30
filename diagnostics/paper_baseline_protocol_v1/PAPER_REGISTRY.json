@@ -1,5 +1,5 @@
 {
-  "time": "2026-10-30T01:10:26.954751+08:00",
+  "time": "2026-10-30T13:18:48.091180+08:00",
   "addendum_sha256": "fb0f8eb66c4bb34d9ef4a39c9313f9f791c45bf088c4e9c977def996b52f8689",
   "methods": {
     "wang2017_consistent_perturbation_di_tracking": {
@@ -22,7 +22,7 @@
     },
     "dac_author_si": {
       "name": "Zhang T-RO 2025 死锁感知控制",
-      "status": "原环境复现通过，等待共同环境准入",
+      "status": "原环境复现通过；返回值修复、物理对齐与单机诊断完成；训练集调参中，正式测试尚未启动",
       "author_repository": "https://github.com/Parker-Zhang/Shaping-CLF-MCBF",
       "author_commit_prefix": "b6cf71fdce40",
       "local_copy": "inputs/diagnostics/paper_baselines_20261028/vendor/dac",
@@ -40,11 +40,18 @@
         "narrow_demo_limitation": "First narrow demo reaches goals but has -3.2e-9 wall residual; retained, not used as a strict collision-free certificate.",
         "paper_source": "Author repository README identifies DOI10.1109/TRO.2025.3600159. Exact journal figure/page unavailable through accessible primary source; explicitly a citation gap."
       },
-      "port_repairs_applied": false
+      "port_repairs_applied": true,
+      "evidence_files": [
+        "PORT_REPAIR_APPLIED.json",
+        "PORT_FIX_BEFORE_AFTER.json",
+        "MARGIN_ALIGNMENT.json",
+        "NARROW_PASSAGE_DIAGNOSTIC.json",
+        "PORT_GATES.json"
+      ]
     },
     "mgr_author_unicycle_tracking": {
       "name": "Lee IROS 2025 旋转木马",
-      "status": "原环境复现通过，等待共同环境准入",
+      "status": "原环境复现通过；返回值修复、物理对齐与单机诊断完成；训练集调参中，正式测试尚未启动",
       "author_repository": "https://github.com/Aiden-wjLee/merry-go-round",
       "author_commit_prefix": "84aaefd705ab",
       "local_copy": "inputs/diagnostics/paper_baselines_20261028/vendor/mgr",
@@ -63,7 +70,14 @@
         "paper_20instance_mean_makespan": 57.17,
         "comparison_limit": "One original instance, not replication of20-instance mean; repository notes post-submission code cleanup."
       },
-      "port_repairs_applied": false
+      "port_repairs_applied": true,
+      "evidence_files": [
+        "PORT_REPAIR_APPLIED.json",
+        "PORT_FIX_BEFORE_AFTER.json",
+        "MARGIN_ALIGNMENT.json",
+        "NARROW_PASSAGE_DIAGNOSTIC.json",
+        "PORT_GATES.json"
+      ]
     },
     "chen_impc_ob_si_tracking": {
       "name": "Chen RA-L 2023 动态优先级＋右手规则＋安全走廊",

@@ -1,10 +1,10 @@
 """Physical-state paired reporting from immutable labels and completed plans."""
 import guard
 from guard import HERE
-import json,csv,collections,datetime,math
+import json,csv,collections,datetime,math,hashlib,os
 from fractions import Fraction
 import numpy as np
-from statistic_rules import hierarchical_interval,paired_signflip,holm,verdict
+from statistic_rules import hierarchical_interval as _hierarchical_interval,paired_signflip as _paired_signflip,holm,verdict
 from method_names import NAMES
 
 LEARNED='学习选修正参数'
@@ -13,6 +13,27 @@ VARIANTS={'frozen':'冻结学习流水线/内部参照','global_tuned':'训练�
           'author_original':'按原文安全距离','type_tuned':'按类型调参','mechanism_disabled':'去掉死锁机制',
           'first_point':'冻结首组','internal':'内部参照','legacy_geometry':'原墙体模型·补充',
           'consistent_sensitivity':'一致墙体模型·敏感性'}
+
+
+def statistic_cache(kind,arguments,compute):
+    """Reuse identical statistical computations, bound to exact algorithm SHA."""
+    def encode(value):
+        if isinstance(value,Fraction):return dict(fraction=[value.numerator,value.denominator])
+        raise TypeError(type(value).__name__)
+    source=hashlib.sha256((HERE/'statistic_rules.py').read_bytes()).hexdigest()
+    descriptor=json.dumps(dict(kind=kind,algorithm_sha256=source,arguments=arguments),sort_keys=True,separators=(',',':'),default=encode)
+    key=hashlib.sha256(descriptor.encode()).hexdigest();folder=HERE/'statistical_cache';folder.mkdir(exist_ok=True)
+    path=folder/(key+'.json')
+    if path.exists():return json.loads(path.read_text())['result']
+    result=compute();temporary=folder/(key+'.'+str(os.getpid())+'.tmp')
+    temporary.write_text(json.dumps(dict(kind=kind,algorithm_sha256=source,result=result),ensure_ascii=False,allow_nan=False)+'\n');temporary.replace(path)
+    return result
+
+
+def hierarchical_interval(blocks):return statistic_cache('hierarchical_interval',blocks,lambda:_hierarchical_interval(blocks))
+
+
+def paired_signflip(values):return statistic_cache('paired_signflip',values,lambda:_paired_signflip(values))
 
 
 def read(name):return json.loads((HERE/name).read_text())
@@ -56,12 +77,13 @@ def collect():
     return rows
 
 
-def physical(rows):
+def physical(rows,expected_nominals=None):
     groups=collections.defaultdict(list)
     for row in rows:groups[(row['scene'],row['state'])].append(row)
     values={};missing=[]
     for key,group in groups.items():
         expected=6 if group[0]['benchmark']=='A'and group[0]['method']in INTERNAL else 2 if group[0]['benchmark']=='B'and group[0]['method'].startswith(('ours_','internal_'))else 1
+        if expected_nominals is not None:expected=expected_nominals
         if len(group)!=expected or any(r.get('result')is None for r in group):missing.append(key);continue
         assert len({r['nominal']for r in group})==len(group),'Duplicate nominal evidence'
         values[key]=dict(category=group[0]['category'],success=sum(Fraction(int(r['result']['success']))for r in group)/expected,
@@ -74,12 +96,12 @@ def physical(rows):
 
 def blocks(values,key):
     out={}
-    for (scene,state),value in values.items():out.setdefault(str(value['category']),{}).setdefault(scene,[]).append(float(value[key]))
+    for (scene,state),value in sorted(values.items()):out.setdefault(str(value['category']),{}).setdefault(scene,[]).append(float(value[key]))
     return out
 
 
-def summary(rows,interval=True):
-    values,missing=physical(rows);known=[r['result']for r in rows if r.get('result')is not None]
+def summary(rows,interval=True,expected_nominals=None):
+    values,missing=physical(rows,expected_nominals);known=[r['result']for r in rows if r.get('result')is not None]
     success=[r for r in known if r['success']];times=[r['completion_time']for r in success if r.get('completion_time')is not None]
     capped=[r['truncated_time']for r in known if r.get('truncated_time')is not None]
     return dict(physical_states=len(values),missing_physical_states=len(missing),episodes=len(rows),observed_episodes=len(known),
@@ -120,7 +142,7 @@ def comparisons(rows):
         paper=[r for r in rows if r['benchmark']=='A'and r['part']=='test'and r['method']==method and r['variant']=='global_tuned']
         if not native[method]['reproducible']:
             pvalues[method]=None;out[method]=dict(excluded=True,reason=native[method].get('reason'));continue
-        other,_=physical(paper);keys=own.keys()&other.keys();grouped={};scenes=collections.defaultdict(list)
+        other,_=physical(paper);keys=sorted(own.keys()&other.keys());grouped={};scenes=collections.defaultdict(list)
         for key in keys:
             difference=own[key]['success']-other[key]['success'];scene,state=key
             grouped.setdefault(str(own[key]['category']),{}).setdefault(scene,[]).append(float(difference));scenes[scene].append(difference)
@@ -161,7 +183,7 @@ def missing_sensitivity(rows,grouped):
         if not native['reproducible']:
             paired[method]=dict(excluded=True,reason='Native reproduction gate; no fabricated missing-as-failure test.');pvalues[method]=None;continue
         other,_=values(grouped.get(('A','test',method,'global_tuned'),[]));blocks_by_category={};by_scene=collections.defaultdict(list)
-        keys=own.keys()&other.keys()
+        keys=sorted(own.keys()&other.keys())
         for key in keys:
             scene,state=key;delta=own[key]['success']-other[key]['success']
             blocks_by_category.setdefault(str(own[key]['category']),{}).setdefault(scene,[]).append(float(delta));by_scene[scene].append(delta)
@@ -206,7 +228,7 @@ def cpu_summary(rows):
 
 def difference(first,second):
     a,_=physical(first);b,_=physical(second);grouped={}
-    for key in a.keys()&b.keys():
+    for key in sorted(a.keys()&b.keys()):
         scene,state=key;grouped.setdefault(str(a[key]['category']),{}).setdefault(scene,[]).append(float(a[key]['success']-b[key]['success']))
     return hierarchical_interval(grouped)
 
@@ -264,6 +286,9 @@ def opening(stats,paired,gate):
 
 
 def run():
+    analysis=read('ANALYSIS_PLAN_FROZEN.json')
+    for name,expected in analysis['analysis_sources_sha256'].items():
+        assert hashlib.sha256((HERE/name).read_bytes()).hexdigest()==expected,('HARD_STOP: frozen analysis source changed',name)
     rows=collect();grouped=collections.defaultdict(list)
     for row in rows:grouped[(row['benchmark'],row['part'],row['method'],row['variant'])].append(row)
     stats=[]
@@ -285,10 +310,12 @@ def run():
                 **summary([r for r in group if str(r['category'])==category],interval=True)))
         if benchmark=='A'and method in INTERNAL:
             for nominal in sorted({r['nominal']for r in group}):
-                episode_rows=[r for r in group if r['nominal']==nominal and r.get('result')]
+                episode_rows=[r for r in group if r['nominal']==nominal]
+                timing=cpu_summary(episode_rows)
                 by_nominal.append(dict(part=part,method=method,variant=VARIANTS.get(variant,variant),nominal=nominal,
-                    episodes=len(episode_rows),successes=sum(r['result']['success']for r in episode_rows),
-                    success_rate=sum(r['result']['success']for r in episode_rows)/len(episode_rows)if episode_rows else None))
+                    successes=sum(r['result']['success']for r in episode_rows if r.get('result')),
+                    cpu_step_median_seconds=timing['per_step_median_seconds'],cpu_step_p95_seconds=timing['per_step_p95_seconds'],
+                    **summary(episode_rows,expected_nominals=1)))
     write('CATEGORY_TABLES.json',dict(rows=by_category));write_csv('PER_NOMINAL.csv',by_nominal)
     write_csv('CATEGORY_TABLES.csv',[{k:json.dumps(v,ensure_ascii=False)if isinstance(v,(dict,list))else v for k,v in row.items()}for row in by_category])
     write('NORMALIZED_EVIDENCE.json',dict(rows=rows))
