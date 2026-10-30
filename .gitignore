@@ -128,3 +128,8 @@ single_integrator/results/**
 /diagnostics/**/plot_vendor
 /diagnostics/**/firefox_preview_profile
 /diagnostics/**/visual_preview_profile
+
+# Data-disk artifact directories and compatibility symlinks
+/outputs
+/diagnostics/**/traces
+/diagnostics/**/operational_checkpoints
