@@ -74,7 +74,8 @@ def plan(benchmark,variant):
 def fixed_stage(benchmark,variant):
     requests,metadata=plan(benchmark,variant)
     name=f'test_{benchmark}_{variant}'
-    results={query_uid(r):r for r in execute(requests,name)}
+    from oracle import recorded_result
+    results={query_uid(r):recorded_result(r)for r in execute(requests,name)}
     rows=[dict(row,result=results.get(row['query_uid']))for row in metadata]
     output=dict(benchmark=benchmark,variant=variant,planned_logical_rows=len(rows),
                 observed_logical_rows=sum(r['result']is not None for r in rows),

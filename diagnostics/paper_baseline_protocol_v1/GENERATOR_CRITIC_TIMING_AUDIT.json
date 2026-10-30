@@ -1,0 +1,25 @@
+{
+  "time": "2026-10-30T14:03:42.105695+08:00",
+  "searched_scope": "diagnostics/paper_baseline_protocol_v1/inputs/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset",
+  "source_sha256": {
+    "gen_ens.py": "6f6df76734d701769feb5b9de4d30fa77a109132d010a5be7ef3a3f1608cea06",
+    "gen_ens_t2.py": "78fe8ce3c93b70c6648b0804194f2a1ab5f4ecd720b0352933daa1fd84ac8efd",
+    "gen.py": "8101e698a0723118d910f7b1f82509cdc74b90362a654782d3441b73af5ae2bc",
+    "critic.py": "c3418b9f94f6e32fa7edc022253645d0e1e5b057f6ba5e149d797887bde4c2be"
+  },
+  "available_artifacts": [
+    "Frozen proposal JSON and scene-level choices",
+    "Critic full_list/full_bce NPZ prediction arrays",
+    "Six frozen nominal-policy parameter checkpoints"
+  ],
+  "source_observations": [
+    "gen_ens.py train_ens retrains three generators and prints proposals; no ensemble parameter serialization at its entrypoint.",
+    "gen_ens_t2.py calls train_ens again before producing targets.",
+    "critic.py entrypoint saves predicted target scores, not net/params checkpoint."
+  ],
+  "verified_matching_generator_critic_parameter_checkpoint": null,
+  "conclusion": "No verified frozen Generator/Critic parameter checkpoint found in the copied input snapshot. Reconstructing the shown entrypoints would retrain, which is prohibited. Original one-time inference/selection timing remains unavailable; proposal lookup is not a substitute measurement.",
+  "training_executed": false,
+  "new_rollouts": 0,
+  "generator_critic_startup_seconds": null
+}

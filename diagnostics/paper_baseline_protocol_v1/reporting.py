@@ -42,7 +42,10 @@ def read(name):return json.loads((HERE/name).read_text())
 
 def write(name,value):
     path=HERE/name;path.parent.mkdir(parents=True,exist_ok=True)
-    temporary=path.with_suffix(path.suffix+'.tmp');temporary.write_text(json.dumps(value,ensure_ascii=False,indent=2,allow_nan=False)+'\n');temporary.replace(path)
+    temporary=path.with_suffix(path.suffix+'.tmp')
+    with temporary.open('w')as stream:
+        json.dump(value,stream,ensure_ascii=False,indent=2,allow_nan=False);stream.write('\n')
+    temporary.replace(path)
 
 
 def display(method):return NAMES.get(method,method)
@@ -238,7 +241,7 @@ def cpu_summary(rows):
         observed_setup_mean_seconds=float(np.mean(setup))if setup else None,
         observed_dictionary_total_seconds=float(np.sum(dictionary))if dictionary else None,
         generator_critic_startup_seconds=None,
-        interpretation='Recorded monotonic wall time on a single CPU. Missing historical measurements are not zero; setup/import and generator/critic evidence are separate.')
+        interpretation='Recorded monotonic wall time on a single CPU for the whole control step, including nominal/safety/correction; not isolated correction-only incremental cost. Dictionary construction is only the separately logged component. Missing historical measurements are not zero; setup/import and Generator/Critic evidence are separate; see GENERATOR_CRITIC_TIMING_AUDIT.json.')
 
 
 def difference(first,second):
@@ -382,7 +385,7 @@ def run():
             '| 方法 | 完整搜索 | 成功/案例 | 成功首次组数均值 | 全案例搜索组数均值 |','|---|---|---:|---:|---:|']
         for result in oracle['methods']:
             s=result.get('summary',{});lines.append(f"| {display(result['method'])} | {result.get('complete')} | {s.get('successes','—')}/{s.get('cases','—')} | {s.get('first_success_mean','—')} | {s.get('all_case_logical_search_mean','—')} |")
-        lines+=['','C1每个名义控制器分别搜索，外部方法每个物理初态搜索一次；总体成功率与区间按物理状态折叠。预算曲线、逐候选η/参数、数值未知和首次成功轨迹保存在ORACLE16_RESULTS.json及oracles/。']
+        lines+=['','C1每个名义控制器分别搜索，外部方法每个物理初态搜索一次；完整搜索的总体成功率与区间按物理状态折叠。未完成搜索的success/cases只代表已验证覆盖下界，未搜索完单列，不当作有限池失败；不输出冒充全队列的已解决子集CI。训练选中的17–32组可能不在Oracle@16前缀内，ORACLE_SUBSET_CHECK.json明确核验保证适用范围。预算曲线、逐候选η/参数、数值未知、作者原生异常和首次成功轨迹保存在ORACLE16_RESULTS.json及oracles/；大日志保留在SHA绑定原始文件。']
     lines+=['','验证集、基准乙、按类型、按原文距离、机制关闭与Oracle只作描述；完整各类分母、缺失与原始记录见JSON/CSV。主终点按物理状态配对，学习规划器作为同一物理块平均；场景类别内重抽场景、场景内重抽状态10000次，场景符号翻转100000次，三项预登记比较做Holm校正。缺失按失败计的预登记敏感性另见MISSING_AS_FAILURE_SENSITIVITY.json，不改主表。七个经典控制器的旧证据分表见CLASSICAL_CONTROLLER_APPENDIX.csv：沿用历史墙体模型，仅作历史描述，不与新物理一致主表直接排名。',
         '', '## 计算与时间限制','',
         '成功条件均时仅在全部成功回合的时间已知时给出；否则记缺失并另存已知时间子集均值，不能拿子集冒充全队列。非成功回合按冻结时限计入截断时间，不用失败提前终止时间替代；共同成功的配对时间见PRIMARY_PAIRED_DIFFERENCES.json。历史生成器/critic一次性计算时间未记录，冻结参数查表不被当作已测零开销。',

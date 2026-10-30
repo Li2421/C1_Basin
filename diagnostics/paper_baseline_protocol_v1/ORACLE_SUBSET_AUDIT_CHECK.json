@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-30T14:05:09.047524+08:00",
+  "passed": true,
+  "synthetic_test_only": true,
+  "checks": [
+    "Earlier success covers later fixed point",
+    "Identical fixed point executionUID checked",
+    "Tuned20outsideprefix excluded from guarantee",
+    "Late/mismatched successes rejected",
+    "Incomplete Oracle not treated as failed guarantee"
+  ],
+  "new_rollouts": 0
+}
