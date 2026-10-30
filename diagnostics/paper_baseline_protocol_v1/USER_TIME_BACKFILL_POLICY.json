@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-29T18:13:09.151623+08:00",
+  "user_answer": "如果补充的时长小于1小时可以，超过了就不了",
+  "authorized_conditionally": true,
+  "maximum_additional_wall_seconds": 3600,
+  "strictly_less_than_limit": true,
+  "decision_rule": "Estimate full missing-time backfill using measurements from already-required environment/reuse replays, at the actual allowed CPU allocation. Run only if the conservative incremental wall-time estimate is below3600seconds and the existing50000-rollout hard budget suffices. Otherwise retain old timing fields as missing.",
+  "no_dataset_reduction_to_fit_time": true,
+  "mandatory_replays_still_required": true,
+  "formal_test_replays_only_after_parameter_and_analysis_freezes": true,
+  "original_outcome_labels_remain_authoritative": true,
+  "stop_before_wall_limit_if_estimate_is_wrong": true,
+  "numerical_backfill_started": false,
+  "does_not_change_current_basis_reduction_task": true,
+  "scope_refinement": "TIME_BACKFILL_REFINED_SCOPE.json: preserve all12288rows; only7145successful rows need completion-time inference. Failure completion is not applicable and requested capped time follows the frozen horizon analytically. Actual failure termination/CPU times are not imputed."
+}

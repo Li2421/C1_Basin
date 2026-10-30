@@ -1,0 +1,26 @@
+{
+  "recorded_at": "2026-10-30T01:10:26.954751+08:00",
+  "user_instruction": "2026-10-30补充协议：三个无作者代码与参数的方法退出本轮；保留三项先原论文复现。",
+  "paused_methods": [],
+  "active_external_methods": [
+    "dac_author_si",
+    "mgr_author_unicycle_tracking",
+    "chen_impc_ob_si_tracking"
+  ],
+  "old_results_preserved": true,
+  "withdrawn_methods": [
+    "wang2017_consistent_perturbation_di_tracking",
+    "wang2017_full_di_tracking",
+    "zhang2025_risk_si"
+  ],
+  "native_reproduction_required": true,
+  "addendum_sha256": "fb0f8eb66c4bb34d9ef4a39c9313f9f791c45bf088c4e9c977def996b52f8689",
+  "effective_active_methods": [
+    "dac_author_si",
+    "mgr_author_unicycle_tracking"
+  ],
+  "native_excluded_methods": [
+    "chen_impc_ob_si_tracking"
+  ],
+  "native_exclusion_rule": "After dependency-only fixes, default original scene did not reproduce continuous collision-free motion; retained evidence and no algorithm repair."
+}

@@ -1,0 +1,48 @@
+{
+  "time": "2026-10-30T12:20:48.884798+08:00",
+  "records": [
+    {
+      "path": "dac/sim-narrow_passage.py",
+      "url": "https://raw.githubusercontent.com/Parker-Zhang/Shaping-CLF-MCBF/b6cf71fdce40/sim-narrow_passage.py",
+      "official_sha256": "32df2ab6346302a8ad422c069e77296ef109c6caa2e8e1cd2391d26a144027a8",
+      "copied_sha256": "32df2ab6346302a8ad422c069e77296ef109c6caa2e8e1cd2391d26a144027a8",
+      "equal": true
+    },
+    {
+      "path": "dac/sim-random_obs_navigation.py",
+      "url": "https://raw.githubusercontent.com/Parker-Zhang/Shaping-CLF-MCBF/b6cf71fdce40/sim-random_obs_navigation.py",
+      "official_sha256": "c53314093f087fd7b649045bd15403bafc62e72b8583fe36b112ec9f8ab06466",
+      "copied_sha256": "c53314093f087fd7b649045bd15403bafc62e72b8583fe36b112ec9f8ab06466",
+      "equal": true
+    },
+    {
+      "path": "dac/agents/circle2DAgent.py",
+      "url": "https://raw.githubusercontent.com/Parker-Zhang/Shaping-CLF-MCBF/b6cf71fdce40/agents/circle2DAgent.py",
+      "official_sha256": "254ecd52ce929d99287a2fc72b2e187f44316952df29dd46ed75b35d479c923a",
+      "copied_sha256": "254ecd52ce929d99287a2fc72b2e187f44316952df29dd46ed75b35d479c923a",
+      "equal": true
+    },
+    {
+      "path": "mgr/main.py",
+      "url": "https://raw.githubusercontent.com/Aiden-wjLee/merry-go-round/84aaefd705ab/main.py",
+      "official_sha256": "08818f1be3282cb8e3f79297be4659fc0a49e0dcf42bebb620d6135055d36830",
+      "copied_sha256": "08818f1be3282cb8e3f79297be4659fc0a49e0dcf42bebb620d6135055d36830",
+      "equal": true
+    },
+    {
+      "path": "mgr/agent.py",
+      "url": "https://raw.githubusercontent.com/Aiden-wjLee/merry-go-round/84aaefd705ab/agent.py",
+      "official_sha256": "794eaf806ef016796e49c9376b41f0dce419138a573f302ed2e02b04ca3f453d",
+      "copied_sha256": "794eaf806ef016796e49c9376b41f0dce419138a573f302ed2e02b04ca3f453d",
+      "equal": true
+    },
+    {
+      "path": "mgr/cbf.py",
+      "url": "https://raw.githubusercontent.com/Aiden-wjLee/merry-go-round/84aaefd705ab/cbf.py",
+      "official_sha256": "a55af14b0dc1255208e5b88c02527f3ade0a8dfb3a2c3faaf13cd256824bf22c",
+      "copied_sha256": "a55af14b0dc1255208e5b88c02527f3ade0a8dfb3a2c3faaf13cd256824bf22c",
+      "equal": true
+    }
+  ],
+  "all_checked_equal": true
+}

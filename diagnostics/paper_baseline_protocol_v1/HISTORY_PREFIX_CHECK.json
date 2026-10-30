@@ -1,0 +1,5618 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "target_query_uid": "roll_fb19eeef52952740e0987a3aeda7ee91fa49c34a20c604462abfe491e03becf5",
+      "source_rollout_uid": "roll_03399939105d5fafaf29a8a9fe41a60603f2b77b5ffa08208f7c15daf22f54aa",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              12,
+              2
+            ],
+            "second_shape": [
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_9ca18c71de01b9bf79fc00e98830be6435bd818a0870061fa6e5434a61a626fa",
+      "source_rollout_uid": "roll_10e87b362657e0d3387704be786de799579ac014eb9d467c8525d898f00e3eff",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              8,
+              2
+            ],
+            "second_shape": [
+              51,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              8,
+              2
+            ],
+            "second_shape": [
+              51,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              8,
+              2
+            ],
+            "second_shape": [
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              8
+            ],
+            "second_shape": [
+              50,
+              8
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              8
+            ],
+            "second_shape": [
+              50,
+              8
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_c5aa45ce46036a11dfadf16c954e8b15d9fb3a28ff2e168836485b41196b00c8",
+      "source_rollout_uid": "roll_03da3dc4375efa222c7fffccadb96421c9823ffc8ab7759d16a969ff6a84f312",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              12,
+              2
+            ],
+            "second_shape": [
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_1daecdbcf716adbfe9fd21c91760f449236904033d3c6dcbe75b7db093ead6a4",
+      "source_rollout_uid": "roll_073043d1acec78dc5397189d50b7b5192c7fa158783805d74462d5e470164d5c",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              12,
+              2
+            ],
+            "second_shape": [
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_655977648bc800ca92e2af08d3d63f0bf8157c75c58543657f7b4dfb8a623dfa",
+      "source_rollout_uid": "roll_0069ceb5aed8772acac63af5d58b4e30129f59936511851f44dd5efbc347a74c",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              10,
+              2
+            ],
+            "second_shape": [
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_dbe165616c1ad82850004dde438739292b56d4b4a66fc684ea4922822d6067c9",
+      "source_rollout_uid": "roll_001345518487b61fc7d3b9a0ff034028da41e66f36d7a9d9e81ca45935f3ea91",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              10,
+              2
+            ],
+            "second_shape": [
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_8de8ed95cbb80c259259b01f779d4c8856f0e3541381b9960f499678edf8f362",
+      "source_rollout_uid": "roll_1e381b11cd7907828f69247925f15a62d8607e2b7f823c40412e614d99f6aa04",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              12,
+              2
+            ],
+            "second_shape": [
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_b130985e28f35c70fb93e54fa435ffe02bd55dbc1a50675efd4975346cdaacdf",
+      "source_rollout_uid": "roll_1bbdac3f4ee90a68212863e288e75e0b89d3685b8e31f6e6e0d0fc31040f7269",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              12,
+              2
+            ],
+            "second_shape": [
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_75d8ab008a510e3eec8374d02f8390f1fbd82aafeaf052bba99d0be0a3adf5c2",
+      "source_rollout_uid": "roll_007893032bb05623c24eff31ebcb9ba2cbec5781b97995a021c85afce576adaa",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              12,
+              2
+            ],
+            "second_shape": [
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_d7bd2756b6f2df8ef2e6d2a01207657cf525b9c8bf442733855e681219e5629b",
+      "source_rollout_uid": "roll_00c3591e8fe42cc37aec56fe3a134c28c6b877b010c089b2517d555bf9fe061e",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              12,
+              2
+            ],
+            "second_shape": [
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_2962c532344337a7b95aaa2519beea87f86630bf6183ee4cd4ea8bdb1bc6b813",
+      "source_rollout_uid": "roll_07281d25a20c5849bccfbb451372cda1015b28b767c6a6bb6bd638e7a99754bc",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              8,
+              2
+            ],
+            "second_shape": [
+              51,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              8,
+              2
+            ],
+            "second_shape": [
+              51,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              8,
+              2
+            ],
+            "second_shape": [
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              8
+            ],
+            "second_shape": [
+              50,
+              8
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              8
+            ],
+            "second_shape": [
+              50,
+              8
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_c74d86a1358e020fdaef180c08c473bb77265f042c30e1b198fe442ce917d061",
+      "source_rollout_uid": "roll_08297044ac265b996474af5929eb5c3b6970b7445a569de682d78c3a082cf326",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              8,
+              2
+            ],
+            "second_shape": [
+              51,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              8,
+              2
+            ],
+            "second_shape": [
+              51,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              8,
+              2
+            ],
+            "second_shape": [
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              8
+            ],
+            "second_shape": [
+              50,
+              8
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              8
+            ],
+            "second_shape": [
+              50,
+              8
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_7dc9c2de6e88aa26d8e4939386e033aaf3a79fe63f43db724ed829a00c308fa7",
+      "source_rollout_uid": "roll_00a9d7ce49460f370c3a451798db4639f45fa288f36e772470b3d30537ebdebe",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              10,
+              2
+            ],
+            "second_shape": [
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_da35cc387cf8a6511978f302b01b9e4f523ed1397450746927f8fa38e544d597",
+      "source_rollout_uid": "roll_0482e847bb0894a98ad70e5b0197b277d1c815403a4b2b596f4be4b6214f6f2d",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              10,
+              2
+            ],
+            "second_shape": [
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_28c6291ec69dbd72a8e793b14c55ec4f7d70ffdfb7c7dfcd6db8e384cb8d6c15",
+      "source_rollout_uid": "roll_01e22fcb5a6876d9cf5060ac9b26bb5d89add76b944bc3f3d2fc5842a0808deb",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              6,
+              2
+            ],
+            "second_shape": [
+              51,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              6,
+              2
+            ],
+            "second_shape": [
+              51,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              6,
+              2
+            ],
+            "second_shape": [
+              50,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              6,
+              2
+            ],
+            "second_shape": [
+              50,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              6,
+              2
+            ],
+            "second_shape": [
+              50,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              6,
+              2
+            ],
+            "second_shape": [
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              6
+            ],
+            "second_shape": [
+              50,
+              6
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              6,
+              2
+            ],
+            "second_shape": [
+              50,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              6
+            ],
+            "second_shape": [
+              50,
+              6
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_463e550874905f453e5e452d3d4f764e22ae291c1be0910c682b5175cfc89213",
+      "source_rollout_uid": "roll_00402486ac98b91d4b90b948a134ed4f08aabf709b9d0deef9c9a5a9c6292ea8",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              10,
+              2
+            ],
+            "second_shape": [
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_395f688953b690374301382c6ec66e991e7ebde253117ff97795769e5d534f67",
+      "source_rollout_uid": "roll_027e2829c5cc591249b5c46a6803d44457b177c891691a127294fdf0dca70f61",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              10,
+              2
+            ],
+            "second_shape": [
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_d9fec91ddbf28fb84dd831227318e4b1ab88c0f8658effe8d4a74bf584680d99",
+      "source_rollout_uid": "roll_00f4194a45d4c16d4d4b801e78fa99f3dd8df96aa29b4e97209c2fb2d28caaf1",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              10,
+              2
+            ],
+            "second_shape": [
+              51,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              10,
+              2
+            ],
+            "second_shape": [
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              10,
+              2
+            ],
+            "second_shape": [
+              50,
+              10,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              10
+            ],
+            "second_shape": [
+              50,
+              10
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_8dca0e5bb7101bacd86d582dcfd83fcbcd2b3764f41605c93a140871f8faaaee",
+      "source_rollout_uid": "roll_00cabe99bc764612baab0048f1da3e1bc5666f434e18e9877f834cf29ee632d7",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              4,
+              2
+            ],
+            "second_shape": [
+              51,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              4,
+              2
+            ],
+            "second_shape": [
+              51,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              4,
+              2
+            ],
+            "second_shape": [
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              4
+            ],
+            "second_shape": [
+              50,
+              4
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              4
+            ],
+            "second_shape": [
+              50,
+              4
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_7014f5bde49ce25d7114e119eaad7243898d4618f81e39b96ef091fc99cb532d",
+      "source_rollout_uid": "roll_00b3c3dfe94457b2d436abc07648366666580c3bcc09dc7b93eaad8abe04f2e5",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              4,
+              2
+            ],
+            "second_shape": [
+              51,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              4,
+              2
+            ],
+            "second_shape": [
+              51,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              4,
+              2
+            ],
+            "second_shape": [
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              4
+            ],
+            "second_shape": [
+              50,
+              4
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              4
+            ],
+            "second_shape": [
+              50,
+              4
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_af8c79dab181661cb1c423559d630d185a863ef246b5a26b785f946aaeda0a34",
+      "source_rollout_uid": "roll_0391ba94a31b7546c99eba1b26eb37650799fe8bc4b39a23794a86c71091fc9f",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              6,
+              2
+            ],
+            "second_shape": [
+              51,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              6,
+              2
+            ],
+            "second_shape": [
+              51,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              6,
+              2
+            ],
+            "second_shape": [
+              50,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              6,
+              2
+            ],
+            "second_shape": [
+              50,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              6,
+              2
+            ],
+            "second_shape": [
+              50,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              6,
+              2
+            ],
+            "second_shape": [
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              6
+            ],
+            "second_shape": [
+              50,
+              6
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              6,
+              2
+            ],
+            "second_shape": [
+              50,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              6
+            ],
+            "second_shape": [
+              50,
+              6
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_85226e405e409ed2d5c871d6ca2ddc245e0033ee307899272dbeaa7e28e14913",
+      "source_rollout_uid": "roll_0004fb0a0c598c2be5284612d432db3d5ab112cddaf9730912ed4cc6aee94f76",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              6,
+              2
+            ],
+            "second_shape": [
+              51,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              6,
+              2
+            ],
+            "second_shape": [
+              51,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              6,
+              2
+            ],
+            "second_shape": [
+              50,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              6,
+              2
+            ],
+            "second_shape": [
+              50,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              6,
+              2
+            ],
+            "second_shape": [
+              50,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              6,
+              2
+            ],
+            "second_shape": [
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              6
+            ],
+            "second_shape": [
+              50,
+              6
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              6,
+              2
+            ],
+            "second_shape": [
+              50,
+              6,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              6
+            ],
+            "second_shape": [
+              50,
+              6
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_2ac2ae2c59fd37d3441e0799bd38ee8014432aee2674665dd40fbc435f948885",
+      "source_rollout_uid": "roll_24af468a766ede6c9f92408c93183152737432da6bb32eccf7bd8a65f53118d9",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              8,
+              2
+            ],
+            "second_shape": [
+              51,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              8,
+              2
+            ],
+            "second_shape": [
+              51,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              8,
+              2
+            ],
+            "second_shape": [
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              8
+            ],
+            "second_shape": [
+              50,
+              8
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              8
+            ],
+            "second_shape": [
+              50,
+              8
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_228cddd1ae4a16a040d2c7d5df36f9c2a5eb9b318ab3901cda5c8702f4fda5fa",
+      "source_rollout_uid": "roll_1b154184a6d2c86e9aaf57ea4d22b92809f28d2e8fd404b9ac6a56643f43bbd1",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              8,
+              2
+            ],
+            "second_shape": [
+              51,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              8,
+              2
+            ],
+            "second_shape": [
+              51,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              8,
+              2
+            ],
+            "second_shape": [
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              8
+            ],
+            "second_shape": [
+              50,
+              8
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              8
+            ],
+            "second_shape": [
+              50,
+              8
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_3f7188ed10c6eef3c2b36b8ee24b0959de89edb4c3551e9d9ef650bf0793a3f8",
+      "source_rollout_uid": "roll_36937d18072ae1cce65642aabf9fe23e78f53ea71e07dda690a90b91d6beda11",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              9,
+              2
+            ],
+            "second_shape": [
+              51,
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              9,
+              2
+            ],
+            "second_shape": [
+              51,
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              9,
+              2
+            ],
+            "second_shape": [
+              50,
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              9,
+              2
+            ],
+            "second_shape": [
+              50,
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              9,
+              2
+            ],
+            "second_shape": [
+              50,
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              9,
+              2
+            ],
+            "second_shape": [
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              9
+            ],
+            "second_shape": [
+              50,
+              9
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              9,
+              2
+            ],
+            "second_shape": [
+              50,
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              9
+            ],
+            "second_shape": [
+              50,
+              9
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_f86e9d5ac635c7a47f08b0312ffe762e6a63304860b1ad8971d5771038ca715b",
+      "source_rollout_uid": "roll_034c17f237d2876333b9f16463389c0ef5fb1a09c6769a74f6b9d57c82304961",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              9,
+              2
+            ],
+            "second_shape": [
+              51,
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              9,
+              2
+            ],
+            "second_shape": [
+              51,
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              9,
+              2
+            ],
+            "second_shape": [
+              50,
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              9,
+              2
+            ],
+            "second_shape": [
+              50,
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              9,
+              2
+            ],
+            "second_shape": [
+              50,
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              9,
+              2
+            ],
+            "second_shape": [
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              9
+            ],
+            "second_shape": [
+              50,
+              9
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              9,
+              2
+            ],
+            "second_shape": [
+              50,
+              9,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              9
+            ],
+            "second_shape": [
+              50,
+              9
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_494be53adf68a35edc92e9101f104194e826165eaeac5a207a0d067778f83101",
+      "source_rollout_uid": "roll_004611b6af9c88ce7806292d413a60379b7fc5cc06e8d2ec27b178bfd95b5004",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              4,
+              2
+            ],
+            "second_shape": [
+              51,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              4,
+              2
+            ],
+            "second_shape": [
+              51,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              4,
+              2
+            ],
+            "second_shape": [
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              4
+            ],
+            "second_shape": [
+              50,
+              4
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              4
+            ],
+            "second_shape": [
+              50,
+              4
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_244ea9a79d0b958d7495b79fbfd3304f7f2c9219d5a9130716e108891faa6cbd",
+      "source_rollout_uid": "roll_066e2db5e8b80a8ec3a0f45862ac679a7fd97735c3a840a00076fabfcf73afa6",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              4,
+              2
+            ],
+            "second_shape": [
+              51,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              4,
+              2
+            ],
+            "second_shape": [
+              51,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              4,
+              2
+            ],
+            "second_shape": [
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              4
+            ],
+            "second_shape": [
+              50,
+              4
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              4,
+              2
+            ],
+            "second_shape": [
+              50,
+              4,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              4
+            ],
+            "second_shape": [
+              50,
+              4
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_a375bb72eeae922ac2b3398b150a2a6e0472a0c2b63e3868582cf551defb1fe3",
+      "source_rollout_uid": "roll_00775981cb041ca9bc9d8824b5594d97782decc098bdbd621c4982fb13124768",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              12,
+              2
+            ],
+            "second_shape": [
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_744f333c8fc84f6c5cebff0af030c0cd492b6db6b0ddd4c5b62da9c664ddd5e2",
+      "source_rollout_uid": "roll_013225f5f9da65aa2dba156a583a23e152555c253a7169ea283af2bde0dfebeb",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              12,
+              2
+            ],
+            "second_shape": [
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_680c211f29f152b46c6b5c63df888942d9f611cbc59e882cdf446886ab09f2a8",
+      "source_rollout_uid": "roll_00eac8472063c779e9f40e3845cf259f56339ff5808622d8c133f8505da74d46",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              8,
+              2
+            ],
+            "second_shape": [
+              51,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              8,
+              2
+            ],
+            "second_shape": [
+              51,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              8,
+              2
+            ],
+            "second_shape": [
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              8
+            ],
+            "second_shape": [
+              50,
+              8
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              8,
+              2
+            ],
+            "second_shape": [
+              50,
+              8,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              8
+            ],
+            "second_shape": [
+              50,
+              8
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_469fdf89b00b66b589e14bb8cf174cd4bc65e2ec6efb14aae43c2828ce439eca",
+      "source_rollout_uid": "roll_00ddb6ee4b7a2db58793d063b9e3a1c1ff4ddee31c391a170af7962b36a26ba0",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              12,
+              2
+            ],
+            "second_shape": [
+              51,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              12,
+              2
+            ],
+            "second_shape": [
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              12,
+              2
+            ],
+            "second_shape": [
+              50,
+              12,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              12
+            ],
+            "second_shape": [
+              50,
+              12
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_1f3c6ad3b4e4e12052f810107de49d29d5210afbc0f8e43e3b3415e9429ec499",
+      "source_rollout_uid": "roll_11f334c918841780baeddc683f7a7fdb3d9e45f70cc0f939b4109f3c63370ed7",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              20,
+              2
+            ],
+            "second_shape": [
+              51,
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              20,
+              2
+            ],
+            "second_shape": [
+              51,
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              20,
+              2
+            ],
+            "second_shape": [
+              50,
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              20,
+              2
+            ],
+            "second_shape": [
+              50,
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              20,
+              2
+            ],
+            "second_shape": [
+              50,
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              20,
+              2
+            ],
+            "second_shape": [
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              20
+            ],
+            "second_shape": [
+              50,
+              20
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              20,
+              2
+            ],
+            "second_shape": [
+              50,
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              20
+            ],
+            "second_shape": [
+              50,
+              20
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    },
+    {
+      "target_query_uid": "roll_40b602eb0726cc99b1deef67e069eaa71316ac620f1d2122396580e69022d095",
+      "source_rollout_uid": "roll_08b56133422725477075e025ebb8b8274515b3f00b76ab3aa0ffc868d03b67e4",
+      "prefix": {
+        "passed": true,
+        "arrays": {
+          "positions": {
+            "first_shape": [
+              51,
+              20,
+              2
+            ],
+            "second_shape": [
+              51,
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "velocities": {
+            "first_shape": [
+              51,
+              20,
+              2
+            ],
+            "second_shape": [
+              51,
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "nominal": {
+            "first_shape": [
+              50,
+              20,
+              2
+            ],
+            "second_shape": [
+              50,
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "safe": {
+            "first_shape": [
+              50,
+              20,
+              2
+            ],
+            "second_shape": [
+              50,
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "actions": {
+            "first_shape": [
+              50,
+              20,
+              2
+            ],
+            "second_shape": [
+              50,
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "goals": {
+            "first_shape": [
+              20,
+              2
+            ],
+            "second_shape": [
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "swept_clearance": {
+            "first_shape": [
+              50
+            ],
+            "second_shape": [
+              50
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "clearance_types": {
+            "first_shape": [
+              50,
+              3
+            ],
+            "second_shape": [
+              50,
+              3
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "projection_rewrite": {
+            "first_shape": [
+              50,
+              20
+            ],
+            "second_shape": [
+              50,
+              20
+            ],
+            "first_dtype": "bool",
+            "second_dtype": "bool",
+            "equal": true
+          },
+          "route_guides": {
+            "first_shape": [
+              50,
+              20,
+              2
+            ],
+            "second_shape": [
+              50,
+              20,
+              2
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          },
+          "route_remaining": {
+            "first_shape": [
+              50,
+              20
+            ],
+            "second_shape": [
+              50,
+              20
+            ],
+            "first_dtype": "float64",
+            "second_dtype": "float64",
+            "equal": true
+          }
+        },
+        "prefix_steps": 50
+      },
+      "full_outcome_and_length_equal": true,
+      "passed": true
+    }
+  ],
+  "samples": 34,
+  "source_hash_screen": "HISTORY_FINGERPRINT_SCREEN.json",
+  "note": "Sampled deterministic execution checks; source UIDs and new query UIDs are kept distinct."
+}

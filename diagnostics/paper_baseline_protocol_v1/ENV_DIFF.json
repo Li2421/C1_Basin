@@ -1,0 +1,502 @@
+{
+  "passed": true,
+  "scenes": [
+    {
+      "scene": "xsc_hs_plus_w022",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_plus_w025",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_plus_w028",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_plus_w040",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_plus_w045",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_plus_w050",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_box_n08_r016_f26",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 246
+    },
+    {
+      "scene": "xsc_hs_box_n09_r013_f28",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 257
+    },
+    {
+      "scene": "xsc_hs_box_n09_r014_f25",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 236
+    },
+    {
+      "scene": "xsc_hs_box_n09_r014_f27",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 253
+    },
+    {
+      "scene": "xsc_hs_box_n09_r015_f26",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 244
+    },
+    {
+      "scene": "xsc_hs_box_n10_r013_f30",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 281
+    },
+    {
+      "scene": "xsc_hs_box_n10_r014_f25",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 212
+    },
+    {
+      "scene": "xsc_hs_box_n10_r014_f27",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 263
+    },
+    {
+      "scene": "xsc_hs_box_n11_r013_f25",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 252
+    },
+    {
+      "scene": "xsc_hs_box_n11_r013_f28",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 281
+    },
+    {
+      "scene": "hs_obst_n08_R130_r005",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 416
+    },
+    {
+      "scene": "hs_obst_n08_R135_r050",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 432
+    },
+    {
+      "scene": "hs_obst_n08_R140_r004",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.045,
+      "frozen_horizon_steps": 448
+    },
+    {
+      "scene": "hs_obst_n08_R140_r006",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.065,
+      "frozen_horizon_steps": 448
+    },
+    {
+      "scene": "hs_obst_n08_R140_r045",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.049999999999999996,
+      "frozen_horizon_steps": 448
+    },
+    {
+      "scene": "hs_obst_n08_R140_r055",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06,
+      "frozen_horizon_steps": 448
+    },
+    {
+      "scene": "hs_obst_n08_R145_r050",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 464
+    },
+    {
+      "scene": "hs_obst_n08_R150_r005",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 480
+    },
+    {
+      "scene": "hs_obst_n08_R155_r050",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 496
+    },
+    {
+      "scene": "xsc_hs_swap_n07",
+      "category": "swap",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 299
+    },
+    {
+      "scene": "xsc_hs_swap_n09",
+      "category": "swap",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 381
+    },
+    {
+      "scene": "xsc_hs_swap_n11",
+      "category": "swap",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 460
+    },
+    {
+      "scene": "xsc_hs_plus_w018",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_plus_w035",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_box_n08_r014_f24",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 223
+    },
+    {
+      "scene": "xsc_hs_box_n10_r012_f25",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 258
+    },
+    {
+      "scene": "hs_obst_n08_R140_r005",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 448
+    },
+    {
+      "scene": "hs_obst_n08_R150_r060",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.065,
+      "frozen_horizon_steps": 480
+    },
+    {
+      "scene": "xsc_hs_swap_n05",
+      "category": "swap",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 221
+    },
+    {
+      "scene": "xsc_hs_swap_n08",
+      "category": "swap",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_plus_w020_te",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_plus_w030_te",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_plus_w038_te",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_box_n09_r013_f25_te",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 272
+    },
+    {
+      "scene": "xsc_hs_box_n10_r013_f26_te",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 245
+    },
+    {
+      "scene": "xsc_hs_box_n11_r014_f27_te",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 267
+    },
+    {
+      "scene": "hs_obst_n08_R142_r050_te",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 454
+    },
+    {
+      "scene": "hs_obst_n08_R148_r052_te",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.056999999999999995,
+      "frozen_horizon_steps": 474
+    },
+    {
+      "scene": "hs_obst_n08_R138_r048_te",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.053,
+      "frozen_horizon_steps": 442
+    },
+    {
+      "scene": "xsc_hs_swap_n06_te",
+      "category": "swap",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 261
+    },
+    {
+      "scene": "xsc_hs_swap_n08_te",
+      "category": "swap",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 341
+    },
+    {
+      "scene": "xsc_hs_swap_n10_te",
+      "category": "swap",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 421
+    },
+    {
+      "scene": "xsc_hs_plus_w019_t2_te",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_plus_w023_t2_te",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_plus_w033_t2_te",
+      "category": "plus",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 336
+    },
+    {
+      "scene": "xsc_hs_box_n09_r014_f26_t2_te",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 249
+    },
+    {
+      "scene": "xsc_hs_box_n10_r012_f27_t2_te",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 259
+    },
+    {
+      "scene": "xsc_hs_box_n11_r013_f26_t2_te",
+      "category": "box",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.06166666666666667,
+      "frozen_horizon_steps": 261
+    },
+    {
+      "scene": "hs_obst_n08_R144_r049_t2_te",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.054,
+      "frozen_horizon_steps": 461
+    },
+    {
+      "scene": "hs_obst_n08_R136_r051_t2_te",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055999999999999994,
+      "frozen_horizon_steps": 435
+    },
+    {
+      "scene": "hs_obst_n08_R146_r053_t2_te",
+      "category": "obst",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.057999999999999996,
+      "frozen_horizon_steps": 467
+    },
+    {
+      "scene": "xsc_hs_swap_n07_t2_te",
+      "category": "swap",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 299
+    },
+    {
+      "scene": "xsc_hs_swap_n09_t2_te",
+      "category": "swap",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 379
+    },
+    {
+      "scene": "xsc_hs_swap_n11_t2_te",
+      "category": "swap",
+      "differences": [],
+      "same_step_implementation": "inherited SwapEnv.step",
+      "frozen_wall_centerline_threshold": 0.055,
+      "frozen_horizon_steps": 463
+    }
+  ],
+  "source_runtime_byte_identical_to_archived_heterogeneous": true,
+  "source_checks": {
+    "runtime_new.py": {
+      "archived": "0210001b6d4cca172c8857e13ca932fca62e98cf702d66a415f3adfa2b3a64fa",
+      "current": "0210001b6d4cca172c8857e13ca932fca62e98cf702d66a415f3adfa2b3a64fa"
+    },
+    "scene_environment.py": {
+      "archived": "398b0ab568f382616a7c299b12357b85f2b20cfdd4539562c447678685dc18c9",
+      "current": "398b0ab568f382616a7c299b12357b85f2b20cfdd4539562c447678685dc18c9"
+    },
+    "controllers_new.py": {
+      "archived": "2f00b267108186f2100e11178815d57357d8ea80e3816dcbcbfce98a7826d735",
+      "current": "2f00b267108186f2100e11178815d57357d8ea80e3816dcbcbfce98a7826d735"
+    }
+  },
+  "inherited_geometry_limitation": "STATIC_WALL_MARGIN_AUDIT.json",
+  "note": "Field and instantiated geometry check only. Mandatory full-episode label/time checks remain separate in ENV_CHECK.json."
+}

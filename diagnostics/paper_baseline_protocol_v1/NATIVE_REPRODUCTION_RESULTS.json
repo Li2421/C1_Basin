@@ -1,0 +1,63 @@
+{
+  "complete": true,
+  "time": "2026-10-30T11:22:22.185373+08:00",
+  "methods": {
+    "dac_author_si": {
+      "reproducible": true,
+      "native_scene": "author sim-random_obs_navigation.py default20robots, seed50 (generated environment seed5601)",
+      "all_arrived": true,
+      "safety_check": {
+        "pair_segment_clearance": 0.0016307835611248378,
+        "wall_segment_clearance": null,
+        "interpretation": "Finite stored trajectory, linearly interpolated motion. Negative residuals are reported; no mathematical certificate about continuous controller dynamics.",
+        "circle_obstacle_segment_clearance": 0.00629847839314468
+      },
+      "source_unchanged": true,
+      "narrow_demo_limitation": "First narrow demo reaches goals but has -3.2e-9 wall residual; retained, not used as a strict collision-free certificate.",
+      "paper_source": "Author repository README identifies DOI10.1109/TRO.2025.3600159. Exact journal figure/page unavailable through accessible primary source; explicitly a citation gap."
+    },
+    "mgr_author_unicycle_tracking": {
+      "reproducible": true,
+      "native_scene": "author defaultRectEnv_15_60_0,60robots",
+      "all_arrived": true,
+      "safety_check": {
+        "pair_segment_clearance": 0.03709658394192933,
+        "wall_segment_clearance": 0.017307542581727897,
+        "interpretation": "Finite stored trajectory, linearly interpolated motion. Negative residuals are reported; no mathematical certificate about continuous controller dynamics."
+      },
+      "source_unchanged": true,
+      "paper_source": "arXiv2503.05848 pp5–7,Fig5,TableI(Rect15,N60),TableII",
+      "native_makespan": 47.7,
+      "paper_20instance_mean_makespan": 57.17,
+      "comparison_limit": "One original instance, not replication of20-instance mean; repository notes post-submission code cleanup."
+    },
+    "chen_impc_ob_si_tracking": {
+      "reproducible": false,
+      "native_scene": "author defaultH-shaped8robots,src/test.py + unmodifiedSET.py",
+      "author_discrete_termination_reached": true,
+      "author_python_source_unchanged": true,
+      "sampled_pair_clearance": 0.001082469646812,
+      "continuous_safety_check": {
+        "pair_constant_acceleration_clearance": -0.010851112754068137,
+        "minimum_at": [
+          37,
+          7,
+          5,
+          0.06861760777537614
+        ],
+        "max_acceleration_component": 0.35061984540872715,
+        "max_acceleration_norm": 0.3506208911605491,
+        "definition": "Exact stationary roots for squared pair distance along inferred author constant-acceleration segments; velocities read from native CSV before each step. Distinct from straight-chord interpolation."
+      },
+      "linear_segment_pair_clearance": -0.012553273191632353,
+      "reason": "After dependency repairs, original native scenario reaches author discrete termination, but inferred constant-acceleration motion overlaps by0.010851m between samples. The required collision-free qualitative result is not reproduced under continuous physical checking. Exclude rather than modify the author algorithm.",
+      "limits": "Native sampled-state constraints remain satisfied; this does not refute a theorem restricted to sampled states, nor prove all author scenarios fail.",
+      "paper_source": "Chen2023author PDF pp6–7,TableI andFig7 H; author discrete physical parameters r0.3,h0.15,K8 retained.",
+      "native_time": 10.05,
+      "paper_H_transition_time": 7.5
+    }
+  },
+  "all_failed": false,
+  "new_attempts": 5,
+  "common_environment_runs": 0
+}

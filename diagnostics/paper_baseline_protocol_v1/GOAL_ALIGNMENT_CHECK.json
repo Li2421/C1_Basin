@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "common_tolerance": 0.08,
+  "mgr": {
+    "author": "radius/2=0.1m in native scenario",
+    "common": "env.config.goal_tolerance",
+    "source": "ports/paper_adapters.py:118",
+    "source_sha256": "ab6bd5f972b4bfaf7271fc97e746021826030942923c7f5a08d94736f346da86",
+    "change_already_present_in_archived_port": true
+  },
+  "dac": {
+    "hard_deadzone_larger_than_common": false,
+    "saturation_scale_0_5_is_not_stopping_threshold": true
+  },
+  "external_native_reproductions": "Retain original author criteria; alignment applies only to common benchmark."
+}

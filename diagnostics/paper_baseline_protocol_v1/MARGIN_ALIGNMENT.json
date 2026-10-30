@@ -1,0 +1,24 @@
+{
+  "time": "2026-10-30T12:45:24.444533+08:00",
+  "changes": [
+    {
+      "method": "mgr_author_unicycle_tracking",
+      "parameter": "SAFE_RATIO",
+      "original": 1.1,
+      "aligned": 1.0,
+      "category": "physical safety distance",
+      "source": "vendor/mgr/params.py:4; cbf.py:33-34; paper arXiv2503.05848 p5 V-A: physical radius0.2, safety radius0.22.",
+      "meaning": "Original robot-to-robot minimum2*r*SAFE_RATIO; obstacle radius already includes common wall radius and margin. Common pair margin0 gives2*r; common obstacle threshold r+wall_radius+wall_collision_margin.",
+      "algorithm_constants_unchanged": [
+        "C_R",
+        "K_P",
+        "tau",
+        "K",
+        "exit-angle rule",
+        "placement-map buffers"
+      ]
+    }
+  ],
+  "unchanged_dac": "Physical robot radius and capsule wall width already map to common config. cbf_boundary_hold is an active-set threshold, not extra geometric radius, and is retained.",
+  "no_success_labels_used_to_select_mapping": true
+}

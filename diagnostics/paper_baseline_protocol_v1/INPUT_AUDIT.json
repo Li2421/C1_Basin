@@ -1,0 +1,113 @@
+{
+  "time": "2026-10-29T13:53:46.763539+08:00",
+  "models": [
+    {
+      "name": "learned_mlp_r2",
+      "copied_checkpoint": "inputs/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset/learned/ckpt/r2_mlp_s0",
+      "files": {
+        "meta.json": "f00bbd8095636edb57a9245a2476651b93ba12c372fb61062389d5690f7ab396",
+        "params.msgpack": "c2765f0df6d49b8c6b3d4bfd4907417d676b89449908cc86bd8c72827c88045d"
+      }
+    },
+    {
+      "name": "learned_mlp_s1_r2",
+      "copied_checkpoint": "inputs/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset/learned/ckpt/r2_mlp_s1",
+      "files": {
+        "meta.json": "b68e0025a60e9819122684ee3ed6b9737d1cbb89081fdd4832ca84e9b23f740f",
+        "params.msgpack": "f6030bd3bde9d7d8eb337095bd694d007f50ebdab931878b3069222def7b31d8"
+      }
+    },
+    {
+      "name": "learned_diffusion_r2",
+      "copied_checkpoint": "inputs/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset/learned/ckpt/r2_diffusion_s0",
+      "files": {
+        "meta.json": "c4222e57218c659eac43f5caee435376f6ce0ba411912946048750cbebcf2c50",
+        "params.msgpack": "ca9fb5e8cf2c298b8439d9d91c6880cd4e203d60a0b82eb9a5a8877833ca68a3"
+      }
+    },
+    {
+      "name": "learned_diffusion_s1_r2",
+      "copied_checkpoint": "inputs/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset/learned/ckpt/r2_diffusion_s1",
+      "files": {
+        "meta.json": "74ecbe42a181bfea796ca22030fc0a87bfcac970e721c94a86e1c216bc542132",
+        "params.msgpack": "22bf64926a85192d61df04f3fdb8c82cc0e533ecc41daec409870ee18c5d7051"
+      }
+    },
+    {
+      "name": "learned_attention_r2",
+      "copied_checkpoint": "inputs/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset/learned/ckpt/r2_attention_s0",
+      "files": {
+        "meta.json": "76bc64a53249860ae86c9ecdc418eb35032c3201bdac0aa2a5b3f210dc636413",
+        "params.msgpack": "fbb10d645fcda8c637854663788c578b4070c13decc98cfa618922d5481ec0c7"
+      }
+    },
+    {
+      "name": "learned_attention_s1_r2",
+      "copied_checkpoint": "inputs/diagnostics/hetero_set_critic_selfcheck_v1/workspace_snapshot_20261027/hetset/learned/ckpt/r2_attention_s1",
+      "files": {
+        "meta.json": "50c2c881087df51f9ae2b3b40e29d13f3c269a63daaf5fc697494d530cf51a2d",
+        "params.msgpack": "e9bb711c86a7c6bda0ebc64040a2f9aa116b18e4df13b381333b52bc19754a86"
+      }
+    }
+  ],
+  "benchmark_A": {
+    "train_scenes": 28,
+    "val_scenes": 8,
+    "test_scenes": 24,
+    "test_physical_states": 384,
+    "labels": [
+      {
+        "source": "eval.jsonl",
+        "physical_states": 192,
+        "selected_rows": 4608,
+        "learned_policy_rows": 1152,
+        "solo_rows_excluded": 0,
+        "old_label_schema_has_completion_time": false,
+        "old_label_schema_has_trace": false
+      },
+      {
+        "source": "t2_eval.jsonl",
+        "physical_states": 192,
+        "selected_rows": 4608,
+        "learned_policy_rows": 1152,
+        "solo_rows_excluded": 8928,
+        "old_label_schema_has_completion_time": false,
+        "old_label_schema_has_trace": false
+      }
+    ]
+  },
+  "benchmark_B": {
+    "all_scenes": 49,
+    "train_scenes": 32,
+    "test_scenes": 17,
+    "existing_states_per_scene": [
+      12
+    ],
+    "train_by_type": {
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 2,
+      "5": 1,
+      "6": 2,
+      "7": 2,
+      "8": 2,
+      "9": 2,
+      "10": 2,
+      "11": 2,
+      "12": 2,
+      "13": 1,
+      "14": 2,
+      "15": 2,
+      "16": 2,
+      "17": 2
+    }
+  },
+  "frozen_choice_only": true,
+  "centre_rotation_excluded": true,
+  "rollouts_started": 0,
+  "unresolved": [
+    "Historical label JSONL contains only outcome labels, not per-step traces or completion times; inspect other saved artifacts before claiming time/prefix reuse.",
+    "PoC directory has no Git metadata; record unavailable Git audit rather than an empty clean diff."
+  ]
+}

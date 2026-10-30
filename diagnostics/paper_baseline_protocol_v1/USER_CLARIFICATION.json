@@ -1,0 +1,8 @@
+{
+  "time": "2026-10-29T13:42:19.225781+08:00",
+  "resolution": "User explicitly authorizes creating an independent branch and committing only the new experiment directory. Existing source, old experiment directories, PoC and virtual environments stay read-only.",
+  "user_answer": "允许创建独立分支，只提交新实验目录",
+  "scope": "diagnostics/paper_baseline_protocol_v1/",
+  "resolved_conflict": "Protocol section0 git read-only versus independent research branch",
+  "execution_order": "Complete and deliver the current basis-reduction task before starting the new protocol."
+}
