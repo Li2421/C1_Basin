@@ -1,8 +1,12 @@
-"""Symmetric scene-equal two-round selection on frozen training cohorts only."""
+"""External paper parameter selection only; internal fixed-B selection removed.
+
+User2026-10-30: internal correction families are evaluated by per-case Oracle,
+not by choosing one global/type-specific configuration for coverage.
+"""
 from dispatch import execute,status
 from core import *
 from execution_policy import active_methods
-from request_factory import case,paper
+from request_factory import paper
 from scene_catalog import cohort,legal_indices
 from statistic_rules import score,first_round,final_choice,saturation,expected_max_curve
 from method_names import NAMES
@@ -13,33 +17,24 @@ def query_uid(row):return row.get('target_query_uid',row['rollout_uid'])
 
 
 def menu(method):
-    frozen=read(HERE/'PAPER_MENUS_FROZEN.json')
     if method.startswith('ours_'):
-        data=frozen['ours'][method[5:]]
-    else:data=frozen['methods'][method]
+        raise RuntimeError('USER_REMOVED_FIXED_B_SELECTION: internal B requires per-case Oracle; use the generalization pipeline for deployment comparisons.')
+    frozen=read(HERE/'PAPER_MENUS_FROZEN.json')
+    data=frozen['methods'][method]
     return {r['index']:r for r in data['initial']+data['extension']}
 
 
 def requests_for(benchmark,method,indices,states):
     options=menu(method);requests=[];records=[]
-    assert benchmark=='B' or not method.startswith('ours_')
     for index in indices:
         for scene in cohort(benchmark,'train'):
             for state in legal_indices(scene,states):
-                controls=controllers()if method.startswith('ours_')else[None]
-                for controller in controls:
-                    if controller is None:
-                        request=paper(benchmark,scene,state,method,options[index]['options'],
-                                      phase='training',purpose='symmetric_two_round_tuning')
-                        nominal='paper'
-                    else:
-                        request=case(benchmark,scene,controller,state,spec=options[index]['spec'],
-                                     phase='training',purpose='symmetric_two_round_tuning')
-                        nominal=controller['type_code']
-                    requests.append(request)
-                    records.append(dict(index=index,scene=scene['name'],state=state,nominal=nominal,
-                                        category=scene['factor']if benchmark=='A'else str(scene['type_id']),
-                                        query_uid=request['rollout_uid']))
+                request=paper(benchmark,scene,state,method,options[index]['options'],
+                              phase='training',purpose='symmetric_two_round_tuning')
+                requests.append(request)
+                records.append(dict(index=index,scene=scene['name'],state=state,nominal='paper',
+                                    category=scene['factor']if benchmark=='A'else str(scene['type_id']),
+                                    query_uid=request['rollout_uid']))
     return requests,records
 
 
@@ -64,6 +59,9 @@ def immutable(path,value):
 
 
 def run_one(benchmark,method):
+    # Reject before even consulting an old selection/cache file.
+    if method.startswith('ours_'):
+        raise RuntimeError('USER_REMOVED_FIXED_B_SELECTION: internal B requires per-case Oracle; no global/type-specific parameter selection.')
     path=HERE/'tuning'/f'{benchmark}_{method}.json'
     if path.exists()and read(path).get('complete'):
         prior=read(path)
@@ -133,24 +131,21 @@ def run_one(benchmark,method):
 def run():
     all_results={}
     for benchmark in ('A','B'):
-        methods=active_methods()+(['ours_main','ours_four']if benchmark=='B'else[])
+        methods=active_methods()
         for method in methods:
             all_results[(benchmark,method)]=run_one(benchmark,method)
             dump(HERE/'TUNING_PROGRESS.json',dict(time=datetime.datetime.now().astimezone().isoformat(),
                 results={b+'::'+m:r for (b,m),r in all_results.items()}))
-            status('training_parameter_selection',len(all_results),2*len(active_methods())+2,
-                   '仅训练场景选参；完整第一轮及条件扩充之后，只有前4组进入第二轮。')
+            status('external_training_parameter_selection',len(all_results),2*len(active_methods()),
+                   '仅外部论文方法训练场景选参；内部B固定配置选参已被用户删除。')
         if benchmark=='A':
             immutable(HERE/'PARAMETERS_A_FROZEN.json',dict(
                 methods={m:all_results[(benchmark,m)]for m in active_methods()},
                 execution_release_sha256=sha(HERE/'EXECUTION_FROZEN.json')))
     papers={b:{m:all_results[(b,m)]for m in active_methods()}for b in ('A','B')}
-    ours={m:all_results[('B',m)]for m in ('ours_main','ours_four')}
     immutable(HERE/'PARAMETERS_FROZEN.json',dict(benchmarks=papers,menus_sha256=sha(HERE/'PAPER_MENUS_FROZEN.json'),
         withdrawn_methods=read(HERE/'METHOD_EXECUTION_POLICY.json')['withdrawn_methods'],
         execution_release_sha256=sha(HERE/'EXECUTION_FROZEN.json')))
-    immutable(HERE/'OURS_FIXED_FROZEN.json',dict(benchmark_B=ours,benchmark_A='Original learned selections unchanged.',
-        menus_sha256=sha(HERE/'PAPER_MENUS_FROZEN.json'),execution_release_sha256=sha(HERE/'EXECUTION_FROZEN.json')))
     dump(HERE/'TUNING_CURVES.json',dict(results={b+'::'+m:{k:r[k]for k in ('complete','saturation','full_curve')if k in r}
                                              for (b,m),r in all_results.items()},
         estimator='Exact expectation of the best scene-equal success in a uniformly random subset of k distinct settings.'))

@@ -1,0 +1,17 @@
+{
+  "time": "2026-10-30T14:48:54.737537+08:00",
+  "passed": true,
+  "checks": [
+    "tune_B_ours_main_v005_r2_retry0.json rejected",
+    "tune_B_ours_main_v005_r2_retry0.json Oracle-purpose request remains allowed",
+    "tune_B_ours_four_v005_r1_retry0.json rejected",
+    "tune_B_ours_four_v005_r1_retry0.json Oracle-purpose request remains allowed",
+    "All272external paper requests remain allowed",
+    "Old shell resume exits2 before any Slurm submission",
+    "pipeline.py rejects before imports/submission",
+    "freeze_analysis.py rejects before imports/submission"
+  ],
+  "frozen_numeric_files_unchanged": 250,
+  "new_rollouts": 0,
+  "analysis_frozen_before_removal": false
+}

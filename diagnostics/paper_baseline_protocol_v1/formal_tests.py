@@ -1,4 +1,8 @@
-"""Frozen fixed-policy tests; no test outcome can select a new parameter."""
+"""Legacy external/internal-reference tests; internal fixed-B tests removed.
+
+The old integrated formal workflow is retired. Genuine deployment comparisons
+belong to the frozen generalizing pipeline. No internal B is selected here.
+"""
 from dispatch import execute,status
 from core import *
 from request_factory import case,paper
@@ -12,13 +16,16 @@ def query_uid(row):return row.get('target_query_uid',row['rollout_uid'])
 
 
 def options(method,index):
+    if method.startswith('ours_'):
+        raise RuntimeError('USER_REMOVED_FIXED_B_EVALUATION: use per-case Oracle, not a global/type-specific/first-point B configuration.')
     frozen=read(HERE/'PAPER_MENUS_FROZEN.json')
-    value=frozen['ours'][method[5:]]if method.startswith('ours_')else frozen['methods'][method]
+    value=frozen['methods'][method]
     return next(r for r in value['initial']+value['extension']if r['index']==index)
 
 
 def selection(benchmark,method):
-    if method.startswith('ours_'):return read(HERE/'OURS_FIXED_FROZEN.json')['benchmark_B'][method]
+    if method.startswith('ours_'):
+        raise RuntimeError('USER_REMOVED_FIXED_B_EVALUATION: internal B has no global/type-specific selected configuration.')
     return read(HERE/'PARAMETERS_FROZEN.json')['benchmarks'][benchmark][method]
 
 
@@ -34,14 +41,14 @@ def plan(benchmark,variant):
     scenes=catalog(benchmark)
     names=(split['test']+split['validation'])if benchmark=='A'else split['test']
     states=split['test_states']if benchmark=='B'or variant=='global_tuned'else list(range(8,16))
-    methods=active_methods()+(['ours_main','ours_four']if benchmark=='B'else[])
+    methods=active_methods()
     if benchmark=='B'and variant=='internal':methods=['internal_safety','internal_nominal','internal_rhr_goal']
     requests=[];rows=[]
     for method in methods:
         if method.startswith('internal_'):chosen=None
         else:chosen=selection(benchmark,method)
-        if method.startswith('ours_')and variant not in ('global_tuned','type_tuned','first_point'):continue
-        if not method.startswith('ours_')and variant=='first_point':continue
+        if variant=='first_point':
+            raise RuntimeError('USER_REMOVED_FIXED_B_EVALUATION: no internal first-point coverage row.')
         if chosen is not None and not chosen.get('available')and variant not in ('author_default','author_original','first_point'):continue
         for name in names:
             scene=scenes[name];category=scene['factor']if benchmark=='A'else str(scene['type_id'])
@@ -49,7 +56,7 @@ def plan(benchmark,variant):
             elif variant=='type_tuned':index=chosen['by_type'][category]['index']
             else:index=chosen['global_index']
             for state in legal_indices(scene,states):
-                controls=controllers()if method.startswith(('ours_','internal_'))else[None]
+                controls=controllers()if method.startswith('internal_')else[None]
                 for controller in controls:
                     if controller is None:
                         request=paper(benchmark,scene,state,method,options(method,index)['options'],
@@ -59,7 +66,7 @@ def plan(benchmark,variant):
                             request=request_variant(request)
                         nominal='paper'
                     else:
-                        spec=(options(method,index)['spec']if method.startswith('ours_')else dict(eta=[0.,0.,0.],coefficients={}))
+                        spec=dict(eta=[0.,0.,0.],coefficients={})
                         if method=='internal_rhr_goal':spec=dict(spec,reference='right_goal')
                         request=case(benchmark,scene,controller,state,spec=spec,phase='test',purpose='fixed_'+variant)
                         if method=='internal_nominal':request=altered_engine(request,'copied_nominal_only','none')
@@ -86,6 +93,11 @@ def fixed_stage(benchmark,variant):
 
 
 def begin():
+    raise RuntimeError('USER_RETIRED_FORMAL_WORKFLOW: this old integrated protocol is not a generalizing-pipeline comparison; do not resume it.')
+
+
+def verify_legacy_analysis_only():
+    """Historical receipt verification only, never permission to execute tests."""
     analysis=read(HERE/'ANALYSIS_PLAN_FROZEN.json')
     assert analysis['parameters_sha256']==sha(HERE/'PARAMETERS_FROZEN.json')
     assert analysis['ours_fixed_sha256']==sha(HERE/'OURS_FIXED_FROZEN.json')
@@ -108,7 +120,7 @@ def run_a():
 
 def run_b():
     begin();outputs=[]
-    for variant in ('global_tuned','author_default','author_original','type_tuned','mechanism_disabled','first_point','internal'):
+    for variant in ('global_tuned','author_default','author_original','type_tuned','mechanism_disabled','internal'):
         outputs.append(fixed_stage('B',variant))
     status('benchmark_B_fixed_tests',1,1,'十七类新初态固定政策与内部参照已保存；此阶段没有逐案例参数搜索。')
     return outputs

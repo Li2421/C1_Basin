@@ -1,0 +1,22 @@
+{
+  "time": "2026-10-30T14:49:38.247849+08:00",
+  "user_instruction": "把这个找一个参数覆盖多少案例的方式彻底删掉",
+  "removed": [
+    "internal_B_global_parameter_selection",
+    "internal_B_type_parameter_selection",
+    "internal_B_first_point_fixed_coverage",
+    "automatic_integrated_formal_pipeline_restart"
+  ],
+  "retired_families": [
+    "ours_main",
+    "ours_four"
+  ],
+  "retained": [
+    "per_case_Oracle_candidate_search",
+    "frozen_generalizing_pipeline_for_real_deployment_comparison",
+    "external_paper_tuned_parameters_and_completed_historical_coverage"
+  ],
+  "historical_evidence": "Existing raw data, queues, selected-training artifacts and archived source manifests are retained; excluded from current results and not execution authorization.",
+  "new_rollouts": 0,
+  "verification": "FIXED_B_REMOVAL_CHECK.json"
+}

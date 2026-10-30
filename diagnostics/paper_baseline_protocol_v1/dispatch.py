@@ -54,6 +54,9 @@ def wait_job(jobid, cases, done, stage, retry, deadline=None):
 
 
 def execute(cases, stage, deadline=None):
+    from workflow_policy import assert_request_allowed
+    for request in cases:
+        assert_request_allowed(request)
     if (HERE / 'PROTECTION_VIOLATION.jsonl').exists():
         raise RuntimeError('HARD_STOP: protection violation')
     cases, todo, done = register(cases, stage)

@@ -1,6 +1,6 @@
 # 当前优先结果：已完成旧272案例对应队列的外部固定参数覆盖
 
-详见 [COVERAGE_272_REPORT.md](COVERAGE_272_REPORT.md)。原正式泛化流程按用户指示暂停。
+详见 [COVERAGE_272_REPORT.md](COVERAGE_272_REPORT.md)。内部 B 的全局/按类型/固定首组选参覆盖已按用户指示删除；旧整体流程与恢复入口已停用，见 README.md。
 
 # 论文基线轮进展
 
@@ -51,4 +51,4 @@
 
 逐场景、置信区间、计算开销和端口适用性见[COVERAGE_272_REPORT.md](COVERAGE_272_REPORT.md)，逐回合身份与指标见COVERAGE_272_ROWS.csv和COVERAGE_272_ANALYSIS.json。全部272回合经官方preflight（0可复用、0歧义）后补跑，官方journal已合并并读回；逐初态/配置身份与272条轨迹SHA256核验通过，250个冻结数值文件未变。大型原始结果与轨迹保存在已挂载SSD的coverage_272_artifacts。Git仅提交代码、小型报告和冻结元数据，不构成大型原始数据独立备份。
 
-原来的C1固定参数调参与异质场景正式泛化流程保持暂停；本批不触发新状态12–19正式测试。后续泛化比较按用户要求交给具有泛化能力的对应pipeline。本目录的resume.sh会恢复旧全流程，当前不要自动运行；仅复演本批用coverage_272_resume.sh（精确缓存去重）。
+内部B固定配置选择与覆盖评估已按用户要求删除，旧resume.sh/pipeline/watchdog均不再启动或恢复该流程。没有触发新状态12–19正式测试。后续泛化比较交给真正具备泛化能力的pipeline，内部表达能力按逐案例Oracle搜索评估。仅复演已完成的外部历史队列可用coverage_272_resume.sh（精确缓存去重）。

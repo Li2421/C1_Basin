@@ -1,8 +1,5 @@
 #!/bin/bash
 set -euo pipefail
-cd /home/zhihan/research/Basin_C1
-if squeue -h -u "$USER" -o '%j' | rg -q '^pbp1_pipeline$'; then
-  echo 'Existing paper-protocol coordinator active.'
-  exit 0
-fi
-exec srun -p cpu --job-name=pbp1_pipeline --cpus-per-task=1 --mem=6000M --time=72:00:00 env PYTHONDONTWRITEBYTECODE=1 STB_COORDINATOR=1 /home/zhihan/research/02_C1_Toy_GiveWay/.venv-c1/bin/python -B diagnostics/paper_baseline_protocol_v1/pipeline.py
+echo '已删除内部B全局/按类型/固定首组选参覆盖流程；此旧恢复入口已停用，不会提交作业。'
+echo '内部B表达能力使用逐案例Oracle；正式部署对比使用具有泛化能力的pipeline。'
+exit 2

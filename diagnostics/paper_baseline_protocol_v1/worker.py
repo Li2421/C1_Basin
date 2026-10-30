@@ -32,6 +32,9 @@ def main(queue_name, index):
     folder.mkdir(exist_ok=True)
     numerical_runner=None
     for request in local + other:
+        from workflow_policy import assert_request_allowed
+        # Old saved queues remain evidence, not permission to run retired work.
+        assert_request_allowed(request)
         uid = request['rollout_uid']
         raw = HERE / 'raw' / (uid + '.json')
         if raw.exists():
