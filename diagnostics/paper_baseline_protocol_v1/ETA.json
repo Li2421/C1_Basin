@@ -1,6 +1,6 @@
 {
-  "time": "2026-10-30T12:54:20.530647+08:00",
-  "main_hours": 7,
+  "time": "2026-10-30T14:25:10.086530+08:00",
+  "main_hours": 3,
   "joint_default_measured_episode_seconds": {
     "A::dac_author_si": 7.069387049193028,
     "B::dac_author_si": 18.014931031172456,
@@ -13,22 +13,24 @@
   "estimate_includes_worst_once_only32setting_expansion": true,
   "assumed_historical_C1_reuse": 0,
   "optional_oracle_hours_included": false,
-  "description": "用户上限调至18CPU，含1协调器、最多17workers；当前调度器实际只安排15workers，其余2排队。剩余调参粗估2–3小时，连同正式独立测试和统计主线约4–7小时，可选Oracle额外3–6小时。范围依据已完成方法成本与全32组扩充工作量估计，历史复用会缩短，参数导致的满时限/求解开销及调度等待会延长；不是完成时限保证。旧8worker工作量估计单独保留。",
-  "planning_headroom_hours": 7,
+  "description": "2026-10-30约14:17重新估计：剩余选参45–70分钟，独立测试与统计约1–1.5小时；主线还约2–3小时，预计本地16:30–17:30。可选Oracle再约1.5–3小时；旧时间补测仅完整保守预测<1小时才执行。全部约18:00–21:00，受候选扩充、真实结局与调度影响，不是时限保证。当前18CPU上限，实际16，2个worker等待资源。",
+  "planning_headroom_hours": 3,
   "task_cpu_cap": 18,
   "worker_cpu_cap": 17,
   "currently_scheduled_workers": 15,
   "remaining_tuning_hours_estimate": [
+    0.75,
+    1.17
+  ],
+  "remaining_formal_mainline_hours_estimate": [
     2,
     3
   ],
-  "remaining_formal_mainline_hours_estimate": [
-    4,
-    7
-  ],
   "optional_oracle_additional_hours_estimate": [
-    3,
-    6
+    1.5,
+    3
   ],
-  "historical_main_workload_estimate_at8workers_hours": 8.947321413605565
+  "historical_main_workload_estimate_at8workers_hours": 8.947321413605565,
+  "conditional_historical_timing_extra_hours_at_most": 1,
+  "C1_B_actual_first16_episode_seconds": 8.81754192227686
 }

@@ -31,7 +31,7 @@ def main():
         scene_names_sha256=sha(HERE/'SCENE_NAMES.json'),
         analysis_sources_sha256={name:sha(HERE/name)for name in ('statistic_rules.py','reporting.py','oracle.py',
             'tuning.py','formal_tests.py','time_limit_sensitivity.py','relaxed_sensitivity.py','classical_appendix.py','trace_time_diagnostic.py',
-            'video_delivery.py','video_tools/batch_videos_generic.py','oracle_subset_check.py')},
+            'video_delivery.py','video_tools/batch_videos_generic.py','oracle_subset_check.py','time_backfill.py','mgr_domain_audit.py')},
         primary=dict(benchmark='A',scenes=split['benchmark_A']['test'],states=split['benchmark_A']['test_states'],
             endpoint='Frozen learned correction success averaged over six nominal models, minus external global-training-tuned success, paired by physical initial state.',
             methods=active_methods(),family_size=3,

@@ -6,7 +6,7 @@ from scene_catalog import catalog,frozen_eta
 from learned_setup import rows as learned_rows
 from request_factory import case
 from consistent_ours import engine
-import time,datetime
+import time,datetime,subprocess
 
 
 def run():
@@ -31,11 +31,18 @@ def run():
             if len(values):samples.extend(values.tolist())
         if samples:costs[method]=float(np.quantile(samples,.95))*1.5
     if '只加安全投影'in costs:costs['经典目标右侧规则']=1.75*costs['只加安全投影']
-    cpus=available()
+    budget_workers=available();cluster_error=None
+    try:
+        capacity=subprocess.check_output(['sinfo','-h','-N','-p','cpu','-o','%C'],text=True)
+        cluster_idle=sum(int(line.split('/')[1])for line in capacity.splitlines()if line.strip())
+    except Exception as exc:
+        cluster_idle=0;cluster_error=repr(exc)
+    cpus=min(budget_workers,cluster_idle)
     prediction=sum((scenes[r['scene']]['config']['max_steps']*costs.get(r['method'],np.inf)+2.)for r in successes)/max(cpus,1)+120.
     remaining=50000-read(HERE/'BUDGET.json')['actual_attempts']
     decision=dict(time=datetime.datetime.now().astimezone().isoformat(),success_rows=len(successes),all_historical_rows=len(labels),
-        cpu_workers_available=cpus,conservative_full_incremental_seconds=prediction if np.isfinite(prediction)else None,
+        cpu_workers_available=cpus,budget_workers_available=budget_workers,cluster_idle_cpus=cluster_idle,
+        cluster_resource_query_error=cluster_error,conservative_full_incremental_seconds=prediction if np.isfinite(prediction)else None,
         measured_step_envelopes=costs,forecast='95th percentile already-required per-step wall time,50%headroom,full scene horizon,2sstartup/episode; RHRuses1.75xsafety envelope. Estimate, not a runtime certificate.',
         original_labels_authoritative=True,maximum_seconds=3600,deadline_seconds=3540)
     if cpus<=0 or not np.isfinite(prediction)or prediction>=3600 or remaining<len(successes):
