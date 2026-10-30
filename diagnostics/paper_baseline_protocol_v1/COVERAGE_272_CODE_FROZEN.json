@@ -1,0 +1,7 @@
+{
+  "time": "2026-10-30T14:37:55.067080+08:00",
+  "source_sha256": "f8cdfe53bd2a475925b78cef8bbce3db0154315393cf3fd38c6105e6ce1c9afe",
+  "parameters_sha256": "091a096e66bbda2ea6d9399f4d5b23e5b6a762c18a55fc579ceda61aba83348b",
+  "changes": "Administrative coordinator/logging only. Frozen runner.execute_numerical called directly; only paper_episode.HERE runtime output path redirected to mounted SSD. No author/controller/solver/task change.",
+  "formal_test_started": false
+}

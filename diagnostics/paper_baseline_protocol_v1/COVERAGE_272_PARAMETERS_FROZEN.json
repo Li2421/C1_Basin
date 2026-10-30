@@ -1,0 +1,45 @@
+{
+  "time": "2026-10-30T14:36:15.586342+08:00",
+  "user_priority": "Historical272coverage before own tuning and generalization pipeline",
+  "benchmark": "B",
+  "methods": {
+    "dac_author_si": {
+      "global_index": 12,
+      "training_source": "diagnostics/paper_baseline_protocol_v1/tuning/B_dac_author_si.json",
+      "options": {
+        "alpha": 1.8858215268701315,
+        "agent_threshold": 0.5775971112307161,
+        "obstacle_threshold": 0.007085118554532528
+      },
+      "training_sha256": "11d00a2a08540a1abda643f318049776e5c5903944f52831a474b14a590a8d96"
+    },
+    "mgr_author_unicycle_tracking": {
+      "global_index": 10,
+      "training_source": "diagnostics/paper_baseline_protocol_v1/tuning/B_mgr_author_unicycle_tracking.json",
+      "options": {
+        "tau": 0.9616937679238617,
+        "kp": 0.069435178861022,
+        "circle_radius": 0.43477078699506816
+      },
+      "training_sha256": "858c40df5e4b8b87ea0559e15ed9fc888d5d3f44bf659e892929b2753ecf9f96"
+    }
+  },
+  "states": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "scenes_source": "inputs/diagnostics/scene_types_oracle_coverage_v3/REPRESENTATIVE17_FROZEN.json",
+  "physical_states_per_method": 136,
+  "corresponding_c1_nominal_cases": 272,
+  "selection": "Fixed global training choice per method; no per-case search or outcome-driven retuning.",
+  "generalization_claim": false,
+  "numeric_release_sha256": "f2fa39864abd065f0e7b201252f0e70d21934936e574b014e9dbe712b1c20cea",
+  "artifacts": "/mnt/ssd/zhihan/Basin_C1/diagnostics/paper_baseline_protocol_v1/coverage_272_artifacts",
+  "storage": "New pure artifacts on verified mounted SSD; existing running study files preserved, not migrated."
+}
