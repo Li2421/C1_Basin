@@ -1,23 +1,15 @@
 {
-  "time": "2026-10-29T20:30:28.794667+08:00",
+  "time": "2026-10-30T10:04:04.254823+08:00",
   "leader": {
-    "code": "four_2",
-    "name": "朝目标 + 互斥分离 + 目标右侧旋转·含通道放行 + 局部净空梯度",
-    "dimension": 4,
-    "coverage": 258
+    "code": "level3_01",
+    "name": "朝目标 + 互斥分离·含净空 + 目标右侧旋转·含通道放行",
+    "dimension": 3,
+    "coverage": 264
   },
   "tied_highest": [
     {
-      "code": "four_2",
-      "name": "朝目标 + 互斥分离 + 目标右侧旋转·含通道放行 + 局部净空梯度"
-    },
-    {
-      "code": "four_3",
-      "name": "朝目标 + 互斥分离·含净空 + 目标右侧旋转 + 通道放行"
-    },
-    {
-      "code": "four_5",
-      "name": "朝目标 + 目标右侧旋转 + 局部净空梯度 + 通道放行"
+      "code": "level3_01",
+      "name": "朝目标 + 互斥分离·含净空 + 目标右侧旋转·含通道放行"
     }
   ],
   "completed_family_coverage": {
@@ -27,327 +19,27 @@
     "four_3": 258,
     "four_4": 250,
     "four_5": 258,
-    "four_8": 211
+    "four_8": 211,
+    "level3_01": 264,
+    "level3_02": 259,
+    "level3_05": 251,
+    "level3_06": 256
   },
   "cases": 272,
-  "diagnostics_only_union": 265,
+  "diagnostics_only_union": 267,
   "leader_failure_query_outcomes": {
-    "timeout": 896
+    "timeout": 512
   },
   "by_type": [
     {
-      "type_id": 7,
-      "title": "散布障碍森林·随机起终点",
-      "uncovered": 1,
-      "rescued": 1,
-      "still_uncovered": 0
-    },
-    {
-      "type_id": 8,
-      "title": "窄门·两组对向互换",
-      "uncovered": 2,
-      "rescued": 2,
-      "still_uncovered": 0
-    },
-    {
       "type_id": 16,
       "title": "货架仓库·窄巷",
-      "uncovered": 11,
-      "rescued": 4,
-      "still_uncovered": 7
+      "uncovered": 8,
+      "rescued": 3,
+      "still_uncovered": 5
     }
   ],
   "records": [
-    {
-      "identity": [
-        7,
-        1,
-        "centralized_sampling",
-        2
-      ],
-      "title": "散布障碍森林·随机起终点",
-      "rescued_by_completed_families": [
-        {
-          "code": "four_4",
-          "name": "朝目标 + 互斥分离 + 目标右侧旋转 + 通道放行",
-          "first_success": 27,
-          "rollout_uid": "roll_9ef36b68ec71f6b97fd8c9eef6265cbb3b9cc4955009e73f326dc251948861f8",
-          "spec": {
-            "eta": [
-              1.0919348327443004,
-              0.0,
-              0.6882743071764708
-            ],
-            "coefficients": {
-              "T1": 0.32295847311615944
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 0.5,
-              "c2": 0.5,
-              "c3": 0.5
-            }
-          }
-        }
-      ],
-      "any_rescue": true
-    },
-    {
-      "identity": [
-        8,
-        1,
-        "centralized_sampling",
-        1
-      ],
-      "title": "窄门·两组对向互换",
-      "rescued_by_completed_families": [
-        {
-          "code": "four_1",
-          "name": "朝目标·含通道放行 + 互斥分离 + 目标右侧旋转 + 局部净空梯度",
-          "first_success": 2,
-          "rollout_uid": "roll_519b01f8010ab19c8af02cbe2cbc67d7d3ca23b25845646495fea17acde306e4",
-          "spec": {
-            "eta": [
-              0.875,
-              0.0,
-              0.375
-            ],
-            "coefficients": {
-              "T1": 0.75
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 0.875,
-              "c2": 0.875,
-              "c3": 0.875
-            }
-          }
-        },
-        {
-          "code": "four_3",
-          "name": "朝目标 + 互斥分离·含净空 + 目标右侧旋转 + 通道放行",
-          "first_success": 34,
-          "rollout_uid": "roll_850e63a581a90477de9c40fa002149acb223c445b9aa972b2e56fc40fcd8e69f",
-          "spec": {
-            "eta": [
-              1.0623956474009901,
-              0.0,
-              0.3245943272486329
-            ],
-            "coefficients": {
-              "T1": 0.9665868878364563,
-              "C2": 0.3245943272486329
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 1.0,
-              "c2": 1.0,
-              "c3": 1.0
-            }
-          }
-        },
-        {
-          "code": "four_4",
-          "name": "朝目标 + 互斥分离 + 目标右侧旋转 + 通道放行",
-          "first_success": 16,
-          "rollout_uid": "roll_9c4eb314f54b4fa03be30dce3ed449a2b2ebe078dd8a04b856725a885d4f3b9d",
-          "spec": {
-            "eta": [
-              0.5721547913271934,
-              0.0,
-              0.5292998780496418
-            ],
-            "coefficients": {
-              "T1": 0.9814082160592079
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 1.0,
-              "c2": 1.0,
-              "c3": 1.0
-            }
-          }
-        },
-        {
-          "code": "four_5",
-          "name": "朝目标 + 目标右侧旋转 + 局部净空梯度 + 通道放行",
-          "first_success": 2,
-          "rollout_uid": "roll_5fc8422f6b016e06b0bae81997bd8590c38ebf00a32b3c2d57c032cc563e3583",
-          "spec": {
-            "eta": [
-              0.875,
-              0.0,
-              0.0
-            ],
-            "coefficients": {
-              "T1": 0.75
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 0.75,
-              "c2": 0.75,
-              "c3": 0.75
-            }
-          }
-        }
-      ],
-      "any_rescue": true
-    },
-    {
-      "identity": [
-        8,
-        1,
-        "centralized_sampling",
-        5
-      ],
-      "title": "窄门·两组对向互换",
-      "rescued_by_completed_families": [
-        {
-          "code": "reference",
-          "name": "朝目标 + 互斥分离 + 目标右侧旋转 + 局部净空梯度 + 通道放行",
-          "first_success": 20,
-          "rollout_uid": "roll_c8d4c88b9af54e04911e82df0537ddc3042627b66798cd331f6a7d8ae6ebdd14",
-          "spec": {
-            "eta": [
-              0.5558786657638848,
-              0.0,
-              0.24600357050076127
-            ],
-            "coefficients": {
-              "T1": 0.5216307565569878,
-              "C2": 0.1621923604980111
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 0.75,
-              "c2": 0.75,
-              "c3": 0.75
-            }
-          }
-        },
-        {
-          "code": "four_1",
-          "name": "朝目标·含通道放行 + 互斥分离 + 目标右侧旋转 + 局部净空梯度",
-          "first_success": 20,
-          "rollout_uid": "roll_b1ca08c2c5595811547d7ada56c356b2c912ceab11281a342267b8e667940a52",
-          "spec": {
-            "eta": [
-              0.5558786657638848,
-              0.0,
-              0.24600357050076127
-            ],
-            "coefficients": {
-              "T1": 0.5216307565569878,
-              "C2": 0.1621923604980111
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 0.5558786657638848,
-              "c2": 0.5558786657638848,
-              "c3": 0.5558786657638848
-            }
-          }
-        },
-        {
-          "code": "four_3",
-          "name": "朝目标 + 互斥分离·含净空 + 目标右侧旋转 + 通道放行",
-          "first_success": 30,
-          "rollout_uid": "roll_2963c15fed6af3fe9dd89a0e888164b2c2c78a2d364cce8728a38809f51e02d8",
-          "spec": {
-            "eta": [
-              1.1809156625531614,
-              0.0,
-              0.09085496119223535
-            ],
-            "coefficients": {
-              "T1": 0.6476559359580278,
-              "C2": 0.09085496119223535
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 0.5,
-              "c2": 0.5,
-              "c3": 0.5
-            }
-          }
-        },
-        {
-          "code": "four_4",
-          "name": "朝目标 + 互斥分离 + 目标右侧旋转 + 通道放行",
-          "first_success": 12,
-          "rollout_uid": "roll_48a0536b74a8d06e93a65a64c1cb82d997eed13a5dcb0ba4465a793b43ef77a2",
-          "spec": {
-            "eta": [
-              0.7426259506028146,
-              0.0,
-              0.7437381260097027
-            ],
-            "coefficients": {
-              "T1": -0.8623180221766233
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 0.5,
-              "c2": 0.5,
-              "c3": 0.5
-            }
-          }
-        },
-        {
-          "code": "four_5",
-          "name": "朝目标 + 目标右侧旋转 + 局部净空梯度 + 通道放行",
-          "first_success": 2,
-          "rollout_uid": "roll_5e2be0a36e02b4d1ba2d35b9509c9b665f44d0757ba50bae2d3afb3b0ee2d99c",
-          "spec": {
-            "eta": [
-              0.875,
-              0.0,
-              0.0
-            ],
-            "coefficients": {
-              "T1": 0.75
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 0.75,
-              "c2": 0.75,
-              "c3": 0.75
-            }
-          }
-        }
-      ],
-      "any_rescue": true
-    },
     {
       "identity": [
         16,
@@ -358,121 +50,6 @@
       "title": "货架仓库·窄巷",
       "rescued_by_completed_families": [],
       "any_rescue": false
-    },
-    {
-      "identity": [
-        16,
-        0,
-        "gradient_mpc",
-        1
-      ],
-      "title": "货架仓库·窄巷",
-      "rescued_by_completed_families": [
-        {
-          "code": "reference",
-          "name": "朝目标 + 互斥分离 + 目标右侧旋转 + 局部净空梯度 + 通道放行",
-          "first_success": 33,
-          "rollout_uid": "roll_1068a16d0f1e0a6e78419d426a7fda42627526ada3bc507de35adc3b0e1915f5",
-          "spec": {
-            "eta": [
-              0.7768394621089101,
-              0.0,
-              0.5463202300015837
-            ],
-            "coefficients": {
-              "T1": -0.22417783178389072,
-              "C2": 0.301464862190187
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 0.5,
-              "c2": 0.5,
-              "c3": 0.5
-            }
-          }
-        },
-        {
-          "code": "four_3",
-          "name": "朝目标 + 互斥分离·含净空 + 目标右侧旋转 + 通道放行",
-          "first_success": 24,
-          "rollout_uid": "roll_c2da8c35db160a6e78c6b2eb15215ca4ed81f7621ebabbe37029e4bcbd749a8d",
-          "spec": {
-            "eta": [
-              0.8197408260311931,
-              0.0,
-              0.02875320380553603
-            ],
-            "coefficients": {
-              "T1": -0.027842596173286438,
-              "C2": 0.02875320380553603
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 0.5,
-              "c2": 0.5,
-              "c3": 0.5
-            }
-          }
-        },
-        {
-          "code": "four_4",
-          "name": "朝目标 + 互斥分离 + 目标右侧旋转 + 通道放行",
-          "first_success": 15,
-          "rollout_uid": "roll_466118a489af7e75168bcaa1baf14e0ddc549fc79fa6f13d13713954820a7d06",
-          "spec": {
-            "eta": [
-              1.209305968368426,
-              0.0,
-              0.243904962670058
-            ],
-            "coefficients": {
-              "T1": -0.5896959882229567
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 0.5,
-              "c2": 0.5,
-              "c3": 0.5
-            }
-          }
-        },
-        {
-          "code": "four_5",
-          "name": "朝目标 + 目标右侧旋转 + 局部净空梯度 + 通道放行",
-          "first_success": 33,
-          "rollout_uid": "roll_84573a55ab915f98a7db25e3d3d40f0710aff9907581df52b602a773c86a9e2d",
-          "spec": {
-            "eta": [
-              0.7768394621089101,
-              0.0,
-              0.0
-            ],
-            "coefficients": {
-              "T1": -0.22417783178389072,
-              "C2": 0.301464862190187
-            },
-            "one_way": {
-              "R_e": 0.8,
-              "R_c": 0.5,
-              "rho": "fcfs",
-              "K": null,
-              "c1": 0.5,
-              "c2": 0.5,
-              "c3": 0.5
-            }
-          }
-        }
-      ],
-      "any_rescue": true
     },
     {
       "identity": [
@@ -507,85 +84,71 @@
       "identity": [
         16,
         0,
+        "centralized_sampling",
+        5
+      ],
+      "title": "货架仓库·窄巷",
+      "rescued_by_completed_families": [],
+      "any_rescue": false
+    },
+    {
+      "identity": [
+        16,
+        0,
         "gradient_mpc",
-        2
+        5
+      ],
+      "title": "货架仓库·窄巷",
+      "rescued_by_completed_families": [],
+      "any_rescue": false
+    },
+    {
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "title": "货架仓库·窄巷",
+      "rescued_by_completed_families": [],
+      "any_rescue": false
+    },
+    {
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        6
       ],
       "title": "货架仓库·窄巷",
       "rescued_by_completed_families": [
         {
-          "code": "four_8",
-          "name": "朝目标 + 互斥分离 + 目标右侧旋转 + 局部净空梯度",
-          "first_success": 14,
-          "rollout_uid": "roll_3bdf7fac08bb9666dc0000b8fd38acfbbd26052d85f03240183230caff5b2116",
+          "code": "level3_05",
+          "name": "朝目标 + 互斥分离 + 目标右侧旋转·含通道放行",
+          "first_success": 18,
+          "rollout_uid": "roll_9c11b5b1e918b164d8471830dd8249a50a24218bc5ef072a76f125f3a1ec29fe",
           "spec": {
             "eta": [
-              0.9315319394227117,
+              1.012103390879929,
               0.0,
-              0.6492342192213982
+              0.11879424937069416
             ],
             "coefficients": {
-              "T1": 0.4533236734569073,
-              "C2": 0.2350870380178094
+              "T1": 0.24341703951358795
+            },
+            "one_way": {
+              "R_e": 0.8,
+              "R_c": 0.5,
+              "rho": "fcfs",
+              "K": null,
+              "c1": 0.24341703951358795,
+              "c2": 0.24341703951358795,
+              "c3": 0.24341703951358795
             }
           }
         }
       ],
       "any_rescue": true
-    },
-    {
-      "identity": [
-        16,
-        0,
-        "gradient_mpc",
-        3
-      ],
-      "title": "货架仓库·窄巷",
-      "rescued_by_completed_families": [],
-      "any_rescue": false
-    },
-    {
-      "identity": [
-        16,
-        0,
-        "centralized_sampling",
-        5
-      ],
-      "title": "货架仓库·窄巷",
-      "rescued_by_completed_families": [],
-      "any_rescue": false
-    },
-    {
-      "identity": [
-        16,
-        0,
-        "gradient_mpc",
-        5
-      ],
-      "title": "货架仓库·窄巷",
-      "rescued_by_completed_families": [],
-      "any_rescue": false
-    },
-    {
-      "identity": [
-        16,
-        0,
-        "centralized_sampling",
-        6
-      ],
-      "title": "货架仓库·窄巷",
-      "rescued_by_completed_families": [],
-      "any_rescue": false
-    },
-    {
-      "identity": [
-        16,
-        0,
-        "gradient_mpc",
-        6
-      ],
-      "title": "货架仓库·窄巷",
-      "rescued_by_completed_families": [],
-      "any_rescue": false
     },
     {
       "identity": [
@@ -646,12 +209,6 @@
     [
       16,
       0,
-      "gradient_mpc",
-      3
-    ],
-    [
-      16,
-      0,
       "centralized_sampling",
       5
     ],
@@ -665,12 +222,6 @@
       16,
       0,
       "centralized_sampling",
-      6
-    ],
-    [
-      16,
-      0,
-      "gradient_mpc",
       6
     ],
     [

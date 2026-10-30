@@ -1,5 +1,5 @@
 {
-  "time": "2026-10-29T12:38:38.350049+08:00",
+  "time": "2026-10-30T10:03:57.919248+08:00",
   "source": "inputs/paper_context/COMPLETED_COMPARISON.json",
   "historical_profiles": [
     {
@@ -138,7 +138,1698 @@
       "single_robot_passed_scenes": 7
     }
   ],
-  "current_fixed_policies": [],
+  "current_fixed_policies": [
+    {
+      "code": "four_1",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 64,
+      "success_mean_time": 18.689062500000002,
+      "truncated_mean_time": 31.883455882352944,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 24,
+          "C1_only": 40,
+          "paper_only": 11,
+          "common_success_C1_mean": 11.225,
+          "common_success_paper_mean": 17.510416666666668
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 24,
+          "C1_only": 40,
+          "paper_only": 11,
+          "common_success_C1_mean": 11.225,
+          "common_success_paper_mean": 17.510416666666668
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 55,
+          "paper_only": 1,
+          "common_success_C1_mean": 10.68888888888889,
+          "common_success_paper_mean": 27.033333333333335
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 48,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.234375,
+          "common_success_paper_mean": 12.790625
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 17,
+          "C1_only": 47,
+          "paper_only": 15,
+          "common_success_C1_mean": 9.755882352941176,
+          "common_success_paper_mean": 16.876470588235296
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 4,
+          "C1_only": 60,
+          "paper_only": 1,
+          "common_success_C1_mean": 8.45,
+          "common_success_paper_mean": 7.4375
+        }
+      ]
+    },
+    {
+      "code": "four_1",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 70,
+      "success_mean_time": 19.626428571428573,
+      "truncated_mean_time": 31.13308823529412,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 27,
+          "C1_only": 43,
+          "paper_only": 8,
+          "common_success_C1_mean": 11.283333333333333,
+          "common_success_paper_mean": 18.15925925925926
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 27,
+          "C1_only": 43,
+          "paper_only": 8,
+          "common_success_C1_mean": 11.283333333333333,
+          "common_success_paper_mean": 18.15925925925926
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 61,
+          "paper_only": 1,
+          "common_success_C1_mean": 11.105555555555556,
+          "common_success_paper_mean": 27.033333333333335
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 54,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.83125,
+          "common_success_paper_mean": 13.01875
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 18,
+          "C1_only": 52,
+          "paper_only": 14,
+          "common_success_C1_mean": 10.158333333333333,
+          "common_success_paper_mean": 17.70277777777778
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 65,
+          "paper_only": 0,
+          "common_success_C1_mean": 9.74,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    },
+    {
+      "code": "four_2",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 67,
+      "success_mean_time": 20.117164179104478,
+      "truncated_mean_time": 31.68345588235294,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 24,
+          "C1_only": 43,
+          "paper_only": 11,
+          "common_success_C1_mean": 11.225,
+          "common_success_paper_mean": 17.510416666666668
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 24,
+          "C1_only": 43,
+          "paper_only": 11,
+          "common_success_C1_mean": 11.225,
+          "common_success_paper_mean": 17.510416666666668
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 58,
+          "paper_only": 1,
+          "common_success_C1_mean": 10.68888888888889,
+          "common_success_paper_mean": 27.033333333333335
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 51,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.234375,
+          "common_success_paper_mean": 12.790625
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 17,
+          "C1_only": 50,
+          "paper_only": 15,
+          "common_success_C1_mean": 9.755882352941176,
+          "common_success_paper_mean": 16.876470588235296
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 4,
+          "C1_only": 63,
+          "paper_only": 1,
+          "common_success_C1_mean": 8.45,
+          "common_success_paper_mean": 7.4375
+        }
+      ]
+    },
+    {
+      "code": "four_2",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 71,
+      "success_mean_time": 19.645070422535213,
+      "truncated_mean_time": 31.188602941176473,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 27,
+          "C1_only": 44,
+          "paper_only": 8,
+          "common_success_C1_mean": 11.283333333333333,
+          "common_success_paper_mean": 18.15925925925926
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 27,
+          "C1_only": 44,
+          "paper_only": 8,
+          "common_success_C1_mean": 11.283333333333333,
+          "common_success_paper_mean": 18.15925925925926
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 62,
+          "paper_only": 1,
+          "common_success_C1_mean": 11.105555555555556,
+          "common_success_paper_mean": 27.033333333333335
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 55,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.83125,
+          "common_success_paper_mean": 13.01875
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 19,
+          "C1_only": 52,
+          "paper_only": 13,
+          "common_success_C1_mean": 12.294736842105264,
+          "common_success_paper_mean": 19.344736842105263
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 66,
+          "paper_only": 0,
+          "common_success_C1_mean": 9.74,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    },
+    {
+      "code": "four_3",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 30,
+      "success_mean_time": 18.735,
+      "truncated_mean_time": 36.22830882352942,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 8,
+          "C1_only": 22,
+          "paper_only": 27,
+          "common_success_C1_mean": 7.8812500000000005,
+          "common_success_paper_mean": 18.70625
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 8,
+          "C1_only": 22,
+          "paper_only": 27,
+          "common_success_C1_mean": 7.8812500000000005,
+          "common_success_paper_mean": 18.70625
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 6,
+          "C1_only": 24,
+          "paper_only": 4,
+          "common_success_C1_mean": 10.216666666666667,
+          "common_success_paper_mean": 28.441666666666666
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 21,
+          "paper_only": 9,
+          "common_success_C1_mean": 7.983333333333333,
+          "common_success_paper_mean": 11.350000000000001
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 11,
+          "C1_only": 19,
+          "paper_only": 21,
+          "common_success_C1_mean": 8.672727272727274,
+          "common_success_paper_mean": 15.463636363636365
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 3,
+          "C1_only": 27,
+          "paper_only": 2,
+          "common_success_C1_mean": 7.783333333333334,
+          "common_success_paper_mean": 6.883333333333334
+        }
+      ]
+    },
+    {
+      "code": "four_3",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 51,
+      "success_mean_time": 20.941176470588236,
+      "truncated_mean_time": 33.09227941176471,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 13,
+          "C1_only": 38,
+          "paper_only": 22,
+          "common_success_C1_mean": 8.642307692307693,
+          "common_success_paper_mean": 17.515384615384615
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 13,
+          "C1_only": 38,
+          "paper_only": 22,
+          "common_success_C1_mean": 8.642307692307693,
+          "common_success_paper_mean": 17.515384615384615
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 42,
+          "paper_only": 1,
+          "common_success_C1_mean": 9.944444444444445,
+          "common_success_paper_mean": 27.561111111111114
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 10,
+          "C1_only": 41,
+          "paper_only": 8,
+          "common_success_C1_mean": 8.0,
+          "common_success_paper_mean": 12.13
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 14,
+          "C1_only": 37,
+          "paper_only": 18,
+          "common_success_C1_mean": 11.139285714285714,
+          "common_success_paper_mean": 18.52857142857143
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 46,
+          "paper_only": 0,
+          "common_success_C1_mean": 8.98,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    },
+    {
+      "code": "four_4",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 73,
+      "success_mean_time": 20.60068493150685,
+      "truncated_mean_time": 30.019485294117647,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 24,
+          "C1_only": 49,
+          "paper_only": 11,
+          "common_success_C1_mean": 11.225,
+          "common_success_paper_mean": 17.510416666666668
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 24,
+          "C1_only": 49,
+          "paper_only": 11,
+          "common_success_C1_mean": 11.225,
+          "common_success_paper_mean": 17.510416666666668
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 64,
+          "paper_only": 1,
+          "common_success_C1_mean": 10.68888888888889,
+          "common_success_paper_mean": 27.033333333333335
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 57,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.234375,
+          "common_success_paper_mean": 12.790625
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 18,
+          "C1_only": 55,
+          "paper_only": 14,
+          "common_success_C1_mean": 11.436111111111112,
+          "common_success_paper_mean": 18.65555555555556
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 4,
+          "C1_only": 69,
+          "paper_only": 1,
+          "common_success_C1_mean": 8.45,
+          "common_success_paper_mean": 7.4375
+        }
+      ]
+    },
+    {
+      "code": "four_4",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 83,
+      "success_mean_time": 21.700602409638556,
+      "truncated_mean_time": 29.065073529411766,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 27,
+          "C1_only": 56,
+          "paper_only": 8,
+          "common_success_C1_mean": 11.283333333333333,
+          "common_success_paper_mean": 18.15925925925926
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 27,
+          "C1_only": 56,
+          "paper_only": 8,
+          "common_success_C1_mean": 11.283333333333333,
+          "common_success_paper_mean": 18.15925925925926
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 74,
+          "paper_only": 1,
+          "common_success_C1_mean": 11.105555555555556,
+          "common_success_paper_mean": 27.033333333333335
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 67,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.83125,
+          "common_success_paper_mean": 13.01875
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 20,
+          "C1_only": 63,
+          "paper_only": 12,
+          "common_success_C1_mean": 13.127500000000001,
+          "common_success_paper_mean": 21.225
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 78,
+          "paper_only": 0,
+          "common_success_C1_mean": 9.74,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    },
+    {
+      "code": "four_5",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 62,
+      "success_mean_time": 21.780645161290323,
+      "truncated_mean_time": 30.684926470588238,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 22,
+          "C1_only": 40,
+          "paper_only": 13,
+          "common_success_C1_mean": 9.811363636363637,
+          "common_success_paper_mean": 17.543181818181818
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 22,
+          "C1_only": 40,
+          "paper_only": 13,
+          "common_success_C1_mean": 9.811363636363637,
+          "common_success_paper_mean": 17.543181818181818
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 7,
+          "C1_only": 55,
+          "paper_only": 3,
+          "common_success_C1_mean": 8.42142857142857,
+          "common_success_paper_mean": 25.942857142857143
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 46,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.234375,
+          "common_success_paper_mean": 12.790625
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 18,
+          "C1_only": 44,
+          "paper_only": 14,
+          "common_success_C1_mean": 12.780555555555557,
+          "common_success_paper_mean": 20.441666666666666
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 4,
+          "C1_only": 58,
+          "paper_only": 1,
+          "common_success_C1_mean": 8.45,
+          "common_success_paper_mean": 7.4375
+        }
+      ]
+    },
+    {
+      "code": "four_5",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 55,
+      "success_mean_time": 18.39727272727273,
+      "truncated_mean_time": 31.968382352941177,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 26,
+          "C1_only": 29,
+          "paper_only": 9,
+          "common_success_C1_mean": 10.482692307692309,
+          "common_success_paper_mean": 18.18653846153846
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 26,
+          "C1_only": 29,
+          "paper_only": 9,
+          "common_success_C1_mean": 10.482692307692309,
+          "common_success_paper_mean": 18.18653846153846
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 7,
+          "C1_only": 48,
+          "paper_only": 3,
+          "common_success_C1_mean": 9.121428571428572,
+          "common_success_paper_mean": 25.942857142857143
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 39,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.825000000000001,
+          "common_success_paper_mean": 13.01875
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 19,
+          "C1_only": 36,
+          "paper_only": 13,
+          "common_success_C1_mean": 12.871052631578948,
+          "common_success_paper_mean": 21.03684210526316
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 50,
+          "paper_only": 0,
+          "common_success_C1_mean": 9.74,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    },
+    {
+      "code": "four_6",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 37,
+      "success_mean_time": 22.54054054054054,
+      "truncated_mean_time": 36.56397058823529,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 15,
+          "C1_only": 22,
+          "paper_only": 20,
+          "common_success_C1_mean": 20.963333333333335,
+          "common_success_paper_mean": 17.11
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 15,
+          "C1_only": 22,
+          "paper_only": 20,
+          "common_success_C1_mean": 20.963333333333335,
+          "common_success_paper_mean": 17.11
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 3,
+          "C1_only": 34,
+          "paper_only": 7,
+          "common_success_C1_mean": 13.85,
+          "common_success_paper_mean": 22.416666666666668
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 32,
+          "paper_only": 13,
+          "common_success_C1_mean": 22.240000000000002,
+          "common_success_paper_mean": 14.770000000000001
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 32,
+          "paper_only": 27,
+          "common_success_C1_mean": 23.35,
+          "common_success_paper_mean": 20.6
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 0,
+          "C1_only": 37,
+          "paper_only": 5,
+          "common_success_C1_mean": null,
+          "common_success_paper_mean": null
+        }
+      ]
+    },
+    {
+      "code": "four_6",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 59,
+      "success_mean_time": 20.591525423728815,
+      "truncated_mean_time": 33.58382352941177,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 23,
+          "C1_only": 36,
+          "paper_only": 12,
+          "common_success_C1_mean": 18.960869565217394,
+          "common_success_paper_mean": 17.656521739130437
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 23,
+          "C1_only": 36,
+          "paper_only": 12,
+          "common_success_C1_mean": 18.960869565217394,
+          "common_success_paper_mean": 17.656521739130437
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 8,
+          "C1_only": 51,
+          "paper_only": 2,
+          "common_success_C1_mean": 17.56875,
+          "common_success_paper_mean": 26.7875
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 8,
+          "C1_only": 51,
+          "paper_only": 10,
+          "common_success_C1_mean": 21.8125,
+          "common_success_paper_mean": 14.08125
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 12,
+          "C1_only": 47,
+          "paper_only": 20,
+          "common_success_C1_mean": 20.39166666666667,
+          "common_success_paper_mean": 18.604166666666668
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 2,
+          "C1_only": 57,
+          "paper_only": 3,
+          "common_success_C1_mean": 18.725,
+          "common_success_paper_mean": 12.675
+        }
+      ]
+    },
+    {
+      "code": "four_7",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 54,
+      "success_mean_time": 22.51666666666667,
+      "truncated_mean_time": 34.965808823529414,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 26,
+          "C1_only": 28,
+          "paper_only": 9,
+          "common_success_C1_mean": 12.69423076923077,
+          "common_success_paper_mean": 17.37115384615385
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 26,
+          "C1_only": 28,
+          "paper_only": 9,
+          "common_success_C1_mean": 12.69423076923077,
+          "common_success_paper_mean": 17.37115384615385
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 45,
+          "paper_only": 1,
+          "common_success_C1_mean": 13.877777777777778,
+          "common_success_paper_mean": 27.561111111111114
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 18,
+          "C1_only": 36,
+          "paper_only": 0,
+          "common_success_C1_mean": 11.836111111111112,
+          "common_success_paper_mean": 13.466666666666667
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 23,
+          "C1_only": 31,
+          "paper_only": 9,
+          "common_success_C1_mean": 13.282608695652174,
+          "common_success_paper_mean": 17.52608695652174
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 49,
+          "paper_only": 0,
+          "common_success_C1_mean": 11.38,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    },
+    {
+      "code": "four_7",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 43,
+      "success_mean_time": 17.363953488372093,
+      "truncated_mean_time": 35.141176470588235,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 26,
+          "C1_only": 17,
+          "paper_only": 9,
+          "common_success_C1_mean": 12.984615384615385,
+          "common_success_paper_mean": 16.94423076923077
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 26,
+          "C1_only": 17,
+          "paper_only": 9,
+          "common_success_C1_mean": 12.984615384615385,
+          "common_success_paper_mean": 16.94423076923077
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 34,
+          "paper_only": 1,
+          "common_success_C1_mean": 12.116666666666667,
+          "common_success_paper_mean": 27.561111111111114
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 18,
+          "C1_only": 25,
+          "paper_only": 0,
+          "common_success_C1_mean": 11.644444444444446,
+          "common_success_paper_mean": 13.466666666666667
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 23,
+          "C1_only": 20,
+          "paper_only": 9,
+          "common_success_C1_mean": 12.817391304347826,
+          "common_success_paper_mean": 17.52608695652174
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 38,
+          "paper_only": 0,
+          "common_success_C1_mean": 10.790000000000001,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    },
+    {
+      "code": "four_8",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 53,
+      "success_mean_time": 16.000943396226415,
+      "truncated_mean_time": 33.33308823529412,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 24,
+          "C1_only": 29,
+          "paper_only": 11,
+          "common_success_C1_mean": 11.225,
+          "common_success_paper_mean": 17.510416666666668
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 24,
+          "C1_only": 29,
+          "paper_only": 11,
+          "common_success_C1_mean": 11.225,
+          "common_success_paper_mean": 17.510416666666668
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 44,
+          "paper_only": 1,
+          "common_success_C1_mean": 10.68888888888889,
+          "common_success_paper_mean": 27.033333333333335
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 37,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.234375,
+          "common_success_paper_mean": 12.790625
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 17,
+          "C1_only": 36,
+          "paper_only": 15,
+          "common_success_C1_mean": 9.755882352941176,
+          "common_success_paper_mean": 16.876470588235296
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 4,
+          "C1_only": 49,
+          "paper_only": 1,
+          "common_success_C1_mean": 8.45,
+          "common_success_paper_mean": 7.4375
+        }
+      ]
+    },
+    {
+      "code": "four_8",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 58,
+      "success_mean_time": 16.905172413793103,
+      "truncated_mean_time": 32.94485294117647,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 27,
+          "C1_only": 31,
+          "paper_only": 8,
+          "common_success_C1_mean": 11.283333333333333,
+          "common_success_paper_mean": 18.15925925925926
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 27,
+          "C1_only": 31,
+          "paper_only": 8,
+          "common_success_C1_mean": 11.283333333333333,
+          "common_success_paper_mean": 18.15925925925926
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 49,
+          "paper_only": 1,
+          "common_success_C1_mean": 11.105555555555556,
+          "common_success_paper_mean": 27.033333333333335
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 42,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.83125,
+          "common_success_paper_mean": 13.01875
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 18,
+          "C1_only": 40,
+          "paper_only": 14,
+          "common_success_C1_mean": 10.158333333333333,
+          "common_success_paper_mean": 17.70277777777778
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 53,
+          "paper_only": 0,
+          "common_success_C1_mean": 9.74,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    },
+    {
+      "code": "level3_01",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 29,
+      "success_mean_time": 17.70689655172414,
+      "truncated_mean_time": 36.38676470588236,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 8,
+          "C1_only": 21,
+          "paper_only": 27,
+          "common_success_C1_mean": 7.8812500000000005,
+          "common_success_paper_mean": 18.70625
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 8,
+          "C1_only": 21,
+          "paper_only": 27,
+          "common_success_C1_mean": 7.8812500000000005,
+          "common_success_paper_mean": 18.70625
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 6,
+          "C1_only": 23,
+          "paper_only": 4,
+          "common_success_C1_mean": 10.216666666666667,
+          "common_success_paper_mean": 28.441666666666666
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 20,
+          "paper_only": 9,
+          "common_success_C1_mean": 7.983333333333333,
+          "common_success_paper_mean": 11.350000000000001
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 11,
+          "C1_only": 18,
+          "paper_only": 21,
+          "common_success_C1_mean": 8.672727272727274,
+          "common_success_paper_mean": 15.463636363636365
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 3,
+          "C1_only": 26,
+          "paper_only": 2,
+          "common_success_C1_mean": 7.783333333333334,
+          "common_success_paper_mean": 6.883333333333334
+        }
+      ]
+    },
+    {
+      "code": "level3_01",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 47,
+      "success_mean_time": 20.688297872340428,
+      "truncated_mean_time": 34.253308823529416,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 13,
+          "C1_only": 34,
+          "paper_only": 22,
+          "common_success_C1_mean": 8.642307692307693,
+          "common_success_paper_mean": 17.515384615384615
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 13,
+          "C1_only": 34,
+          "paper_only": 22,
+          "common_success_C1_mean": 8.642307692307693,
+          "common_success_paper_mean": 17.515384615384615
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 38,
+          "paper_only": 1,
+          "common_success_C1_mean": 9.944444444444445,
+          "common_success_paper_mean": 27.561111111111114
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 10,
+          "C1_only": 37,
+          "paper_only": 8,
+          "common_success_C1_mean": 8.0,
+          "common_success_paper_mean": 12.13
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 13,
+          "C1_only": 34,
+          "paper_only": 19,
+          "common_success_C1_mean": 8.965384615384616,
+          "common_success_paper_mean": 16.192307692307693
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 42,
+          "paper_only": 0,
+          "common_success_C1_mean": 8.98,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    },
+    {
+      "code": "level3_02",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 50,
+      "success_mean_time": 19.676000000000002,
+      "truncated_mean_time": 32.843014705882354,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 22,
+          "C1_only": 28,
+          "paper_only": 13,
+          "common_success_C1_mean": 9.811363636363637,
+          "common_success_paper_mean": 17.543181818181818
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 22,
+          "C1_only": 28,
+          "paper_only": 13,
+          "common_success_C1_mean": 9.811363636363637,
+          "common_success_paper_mean": 17.543181818181818
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 7,
+          "C1_only": 43,
+          "paper_only": 3,
+          "common_success_C1_mean": 8.42142857142857,
+          "common_success_paper_mean": 25.942857142857143
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 34,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.234375,
+          "common_success_paper_mean": 12.790625
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 17,
+          "C1_only": 33,
+          "paper_only": 15,
+          "common_success_C1_mean": 11.4,
+          "common_success_paper_mean": 18.76764705882353
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 4,
+          "C1_only": 46,
+          "paper_only": 1,
+          "common_success_C1_mean": 8.45,
+          "common_success_paper_mean": 7.4375
+        }
+      ]
+    },
+    {
+      "code": "level3_02",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 52,
+      "success_mean_time": 17.973076923076924,
+      "truncated_mean_time": 32.70955882352941,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 26,
+          "C1_only": 26,
+          "paper_only": 9,
+          "common_success_C1_mean": 10.482692307692309,
+          "common_success_paper_mean": 18.18653846153846
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 26,
+          "C1_only": 26,
+          "paper_only": 9,
+          "common_success_C1_mean": 10.482692307692309,
+          "common_success_paper_mean": 18.18653846153846
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 7,
+          "C1_only": 45,
+          "paper_only": 3,
+          "common_success_C1_mean": 9.121428571428572,
+          "common_success_paper_mean": 25.942857142857143
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 36,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.825000000000001,
+          "common_success_paper_mean": 13.01875
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 17,
+          "C1_only": 35,
+          "paper_only": 15,
+          "common_success_C1_mean": 9.694117647058825,
+          "common_success_paper_mean": 17.28529411764706
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 47,
+          "paper_only": 0,
+          "common_success_C1_mean": 9.74,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    },
+    {
+      "code": "level3_05",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 67,
+      "success_mean_time": 20.117164179104478,
+      "truncated_mean_time": 31.68345588235294,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 24,
+          "C1_only": 43,
+          "paper_only": 11,
+          "common_success_C1_mean": 11.225,
+          "common_success_paper_mean": 17.510416666666668
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 24,
+          "C1_only": 43,
+          "paper_only": 11,
+          "common_success_C1_mean": 11.225,
+          "common_success_paper_mean": 17.510416666666668
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 58,
+          "paper_only": 1,
+          "common_success_C1_mean": 10.68888888888889,
+          "common_success_paper_mean": 27.033333333333335
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 51,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.234375,
+          "common_success_paper_mean": 12.790625
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 17,
+          "C1_only": 50,
+          "paper_only": 15,
+          "common_success_C1_mean": 9.755882352941176,
+          "common_success_paper_mean": 16.876470588235296
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 4,
+          "C1_only": 63,
+          "paper_only": 1,
+          "common_success_C1_mean": 8.45,
+          "common_success_paper_mean": 7.4375
+        }
+      ]
+    },
+    {
+      "code": "level3_05",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 71,
+      "success_mean_time": 19.645070422535213,
+      "truncated_mean_time": 31.188602941176473,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 27,
+          "C1_only": 44,
+          "paper_only": 8,
+          "common_success_C1_mean": 11.283333333333333,
+          "common_success_paper_mean": 18.15925925925926
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 27,
+          "C1_only": 44,
+          "paper_only": 8,
+          "common_success_C1_mean": 11.283333333333333,
+          "common_success_paper_mean": 18.15925925925926
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 62,
+          "paper_only": 1,
+          "common_success_C1_mean": 11.105555555555556,
+          "common_success_paper_mean": 27.033333333333335
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 55,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.83125,
+          "common_success_paper_mean": 13.01875
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 19,
+          "C1_only": 52,
+          "paper_only": 13,
+          "common_success_C1_mean": 12.294736842105264,
+          "common_success_paper_mean": 19.344736842105263
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 66,
+          "paper_only": 0,
+          "common_success_C1_mean": 9.74,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    },
+    {
+      "code": "level3_06",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 30,
+      "success_mean_time": 19.240000000000002,
+      "truncated_mean_time": 36.339705882352945,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 8,
+          "C1_only": 22,
+          "paper_only": 27,
+          "common_success_C1_mean": 7.8812500000000005,
+          "common_success_paper_mean": 18.70625
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 8,
+          "C1_only": 22,
+          "paper_only": 27,
+          "common_success_C1_mean": 7.8812500000000005,
+          "common_success_paper_mean": 18.70625
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 6,
+          "C1_only": 24,
+          "paper_only": 4,
+          "common_success_C1_mean": 10.216666666666667,
+          "common_success_paper_mean": 28.441666666666666
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 21,
+          "paper_only": 9,
+          "common_success_C1_mean": 7.983333333333333,
+          "common_success_paper_mean": 11.350000000000001
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 12,
+          "C1_only": 18,
+          "paper_only": 20,
+          "common_success_C1_mean": 13.241666666666667,
+          "common_success_paper_mean": 18.920833333333334
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 3,
+          "C1_only": 27,
+          "paper_only": 2,
+          "common_success_C1_mean": 7.783333333333334,
+          "common_success_paper_mean": 6.883333333333334
+        }
+      ]
+    },
+    {
+      "code": "level3_06",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 50,
+      "success_mean_time": 20.735,
+      "truncated_mean_time": 33.13860294117647,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 13,
+          "C1_only": 37,
+          "paper_only": 22,
+          "common_success_C1_mean": 8.642307692307693,
+          "common_success_paper_mean": 17.515384615384615
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 13,
+          "C1_only": 37,
+          "paper_only": 22,
+          "common_success_C1_mean": 8.642307692307693,
+          "common_success_paper_mean": 17.515384615384615
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 41,
+          "paper_only": 1,
+          "common_success_C1_mean": 9.944444444444445,
+          "common_success_paper_mean": 27.561111111111114
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 10,
+          "C1_only": 40,
+          "paper_only": 8,
+          "common_success_C1_mean": 8.0,
+          "common_success_paper_mean": 12.13
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 14,
+          "C1_only": 36,
+          "paper_only": 18,
+          "common_success_C1_mean": 10.964285714285715,
+          "common_success_paper_mean": 18.52857142857143
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 45,
+          "paper_only": 0,
+          "common_success_C1_mean": 8.98,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    },
+    {
+      "code": "reference",
+      "nominal": "centralized_sampling",
+      "nominal_name": "集中式随机采样模型预测控制",
+      "cases": 136,
+      "success": 73,
+      "success_mean_time": 20.60068493150685,
+      "truncated_mean_time": 30.019485294117647,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 24,
+          "C1_only": 49,
+          "paper_only": 11,
+          "common_success_C1_mean": 11.225,
+          "common_success_paper_mean": 17.510416666666668
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 24,
+          "C1_only": 49,
+          "paper_only": 11,
+          "common_success_C1_mean": 11.225,
+          "common_success_paper_mean": 17.510416666666668
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 64,
+          "paper_only": 1,
+          "common_success_C1_mean": 10.68888888888889,
+          "common_success_paper_mean": 27.033333333333335
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 57,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.234375,
+          "common_success_paper_mean": 12.790625
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 18,
+          "C1_only": 55,
+          "paper_only": 14,
+          "common_success_C1_mean": 11.436111111111112,
+          "common_success_paper_mean": 18.65555555555556
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 4,
+          "C1_only": 69,
+          "paper_only": 1,
+          "common_success_C1_mean": 8.45,
+          "common_success_paper_mean": 7.4375
+        }
+      ]
+    },
+    {
+      "code": "reference",
+      "nominal": "gradient_mpc",
+      "nominal_name": "梯度下降模型预测控制",
+      "cases": 136,
+      "success": 83,
+      "success_mean_time": 21.700602409638556,
+      "truncated_mean_time": 29.065073529411766,
+      "paired": [
+        {
+          "paper": "wang2017_full_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 27,
+          "C1_only": 56,
+          "paper_only": 8,
+          "common_success_C1_mean": 11.283333333333333,
+          "common_success_paper_mean": 18.15925925925926
+        },
+        {
+          "paper": "wang2017_consistent_perturbation_di_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 27,
+          "C1_only": 56,
+          "paper_only": 8,
+          "common_success_C1_mean": 11.283333333333333,
+          "common_success_paper_mean": 18.15925925925926
+        },
+        {
+          "paper": "zhang2025_risk_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 9,
+          "C1_only": 74,
+          "paper_only": 1,
+          "common_success_C1_mean": 11.105555555555556,
+          "common_success_paper_mean": 27.033333333333335
+        },
+        {
+          "paper": "dac_author_si__reference_default",
+          "physical_cases": 136,
+          "common_success": 16,
+          "C1_only": 67,
+          "paper_only": 2,
+          "common_success_C1_mean": 9.83125,
+          "common_success_paper_mean": 13.01875
+        },
+        {
+          "paper": "mgr_author_unicycle_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 20,
+          "C1_only": 63,
+          "paper_only": 12,
+          "common_success_C1_mean": 13.127500000000001,
+          "common_success_paper_mean": 21.225
+        },
+        {
+          "paper": "chen_impc_ob_si_tracking__reference_default",
+          "physical_cases": 136,
+          "common_success": 5,
+          "C1_only": 78,
+          "paper_only": 0,
+          "common_success_C1_mean": 9.74,
+          "common_success_paper_mean": 9.2
+        }
+      ]
+    }
+  ],
   "scope": "Same136 physical scene/state0..7; each C1 nominal compared separately to paper native fixed policy. Does not cover independent states8..11. Oracle results are excluded from fixed-policy ranking.",
   "limitations": [
     "Paper exceptions use affected-robot one-step stop and recovery; solver/action errors and poor single-agent diagnostics prevent attributing low success to the original paper mechanisms.",
@@ -159,10 +1850,36 @@
     "| Zhang 2025 死锁感知控制 | 18 | 13.47 | 37.87 | 126 | 6 |",
     "| Lee 2025 旋转木马 | 32 | 19.48 | 37.15 | 0 | 7 |",
     "| Chen 2023 动态优先级＋右手规则＋安全走廊 | 5 | 9.20 | 39.32 | 51 | 7 |",
+    "\n表中成功数采用此前统一异常处理协议：受影响机器人在出错当步动作置零，后续步骤重新尝试；原生首错即未知的局数另列。一次对局可能既出现原生异常又在继续运行后成功，因此两列不能相加划分结局。",
     "\n新组合的Oracle是逐案例有限搜索上限，不能与上述固定参数策略混称部署成功率。下面只列已完成的C1固定参数；共同成功案例的配对时间和逐配置参数保存在PAPER_CONTEXT.json。",
-    "\n| C1组合编号 | 名义控制器 | 固定参数成功/136 | 成功条件均时·秒 |",
+    "\n| C1组合 | 名义控制器 | 固定参数成功/136 | 成功条件均时·秒 |",
     "|---|---|---:|---:|",
-    "| 尚未完成新组合固定参数 | — | — | — |",
+    "| 朝目标·含通道放行 + 互斥分离 + 目标右侧旋转 + 局部净空梯度 | 集中式随机采样模型预测控制 | 64 | 18.689062500000002 |",
+    "| 朝目标·含通道放行 + 互斥分离 + 目标右侧旋转 + 局部净空梯度 | 梯度下降模型预测控制 | 70 | 19.626428571428573 |",
+    "| 朝目标 + 互斥分离 + 目标右侧旋转·含通道放行 + 局部净空梯度 | 集中式随机采样模型预测控制 | 67 | 20.117164179104478 |",
+    "| 朝目标 + 互斥分离 + 目标右侧旋转·含通道放行 + 局部净空梯度 | 梯度下降模型预测控制 | 71 | 19.645070422535213 |",
+    "| 朝目标 + 互斥分离·含净空 + 目标右侧旋转 + 通道放行 | 集中式随机采样模型预测控制 | 30 | 18.735 |",
+    "| 朝目标 + 互斥分离·含净空 + 目标右侧旋转 + 通道放行 | 梯度下降模型预测控制 | 51 | 20.941176470588236 |",
+    "| 朝目标 + 互斥分离 + 目标右侧旋转 + 通道放行 | 集中式随机采样模型预测控制 | 73 | 20.60068493150685 |",
+    "| 朝目标 + 互斥分离 + 目标右侧旋转 + 通道放行 | 梯度下降模型预测控制 | 83 | 21.700602409638556 |",
+    "| 朝目标 + 目标右侧旋转 + 局部净空梯度 + 通道放行 | 集中式随机采样模型预测控制 | 62 | 21.780645161290323 |",
+    "| 朝目标 + 目标右侧旋转 + 局部净空梯度 + 通道放行 | 梯度下降模型预测控制 | 55 | 18.39727272727273 |",
+    "| 朝目标 + 互斥分离 + 局部净空梯度 + 通道放行 | 集中式随机采样模型预测控制 | 37 | 22.54054054054054 |",
+    "| 朝目标 + 互斥分离 + 局部净空梯度 + 通道放行 | 梯度下降模型预测控制 | 59 | 20.591525423728815 |",
+    "| 互斥分离 + 目标右侧旋转 + 局部净空梯度 + 通道放行 | 集中式随机采样模型预测控制 | 54 | 22.51666666666667 |",
+    "| 互斥分离 + 目标右侧旋转 + 局部净空梯度 + 通道放行 | 梯度下降模型预测控制 | 43 | 17.363953488372093 |",
+    "| 朝目标 + 互斥分离 + 目标右侧旋转 + 局部净空梯度 | 集中式随机采样模型预测控制 | 53 | 16.000943396226415 |",
+    "| 朝目标 + 互斥分离 + 目标右侧旋转 + 局部净空梯度 | 梯度下降模型预测控制 | 58 | 16.905172413793103 |",
+    "| 朝目标 + 互斥分离·含净空 + 目标右侧旋转·含通道放行 | 集中式随机采样模型预测控制 | 29 | 17.70689655172414 |",
+    "| 朝目标 + 互斥分离·含净空 + 目标右侧旋转·含通道放行 | 梯度下降模型预测控制 | 47 | 20.688297872340428 |",
+    "| 朝目标 + 目标右侧旋转·含通道放行 + 局部净空梯度 | 集中式随机采样模型预测控制 | 50 | 19.676000000000002 |",
+    "| 朝目标 + 目标右侧旋转·含通道放行 + 局部净空梯度 | 梯度下降模型预测控制 | 52 | 17.973076923076924 |",
+    "| 朝目标 + 互斥分离 + 目标右侧旋转·含通道放行 | 集中式随机采样模型预测控制 | 67 | 20.117164179104478 |",
+    "| 朝目标 + 互斥分离 + 目标右侧旋转·含通道放行 | 梯度下降模型预测控制 | 71 | 19.645070422535213 |",
+    "| 朝目标·含通道放行 + 互斥分离·含净空 + 目标右侧旋转 | 集中式随机采样模型预测控制 | 30 | 19.240000000000002 |",
+    "| 朝目标·含通道放行 + 互斥分离·含净空 + 目标右侧旋转 | 梯度下降模型预测控制 | 50 | 20.735 |",
+    "| 朝目标 + 互斥分离 + 目标右侧旋转 + 局部净空梯度 + 通道放行 | 集中式随机采样模型预测控制 | 73 | 20.60068493150685 |",
+    "| 朝目标 + 互斥分离 + 目标右侧旋转 + 局部净空梯度 + 通道放行 | 梯度下降模型预测控制 | 83 | 21.700602409638556 |",
     "\n本表不覆盖独立状态8–11；它们虽然与两个控制器合计也为136例，却不是这里的136个物理初态。论文端口保持原参数、原实现，本轮没有新增论文rollout。"
   ]
 }

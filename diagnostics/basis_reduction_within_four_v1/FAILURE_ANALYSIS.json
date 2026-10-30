@@ -1,0 +1,648 @@
+{
+  "records": [
+    {
+      "code": "reference",
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_9df4f1990a742fb2498f80da59632e36193de1ba2df62a790151109580425b69.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        8,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_90fb960f8d2ef977c2ee2601f52b5ef205ad04692780331e96f98bad9c0ed281.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        1
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 1.35,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_406ee998ae526e7c6aa3ac4f406475ab3581a42fec8b97395eb5d79a976f4290.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        1
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 1.25,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_550e257a86d6decbb16933277f1e003171d5039d79c63c5ca785262315bd1a21.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        3
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_166b1717e0d00b50762819ccfd899d8dcc629164f26de13ed50c1a3cd4b89b47.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        3
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_d77cc45db94505740a7a6098b1a8a7ecc5fdb7e7a3b4422449b5d6e0e930e1f5.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        3
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_eba886345e6413cbefc67d7d21af95151c3bead5cfa26e226c033ac30e90671f.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        3
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "仍在推进的超时",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": true
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_fed37233b2a3e93aaa8ecb228c013126af3bdc154f4591495f9fee9eb1f10ea0.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_955f3760df6d02726258c8ebedfda411aa4100451f8ff9832b6296670ed34046.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_c0433cf4ac17ae0890254afb1a62c8ee5bfbdaade99e47828166d13ea46065c9.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        5
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_f3880d2baa97c921937f97df20a1704e37f8c8a5e5ce7348faa844cc8f43b4c1.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        5
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_bb2ddd4c9066620a9c14253b1bbd8ebf296fb9241ddeced3e10c7b89e932e1ef.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_f170d4fd509ae232bc9b2d1a5221dcfb17b695fc84d36feeccf7b5d210e32cf1.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_2d1d9a43d811d0189f1a2eb2d6766a363a50be3da3e134c5c6a7417f8df9c387.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_f18a2b07c3102e8181998518a360372693ce1ae794aede2aaa0cbd64908477b4.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "reference",
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_8ff661d0c7e0e4b2f9649f055164e0b2f3a80d999e638f8f0dd9a015d706ad12.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "level3_01",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        1
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通行权失守",
+      "flags": {
+        "right_of_way_breach": true,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 4.25,
+      "max_exit_blocked_seconds": 1.35,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_4f4c1136cca5dcec5320d82c2a48ea9ea018e6801025f53f6e89751d2618c86f.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "level3_01",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        1
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "通行权失守",
+      "flags": {
+        "right_of_way_breach": true,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 5.15,
+      "max_exit_blocked_seconds": 1.6500000000000001,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_70bcb456e40a9784a9beeda09133984618bec389a30060fce7e7315b2d42dff7.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "level3_01",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_f966bb6c96e9b3aed2e3c9a8b699d5418d93f679a993c29d0f97044644b1e970.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "level3_01",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        5
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_ee229451e46e9918d265bc7a1dcdc53d196e6376df50b8ffc52751a1ea2e9e57.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "level3_01",
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        5
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_6f7832fbaaf77353fbd0ae188f42dba10cd663ec48117fe2744a60ad8dce5191.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "level3_01",
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        5
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 1.55,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_dac5f89f9af6388b8e083d998bd1299b4e9e6facebbcbfce4d7109fed8426213.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "level3_01",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_cd2f2729e421905070478eabffff652f69739003370c25a5ea0d63e3c0907aef.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "level3_01",
+      "identity": [
+        16,
+        0,
+        "centralized_sampling",
+        6
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "已到终点者挡路",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_b78ed9f64bec4e866c3dff2ba733e3a7d5bea6526561302c818f36b9d855b5cf.npz",
+      "inherited_category": "通道外拥堵或其他",
+      "goal_blocked": true,
+      "goal_blocking_details": [
+        {
+          "passage": 12,
+          "details": [
+            {
+              "robot": 6,
+              "inside": false,
+              "exit_direction": -1,
+              "vector": [
+                0.41906434795128633,
+                0.907956536556769
+              ],
+              "blockers": [
+                {
+                  "robot": 4,
+                  "direction": 1,
+                  "distance": 0.11829766269395818
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "level3_01",
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "candidate": 1,
+      "scope": "first_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_4fe3831ea70d97810e15403b80d06a1412a4843be3cbeebd9668b1e149f4a63c.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    },
+    {
+      "code": "level3_01",
+      "identity": [
+        16,
+        0,
+        "gradient_mpc",
+        6
+      ],
+      "candidate": 64,
+      "scope": "final_candidate",
+      "category": "通道外拥堵或其他",
+      "flags": {
+        "right_of_way_breach": false,
+        "exit_blocked": false,
+        "progressing_timeout": false
+      },
+      "recorded_right_of_way": true,
+      "max_bidirectional_seconds": 0.0,
+      "max_exit_blocked_seconds": 0.0,
+      "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_3706640993f560190a14c00b322dbd06a21bb241f90f8367e095f4bd3075425a.npz",
+      "goal_blocked": false,
+      "goal_blocking_details": []
+    }
+  ],
+  "counts": {
+    "reference": {
+      "first_candidate": {
+        "通道外拥堵或其他": 8
+      },
+      "final_candidate": {
+        "通道外拥堵或其他": 7,
+        "仍在推进的超时": 1
+      }
+    },
+    "level3_01": {
+      "first_candidate": {
+        "通行权失守": 1,
+        "通道外拥堵或其他": 4
+      },
+      "final_candidate": {
+        "通行权失守": 1,
+        "通道外拥堵或其他": 3,
+        "已到终点者挡路": 1
+      }
+    }
+  },
+  "scope": "Representative first/final executed candidates of cases with no success in64; no proof about every failed candidate or continuous parameter space."
+}

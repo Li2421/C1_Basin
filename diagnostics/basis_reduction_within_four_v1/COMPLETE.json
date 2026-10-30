@@ -1,0 +1,457 @@
+{
+  "complete": false,
+  "required_numeric_work_complete": true,
+  "integrity_passed": true,
+  "process_compliance_passed": false,
+  "finished": "2026-10-30T10:04:04.321943+08:00",
+  "actual_attempts": 42022,
+  "hard_limit": 80000,
+  "minimum": {
+    "coverage": {
+      "16": 242,
+      "64": 264
+    },
+    "hard64": 35,
+    "hard_by_type": {
+      "8": 16,
+      "10": 13,
+      "15": 4,
+      "16": 2
+    },
+    "complete16": true,
+    "complete64": true,
+    "search_stage_finished": true,
+    "user_early_stop": null,
+    "first_success_median": 4.0,
+    "mean_first_success": 7.09469696969697,
+    "mean_success_time": 24.434848484848487,
+    "unknown_queries": 0,
+    "searched": 2385,
+    "code": "level3_01",
+    "name": "朝目标 + 互斥分离·含净空 + 目标右侧旋转·含通道放行",
+    "dimension": 3,
+    "parents": [
+      "four_2",
+      "four_3"
+    ],
+    "qualified": true,
+    "fixed": {
+      "complete": true,
+      "states": {
+        "0": {
+          "cases": 272,
+          "observed": 272,
+          "success": 76,
+          "mean_success_time": 19.550657894736844,
+          "mean_truncated_time": 35.32003676470588
+        },
+        "8": {
+          "cases": 136,
+          "observed": 136,
+          "success": 40,
+          "mean_success_time": 21.97125,
+          "mean_truncated_time": 35.00735294117647
+        }
+      }
+    },
+    "screening": null,
+    "paired16": {
+      "physical_blocks": 136,
+      "difference": 0.03676470588235294,
+      "ci95": [
+        -0.007352941176470588,
+        0.08088235294117647
+      ],
+      "seed": 2026102903,
+      "resamples": 10000,
+      "unit": "scene/state block, two nominal controllers kept together"
+    },
+    "paired64": {
+      "physical_blocks": 136,
+      "difference": 0.025735294117647058,
+      "ci95": [
+        0.003676470588235294,
+        0.051470588235294115
+      ],
+      "seed": 2026102903,
+      "resamples": 10000,
+      "unit": "scene/state block, two nominal controllers kept together"
+    },
+    "lost_vs_reference": [],
+    "gained_vs_reference": [
+      [
+        7,
+        1,
+        "centralized_sampling",
+        2
+      ],
+      [
+        8,
+        1,
+        "centralized_sampling",
+        1
+      ],
+      [
+        16,
+        0,
+        "centralized_sampling",
+        3
+      ],
+      [
+        16,
+        0,
+        "centralized_sampling",
+        4
+      ],
+      [
+        16,
+        0,
+        "gradient_mpc",
+        2
+      ],
+      [
+        16,
+        0,
+        "gradient_mpc",
+        3
+      ],
+      [
+        16,
+        0,
+        "gradient_mpc",
+        4
+      ]
+    ],
+    "coverage4x": {
+      "16": 158,
+      "64": 164
+    },
+    "budget_curve": [
+      {
+        "K": 1,
+        "verified_coverage": 76,
+        "complete": true
+      },
+      {
+        "K": 2,
+        "verified_coverage": 89,
+        "complete": true
+      },
+      {
+        "K": 3,
+        "verified_coverage": 115,
+        "complete": true
+      },
+      {
+        "K": 4,
+        "verified_coverage": 138,
+        "complete": true
+      },
+      {
+        "K": 5,
+        "verified_coverage": 186,
+        "complete": true
+      },
+      {
+        "K": 6,
+        "verified_coverage": 186,
+        "complete": true
+      },
+      {
+        "K": 7,
+        "verified_coverage": 199,
+        "complete": true
+      },
+      {
+        "K": 8,
+        "verified_coverage": 200,
+        "complete": true
+      },
+      {
+        "K": 9,
+        "verified_coverage": 206,
+        "complete": true
+      },
+      {
+        "K": 10,
+        "verified_coverage": 206,
+        "complete": true
+      },
+      {
+        "K": 11,
+        "verified_coverage": 232,
+        "complete": true
+      },
+      {
+        "K": 12,
+        "verified_coverage": 232,
+        "complete": true
+      },
+      {
+        "K": 13,
+        "verified_coverage": 235,
+        "complete": true
+      },
+      {
+        "K": 14,
+        "verified_coverage": 235,
+        "complete": true
+      },
+      {
+        "K": 15,
+        "verified_coverage": 242,
+        "complete": true
+      },
+      {
+        "K": 16,
+        "verified_coverage": 242,
+        "complete": true
+      },
+      {
+        "K": 17,
+        "verified_coverage": 242,
+        "complete": true
+      },
+      {
+        "K": 18,
+        "verified_coverage": 242,
+        "complete": true
+      },
+      {
+        "K": 19,
+        "verified_coverage": 242,
+        "complete": true
+      },
+      {
+        "K": 20,
+        "verified_coverage": 245,
+        "complete": true
+      },
+      {
+        "K": 21,
+        "verified_coverage": 245,
+        "complete": true
+      },
+      {
+        "K": 22,
+        "verified_coverage": 247,
+        "complete": true
+      },
+      {
+        "K": 23,
+        "verified_coverage": 247,
+        "complete": true
+      },
+      {
+        "K": 24,
+        "verified_coverage": 247,
+        "complete": true
+      },
+      {
+        "K": 25,
+        "verified_coverage": 247,
+        "complete": true
+      },
+      {
+        "K": 26,
+        "verified_coverage": 247,
+        "complete": true
+      },
+      {
+        "K": 27,
+        "verified_coverage": 247,
+        "complete": true
+      },
+      {
+        "K": 28,
+        "verified_coverage": 249,
+        "complete": true
+      },
+      {
+        "K": 29,
+        "verified_coverage": 249,
+        "complete": true
+      },
+      {
+        "K": 30,
+        "verified_coverage": 251,
+        "complete": true
+      },
+      {
+        "K": 31,
+        "verified_coverage": 252,
+        "complete": true
+      },
+      {
+        "K": 32,
+        "verified_coverage": 253,
+        "complete": true
+      },
+      {
+        "K": 33,
+        "verified_coverage": 253,
+        "complete": true
+      },
+      {
+        "K": 34,
+        "verified_coverage": 256,
+        "complete": true
+      },
+      {
+        "K": 35,
+        "verified_coverage": 256,
+        "complete": true
+      },
+      {
+        "K": 36,
+        "verified_coverage": 256,
+        "complete": true
+      },
+      {
+        "K": 37,
+        "verified_coverage": 256,
+        "complete": true
+      },
+      {
+        "K": 38,
+        "verified_coverage": 257,
+        "complete": true
+      },
+      {
+        "K": 39,
+        "verified_coverage": 258,
+        "complete": true
+      },
+      {
+        "K": 40,
+        "verified_coverage": 258,
+        "complete": true
+      },
+      {
+        "K": 41,
+        "verified_coverage": 258,
+        "complete": true
+      },
+      {
+        "K": 42,
+        "verified_coverage": 259,
+        "complete": true
+      },
+      {
+        "K": 43,
+        "verified_coverage": 259,
+        "complete": true
+      },
+      {
+        "K": 44,
+        "verified_coverage": 259,
+        "complete": true
+      },
+      {
+        "K": 45,
+        "verified_coverage": 259,
+        "complete": true
+      },
+      {
+        "K": 46,
+        "verified_coverage": 260,
+        "complete": true
+      },
+      {
+        "K": 47,
+        "verified_coverage": 260,
+        "complete": true
+      },
+      {
+        "K": 48,
+        "verified_coverage": 260,
+        "complete": true
+      },
+      {
+        "K": 49,
+        "verified_coverage": 260,
+        "complete": true
+      },
+      {
+        "K": 50,
+        "verified_coverage": 260,
+        "complete": true
+      },
+      {
+        "K": 51,
+        "verified_coverage": 260,
+        "complete": true
+      },
+      {
+        "K": 52,
+        "verified_coverage": 261,
+        "complete": true
+      },
+      {
+        "K": 53,
+        "verified_coverage": 261,
+        "complete": true
+      },
+      {
+        "K": 54,
+        "verified_coverage": 261,
+        "complete": true
+      },
+      {
+        "K": 55,
+        "verified_coverage": 261,
+        "complete": true
+      },
+      {
+        "K": 56,
+        "verified_coverage": 261,
+        "complete": true
+      },
+      {
+        "K": 57,
+        "verified_coverage": 261,
+        "complete": true
+      },
+      {
+        "K": 58,
+        "verified_coverage": 263,
+        "complete": true
+      },
+      {
+        "K": 59,
+        "verified_coverage": 263,
+        "complete": true
+      },
+      {
+        "K": 60,
+        "verified_coverage": 264,
+        "complete": true
+      },
+      {
+        "K": 61,
+        "verified_coverage": 264,
+        "complete": true
+      },
+      {
+        "K": 62,
+        "verified_coverage": 264,
+        "complete": true
+      },
+      {
+        "K": 63,
+        "verified_coverage": 264,
+        "complete": true
+      },
+      {
+        "K": 64,
+        "verified_coverage": 264,
+        "complete": true
+      }
+    ]
+  },
+  "report": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/REPORT.md",
+  "gaps": [
+    "流程：代理复核记录间隔167.8分钟，超过30分钟；见PROCESS_GAPS.json，未补签。",
+    "流程：代理复核记录间隔548.88分钟，超过30分钟；见PROCESS_GAPS.json，未补签。"
+  ]
+}

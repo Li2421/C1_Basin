@@ -1,0 +1,82 @@
+{
+  "time": "2026-10-29T23:55:50.292372+08:00",
+  "comparison": {
+    "new_family": "level3_01",
+    "best_completed_four": "four_2",
+    "new_successes": 264,
+    "four_successes": 258,
+    "new_contains_four_successes": true,
+    "common_successes": 258,
+    "new_mean_first_success": 7.09469696969697,
+    "new_all_case_mean_queries": 8.768382352941176,
+    "new_success_time_mean": 24.434848484848487,
+    "new_common_success_time_mean": 24.17422480620155,
+    "four_common_success_time_mean": 24.18875968992248,
+    "new_all_case_capped_time_mean": 25.3
+  },
+  "warehouse_witness": {
+    "identity": [
+      16,
+      0,
+      "gradient_mpc",
+      3
+    ],
+    "first_success": 60,
+    "query_uid": "roll_be03555c38ec5d7ec198ac91508bded7da4ee87bb1e685765daf904ba8f1d3a7",
+    "source_rollout_uid": "roll_be03555c38ec5d7ec198ac91508bded7da4ee87bb1e685765daf904ba8f1d3a7",
+    "spec": {
+      "eta": [
+        0.6064406302757561,
+        0.0,
+        0.18845002027228475
+      ],
+      "coefficients": {
+        "T1": 0.2170325256884098,
+        "C2": 0.18845002027228475
+      },
+      "one_way": {
+        "R_e": 0.8,
+        "R_c": 0.5,
+        "rho": "fcfs",
+        "K": null,
+        "c1": 0.2170325256884098,
+        "c2": 0.2170325256884098,
+        "c3": 0.2170325256884098
+      }
+    },
+    "completion_time": 26.450000000000003,
+    "minimum_swept_clearance": 0.00016222134283418177,
+    "final_goal_distances": [
+      0.07472496024242906,
+      0.06940223816958606,
+      0.06393751096574052,
+      0.07850338831690858,
+      0.011092682151704097,
+      0.01774194800105359,
+      0.04586964493422434,
+      0.054484077473431265,
+      0.03652378706045178,
+      0.06884688163275923
+    ],
+    "constraint_violation_steps": 0,
+    "numerical_failure": 0,
+    "trace": "/home/zhihan/research/Basin_C1/diagnostics/basis_reduction_within_four_v1/traces/roll_be03555c38ec5d7ec198ac91508bded7da4ee87bb1e685765daf904ba8f1d3a7.npz",
+    "trace_sha256": "9118b872c1bfeedce44d6e3a6db95f062a95983485cea602e266fded94287736"
+  },
+  "embedding": {
+    "parent_family": "four_2",
+    "parent_free_coefficients": [
+      0.6064406302757561,
+      0.18845002027228475,
+      0.2170325256884098,
+      0.18845002027228475
+    ],
+    "same_q_rule": true,
+    "old64_pool_contains_this_spec": false,
+    "valid_parent_box": true,
+    "exact_same_execution_spec": true,
+    "inference": "This successful three-free point is allowed by the four-free continuous family; the prior four-free64failure on this case is finite-pool search insufficiency, not proof of missing expression directions.",
+    "new_rollouts_needed_to_verify_same_spec": 0
+  },
+  "limits": "Descriptive, selected finite pools and same discovery cohort. No statistical superiority or continuous optimum claim."
+}
