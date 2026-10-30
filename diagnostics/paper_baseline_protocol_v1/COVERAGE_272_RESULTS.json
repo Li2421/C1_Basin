@@ -1,0 +1,219 @@
+{
+  "time": "2026-10-30T14:42:30.445269+08:00",
+  "complete": true,
+  "physical_states": 136,
+  "corresponding_c1_nominal_cases": 272,
+  "methods": {
+    "dac_author_si": {
+      "name": "Zhang T-RO 2025 死锁感知控制",
+      "selected_index": 12,
+      "complete": 136,
+      "expected": 136,
+      "success": 31,
+      "success_rate": 0.22794117647058823,
+      "collision": 22,
+      "timeout": 83,
+      "numerical_unknown": 0,
+      "native_unhandled_episodes": 40,
+      "success_mean_seconds": 17.017741935483873,
+      "all_queue_capped_mean_seconds": 37.35661764705884,
+      "by_scene": {
+        "xsc_stb3_t02_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 8
+        },
+        "xsc_stb3_t07_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb3_t16_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb3_t17_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t01_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 8
+        },
+        "xsc_stb_t03_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t04_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t05_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t06_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 7
+        },
+        "xsc_stb_t08_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t09_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t10_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t11_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t12_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t13_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t14_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 8
+        },
+        "xsc_stb_t15_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        }
+      },
+      "port_problem_not_fully_resolved": true,
+      "port_status": "端口问题未完全解决（B训练试跑）",
+      "applicable_scenes": 11
+    },
+    "mgr_author_unicycle_tracking": {
+      "name": "Lee IROS 2025 旋转木马",
+      "selected_index": 10,
+      "complete": 136,
+      "expected": 136,
+      "success": 9,
+      "success_rate": 0.0661764705882353,
+      "collision": 123,
+      "timeout": 4,
+      "numerical_unknown": 0,
+      "native_unhandled_episodes": 0,
+      "success_mean_seconds": 15.966666666666665,
+      "all_queue_capped_mean_seconds": 39.281250000000014,
+      "by_scene": {
+        "xsc_stb3_t02_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb3_t07_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb3_t16_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb3_t17_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t01_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 7
+        },
+        "xsc_stb_t03_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t04_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t05_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t06_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t08_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t09_l1_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t10_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t11_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t12_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t13_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        },
+        "xsc_stb_t14_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 2
+        },
+        "xsc_stb_t15_l0_w000": {
+          "complete": 8,
+          "expected": 8,
+          "success": 0
+        }
+      },
+      "port_problem_not_fully_resolved": false,
+      "port_status": "作者代码移植；原环境复现通过",
+      "applicable_scenes": 7
+    }
+  },
+  "parameters_sha256": "091a096e66bbda2ea6d9399f4d5b23e5b6a762c18a55fc579ceda61aba83348b",
+  "generalization_claim": false,
+  "caveat": "Fixed tuned external policies versus previously explored historical cohort. Not external per-case Oracle and not a fresh-state generalization test."
+}
