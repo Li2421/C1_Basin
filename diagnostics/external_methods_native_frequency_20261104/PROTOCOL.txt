@@ -1,0 +1,45 @@
+User-selected primary comparison: author-native controller frequency.
+
+Existing common-SI ports retain their fixed nominal, parameters, geometry, robot
+radii, speed clip, solver, recovery rules and initial tasks. DAC callbacks .10s
+retain the author's .05s internal shape integration and original event counters;
+MGR and MCBF callbacks .05s; circulation sensing/GP/control callbacks .02s.
+Current valid Chen author-scene evaluations retain h=execution=.15s with K/horizon
+unchanged. They are reused, not replaced by the invalid old broad Chen port.
+
+Controller callbacks and scoring are separate clocks. All methods keep each
+problem's original physical horizon and goal-scoring times. Commands use SI
+zero-order hold between callbacks; positions are computed from the hold anchor,
+and each segment is checked for swept pair/wall/prescribed-disk collisions.
+Collision takes precedence over goal success. Final partial intervals end at the
+original horizon, without adding a control update or extra physical time. Moving
+disk paths are the frozen sampled paths, piecewise linear, including every knot.
+
+This is a frequency-corrected complete-system common-SI port comparison, not a
+claim of preserving the authors' original unicycle or double-integrator plants.
+C1 keeps its original scenario-dependent controller periods and frozen 40-step
+window; main D123 is .05s. No new policy training, no new parameter/menu search.
+The existing C1 single-agent moving-obstacle port remains an unvalidated dynamic
+interface diagnostic; its obstacle-velocity gap is separate from frequency.
+
+History audit: 686 fixed-method physical/request records, 311 already match native
+cadence and are reused with original identities; 375 temporal evidence gaps get
+new identities and official cache preflight. Four pilots gate the full queue.
+Source hashes, exact clocks, SI propagation, goal cadence, action holds, native
+callback counts, speed bounds and outcomes are audited from saved trajectories.
+No timeout is relabelled as deadlock. D1/D3 proxy labels and D2 historical active
+constraint strata retain their original meanings and logical-pair denominators.
+
+Large numerical artifacts live on mounted /mnt/ssd/zhihan/Basin_C1. Workers are
+single-core with single-thread BLAS inside the shared 18-core user envelope;
+the durable supervisor automatically uses released capacity. The execution
+agent continues inspecting actual progress and resolving failures until delivery.
+
+Historical result pages get a visible notice linking this native-rate primary
+panel. Old numeric tables and controller source files remain immutable.
+
+Preparation metadata initially duplicated a large source profile per request;
+the active manifest now contains only its path/hash. Superseded unexecuted JSON
+is retained. archive_superseded_metadata.py may relocate those inactive JSON
+files only after committing/pushing this code, with per-file SHA256, source
+stability checks and compatibility symlinks; active task files remain in place.
