@@ -18,6 +18,10 @@ def main():
             # before their visible title rather than before HTML metadata.
             i=new.find('<h1>');assert i>=0
             new=new[:i]+banner+new[i:];p.write_text(new);changed.append(str(p))
+        report=root/'REPORT.txt'
+        if report.exists():
+            old=report.read_text();old=re.sub(r'^\['+MARK+r'\].*?\[/'+MARK+r'\]\n\n','',old,flags=re.S)
+            report.write_text('['+MARK+']\n'+text+'\n原生频率主入口：../'+D.name+'/comparison.html\n[/'+MARK+']\n\n'+old)
         (root/'CURRENT_COMPARISON_NOTICE.txt').write_text(text+'\n原生频率主入口：../'+D.name+'/comparison.html\n完整说明：../'+D.name+'/REPORT.txt\n')
     dump(D/'PUBLISHED_ENTRY_CHECK.json',dict(status=status,changed_pages=changed,numeric_tables_unchanged=True))
     print('updated primary entry notices',len(changed))

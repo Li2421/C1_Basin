@@ -76,8 +76,10 @@ def main():
         'DAC保留作者外层.10秒、内部形状积分.05秒与原计数；环流.02秒；MGR/MCBF .05秒。参数、求解器和nominal保持此前固定版本。',
         '控制间隔内零阶保持；沿每条SI线段做扫掠碰撞检查。成功仍在原场景评分时刻判定，碰撞优先，真实任务时限保持不变；最后不足一个控制周期只推进剩余时间。',
         'C1沿用原场景控制周期与冻结40步窗口，未用新结果调参；主D123为.05秒。Chen当前有效作者场景h=执行=.15秒，直接复用既有证据。',
+        'C1在环流作者场景的描述子仍标记为训练分布外，沿用上一轮冻结部署；此次只修正外部方法频率，不重新训练或调参。',
         'D1/D3为旧运行级代理，D2沿用旧活跃约束标签；类别可重叠。逻辑配对跨nominal引用同一物理轨迹，不增加独立样本数。超时不直接当作死锁。',
         'MCBF单机作者场景中的C1单机安全层仍为未验证动态接口诊断；其障碍速度项缺口不由此次频率修正解决。',
+        '任务成功时间按仿真物理秒数统计。共享资源调度可能暂停进程，保存的墙钟耗时包含等待，不用于计算效率排名。',
         '此前共同步长结果保留为历史端口结果；本目录原生频率结果是新的主要对比入口。']
     lines=['外部方法原生控制频率比较','状态：'+status,'',*caveats,'','总体记录：']
     lines.extend(str(r) for r in summary);lines+=['','主D123逻辑配对：'];lines.extend(str(r) for r in strata)
@@ -87,6 +89,7 @@ def main():
     body+='<h2>作者场景</h2>'+table(authors,['scene','label','control_period_s','score_period_s','outcome','completion_seconds'])
     body+='<h2>D1/D2/D3旧分层</h2>'+table(strata,['group','method','success','known','logical_pairs','physical_instances','pending','unknown'])
     body+='<h2>全部场景</h2>'+table(summary,['cohort','method','control_period_s','planned','success','collision','timeout','unknown','pending','old_success'])
+    body+='<h2>Chen：保留既有原生周期结果</h2><p>有效作者场景的模型与执行周期均为0.15秒，直接复用。旧广泛几何端口已废弃；此处不将其成绩并入总体排名。<a href="../method_comparison_success_time_20261102/chen_author_mpc.csv">既有逐场景比较</a> · <a href="../chen_b_coverage_and_d2_closed_loop_v1/REPORT.md">复现和适用范围</a></p>'
     body+='<p><a href="REPORT.txt">完整说明</a> · <a href="PHYSICAL_NATIVE_VS_PRIOR.csv">逐例新旧结果</a> · <a href="D123_NATIVE_COMPARISON.csv">D123表</a> · <a href="AUTHOR_SCENE_NATIVE_COMPARISON.csv">作者场景表</a> · <a href="MECHANISM_INITIAL_NATIVE_COMPARISON.csv">机制附表</a></p>'
     (D/'comparison.html').write_text('<!doctype html><meta charset="utf-8"><title>原生频率对比</title><style>body{font:16px sans-serif;max-width:1350px;margin:30px auto;padding:20px}p{line-height:1.7}td,th{padding:8px;border-bottom:1px solid #ddd}table{border-collapse:collapse}</style>'+body)
     print(status)
