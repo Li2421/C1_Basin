@@ -43,3 +43,10 @@ the active manifest now contains only its path/hash. Superseded unexecuted JSON
 is retained. archive_superseded_metadata.py may relocate those inactive JSON
 files only after committing/pushing this code, with per-file SHA256, source
 stability checks and compatibility symlinks; active task files remain in place.
+
+After all 375 writers and the supervisor have finished, the pure experiment
+journal directory is relocated to SSD with per-file hash/stability verification
+and a compatibility symlink. migrate_completed_journals.py never switches the
+global SQLite/WAL/SHM or another experiment's journals. This is not a second
+independent backup. Native-rate saved observation shadow checks further verify
+the reused vector lidar kernel without new controller calls or rollouts.
