@@ -1,7 +1,7 @@
 """Reuse unchanged exact records; register only native-cadence evidence gaps."""
 from native_io import *
 from clock_plant import PERIODS
-import csv,collections,copy
+import csv,collections,copy,subprocess
 OLD=ROOT/'diagnostics/c1_v3_new_baseline_reproduction_20261103'
 PAIRED=ROOT/'diagnostics/c1_v3_mcbf_circulation_paired_20261104'
 AUDIT=ROOT/'diagnostics/external_method_time_discretization_audit_20261104'
@@ -81,6 +81,9 @@ def main():
         C1='retain all frozen historical C1 trajectories and scenario-dependent controller periods; no new C1 policy or window retuning',
         acceleration='existing vector lidar reused with prior certificate; no new geometric memo applicable to these external controllers',new_training=0))
     dump(D/'COMPARISON_LINKS.json',rows);dump(D/'ACTIVE_NATIVE_CASES.json',cases)
+    # Bind/check the actual interpreter plus legacy vendored dependency versions
+    # before allowing exact-cache planning on any future preparation/restart.
+    subprocess.run([sys.executable,'-B',str(D/'capture_environment.py')],check=True)
     pf=register(cases,'native_v1');print(json.dumps(dict(rows=len(rows),new=len(cases),reuse=sum(r['reuse'] for r in rows),preflight=pf['summary']),ensure_ascii=False))
 
 if __name__=='__main__':main()
