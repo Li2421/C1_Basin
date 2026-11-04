@@ -10,7 +10,10 @@ def check_case(c):
     assert sha(r['trace'])==r['trace_sha256']
     env=ClockPlant(c['scenario'],c['state'],c['payload']['control_period_s'],c['payload'].get('external_root'))
     grid,controls,scores,h=timeline(c['scenario'],env.config.dt)
-    with np.load(r['trace']) as z:
+    with np.load(r['trace']) as archive:
+        # NPZ __getitem__ decompresses on every access. Decode each immutable
+        # array once; the checks below only read these arrays or mutate copies.
+        z={key:archive[key] for key in archive.files}
         n=len(z['actions']);assert z['times'].shape==(n+1,)
         assert z['positions'][0].tobytes()==env.positions.tobytes()
         assert np.asarray([float(t) for t in grid[:n+1]]).tobytes()==z['times'].tobytes()

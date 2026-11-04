@@ -54,6 +54,7 @@ def main():
         if old['method'] in ['circulation','mcbf']:
             r,ref=lookup[old['method'],old['scene']];row=dict(old);row.update(outcome=r['outcome'] if r else 'pending',success=r['success'] if r else None,
                 completion_seconds=r.get('completion_time') if r else None,uid=ref['native_uid'],trace=r.get('trace') if r else None,
+                simulated_seconds=r.get('simulated_seconds',r['episode_length']*ref['old_period_s']) if r else None,
                 minimum_swept_clearance=r.get('minimum_swept_clearance') if r else None,control_period_s=ref['control_period_s'],score_period_s=ref['score_period_s'])
         else:
             row=dict(old);row.update(control_period_s=.02 if old['scene']=='circulation_author_default' else .05,score_period_s=.02 if old['scene']=='circulation_author_default' else .05)
