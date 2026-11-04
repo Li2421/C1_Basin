@@ -37,18 +37,45 @@ def main():
             else:
                 r,ref=lookup[method,row['physical_key']];success=r['success'] if r else None;outcome=r['outcome'] if r else 'pending';uid=ref['native_uid'];seconds=r.get('completion_time') if r else None
             matched.append(dict(scope=row['scope'],cohort=row['cohort'],controller=row['controller'],physical_key=row['physical_key'],method=method,outcome=outcome,success=success,completion_seconds=seconds,uid=uid,
+                pipeline_success=int(row['pipeline_success']) if row['pipeline_success'] else None,
+                pipeline_completion_seconds=float(row['pipeline_seconds']) if row['pipeline_seconds'] else None,
                 prior_cohort=row['prior_cohort'],prior_group=row['prior_group'],prior_failure_types=json.loads(row['prior_failure_types']),prior_d2=row['prior_d2']=='True'))
     csv_write('MATCHED_WITH_C1_NATIVE.csv',matched)
+    paired=[]
+    for cohort,controller,method in sorted({(r['cohort'],r['controller'],r['method']) for r in matched if r['method']!='Pipeline'}):
+        rs=[r for r in matched if (r['cohort'],r['controller'],r['method'])==(cohort,controller,method)]
+        known=[r for r in rs if r['pipeline_success'] is not None and r['outcome'] not in ['pending','unknown']]
+        common=[r for r in known if r['success']==r['pipeline_success']==1 and r['completion_seconds'] is not None and r['pipeline_completion_seconds'] is not None]
+        paired.append(dict(cohort=cohort,controller=controller,method=method,logical_pairs=len(rs),known_pairs=len(known),pipeline_success=sum(r['pipeline_success'] for r in known),native_success=sum(r['success'] for r in known),
+            common_success_pairs=len(common),common_physical_instances=len({r['physical_key'] for r in common}),
+            pipeline_mean_common_seconds=statistics.mean(r['pipeline_completion_seconds'] for r in common) if common else None,
+            native_mean_common_seconds=statistics.mean(float(r['completion_seconds']) for r in common) if common else None))
+    csv_write('PAIRED_NATIVE_WITH_C1.csv',paired)
     mainrows=[r for r in matched if r['prior_cohort']=='test' and r['prior_group'] in ['甲组地图','乙组地图']]
+    mainkeys={r['physical_key'] for r in mainrows};changes=[]
+    for scope,predicate in [('all',lambda r:True),('main_D123',lambda r:r['physical_key'] in mainkeys)]:
+        rs=[r for r in detail if predicate(r) and r['old_outcome'] in ['success','collision','timeout'] and r['native_outcome'] in ['success','collision','timeout']]
+        changed=[r for r in rs if r['old_outcome']!=r['native_outcome']]
+        binary=[r for r in rs if (r['old_outcome']=='success')!=bool(r['native_success'])]
+        times=[r for r in rs if r['old_completion_seconds'] is not None and r['native_completion_seconds'] is not None and abs(r['old_completion_seconds']-r['native_completion_seconds'])>1e-9]
+        changes.append(dict(scope=scope,records=len(rs),outcome_changed=len(changed),success_changed=len(binary),successful_arrival_time_changed=len(times),
+            outcome_changes=[dict(key=r['physical_key'],method=r['method'],old=r['old_outcome'],native=r['native_outcome'],old_uid=r['old_uid'],native_uid=r['native_uid']) for r in changed]))
+    dump(D/'NATIVE_VS_PRIOR_CHANGE_SUMMARY.json',changes)
     tags={'同通道对向互阻候选','路口或相邻通道互阻候选','被已到达的静止机器人阻挡'}
     predicates={'D1-proxy':lambda r:'开阔区域互阻候选' in r['prior_failure_types'],'D2':lambda r:r['prior_d2'],
         'D3-proxy-union':lambda r:bool(tags.intersection(r['prior_failure_types']))}
-    strata=[]
+    strata=[];time_strata=[]
     for group,predicate in predicates.items():
         for method in LABELS:
             rs=[r for r in mainrows if r['method']==method and predicate(r)];known=[r for r in rs if r['success'] is not None and r['outcome'] not in ['pending','unknown']]
             strata.append(dict(group=group,method=method,success=sum(r['success'] for r in known),known=len(known),logical_pairs=len(rs),physical_instances=len({r['physical_key'] for r in rs}),pending=sum(r['outcome']=='pending' for r in rs),unknown=sum(r['outcome']=='unknown' for r in rs)))
+            if method!='Pipeline':
+                common=[r for r in known if r['success']==r['pipeline_success']==1 and r['completion_seconds'] is not None and r['pipeline_completion_seconds'] is not None]
+                time_strata.append(dict(group=group,method=method,common_success_pairs=len(common),common_physical_instances=len({r['physical_key'] for r in common}),
+                    C1_mean_seconds=statistics.mean(r['pipeline_completion_seconds'] for r in common) if common else None,
+                    external_mean_seconds=statistics.mean(float(r['completion_seconds']) for r in common) if common else None))
     csv_write('D123_NATIVE_COMPARISON.csv',strata)
+    csv_write('D123_COMMON_SUCCESS_TIMES.csv',time_strata)
     authors=[]
     for old in csv_read(PAIRED/'AUTHOR_SCENE_COMPARISON.csv'):
         if old['method'] in ['circulation','mcbf']:
@@ -82,16 +109,20 @@ def main():
         'MCBF单机作者场景中的C1单机安全层仍为未验证动态接口诊断；其障碍速度项缺口不由此次频率修正解决。',
         '任务成功时间按仿真物理秒数统计。共享资源调度可能暂停进程，保存的墙钟耗时包含等待，不用于计算效率排名。',
         '此前共同步长结果保留为历史端口结果；本目录原生频率结果是新的主要对比入口。']
-    lines=['外部方法原生控制频率比较','状态：'+status,'',*caveats,'','总体记录：']
+    validation=f"复核：新增 {audit.get('new_rollouts',0)} 条、精确复用 {audit.get('exact_reused_history',0)} 条；完整重放 {audit.get('new_steps_replayed',0)} 步，核对 {audit.get('new_calls_verified',0)} 次控制调用。" if audit.get('passed') else '最终全量复核尚未完成。'
+    delta=f"已知方法记录的新旧对照：{changes[0]['outcome_changed']} 条结局变化，其中 {changes[0]['success_changed']} 条成功标记变化；主D123的 {changes[1]['records']} 条方法记录中，成功标记变化 {changes[1]['success_changed']} 条、碰撞/超时等结局变化 {changes[1]['outcome_changed']} 条、共同成功到达时间变化 {changes[1]['successful_arrival_time_changed']} 条。记录数不是独立物理问题数。"
+    lines=['外部方法原生控制频率比较','状态：'+status,validation,delta,'',*caveats,'','总体记录：']
     lines.extend(str(r) for r in summary);lines+=['','主D123逻辑配对：'];lines.extend(str(r) for r in strata)
-    dump(D/'RESULTS.json',dict(status=status,completed=completed,total=len(detail),summary=summary,strata=strata,caveats=caveats,new_training=0))
+    lines+=['','主D123共同成功配对的到达时间（仿真秒；各方法子集可不同，None表示没有共同成功样本）：'];lines.extend(str(r) for r in time_strata)
+    dump(D/'RESULTS.json',dict(status=status,completed=completed,total=len(detail),summary=summary,strata=strata,common_success_times=time_strata,changes=changes,caveats=caveats,new_training=0))
     (D/'REPORT.txt').write_text('\n'.join(lines)+'\n')
-    body='<h1>外部方法：原生控制频率比较</h1><p>'+html.escape(status)+'</p>'+''.join('<p>'+html.escape(s)+'</p>' for s in caveats)
+    body='<h1>外部方法：原生控制频率比较</h1><p>'+html.escape(status)+'</p><p>'+html.escape(validation)+'</p><p>'+html.escape(delta)+'</p>'+''.join('<p>'+html.escape(s)+'</p>' for s in caveats)
     body+='<h2>作者场景</h2>'+table(authors,['scene','label','control_period_s','score_period_s','outcome','completion_seconds'])
     body+='<h2>D1/D2/D3旧分层</h2>'+table(strata,['group','method','success','known','logical_pairs','physical_instances','pending','unknown'])
+    body+='<h2>共同成功案例的到达时间</h2><p>只在双方都安全完成的相同控制器—状态逻辑配对上计算仿真秒数；各方法的共同成功子集可不同，空格表示没有共同成功样本。独立物理实例数另列。</p>'+table(time_strata,['group','method','common_success_pairs','common_physical_instances','C1_mean_seconds','external_mean_seconds'])
     body+='<h2>全部场景</h2>'+table(summary,['cohort','method','control_period_s','planned','success','collision','timeout','unknown','pending','old_success'])
     body+='<h2>Chen：保留既有原生周期结果</h2><p>有效作者场景的模型与执行周期均为0.15秒，直接复用。旧广泛几何端口已废弃；此处不将其成绩并入总体排名。<a href="../method_comparison_success_time_20261102/chen_author_mpc.csv">既有逐场景比较</a> · <a href="../chen_b_coverage_and_d2_closed_loop_v1/REPORT.md">复现和适用范围</a></p>'
-    body+='<p><a href="REPORT.txt">完整说明</a> · <a href="PHYSICAL_NATIVE_VS_PRIOR.csv">逐例新旧结果</a> · <a href="D123_NATIVE_COMPARISON.csv">D123表</a> · <a href="AUTHOR_SCENE_NATIVE_COMPARISON.csv">作者场景表</a> · <a href="MECHANISM_INITIAL_NATIVE_COMPARISON.csv">机制附表</a></p>'
+    body+='<p><a href="REPORT.txt">完整说明</a> · <a href="PHYSICAL_NATIVE_VS_PRIOR.csv">逐例新旧结果</a> · <a href="D123_NATIVE_COMPARISON.csv">D123表</a> · <a href="D123_COMMON_SUCCESS_TIMES.csv">D123共同成功时间</a> · <a href="PAIRED_NATIVE_WITH_C1.csv">各控制器配对比较</a> · <a href="AUTHOR_SCENE_NATIVE_COMPARISON.csv">作者场景表</a> · <a href="MECHANISM_INITIAL_NATIVE_COMPARISON.csv">机制附表</a></p>'
     (D/'comparison.html').write_text('<!doctype html><meta charset="utf-8"><title>原生频率对比</title><style>body{font:16px sans-serif;max-width:1350px;margin:30px auto;padding:20px}p{line-height:1.7}td,th{padding:8px;border-bottom:1px solid #ddd}table{border-collapse:collapse}</style>'+body)
     print(status)
 

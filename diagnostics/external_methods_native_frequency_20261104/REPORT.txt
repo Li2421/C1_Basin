@@ -1,0 +1,63 @@
+外部方法原生控制频率比较
+状态：完成并通过复核
+复核：新增 375 条、精确复用 311 条；完整重放 695140 步，核对 557897 次控制调用。
+已知方法记录的新旧对照：27 条结局变化，其中 10 条成功标记变化；主D123的 276 条方法记录中，成功标记变化 0 条、碰撞/超时等结局变化 4 条、共同成功到达时间变化 15 条。记录数不是独立物理问题数。
+
+外部方法按作者原生控制周期运行；仍是共同SI端口，不将其等同于作者原始单车/二阶动力学。
+DAC保留作者外层.10秒、内部形状积分.05秒与原计数；环流.02秒；MGR/MCBF .05秒。参数、求解器和nominal保持此前固定版本。
+控制间隔内零阶保持；沿每条SI线段做扫掠碰撞检查。成功仍在原场景评分时刻判定，碰撞优先，真实任务时限保持不变；最后不足一个控制周期只推进剩余时间。
+C1沿用原场景控制周期与冻结40步窗口，未用新结果调参；主D123为.05秒。Chen当前有效作者场景h=执行=.15秒，直接复用既有证据。
+C1在环流作者场景的描述子仍标记为训练分布外，沿用上一轮冻结部署；此次只修正外部方法频率，不重新训练或调参。
+D1/D3为旧运行级代理，D2沿用旧活跃约束标签；类别可重叠。逻辑配对跨nominal引用同一物理轨迹，不增加独立样本数。超时不直接当作死锁。
+MCBF单机作者场景中的C1单机安全层仍为未验证动态接口诊断；其障碍速度项缺口不由此次频率修正解决。
+任务成功时间按仿真物理秒数统计。共享资源调度可能暂停进程，保存的墙钟耗时包含等待，不用于计算效率排名。
+此前共同步长结果保留为历史端口结果；本目录原生频率结果是新的主要对比入口。
+
+总体记录：
+{'cohort': 'external_author', 'method': 'circulation', 'control_period_s': 0.02, 'planned': 36, 'success': 1, 'collision': 3, 'timeout': 32, 'unknown': 0, 'pending': 0, 'old_success': 0, 'reused': 0}
+{'cohort': 'external_author', 'method': 'dac', 'control_period_s': 0.1, 'planned': 36, 'success': 29, 'collision': 1, 'timeout': 6, 'unknown': 0, 'pending': 0, 'old_success': 31, 'reused': 25}
+{'cohort': 'external_author', 'method': 'mcbf', 'control_period_s': 0.05, 'planned': 36, 'success': 2, 'collision': 33, 'timeout': 1, 'unknown': 0, 'pending': 0, 'old_success': 1, 'reused': 9}
+{'cohort': 'external_author', 'method': 'mgr', 'control_period_s': 0.05, 'planned': 36, 'success': 5, 'collision': 3, 'timeout': 28, 'unknown': 0, 'pending': 0, 'old_success': 5, 'reused': 9}
+{'cohort': 'internal_compact', 'method': 'circulation', 'control_period_s': 0.02, 'planned': 58, 'success': 0, 'collision': 7, 'timeout': 51, 'unknown': 0, 'pending': 0, 'old_success': 0, 'reused': 0}
+{'cohort': 'internal_compact', 'method': 'dac', 'control_period_s': 0.1, 'planned': 58, 'success': 0, 'collision': 1, 'timeout': 57, 'unknown': 0, 'pending': 0, 'old_success': 0, 'reused': 0}
+{'cohort': 'internal_compact', 'method': 'mcbf', 'control_period_s': 0.05, 'planned': 58, 'success': 0, 'collision': 32, 'timeout': 26, 'unknown': 0, 'pending': 0, 'old_success': 0, 'reused': 58}
+{'cohort': 'internal_compact', 'method': 'mgr', 'control_period_s': 0.05, 'planned': 58, 'success': 0, 'collision': 5, 'timeout': 53, 'unknown': 0, 'pending': 0, 'old_success': 0, 'reused': 58}
+{'cohort': 'internal_test', 'method': 'circulation', 'control_period_s': 0.02, 'planned': 75, 'success': 6, 'collision': 11, 'timeout': 58, 'unknown': 0, 'pending': 0, 'old_success': 6, 'reused': 0}
+{'cohort': 'internal_test', 'method': 'dac', 'control_period_s': 0.1, 'planned': 75, 'success': 10, 'collision': 4, 'timeout': 61, 'unknown': 0, 'pending': 0, 'old_success': 10, 'reused': 3}
+{'cohort': 'internal_test', 'method': 'mcbf', 'control_period_s': 0.05, 'planned': 75, 'success': 9, 'collision': 46, 'timeout': 20, 'unknown': 0, 'pending': 0, 'old_success': 9, 'reused': 72}
+{'cohort': 'internal_test', 'method': 'mgr', 'control_period_s': 0.05, 'planned': 75, 'success': 12, 'collision': 3, 'timeout': 60, 'unknown': 0, 'pending': 0, 'old_success': 11, 'reused': 72}
+{'cohort': 'mechanism_initial_problem', 'method': 'circulation', 'control_period_s': 0.02, 'planned': 3, 'success': 0, 'collision': 1, 'timeout': 2, 'unknown': 0, 'pending': 0, 'old_success': 1, 'reused': 0}
+{'cohort': 'mechanism_initial_problem', 'method': 'mcbf', 'control_period_s': 0.05, 'planned': 3, 'success': 1, 'collision': 1, 'timeout': 1, 'unknown': 0, 'pending': 0, 'old_success': 1, 'reused': 3}
+{'cohort': 'own_author_scene', 'method': 'circulation', 'control_period_s': 0.02, 'planned': 2, 'success': 1, 'collision': 1, 'timeout': 0, 'unknown': 0, 'pending': 0, 'old_success': 1, 'reused': 1}
+{'cohort': 'own_author_scene', 'method': 'mcbf', 'control_period_s': 0.05, 'planned': 2, 'success': 1, 'collision': 0, 'timeout': 1, 'unknown': 0, 'pending': 0, 'old_success': 1, 'reused': 1}
+
+主D123逻辑配对：
+{'group': 'D1-proxy', 'method': 'Pipeline', 'success': 182, 'known': 342, 'logical_pairs': 342, 'physical_instances': 61, 'pending': 0, 'unknown': 0}
+{'group': 'D1-proxy', 'method': 'dac', 'success': 38, 'known': 342, 'logical_pairs': 342, 'physical_instances': 61, 'pending': 0, 'unknown': 0}
+{'group': 'D1-proxy', 'method': 'mgr', 'success': 25, 'known': 342, 'logical_pairs': 342, 'physical_instances': 61, 'pending': 0, 'unknown': 0}
+{'group': 'D1-proxy', 'method': 'mcbf', 'success': 37, 'known': 342, 'logical_pairs': 342, 'physical_instances': 61, 'pending': 0, 'unknown': 0}
+{'group': 'D1-proxy', 'method': 'circulation', 'success': 19, 'known': 342, 'logical_pairs': 342, 'physical_instances': 61, 'pending': 0, 'unknown': 0}
+{'group': 'D2', 'method': 'Pipeline', 'success': 343, 'known': 553, 'logical_pairs': 553, 'physical_instances': 69, 'pending': 0, 'unknown': 0}
+{'group': 'D2', 'method': 'dac', 'success': 69, 'known': 553, 'logical_pairs': 553, 'physical_instances': 69, 'pending': 0, 'unknown': 0}
+{'group': 'D2', 'method': 'mgr', 'success': 33, 'known': 553, 'logical_pairs': 553, 'physical_instances': 69, 'pending': 0, 'unknown': 0}
+{'group': 'D2', 'method': 'mcbf', 'success': 49, 'known': 553, 'logical_pairs': 553, 'physical_instances': 69, 'pending': 0, 'unknown': 0}
+{'group': 'D2', 'method': 'circulation', 'success': 26, 'known': 553, 'logical_pairs': 553, 'physical_instances': 69, 'pending': 0, 'unknown': 0}
+{'group': 'D3-proxy-union', 'method': 'Pipeline', 'success': 271, 'known': 442, 'logical_pairs': 442, 'physical_instances': 51, 'pending': 0, 'unknown': 0}
+{'group': 'D3-proxy-union', 'method': 'dac', 'success': 33, 'known': 442, 'logical_pairs': 442, 'physical_instances': 51, 'pending': 0, 'unknown': 0}
+{'group': 'D3-proxy-union', 'method': 'mgr', 'success': 0, 'known': 442, 'logical_pairs': 442, 'physical_instances': 51, 'pending': 0, 'unknown': 0}
+{'group': 'D3-proxy-union', 'method': 'mcbf', 'success': 8, 'known': 442, 'logical_pairs': 442, 'physical_instances': 51, 'pending': 0, 'unknown': 0}
+{'group': 'D3-proxy-union', 'method': 'circulation', 'success': 0, 'known': 442, 'logical_pairs': 442, 'physical_instances': 51, 'pending': 0, 'unknown': 0}
+
+主D123共同成功配对的到达时间（仿真秒；各方法子集可不同，None表示没有共同成功样本）：
+{'group': 'D1-proxy', 'method': 'dac', 'common_success_pairs': 34, 'common_physical_instances': 8, 'C1_mean_seconds': 14.914705882352942, 'external_mean_seconds': 17.629411764705882}
+{'group': 'D1-proxy', 'method': 'mgr', 'common_success_pairs': 25, 'common_physical_instances': 7, 'C1_mean_seconds': 12.502, 'external_mean_seconds': 18.588}
+{'group': 'D1-proxy', 'method': 'mcbf', 'common_success_pairs': 33, 'common_physical_instances': 8, 'C1_mean_seconds': 14.227272727272728, 'external_mean_seconds': 10.495454545454546}
+{'group': 'D1-proxy', 'method': 'circulation', 'common_success_pairs': 19, 'common_physical_instances': 6, 'C1_mean_seconds': 12.702631578947368, 'external_mean_seconds': 10.321052631578947}
+{'group': 'D2', 'method': 'dac', 'common_success_pairs': 65, 'common_physical_instances': 9, 'C1_mean_seconds': 16.922307692307694, 'external_mean_seconds': 15.593076923076923}
+{'group': 'D2', 'method': 'mgr', 'common_success_pairs': 33, 'common_physical_instances': 7, 'C1_mean_seconds': 12.107575757575757, 'external_mean_seconds': 18.793939393939397}
+{'group': 'D2', 'method': 'mcbf', 'common_success_pairs': 45, 'common_physical_instances': 8, 'C1_mean_seconds': 14.281111111111112, 'external_mean_seconds': 10.97}
+{'group': 'D2', 'method': 'circulation', 'common_success_pairs': 26, 'common_physical_instances': 6, 'C1_mean_seconds': 12.173076923076923, 'external_mean_seconds': 10.892307692307693}
+{'group': 'D3-proxy-union', 'method': 'dac', 'common_success_pairs': 33, 'common_physical_instances': 3, 'C1_mean_seconds': 19.700000000000003, 'external_mean_seconds': 13.06060606060606}
+{'group': 'D3-proxy-union', 'method': 'mgr', 'common_success_pairs': 0, 'common_physical_instances': 0, 'C1_mean_seconds': None, 'external_mean_seconds': None}
+{'group': 'D3-proxy-union', 'method': 'mcbf', 'common_success_pairs': 8, 'common_physical_instances': 1, 'C1_mean_seconds': 18.75625, 'external_mean_seconds': 10.9}
+{'group': 'D3-proxy-union', 'method': 'circulation', 'common_success_pairs': 0, 'common_physical_instances': 0, 'C1_mean_seconds': None, 'external_mean_seconds': None}
