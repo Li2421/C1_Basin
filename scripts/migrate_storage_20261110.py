@@ -51,7 +51,7 @@ def inventory(root, min_age_hours):
                 kind = 'directory'
             elif stat.S_ISREG(info.st_mode):
                 kind = 'file'
-                if (not ALLOW_ARBITRARY_FILES and path.suffix not in {'.json', '.npz', '.pkl', '.jsonl', '.npy', '.pt', '.pth', '.mp4'}) or info.st_nlink != 1:
+                if (not ALLOW_ARBITRARY_FILES and path.suffix not in {'.json', '.npz', '.pkl', '.jsonl', '.npy', '.pt', '.pth', '.mp4', '.merged', '.quarantined', '.tmp'}) or info.st_nlink != 1:
                     raise RuntimeError(f'Not a standalone JSON/NPZ/PKL result: {path}')
                 if info.st_mtime > cutoff:
                     raise RuntimeError(f'Result is too recent: {path}')
