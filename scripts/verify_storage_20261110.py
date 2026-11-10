@@ -8,6 +8,7 @@ for name in ['storage_migration_20261110.json','storage_migration_20261110_pip.j
  for rel in plan['directories']:
   src=Path(plan['source_root'])/rel; dst=Path(plan['destination_root'])/rel
   summary=json.loads((ar/rel/'summary.json').read_text())
+  if rel == '.': summary=summary['directories'][0]
   assert summary['status']=='complete' and src.is_symlink() and src.resolve()==dst
   assert not src.with_name(src.name+'.migration-local-copy').exists()
   with (ar/rel/'sha256.jsonl').open() as f:
@@ -20,11 +21,14 @@ for name in ['storage_migration_20261110.json','storage_migration_20261110_pip.j
   verified.append({'source':str(src),'files':count,'bytes':summary['bytes'],'original_path_hash_sample':'passed'})
 sql=json.loads((audit/'sqlite/summary.json').read_text()); assert sql['status']=='complete'
 for n in sql['sha256']:
- p=root/'shared_rollout_db'/n; assert p.is_symlink() and p.resolve()==Path(sql['destination'])/n
+ p=root/'shared_rollout_db'/n; assert p.is_symlink() and p.exists() and p.resolve()==Path(sql['destination'])/n
  assert not p.with_name(p.name+'.migration-local-copy').exists()
 for n in ['results','pip','sqlite']: assert (audit/(n+'.exitcode')).read_text().strip()=='0'
+existing=json.loads((audit/'journal_existing_links.json').read_text())
+for rel,target in existing.items():
+ p=root/rel; assert p.is_symlink() and str(p.resolve())==target
 before=json.loads((audit/'preflight.json').read_text())
 after={d:shutil.disk_usage(d)._asdict() for d in ['/','/mnt/ssd','/mnt/hdd']}
-result={'status':'passed','directories':len(verified),'verified_files':sum(r['files'] for r in verified)+sql['files'],'content_bytes':sum(r['bytes'] for r in verified)+sql['bytes'],'system_free_gain_bytes':after['/']['free']-before['disk_usage']['/']['free'],'disk_usage_after':after,'directory_checks':verified,'sqlite':sql,'note':'Every file SHA256 verified during migration; final checks verify every link and manifest count plus one original-path SHA256 sample per directory. Migration is not an independent backup.'}
+result={'status':'passed','directories':len(verified),'existing_journal_links_preserved':len(existing),'verified_files':sum(r['files'] for r in verified)+sql['files'],'content_bytes':sum(r['bytes'] for r in verified)+sql['bytes'],'system_free_gain_bytes':after['/']['free']-before['disk_usage']['/']['free'],'disk_usage_after':after,'directory_checks':verified,'sqlite':sql,'note':'Every file SHA256 verified during migration; final checks verify every link and manifest count plus one original-path SHA256 sample per directory. Migration is not an independent backup.'}
 (audit/'verification.json').write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps({k:v for k,v in result.items() if k not in ['directory_checks','sqlite']},indent=2))

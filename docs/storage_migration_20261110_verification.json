@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "directories": 800,
+  "verified_files": 7203385,
+  "content_bytes": 254663358474,
+  "system_free_gain_bytes": 272990019584,
+  "disk_usage_after": {
+    "/": {
+      "total": 3947066867712,
+      "used": 3056220499968,
+      "free": 690269822976
+    },
+    "/mnt/ssd": {
+      "total": 4031331647488,
+      "used": 1943255580672,
+      "free": 1883219079168
+    },
+    "/mnt/hdd": {
+      "total": 19919926484992,
+      "used": 108269309952,
+      "free": 18811611058176
+    }
+  },
+  "note": "Every file SHA256 verified during migration; final checks verify every link and manifest count plus one original-path SHA256 sample per directory. Migration is not an independent backup.",
+  "existing_journal_links_preserved": 13,
+  "groups": {
+    "实验产物": [
+      602,
+      4550620,
+      194.5814057448879
+    ],
+    "共享日志": [
+      197,
+      2652222,
+      21.72364853695035
+    ],
+    "pip 缓存": [
+      1,
+      540,
+      3.420476351864636
+    ]
+  },
+  "sqlite": {
+    "status": "complete",
+    "source": "/home/zhihan/research/Basin_C1/shared_rollout_db",
+    "destination": "/mnt/ssd/zhihan/Basin_C1/shared_rollout_db/database",
+    "files": 3,
+    "bytes": 18734866432,
+    "sha256": {
+      "rollout.sqlite": "2359dc0169e617a09d94933fd89a4aedb16f147b6f9bac46325b299cc5280398",
+      "rollout.sqlite-wal": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rollout.sqlite-shm": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    "quick_check": "ok",
+    "original_path_read": "passed",
+    "wal_before_bytes": 0
+  },
+  "audit_root": "/mnt/ssd/zhihan/Basin_C1/audits/storage_20261110"
+}
